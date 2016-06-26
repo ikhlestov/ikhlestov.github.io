@@ -1,0 +1,142 @@
+<html prefix="
+og: http://ogp.me/ns#
+article: http://ogp.me/ns/article#
+" lang="en">
+<head>
+<meta charset="utf-8">
+<base href="https://ikhlestov.github.io/pages/hadoop-notes/">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hadoop notes | Illarion Khlestov Blog</title>
+<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<meta content="#5670d4" name="theme-color">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../../rss.xml">
+<link rel="canonical" href="https://ikhlestov.github.io/pages/hadoop-notes/">
+<!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Illarion Khlestov">
+<meta property="og:site_name" content="Illarion Khlestov Blog">
+<meta property="og:title" content="Hadoop notes">
+<meta property="og:url" content="https://ikhlestov.github.io/pages/hadoop-notes/">
+<meta property="og:description" content="hadoop_notes.sh
+# hadoop was setup with this tutorial
+# http://thepowerofdata.io/setting-up-a-apache-hadoop-2-7-single-node-on-ubuntu-14-04/
+# to start
+$ start-dfs.sh
+$ start-yarn.sh
+# to check all is">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2016-06-26T00:01:02Z">
+<meta property="article:tag" content="hadoop">
+<meta property="article:tag" content="map-reduce">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-static-top"><div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://ikhlestov.github.io/">
+
+                <span id="blog-title">Illarion Khlestov Blog</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
+            <ul class="nav navbar-nav">
+<li>
+<a href="../../">Blog</a>
+                </li>
+<li>
+<a href="../">Pages</a>
+                </li>
+<li>
+<a href="../../listings/">Listings</a>
+                </li>
+<li>
+<a href="../../categories/">Tags</a>
+                </li>
+<li>
+<a href="../../archive.html">Archive</a>
+
+                
+            </li>
+</ul>
+<ul class="nav navbar-nav navbar-right">
+<li>
+    <a href="index.rst" id="sourcelink">Source</a>
+    </li>
+                
+            </ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+<article class="storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Hadoop&nbsp;notes</a></h1>
+
+        
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<p><a class="reference external" href="../../listings/hadoop_notes.sh.html">hadoop_notes.sh</a></p>
+<pre class="code bash"><a name="rest_code_d25b1f2101e44fc9847de57be6326e3c-1"></a><span class="c1"># hadoop was setup with this tutorial</span>
+<a name="rest_code_d25b1f2101e44fc9847de57be6326e3c-2"></a><span class="c1"># http://thepowerofdata.io/setting-up-a-apache-hadoop-2-7-single-node-on-ubuntu-14-04/</span>
+<a name="rest_code_d25b1f2101e44fc9847de57be6326e3c-3"></a><span class="c1"># to start</span>
+<a name="rest_code_d25b1f2101e44fc9847de57be6326e3c-4"></a>$ start-dfs.sh
+<a name="rest_code_d25b1f2101e44fc9847de57be6326e3c-5"></a>$ start-yarn.sh
+<a name="rest_code_d25b1f2101e44fc9847de57be6326e3c-6"></a><span class="c1"># to check all is running</span>
+<a name="rest_code_d25b1f2101e44fc9847de57be6326e3c-7"></a>$ jps
+<a name="rest_code_d25b1f2101e44fc9847de57be6326e3c-8"></a><span class="c1"># to stop</span>
+<a name="rest_code_d25b1f2101e44fc9847de57be6326e3c-9"></a>
+<a name="rest_code_d25b1f2101e44fc9847de57be6326e3c-10"></a><span class="c1"># do something with the file</span>
+<a name="rest_code_d25b1f2101e44fc9847de57be6326e3c-11"></a>$ hadoop fs -ls /
+<a name="rest_code_d25b1f2101e44fc9847de57be6326e3c-12"></a><span class="c1"># move file to HDFS</span>
+<a name="rest_code_d25b1f2101e44fc9847de57be6326e3c-13"></a>$ hadoop fs -put filename.txt
+<a name="rest_code_d25b1f2101e44fc9847de57be6326e3c-14"></a><span class="c1"># remove file</span>
+<a name="rest_code_d25b1f2101e44fc9847de57be6326e3c-15"></a>$ hadoop fs -rm filename.txt
+<a name="rest_code_d25b1f2101e44fc9847de57be6326e3c-16"></a><span class="c1"># create dir</span>
+<a name="rest_code_d25b1f2101e44fc9847de57be6326e3c-17"></a>$ hadoop fs -mkdir /dirname
+<a name="rest_code_d25b1f2101e44fc9847de57be6326e3c-18"></a><span class="c1"># copy file to dir</span>
+<a name="rest_code_d25b1f2101e44fc9847de57be6326e3c-19"></a>$ hadoop fs -put filename.txt /dirname
+<a name="rest_code_d25b1f2101e44fc9847de57be6326e3c-20"></a><span class="c1"># get to the local disk</span>
+<a name="rest_code_d25b1f2101e44fc9847de57be6326e3c-21"></a>$ hadoop fs -get out_file local_filename
+<a name="rest_code_d25b1f2101e44fc9847de57be6326e3c-22"></a><span class="c1"># remove folder</span>
+<a name="rest_code_d25b1f2101e44fc9847de57be6326e3c-23"></a>$ hadoop fs -rmr /dirname
+<a name="rest_code_d25b1f2101e44fc9847de57be6326e3c-24"></a>
+<a name="rest_code_d25b1f2101e44fc9847de57be6326e3c-25"></a><span class="c1"># run the command (output folder should not exist!)</span>
+<a name="rest_code_d25b1f2101e44fc9847de57be6326e3c-26"></a>$ hadoop jar /usr/local/lib/hadoop-2.7.0/share/hadoop/tools/lib/hadoop-streaming-2.7.0.jar -mapper mapper.py -reducer reducer.py -file mapper.py -file reducer.py -input /myinput -output /joboutput
+<a name="rest_code_d25b1f2101e44fc9847de57be6326e3c-27"></a>
+<a name="rest_code_d25b1f2101e44fc9847de57be6326e3c-28"></a><span class="c1"># generate test file</span>
+<a name="rest_code_d25b1f2101e44fc9847de57be6326e3c-29"></a>$ head -50 hadoop_data/purchases.txt &gt; test_file
+<a name="rest_code_d25b1f2101e44fc9847de57be6326e3c-30"></a><span class="c1"># testing whole line</span>
+<a name="rest_code_d25b1f2101e44fc9847de57be6326e3c-31"></a>$ cat test_file <span class="p">|</span> ./mapper.py <span class="p">|</span> sort <span class="p">|</span> ./reducer.py
+</pre>
+</div>
+    </div>
+    
+</article>
+</div>
+        <!--End of body content-->
+
+        <footer id="footer">
+            Contents © 2016         <a href="mailto:ikhlestov@gmail.com">Illarion Khlestov</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+</div>
+</div>
+
+            <script src="../../assets/js/all-nocdn.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates -->
+</body>
+</html>

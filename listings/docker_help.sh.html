@@ -1,0 +1,173 @@
+<html prefix="
+og: http://ogp.me/ns#
+article: http://ogp.me/ns/article#
+" lang="en">
+<head>
+<meta charset="utf-8">
+<base href="https://ikhlestov.github.io/listings/docker_help.sh.html">
+<meta name="description" content="docker_help.sh">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>docker_help.sh | Illarion Khlestov Blog</title>
+<link href="../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<meta content="#5670d4" name="theme-color">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
+<link rel="canonical" href="https://ikhlestov.github.io/listings/docker_help.sh.html">
+<!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]-->
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-static-top"><div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://ikhlestov.github.io/">
+
+                <span id="blog-title">Illarion Khlestov Blog</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
+            <ul class="nav navbar-nav">
+<li>
+<a href="../">Blog</a>
+                </li>
+<li>
+<a href="../pages/">Pages</a>
+                </li>
+<li>
+<a href=".">Listings</a>
+                </li>
+<li>
+<a href="../categories/">Tags</a>
+                </li>
+<li>
+<a href="../archive.html">Archive</a>
+
+                
+            </li>
+</ul>
+<ul class="nav navbar-nav navbar-right">
+<li>
+    <a href="docker_help.sh" id="sourcelink">Source</a>
+    </li>
+                
+            </ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+<nav class="breadcrumbs"><ul class="breadcrumb">
+<li><a href=".">listings</a></li>
+                <li>docker_help.sh</li>
+</ul></nav><table class="codetable"><tr>
+<td class="linenos"><div class="linenodiv"><pre><a href="#listingsdocker_helpsh-1"> 1</a>
+<a href="#listingsdocker_helpsh-2"> 2</a>
+<a href="#listingsdocker_helpsh-3"> 3</a>
+<a href="#listingsdocker_helpsh-4"> 4</a>
+<a href="#listingsdocker_helpsh-5"> 5</a>
+<a href="#listingsdocker_helpsh-6"> 6</a>
+<a href="#listingsdocker_helpsh-7"> 7</a>
+<a href="#listingsdocker_helpsh-8"> 8</a>
+<a href="#listingsdocker_helpsh-9"> 9</a>
+<a href="#listingsdocker_helpsh-10">10</a>
+<a href="#listingsdocker_helpsh-11">11</a>
+<a href="#listingsdocker_helpsh-12">12</a>
+<a href="#listingsdocker_helpsh-13">13</a>
+<a href="#listingsdocker_helpsh-14">14</a>
+<a href="#listingsdocker_helpsh-15">15</a>
+<a href="#listingsdocker_helpsh-16">16</a>
+<a href="#listingsdocker_helpsh-17">17</a>
+<a href="#listingsdocker_helpsh-18">18</a>
+<a href="#listingsdocker_helpsh-19">19</a>
+<a href="#listingsdocker_helpsh-20">20</a>
+<a href="#listingsdocker_helpsh-21">21</a>
+<a href="#listingsdocker_helpsh-22">22</a>
+<a href="#listingsdocker_helpsh-23">23</a>
+<a href="#listingsdocker_helpsh-24">24</a>
+<a href="#listingsdocker_helpsh-25">25</a>
+<a href="#listingsdocker_helpsh-26">26</a>
+<a href="#listingsdocker_helpsh-27">27</a>
+<a href="#listingsdocker_helpsh-28">28</a>
+<a href="#listingsdocker_helpsh-29">29</a>
+<a href="#listingsdocker_helpsh-30">30</a>
+<a href="#listingsdocker_helpsh-31">31</a>
+<a href="#listingsdocker_helpsh-32">32</a>
+<a href="#listingsdocker_helpsh-33">33</a>
+<a href="#listingsdocker_helpsh-34">34</a>
+<a href="#listingsdocker_helpsh-35">35</a>
+<a href="#listingsdocker_helpsh-36">36</a>
+<a href="#listingsdocker_helpsh-37">37</a>
+<a href="#listingsdocker_helpsh-38">38</a>
+<a href="#listingsdocker_helpsh-39">39</a>
+<a href="#listingsdocker_helpsh-40">40</a></pre></div></td>
+<td class="code"><pre class="code literal-block"><a name="listingsdocker_helpsh-1"></a><span class="c1"># based on this tutorial https://docs.docker.com/engine/userguide/containers/dockerizing/</span>
+<a name="listingsdocker_helpsh-2"></a><span class="c1"># list running images</span>
+<a name="listingsdocker_helpsh-3"></a>$ docker ps
+<a name="listingsdocker_helpsh-4"></a><span class="c1"># list all containers</span>
+<a name="listingsdocker_helpsh-5"></a>$ docker ps -a
+<a name="listingsdocker_helpsh-6"></a><span class="c1"># stop the container</span>
+<a name="listingsdocker_helpsh-7"></a>$ docker stop CONTAINER ID 
+<a name="listingsdocker_helpsh-8"></a><span class="c1"># remove a container</span>
+<a name="listingsdocker_helpsh-9"></a>$ docker rm CONTAINER ID 
+<a name="listingsdocker_helpsh-10"></a><span class="c1"># list all images</span>
+<a name="listingsdocker_helpsh-11"></a>$ docker images
+<a name="listingsdocker_helpsh-12"></a><span class="c1"># remove image</span>
+<a name="listingsdocker_helpsh-13"></a>$ docker rmi IMAGE ID 
+<a name="listingsdocker_helpsh-14"></a><span class="c1"># create a build from Dockerfile</span>
+<a name="listingsdocker_helpsh-15"></a>$ docker build -t ikhlestov/thenotes-docker .
+<a name="listingsdocker_helpsh-16"></a><span class="c1"># run image and enter to it</span>
+<a name="listingsdocker_helpsh-17"></a>$ docker run -t -i ouruser/sinatra:v2 /bin/bash
+<a name="listingsdocker_helpsh-18"></a><span class="c1"># run image with name</span>
+<a name="listingsdocker_helpsh-19"></a>$ docker run -d -P --name web training/webapp python app.py
+<a name="listingsdocker_helpsh-20"></a><span class="c1"># check the state of container by name</span>
+<a name="listingsdocker_helpsh-21"></a>$ docker inspect web
+<a name="listingsdocker_helpsh-22"></a><span class="c1"># list all networks drivers</span>
+<a name="listingsdocker_helpsh-23"></a>$ docker network ls
+<a name="listingsdocker_helpsh-24"></a><span class="c1"># again run an image</span>
+<a name="listingsdocker_helpsh-25"></a>$ docker run -itd --name<span class="o">=</span>networktest ubuntu
+<a name="listingsdocker_helpsh-26"></a><span class="c1"># inspec current sate of network</span>
+<a name="listingsdocker_helpsh-27"></a>$ docker network inspect bridge
+<a name="listingsdocker_helpsh-28"></a><span class="c1"># disconnect a container</span>
+<a name="listingsdocker_helpsh-29"></a>$ docker network disconnect bridge networktest
+<a name="listingsdocker_helpsh-30"></a><span class="c1"># enter inside running container</span>
+<a name="listingsdocker_helpsh-31"></a>$ docker <span class="nb">exec</span> -it CONTAINER_NAME bash
+<a name="listingsdocker_helpsh-32"></a><span class="c1"># remove the container and its image after exit</span>
+<a name="listingsdocker_helpsh-33"></a>$ docker run --rm CONTAINER_NAME
+<a name="listingsdocker_helpsh-34"></a><span class="c1"># Deploying changes</span>
+<a name="listingsdocker_helpsh-35"></a>$ docker-compose build web
+<a name="listingsdocker_helpsh-36"></a>$ docker-compose up --no-deps -d web
+<a name="listingsdocker_helpsh-37"></a><span class="c1"># run with additional settings file and in background</span>
+<a name="listingsdocker_helpsh-38"></a>$ docker-compose -f docker-compose.yml -f production.yml up -d
+<a name="listingsdocker_helpsh-39"></a><span class="c1"># enter to compose container</span>
+<a name="listingsdocker_helpsh-40"></a>$ docker-compose run CONTAINER_NAME bash
+</pre></td>
+</tr></table>
+</div>
+        <!--End of body content-->
+
+        <footer id="footer">
+            Contents © 2016         <a href="mailto:ikhlestov@gmail.com">Illarion Khlestov</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+</div>
+</div>
+
+            <script src="../assets/js/all-nocdn.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates -->
+</body>
+</html>

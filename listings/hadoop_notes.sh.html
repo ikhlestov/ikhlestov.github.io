@@ -1,0 +1,155 @@
+<html prefix="
+og: http://ogp.me/ns#
+article: http://ogp.me/ns/article#
+" lang="en">
+<head>
+<meta charset="utf-8">
+<base href="https://ikhlestov.github.io/listings/hadoop_notes.sh.html">
+<meta name="description" content="hadoop_notes.sh">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>hadoop_notes.sh | Illarion Khlestov Blog</title>
+<link href="../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<meta content="#5670d4" name="theme-color">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
+<link rel="canonical" href="https://ikhlestov.github.io/listings/hadoop_notes.sh.html">
+<!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]-->
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-static-top"><div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://ikhlestov.github.io/">
+
+                <span id="blog-title">Illarion Khlestov Blog</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
+            <ul class="nav navbar-nav">
+<li>
+<a href="../">Blog</a>
+                </li>
+<li>
+<a href="../pages/">Pages</a>
+                </li>
+<li>
+<a href=".">Listings</a>
+                </li>
+<li>
+<a href="../categories/">Tags</a>
+                </li>
+<li>
+<a href="../archive.html">Archive</a>
+
+                
+            </li>
+</ul>
+<ul class="nav navbar-nav navbar-right">
+<li>
+    <a href="hadoop_notes.sh" id="sourcelink">Source</a>
+    </li>
+                
+            </ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+<nav class="breadcrumbs"><ul class="breadcrumb">
+<li><a href=".">listings</a></li>
+                <li>hadoop_notes.sh</li>
+</ul></nav><table class="codetable"><tr>
+<td class="linenos"><div class="linenodiv"><pre><a href="#listingshadoop_notessh-1"> 1</a>
+<a href="#listingshadoop_notessh-2"> 2</a>
+<a href="#listingshadoop_notessh-3"> 3</a>
+<a href="#listingshadoop_notessh-4"> 4</a>
+<a href="#listingshadoop_notessh-5"> 5</a>
+<a href="#listingshadoop_notessh-6"> 6</a>
+<a href="#listingshadoop_notessh-7"> 7</a>
+<a href="#listingshadoop_notessh-8"> 8</a>
+<a href="#listingshadoop_notessh-9"> 9</a>
+<a href="#listingshadoop_notessh-10">10</a>
+<a href="#listingshadoop_notessh-11">11</a>
+<a href="#listingshadoop_notessh-12">12</a>
+<a href="#listingshadoop_notessh-13">13</a>
+<a href="#listingshadoop_notessh-14">14</a>
+<a href="#listingshadoop_notessh-15">15</a>
+<a href="#listingshadoop_notessh-16">16</a>
+<a href="#listingshadoop_notessh-17">17</a>
+<a href="#listingshadoop_notessh-18">18</a>
+<a href="#listingshadoop_notessh-19">19</a>
+<a href="#listingshadoop_notessh-20">20</a>
+<a href="#listingshadoop_notessh-21">21</a>
+<a href="#listingshadoop_notessh-22">22</a>
+<a href="#listingshadoop_notessh-23">23</a>
+<a href="#listingshadoop_notessh-24">24</a>
+<a href="#listingshadoop_notessh-25">25</a>
+<a href="#listingshadoop_notessh-26">26</a>
+<a href="#listingshadoop_notessh-27">27</a>
+<a href="#listingshadoop_notessh-28">28</a>
+<a href="#listingshadoop_notessh-29">29</a>
+<a href="#listingshadoop_notessh-30">30</a>
+<a href="#listingshadoop_notessh-31">31</a></pre></div></td>
+<td class="code"><pre class="code literal-block"><a name="listingshadoop_notessh-1"></a><span class="c1"># hadoop was setup with this tutorial</span>
+<a name="listingshadoop_notessh-2"></a><span class="c1"># http://thepowerofdata.io/setting-up-a-apache-hadoop-2-7-single-node-on-ubuntu-14-04/</span>
+<a name="listingshadoop_notessh-3"></a><span class="c1"># to start</span>
+<a name="listingshadoop_notessh-4"></a>$ start-dfs.sh
+<a name="listingshadoop_notessh-5"></a>$ start-yarn.sh
+<a name="listingshadoop_notessh-6"></a><span class="c1"># to check all is running</span>
+<a name="listingshadoop_notessh-7"></a>$ jps
+<a name="listingshadoop_notessh-8"></a><span class="c1"># to stop</span>
+<a name="listingshadoop_notessh-9"></a>
+<a name="listingshadoop_notessh-10"></a><span class="c1"># do something with the file</span>
+<a name="listingshadoop_notessh-11"></a>$ hadoop fs -ls /
+<a name="listingshadoop_notessh-12"></a><span class="c1"># move file to HDFS</span>
+<a name="listingshadoop_notessh-13"></a>$ hadoop fs -put filename.txt
+<a name="listingshadoop_notessh-14"></a><span class="c1"># remove file</span>
+<a name="listingshadoop_notessh-15"></a>$ hadoop fs -rm filename.txt
+<a name="listingshadoop_notessh-16"></a><span class="c1"># create dir</span>
+<a name="listingshadoop_notessh-17"></a>$ hadoop fs -mkdir /dirname
+<a name="listingshadoop_notessh-18"></a><span class="c1"># copy file to dir</span>
+<a name="listingshadoop_notessh-19"></a>$ hadoop fs -put filename.txt /dirname
+<a name="listingshadoop_notessh-20"></a><span class="c1"># get to the local disk</span>
+<a name="listingshadoop_notessh-21"></a>$ hadoop fs -get out_file local_filename
+<a name="listingshadoop_notessh-22"></a><span class="c1"># remove folder</span>
+<a name="listingshadoop_notessh-23"></a>$ hadoop fs -rmr /dirname
+<a name="listingshadoop_notessh-24"></a>
+<a name="listingshadoop_notessh-25"></a><span class="c1"># run the command (output folder should not exist!)</span>
+<a name="listingshadoop_notessh-26"></a>$ hadoop jar /usr/local/lib/hadoop-2.7.0/share/hadoop/tools/lib/hadoop-streaming-2.7.0.jar -mapper mapper.py -reducer reducer.py -file mapper.py -file reducer.py -input /myinput -output /joboutput
+<a name="listingshadoop_notessh-27"></a>
+<a name="listingshadoop_notessh-28"></a><span class="c1"># generate test file</span>
+<a name="listingshadoop_notessh-29"></a>$ head -50 hadoop_data/purchases.txt &gt; test_file
+<a name="listingshadoop_notessh-30"></a><span class="c1"># testing whole line</span>
+<a name="listingshadoop_notessh-31"></a>$ cat test_file <span class="p">|</span> ./mapper.py <span class="p">|</span> sort <span class="p">|</span> ./reducer.py
+</pre></td>
+</tr></table>
+</div>
+        <!--End of body content-->
+
+        <footer id="footer">
+            Contents © 2016         <a href="mailto:ikhlestov@gmail.com">Illarion Khlestov</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+</div>
+</div>
+
+            <script src="../assets/js/all-nocdn.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates -->
+</body>
+</html>
