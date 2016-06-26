@@ -18,7 +18,7 @@ import time
 
 # Data about this site
 BLOG_AUTHOR = "Illarion Khlestov"  # (translatable)
-BLOG_TITLE = "ikhlestov.github.io"  # (translatable)
+BLOG_TITLE = "Illarion Khlestov Blog"  # (translatable)
 # This is the main URL for your site. It will be used
 # in a prominent link. Don't forget the protocol (http/https)!
 SITE_URL = "https://ikhlestov.github.io/"
@@ -358,7 +358,7 @@ POSTS_SECTIONS = True
 # See TAG_PATH's "list of tags" for the default setting value. Can be overwritten
 # here any path relative to the output directory.
  # (translatable)
-# TAGS_INDEX_PATH = "tags.html"
+TAGS_INDEX_PATH = "tags.html"
 
 # If TAG_PAGES_ARE_INDEXES is set to True, each tag's page will contain
 # the posts themselves. If set to False, it will be just a list of links.
@@ -534,6 +534,7 @@ FRONT_INDEX_HEADER = {
 #
 # If you don't need any of these, just set to []
 REDIRECTIONS = []
+# REDIRECTIONS = [("about.html", "/pages/about.html")]
 
 # Presets of commands to execute to deploy. Can be anything, for
 # example, you may use rsync:
@@ -598,12 +599,13 @@ GITHUB_COMMIT_SOURCE = True
 # Many filters are shipped with Nikola. A list is available in the manual:
 # <https://getnikola.com/handbook.html#post-processing-filters>
 #
-# from nikola import filters
-# FILTERS = {
-#    ".html": [filters.typogrify],
-#    ".js": [filters.closure_compiler],
+from nikola import filters
+FILTERS = {
+   ".html": [filters.typogrify],
+   # ".js": [filters.closure_compiler],
+   # ".css": [filters.yui_compressor],
 #    ".jpg": ["jpegoptim --strip-all -m75 -v %s"],
-# }
+}
 
 # Expert setting! Create a gzipped copy of each generated file. Cheap server-
 # side optimization for very high traffic sites or low memory servers.
@@ -764,7 +766,7 @@ CODE_COLOR_SCHEME = 'monokai'
 # )
 
 # Show teasers (instead of full posts) in indexes? Defaults to False.
-# INDEX_TEASERS = False
+INDEX_TEASERS = True
 
 # HTML fragments with the Read more... links.
 # The following tags exist and are replaced for you:
@@ -1102,7 +1104,9 @@ MARKDOWN_EXTENSIONS = ['fenced_code', 'codehilite', 'extra']
 UNSLUGIFY_TITLES = True
 
 # Additional metadata that is added to a post when creating a new_post
-# ADDITIONAL_METADATA = {}
+ADDITIONAL_METADATA = {
+    'author': 'Illarion Khlestov'
+}
 
 # Nikola supports Open Graph Protocol data for enhancing link sharing and
 # discoverability of your site on Facebook, Google+, and other services.
