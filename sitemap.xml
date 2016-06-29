@@ -7,7 +7,11 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>https://ikhlestov.github.io/</loc>
-  <lastmod>2016-06-26T01:14:00Z</lastmod>
+  <lastmod>2016-06-29T01:47:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://ikhlestov.github.io/2016/</loc>
+  <lastmod>2016-06-29T01:47:00Z</lastmod>
  </url>
  <url>
   <loc>https://ikhlestov.github.io/categories/</loc>
@@ -23,7 +27,7 @@
  </url>
  <url>
   <loc>https://ikhlestov.github.io/pages/</loc>
-  <lastmod>2016-06-26T01:14:00Z</lastmod>
+  <lastmod>2016-06-29T01:47:00Z</lastmod>
  </url>
  <url>
   <loc>https://ikhlestov.github.io/pages/docker-help-list/</loc>
@@ -42,6 +46,10 @@
   <lastmod>2016-06-26T01:14:00Z</lastmod>
  </url>
  <url>
+  <loc>https://ikhlestov.github.io/pages/pages-index/</loc>
+  <lastmod>2016-06-29T01:47:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://ikhlestov.github.io/pages/pandas-commands/</loc>
   <lastmod>2016-06-26T01:14:00Z</lastmod>
  </url>
@@ -52,5 +60,9 @@
  <url>
   <loc>https://ikhlestov.github.io/pages/sublime-shortcuts/</loc>
   <lastmod>2016-06-26T01:14:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://ikhlestov.github.io/posts/welcome-post/</loc>
+  <lastmod>2016-06-29T01:47:00Z</lastmod>
  </url>
 </urlset>

@@ -1,5 +1,5 @@
 .. title: Pages List
-.. slug: index
+.. slug: pages-index
 .. date: 2016-06-22 00:34:28 UTC
 .. tags: 
 .. category: 

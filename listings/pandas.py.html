@@ -142,7 +142,15 @@ article: http://ogp.me/ns/article#
 <a href="#listingspandaspy-67">67</a>
 <a href="#listingspandaspy-68">68</a>
 <a href="#listingspandaspy-69">69</a>
-<a href="#listingspandaspy-70">70</a></pre></div></td>
+<a href="#listingspandaspy-70">70</a>
+<a href="#listingspandaspy-71">71</a>
+<a href="#listingspandaspy-72">72</a>
+<a href="#listingspandaspy-73">73</a>
+<a href="#listingspandaspy-74">74</a>
+<a href="#listingspandaspy-75">75</a>
+<a href="#listingspandaspy-76">76</a>
+<a href="#listingspandaspy-77">77</a>
+<a href="#listingspandaspy-78">78</a></pre></div></td>
 <td class="code"><pre class="code literal-block"><a name="listingspandaspy-1"></a><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 <a name="listingspandaspy-2"></a>
 <a name="listingspandaspy-3"></a><span class="c1"># load the data</span>
@@ -189,30 +197,38 @@ article: http://ogp.me/ns/article#
 <a name="listingspandaspy-44"></a><span class="c1"># The .apply method generates a new series</span>
 <a name="listingspandaspy-45"></a><span class="n">titanic</span><span class="p">[</span><span class="s2">"NameLength"</span><span class="p">]</span> <span class="o">=</span> <span class="n">titanic</span><span class="p">[</span><span class="s2">"Name"</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 <a name="listingspandaspy-46"></a>
-<a name="listingspandaspy-47"></a><span class="c1"># skip rows during data loading</span>
-<a name="listingspandaspy-48"></a><span class="n">test_set</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'http://archive.ics.uci.edu/ml/machine-learning-databases/adult/adult.test'</span><span class="p">,</span>
-<a name="listingspandaspy-49"></a>                      <span class="n">skiprows</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="bp">None</span><span class="p">)</span>
-<a name="listingspandaspy-50"></a>
-<a name="listingspandaspy-51"></a><span class="c1"># add names for colums</span>
-<a name="listingspandaspy-52"></a><span class="n">column_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'first'</span><span class="p">,</span> <span class="s1">'second'</span><span class="p">,</span> <span class="s1">'title'</span><span class="p">]</span>
-<a name="listingspandaspy-53"></a><span class="n">test_set</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">column_labels</span>
+<a name="listingspandaspy-47"></a><span class="c1"># but sometimes more useful to apply method "by hands"</span>
+<a name="listingspandaspy-48"></a><span class="c1"># we have nearly the same perfomance, but more verbose output</span>
+<a name="listingspandaspy-49"></a><span class="c1"># previously you should install "tqdm"</span>
+<a name="listingspandaspy-50"></a><span class="n">result_array</span> <span class="o">=</span> <span class="p">[]</span>
+<a name="listingspandaspy-51"></a><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">xrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">"column_name"</span><span class="p">]))):</span>
+<a name="listingspandaspy-52"></a>    <span class="n">new_data</span> <span class="o">=</span> <span class="n">some_function</span><span class="p">(</span> <span class="n">data</span><span class="p">[</span><span class="s2">"column_name"</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="p">)</span>
+<a name="listingspandaspy-53"></a>    <span class="n">result_array</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_data</span><span class="p">)</span>
 <a name="listingspandaspy-54"></a>
-<a name="listingspandaspy-55"></a><span class="c1"># remove all rows contains '?' question mark</span>
-<a name="listingspandaspy-56"></a><span class="n">train_set</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">' ?'</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
-<a name="listingspandaspy-57"></a>
-<a name="listingspandaspy-58"></a><span class="c1"># replace one value by another in column</span>
-<a name="listingspandaspy-59"></a><span class="n">test_nomissing</span><span class="p">[</span><span class="s1">'wage_class'</span><span class="p">]</span> <span class="o">=</span> <span class="n">test_nomissing</span><span class="o">.</span><span class="n">wage_class</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span><span class="s1">' &lt;=50K.'</span><span class="p">:</span> <span class="s1">' &lt;=50K'</span><span class="p">,</span> <span class="s1">' &gt;50K.'</span><span class="p">:</span><span class="s1">' &gt;50K'</span><span class="p">})</span>
-<a name="listingspandaspy-60"></a>
-<a name="listingspandaspy-61"></a><span class="c1"># concatenate two datasets vertically</span>
-<a name="listingspandaspy-62"></a><span class="n">combined_set</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">train_nomissing</span><span class="p">,</span> <span class="n">test_nomissing</span><span class="p">],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
-<a name="listingspandaspy-63"></a>
-<a name="listingspandaspy-64"></a><span class="c1"># replace every sting value to the integer</span>
-<a name="listingspandaspy-65"></a><span class="c1"># Loop through all columns in the dataframe</span>
-<a name="listingspandaspy-66"></a><span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">combined_set</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
-<a name="listingspandaspy-67"></a>    <span class="c1"># Only apply for columns with categorical strings</span>
-<a name="listingspandaspy-68"></a>    <span class="k">if</span> <span class="n">combined_set</span><span class="p">[</span><span class="n">feature</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="s1">'object'</span><span class="p">:</span>
-<a name="listingspandaspy-69"></a>        <span class="c1"># Replace strings with an integer</span>
-<a name="listingspandaspy-70"></a>        <span class="n">combined_set</span><span class="p">[</span><span class="n">feature</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Categorical</span><span class="p">(</span><span class="n">combined_set</span><span class="p">[</span><span class="n">feature</span><span class="p">])</span><span class="o">.</span><span class="n">codes</span>
+<a name="listingspandaspy-55"></a><span class="c1"># skip rows during data loading</span>
+<a name="listingspandaspy-56"></a><span class="n">test_set</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'http://archive.ics.uci.edu/ml/machine-learning-databases/adult/adult.test'</span><span class="p">,</span>
+<a name="listingspandaspy-57"></a>                      <span class="n">skiprows</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="bp">None</span><span class="p">)</span>
+<a name="listingspandaspy-58"></a>
+<a name="listingspandaspy-59"></a><span class="c1"># add names for colums</span>
+<a name="listingspandaspy-60"></a><span class="n">column_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'first'</span><span class="p">,</span> <span class="s1">'second'</span><span class="p">,</span> <span class="s1">'title'</span><span class="p">]</span>
+<a name="listingspandaspy-61"></a><span class="n">test_set</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">column_labels</span>
+<a name="listingspandaspy-62"></a>
+<a name="listingspandaspy-63"></a><span class="c1"># remove all rows contains '?' question mark</span>
+<a name="listingspandaspy-64"></a><span class="n">train_set</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">' ?'</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<a name="listingspandaspy-65"></a>
+<a name="listingspandaspy-66"></a><span class="c1"># replace one value by another in column</span>
+<a name="listingspandaspy-67"></a><span class="n">test_nomissing</span><span class="p">[</span><span class="s1">'wage_class'</span><span class="p">]</span> <span class="o">=</span> <span class="n">test_nomissing</span><span class="o">.</span><span class="n">wage_class</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span><span class="s1">' &lt;=50K.'</span><span class="p">:</span> <span class="s1">' &lt;=50K'</span><span class="p">,</span> <span class="s1">' &gt;50K.'</span><span class="p">:</span><span class="s1">' &gt;50K'</span><span class="p">})</span>
+<a name="listingspandaspy-68"></a>
+<a name="listingspandaspy-69"></a><span class="c1"># concatenate two datasets vertically</span>
+<a name="listingspandaspy-70"></a><span class="n">combined_set</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">train_nomissing</span><span class="p">,</span> <span class="n">test_nomissing</span><span class="p">],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+<a name="listingspandaspy-71"></a>
+<a name="listingspandaspy-72"></a><span class="c1"># replace every sting value to the integer</span>
+<a name="listingspandaspy-73"></a><span class="c1"># Loop through all columns in the dataframe</span>
+<a name="listingspandaspy-74"></a><span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">combined_set</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+<a name="listingspandaspy-75"></a>    <span class="c1"># Only apply for columns with categorical strings</span>
+<a name="listingspandaspy-76"></a>    <span class="k">if</span> <span class="n">combined_set</span><span class="p">[</span><span class="n">feature</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="s1">'object'</span><span class="p">:</span>
+<a name="listingspandaspy-77"></a>        <span class="c1"># Replace strings with an integer</span>
+<a name="listingspandaspy-78"></a>        <span class="n">combined_set</span><span class="p">[</span><span class="n">feature</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Categorical</span><span class="p">(</span><span class="n">combined_set</span><span class="p">[</span><span class="n">feature</span><span class="p">])</span><span class="o">.</span><span class="n">codes</span>
 </pre></td>
 </tr></table>
 </div>
