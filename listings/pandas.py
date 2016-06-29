@@ -44,6 +44,14 @@ titanic["FamilySize"] = titanic["SibSp"] + titanic["Parch"]
 # The .apply method generates a new series
 titanic["NameLength"] = titanic["Name"].apply(lambda x: len(x))
 
+# but sometimes more useful to apply method "by hands"
+# we have nearly the same perfomance, but more verbose output
+# previously you should install "tqdm"
+result_array = []
+for i in tqdm(xrange(0, len(data["column_name"]))):
+    new_data = some_function( data["column_name"][i] )
+    result_array.append(new_data)
+
 # skip rows during data loading
 test_set = pd.read_csv('http://archive.ics.uci.edu/ml/machine-learning-databases/adult/adult.test',
                       skiprows = 1, header = None)
