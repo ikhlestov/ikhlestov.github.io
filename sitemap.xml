@@ -27,7 +27,11 @@
  </url>
  <url>
   <loc>https://ikhlestov.github.io/pages/</loc>
-  <lastmod>2016-06-29T01:55:00Z</lastmod>
+  <lastmod>2016-07-11T21:19:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://ikhlestov.github.io/pages/bash-shortcuts/</loc>
+  <lastmod>2016-07-11T21:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://ikhlestov.github.io/pages/docker-help-list/</loc>
@@ -48,6 +52,10 @@
  <url>
   <loc>https://ikhlestov.github.io/pages/pandas-commands/</loc>
   <lastmod>2016-06-29T01:55:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://ikhlestov.github.io/pages/python-notes/</loc>
+  <lastmod>2016-07-11T21:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://ikhlestov.github.io/pages/scikit-learn-notes/</loc>

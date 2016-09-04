@@ -22,3 +22,4 @@ Another topics:
 * :doc:`hadoop-notes`
 * :doc:`docker-help-list`
 * :doc:`git-notes`
+* :doc:`bash-shortcuts`
