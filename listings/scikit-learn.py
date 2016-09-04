@@ -18,6 +18,11 @@ estimator.predict(data_X_test)
 estimator.score(data_X_test, data_y_test)
 # The mean square error
 np.mean((estimator.predict(data_X_test) - data_y_test) ** 2)
+# get metrics for predictor
+from sklearn import metrics
+expected = digits.target[n_samples / 2:]
+predicted = classifier.predict(data[n_samples / 2:])
+print(metrics.classification_report(expected, predicted))
 
 # Choose best alpha based on score
 alphas = np.logspace(-4, -1, 6)
