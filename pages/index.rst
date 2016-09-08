@@ -15,6 +15,8 @@ Python related:
 * `Pandas commands <link://slug/pandas-commands>`__
 * :doc:`Scikit-learn notes <scikit-learn-notes>`
 * :doc:`ipdb-commands`
+* :doc:`python-libraries`
+* :doc:`python-tips`
 
 Another topics:
 
