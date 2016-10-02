@@ -25,14 +25,14 @@ Progress bar for any iterations.
         time.sleep(10)
 
 
-pyclip-copycat
+pyperclip
 ==============
 An easy python interface to the system clipboard.
-`Pypi <https://pypi.python.org/pypi/pyclip-copycat/1.0>`__
+`Pypi <https://github.com/asweigart/pyperclip>`__
 
 .. code-block:: python
     
-    import clipboard as clip
+    import pyperclip as clip
 
     # copy string to buffer
     clip.copy("Some text")
@@ -40,8 +40,6 @@ An easy python interface to the system clipboard.
     # copy text from buffer
     data = clip.paste()
 
-    # copy from some .csv
-    data = clip.paste_table()
 
 ntfy
 ==============
