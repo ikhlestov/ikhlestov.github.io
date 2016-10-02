@@ -38,7 +38,9 @@ An easy python interface to the system clipboard.
     clip.copy("Some text")
 
     # copy text from buffer
-    data = clip.paste()
+    data = clip.paste()  
+
+Note: you may also try `pyclip-copycat <https://pypi.python.org/pypi/pyclip-copycat/1.0>`__
 
 
 ntfy
