@@ -838,12 +838,12 @@ CONTENT_FOOTER_FORMATS = {
 # systems.  The following comment systems are supported by Nikola:
 #   disqus, facebook, googleplus, intensedebate, isso, livefyre, muut
 # You can leave this option blank to disable comments.
-COMMENT_SYSTEM = ""
+COMMENT_SYSTEM = "disqus"
 # And you also need to add your COMMENT_SYSTEM_ID which
 # depends on what comment system you use. The default is
 # "nikolademo" which is a test account for Disqus. More information
 # is in the manual.
-COMMENT_SYSTEM_ID = ""
+COMMENT_SYSTEM_ID = "ikhlestov-blog.disqus.com"
 
 # Enable annotations using annotateit.org?
 # If set to False, you can still enable them for individual posts and pages
@@ -914,6 +914,14 @@ PRETTY_URLS = True
 
 # Do you want a add a Mathjax config file?
 # MATHJAX_CONFIG = ""
+
+MATHJAX_CONFIG = """
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    displayAlign: 'left', // Change this to 'center' to center equations.
+});
+</script>
+"""
 
 # If you are using the compile-ipynb plugin, just add this one:
 # MATHJAX_CONFIG = """
