@@ -521,6 +521,8 @@ pre, pre code {
     white-space: pre;
     word-wrap: normal;
     overflow: auto;
+    /*This was added by me*/
+    font-weight: bold;
 }
 
 article.post-micro {

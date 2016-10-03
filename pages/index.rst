@@ -18,10 +18,14 @@ Python related:
 * :doc:`python-libraries`
 * :doc:`python-tips`
 
-Another topics:
+Shortcuts:
 
 * :doc:`sublime-shortcuts`
+* :doc:`bash-shortcuts`
+
+Another topics:
+
+* :doc:`general-ml-notes`
 * :doc:`hadoop-notes`
 * :doc:`docker-help-list`
 * :doc:`git-notes`
-* :doc:`bash-shortcuts`
