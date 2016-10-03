@@ -10,6 +10,10 @@
 
 Here I will store list of commands, sometimes with short description but mainly without full explanation.
 
+Machine Learning:
+
+* :doc:`general-ml-notes`
+
 Python related:
 
 * `Pandas commands <link://slug/pandas-commands>`__
@@ -25,7 +29,6 @@ Shortcuts:
 
 Another topics:
 
-* :doc:`general-ml-notes`
 * :doc:`hadoop-notes`
 * :doc:`docker-help-list`
 * :doc:`git-notes`
