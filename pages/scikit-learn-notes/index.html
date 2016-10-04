@@ -1,10 +1,10 @@
+<!DOCTYPE html>
 <html prefix="
 og: http://ogp.me/ns#
 article: http://ogp.me/ns/article#
 " lang="en">
 <head>
 <meta charset="utf-8">
-<base href="https://ikhlestov.github.io/pages/scikit-learn-notes/">
 <meta name="description" content="List of usefull commands for pandas framework">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Scikit-learn Notes | Illarion Khlestov Blog</title>
@@ -85,138 +85,138 @@ MathJax.Hub.Config({
         <!--Body content-->
         <div class="row">
             
-<article class="storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Scikit-learn&nbsp;Notes</a></h1>
+<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Scikit-learn Notes</a></h1>
 
         
     </header><div class="e-content entry-content" itemprop="articleBody text">
     <div>
-<p>Some notes regarding machine learning at&nbsp;SciKit</p>
-<p><a class="reference external" href="../../listings/scikit-learn.py.html">scikit-learn.py</a></p>
-<pre class="code python"><a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-1"></a><span class="c1">### CLEARED NOTES</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-2"></a><span class="c1"># load the dataset</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-3"></a><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-4"></a><span class="n">iris</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_iris</span><span class="p">()</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-5"></a><span class="n">data_X</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">data</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-6"></a><span class="n">data_y</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">target</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-7"></a><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">iris_y</span><span class="p">)</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-8"></a>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-9"></a><span class="c1"># initialize the Estimator</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-10"></a><span class="n">estimator</span> <span class="o">=</span> <span class="n">Estimator</span><span class="p">(</span><span class="n">param1</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">param2</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-11"></a><span class="c1"># get params of the existing estimator</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-12"></a><span class="n">estimator</span><span class="o">.</span><span class="n">estimated_param_</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-13"></a><span class="c1"># train the estimator</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-14"></a><span class="n">estimator</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data_X_train</span><span class="p">,</span> <span class="n">data_y_train</span><span class="p">)</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-15"></a><span class="c1"># predict with estimator</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-16"></a><span class="n">estimator</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">data_X_test</span><span class="p">)</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-17"></a><span class="c1"># get estimator score - 1 is perfect prediction, 0 mean incorrect</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-18"></a><span class="n">estimator</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">data_X_test</span><span class="p">,</span> <span class="n">data_y_test</span><span class="p">)</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-19"></a><span class="c1"># The mean square error</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-20"></a><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="n">estimator</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">data_X_test</span><span class="p">)</span> <span class="o">-</span> <span class="n">data_y_test</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-21"></a><span class="c1"># get metrics for predictor</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-22"></a><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">metrics</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-23"></a><span class="n">expected</span> <span class="o">=</span> <span class="n">digits</span><span class="o">.</span><span class="n">target</span><span class="p">[</span><span class="n">n_samples</span> <span class="o">/</span> <span class="mi">2</span><span class="p">:]</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-24"></a><span class="n">predicted</span> <span class="o">=</span> <span class="n">classifier</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">n_samples</span> <span class="o">/</span> <span class="mi">2</span><span class="p">:])</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-25"></a><span class="k">print</span><span class="p">(</span><span class="n">metrics</span><span class="o">.</span><span class="n">classification_report</span><span class="p">(</span><span class="n">expected</span><span class="p">,</span> <span class="n">predicted</span><span class="p">))</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-26"></a>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-27"></a><span class="c1"># Choose best alpha based on score</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-28"></a><span class="n">alphas</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-29"></a><span class="n">regr</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">Lasso</span><span class="p">()</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-30"></a><span class="n">scores</span> <span class="o">=</span> <span class="p">[</span><span class="n">regr</span><span class="o">.</span><span class="n">set_params</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">)</span><span class="o">.</span> \
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-31"></a>               <span class="n">fit</span><span class="p">(</span><span class="n">data_X_train</span><span class="p">,</span> <span class="n">data_y_train</span><span class="p">)</span><span class="o">.</span> \
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-32"></a>               <span class="n">score</span><span class="p">(</span><span class="n">data_X_test</span><span class="p">,</span> <span class="n">data_y_test</span><span class="p">)</span> <span class="k">for</span> <span class="n">alpha</span> <span class="ow">in</span> <span class="n">alphas</span><span class="p">]</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-33"></a><span class="n">best_alpha</span> <span class="o">=</span> <span class="n">alphas</span><span class="p">[</span><span class="n">scores</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">scores</span><span class="p">))]</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-34"></a><span class="n">regr</span><span class="o">.</span><span class="n">alpha</span> <span class="o">=</span> <span class="n">best_alpha</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-35"></a><span class="n">regr</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data_X_train</span><span class="p">,</span> <span class="n">data_y_train</span><span class="p">)</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-36"></a>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-37"></a><span class="c1">#--------------</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-38"></a><span class="c1">### KFolds</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-39"></a><span class="c1"># allo to split data in train and test sets dynamically</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-40"></a><span class="c1"># compute score method of an estimator from kfolds</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-41"></a><span class="c1"># (total_number_of elements, numbers_of_folds)</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-42"></a><span class="n">kfold</span> <span class="o">=</span> <span class="n">cross_validation</span><span class="o">.</span><span class="n">KFold</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X_digits</span><span class="p">),</span> <span class="n">n_folds</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-43"></a><span class="c1"># kfold = [[train_indexes, test_indices], [train_indexes, test_indices], .. 3]</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-44"></a><span class="p">[</span><span class="n">svc</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_digits</span><span class="p">[</span><span class="n">train</span><span class="p">],</span> <span class="n">y_digits</span><span class="p">[</span><span class="n">train</span><span class="p">])</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_digits</span><span class="p">[</span><span class="n">test</span><span class="p">],</span> <span class="n">y_digits</span><span class="p">[</span><span class="n">test</span><span class="p">])</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-45"></a>         <span class="k">for</span> <span class="n">train</span><span class="p">,</span> <span class="n">test</span> <span class="ow">in</span> <span class="n">kfold</span><span class="p">]</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-46"></a><span class="c1"># cross_vall_score use folds to validate data</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-47"></a><span class="n">cross_validation</span><span class="o">.</span><span class="n">cross_val_score</span><span class="p">(</span><span class="n">svc</span><span class="p">,</span> <span class="n">X_digits</span><span class="p">,</span> <span class="n">y_digits</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">kfold</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-48"></a>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-49"></a><span class="c1">#--------------</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-50"></a><span class="c1">### Support Vector Machines(SVMs)</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-51"></a><span class="c1">#### description of regularization parameter C</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-52"></a><span class="c1"># Regularization is set by the C parameter: a small value for C means the</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-53"></a><span class="c1"># margin is calculated using many or all of the observations around the</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-54"></a><span class="c1"># separating line (more regularization);</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-55"></a><span class="c1"># a large value for C means the margin is calculated on observations</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-56"></a><span class="c1"># close to the separating line (less regularization).</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-57"></a>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-58"></a><span class="c1"># choose C value based on best score</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-59"></a><span class="c1"># this is the same with the alpha above, but use 3 KFolds to find best param</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-60"></a><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">cross_validation</span><span class="p">,</span> <span class="n">svm</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-61"></a><span class="n">svc</span> <span class="o">=</span> <span class="n">svm</span><span class="o">.</span><span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">'linear'</span><span class="p">)</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-62"></a><span class="n">C_s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-63"></a>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-64"></a><span class="n">scores</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-65"></a><span class="n">scores_std</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-66"></a><span class="k">for</span> <span class="n">C</span> <span class="ow">in</span> <span class="n">C_s</span><span class="p">:</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-67"></a>    <span class="n">svc</span><span class="o">.</span><span class="n">C</span> <span class="o">=</span> <span class="n">C</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-68"></a>    <span class="c1"># cv=3 - default for cross_val_score</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-69"></a>    <span class="n">this_scores</span> <span class="o">=</span> <span class="n">cross_validation</span><span class="o">.</span><span class="n">cross_val_score</span><span class="p">(</span><span class="n">svc</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-70"></a>    <span class="n">scores</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">this_scores</span><span class="p">))</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-71"></a>    <span class="n">scores_std</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">this_scores</span><span class="p">))</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-72"></a><span class="n">best_c</span> <span class="o">=</span> <span class="n">C_s</span><span class="p">[</span><span class="n">scores</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">scores</span><span class="p">))]</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-73"></a><span class="n">svc</span><span class="o">.</span><span class="n">C</span> <span class="o">=</span> <span class="n">best_c</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-74"></a><span class="n">svc</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data_X_train</span><span class="p">,</span> <span class="n">data_y_train</span><span class="p">)</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-75"></a>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-76"></a><span class="c1"># SVMs can be used in regression # –SVR (Support Vector Regression)–,</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-77"></a><span class="c1"># or in classification –SVC (Support Vector Classification).</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-78"></a><span class="c1">#### different types of SVC kernels</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-79"></a><span class="c1"># linear kernel</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-80"></a><span class="n">svc</span> <span class="o">=</span> <span class="n">svm</span><span class="o">.</span><span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">'linear'</span><span class="p">)</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-81"></a><span class="c1"># polynomial kernel</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-82"></a><span class="n">scv</span> <span class="o">=</span> <span class="n">svm</span><span class="o">.</span><span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">'poly'</span><span class="p">,</span> <span class="n">degree</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-83"></a><span class="c1"># RBF(Radial Basis Function) kernel</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-84"></a><span class="n">scv</span> <span class="o">=</span> <span class="n">svm</span><span class="o">.</span><span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">'rbf'</span><span class="p">)</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-85"></a>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-86"></a><span class="c1">#--------------</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-87"></a><span class="c1">### Grid Search</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-88"></a><span class="c1"># find the best param from the range with kfolds</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-89"></a><span class="kn">from</span> <span class="nn">sklearn.grid_search</span> <span class="kn">import</span> <span class="n">GridSearchCV</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-90"></a><span class="n">Cs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-91"></a><span class="n">clf</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="n">svc</span><span class="p">,</span> <span class="n">param_grid</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">C</span><span class="o">=</span><span class="n">Cs</span><span class="p">),</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-92"></a><span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_digits</span><span class="p">[:</span><span class="mi">1000</span><span class="p">],</span> <span class="n">y_digits</span><span class="p">[:</span><span class="mi">1000</span><span class="p">])</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-93"></a><span class="n">clf</span><span class="o">.</span><span class="n">best_score_</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-94"></a><span class="n">clf</span><span class="o">.</span><span class="n">best_estimator_</span><span class="o">.</span><span class="n">C</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-95"></a>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-96"></a><span class="c1"># Prediction performance on test set is not as good as on train set</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-97"></a><span class="n">clf</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_digits</span><span class="p">[</span><span class="mi">1000</span><span class="p">:],</span> <span class="n">y_digits</span><span class="p">[</span><span class="mi">1000</span><span class="p">:])</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-98"></a>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-99"></a><span class="c1">#--------------</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-100"></a><span class="c1"># use existing cross validation model. Find parameters dinamically based on</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-101"></a><span class="c1"># estimator type. Note -CV at the end of estimator name</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-102"></a><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">linear_model</span><span class="p">,</span> <span class="n">datasets</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-103"></a><span class="n">lasso</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">LassoCV</span><span class="p">()</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-104"></a><span class="n">dataset</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_diabetes</span><span class="p">()</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-105"></a><span class="n">X_data</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">data</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-106"></a><span class="n">y_data</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">target</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-107"></a><span class="n">lasso</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_data</span><span class="p">,</span> <span class="n">y_data</span><span class="p">)</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-108"></a><span class="c1"># The estimator chose automatically its lambda:</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-109"></a><span class="n">lasso</span><span class="o">.</span><span class="n">alpha_</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-110"></a>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-111"></a>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-112"></a><span class="c1">#--------------</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-113"></a><span class="c1">### Unsupervised Learning</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-114"></a><span class="c1"># clustering</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-115"></a><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">cluster</span><span class="p">,</span> <span class="n">datasets</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-116"></a><span class="n">iris</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_iris</span><span class="p">()</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-117"></a><span class="n">X_iris</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">data</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-118"></a><span class="n">y_iris</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">target</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-119"></a>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-120"></a><span class="n">k_means</span> <span class="o">=</span> <span class="n">cluster</span><span class="o">.</span><span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-121"></a><span class="n">k_means</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_iris</span><span class="p">)</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-122"></a>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-123"></a><span class="k">print</span><span class="p">(</span><span class="n">k_means</span><span class="o">.</span><span class="n">labels_</span><span class="p">[::</span><span class="mi">10</span><span class="p">])</span>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-124"></a>
-<a name="rest_code_aeb77e8b086343f4ad6587942eef7c19-125"></a><span class="k">print</span><span class="p">(</span><span class="n">y_iris</span><span class="p">[::</span><span class="mi">10</span><span class="p">])</span>
+<p>Some notes regarding machine learning at SciKit</p>
+<p><a class="reference external" href="../../listings/scikit-learn.py.html">scikit-learn.py</a>  <a class="reference external" href="../../listings/scikit-learn.py">(Source)</a></p>
+<pre class="code python"><a name="rest_code_e279bc613c0c4df0883549a51a876faa-1"></a><span class="c1">### CLEARED NOTES</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-2"></a><span class="c1"># load the dataset</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-3"></a><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-4"></a><span class="n">iris</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_iris</span><span class="p">()</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-5"></a><span class="n">data_X</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">data</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-6"></a><span class="n">data_y</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">target</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-7"></a><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">iris_y</span><span class="p">)</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-8"></a>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-9"></a><span class="c1"># initialize the Estimator</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-10"></a><span class="n">estimator</span> <span class="o">=</span> <span class="n">Estimator</span><span class="p">(</span><span class="n">param1</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">param2</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-11"></a><span class="c1"># get params of the existing estimator</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-12"></a><span class="n">estimator</span><span class="o">.</span><span class="n">estimated_param_</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-13"></a><span class="c1"># train the estimator</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-14"></a><span class="n">estimator</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data_X_train</span><span class="p">,</span> <span class="n">data_y_train</span><span class="p">)</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-15"></a><span class="c1"># predict with estimator</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-16"></a><span class="n">estimator</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">data_X_test</span><span class="p">)</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-17"></a><span class="c1"># get estimator score - 1 is perfect prediction, 0 mean incorrect</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-18"></a><span class="n">estimator</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">data_X_test</span><span class="p">,</span> <span class="n">data_y_test</span><span class="p">)</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-19"></a><span class="c1"># The mean square error</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-20"></a><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="n">estimator</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">data_X_test</span><span class="p">)</span> <span class="o">-</span> <span class="n">data_y_test</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-21"></a><span class="c1"># get metrics for predictor</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-22"></a><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">metrics</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-23"></a><span class="n">expected</span> <span class="o">=</span> <span class="n">digits</span><span class="o">.</span><span class="n">target</span><span class="p">[</span><span class="n">n_samples</span> <span class="o">/</span> <span class="mi">2</span><span class="p">:]</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-24"></a><span class="n">predicted</span> <span class="o">=</span> <span class="n">classifier</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">n_samples</span> <span class="o">/</span> <span class="mi">2</span><span class="p">:])</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-25"></a><span class="k">print</span><span class="p">(</span><span class="n">metrics</span><span class="o">.</span><span class="n">classification_report</span><span class="p">(</span><span class="n">expected</span><span class="p">,</span> <span class="n">predicted</span><span class="p">))</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-26"></a>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-27"></a><span class="c1"># Choose best alpha based on score</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-28"></a><span class="n">alphas</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-29"></a><span class="n">regr</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">Lasso</span><span class="p">()</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-30"></a><span class="n">scores</span> <span class="o">=</span> <span class="p">[</span><span class="n">regr</span><span class="o">.</span><span class="n">set_params</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">)</span><span class="o">.</span> \
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-31"></a>               <span class="n">fit</span><span class="p">(</span><span class="n">data_X_train</span><span class="p">,</span> <span class="n">data_y_train</span><span class="p">)</span><span class="o">.</span> \
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-32"></a>               <span class="n">score</span><span class="p">(</span><span class="n">data_X_test</span><span class="p">,</span> <span class="n">data_y_test</span><span class="p">)</span> <span class="k">for</span> <span class="n">alpha</span> <span class="ow">in</span> <span class="n">alphas</span><span class="p">]</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-33"></a><span class="n">best_alpha</span> <span class="o">=</span> <span class="n">alphas</span><span class="p">[</span><span class="n">scores</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">scores</span><span class="p">))]</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-34"></a><span class="n">regr</span><span class="o">.</span><span class="n">alpha</span> <span class="o">=</span> <span class="n">best_alpha</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-35"></a><span class="n">regr</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data_X_train</span><span class="p">,</span> <span class="n">data_y_train</span><span class="p">)</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-36"></a>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-37"></a><span class="c1">#--------------</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-38"></a><span class="c1">### KFolds</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-39"></a><span class="c1"># allo to split data in train and test sets dynamically</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-40"></a><span class="c1"># compute score method of an estimator from kfolds</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-41"></a><span class="c1"># (total_number_of elements, numbers_of_folds)</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-42"></a><span class="n">kfold</span> <span class="o">=</span> <span class="n">cross_validation</span><span class="o">.</span><span class="n">KFold</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X_digits</span><span class="p">),</span> <span class="n">n_folds</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-43"></a><span class="c1"># kfold = [[train_indexes, test_indices], [train_indexes, test_indices], .. 3]</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-44"></a><span class="p">[</span><span class="n">svc</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_digits</span><span class="p">[</span><span class="n">train</span><span class="p">],</span> <span class="n">y_digits</span><span class="p">[</span><span class="n">train</span><span class="p">])</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_digits</span><span class="p">[</span><span class="n">test</span><span class="p">],</span> <span class="n">y_digits</span><span class="p">[</span><span class="n">test</span><span class="p">])</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-45"></a>         <span class="k">for</span> <span class="n">train</span><span class="p">,</span> <span class="n">test</span> <span class="ow">in</span> <span class="n">kfold</span><span class="p">]</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-46"></a><span class="c1"># cross_vall_score use folds to validate data</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-47"></a><span class="n">cross_validation</span><span class="o">.</span><span class="n">cross_val_score</span><span class="p">(</span><span class="n">svc</span><span class="p">,</span> <span class="n">X_digits</span><span class="p">,</span> <span class="n">y_digits</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">kfold</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-48"></a>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-49"></a><span class="c1">#--------------</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-50"></a><span class="c1">### Support Vector Machines(SVMs)</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-51"></a><span class="c1">#### description of regularization parameter C</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-52"></a><span class="c1"># Regularization is set by the C parameter: a small value for C means the</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-53"></a><span class="c1"># margin is calculated using many or all of the observations around the</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-54"></a><span class="c1"># separating line (more regularization);</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-55"></a><span class="c1"># a large value for C means the margin is calculated on observations</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-56"></a><span class="c1"># close to the separating line (less regularization).</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-57"></a>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-58"></a><span class="c1"># choose C value based on best score</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-59"></a><span class="c1"># this is the same with the alpha above, but use 3 KFolds to find best param</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-60"></a><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">cross_validation</span><span class="p">,</span> <span class="n">svm</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-61"></a><span class="n">svc</span> <span class="o">=</span> <span class="n">svm</span><span class="o">.</span><span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">'linear'</span><span class="p">)</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-62"></a><span class="n">C_s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-63"></a>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-64"></a><span class="n">scores</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-65"></a><span class="n">scores_std</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-66"></a><span class="k">for</span> <span class="n">C</span> <span class="ow">in</span> <span class="n">C_s</span><span class="p">:</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-67"></a>    <span class="n">svc</span><span class="o">.</span><span class="n">C</span> <span class="o">=</span> <span class="n">C</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-68"></a>    <span class="c1"># cv=3 - default for cross_val_score</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-69"></a>    <span class="n">this_scores</span> <span class="o">=</span> <span class="n">cross_validation</span><span class="o">.</span><span class="n">cross_val_score</span><span class="p">(</span><span class="n">svc</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-70"></a>    <span class="n">scores</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">this_scores</span><span class="p">))</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-71"></a>    <span class="n">scores_std</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">this_scores</span><span class="p">))</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-72"></a><span class="n">best_c</span> <span class="o">=</span> <span class="n">C_s</span><span class="p">[</span><span class="n">scores</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">scores</span><span class="p">))]</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-73"></a><span class="n">svc</span><span class="o">.</span><span class="n">C</span> <span class="o">=</span> <span class="n">best_c</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-74"></a><span class="n">svc</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data_X_train</span><span class="p">,</span> <span class="n">data_y_train</span><span class="p">)</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-75"></a>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-76"></a><span class="c1"># SVMs can be used in regression # –SVR (Support Vector Regression)–,</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-77"></a><span class="c1"># or in classification –SVC (Support Vector Classification).</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-78"></a><span class="c1">#### different types of SVC kernels</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-79"></a><span class="c1"># linear kernel</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-80"></a><span class="n">svc</span> <span class="o">=</span> <span class="n">svm</span><span class="o">.</span><span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">'linear'</span><span class="p">)</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-81"></a><span class="c1"># polynomial kernel</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-82"></a><span class="n">scv</span> <span class="o">=</span> <span class="n">svm</span><span class="o">.</span><span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">'poly'</span><span class="p">,</span> <span class="n">degree</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-83"></a><span class="c1"># RBF(Radial Basis Function) kernel</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-84"></a><span class="n">scv</span> <span class="o">=</span> <span class="n">svm</span><span class="o">.</span><span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">'rbf'</span><span class="p">)</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-85"></a>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-86"></a><span class="c1">#--------------</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-87"></a><span class="c1">### Grid Search</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-88"></a><span class="c1"># find the best param from the range with kfolds</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-89"></a><span class="kn">from</span> <span class="nn">sklearn.grid_search</span> <span class="kn">import</span> <span class="n">GridSearchCV</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-90"></a><span class="n">Cs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-91"></a><span class="n">clf</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="n">svc</span><span class="p">,</span> <span class="n">param_grid</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">C</span><span class="o">=</span><span class="n">Cs</span><span class="p">),</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-92"></a><span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_digits</span><span class="p">[:</span><span class="mi">1000</span><span class="p">],</span> <span class="n">y_digits</span><span class="p">[:</span><span class="mi">1000</span><span class="p">])</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-93"></a><span class="n">clf</span><span class="o">.</span><span class="n">best_score_</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-94"></a><span class="n">clf</span><span class="o">.</span><span class="n">best_estimator_</span><span class="o">.</span><span class="n">C</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-95"></a>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-96"></a><span class="c1"># Prediction performance on test set is not as good as on train set</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-97"></a><span class="n">clf</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_digits</span><span class="p">[</span><span class="mi">1000</span><span class="p">:],</span> <span class="n">y_digits</span><span class="p">[</span><span class="mi">1000</span><span class="p">:])</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-98"></a>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-99"></a><span class="c1">#--------------</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-100"></a><span class="c1"># use existing cross validation model. Find parameters dinamically based on</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-101"></a><span class="c1"># estimator type. Note -CV at the end of estimator name</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-102"></a><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">linear_model</span><span class="p">,</span> <span class="n">datasets</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-103"></a><span class="n">lasso</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">LassoCV</span><span class="p">()</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-104"></a><span class="n">dataset</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_diabetes</span><span class="p">()</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-105"></a><span class="n">X_data</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">data</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-106"></a><span class="n">y_data</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">target</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-107"></a><span class="n">lasso</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_data</span><span class="p">,</span> <span class="n">y_data</span><span class="p">)</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-108"></a><span class="c1"># The estimator chose automatically its lambda:</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-109"></a><span class="n">lasso</span><span class="o">.</span><span class="n">alpha_</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-110"></a>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-111"></a>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-112"></a><span class="c1">#--------------</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-113"></a><span class="c1">### Unsupervised Learning</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-114"></a><span class="c1"># clustering</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-115"></a><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">cluster</span><span class="p">,</span> <span class="n">datasets</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-116"></a><span class="n">iris</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_iris</span><span class="p">()</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-117"></a><span class="n">X_iris</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">data</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-118"></a><span class="n">y_iris</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">target</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-119"></a>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-120"></a><span class="n">k_means</span> <span class="o">=</span> <span class="n">cluster</span><span class="o">.</span><span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-121"></a><span class="n">k_means</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_iris</span><span class="p">)</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-122"></a>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-123"></a><span class="k">print</span><span class="p">(</span><span class="n">k_means</span><span class="o">.</span><span class="n">labels_</span><span class="p">[::</span><span class="mi">10</span><span class="p">])</span>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-124"></a>
+<a name="rest_code_e279bc613c0c4df0883549a51a876faa-125"></a><span class="k">print</span><span class="p">(</span><span class="n">y_iris</span><span class="p">[::</span><span class="mi">10</span><span class="p">])</span>
 </pre>
 </div>
     </div>

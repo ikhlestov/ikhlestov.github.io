@@ -1,10 +1,10 @@
+<!DOCTYPE html>
 <html prefix="
 og: http://ogp.me/ns#
 article: http://ogp.me/ns/article#
 " lang="en">
 <head>
 <meta charset="utf-8">
-<base href="https://ikhlestov.github.io/pages/docker-help-list/">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Docker help list | Illarion Khlestov Blog</title>
 <link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
@@ -19,14 +19,13 @@ MathJax.Hub.Config({
 <meta property="og:site_name" content="Illarion Khlestov Blog">
 <meta property="og:title" content="Docker help list">
 <meta property="og:url" content="https://ikhlestov.github.io/pages/docker-help-list/">
-<meta property="og:description" content="docker_help.sh
+<meta property="og:description" content="docker_help.sh  (Source)
 # based on this tutorial https://docs.docker.com/engine/userguide/containers/dockerizing/
 # list running images
 $ docker ps
 # list all containers
 $ docker ps -a
-# stop the container
-$ d">
+# stop the con">
 <meta property="og:type" content="article">
 <meta property="article:published_time" content="2016-06-26T00:51:37Z">
 </head>
@@ -85,52 +84,52 @@ $ d">
         <!--Body content-->
         <div class="row">
             
-<article class="storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Docker help&nbsp;list</a></h1>
+<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Docker help list</a></h1>
 
         
     </header><div class="e-content entry-content" itemprop="articleBody text">
     <div>
-<p><a class="reference external" href="../../listings/docker_help.sh.html">docker_help.sh</a></p>
-<pre class="code bash"><a name="rest_code_359e93e9bfcc4ff88302e4fd58f5981c-1"></a><span class="c1"># based on this tutorial https://docs.docker.com/engine/userguide/containers/dockerizing/</span>
-<a name="rest_code_359e93e9bfcc4ff88302e4fd58f5981c-2"></a><span class="c1"># list running images</span>
-<a name="rest_code_359e93e9bfcc4ff88302e4fd58f5981c-3"></a>$ docker ps
-<a name="rest_code_359e93e9bfcc4ff88302e4fd58f5981c-4"></a><span class="c1"># list all containers</span>
-<a name="rest_code_359e93e9bfcc4ff88302e4fd58f5981c-5"></a>$ docker ps -a
-<a name="rest_code_359e93e9bfcc4ff88302e4fd58f5981c-6"></a><span class="c1"># stop the container</span>
-<a name="rest_code_359e93e9bfcc4ff88302e4fd58f5981c-7"></a>$ docker stop CONTAINER ID
-<a name="rest_code_359e93e9bfcc4ff88302e4fd58f5981c-8"></a><span class="c1"># remove a container</span>
-<a name="rest_code_359e93e9bfcc4ff88302e4fd58f5981c-9"></a>$ docker rm CONTAINER ID
-<a name="rest_code_359e93e9bfcc4ff88302e4fd58f5981c-10"></a><span class="c1"># list all images</span>
-<a name="rest_code_359e93e9bfcc4ff88302e4fd58f5981c-11"></a>$ docker images
-<a name="rest_code_359e93e9bfcc4ff88302e4fd58f5981c-12"></a><span class="c1"># remove image</span>
-<a name="rest_code_359e93e9bfcc4ff88302e4fd58f5981c-13"></a>$ docker rmi IMAGE ID
-<a name="rest_code_359e93e9bfcc4ff88302e4fd58f5981c-14"></a><span class="c1"># create a build from Dockerfile</span>
-<a name="rest_code_359e93e9bfcc4ff88302e4fd58f5981c-15"></a>$ docker build -t ikhlestov/thenotes-docker .
-<a name="rest_code_359e93e9bfcc4ff88302e4fd58f5981c-16"></a><span class="c1"># run image and enter to it</span>
-<a name="rest_code_359e93e9bfcc4ff88302e4fd58f5981c-17"></a>$ docker run -t -i ouruser/sinatra:v2 /bin/bash
-<a name="rest_code_359e93e9bfcc4ff88302e4fd58f5981c-18"></a><span class="c1"># run image with name</span>
-<a name="rest_code_359e93e9bfcc4ff88302e4fd58f5981c-19"></a>$ docker run -d -P --name web training/webapp python app.py
-<a name="rest_code_359e93e9bfcc4ff88302e4fd58f5981c-20"></a><span class="c1"># check the state of container by name</span>
-<a name="rest_code_359e93e9bfcc4ff88302e4fd58f5981c-21"></a>$ docker inspect web
-<a name="rest_code_359e93e9bfcc4ff88302e4fd58f5981c-22"></a><span class="c1"># list all networks drivers</span>
-<a name="rest_code_359e93e9bfcc4ff88302e4fd58f5981c-23"></a>$ docker network ls
-<a name="rest_code_359e93e9bfcc4ff88302e4fd58f5981c-24"></a><span class="c1"># again run an image</span>
-<a name="rest_code_359e93e9bfcc4ff88302e4fd58f5981c-25"></a>$ docker run -itd --name<span class="o">=</span>networktest ubuntu
-<a name="rest_code_359e93e9bfcc4ff88302e4fd58f5981c-26"></a><span class="c1"># inspec current sate of network</span>
-<a name="rest_code_359e93e9bfcc4ff88302e4fd58f5981c-27"></a>$ docker network inspect bridge
-<a name="rest_code_359e93e9bfcc4ff88302e4fd58f5981c-28"></a><span class="c1"># disconnect a container</span>
-<a name="rest_code_359e93e9bfcc4ff88302e4fd58f5981c-29"></a>$ docker network disconnect bridge networktest
-<a name="rest_code_359e93e9bfcc4ff88302e4fd58f5981c-30"></a><span class="c1"># enter inside running container</span>
-<a name="rest_code_359e93e9bfcc4ff88302e4fd58f5981c-31"></a>$ docker <span class="nb">exec</span> -it CONTAINER_NAME bash
-<a name="rest_code_359e93e9bfcc4ff88302e4fd58f5981c-32"></a><span class="c1"># remove the container and its image after exit</span>
-<a name="rest_code_359e93e9bfcc4ff88302e4fd58f5981c-33"></a>$ docker run --rm CONTAINER_NAME
-<a name="rest_code_359e93e9bfcc4ff88302e4fd58f5981c-34"></a><span class="c1"># Deploying changes</span>
-<a name="rest_code_359e93e9bfcc4ff88302e4fd58f5981c-35"></a>$ docker-compose build web
-<a name="rest_code_359e93e9bfcc4ff88302e4fd58f5981c-36"></a>$ docker-compose up --no-deps -d web
-<a name="rest_code_359e93e9bfcc4ff88302e4fd58f5981c-37"></a><span class="c1"># run with additional settings file and in background</span>
-<a name="rest_code_359e93e9bfcc4ff88302e4fd58f5981c-38"></a>$ docker-compose -f docker-compose.yml -f production.yml up -d
-<a name="rest_code_359e93e9bfcc4ff88302e4fd58f5981c-39"></a><span class="c1"># enter to compose container</span>
-<a name="rest_code_359e93e9bfcc4ff88302e4fd58f5981c-40"></a>$ docker-compose run CONTAINER_NAME bash
+<p><a class="reference external" href="../../listings/docker_help.sh.html">docker_help.sh</a>  <a class="reference external" href="../../listings/docker_help.sh">(Source)</a></p>
+<pre class="code bash"><a name="rest_code_2b5e172170f24fd0b824eb4a522dea34-1"></a><span class="c1"># based on this tutorial https://docs.docker.com/engine/userguide/containers/dockerizing/</span>
+<a name="rest_code_2b5e172170f24fd0b824eb4a522dea34-2"></a><span class="c1"># list running images</span>
+<a name="rest_code_2b5e172170f24fd0b824eb4a522dea34-3"></a>$ docker ps
+<a name="rest_code_2b5e172170f24fd0b824eb4a522dea34-4"></a><span class="c1"># list all containers</span>
+<a name="rest_code_2b5e172170f24fd0b824eb4a522dea34-5"></a>$ docker ps -a
+<a name="rest_code_2b5e172170f24fd0b824eb4a522dea34-6"></a><span class="c1"># stop the container</span>
+<a name="rest_code_2b5e172170f24fd0b824eb4a522dea34-7"></a>$ docker stop CONTAINER ID
+<a name="rest_code_2b5e172170f24fd0b824eb4a522dea34-8"></a><span class="c1"># remove a container</span>
+<a name="rest_code_2b5e172170f24fd0b824eb4a522dea34-9"></a>$ docker rm CONTAINER ID
+<a name="rest_code_2b5e172170f24fd0b824eb4a522dea34-10"></a><span class="c1"># list all images</span>
+<a name="rest_code_2b5e172170f24fd0b824eb4a522dea34-11"></a>$ docker images
+<a name="rest_code_2b5e172170f24fd0b824eb4a522dea34-12"></a><span class="c1"># remove image</span>
+<a name="rest_code_2b5e172170f24fd0b824eb4a522dea34-13"></a>$ docker rmi IMAGE ID
+<a name="rest_code_2b5e172170f24fd0b824eb4a522dea34-14"></a><span class="c1"># create a build from Dockerfile</span>
+<a name="rest_code_2b5e172170f24fd0b824eb4a522dea34-15"></a>$ docker build -t ikhlestov/thenotes-docker .
+<a name="rest_code_2b5e172170f24fd0b824eb4a522dea34-16"></a><span class="c1"># run image and enter to it</span>
+<a name="rest_code_2b5e172170f24fd0b824eb4a522dea34-17"></a>$ docker run -t -i ouruser/sinatra:v2 /bin/bash
+<a name="rest_code_2b5e172170f24fd0b824eb4a522dea34-18"></a><span class="c1"># run image with name</span>
+<a name="rest_code_2b5e172170f24fd0b824eb4a522dea34-19"></a>$ docker run -d -P --name web training/webapp python app.py
+<a name="rest_code_2b5e172170f24fd0b824eb4a522dea34-20"></a><span class="c1"># check the state of container by name</span>
+<a name="rest_code_2b5e172170f24fd0b824eb4a522dea34-21"></a>$ docker inspect web
+<a name="rest_code_2b5e172170f24fd0b824eb4a522dea34-22"></a><span class="c1"># list all networks drivers</span>
+<a name="rest_code_2b5e172170f24fd0b824eb4a522dea34-23"></a>$ docker network ls
+<a name="rest_code_2b5e172170f24fd0b824eb4a522dea34-24"></a><span class="c1"># again run an image</span>
+<a name="rest_code_2b5e172170f24fd0b824eb4a522dea34-25"></a>$ docker run -itd --name<span class="o">=</span>networktest ubuntu
+<a name="rest_code_2b5e172170f24fd0b824eb4a522dea34-26"></a><span class="c1"># inspec current sate of network</span>
+<a name="rest_code_2b5e172170f24fd0b824eb4a522dea34-27"></a>$ docker network inspect bridge
+<a name="rest_code_2b5e172170f24fd0b824eb4a522dea34-28"></a><span class="c1"># disconnect a container</span>
+<a name="rest_code_2b5e172170f24fd0b824eb4a522dea34-29"></a>$ docker network disconnect bridge networktest
+<a name="rest_code_2b5e172170f24fd0b824eb4a522dea34-30"></a><span class="c1"># enter inside running container</span>
+<a name="rest_code_2b5e172170f24fd0b824eb4a522dea34-31"></a>$ docker <span class="nb">exec</span> -it CONTAINER_NAME bash
+<a name="rest_code_2b5e172170f24fd0b824eb4a522dea34-32"></a><span class="c1"># remove the container and its image after exit</span>
+<a name="rest_code_2b5e172170f24fd0b824eb4a522dea34-33"></a>$ docker run --rm CONTAINER_NAME
+<a name="rest_code_2b5e172170f24fd0b824eb4a522dea34-34"></a><span class="c1"># Deploying changes</span>
+<a name="rest_code_2b5e172170f24fd0b824eb4a522dea34-35"></a>$ docker-compose build web
+<a name="rest_code_2b5e172170f24fd0b824eb4a522dea34-36"></a>$ docker-compose up --no-deps -d web
+<a name="rest_code_2b5e172170f24fd0b824eb4a522dea34-37"></a><span class="c1"># run with additional settings file and in background</span>
+<a name="rest_code_2b5e172170f24fd0b824eb4a522dea34-38"></a>$ docker-compose -f docker-compose.yml -f production.yml up -d
+<a name="rest_code_2b5e172170f24fd0b824eb4a522dea34-39"></a><span class="c1"># enter to compose container</span>
+<a name="rest_code_2b5e172170f24fd0b824eb4a522dea34-40"></a>$ docker-compose run CONTAINER_NAME bash
 </pre>
 </div>
     </div>

@@ -1,10 +1,10 @@
+<!DOCTYPE html>
 <html prefix="
 og: http://ogp.me/ns#
 article: http://ogp.me/ns/article#
 " lang="en">
 <head>
 <meta charset="utf-8">
-<base href="https://ikhlestov.github.io/pages/git-notes/">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Git notes | Illarion Khlestov Blog</title>
 <link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
@@ -19,7 +19,7 @@ MathJax.Hub.Config({
 <meta property="og:site_name" content="Illarion Khlestov Blog">
 <meta property="og:title" content="Git notes">
 <meta property="og:url" content="https://ikhlestov.github.io/pages/git-notes/">
-<meta property="og:description" content="git.sh
+<meta property="og:description" content="git.sh  (Source)
 git init
 # add all files or filename/folder
 git add --all
@@ -29,7 +29,7 @@ git status
 # know the difference with not staged
 git diff
 # what will be commited
-git diff --staged">
+git dif">
 <meta property="og:type" content="article">
 <meta property="article:published_time" content="2016-06-26T01:03:23Z">
 </head>
@@ -88,54 +88,54 @@ git diff --staged">
         <!--Body content-->
         <div class="row">
             
-<article class="storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Git&nbsp;notes</a></h1>
+<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Git notes</a></h1>
 
         
     </header><div class="e-content entry-content" itemprop="articleBody text">
     <div>
-<p><a class="reference external" href="../../listings/git.sh.html">git.sh</a></p>
-<pre class="code bash"><a name="rest_code_3ff198bfcc0c4c84954e0e8fa9af60b9-1"></a>git init
-<a name="rest_code_3ff198bfcc0c4c84954e0e8fa9af60b9-2"></a><span class="c1"># add all files or filename/folder</span>
-<a name="rest_code_3ff198bfcc0c4c84954e0e8fa9af60b9-3"></a>git add --all
-<a name="rest_code_3ff198bfcc0c4c84954e0e8fa9af60b9-4"></a><span class="c1"># add updated files only</span>
-<a name="rest_code_3ff198bfcc0c4c84954e0e8fa9af60b9-5"></a>git add -u
-<a name="rest_code_3ff198bfcc0c4c84954e0e8fa9af60b9-6"></a>git status
-<a name="rest_code_3ff198bfcc0c4c84954e0e8fa9af60b9-7"></a><span class="c1"># know the difference with not staged</span>
-<a name="rest_code_3ff198bfcc0c4c84954e0e8fa9af60b9-8"></a>git diff
-<a name="rest_code_3ff198bfcc0c4c84954e0e8fa9af60b9-9"></a><span class="c1"># what will be commited</span>
-<a name="rest_code_3ff198bfcc0c4c84954e0e8fa9af60b9-10"></a>git diff --staged
-<a name="rest_code_3ff198bfcc0c4c84954e0e8fa9af60b9-11"></a>
-<a name="rest_code_3ff198bfcc0c4c84954e0e8fa9af60b9-12"></a><span class="c1">#use commit message from command line</span>
-<a name="rest_code_3ff198bfcc0c4c84954e0e8fa9af60b9-13"></a>git commit -m
-<a name="rest_code_3ff198bfcc0c4c84954e0e8fa9af60b9-14"></a><span class="c1">#change and revrite existing files</span>
-<a name="rest_code_3ff198bfcc0c4c84954e0e8fa9af60b9-15"></a>git commit -a
-<a name="rest_code_3ff198bfcc0c4c84954e0e8fa9af60b9-16"></a><span class="c1">#the same and with comment</span>
-<a name="rest_code_3ff198bfcc0c4c84954e0e8fa9af60b9-17"></a>git commit -am
-<a name="rest_code_3ff198bfcc0c4c84954e0e8fa9af60b9-18"></a><span class="c1"># change the message if not pushed</span>
-<a name="rest_code_3ff198bfcc0c4c84954e0e8fa9af60b9-19"></a>git commit --amend -m <span class="s2">"New commit message"</span>
-<a name="rest_code_3ff198bfcc0c4c84954e0e8fa9af60b9-20"></a>
-<a name="rest_code_3ff198bfcc0c4c84954e0e8fa9af60b9-21"></a><span class="c1"># commited messages by one line</span>
-<a name="rest_code_3ff198bfcc0c4c84954e0e8fa9af60b9-22"></a>git log --oneline
-<a name="rest_code_3ff198bfcc0c4c84954e0e8fa9af60b9-23"></a>
-<a name="rest_code_3ff198bfcc0c4c84954e0e8fa9af60b9-24"></a><span class="c1">## how to create right commit messages</span>
-<a name="rest_code_3ff198bfcc0c4c84954e0e8fa9af60b9-25"></a><span class="s2">"</span>
-<a name="rest_code_3ff198bfcc0c4c84954e0e8fa9af60b9-26"></a><span class="s2">- Separate subject from body with a blank line</span>
-<a name="rest_code_3ff198bfcc0c4c84954e0e8fa9af60b9-27"></a><span class="s2">- Limit the subject line to 50 characters</span>
-<a name="rest_code_3ff198bfcc0c4c84954e0e8fa9af60b9-28"></a><span class="s2">- Capitalize the subject line</span>
-<a name="rest_code_3ff198bfcc0c4c84954e0e8fa9af60b9-29"></a><span class="s2">- Do not end the subject line with a period</span>
-<a name="rest_code_3ff198bfcc0c4c84954e0e8fa9af60b9-30"></a><span class="s2">- Use the imperative mood in the subject line</span>
-<a name="rest_code_3ff198bfcc0c4c84954e0e8fa9af60b9-31"></a><span class="s2">- Wrap the body at 72 characters</span>
-<a name="rest_code_3ff198bfcc0c4c84954e0e8fa9af60b9-32"></a><span class="s2">- Use the body to explain what and why vs. how</span>
-<a name="rest_code_3ff198bfcc0c4c84954e0e8fa9af60b9-33"></a><span class="s2">"</span>
-<a name="rest_code_3ff198bfcc0c4c84954e0e8fa9af60b9-34"></a>
-<a name="rest_code_3ff198bfcc0c4c84954e0e8fa9af60b9-35"></a><span class="c1"># list both local and remote branches</span>
-<a name="rest_code_3ff198bfcc0c4c84954e0e8fa9af60b9-36"></a>git branch -a
-<a name="rest_code_3ff198bfcc0c4c84954e0e8fa9af60b9-37"></a><span class="c1"># list only remote branches</span>
-<a name="rest_code_3ff198bfcc0c4c84954e0e8fa9af60b9-38"></a>git branch -r
-<a name="rest_code_3ff198bfcc0c4c84954e0e8fa9af60b9-39"></a><span class="c1"># update list of local branches</span>
-<a name="rest_code_3ff198bfcc0c4c84954e0e8fa9af60b9-40"></a>git remote update origin --prune
-<a name="rest_code_3ff198bfcc0c4c84954e0e8fa9af60b9-41"></a><span class="c1"># delete branch</span>
-<a name="rest_code_3ff198bfcc0c4c84954e0e8fa9af60b9-42"></a>git branch -d <span class="nv">$branch_name</span>
+<p><a class="reference external" href="../../listings/git.sh.html">git.sh</a>  <a class="reference external" href="../../listings/git.sh">(Source)</a></p>
+<pre class="code bash"><a name="rest_code_40904355336148fbb297fa312d8bff92-1"></a>git init
+<a name="rest_code_40904355336148fbb297fa312d8bff92-2"></a><span class="c1"># add all files or filename/folder</span>
+<a name="rest_code_40904355336148fbb297fa312d8bff92-3"></a>git add --all
+<a name="rest_code_40904355336148fbb297fa312d8bff92-4"></a><span class="c1"># add updated files only</span>
+<a name="rest_code_40904355336148fbb297fa312d8bff92-5"></a>git add -u
+<a name="rest_code_40904355336148fbb297fa312d8bff92-6"></a>git status
+<a name="rest_code_40904355336148fbb297fa312d8bff92-7"></a><span class="c1"># know the difference with not staged</span>
+<a name="rest_code_40904355336148fbb297fa312d8bff92-8"></a>git diff
+<a name="rest_code_40904355336148fbb297fa312d8bff92-9"></a><span class="c1"># what will be commited</span>
+<a name="rest_code_40904355336148fbb297fa312d8bff92-10"></a>git diff --staged
+<a name="rest_code_40904355336148fbb297fa312d8bff92-11"></a>
+<a name="rest_code_40904355336148fbb297fa312d8bff92-12"></a><span class="c1">#use commit message from command line</span>
+<a name="rest_code_40904355336148fbb297fa312d8bff92-13"></a>git commit -m
+<a name="rest_code_40904355336148fbb297fa312d8bff92-14"></a><span class="c1">#change and revrite existing files</span>
+<a name="rest_code_40904355336148fbb297fa312d8bff92-15"></a>git commit -a
+<a name="rest_code_40904355336148fbb297fa312d8bff92-16"></a><span class="c1">#the same and with comment</span>
+<a name="rest_code_40904355336148fbb297fa312d8bff92-17"></a>git commit -am
+<a name="rest_code_40904355336148fbb297fa312d8bff92-18"></a><span class="c1"># change the message if not pushed</span>
+<a name="rest_code_40904355336148fbb297fa312d8bff92-19"></a>git commit --amend -m <span class="s2">"New commit message"</span>
+<a name="rest_code_40904355336148fbb297fa312d8bff92-20"></a>
+<a name="rest_code_40904355336148fbb297fa312d8bff92-21"></a><span class="c1"># commited messages by one line</span>
+<a name="rest_code_40904355336148fbb297fa312d8bff92-22"></a>git log --oneline
+<a name="rest_code_40904355336148fbb297fa312d8bff92-23"></a>
+<a name="rest_code_40904355336148fbb297fa312d8bff92-24"></a><span class="c1">## how to create right commit messages</span>
+<a name="rest_code_40904355336148fbb297fa312d8bff92-25"></a><span class="s2">"</span>
+<a name="rest_code_40904355336148fbb297fa312d8bff92-26"></a><span class="s2">- Separate subject from body with a blank line</span>
+<a name="rest_code_40904355336148fbb297fa312d8bff92-27"></a><span class="s2">- Limit the subject line to 50 characters</span>
+<a name="rest_code_40904355336148fbb297fa312d8bff92-28"></a><span class="s2">- Capitalize the subject line</span>
+<a name="rest_code_40904355336148fbb297fa312d8bff92-29"></a><span class="s2">- Do not end the subject line with a period</span>
+<a name="rest_code_40904355336148fbb297fa312d8bff92-30"></a><span class="s2">- Use the imperative mood in the subject line</span>
+<a name="rest_code_40904355336148fbb297fa312d8bff92-31"></a><span class="s2">- Wrap the body at 72 characters</span>
+<a name="rest_code_40904355336148fbb297fa312d8bff92-32"></a><span class="s2">- Use the body to explain what and why vs. how</span>
+<a name="rest_code_40904355336148fbb297fa312d8bff92-33"></a><span class="s2">"</span>
+<a name="rest_code_40904355336148fbb297fa312d8bff92-34"></a>
+<a name="rest_code_40904355336148fbb297fa312d8bff92-35"></a><span class="c1"># list both local and remote branches</span>
+<a name="rest_code_40904355336148fbb297fa312d8bff92-36"></a>git branch -a
+<a name="rest_code_40904355336148fbb297fa312d8bff92-37"></a><span class="c1"># list only remote branches</span>
+<a name="rest_code_40904355336148fbb297fa312d8bff92-38"></a>git branch -r
+<a name="rest_code_40904355336148fbb297fa312d8bff92-39"></a><span class="c1"># update list of local branches</span>
+<a name="rest_code_40904355336148fbb297fa312d8bff92-40"></a>git remote update origin --prune
+<a name="rest_code_40904355336148fbb297fa312d8bff92-41"></a><span class="c1"># delete branch</span>
+<a name="rest_code_40904355336148fbb297fa312d8bff92-42"></a>git branch -d <span class="nv">$branch_name</span>
 </pre>
 </div>
     </div>
