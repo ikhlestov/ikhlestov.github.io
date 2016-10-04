@@ -124,7 +124,7 @@ Our decision process can be broken down as follows:
 
 .. thumbnail:: /images/ML_notes/high_variance.png
 
-.. thumbnail:: /images/ML_notes/high_bias.png
+.. thumbnail:: /images/ML_notes/high_bias.png  
 
 When the hypothesis function is too complex 
 or there are too many features while the number of training examples is not large enough, 
@@ -132,4 +132,12 @@ you may get an overfitting problem.
 In that case, :math:`J\left( \theta \right)` of the training set may be very low, 
 while that of the validate set and test set can be high. 
 A good method to solve the problem is regularization which adds the squared 
-term of parameters to the cost function.
+term of parameters to the cost function.  
+
+.. thumbnail:: /images/ML_notes/bias_vs_variance_1.png
+
+.. thumbnail:: /images/ML_notes/bias_vs_variance_2.png
+
+* A neural **network with fewer parameters** is prone to **underfitting**. It is also computationally cheaper.  
+
+* A **large neural network** with more parameters is prone to **overfitting**. It is also computationally expensive. 
