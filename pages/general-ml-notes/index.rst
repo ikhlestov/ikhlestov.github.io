@@ -95,49 +95,56 @@ F1:
 Overfiting and underfiting
 ==========================
 
-.. thumbnail:: /images/ML_notes/bias_and_variance.jpg  
+High **bias** is **underfitting** and high **variance** is **overfitting**.  
 
 For understanding what exactly mean *Bias* and *Variance* you may check `this <http://scott.fortmann-roe.com/docs/BiasVariance.html>`__
 or `this <http://machinelearningmastery.com/gentle-introduction-to-the-bias-variance-trade-off-in-machine-learning/>`__
 cool articles.  
 
-To deal with them check this articles:
-`Advice for Applying Machine Learning <https://share.coursera.org/wiki/index.php/ML:Advice_for_Applying_Machine_Learning>`__, 
-`Machine Learning System Design <https://share.coursera.org/wiki/index.php/ML:Machine_Learning_System_Design>`__,
-`Large Scale Machine Learning <https://share.coursera.org/wiki/index.php/ML:Large_Scale_Machine_Learning>`__. 
+Next notes based on awesome Andre Ng `lecture <https://www.youtube.com/watch?v=F1ka6a13S9I>`__  
 
-High **bias** is **underfitting** and high **variance** is **overfitting**.  
+During training as usual you split your data on train, validation and test sets.
+*Note:* You should keep your validation/test data the same for model you want to compare.
+After measuring errors you can get some results.
+In this case difference between *human error* (how human perform such task) and *train error* will be **bias**.
+On the other hand, difference between *train error* and *validation error* will be **variance**.
 
-Our decision process can be broken down as follows:
+.. image:: /images/ML_notes/bias_variance_explanation_1.svg 
+   :width: 320 px
+   :height: 120 px
+   :alt: bias_variance_explanation_1
 
-* Fixes high variance(overfiting):
-    
-  * Getting more training examples
-  
-  * Trying smaller sets of features
+In such case you should consider this methods
 
-* Fixes high bias(underfiting):
-    
-  * Adding features
-    
-  * Adding polynomial features
+.. image:: /images/ML_notes/bias_variance_workflow_1.svg 
+   :width: 443 px
+   :height: 402 px
+   :alt: bias_variance_workflow_1
 
-.. thumbnail:: /images/ML_notes/high_variance.png
+Solutions inside blue boxes should be applied as first approach.  
 
-.. thumbnail:: /images/ML_notes/high_bias.png  
+But sometimes you may have a lot of data from one domain, but test data comes from another.
+In this case validation and test data should be from the same domain.
+Also you may consider get validation data also from large domain.
+But it should be additional validation(say *train-valid*).
+Let's see an example.
 
-When the hypothesis function is too complex 
-or there are too many features while the number of training examples is not large enough, 
-you may get an overfitting problem. 
-In that case, :math:`J\left( \theta \right)` of the training set may be very low, 
-while that of the validate set and test set can be high. 
-A good method to solve the problem is regularization which adds the squared 
-term of parameters to the cost function.  
+.. image:: /images/ML_notes/data_spliting_in_domains.svg 
+   :width: 473 px
+   :height: 93 px
+   :alt: data_spliting_in_domains
 
-.. thumbnail:: /images/ML_notes/bias_vs_variance_1.png
+In this case we receive another correlation between errors: 
 
-.. thumbnail:: /images/ML_notes/bias_vs_variance_2.png
+.. image:: /images/ML_notes/bias_variance_explanation_2.svg 
+   :width: 453 px
+   :height: 166 px
+   :alt: bias_variance_explanation_2
 
-* A neural **network with fewer parameters** is prone to **underfitting**. It is also computationally cheaper.  
+And solution algorithm will be a little bit more longer:
 
-* A **large neural network** with more parameters is prone to **overfitting**. It is also computationally expensive. 
+.. image:: /images/ML_notes/bias_variance_workflow_2.svg 
+   :width: 443 px
+   :height: 675 px
+   :alt: bias_variance_workflow_2
+

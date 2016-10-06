@@ -178,43 +178,35 @@ So now gradinet can be computed&nbsp;as:</p>
 </div>
 <div class="section" id="overfiting-and-underfiting">
 <h2><a class="toc-backref" href="#id4">Overfiting and&nbsp;underfiting</a></h2>
-<a class="reference external image-reference" href="../../images/ML_notes/bias_and_variance.jpg"><img alt="/images/ML_notes/bias_and_variance.thumbnail.jpg" src="../../images/ML_notes/bias_and_variance.thumbnail.jpg"></a>
+<p>High <strong>bias</strong> is <strong>underfitting</strong> and high <strong>variance</strong> is <strong>overfitting</strong>.</p>
 <p>For understanding what exactly mean <em>Bias</em> and <em>Variance</em> you may check <a class="reference external" href="http://scott.fortmann-roe.com/docs/BiasVariance.html">this</a>
 or <a class="reference external" href="http://machinelearningmastery.com/gentle-introduction-to-the-bias-variance-trade-off-in-machine-learning/">this</a>
 cool&nbsp;articles.</p>
-<p>To deal with them check this articles:
-<a class="reference external" href="https://share.coursera.org/wiki/index.php/ML:Advice_for_Applying_Machine_Learning">Advice for Applying Machine Learning</a>,
-<a class="reference external" href="https://share.coursera.org/wiki/index.php/ML:Machine_Learning_System_Design">Machine Learning System Design</a>,
-<a class="reference external" href="https://share.coursera.org/wiki/index.php/ML:Large_Scale_Machine_Learning">Large Scale Machine Learning</a>.</p>
-<p>High <strong>bias</strong> is <strong>underfitting</strong> and high <strong>variance</strong> is <strong>overfitting</strong>.</p>
-<p>Our decision process can be broken down as&nbsp;follows:</p>
-<ul class="simple">
-<li>Fixes high variance(overfiting):<ul>
-<li>Getting more training&nbsp;examples</li>
-<li>Trying smaller sets of&nbsp;features</li>
-</ul>
-</li>
-<li>Fixes high bias(underfiting):<ul>
-<li>Adding&nbsp;features</li>
-<li>Adding polynomial&nbsp;features</li>
-</ul>
-</li>
-</ul>
-<a class="reference external image-reference" href="../../images/ML_notes/high_variance.png"><img alt="/images/ML_notes/high_variance.thumbnail.png" src="../../images/ML_notes/high_variance.thumbnail.png"></a>
-<a class="reference external image-reference" href="../../images/ML_notes/high_bias.png"><img alt="/images/ML_notes/high_bias.thumbnail.png" src="../../images/ML_notes/high_bias.thumbnail.png"></a>
-<p>When the hypothesis function is too complex
-or there are too many features while the number of training examples is not large enough,
-you may get an overfitting problem.
-In that case, <span class="math">\(J\left( \theta \right)\)</span> of the training set may be very low,
-while that of the validate set and test set can be high.
-A good method to solve the problem is regularization which adds the squared
-term of parameters to the cost&nbsp;function.</p>
-<a class="reference external image-reference" href="../../images/ML_notes/bias_vs_variance_1.png"><img alt="/images/ML_notes/bias_vs_variance_1.thumbnail.png" src="../../images/ML_notes/bias_vs_variance_1.thumbnail.png"></a>
-<a class="reference external image-reference" href="../../images/ML_notes/bias_vs_variance_2.png"><img alt="/images/ML_notes/bias_vs_variance_2.thumbnail.png" src="../../images/ML_notes/bias_vs_variance_2.thumbnail.png"></a>
-<ul class="simple">
-<li>A neural <strong>network with fewer parameters</strong> is prone to <strong>underfitting</strong>. It is also computationally&nbsp;cheaper.</li>
-<li>A <strong>large neural network</strong> with more parameters is prone to <strong>overfitting</strong>. It is also computationally&nbsp;expensive.</li>
-</ul>
+<p>Next notes based on awesome Andre Ng <a class="reference external" href="https://www.youtube.com/watch?v=F1ka6a13S9I">lecture</a></p>
+<p>During training as usual you split your data on train, validation and test sets.
+<em>Note:</em> You should keep your validation/test data the same for model you want to compare.
+After measuring errors you can get some results.
+In this case difference between <em>human error</em> (how human perform such task) and <em>train error</em> will be <strong>bias</strong>.
+On the other hand, difference between <em>train error</em> and <em>validation error</em> will be <strong>variance</strong>.</p>
+<object data="../../images/ML_notes/bias_variance_explanation_1.svg" style="width: 320px; height: 120px;" type="image/svg+xml">
+bias_variance_explanation_1</object>
+<p>In such case you should consider this&nbsp;methods</p>
+<object data="../../images/ML_notes/bias_variance_workflow_1.svg" style="width: 443px; height: 402px;" type="image/svg+xml">
+bias_variance_workflow_1</object>
+<p>Solutions inside blue boxes should be applied as first&nbsp;approach.</p>
+<p>But sometimes you may have a lot of data from one domain, but test data comes from another.
+In this case validation and test data should be from the same domain.
+Also you may consider get validation data also from large domain.
+But it should be additional validation(say <em>train-valid</em>).
+Let&#8217;s see an&nbsp;example.</p>
+<object data="../../images/ML_notes/data_spliting_in_domains.svg" style="width: 473px; height: 93px;" type="image/svg+xml">
+data_spliting_in_domains</object>
+<p>In this case we receive another correlation between&nbsp;errors:</p>
+<object data="../../images/ML_notes/bias_variance_explanation_2.svg" style="width: 453px; height: 166px;" type="image/svg+xml">
+bias_variance_explanation_2</object>
+<p>And solution algorithm will be a little bit more&nbsp;longer:</p>
+<object data="../../images/ML_notes/bias_variance_workflow_2.svg" style="width: 443px; height: 675px;" type="image/svg+xml">
+bias_variance_workflow_2</object>
 </div>
 </div>
     </div>
