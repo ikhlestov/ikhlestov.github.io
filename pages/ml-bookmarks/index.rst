@@ -40,3 +40,5 @@ Optimization Techniques
 + `RECURRENT NEURAL NETWORK REGULARIZATION <https://arxiv.org/pdf/1409.2329v5.pdf>`__
 
 + `Recurrent Dropout without Memory Loss <http://arxiv.org/pdf/1603.05118.pdf>`__
+
++ `Styles of Truncated Backpropagation <http://r2rt.com/styles-of-truncated-backpropagation.html>`__
