@@ -24,7 +24,9 @@ RNN, seq2seq and all related
 
 + `A Neural Transducer <https://arxiv.org/pdf/1511.04868v4.pdf>`__ Net than can generate predicition as more inputs arrives, without attention mechanism.
 
-+ `Attention and Augmented Recurrent Neural Networks <http://distill.pub/2016/augmented-rnns/>`__ Explanation of various RNNs complex architectures.
++ `Attention and Augmented Recurrent Neural Networks <http://distill.pub/2016/augmented-rnns/>`__ Explanation of various RNNs complex architectures.  
+
++ `Fully Character-Level Neural Machine Translation without Explicit Segmentation <https://arxiv.org/pdf/1610.03017v1.pdf>`__  model that maps a source character sequence to a target character sequence without any segmentation.
 
 Reinforcement Learning
 ======================
