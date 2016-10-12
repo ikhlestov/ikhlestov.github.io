@@ -26,7 +26,7 @@ RNN, seq2seq and all related
 
 + `Attention and Augmented Recurrent Neural Networks <http://distill.pub/2016/augmented-rnns/>`__ Explanation of various RNNs complex architectures.  
 
-+ `Fully Character-Level Neural Machine Translation without Explicit Segmentation <https://arxiv.org/pdf/1610.03017v1.pdf>`__  model that maps a source character sequence to a target character sequence without any segmentation.
++ `Fully Character-Level Neural Machine Translation without Explicit Segmentation <https://arxiv.org/pdf/1610.03017v1.pdf>`__  model that maps a source character sequence to a target character sequence without any segmentation. (CNN + highway + biGRU)
 
 Reinforcement Learning
 ======================
@@ -44,3 +44,9 @@ Optimization Techniques
 + `Recurrent Dropout without Memory Loss <http://arxiv.org/pdf/1603.05118.pdf>`__
 
 + `Styles of Truncated Backpropagation <http://r2rt.com/styles-of-truncated-backpropagation.html>`__
+
+
+Other Topics
+============
+
++ `Highway Networks <http://people.idsia.ch/~rupesh/very_deep_learning/>`__ - list of papers, code, etc.
