@@ -7283,7 +7283,9 @@ pre, pre code {
     word-wrap: normal;
     overflow: auto;
     /*This was added by me*/
-    font-weight: bold;
+    /*font-weight: bold;*/
+    font-size: 14px;
+    font-family: monospace;
 }
 
 article.post-micro {

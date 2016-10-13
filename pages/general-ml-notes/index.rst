@@ -148,3 +148,24 @@ And solution algorithm will be a little bit more longer:
    :height: 675 px
    :alt: bias_variance_workflow_2
 
+
+Unusual networks types
+======================
+
+**Highway network** - 
+Like LSTM networks, utilize a learnable gating mechanism to improve information flow across layers.
+More simple - process previous input data to the next layer. 
+`link to papers <http://people.idsia.ch/~rupesh/very_deep_learning/>`__ and
+`tensorflow implementation <https://medium.com/jim-fleming/highway-networks-with-tensorflow-1e6dfa667daa>`__.  
+Intuition:
+
+.. math::
+  y = H (x ; W_{H} ) * T (x ; W_{T} ) + x * C (x ; W_{C} )
+
+where:
+
++ *T* is *transform gate*
++ *C* is *carry gate*
+
+Gates express how much of the output is produced by transforming  the  input  and  carrying  it,  respectively.
+Sometimes carry gate can be set as :math:`C = 1 - T` for simplicity.

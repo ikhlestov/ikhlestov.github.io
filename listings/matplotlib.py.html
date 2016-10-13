@@ -1,0 +1,199 @@
+<html prefix="
+og: http://ogp.me/ns#
+article: http://ogp.me/ns/article#
+" lang="en">
+<head>
+<meta charset="utf-8">
+<base href="https://ikhlestov.github.io/listings/matplotlib.py.html">
+<meta name="description" content="matplotlib.py">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>matplotlib.py | Illarion Khlestov Blog</title>
+<link href="../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<meta content="#5670d4" name="theme-color">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
+<link rel="canonical" href="https://ikhlestov.github.io/listings/matplotlib.py.html">
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    displayAlign: 'left', // Change this to 'center' to center equations.
+});
+</script><!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]-->
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-static-top"><div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://ikhlestov.github.io/">
+
+                <span id="blog-title">Illarion Khlestov Blog</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
+            <ul class="nav navbar-nav">
+<li>
+<a href="../">Blog</a>
+                </li>
+<li>
+<a href="../pages/">Pages</a>
+                </li>
+<li>
+<a href=".">Listings</a>
+                </li>
+<li>
+<a href="../archive.html">Archive</a>
+
+                
+            </li>
+</ul>
+<ul class="nav navbar-nav navbar-right"></ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+<nav class="breadcrumbs"><ul class="breadcrumb">
+<li><a href=".">listings</a></li>
+                <li>matplotlib.py</li>
+</ul></nav><table class="codetable"><tr>
+<td class="linenos"><div class="linenodiv"><pre><a href="#listingsmatplotlibpy-1"> 1</a>
+<a href="#listingsmatplotlibpy-2"> 2</a>
+<a href="#listingsmatplotlibpy-3"> 3</a>
+<a href="#listingsmatplotlibpy-4"> 4</a>
+<a href="#listingsmatplotlibpy-5"> 5</a>
+<a href="#listingsmatplotlibpy-6"> 6</a>
+<a href="#listingsmatplotlibpy-7"> 7</a>
+<a href="#listingsmatplotlibpy-8"> 8</a>
+<a href="#listingsmatplotlibpy-9"> 9</a>
+<a href="#listingsmatplotlibpy-10">10</a>
+<a href="#listingsmatplotlibpy-11">11</a>
+<a href="#listingsmatplotlibpy-12">12</a>
+<a href="#listingsmatplotlibpy-13">13</a>
+<a href="#listingsmatplotlibpy-14">14</a>
+<a href="#listingsmatplotlibpy-15">15</a>
+<a href="#listingsmatplotlibpy-16">16</a>
+<a href="#listingsmatplotlibpy-17">17</a>
+<a href="#listingsmatplotlibpy-18">18</a>
+<a href="#listingsmatplotlibpy-19">19</a>
+<a href="#listingsmatplotlibpy-20">20</a>
+<a href="#listingsmatplotlibpy-21">21</a>
+<a href="#listingsmatplotlibpy-22">22</a>
+<a href="#listingsmatplotlibpy-23">23</a>
+<a href="#listingsmatplotlibpy-24">24</a>
+<a href="#listingsmatplotlibpy-25">25</a>
+<a href="#listingsmatplotlibpy-26">26</a>
+<a href="#listingsmatplotlibpy-27">27</a>
+<a href="#listingsmatplotlibpy-28">28</a>
+<a href="#listingsmatplotlibpy-29">29</a>
+<a href="#listingsmatplotlibpy-30">30</a>
+<a href="#listingsmatplotlibpy-31">31</a>
+<a href="#listingsmatplotlibpy-32">32</a>
+<a href="#listingsmatplotlibpy-33">33</a>
+<a href="#listingsmatplotlibpy-34">34</a>
+<a href="#listingsmatplotlibpy-35">35</a>
+<a href="#listingsmatplotlibpy-36">36</a>
+<a href="#listingsmatplotlibpy-37">37</a>
+<a href="#listingsmatplotlibpy-38">38</a>
+<a href="#listingsmatplotlibpy-39">39</a>
+<a href="#listingsmatplotlibpy-40">40</a>
+<a href="#listingsmatplotlibpy-41">41</a>
+<a href="#listingsmatplotlibpy-42">42</a>
+<a href="#listingsmatplotlibpy-43">43</a>
+<a href="#listingsmatplotlibpy-44">44</a>
+<a href="#listingsmatplotlibpy-45">45</a>
+<a href="#listingsmatplotlibpy-46">46</a>
+<a href="#listingsmatplotlibpy-47">47</a>
+<a href="#listingsmatplotlibpy-48">48</a>
+<a href="#listingsmatplotlibpy-49">49</a>
+<a href="#listingsmatplotlibpy-50">50</a>
+<a href="#listingsmatplotlibpy-51">51</a>
+<a href="#listingsmatplotlibpy-52">52</a>
+<a href="#listingsmatplotlibpy-53">53</a>
+<a href="#listingsmatplotlibpy-54">54</a>
+<a href="#listingsmatplotlibpy-55">55</a>
+<a href="#listingsmatplotlibpy-56">56</a></pre></div></td>
+<td class="code"><pre class="code literal-block"><a name="listingsmatplotlibpy-1"></a><span class="c1"># adjust default output</span>
+<a name="listingsmatplotlibpy-2"></a><span class="n">pylab</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">'figure.figsize'</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
+<a name="listingsmatplotlibpy-3"></a>
+<a name="listingsmatplotlibpy-4"></a><span class="c1"># ticker with required step</span>
+<a name="listingsmatplotlibpy-5"></a><span class="kn">import</span> <span class="nn">matplotlib.ticker</span>
+<a name="listingsmatplotlibpy-6"></a><span class="n">locator</span> <span class="o">=</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">ticker</span><span class="o">.</span><span class="n">MultipleLocator</span><span class="p">(</span><span class="n">base</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+<a name="listingsmatplotlibpy-7"></a>
+<a name="listingsmatplotlibpy-8"></a><span class="c1"># plot example</span>
+<a name="listingsmatplotlibpy-9"></a><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">4</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">corr_coeff</span><span class="p">)),</span> <span class="n">sharey</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<a name="listingsmatplotlibpy-10"></a><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'Correlation coefficients for ecolamp, samples_quantity=15'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<a name="listingsmatplotlibpy-11"></a><span class="n">pylab</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Some name'</span><span class="p">)</span>
+<a name="listingsmatplotlibpy-12"></a><span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">corr_coeff</span><span class="p">:</span>
+<a name="listingsmatplotlibpy-13"></a>    <span class="n">ax1</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="n">counter</span><span class="p">]</span>
+<a name="listingsmatplotlibpy-14"></a>    <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'some label'</span><span class="p">)</span>
+<a name="listingsmatplotlibpy-15"></a>    <span class="n">ax1</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
+<a name="listingsmatplotlibpy-16"></a>    <span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'time'</span><span class="p">)</span>
+<a name="listingsmatplotlibpy-17"></a>    <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'correlation'</span><span class="p">)</span>
+<a name="listingsmatplotlibpy-18"></a>    <span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">'lowwer right'</span><span class="p">)</span>
+<a name="listingsmatplotlibpy-19"></a>    <span class="c1"># handle the grid</span>
+<a name="listingsmatplotlibpy-20"></a>    <span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+<a name="listingsmatplotlibpy-21"></a>    <span class="n">ax1</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">locator</span><span class="p">)</span>
+<a name="listingsmatplotlibpy-22"></a>
+<a name="listingsmatplotlibpy-23"></a><span class="c1"># render same plot many times</span>
+<a name="listingsmatplotlibpy-24"></a><span class="kn">from</span> <span class="nn">IPython</span> <span class="kn">import</span> <span class="n">display</span>
+<a name="listingsmatplotlibpy-25"></a><span class="n">a</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+<a name="listingsmatplotlibpy-26"></a>
+<a name="listingsmatplotlibpy-27"></a><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+<a name="listingsmatplotlibpy-28"></a>    <span class="n">a</span> <span class="o">+=</span> <span class="mi">100</span>
+<a name="listingsmatplotlibpy-29"></a>    <span class="n">pylab</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="o">*</span><span class="n">a</span><span class="p">)</span>
+<a name="listingsmatplotlibpy-30"></a>    <span class="n">display</span><span class="o">.</span><span class="n">display</span><span class="p">(</span><span class="n">pylab</span><span class="o">.</span><span class="n">gcf</span><span class="p">())</span>
+<a name="listingsmatplotlibpy-31"></a>    <span class="n">display</span><span class="o">.</span><span class="n">clear_output</span><span class="p">(</span><span class="n">wait</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<a name="listingsmatplotlibpy-32"></a>    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+<a name="listingsmatplotlibpy-33"></a>
+<a name="listingsmatplotlibpy-34"></a><span class="c1"># add suptitle</span>
+<a name="listingsmatplotlibpy-35"></a><span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="n">filename</span> <span class="o">+</span> <span class="s1">': '</span> <span class="o">+</span> <span class="n">readme</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mf">0.52</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">0.93</span><span class="p">)</span>
+<a name="listingsmatplotlibpy-36"></a>
+<a name="listingsmatplotlibpy-37"></a><span class="c1"># enable legend for all axes</span>
+<a name="listingsmatplotlibpy-38"></a><span class="n">_</span> <span class="o">=</span> <span class="p">[</span><span class="n">axe</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">'upper right'</span><span class="p">)</span> <span class="k">for</span> <span class="n">axe</span> <span class="ow">in</span> <span class="n">axes</span><span class="p">]</span>
+<a name="listingsmatplotlibpy-39"></a>
+<a name="listingsmatplotlibpy-40"></a><span class="c1"># save image</span>
+<a name="listingsmatplotlibpy-41"></a><span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">'path to save'</span><span class="p">)</span>
+<a name="listingsmatplotlibpy-42"></a>
+<a name="listingsmatplotlibpy-43"></a><span class="c1"># plot vertical line</span>
+<a name="listingsmatplotlibpy-44"></a><span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'k'</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">'--'</span><span class="p">)</span>
+<a name="listingsmatplotlibpy-45"></a>
+<a name="listingsmatplotlibpy-46"></a><span class="c1"># plot russian text</span>
+<a name="listingsmatplotlibpy-47"></a><span class="n">font</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'family'</span><span class="p">:</span> <span class="s1">'Droid Sans'</span><span class="p">,</span>
+<a name="listingsmatplotlibpy-48"></a>        <span class="s1">'weight'</span><span class="p">:</span> <span class="s1">'normal'</span><span class="p">,</span>
+<a name="listingsmatplotlibpy-49"></a>        <span class="s1">'size'</span><span class="p">:</span> <span class="mi">14</span><span class="p">}</span>
+<a name="listingsmatplotlibpy-50"></a><span class="n">rc</span><span class="p">(</span><span class="s1">'font'</span><span class="p">,</span><span class="o">**</span><span class="n">font</span><span class="p">)</span>
+<a name="listingsmatplotlibpy-51"></a><span class="c1"># or try this</span>
+<a name="listingsmatplotlibpy-52"></a><span class="n">rc</span><span class="p">(</span><span class="s1">'font'</span><span class="p">,</span><span class="o">**</span><span class="p">{</span><span class="s1">'family'</span><span class="p">:</span><span class="s1">'serif'</span><span class="p">})</span>
+<a name="listingsmatplotlibpy-53"></a><span class="n">rc</span><span class="p">(</span><span class="s1">'text'</span><span class="p">,</span> <span class="n">usetex</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<a name="listingsmatplotlibpy-54"></a><span class="n">rc</span><span class="p">(</span><span class="s1">'text.latex'</span><span class="p">,</span><span class="nb">unicode</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<a name="listingsmatplotlibpy-55"></a><span class="n">rc</span><span class="p">(</span><span class="s1">'text.latex'</span><span class="p">,</span><span class="n">preamble</span><span class="o">=</span><span class="s1">'\usepackage[utf8]{inputenc}'</span><span class="p">)</span>
+<a name="listingsmatplotlibpy-56"></a><span class="n">rc</span><span class="p">(</span><span class="s1">'text.latex'</span><span class="p">,</span><span class="n">preamble</span><span class="o">=</span><span class="s1">'\usepackage[russian]{babel}'</span><span class="p">)</span>
+</pre></td>
+</tr></table>
+</div>
+        <!--End of body content-->
+
+        <footer id="footer">
+            Contents © 2016         <a href="mailto:ikhlestov@gmail.com">Illarion Khlestov</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>          <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script></footer>
+</div>
+</div>
+
+            <script src="../assets/js/all-nocdn.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates -->
+</body>
+</html>

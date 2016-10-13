@@ -22,6 +22,8 @@ Python related:
 * :doc:`ipdb-commands`
 * :doc:`python-libraries`
 * :doc:`python-tips`
+* :doc:`numpy`
+* :doc:`matplotlib`
 
 Shortcuts:
 

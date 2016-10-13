@@ -59,20 +59,12 @@ MathJax.Hub.Config({
 <a href="../../listings/">Listings</a>
                 </li>
 <li>
-<a href="../../categories/">Tags</a>
-                </li>
-<li>
 <a href="../../archive.html">Archive</a>
 
                 
             </li>
 </ul>
-<ul class="nav navbar-nav navbar-right">
-<li>
-    <a href="index.rst" id="sourcelink">Source</a>
-    </li>
-                
-            </ul>
+<ul class="nav navbar-nav navbar-right"></ul>
 </div>
 <!-- /.navbar-collapse -->
     </div>
@@ -99,24 +91,24 @@ MathJax.Hub.Config({
 <h2><a class="toc-backref" href="#id1">tqdm</a></h2>
 <p>Progress bar for any iterations.
 <a class="reference external" href="https://pypi.python.org/pypi/tqdm">PyPi</a></p>
-<pre class="code python"><a name="rest_code_d49c3deabec14c8fa4f4d1e622edf7a8-1"></a><span class="kn">import</span> <span class="nn">time</span>
-<a name="rest_code_d49c3deabec14c8fa4f4d1e622edf7a8-2"></a><span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
-<a name="rest_code_d49c3deabec14c8fa4f4d1e622edf7a8-3"></a>
-<a name="rest_code_d49c3deabec14c8fa4f4d1e622edf7a8-4"></a><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)):</span>
-<a name="rest_code_d49c3deabec14c8fa4f4d1e622edf7a8-5"></a>    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<pre class="code python"><a name="rest_code_5b437645f5344e36b66932420ae25d33-1"></a><span class="kn">import</span> <span class="nn">time</span>
+<a name="rest_code_5b437645f5344e36b66932420ae25d33-2"></a><span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+<a name="rest_code_5b437645f5344e36b66932420ae25d33-3"></a>
+<a name="rest_code_5b437645f5344e36b66932420ae25d33-4"></a><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)):</span>
+<a name="rest_code_5b437645f5344e36b66932420ae25d33-5"></a>    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre>
 </div>
 <div class="section" id="pyperclip">
 <h2><a class="toc-backref" href="#id2">pyperclip</a></h2>
 <p>An easy python interface to the system clipboard.
 <a class="reference external" href="https://github.com/asweigart/pyperclip">Pypi</a></p>
-<pre class="code python"><a name="rest_code_966ac0ca89014679a04b42b96ea38433-1"></a><span class="kn">import</span> <span class="nn">pyperclip</span> <span class="kn">as</span> <span class="nn">clip</span>
-<a name="rest_code_966ac0ca89014679a04b42b96ea38433-2"></a>
-<a name="rest_code_966ac0ca89014679a04b42b96ea38433-3"></a><span class="c1"># copy string to buffer</span>
-<a name="rest_code_966ac0ca89014679a04b42b96ea38433-4"></a><span class="n">clip</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="s2">"Some text"</span><span class="p">)</span>
-<a name="rest_code_966ac0ca89014679a04b42b96ea38433-5"></a>
-<a name="rest_code_966ac0ca89014679a04b42b96ea38433-6"></a><span class="c1"># copy text from buffer</span>
-<a name="rest_code_966ac0ca89014679a04b42b96ea38433-7"></a><span class="n">data</span> <span class="o">=</span> <span class="n">clip</span><span class="o">.</span><span class="n">paste</span><span class="p">()</span>
+<pre class="code python"><a name="rest_code_8d43d482efcf4541a75298f93d4d2632-1"></a><span class="kn">import</span> <span class="nn">pyperclip</span> <span class="kn">as</span> <span class="nn">clip</span>
+<a name="rest_code_8d43d482efcf4541a75298f93d4d2632-2"></a>
+<a name="rest_code_8d43d482efcf4541a75298f93d4d2632-3"></a><span class="c1"># copy string to buffer</span>
+<a name="rest_code_8d43d482efcf4541a75298f93d4d2632-4"></a><span class="n">clip</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="s2">"Some text"</span><span class="p">)</span>
+<a name="rest_code_8d43d482efcf4541a75298f93d4d2632-5"></a>
+<a name="rest_code_8d43d482efcf4541a75298f93d4d2632-6"></a><span class="c1"># copy text from buffer</span>
+<a name="rest_code_8d43d482efcf4541a75298f93d4d2632-7"></a><span class="n">data</span> <span class="o">=</span> <span class="n">clip</span><span class="o">.</span><span class="n">paste</span><span class="p">()</span>
 </pre>
 <p>Note: you may also try <a class="reference external" href="https://pypi.python.org/pypi/pyclip-copycat/1.0">pyclip-copycat</a></p>
 </div>
@@ -125,14 +117,14 @@ MathJax.Hub.Config({
 <p>Brings notification to your shell.
 <a class="reference external" href="https://pypi.python.org/pypi/ntfy">PyPi</a>
 <a class="reference external" href="http://ntfy.readthedocs.io/en/latest/">Docs</a></p>
-<pre class="code bash"><a name="rest_code_fed651bbd9e8472195341fab2736361f-1"></a>$ ntfy send message
-<a name="rest_code_fed651bbd9e8472195341fab2736361f-2"></a>$ ntfy send <span class="s1">'test long message'</span>
-<a name="rest_code_fed651bbd9e8472195341fab2736361f-3"></a><span class="c1"># send message after command completion</span>
-<a name="rest_code_fed651bbd9e8472195341fab2736361f-4"></a>$ ntfy send sleep 10
-<a name="rest_code_fed651bbd9e8472195341fab2736361f-5"></a>$ ntfy send cat some.txt
+<pre class="code bash"><a name="rest_code_028a5d0cef8b4e11b0f51f0d73789479-1"></a>$ ntfy send message
+<a name="rest_code_028a5d0cef8b4e11b0f51f0d73789479-2"></a>$ ntfy send <span class="s1">'test long message'</span>
+<a name="rest_code_028a5d0cef8b4e11b0f51f0d73789479-3"></a><span class="c1"># send message after command completion</span>
+<a name="rest_code_028a5d0cef8b4e11b0f51f0d73789479-4"></a>$ ntfy send sleep 10
+<a name="rest_code_028a5d0cef8b4e11b0f51f0d73789479-5"></a>$ ntfy send cat some.txt
 </pre>
 <p>Cand be replaced by ubuntu <a class="reference external" href="http://manpages.ubuntu.com/manpages/trusty/man1/notify-send.1.html">notify-send</a></p>
-<pre class="code bash"><a name="rest_code_f46b8a298e5947398485133aa73777d2-1"></a>$ notify-send &lt;title&gt; &lt;message&gt;
+<pre class="code bash"><a name="rest_code_7fff33a8e1ce43e8a186bb36fcc81961-1"></a>$ notify-send &lt;title&gt; &lt;message&gt;
 </pre>
 </div>
 </div>

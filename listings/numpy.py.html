@@ -1,0 +1,135 @@
+<html prefix="
+og: http://ogp.me/ns#
+article: http://ogp.me/ns/article#
+" lang="en">
+<head>
+<meta charset="utf-8">
+<base href="https://ikhlestov.github.io/listings/numpy.py.html">
+<meta name="description" content="numpy.py">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>numpy.py | Illarion Khlestov Blog</title>
+<link href="../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<meta content="#5670d4" name="theme-color">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
+<link rel="canonical" href="https://ikhlestov.github.io/listings/numpy.py.html">
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    displayAlign: 'left', // Change this to 'center' to center equations.
+});
+</script><!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]-->
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-static-top"><div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://ikhlestov.github.io/">
+
+                <span id="blog-title">Illarion Khlestov Blog</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
+            <ul class="nav navbar-nav">
+<li>
+<a href="../">Blog</a>
+                </li>
+<li>
+<a href="../pages/">Pages</a>
+                </li>
+<li>
+<a href=".">Listings</a>
+                </li>
+<li>
+<a href="../archive.html">Archive</a>
+
+                
+            </li>
+</ul>
+<ul class="nav navbar-nav navbar-right"></ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+<nav class="breadcrumbs"><ul class="breadcrumb">
+<li><a href=".">listings</a></li>
+                <li>numpy.py</li>
+</ul></nav><table class="codetable"><tr>
+<td class="linenos"><div class="linenodiv"><pre><a href="#listingsnumpypy-1"> 1</a>
+<a href="#listingsnumpypy-2"> 2</a>
+<a href="#listingsnumpypy-3"> 3</a>
+<a href="#listingsnumpypy-4"> 4</a>
+<a href="#listingsnumpypy-5"> 5</a>
+<a href="#listingsnumpypy-6"> 6</a>
+<a href="#listingsnumpypy-7"> 7</a>
+<a href="#listingsnumpypy-8"> 8</a>
+<a href="#listingsnumpypy-9"> 9</a>
+<a href="#listingsnumpypy-10">10</a>
+<a href="#listingsnumpypy-11">11</a>
+<a href="#listingsnumpypy-12">12</a>
+<a href="#listingsnumpypy-13">13</a>
+<a href="#listingsnumpypy-14">14</a>
+<a href="#listingsnumpypy-15">15</a>
+<a href="#listingsnumpypy-16">16</a>
+<a href="#listingsnumpypy-17">17</a>
+<a href="#listingsnumpypy-18">18</a>
+<a href="#listingsnumpypy-19">19</a>
+<a href="#listingsnumpypy-20">20</a>
+<a href="#listingsnumpypy-21">21</a>
+<a href="#listingsnumpypy-22">22</a>
+<a href="#listingsnumpypy-23">23</a>
+<a href="#listingsnumpypy-24">24</a></pre></div></td>
+<td class="code"><pre class="code literal-block"><a name="listingsnumpypy-1"></a><span class="c1"># change display methods</span>
+<a name="listingsnumpypy-2"></a><span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<a name="listingsnumpypy-3"></a><span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">suppress</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<a name="listingsnumpypy-4"></a>
+<a name="listingsnumpypy-5"></a><span class="c1"># split some array in folds(numpy)</span>
+<a name="listingsnumpypy-6"></a><span class="n">y_folds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array_split</span><span class="p">(</span><span class="n">y_digits</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<a name="listingsnumpypy-7"></a>
+<a name="listingsnumpypy-8"></a><span class="c1"># shuffle the indices for test data</span>
+<a name="listingsnumpypy-9"></a><span class="n">indexes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">iris_X</span><span class="p">))</span>
+<a name="listingsnumpypy-10"></a>
+<a name="listingsnumpypy-11"></a><span class="c1"># select max value based on another array max value(numpy)</span>
+<a name="listingsnumpypy-12"></a><span class="n">best_alpha</span> <span class="o">=</span> <span class="n">alphas</span><span class="p">[</span><span class="n">scores</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">scores</span><span class="p">))]</span>
+<a name="listingsnumpypy-13"></a>
+<a name="listingsnumpypy-14"></a><span class="c1"># reshape one array to another one shape</span>
+<a name="listingsnumpypy-15"></a><span class="n">face_compressed</span><span class="o">.</span><span class="n">shape</span> <span class="o">=</span> <span class="n">face</span><span class="o">.</span><span class="n">shape</span>
+<a name="listingsnumpypy-16"></a>
+<a name="listingsnumpypy-17"></a><span class="c1"># Reshape numpy array with dynamically calculated second dimension</span>
+<a name="listingsnumpypy-18"></a><span class="n">test_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<a name="listingsnumpypy-19"></a><span class="n">test_data</span><span class="o">.</span><span class="n">shape</span>  <span class="c1"># (4, 3)</span>
+<a name="listingsnumpypy-20"></a><span class="n">reshaped</span> <span class="o">=</span> <span class="n">test_data</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">6</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+<a name="listingsnumpypy-21"></a><span class="n">reshaped</span><span class="o">.</span><span class="n">shape</span>  <span class="c1"># (6, 2)</span>
+<a name="listingsnumpypy-22"></a>
+<a name="listingsnumpypy-23"></a><span class="c1"># Create list of 3 random items form 0 to 255</span>
+<a name="listingsnumpypy-24"></a><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="p">))</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+</pre></td>
+</tr></table>
+</div>
+        <!--End of body content-->
+
+        <footer id="footer">
+            Contents © 2016         <a href="mailto:ikhlestov@gmail.com">Illarion Khlestov</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>          <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script></footer>
+</div>
+</div>
+
+            <script src="../assets/js/all-nocdn.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates -->
+</body>
+</html>
