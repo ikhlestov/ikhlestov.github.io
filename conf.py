@@ -133,9 +133,9 @@ NAVIGATION_LINKS = {
         ("/", "Blog"),
         ("/pages/", "Pages"),
         ("/listings/", "Listings"),
-        ("/categories/", "Tags"),
+        # ("/categories/", "Tags"),
         ("/archive.html", "Archive"),
-        # ("/about/", "About"),
+        # ("/about-me/", "About me"),
         # ("/rss.xml", "RSS feed"),
     ),
 }
@@ -185,6 +185,9 @@ PAGES = (
     ("pages/*.txt", "pages", "story.tmpl"),
     ("pages/*.html", "pages", "story.tmpl"),
     ("pages/*.md", "pages", "story.tmpl"),
+    # added for about page
+    ("about-me/*.rst", "about-me", "story.tmpl"),
+
 )
 
 
@@ -986,7 +989,7 @@ MARKDOWN_EXTENSIONS = ['fenced_code', 'codehilite', 'extra']
 
 # Show link to source for the posts?
 # Formerly known as HIDE_SOURCELINK (inverse)
-# SHOW_SOURCELINK = True
+SHOW_SOURCELINK = False
 # Copy the source files for your pages?
 # Setting it to False implies SHOW_SOURCELINK = False
 # COPY_SOURCES = True
