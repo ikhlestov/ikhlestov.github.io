@@ -76,3 +76,10 @@ for feature in combined_set.columns:
     if combined_set[feature].dtype == 'object':
         # Replace strings with an integer
         combined_set[feature] = pd.Categorical(combined_set[feature]).codes
+
+# create pandas data frame from data and save it
+# assume that data - nested list of lists, when each nested list - values for one line
+columns = ['word_1', 'word_2', 'target_similarity', 'calculated_similarity']
+df = pd.DataFrame(data=data, columns=columns)
+df = pd.DataFrame(data=csv_lines, columns=columns)
+df.to_csv(save_file_name, index=False, header=True)

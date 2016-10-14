@@ -146,7 +146,14 @@ MathJax.Hub.Config({
 <a href="#listingspandaspy-75">75</a>
 <a href="#listingspandaspy-76">76</a>
 <a href="#listingspandaspy-77">77</a>
-<a href="#listingspandaspy-78">78</a></pre></div></td>
+<a href="#listingspandaspy-78">78</a>
+<a href="#listingspandaspy-79">79</a>
+<a href="#listingspandaspy-80">80</a>
+<a href="#listingspandaspy-81">81</a>
+<a href="#listingspandaspy-82">82</a>
+<a href="#listingspandaspy-83">83</a>
+<a href="#listingspandaspy-84">84</a>
+<a href="#listingspandaspy-85">85</a></pre></div></td>
 <td class="code"><pre class="code literal-block"><a name="listingspandaspy-1"></a><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 <a name="listingspandaspy-2"></a>
 <a name="listingspandaspy-3"></a><span class="c1"># load the data</span>
@@ -225,6 +232,13 @@ MathJax.Hub.Config({
 <a name="listingspandaspy-76"></a>    <span class="k">if</span> <span class="n">combined_set</span><span class="p">[</span><span class="n">feature</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="s1">'object'</span><span class="p">:</span>
 <a name="listingspandaspy-77"></a>        <span class="c1"># Replace strings with an integer</span>
 <a name="listingspandaspy-78"></a>        <span class="n">combined_set</span><span class="p">[</span><span class="n">feature</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Categorical</span><span class="p">(</span><span class="n">combined_set</span><span class="p">[</span><span class="n">feature</span><span class="p">])</span><span class="o">.</span><span class="n">codes</span>
+<a name="listingspandaspy-79"></a>
+<a name="listingspandaspy-80"></a><span class="c1"># create pandas data frame from data and save it</span>
+<a name="listingspandaspy-81"></a><span class="c1"># assume that data - nested list of lists, when each nested list - values for one line</span>
+<a name="listingspandaspy-82"></a><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'word_1'</span><span class="p">,</span> <span class="s1">'word_2'</span><span class="p">,</span> <span class="s1">'target_similarity'</span><span class="p">,</span> <span class="s1">'calculated_similarity'</span><span class="p">]</span>
+<a name="listingspandaspy-83"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">columns</span><span class="p">)</span>
+<a name="listingspandaspy-84"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">csv_lines</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">columns</span><span class="p">)</span>
+<a name="listingspandaspy-85"></a><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">save_file_name</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 </pre></td>
 </tr></table>
 </div>

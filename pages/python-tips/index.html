@@ -80,12 +80,12 @@ MathJax.Hub.Config({
     </header><div class="e-content entry-content" itemprop="articleBody text">
     <div>
 <p>exit from ipdb(for example in case of&nbsp;loop)</p>
-<pre class="code python"><a name="rest_code_87ed7dc7c41a4075a168e6c5a8abca3f-1"></a><span class="kn">import</span> <span class="nn">os</span><span class="p">;</span> <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">'kill -9 </span><span class="si">%d</span><span class="s1">'</span> <span class="o">%</span> <span class="n">os</span><span class="o">.</span><span class="n">getpid</span><span class="p">())</span>
+<pre class="code python"><a name="rest_code_ccc2bff1010a444687884919011cc9af-1"></a><span class="kn">import</span> <span class="nn">os</span><span class="p">;</span> <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">'kill -9 </span><span class="si">%d</span><span class="s1">'</span> <span class="o">%</span> <span class="n">os</span><span class="o">.</span><span class="n">getpid</span><span class="p">())</span>
 </pre>
 <p>also you may place such alias in <tt class="docutils literal">.pdbrc</tt> file at home or project&nbsp;folder</p>
-<pre class="code python"><a name="rest_code_a0cedad44401426da98d4dc9c8a1b382-1"></a><span class="kn">import</span> <span class="nn">os</span>
-<a name="rest_code_a0cedad44401426da98d4dc9c8a1b382-2"></a>
-<a name="rest_code_a0cedad44401426da98d4dc9c8a1b382-3"></a><span class="n">alias</span> <span class="n">kk</span> <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">'kill -9 </span><span class="si">%d</span><span class="s1">'</span> <span class="o">%</span> <span class="n">os</span><span class="o">.</span><span class="n">getpid</span><span class="p">())</span>
+<pre class="code python"><a name="rest_code_42ae53b2fca547dfba2869e0b081dd3c-1"></a><span class="kn">import</span> <span class="nn">os</span>
+<a name="rest_code_42ae53b2fca547dfba2869e0b081dd3c-2"></a>
+<a name="rest_code_42ae53b2fca547dfba2869e0b081dd3c-3"></a><span class="n">alias</span> <span class="n">kk</span> <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">'kill -9 </span><span class="si">%d</span><span class="s1">'</span> <span class="o">%</span> <span class="n">os</span><span class="o">.</span><span class="n">getpid</span><span class="p">())</span>
 </pre>
 <p>or just jump to some line <tt class="docutils literal">j 22</tt></p>
 </div>
