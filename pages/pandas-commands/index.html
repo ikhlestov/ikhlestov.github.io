@@ -64,7 +64,12 @@ MathJax.Hub.Config({
                 
             </li>
 </ul>
-<ul class="nav navbar-nav navbar-right"></ul>
+<ul class="nav navbar-nav navbar-right">
+<li>
+    <a href="index.rst" id="sourcelink">Source</a>
+    </li>
+                
+            </ul>
 </div>
 <!-- /.navbar-collapse -->
     </div>
@@ -81,91 +86,91 @@ MathJax.Hub.Config({
     <div>
 <p>List of usefull commands for pandas&nbsp;framework</p>
 <p><a class="reference external" href="../../listings/pandas.py.html">pandas.py</a></p>
-<pre class="code python"><a name="rest_code_10fa0d812e544c68bcbbe886b031234f-1"></a><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-2"></a>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-3"></a><span class="c1"># load the data</span>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-4"></a><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"csv_name.csv"</span><span class="p">)</span>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-5"></a>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-6"></a><span class="c1"># get first lines of data</span>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-7"></a><span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-8"></a>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-9"></a><span class="c1"># get useful info regarding datased</span>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-10"></a><span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-11"></a><span class="k">print</span><span class="p">(</span><span class="n">train_set</span><span class="o">.</span><span class="n">info</span><span class="p">())</span>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-12"></a>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-13"></a><span class="c1"># change print options of pandas</span>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-14"></a><span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">display</span><span class="o">.&lt;</span><span class="n">tab</span><span class="o">&gt;</span>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-15"></a>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-16"></a><span class="c1"># fill not existing variabels in column with median</span>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-17"></a><span class="n">data</span><span class="p">[</span><span class="s1">'Age'</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">"Age"</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">"Age"</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">())</span>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-18"></a>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-19"></a><span class="c1"># select all 'male' records from the "Sex" column</span>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-20"></a><span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s2">"Sex"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"male"</span><span class="p">,</span> <span class="s2">"Sex"</span><span class="p">]</span>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-21"></a>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-22"></a><span class="c1"># replace all values with 0</span>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-23"></a><span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s2">"Sex"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"male"</span><span class="p">,</span> <span class="s2">"Sex"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-24"></a><span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">bool_mask</span><span class="p">,</span> <span class="s2">"column_to_fetch"</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-25"></a>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-26"></a><span class="c1"># get unique values from column</span>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-27"></a><span class="n">data</span><span class="p">[</span><span class="s2">"Embarked"</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-28"></a>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-29"></a><span class="c1"># select only required rows</span>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-30"></a><span class="n">data</span><span class="p">[[</span><span class="s2">"Pclass"</span><span class="p">,</span> <span class="s2">"Sex"</span><span class="p">,</span> <span class="s2">"Age"</span><span class="p">,</span> <span class="s2">"SibSp"</span><span class="p">,</span> <span class="s2">"Parch"</span><span class="p">,</span> <span class="s2">"Fare"</span><span class="p">,</span> <span class="s2">"Embarked"</span><span class="p">]]</span>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-31"></a>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-32"></a><span class="c1"># count values in data frame</span>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-33"></a><span class="c1"># get how many "True" entries exist in data frame</span>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-34"></a><span class="n">tmp_res</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()[</span><span class="bp">True</span><span class="p">]</span>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-35"></a>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-36"></a><span class="c1"># another way to count data from list</span>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-37"></a><span class="n">titles</span> <span class="o">=</span> <span class="n">titanic</span><span class="p">[</span><span class="s2">"Name"</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">get_title</span><span class="p">)</span>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-38"></a><span class="k">print</span><span class="p">(</span><span class="n">pandas</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">titles</span><span class="p">))</span>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-39"></a>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-40"></a><span class="c1"># generate new column from previous one</span>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-41"></a><span class="n">titanic</span><span class="p">[</span><span class="s2">"FamilySize"</span><span class="p">]</span> <span class="o">=</span> <span class="n">titanic</span><span class="p">[</span><span class="s2">"SibSp"</span><span class="p">]</span> <span class="o">+</span> <span class="n">titanic</span><span class="p">[</span><span class="s2">"Parch"</span><span class="p">]</span>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-42"></a>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-43"></a><span class="c1"># generate new column with .apply method</span>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-44"></a><span class="c1"># The .apply method generates a new series</span>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-45"></a><span class="n">titanic</span><span class="p">[</span><span class="s2">"NameLength"</span><span class="p">]</span> <span class="o">=</span> <span class="n">titanic</span><span class="p">[</span><span class="s2">"Name"</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-46"></a>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-47"></a><span class="c1"># but sometimes more useful to apply method "by hands"</span>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-48"></a><span class="c1"># we have nearly the same perfomance, but more verbose output</span>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-49"></a><span class="c1"># previously you should install "tqdm"</span>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-50"></a><span class="n">result_array</span> <span class="o">=</span> <span class="p">[]</span>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-51"></a><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">xrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">"column_name"</span><span class="p">]))):</span>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-52"></a>    <span class="n">new_data</span> <span class="o">=</span> <span class="n">some_function</span><span class="p">(</span> <span class="n">data</span><span class="p">[</span><span class="s2">"column_name"</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="p">)</span>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-53"></a>    <span class="n">result_array</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_data</span><span class="p">)</span>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-54"></a>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-55"></a><span class="c1"># skip rows during data loading</span>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-56"></a><span class="n">test_set</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'http://archive.ics.uci.edu/ml/machine-learning-databases/adult/adult.test'</span><span class="p">,</span>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-57"></a>                      <span class="n">skiprows</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="bp">None</span><span class="p">)</span>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-58"></a>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-59"></a><span class="c1"># add names for colums</span>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-60"></a><span class="n">column_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'first'</span><span class="p">,</span> <span class="s1">'second'</span><span class="p">,</span> <span class="s1">'title'</span><span class="p">]</span>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-61"></a><span class="n">test_set</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">column_labels</span>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-62"></a>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-63"></a><span class="c1"># remove all rows contains '?' question mark</span>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-64"></a><span class="n">train_set</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">' ?'</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-65"></a>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-66"></a><span class="c1"># replace one value by another in column</span>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-67"></a><span class="n">test_nomissing</span><span class="p">[</span><span class="s1">'wage_class'</span><span class="p">]</span> <span class="o">=</span> <span class="n">test_nomissing</span><span class="o">.</span><span class="n">wage_class</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span><span class="s1">' &lt;=50K.'</span><span class="p">:</span> <span class="s1">' &lt;=50K'</span><span class="p">,</span> <span class="s1">' &gt;50K.'</span><span class="p">:</span><span class="s1">' &gt;50K'</span><span class="p">})</span>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-68"></a>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-69"></a><span class="c1"># concatenate two datasets vertically</span>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-70"></a><span class="n">combined_set</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">train_nomissing</span><span class="p">,</span> <span class="n">test_nomissing</span><span class="p">],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-71"></a>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-72"></a><span class="c1"># replace every sting value to the integer</span>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-73"></a><span class="c1"># Loop through all columns in the dataframe</span>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-74"></a><span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">combined_set</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-75"></a>    <span class="c1"># Only apply for columns with categorical strings</span>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-76"></a>    <span class="k">if</span> <span class="n">combined_set</span><span class="p">[</span><span class="n">feature</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="s1">'object'</span><span class="p">:</span>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-77"></a>        <span class="c1"># Replace strings with an integer</span>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-78"></a>        <span class="n">combined_set</span><span class="p">[</span><span class="n">feature</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Categorical</span><span class="p">(</span><span class="n">combined_set</span><span class="p">[</span><span class="n">feature</span><span class="p">])</span><span class="o">.</span><span class="n">codes</span>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-79"></a>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-80"></a><span class="c1"># create pandas data frame from data and save it</span>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-81"></a><span class="c1"># assume that data - nested list of lists, when each nested list - values for one line</span>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-82"></a><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'word_1'</span><span class="p">,</span> <span class="s1">'word_2'</span><span class="p">,</span> <span class="s1">'target_similarity'</span><span class="p">,</span> <span class="s1">'calculated_similarity'</span><span class="p">]</span>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-83"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">columns</span><span class="p">)</span>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-84"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">csv_lines</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">columns</span><span class="p">)</span>
-<a name="rest_code_10fa0d812e544c68bcbbe886b031234f-85"></a><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">save_file_name</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<pre class="code python"><a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-1"></a><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-2"></a>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-3"></a><span class="c1"># load the data</span>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-4"></a><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"csv_name.csv"</span><span class="p">)</span>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-5"></a>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-6"></a><span class="c1"># get first lines of data</span>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-7"></a><span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-8"></a>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-9"></a><span class="c1"># get useful info regarding datased</span>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-10"></a><span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-11"></a><span class="k">print</span><span class="p">(</span><span class="n">train_set</span><span class="o">.</span><span class="n">info</span><span class="p">())</span>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-12"></a>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-13"></a><span class="c1"># change print options of pandas</span>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-14"></a><span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">display</span><span class="o">.&lt;</span><span class="n">tab</span><span class="o">&gt;</span>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-15"></a>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-16"></a><span class="c1"># fill not existing variabels in column with median</span>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-17"></a><span class="n">data</span><span class="p">[</span><span class="s1">'Age'</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">"Age"</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">"Age"</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">())</span>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-18"></a>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-19"></a><span class="c1"># select all 'male' records from the "Sex" column</span>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-20"></a><span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s2">"Sex"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"male"</span><span class="p">,</span> <span class="s2">"Sex"</span><span class="p">]</span>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-21"></a>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-22"></a><span class="c1"># replace all values with 0</span>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-23"></a><span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s2">"Sex"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"male"</span><span class="p">,</span> <span class="s2">"Sex"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-24"></a><span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">bool_mask</span><span class="p">,</span> <span class="s2">"column_to_fetch"</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-25"></a>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-26"></a><span class="c1"># get unique values from column</span>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-27"></a><span class="n">data</span><span class="p">[</span><span class="s2">"Embarked"</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-28"></a>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-29"></a><span class="c1"># select only required rows</span>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-30"></a><span class="n">data</span><span class="p">[[</span><span class="s2">"Pclass"</span><span class="p">,</span> <span class="s2">"Sex"</span><span class="p">,</span> <span class="s2">"Age"</span><span class="p">,</span> <span class="s2">"SibSp"</span><span class="p">,</span> <span class="s2">"Parch"</span><span class="p">,</span> <span class="s2">"Fare"</span><span class="p">,</span> <span class="s2">"Embarked"</span><span class="p">]]</span>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-31"></a>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-32"></a><span class="c1"># count values in data frame</span>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-33"></a><span class="c1"># get how many "True" entries exist in data frame</span>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-34"></a><span class="n">tmp_res</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()[</span><span class="bp">True</span><span class="p">]</span>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-35"></a>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-36"></a><span class="c1"># another way to count data from list</span>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-37"></a><span class="n">titles</span> <span class="o">=</span> <span class="n">titanic</span><span class="p">[</span><span class="s2">"Name"</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">get_title</span><span class="p">)</span>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-38"></a><span class="k">print</span><span class="p">(</span><span class="n">pandas</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">titles</span><span class="p">))</span>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-39"></a>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-40"></a><span class="c1"># generate new column from previous one</span>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-41"></a><span class="n">titanic</span><span class="p">[</span><span class="s2">"FamilySize"</span><span class="p">]</span> <span class="o">=</span> <span class="n">titanic</span><span class="p">[</span><span class="s2">"SibSp"</span><span class="p">]</span> <span class="o">+</span> <span class="n">titanic</span><span class="p">[</span><span class="s2">"Parch"</span><span class="p">]</span>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-42"></a>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-43"></a><span class="c1"># generate new column with .apply method</span>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-44"></a><span class="c1"># The .apply method generates a new series</span>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-45"></a><span class="n">titanic</span><span class="p">[</span><span class="s2">"NameLength"</span><span class="p">]</span> <span class="o">=</span> <span class="n">titanic</span><span class="p">[</span><span class="s2">"Name"</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-46"></a>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-47"></a><span class="c1"># but sometimes more useful to apply method "by hands"</span>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-48"></a><span class="c1"># we have nearly the same perfomance, but more verbose output</span>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-49"></a><span class="c1"># previously you should install "tqdm"</span>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-50"></a><span class="n">result_array</span> <span class="o">=</span> <span class="p">[]</span>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-51"></a><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">xrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">"column_name"</span><span class="p">]))):</span>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-52"></a>    <span class="n">new_data</span> <span class="o">=</span> <span class="n">some_function</span><span class="p">(</span> <span class="n">data</span><span class="p">[</span><span class="s2">"column_name"</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="p">)</span>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-53"></a>    <span class="n">result_array</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_data</span><span class="p">)</span>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-54"></a>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-55"></a><span class="c1"># skip rows during data loading</span>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-56"></a><span class="n">test_set</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'http://archive.ics.uci.edu/ml/machine-learning-databases/adult/adult.test'</span><span class="p">,</span>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-57"></a>                      <span class="n">skiprows</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="bp">None</span><span class="p">)</span>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-58"></a>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-59"></a><span class="c1"># add names for colums</span>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-60"></a><span class="n">column_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'first'</span><span class="p">,</span> <span class="s1">'second'</span><span class="p">,</span> <span class="s1">'title'</span><span class="p">]</span>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-61"></a><span class="n">test_set</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">column_labels</span>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-62"></a>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-63"></a><span class="c1"># remove all rows contains '?' question mark</span>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-64"></a><span class="n">train_set</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">' ?'</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-65"></a>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-66"></a><span class="c1"># replace one value by another in column</span>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-67"></a><span class="n">test_nomissing</span><span class="p">[</span><span class="s1">'wage_class'</span><span class="p">]</span> <span class="o">=</span> <span class="n">test_nomissing</span><span class="o">.</span><span class="n">wage_class</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span><span class="s1">' &lt;=50K.'</span><span class="p">:</span> <span class="s1">' &lt;=50K'</span><span class="p">,</span> <span class="s1">' &gt;50K.'</span><span class="p">:</span><span class="s1">' &gt;50K'</span><span class="p">})</span>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-68"></a>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-69"></a><span class="c1"># concatenate two datasets vertically</span>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-70"></a><span class="n">combined_set</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">train_nomissing</span><span class="p">,</span> <span class="n">test_nomissing</span><span class="p">],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-71"></a>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-72"></a><span class="c1"># replace every sting value to the integer</span>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-73"></a><span class="c1"># Loop through all columns in the dataframe</span>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-74"></a><span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">combined_set</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-75"></a>    <span class="c1"># Only apply for columns with categorical strings</span>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-76"></a>    <span class="k">if</span> <span class="n">combined_set</span><span class="p">[</span><span class="n">feature</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="s1">'object'</span><span class="p">:</span>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-77"></a>        <span class="c1"># Replace strings with an integer</span>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-78"></a>        <span class="n">combined_set</span><span class="p">[</span><span class="n">feature</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Categorical</span><span class="p">(</span><span class="n">combined_set</span><span class="p">[</span><span class="n">feature</span><span class="p">])</span><span class="o">.</span><span class="n">codes</span>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-79"></a>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-80"></a><span class="c1"># create pandas data frame from data and save it</span>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-81"></a><span class="c1"># assume that data - nested list of lists, when each nested list - values for one line</span>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-82"></a><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'word_1'</span><span class="p">,</span> <span class="s1">'word_2'</span><span class="p">,</span> <span class="s1">'target_similarity'</span><span class="p">,</span> <span class="s1">'calculated_similarity'</span><span class="p">]</span>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-83"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">columns</span><span class="p">)</span>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-84"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">csv_lines</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">columns</span><span class="p">)</span>
+<a name="rest_code_b3d2363a58ed4d04b60d5dbbd797fbf6-85"></a><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">save_file_name</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 </pre>
 </div>
     </div>

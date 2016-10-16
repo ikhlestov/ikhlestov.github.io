@@ -68,7 +68,12 @@ reshaped = initial_dat">
                 
             </li>
 </ul>
-<ul class="nav navbar-nav navbar-right"></ul>
+<ul class="nav navbar-nav navbar-right">
+<li>
+    <a href="index.rst" id="sourcelink">Source</a>
+    </li>
+                
+            </ul>
 </div>
 <!-- /.navbar-collapse -->
     </div>
@@ -84,52 +89,52 @@ reshaped = initial_dat">
     </header><div class="e-content entry-content" itemprop="articleBody text">
     <div>
 <p>If you want create batches, where N+1 batch will follow N batch, try&nbsp;this:</p>
-<pre class="code python"><a name="rest_code_86702656517b4f2fa728dc6d05429dc0-1"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<a name="rest_code_86702656517b4f2fa728dc6d05429dc0-2"></a>
-<a name="rest_code_86702656517b4f2fa728dc6d05429dc0-3"></a><span class="n">batch_quantity</span> <span class="o">=</span> <span class="mi">3</span>
-<a name="rest_code_86702656517b4f2fa728dc6d05429dc0-4"></a><span class="n">batch_size</span> <span class="o">=</span> <span class="mi">2</span>
-<a name="rest_code_86702656517b4f2fa728dc6d05429dc0-5"></a><span class="n">some_embedding</span> <span class="o">=</span> <span class="mi">4</span>
-<a name="rest_code_86702656517b4f2fa728dc6d05429dc0-6"></a>
-<a name="rest_code_86702656517b4f2fa728dc6d05429dc0-7"></a><span class="n">initial_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">24</span><span class="p">)</span>
-<a name="rest_code_86702656517b4f2fa728dc6d05429dc0-8"></a><span class="n">reshaped</span> <span class="o">=</span> <span class="n">initial_data</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">batch_quantity</span><span class="p">,</span> <span class="n">some_embedding</span><span class="p">)</span>
-<a name="rest_code_86702656517b4f2fa728dc6d05429dc0-9"></a><span class="n">result_data</span> <span class="o">=</span> <span class="n">reshaped</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<a name="rest_code_86702656517b4f2fa728dc6d05429dc0-10"></a>
-<a name="rest_code_86702656517b4f2fa728dc6d05429dc0-11"></a><span class="k">print</span><span class="p">(</span><span class="n">result_data</span><span class="p">)</span>
-<a name="rest_code_86702656517b4f2fa728dc6d05429dc0-12"></a><span class="c1"># [[[ 0  1  2  3]</span>
-<a name="rest_code_86702656517b4f2fa728dc6d05429dc0-13"></a><span class="c1">#   [12 13 14 15]]</span>
-<a name="rest_code_86702656517b4f2fa728dc6d05429dc0-14"></a><span class="c1">#</span>
-<a name="rest_code_86702656517b4f2fa728dc6d05429dc0-15"></a><span class="c1">#  [[ 4  5  6  7]</span>
-<a name="rest_code_86702656517b4f2fa728dc6d05429dc0-16"></a><span class="c1">#   [16 17 18 19]]</span>
-<a name="rest_code_86702656517b4f2fa728dc6d05429dc0-17"></a><span class="c1">#</span>
-<a name="rest_code_86702656517b4f2fa728dc6d05429dc0-18"></a><span class="c1">#  [[ 8  9 10 11]</span>
-<a name="rest_code_86702656517b4f2fa728dc6d05429dc0-19"></a><span class="c1">#   [20 21 22 23]]]</span>
+<pre class="code python"><a name="rest_code_bd8533384c914659afafdf0ae50ac078-1"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<a name="rest_code_bd8533384c914659afafdf0ae50ac078-2"></a>
+<a name="rest_code_bd8533384c914659afafdf0ae50ac078-3"></a><span class="n">batch_quantity</span> <span class="o">=</span> <span class="mi">3</span>
+<a name="rest_code_bd8533384c914659afafdf0ae50ac078-4"></a><span class="n">batch_size</span> <span class="o">=</span> <span class="mi">2</span>
+<a name="rest_code_bd8533384c914659afafdf0ae50ac078-5"></a><span class="n">some_embedding</span> <span class="o">=</span> <span class="mi">4</span>
+<a name="rest_code_bd8533384c914659afafdf0ae50ac078-6"></a>
+<a name="rest_code_bd8533384c914659afafdf0ae50ac078-7"></a><span class="n">initial_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">24</span><span class="p">)</span>
+<a name="rest_code_bd8533384c914659afafdf0ae50ac078-8"></a><span class="n">reshaped</span> <span class="o">=</span> <span class="n">initial_data</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">batch_quantity</span><span class="p">,</span> <span class="n">some_embedding</span><span class="p">)</span>
+<a name="rest_code_bd8533384c914659afafdf0ae50ac078-9"></a><span class="n">result_data</span> <span class="o">=</span> <span class="n">reshaped</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<a name="rest_code_bd8533384c914659afafdf0ae50ac078-10"></a>
+<a name="rest_code_bd8533384c914659afafdf0ae50ac078-11"></a><span class="k">print</span><span class="p">(</span><span class="n">result_data</span><span class="p">)</span>
+<a name="rest_code_bd8533384c914659afafdf0ae50ac078-12"></a><span class="c1"># [[[ 0  1  2  3]</span>
+<a name="rest_code_bd8533384c914659afafdf0ae50ac078-13"></a><span class="c1">#   [12 13 14 15]]</span>
+<a name="rest_code_bd8533384c914659afafdf0ae50ac078-14"></a><span class="c1">#</span>
+<a name="rest_code_bd8533384c914659afafdf0ae50ac078-15"></a><span class="c1">#  [[ 4  5  6  7]</span>
+<a name="rest_code_bd8533384c914659afafdf0ae50ac078-16"></a><span class="c1">#   [16 17 18 19]]</span>
+<a name="rest_code_bd8533384c914659afafdf0ae50ac078-17"></a><span class="c1">#</span>
+<a name="rest_code_bd8533384c914659afafdf0ae50ac078-18"></a><span class="c1">#  [[ 8  9 10 11]</span>
+<a name="rest_code_bd8533384c914659afafdf0ae50ac078-19"></a><span class="c1">#   [20 21 22 23]]]</span>
 </pre>
 <p>Another info&nbsp;notes:</p>
 <p><a class="reference external" href="../../listings/numpy.py.html">numpy.py</a></p>
-<pre class="code python"><a name="rest_code_dd407489dd6441828ce4cb3da095e611-1"></a><span class="c1"># change display methods</span>
-<a name="rest_code_dd407489dd6441828ce4cb3da095e611-2"></a><span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<a name="rest_code_dd407489dd6441828ce4cb3da095e611-3"></a><span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">suppress</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-<a name="rest_code_dd407489dd6441828ce4cb3da095e611-4"></a>
-<a name="rest_code_dd407489dd6441828ce4cb3da095e611-5"></a><span class="c1"># split some array in folds(numpy)</span>
-<a name="rest_code_dd407489dd6441828ce4cb3da095e611-6"></a><span class="n">y_folds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array_split</span><span class="p">(</span><span class="n">y_digits</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<a name="rest_code_dd407489dd6441828ce4cb3da095e611-7"></a>
-<a name="rest_code_dd407489dd6441828ce4cb3da095e611-8"></a><span class="c1"># shuffle the indices for test data</span>
-<a name="rest_code_dd407489dd6441828ce4cb3da095e611-9"></a><span class="n">indexes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">iris_X</span><span class="p">))</span>
-<a name="rest_code_dd407489dd6441828ce4cb3da095e611-10"></a>
-<a name="rest_code_dd407489dd6441828ce4cb3da095e611-11"></a><span class="c1"># select max value based on another array max value(numpy)</span>
-<a name="rest_code_dd407489dd6441828ce4cb3da095e611-12"></a><span class="n">best_alpha</span> <span class="o">=</span> <span class="n">alphas</span><span class="p">[</span><span class="n">scores</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">scores</span><span class="p">))]</span>
-<a name="rest_code_dd407489dd6441828ce4cb3da095e611-13"></a>
-<a name="rest_code_dd407489dd6441828ce4cb3da095e611-14"></a><span class="c1"># reshape one array to another one shape</span>
-<a name="rest_code_dd407489dd6441828ce4cb3da095e611-15"></a><span class="n">face_compressed</span><span class="o">.</span><span class="n">shape</span> <span class="o">=</span> <span class="n">face</span><span class="o">.</span><span class="n">shape</span>
-<a name="rest_code_dd407489dd6441828ce4cb3da095e611-16"></a>
-<a name="rest_code_dd407489dd6441828ce4cb3da095e611-17"></a><span class="c1"># Reshape numpy array with dynamically calculated second dimension</span>
-<a name="rest_code_dd407489dd6441828ce4cb3da095e611-18"></a><span class="n">test_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
-<a name="rest_code_dd407489dd6441828ce4cb3da095e611-19"></a><span class="n">test_data</span><span class="o">.</span><span class="n">shape</span>  <span class="c1"># (4, 3)</span>
-<a name="rest_code_dd407489dd6441828ce4cb3da095e611-20"></a><span class="n">reshaped</span> <span class="o">=</span> <span class="n">test_data</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">6</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
-<a name="rest_code_dd407489dd6441828ce4cb3da095e611-21"></a><span class="n">reshaped</span><span class="o">.</span><span class="n">shape</span>  <span class="c1"># (6, 2)</span>
-<a name="rest_code_dd407489dd6441828ce4cb3da095e611-22"></a>
-<a name="rest_code_dd407489dd6441828ce4cb3da095e611-23"></a><span class="c1"># Create list of 3 random items form 0 to 255</span>
-<a name="rest_code_dd407489dd6441828ce4cb3da095e611-24"></a><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="p">))</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<pre class="code python"><a name="rest_code_d019e2e820934d6ab1e1e8e7ad44e6ee-1"></a><span class="c1"># change display methods</span>
+<a name="rest_code_d019e2e820934d6ab1e1e8e7ad44e6ee-2"></a><span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<a name="rest_code_d019e2e820934d6ab1e1e8e7ad44e6ee-3"></a><span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">suppress</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<a name="rest_code_d019e2e820934d6ab1e1e8e7ad44e6ee-4"></a>
+<a name="rest_code_d019e2e820934d6ab1e1e8e7ad44e6ee-5"></a><span class="c1"># split some array in folds(numpy)</span>
+<a name="rest_code_d019e2e820934d6ab1e1e8e7ad44e6ee-6"></a><span class="n">y_folds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array_split</span><span class="p">(</span><span class="n">y_digits</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<a name="rest_code_d019e2e820934d6ab1e1e8e7ad44e6ee-7"></a>
+<a name="rest_code_d019e2e820934d6ab1e1e8e7ad44e6ee-8"></a><span class="c1"># shuffle the indices for test data</span>
+<a name="rest_code_d019e2e820934d6ab1e1e8e7ad44e6ee-9"></a><span class="n">indexes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">iris_X</span><span class="p">))</span>
+<a name="rest_code_d019e2e820934d6ab1e1e8e7ad44e6ee-10"></a>
+<a name="rest_code_d019e2e820934d6ab1e1e8e7ad44e6ee-11"></a><span class="c1"># select max value based on another array max value(numpy)</span>
+<a name="rest_code_d019e2e820934d6ab1e1e8e7ad44e6ee-12"></a><span class="n">best_alpha</span> <span class="o">=</span> <span class="n">alphas</span><span class="p">[</span><span class="n">scores</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">scores</span><span class="p">))]</span>
+<a name="rest_code_d019e2e820934d6ab1e1e8e7ad44e6ee-13"></a>
+<a name="rest_code_d019e2e820934d6ab1e1e8e7ad44e6ee-14"></a><span class="c1"># reshape one array to another one shape</span>
+<a name="rest_code_d019e2e820934d6ab1e1e8e7ad44e6ee-15"></a><span class="n">face_compressed</span><span class="o">.</span><span class="n">shape</span> <span class="o">=</span> <span class="n">face</span><span class="o">.</span><span class="n">shape</span>
+<a name="rest_code_d019e2e820934d6ab1e1e8e7ad44e6ee-16"></a>
+<a name="rest_code_d019e2e820934d6ab1e1e8e7ad44e6ee-17"></a><span class="c1"># Reshape numpy array with dynamically calculated second dimension</span>
+<a name="rest_code_d019e2e820934d6ab1e1e8e7ad44e6ee-18"></a><span class="n">test_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<a name="rest_code_d019e2e820934d6ab1e1e8e7ad44e6ee-19"></a><span class="n">test_data</span><span class="o">.</span><span class="n">shape</span>  <span class="c1"># (4, 3)</span>
+<a name="rest_code_d019e2e820934d6ab1e1e8e7ad44e6ee-20"></a><span class="n">reshaped</span> <span class="o">=</span> <span class="n">test_data</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">6</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+<a name="rest_code_d019e2e820934d6ab1e1e8e7ad44e6ee-21"></a><span class="n">reshaped</span><span class="o">.</span><span class="n">shape</span>  <span class="c1"># (6, 2)</span>
+<a name="rest_code_d019e2e820934d6ab1e1e8e7ad44e6ee-22"></a>
+<a name="rest_code_d019e2e820934d6ab1e1e8e7ad44e6ee-23"></a><span class="c1"># Create list of 3 random items form 0 to 255</span>
+<a name="rest_code_d019e2e820934d6ab1e1e8e7ad44e6ee-24"></a><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="p">))</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
 </pre>
 </div>
     </div>
