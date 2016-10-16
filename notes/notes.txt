@@ -1,0 +1,88 @@
+https://getnikola.com/getting-started.html
+https://getnikola.com/handbook.html#deployment
+http://areskibelaid.com/nikola-one-kickass-site-generator/
+http://shisaa.jp/postset/nikola-web.html
+
+### Usefull commands
+# start new
+to use rst_base type
+nikola new_post --title="Demo rst" --import=rst_base
+nikola new_page
+
+# deploy to github
+nikola github_deploy
+
+# render
+1. nikola rst2html pages/home.rst | bcat
+2. ctrl+alt+O
+
+take from here http://louistiao.me/posts/how-i-customized-my-nikola-powered-site/
+
+list of supported highliters 
+https://haisum.github.io/2014/11/07/jekyll-pygments-supported-highlighters/
+
+# post types
+.. type: text/ micro
+
+### Nikola engine itself notes
+# code block
+.. code-block:: python
+   :number-lines:
+
+   def sieve_of_eratosthenes():
+       factors = defaultdict(set)
+       for n in count(2):
+           if factors[n]:
+               for m in factors.pop(n):
+                   factors[n+m].add(m)
+           else:
+               factors[n*n].add(n)
+               yield n
+
+# create teasers
+.. TEASER_END
+
+# add post list for related tag
+.. post-list::
+   :tags: nikola
+
+# maybe use redirections for about page?
+REDIRECTIONS = [("about.html", "/pages/about.html")]
+
+# Math formulas
+Euler’s formula: :math:`e^{ix} = \cos x + i\sin x`
+
+.. math::
+
+   \int \frac{dx}{1+ax}=\frac{1}{a}\ln(1+ax)+C
+
+# Thumbnails
+.. thumbnail:: ../tesla.jpg
+
+   Nikola Tesla, the man that invented the 20th century.
+
+# also you may try to use figure, not thumbnails
+.. figure:: /images/ML_notes/strides.png
+
+# chart example
+# more here https://getnikola.com/handbook.html#chart
+.. chart:: Bar
+   :title: 'Browser usage evolution (in %)'
+   :x_labels: ["2002", "2003", "2004", "2005", "2006", "2007"]
+
+   'Firefox', [None, None, 0, 16.6, 25, 31]
+   'Chrome',  [None, None, None, None, None, None]
+   'IE',      [85.8, 84.6, 84.7, 74.5, 66, 58.6]
+   'Others',  [14.2, 15.4, 15.3, 8.9, 9, 10.4]
+
+
+# Docs
+Take a look at :doc:`my other post <creating-a-theme>` about theme creating.
+Take a look at :doc:`creating-a-theme` to know how to do it.
+
+# Listing
+.. listing:: foo.py python
+
+
+# LaTex
+To define matrix do not us `\&` and `\\` but use `\ ` and `\\\`

@@ -64,6 +64,36 @@ So now gradinet can be computed as:
     \nabla C \approx \frac{1}{m}\sum_{j=1}^m \nabla C_{X_j}
 
 
+Part II
+=======
+
+.. image:: /images/ML_notes/weights_notation.png
+
+image from `this book <http://neuralnetworksanddeeplearning.com/chap2.html>`__
+
+*Elementwise* product of the two vectors denoted as :math:`s \odot t` and can be called sometimes *Hadamard product* or *Schur product*.  
+Her is an example:
+
+.. math::
+  \left[\begin{array}{c} 1 \\\ 2 \end{array}\right] 
+    \odot \left[\begin{array}{c} 3 \\\ 4\end{array} \right]
+  = \left[ \begin{array}{c} 1 * 3 \\\ 2 * 4 \end{array} \right]
+  = \left[ \begin{array}{c} 3 \\\ 8 \end{array} \right]
+
+In tensorflow you should distinguish usual matrix multiplication and hadamard product
+
+.. code-block:: python
+
+  # W, Q - some matrices
+  
+  # matrix multiplication
+  res = math_ops.matmul(W, Q)
+  
+  # hadamard product
+  res = W * Q
+
+
+
 Evaluation of algorithm
 =======================
 
@@ -71,7 +101,7 @@ What we should do:
 
 1. Split the dataset into three portions: train set, validate set and test set, in a proportion 3:1:1.
 
-2. When the number of examples *m* increase, the cost :math:`{J_{test}}` increases, while :math:`{J_{val}}` decrease. When *m* is very large, if :math:`{J_{test}}` is about equal to :math:`{J_{val}}` the algorithm may suffer from large bias(underfiting), while if there is a gap between :math:`{J_{test}}` and :math:`{J_{val}}` the algorithm may suffer from large variance(overfiting).
+2. When the number of examples *m* increase, the cost :math:`{J_{test}}` increases, while :math:`{J_{val}}` decrease. When *m* is very large, if :math:`{J_{test}}` is about equal to :math:`{J_{val}}` the algorithm may suffer from large bias(underfiting), while if there is a gap between :math:`{J_{test}}` and :math:`{J_{val}}` the algorithm may suffer from large variance(overfitting).
 
 3. To solve the problem of large bias, you may decrease :math:`{\rm{\lambda }}` in regularization, while increase it for the problem of large variance.
 
@@ -92,8 +122,8 @@ F1:
 .. math::
     \frac{{2*Recall*Precision}}{{Recall + Precision}}
 
-Overfiting and underfiting
-==========================
+Overfiting and underfitting
+===========================
 
 High **bias** is **underfitting** and high **variance** is **overfitting**.  
 
@@ -149,10 +179,68 @@ And solution algorithm will be a little bit more longer:
    :alt: bias_variance_workflow_2
 
 
-Unusual networks types
+
+
+Various networks types
 ======================
 
-**Highway network** - 
+Convolutional Network (CNN) hyperparameters
+-------------------------------------------
+
+More about CNNs for NLP you may reed `here <http://www.wildml.com/2015/11/understanding-convolutional-neural-networks-for-nlp/>`__
+
+-------
+Padding
+-------
+
+There are two types of padding:
+
++ **zerro-padding**, also known as **wide convolution** - all elements that would fall outside of the matrix are taken by zero.
+
++ **narrow convolution** - filters applied without padding.
+
+Next image give you more intuition about what's going on:
+
+.. thumbnail:: /images/ML_notes/convolutions.png
+
+  *Narrow vs. Wide Convolution. Filter size 5, input size 7. Source: A Convolutional Neural Network for Modelling Sentences (2014)*
+
+In the above, the narrow convolution yields  an output of size :math:`(7-5) + 1 = 3`,
+and a wide convolution an output of size :math:`(7+2*4 - 5) + 1 = 11`.
+More generally, the formula for the output size is
+:math:`n_{out} = (n_{in} + 2 * n_{padding} - n_{filter}) + 1`
+
+-----------
+Stride Size
+-----------
+
+**Stride size** - defining how much you want to shift your filter at each step.
+Mainly we see stride sizes of 1, but a larger stride size may allow you to build a model that behaves somewhat similarly to a Recursive Neural Network, i.e. looks like a tree.
+
+.. thumbnail:: /images/ML_notes/strides.png
+
+  Convolution Stride Size. Left: Stride size 1. Right: Stride size 2. Source: http://cs231n.github.io/convolutional-networks/
+
+-------
+Pooling
+-------
+
+Pooling layers subsample output of convolutional layers. There are two types of pooling - **max pooling** and **average pooling**. You don’t necessarily need to pool over the complete matrix, you could also pool over a window. 
+
+.. thumbnail:: /images/ML_notes/pooling.png
+
+  Max pooling in CNN. Source: http://cs231n.github.io/convolutional-networks/#pool
+
+--------
+Channels
+--------
+
+Channels are different sources or representations of the data. For image it's typically RGB(red, green, blue) channels. For NLP you could have separate channels for different embeddings of various translation of the sentences.
+
+Highway Networks
+----------------
+
+**Highway networks** - 
 Like LSTM networks, utilize a learnable gating mechanism to improve information flow across layers.
 More simple - process previous input data to the next layer. 
 `link to papers <http://people.idsia.ch/~rupesh/very_deep_learning/>`__ and

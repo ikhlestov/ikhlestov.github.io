@@ -3,7 +3,7 @@ cache
 __pycache__
 output
 BU
-notes/
+#notes/
 _site/
 *.pyc
 .DS_Store
