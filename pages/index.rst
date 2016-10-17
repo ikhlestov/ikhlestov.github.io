@@ -13,6 +13,7 @@ Here I will store list of commands, sometimes with short description but mainly 
 Machine Learning:
 
 * :doc:`general-ml-notes`
+* :doc:`models-architectures`
 * :doc:`ml-bookmarks`
 
 Python related:
