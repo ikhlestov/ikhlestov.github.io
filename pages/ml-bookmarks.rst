@@ -28,6 +28,11 @@ RNN, seq2seq and all related
 
 + `Fully Character-Level Neural Machine Translation without Explicit Segmentation <https://arxiv.org/pdf/1610.03017v1.pdf>`__  model that maps a source character sequence to a target character sequence without any segmentation. (CNN + highway + biGRU)
 
+CNNs
+====
+
++ `Punctuation Prediction for Unsegmented Transcript Based on Word Vector <http://www.lrec-conf.org/proceedings/lrec2016/pdf/103_Paper.pdf>`__ CNN for inserting punctuation to the text.
+
 Reinforcement Learning
 ======================
 
