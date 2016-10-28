@@ -238,172 +238,214 @@ MathJax.Hub.Config({
 <a href="#listingsipdb_commandsrst-162">162</a>
 <a href="#listingsipdb_commandsrst-163">163</a>
 <a href="#listingsipdb_commandsrst-164">164</a>
-<a href="#listingsipdb_commandsrst-165">165</a></pre></div></td>
+<a href="#listingsipdb_commandsrst-165">165</a>
+<a href="#listingsipdb_commandsrst-166">166</a>
+<a href="#listingsipdb_commandsrst-167">167</a>
+<a href="#listingsipdb_commandsrst-168">168</a>
+<a href="#listingsipdb_commandsrst-169">169</a>
+<a href="#listingsipdb_commandsrst-170">170</a>
+<a href="#listingsipdb_commandsrst-171">171</a>
+<a href="#listingsipdb_commandsrst-172">172</a>
+<a href="#listingsipdb_commandsrst-173">173</a>
+<a href="#listingsipdb_commandsrst-174">174</a>
+<a href="#listingsipdb_commandsrst-175">175</a>
+<a href="#listingsipdb_commandsrst-176">176</a>
+<a href="#listingsipdb_commandsrst-177">177</a>
+<a href="#listingsipdb_commandsrst-178">178</a>
+<a href="#listingsipdb_commandsrst-179">179</a>
+<a href="#listingsipdb_commandsrst-180">180</a>
+<a href="#listingsipdb_commandsrst-181">181</a>
+<a href="#listingsipdb_commandsrst-182">182</a>
+<a href="#listingsipdb_commandsrst-183">183</a>
+<a href="#listingsipdb_commandsrst-184">184</a>
+<a href="#listingsipdb_commandsrst-185">185</a>
+<a href="#listingsipdb_commandsrst-186">186</a></pre></div></td>
 <td class="code"><pre class="code literal-block"><a name="listingsipdb_commandsrst-1"></a><span class="gh">Content</span>
 <a name="listingsipdb_commandsrst-2"></a><span class="gh">=======</span>
-<a name="listingsipdb_commandsrst-3"></a><span class="m">*</span> <span class="s">`Main Commands`_</span>
-<a name="listingsipdb_commandsrst-4"></a><span class="m">*</span> <span class="s">`Breakpoints`_</span>
-<a name="listingsipdb_commandsrst-5"></a><span class="m">*</span> <span class="s">`Jumps`_</span>
-<a name="listingsipdb_commandsrst-6"></a><span class="m">*</span> <span class="s">`Aliases`_</span>
-<a name="listingsipdb_commandsrst-7"></a>
-<a name="listingsipdb_commandsrst-8"></a><span class="gh">Main Commands</span>
-<a name="listingsipdb_commandsrst-9"></a><span class="gh">=============</span>
-<a name="listingsipdb_commandsrst-10"></a>
-<a name="listingsipdb_commandsrst-11"></a>Based on this tutorial: https://pymotw.com/2/pdb/
-<a name="listingsipdb_commandsrst-12"></a>
-<a name="listingsipdb_commandsrst-13"></a><span class="gs">**enter**</span> - repeat last command
-<a name="listingsipdb_commandsrst-14"></a>
-<a name="listingsipdb_commandsrst-15"></a><span class="gs">**where(w)**</span> - find out exactly what line is being executed and where on the call stack you are.
-<a name="listingsipdb_commandsrst-16"></a>
-<a name="listingsipdb_commandsrst-17"></a><span class="gs">**list(l)**</span> - add more context around the current location
-<a name="listingsipdb_commandsrst-18"></a><span class="gs">**list(l) 5**</span> - display context around required line of code
-<a name="listingsipdb_commandsrst-19"></a><span class="gs">**list(l) 3, 10**</span> - display from first(3) to last(10) line
-<a name="listingsipdb_commandsrst-20"></a>
-<a name="listingsipdb_commandsrst-21"></a><span class="gs">**up(u)/down(d)**</span> - move between frames
-<a name="listingsipdb_commandsrst-22"></a>
-<a name="listingsipdb_commandsrst-23"></a><span class="gs">**args(a)**</span> - print all arguments to the function active in the current frame
-<a name="listingsipdb_commandsrst-24"></a><span class="gs">**p**</span> - evaluates(print) an expression given as argument and prints the result
+<a name="listingsipdb_commandsrst-3"></a><span class="m">*</span> <span class="s">`Exit from ipdb Loop`_</span>
+<a name="listingsipdb_commandsrst-4"></a><span class="m">*</span> <span class="s">`Main Commands`_</span>
+<a name="listingsipdb_commandsrst-5"></a><span class="m">*</span> <span class="s">`Breakpoints`_</span>
+<a name="listingsipdb_commandsrst-6"></a><span class="m">*</span> <span class="s">`Jumps`_</span>
+<a name="listingsipdb_commandsrst-7"></a><span class="m">*</span> <span class="s">`Aliases`_</span>
+<a name="listingsipdb_commandsrst-8"></a>
+<a name="listingsipdb_commandsrst-9"></a><span class="gh">Exit from ipdb Loop</span>
+<a name="listingsipdb_commandsrst-10"></a><span class="gh">===================</span>
+<a name="listingsipdb_commandsrst-11"></a>
+<a name="listingsipdb_commandsrst-12"></a>exit from ipdb(for example in case of loop)
+<a name="listingsipdb_commandsrst-13"></a>
+<a name="listingsipdb_commandsrst-14"></a><span class="p">..</span> <span class="ow">code-block</span><span class="p">::</span> <span class="k">python</span>
+<a name="listingsipdb_commandsrst-15"></a>    
+<a name="listingsipdb_commandsrst-16"></a>    <span class="kn">import</span> <span class="nn">os</span><span class="p">;</span> <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">'kill -9 </span><span class="si">%d</span><span class="s1">'</span> <span class="o">%</span> <span class="n">os</span><span class="o">.</span><span class="n">getpid</span><span class="p">())</span>
+<a name="listingsipdb_commandsrst-17"></a>
+<a name="listingsipdb_commandsrst-18"></a>also you may place such alias in <span class="s">``.pdbrc``</span> file at home or project folder
+<a name="listingsipdb_commandsrst-19"></a>
+<a name="listingsipdb_commandsrst-20"></a><span class="p">..</span> <span class="ow">code-block</span><span class="p">::</span> <span class="k">python</span>
+<a name="listingsipdb_commandsrst-21"></a>    
+<a name="listingsipdb_commandsrst-22"></a>    <span class="kn">import</span> <span class="nn">os</span>
+<a name="listingsipdb_commandsrst-23"></a>
+<a name="listingsipdb_commandsrst-24"></a>    <span class="n">alias</span> <span class="n">kk</span> <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">'kill -9 </span><span class="si">%d</span><span class="s1">'</span> <span class="o">%</span> <span class="n">os</span><span class="o">.</span><span class="n">getpid</span><span class="p">())</span>
 <a name="listingsipdb_commandsrst-25"></a>
-<a name="listingsipdb_commandsrst-26"></a><span class="p">..</span> <span class="ow">code-block</span><span class="p">::</span>
+<a name="listingsipdb_commandsrst-26"></a>or just jump to some line <span class="s">``j 22``</span>
 <a name="listingsipdb_commandsrst-27"></a>
-<a name="listingsipdb_commandsrst-28"></a>  p output
-<a name="listingsipdb_commandsrst-29"></a>
-<a name="listingsipdb_commandsrst-30"></a><span class="gs">**pp**</span> - pretty print
+<a name="listingsipdb_commandsrst-28"></a>
+<a name="listingsipdb_commandsrst-29"></a><span class="gh">Main Commands</span>
+<a name="listingsipdb_commandsrst-30"></a><span class="gh">=============</span>
 <a name="listingsipdb_commandsrst-31"></a>
-<a name="listingsipdb_commandsrst-32"></a><span class="p">..</span> <span class="ow">code-block</span><span class="p">::</span>
+<a name="listingsipdb_commandsrst-32"></a>Based on this tutorial: https://pymotw.com/2/pdb/
 <a name="listingsipdb_commandsrst-33"></a>
-<a name="listingsipdb_commandsrst-34"></a>    (Pdb) pp lines
-<a name="listingsipdb_commandsrst-35"></a>    ['Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec\n',
-<a name="listingsipdb_commandsrst-36"></a>     'egestas, enim et consectetuer ullamcorper, lectus ligula rutrum leo, a\n',
-<a name="listingsipdb_commandsrst-37"></a>     'elementum elit tortor eu quam.\n']
-<a name="listingsipdb_commandsrst-38"></a>
-<a name="listingsipdb_commandsrst-39"></a>
-<a name="listingsipdb_commandsrst-40"></a><span class="gs">**!**</span> - passes to Python interepter to be evaluated.
+<a name="listingsipdb_commandsrst-34"></a><span class="gs">**enter**</span> - repeat last command
+<a name="listingsipdb_commandsrst-35"></a>
+<a name="listingsipdb_commandsrst-36"></a><span class="gs">**where(w)**</span> - find out exactly what line is being executed and where on the call stack you are.
+<a name="listingsipdb_commandsrst-37"></a>
+<a name="listingsipdb_commandsrst-38"></a><span class="gs">**list(l)**</span> - add more context around the current location
+<a name="listingsipdb_commandsrst-39"></a><span class="gs">**list(l) 5**</span> - display context around required line of code
+<a name="listingsipdb_commandsrst-40"></a><span class="gs">**list(l) 3, 10**</span> - display from first(3) to last(10) line
 <a name="listingsipdb_commandsrst-41"></a>
-<a name="listingsipdb_commandsrst-42"></a><span class="p">..</span> <span class="ow">code-block</span><span class="p">::</span>
+<a name="listingsipdb_commandsrst-42"></a><span class="gs">**up(u)/down(d)**</span> - move between frames
 <a name="listingsipdb_commandsrst-43"></a>
-<a name="listingsipdb_commandsrst-44"></a>    (Pdb) !output='changed value'
-<a name="listingsipdb_commandsrst-45"></a>
-<a name="listingsipdb_commandsrst-46"></a>    (Pdb) continue
-<a name="listingsipdb_commandsrst-47"></a>    changed value
+<a name="listingsipdb_commandsrst-44"></a><span class="gs">**args(a)**</span> - print all arguments to the function active in the current frame
+<a name="listingsipdb_commandsrst-45"></a><span class="gs">**p**</span> - evaluates(print) an expression given as argument and prints the result
+<a name="listingsipdb_commandsrst-46"></a>
+<a name="listingsipdb_commandsrst-47"></a><span class="p">..</span> <span class="ow">code-block</span><span class="p">::</span>
 <a name="listingsipdb_commandsrst-48"></a>
-<a name="listingsipdb_commandsrst-49"></a>
-<a name="listingsipdb_commandsrst-50"></a><span class="gs">**step**</span> - debug step by step
-<a name="listingsipdb_commandsrst-51"></a>
-<a name="listingsipdb_commandsrst-52"></a><span class="p">..</span> <span class="ow">code-block</span><span class="p">::</span>
-<a name="listingsipdb_commandsrst-53"></a>
-<a name="listingsipdb_commandsrst-54"></a>    (Pdb) step
-<a name="listingsipdb_commandsrst-55"></a>    --Call--
-<a name="listingsipdb_commandsrst-56"></a>    &gt; .../pdb_step.py(9)f()
-<a name="listingsipdb_commandsrst-57"></a>    -&gt; def f(n):
-<a name="listingsipdb_commandsrst-58"></a>
+<a name="listingsipdb_commandsrst-49"></a>  p output
+<a name="listingsipdb_commandsrst-50"></a>
+<a name="listingsipdb_commandsrst-51"></a><span class="gs">**pp**</span> - pretty print
+<a name="listingsipdb_commandsrst-52"></a>
+<a name="listingsipdb_commandsrst-53"></a><span class="p">..</span> <span class="ow">code-block</span><span class="p">::</span>
+<a name="listingsipdb_commandsrst-54"></a>
+<a name="listingsipdb_commandsrst-55"></a>    (Pdb) pp lines
+<a name="listingsipdb_commandsrst-56"></a>    ['Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec\n',
+<a name="listingsipdb_commandsrst-57"></a>     'egestas, enim et consectetuer ullamcorper, lectus ligula rutrum leo, a\n',
+<a name="listingsipdb_commandsrst-58"></a>     'elementum elit tortor eu quam.\n']
 <a name="listingsipdb_commandsrst-59"></a>
-<a name="listingsipdb_commandsrst-60"></a><span class="gs">**next**</span> -  command is like step, but does not enter functions called from the statement being executed. 
-<a name="listingsipdb_commandsrst-61"></a>
-<a name="listingsipdb_commandsrst-62"></a><span class="gs">**until**</span> -  command is like <span class="gs">**next**</span>, except it explicitly continues until execution reaches a line in the same function with a line number higher than the current value
-<a name="listingsipdb_commandsrst-63"></a>
-<a name="listingsipdb_commandsrst-64"></a><span class="gs">**return**</span> -  is another short-cut for bypassing parts of a function. It continues executing until the function is about to execute a return statement, and then it pauses. This gives you time to look at the return value before the function returns.
-<a name="listingsipdb_commandsrst-65"></a>
+<a name="listingsipdb_commandsrst-60"></a>
+<a name="listingsipdb_commandsrst-61"></a><span class="gs">**!**</span> - passes to Python interepter to be evaluated.
+<a name="listingsipdb_commandsrst-62"></a>
+<a name="listingsipdb_commandsrst-63"></a><span class="p">..</span> <span class="ow">code-block</span><span class="p">::</span>
+<a name="listingsipdb_commandsrst-64"></a>
+<a name="listingsipdb_commandsrst-65"></a>    (Pdb) !output='changed value'
 <a name="listingsipdb_commandsrst-66"></a>
-<a name="listingsipdb_commandsrst-67"></a><span class="gh">Breakpoints</span>
-<a name="listingsipdb_commandsrst-68"></a><span class="gh">===========</span>
-<a name="listingsipdb_commandsrst-69"></a><span class="gs">**break lineno**</span> - execute untill line number
+<a name="listingsipdb_commandsrst-67"></a>    (Pdb) continue
+<a name="listingsipdb_commandsrst-68"></a>    changed value
+<a name="listingsipdb_commandsrst-69"></a>
 <a name="listingsipdb_commandsrst-70"></a>
-<a name="listingsipdb_commandsrst-71"></a><span class="p">..</span> <span class="ow">code-block</span><span class="p">::</span>
+<a name="listingsipdb_commandsrst-71"></a><span class="gs">**step**</span> - debug step by step
 <a name="listingsipdb_commandsrst-72"></a>
-<a name="listingsipdb_commandsrst-73"></a>    $ python -m pdb pdb_break.py
-<a name="listingsipdb_commandsrst-74"></a>    &gt; .../pdb_break.py(7)&lt;module&gt;()
-<a name="listingsipdb_commandsrst-75"></a>    -&gt; def calc(i, n):
-<a name="listingsipdb_commandsrst-76"></a>    (Pdb) break 11
-<a name="listingsipdb_commandsrst-77"></a>    Breakpoint 1 at .../pdb_break.py:11
-<a name="listingsipdb_commandsrst-78"></a>
-<a name="listingsipdb_commandsrst-79"></a>    (Pdb) continue
-<a name="listingsipdb_commandsrst-80"></a>    i = 0
-<a name="listingsipdb_commandsrst-81"></a>    j = 0
-<a name="listingsipdb_commandsrst-82"></a>    i = 1
-<a name="listingsipdb_commandsrst-83"></a>    j = 5
-<a name="listingsipdb_commandsrst-84"></a>    &gt; .../pdb_break.py(11)calc()
-<a name="listingsipdb_commandsrst-85"></a>    -&gt; print 'Positive!'
+<a name="listingsipdb_commandsrst-73"></a><span class="p">..</span> <span class="ow">code-block</span><span class="p">::</span>
+<a name="listingsipdb_commandsrst-74"></a>
+<a name="listingsipdb_commandsrst-75"></a>    (Pdb) step
+<a name="listingsipdb_commandsrst-76"></a>    --Call--
+<a name="listingsipdb_commandsrst-77"></a>    &gt; .../pdb_step.py(9)f()
+<a name="listingsipdb_commandsrst-78"></a>    -&gt; def f(n):
+<a name="listingsipdb_commandsrst-79"></a>
+<a name="listingsipdb_commandsrst-80"></a>
+<a name="listingsipdb_commandsrst-81"></a><span class="gs">**next**</span> -  command is like step, but does not enter functions called from the statement being executed. 
+<a name="listingsipdb_commandsrst-82"></a>
+<a name="listingsipdb_commandsrst-83"></a><span class="gs">**until**</span> -  command is like <span class="gs">**next**</span>, except it explicitly continues until execution reaches a line in the same function with a line number higher than the current value
+<a name="listingsipdb_commandsrst-84"></a>
+<a name="listingsipdb_commandsrst-85"></a><span class="gs">**return**</span> -  is another short-cut for bypassing parts of a function. It continues executing until the function is about to execute a return statement, and then it pauses. This gives you time to look at the return value before the function returns.
 <a name="listingsipdb_commandsrst-86"></a>
-<a name="listingsipdb_commandsrst-87"></a><span class="p">..</span> <span class="ow">code-block</span><span class="p">::</span><span class="k"> </span>
-<a name="listingsipdb_commandsrst-88"></a>
-<a name="listingsipdb_commandsrst-89"></a><span class="s">    (Pdb) break calc  # specify the name of the function as a brackpoint</span>
-<a name="listingsipdb_commandsrst-90"></a><span class="s">    (Pdb) break pdb_break.py:11  # remote filename breakpoint</span>
+<a name="listingsipdb_commandsrst-87"></a>
+<a name="listingsipdb_commandsrst-88"></a><span class="gh">Breakpoints</span>
+<a name="listingsipdb_commandsrst-89"></a><span class="gh">===========</span>
+<a name="listingsipdb_commandsrst-90"></a><span class="gs">**break lineno**</span> - execute untill line number
 <a name="listingsipdb_commandsrst-91"></a>
-<a name="listingsipdb_commandsrst-92"></a>
-<a name="listingsipdb_commandsrst-93"></a><span class="gs">**continue**</span> -  tells the debugger to keep running your program until the next breakpoint
-<a name="listingsipdb_commandsrst-94"></a>
-<a name="listingsipdb_commandsrst-95"></a><span class="gs">**break**</span> - list of all breakpoints
-<a name="listingsipdb_commandsrst-96"></a>
-<a name="listingsipdb_commandsrst-97"></a><span class="gs">**disable/enable breakpoint_id**</span> - disable or enable some breakpoint
-<a name="listingsipdb_commandsrst-98"></a><span class="gs">**clear breakpoint_id**</span> - delete breakpoint entirely
+<a name="listingsipdb_commandsrst-92"></a><span class="p">..</span> <span class="ow">code-block</span><span class="p">::</span>
+<a name="listingsipdb_commandsrst-93"></a>
+<a name="listingsipdb_commandsrst-94"></a>    $ python -m pdb pdb_break.py
+<a name="listingsipdb_commandsrst-95"></a>    &gt; .../pdb_break.py(7)&lt;module&gt;()
+<a name="listingsipdb_commandsrst-96"></a>    -&gt; def calc(i, n):
+<a name="listingsipdb_commandsrst-97"></a>    (Pdb) break 11
+<a name="listingsipdb_commandsrst-98"></a>    Breakpoint 1 at .../pdb_break.py:11
 <a name="listingsipdb_commandsrst-99"></a>
-<a name="listingsipdb_commandsrst-100"></a><span class="gs">**tbreak**</span> - temporary breakpoint
-<a name="listingsipdb_commandsrst-101"></a>
-<a name="listingsipdb_commandsrst-102"></a><span class="p">..</span> <span class="ow">code-block</span><span class="p">::</span>
-<a name="listingsipdb_commandsrst-103"></a>
-<a name="listingsipdb_commandsrst-104"></a>    (Pdb) break 9, j&gt;0  # conditional breakpoint
-<a name="listingsipdb_commandsrst-105"></a>    (Pdb) condition 1 j&gt;0  # add condition to existing breakpoint by id
-<a name="listingsipdb_commandsrst-106"></a>    (Pdb) ignore 1 2  # Will ignore next 2 crossings of breakpoint 1.
-<a name="listingsipdb_commandsrst-107"></a>    (Pdb) ignore 1 0  # Will stop next time breakpoint 1 is reached.
-<a name="listingsipdb_commandsrst-108"></a>
+<a name="listingsipdb_commandsrst-100"></a>    (Pdb) continue
+<a name="listingsipdb_commandsrst-101"></a>    i = 0
+<a name="listingsipdb_commandsrst-102"></a>    j = 0
+<a name="listingsipdb_commandsrst-103"></a>    i = 1
+<a name="listingsipdb_commandsrst-104"></a>    j = 5
+<a name="listingsipdb_commandsrst-105"></a>    &gt; .../pdb_break.py(11)calc()
+<a name="listingsipdb_commandsrst-106"></a>    -&gt; print 'Positive!'
+<a name="listingsipdb_commandsrst-107"></a>
+<a name="listingsipdb_commandsrst-108"></a><span class="p">..</span> <span class="ow">code-block</span><span class="p">::</span><span class="k"> </span>
 <a name="listingsipdb_commandsrst-109"></a>
-<a name="listingsipdb_commandsrst-110"></a><span class="gs">**commands**</span> - you can define a series of interpreter commands, including Python statements
-<a name="listingsipdb_commandsrst-111"></a>
-<a name="listingsipdb_commandsrst-112"></a><span class="p">..</span> <span class="ow">code-block</span><span class="p">::</span>
+<a name="listingsipdb_commandsrst-110"></a><span class="s">    (Pdb) break calc  # specify the name of the function as a brackpoint</span>
+<a name="listingsipdb_commandsrst-111"></a><span class="s">    (Pdb) break pdb_break.py:11  # remote filename breakpoint</span>
+<a name="listingsipdb_commandsrst-112"></a>
 <a name="listingsipdb_commandsrst-113"></a>
-<a name="listingsipdb_commandsrst-114"></a>    (Pdb) break 9
-<a name="listingsipdb_commandsrst-115"></a>    Breakpoint 1 at .../pdb_break.py:9
-<a name="listingsipdb_commandsrst-116"></a>
-<a name="listingsipdb_commandsrst-117"></a>    (Pdb) commands 1
-<a name="listingsipdb_commandsrst-118"></a>    (com) print 'debug i =', i
-<a name="listingsipdb_commandsrst-119"></a>    (com) print 'debug j =', j
-<a name="listingsipdb_commandsrst-120"></a>    (com) print 'debug n =', n
-<a name="listingsipdb_commandsrst-121"></a>    (com) end
+<a name="listingsipdb_commandsrst-114"></a><span class="gs">**continue**</span> -  tells the debugger to keep running your program until the next breakpoint
+<a name="listingsipdb_commandsrst-115"></a>
+<a name="listingsipdb_commandsrst-116"></a><span class="gs">**break**</span> - list of all breakpoints
+<a name="listingsipdb_commandsrst-117"></a>
+<a name="listingsipdb_commandsrst-118"></a><span class="gs">**disable/enable breakpoint_id**</span> - disable or enable some breakpoint
+<a name="listingsipdb_commandsrst-119"></a><span class="gs">**clear breakpoint_id**</span> - delete breakpoint entirely
+<a name="listingsipdb_commandsrst-120"></a>
+<a name="listingsipdb_commandsrst-121"></a><span class="gs">**tbreak**</span> - temporary breakpoint
 <a name="listingsipdb_commandsrst-122"></a>
-<a name="listingsipdb_commandsrst-123"></a><span class="gh">Jumps</span>
-<a name="listingsipdb_commandsrst-124"></a><span class="gh">=====</span>
-<a name="listingsipdb_commandsrst-125"></a><span class="gs">**jump line_no**</span> - jump ahead to line number without incrementing
-<a name="listingsipdb_commandsrst-126"></a>
-<a name="listingsipdb_commandsrst-127"></a><span class="gs">**run shlex_args**</span> - restart the command 
-<a name="listingsipdb_commandsrst-128"></a>
-<a name="listingsipdb_commandsrst-129"></a><span class="p">..</span> <span class="ow">code-block</span><span class="p">::</span>
+<a name="listingsipdb_commandsrst-123"></a><span class="p">..</span> <span class="ow">code-block</span><span class="p">::</span>
+<a name="listingsipdb_commandsrst-124"></a>
+<a name="listingsipdb_commandsrst-125"></a>    (Pdb) break 9, j&gt;0  # conditional breakpoint
+<a name="listingsipdb_commandsrst-126"></a>    (Pdb) condition 1 j&gt;0  # add condition to existing breakpoint by id
+<a name="listingsipdb_commandsrst-127"></a>    (Pdb) ignore 1 2  # Will ignore next 2 crossings of breakpoint 1.
+<a name="listingsipdb_commandsrst-128"></a>    (Pdb) ignore 1 0  # Will stop next time breakpoint 1 is reached.
+<a name="listingsipdb_commandsrst-129"></a>
 <a name="listingsipdb_commandsrst-130"></a>
-<a name="listingsipdb_commandsrst-131"></a>    (Pdb) run one two three
+<a name="listingsipdb_commandsrst-131"></a><span class="gs">**commands**</span> - you can define a series of interpreter commands, including Python statements
 <a name="listingsipdb_commandsrst-132"></a>
-<a name="listingsipdb_commandsrst-133"></a><span class="gh">Aliases</span>
-<a name="listingsipdb_commandsrst-134"></a><span class="gh">=======</span>
-<a name="listingsipdb_commandsrst-135"></a>
-<a name="listingsipdb_commandsrst-136"></a><span class="p">..</span> <span class="ow">code-block</span><span class="p">::</span>
+<a name="listingsipdb_commandsrst-133"></a><span class="p">..</span> <span class="ow">code-block</span><span class="p">::</span>
+<a name="listingsipdb_commandsrst-134"></a>
+<a name="listingsipdb_commandsrst-135"></a>    (Pdb) break 9
+<a name="listingsipdb_commandsrst-136"></a>    Breakpoint 1 at .../pdb_break.py:9
 <a name="listingsipdb_commandsrst-137"></a>
-<a name="listingsipdb_commandsrst-138"></a>    $ python -m pdb pdb_function_arguments.py
-<a name="listingsipdb_commandsrst-139"></a>    &gt; .../pdb_function_arguments.py(7)&lt;module&gt;()
-<a name="listingsipdb_commandsrst-140"></a>    -&gt; import pdb
-<a name="listingsipdb_commandsrst-141"></a>    (Pdb) break 10
-<a name="listingsipdb_commandsrst-142"></a>    Breakpoint 1 at .../pdb_function_arguments.py:10
+<a name="listingsipdb_commandsrst-138"></a>    (Pdb) commands 1
+<a name="listingsipdb_commandsrst-139"></a>    (com) print 'debug i =', i
+<a name="listingsipdb_commandsrst-140"></a>    (com) print 'debug j =', j
+<a name="listingsipdb_commandsrst-141"></a>    (com) print 'debug n =', n
+<a name="listingsipdb_commandsrst-142"></a>    (com) end
 <a name="listingsipdb_commandsrst-143"></a>
-<a name="listingsipdb_commandsrst-144"></a>    (Pdb) continue
-<a name="listingsipdb_commandsrst-145"></a>    &gt; .../pdb_function_arguments.py(10)recursive_function()
-<a name="listingsipdb_commandsrst-146"></a>    -&gt; if n &gt; 0:
+<a name="listingsipdb_commandsrst-144"></a><span class="gh">Jumps</span>
+<a name="listingsipdb_commandsrst-145"></a><span class="gh">=====</span>
+<a name="listingsipdb_commandsrst-146"></a><span class="gs">**jump line_no**</span> - jump ahead to line number without incrementing
 <a name="listingsipdb_commandsrst-147"></a>
-<a name="listingsipdb_commandsrst-148"></a>    (Pdb) pp locals().keys()
-<a name="listingsipdb_commandsrst-149"></a>    ['output', 'n']
-<a name="listingsipdb_commandsrst-150"></a>
-<a name="listingsipdb_commandsrst-151"></a>    (Pdb) alias pl pp locals().keys()
-<a name="listingsipdb_commandsrst-152"></a>
-<a name="listingsipdb_commandsrst-153"></a>    (Pdb) pl
-<a name="listingsipdb_commandsrst-154"></a>    ['output', 'n']
-<a name="listingsipdb_commandsrst-155"></a>
+<a name="listingsipdb_commandsrst-148"></a><span class="gs">**run shlex_args**</span> - restart the command 
+<a name="listingsipdb_commandsrst-149"></a>
+<a name="listingsipdb_commandsrst-150"></a><span class="p">..</span> <span class="ow">code-block</span><span class="p">::</span>
+<a name="listingsipdb_commandsrst-151"></a>
+<a name="listingsipdb_commandsrst-152"></a>    (Pdb) run one two three
+<a name="listingsipdb_commandsrst-153"></a>
+<a name="listingsipdb_commandsrst-154"></a><span class="gh">Aliases</span>
+<a name="listingsipdb_commandsrst-155"></a><span class="gh">=======</span>
 <a name="listingsipdb_commandsrst-156"></a>
-<a name="listingsipdb_commandsrst-157"></a>
-<a name="listingsipdb_commandsrst-158"></a><span class="gs">**alias**</span> - return list of all aliases
-<a name="listingsipdb_commandsrst-159"></a>
-<a name="listingsipdb_commandsrst-160"></a><span class="p">..</span> <span class="ow">code-block</span><span class="p">::</span>
-<a name="listingsipdb_commandsrst-161"></a>
-<a name="listingsipdb_commandsrst-162"></a>    (Pdb) alias ph !help(%1)  # alias with ars
-<a name="listingsipdb_commandsrst-163"></a>
-<a name="listingsipdb_commandsrst-164"></a>    (Pdb) ph locals
-<a name="listingsipdb_commandsrst-165"></a>    Help on built-in function locals in module __builtin__:
+<a name="listingsipdb_commandsrst-157"></a><span class="p">..</span> <span class="ow">code-block</span><span class="p">::</span>
+<a name="listingsipdb_commandsrst-158"></a>
+<a name="listingsipdb_commandsrst-159"></a>    $ python -m pdb pdb_function_arguments.py
+<a name="listingsipdb_commandsrst-160"></a>    &gt; .../pdb_function_arguments.py(7)&lt;module&gt;()
+<a name="listingsipdb_commandsrst-161"></a>    -&gt; import pdb
+<a name="listingsipdb_commandsrst-162"></a>    (Pdb) break 10
+<a name="listingsipdb_commandsrst-163"></a>    Breakpoint 1 at .../pdb_function_arguments.py:10
+<a name="listingsipdb_commandsrst-164"></a>
+<a name="listingsipdb_commandsrst-165"></a>    (Pdb) continue
+<a name="listingsipdb_commandsrst-166"></a>    &gt; .../pdb_function_arguments.py(10)recursive_function()
+<a name="listingsipdb_commandsrst-167"></a>    -&gt; if n &gt; 0:
+<a name="listingsipdb_commandsrst-168"></a>
+<a name="listingsipdb_commandsrst-169"></a>    (Pdb) pp locals().keys()
+<a name="listingsipdb_commandsrst-170"></a>    ['output', 'n']
+<a name="listingsipdb_commandsrst-171"></a>
+<a name="listingsipdb_commandsrst-172"></a>    (Pdb) alias pl pp locals().keys()
+<a name="listingsipdb_commandsrst-173"></a>
+<a name="listingsipdb_commandsrst-174"></a>    (Pdb) pl
+<a name="listingsipdb_commandsrst-175"></a>    ['output', 'n']
+<a name="listingsipdb_commandsrst-176"></a>
+<a name="listingsipdb_commandsrst-177"></a>
+<a name="listingsipdb_commandsrst-178"></a>
+<a name="listingsipdb_commandsrst-179"></a><span class="gs">**alias**</span> - return list of all aliases
+<a name="listingsipdb_commandsrst-180"></a>
+<a name="listingsipdb_commandsrst-181"></a><span class="p">..</span> <span class="ow">code-block</span><span class="p">::</span>
+<a name="listingsipdb_commandsrst-182"></a>
+<a name="listingsipdb_commandsrst-183"></a>    (Pdb) alias ph !help(%1)  # alias with ars
+<a name="listingsipdb_commandsrst-184"></a>
+<a name="listingsipdb_commandsrst-185"></a>    (Pdb) ph locals
+<a name="listingsipdb_commandsrst-186"></a>    Help on built-in function locals in module __builtin__:
 </pre></td>
 </tr></table>
 </div>

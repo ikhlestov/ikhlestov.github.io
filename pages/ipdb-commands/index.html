@@ -21,6 +21,7 @@ MathJax.Hub.Config({
 <meta property="og:url" content="https://ikhlestov.github.io/pages/ipdb-commands/">
 <meta property="og:description" content="Content
 
+Exit from ipdb Loop
 Main Commands
 Breakpoints
 Jumps
@@ -28,10 +29,10 @@ Aliases
 
 
 
-Main Commands
-Based on this tutorial: https://pymotw.com/2/pdb/
-enter - repeat last command
-where(w) - find out exactly what line is being executed ">
+Exit from ipdb Loop
+exit from ipdb(for example in case of loop)
+import os; os.system('kill -9 %d' % os.getpid())
+also you may pl">
 <meta property="og:type" content="article">
 <meta property="article:published_time" content="2016-06-26T00:10:32Z">
 <meta property="article:tag" content="debug">
@@ -99,11 +100,24 @@ where(w) - find out exactly what line is being executed ">
 <div class="section" id="content">
 <h2>Content</h2>
 <ul class="simple">
+<li><a class="reference internal" href="#exit-from-ipdb-loop">Exit from ipdb&nbsp;Loop</a></li>
 <li><a class="reference internal" href="#main-commands">Main&nbsp;Commands</a></li>
 <li><a class="reference internal" href="#breakpoints">Breakpoints</a></li>
 <li><a class="reference internal" href="#jumps">Jumps</a></li>
 <li><a class="reference internal" href="#aliases">Aliases</a></li>
 </ul>
+</div>
+<div class="section" id="exit-from-ipdb-loop">
+<h2>Exit from ipdb&nbsp;Loop</h2>
+<p>exit from ipdb(for example in case of&nbsp;loop)</p>
+<pre class="code python"><a name="rest_code_96e40ca512fe41238965c7f3f814427e-1"></a><span class="kn">import</span> <span class="nn">os</span><span class="p">;</span> <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">'kill -9 </span><span class="si">%d</span><span class="s1">'</span> <span class="o">%</span> <span class="n">os</span><span class="o">.</span><span class="n">getpid</span><span class="p">())</span>
+</pre>
+<p>also you may place such alias in <tt class="docutils literal">.pdbrc</tt> file at home or project&nbsp;folder</p>
+<pre class="code python"><a name="rest_code_1ca2c607996a445d8f6a38fb9d41ba24-1"></a><span class="kn">import</span> <span class="nn">os</span>
+<a name="rest_code_1ca2c607996a445d8f6a38fb9d41ba24-2"></a>
+<a name="rest_code_1ca2c607996a445d8f6a38fb9d41ba24-3"></a><span class="n">alias</span> <span class="n">kk</span> <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">'kill -9 </span><span class="si">%d</span><span class="s1">'</span> <span class="o">%</span> <span class="n">os</span><span class="o">.</span><span class="n">getpid</span><span class="p">())</span>
+</pre>
+<p>or just jump to some line <tt class="docutils literal">j 22</tt></p>
 </div>
 <div class="section" id="main-commands">
 <h2>Main&nbsp;Commands</h2>
@@ -116,25 +130,25 @@ where(w) - find out exactly what line is being executed ">
 <p><strong>up(u)/down(d)</strong> - move between&nbsp;frames</p>
 <p><strong>args(a)</strong> - print all arguments to the function active in the current frame
 <strong>p</strong> - evaluates(print) an expression given as argument and prints the&nbsp;result</p>
-<pre class="code text"><a name="rest_code_01dbfbef955f439682e98a8ef7f083e0-1"></a>p output
+<pre class="code text"><a name="rest_code_3bc915855ed4499ea6ed32cf279242f9-1"></a>p output
 </pre>
 <p><strong>pp</strong> - pretty&nbsp;print</p>
-<pre class="code text"><a name="rest_code_22423cc73aee41c393b3b0b1f13cc1b1-1"></a>(Pdb) pp lines
-<a name="rest_code_22423cc73aee41c393b3b0b1f13cc1b1-2"></a>['Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec\n',
-<a name="rest_code_22423cc73aee41c393b3b0b1f13cc1b1-3"></a> 'egestas, enim et consectetuer ullamcorper, lectus ligula rutrum leo, a\n',
-<a name="rest_code_22423cc73aee41c393b3b0b1f13cc1b1-4"></a> 'elementum elit tortor eu quam.\n']
+<pre class="code text"><a name="rest_code_a146df74ea1e4d6caad03d0bdea96698-1"></a>(Pdb) pp lines
+<a name="rest_code_a146df74ea1e4d6caad03d0bdea96698-2"></a>['Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec\n',
+<a name="rest_code_a146df74ea1e4d6caad03d0bdea96698-3"></a> 'egestas, enim et consectetuer ullamcorper, lectus ligula rutrum leo, a\n',
+<a name="rest_code_a146df74ea1e4d6caad03d0bdea96698-4"></a> 'elementum elit tortor eu quam.\n']
 </pre>
 <p><strong>!</strong> - passes to Python interepter to be&nbsp;evaluated.</p>
-<pre class="code text"><a name="rest_code_d3f715ce360c42c79ba3c3596b95bcb3-1"></a>(Pdb) !output='changed value'
-<a name="rest_code_d3f715ce360c42c79ba3c3596b95bcb3-2"></a>
-<a name="rest_code_d3f715ce360c42c79ba3c3596b95bcb3-3"></a>(Pdb) continue
-<a name="rest_code_d3f715ce360c42c79ba3c3596b95bcb3-4"></a>changed value
+<pre class="code text"><a name="rest_code_29db50d70acc4eb8ad3efbe792320a81-1"></a>(Pdb) !output='changed value'
+<a name="rest_code_29db50d70acc4eb8ad3efbe792320a81-2"></a>
+<a name="rest_code_29db50d70acc4eb8ad3efbe792320a81-3"></a>(Pdb) continue
+<a name="rest_code_29db50d70acc4eb8ad3efbe792320a81-4"></a>changed value
 </pre>
 <p><strong>step</strong> - debug step by&nbsp;step</p>
-<pre class="code text"><a name="rest_code_1e1eb760cd364f659e3d996ccb666d4b-1"></a>(Pdb) step
-<a name="rest_code_1e1eb760cd364f659e3d996ccb666d4b-2"></a>--Call--
-<a name="rest_code_1e1eb760cd364f659e3d996ccb666d4b-3"></a>&gt; .../pdb_step.py(9)f()
-<a name="rest_code_1e1eb760cd364f659e3d996ccb666d4b-4"></a>-&gt; def f(n):
+<pre class="code text"><a name="rest_code_ad554fc3967e499b9181ecbd4ba02d9e-1"></a>(Pdb) step
+<a name="rest_code_ad554fc3967e499b9181ecbd4ba02d9e-2"></a>--Call--
+<a name="rest_code_ad554fc3967e499b9181ecbd4ba02d9e-3"></a>&gt; .../pdb_step.py(9)f()
+<a name="rest_code_ad554fc3967e499b9181ecbd4ba02d9e-4"></a>-&gt; def f(n):
 </pre>
 <p><strong>next</strong> -  command is like step, but does not enter functions called from the statement being&nbsp;executed.</p>
 <p><strong>until</strong> -  command is like <strong>next</strong>, except it explicitly continues until execution reaches a line in the same function with a line number higher than the current&nbsp;value</p>
@@ -143,76 +157,76 @@ where(w) - find out exactly what line is being executed ">
 <div class="section" id="breakpoints">
 <h2>Breakpoints</h2>
 <p><strong>break lineno</strong> - execute untill line&nbsp;number</p>
-<pre class="code text"><a name="rest_code_434616d4995c4e4b992803e08101e655-1"></a>$ python -m pdb pdb_break.py
-<a name="rest_code_434616d4995c4e4b992803e08101e655-2"></a>&gt; .../pdb_break.py(7)&lt;module&gt;()
-<a name="rest_code_434616d4995c4e4b992803e08101e655-3"></a>-&gt; def calc(i, n):
-<a name="rest_code_434616d4995c4e4b992803e08101e655-4"></a>(Pdb) break 11
-<a name="rest_code_434616d4995c4e4b992803e08101e655-5"></a>Breakpoint 1 at .../pdb_break.py:11
-<a name="rest_code_434616d4995c4e4b992803e08101e655-6"></a>
-<a name="rest_code_434616d4995c4e4b992803e08101e655-7"></a>(Pdb) continue
-<a name="rest_code_434616d4995c4e4b992803e08101e655-8"></a>i = 0
-<a name="rest_code_434616d4995c4e4b992803e08101e655-9"></a>j = 0
-<a name="rest_code_434616d4995c4e4b992803e08101e655-10"></a>i = 1
-<a name="rest_code_434616d4995c4e4b992803e08101e655-11"></a>j = 5
-<a name="rest_code_434616d4995c4e4b992803e08101e655-12"></a>&gt; .../pdb_break.py(11)calc()
-<a name="rest_code_434616d4995c4e4b992803e08101e655-13"></a>-&gt; print 'Positive!'
+<pre class="code text"><a name="rest_code_bb68ca8c2e434b3ebee8a8c7cce03cf6-1"></a>$ python -m pdb pdb_break.py
+<a name="rest_code_bb68ca8c2e434b3ebee8a8c7cce03cf6-2"></a>&gt; .../pdb_break.py(7)&lt;module&gt;()
+<a name="rest_code_bb68ca8c2e434b3ebee8a8c7cce03cf6-3"></a>-&gt; def calc(i, n):
+<a name="rest_code_bb68ca8c2e434b3ebee8a8c7cce03cf6-4"></a>(Pdb) break 11
+<a name="rest_code_bb68ca8c2e434b3ebee8a8c7cce03cf6-5"></a>Breakpoint 1 at .../pdb_break.py:11
+<a name="rest_code_bb68ca8c2e434b3ebee8a8c7cce03cf6-6"></a>
+<a name="rest_code_bb68ca8c2e434b3ebee8a8c7cce03cf6-7"></a>(Pdb) continue
+<a name="rest_code_bb68ca8c2e434b3ebee8a8c7cce03cf6-8"></a>i = 0
+<a name="rest_code_bb68ca8c2e434b3ebee8a8c7cce03cf6-9"></a>j = 0
+<a name="rest_code_bb68ca8c2e434b3ebee8a8c7cce03cf6-10"></a>i = 1
+<a name="rest_code_bb68ca8c2e434b3ebee8a8c7cce03cf6-11"></a>j = 5
+<a name="rest_code_bb68ca8c2e434b3ebee8a8c7cce03cf6-12"></a>&gt; .../pdb_break.py(11)calc()
+<a name="rest_code_bb68ca8c2e434b3ebee8a8c7cce03cf6-13"></a>-&gt; print 'Positive!'
 </pre>
-<pre class="code text"><a name="rest_code_24543b19e4484ea4b2cb384fb95d9590-1"></a>(Pdb) break calc  # specify the name of the function as a brackpoint
-<a name="rest_code_24543b19e4484ea4b2cb384fb95d9590-2"></a>(Pdb) break pdb_break.py:11  # remote filename breakpoint
+<pre class="code text"><a name="rest_code_264ed1fefcc540c1b439eab87c844f03-1"></a>(Pdb) break calc  # specify the name of the function as a brackpoint
+<a name="rest_code_264ed1fefcc540c1b439eab87c844f03-2"></a>(Pdb) break pdb_break.py:11  # remote filename breakpoint
 </pre>
 <p><strong>continue</strong> -  tells the debugger to keep running your program until the next&nbsp;breakpoint</p>
 <p><strong>break</strong> - list of all&nbsp;breakpoints</p>
 <p><strong>disable/enable breakpoint_id</strong> - disable or enable some breakpoint
 <strong>clear breakpoint_id</strong> - delete breakpoint&nbsp;entirely</p>
 <p><strong>tbreak</strong> - temporary&nbsp;breakpoint</p>
-<pre class="code text"><a name="rest_code_8f93d33f50fe48da963c703c2ee00297-1"></a>(Pdb) break 9, j&gt;0  # conditional breakpoint
-<a name="rest_code_8f93d33f50fe48da963c703c2ee00297-2"></a>(Pdb) condition 1 j&gt;0  # add condition to existing breakpoint by id
-<a name="rest_code_8f93d33f50fe48da963c703c2ee00297-3"></a>(Pdb) ignore 1 2  # Will ignore next 2 crossings of breakpoint 1.
-<a name="rest_code_8f93d33f50fe48da963c703c2ee00297-4"></a>(Pdb) ignore 1 0  # Will stop next time breakpoint 1 is reached.
+<pre class="code text"><a name="rest_code_d42ed79d64a24c2583b5e5461ae04426-1"></a>(Pdb) break 9, j&gt;0  # conditional breakpoint
+<a name="rest_code_d42ed79d64a24c2583b5e5461ae04426-2"></a>(Pdb) condition 1 j&gt;0  # add condition to existing breakpoint by id
+<a name="rest_code_d42ed79d64a24c2583b5e5461ae04426-3"></a>(Pdb) ignore 1 2  # Will ignore next 2 crossings of breakpoint 1.
+<a name="rest_code_d42ed79d64a24c2583b5e5461ae04426-4"></a>(Pdb) ignore 1 0  # Will stop next time breakpoint 1 is reached.
 </pre>
 <p><strong>commands</strong> - you can define a series of interpreter commands, including Python&nbsp;statements</p>
-<pre class="code text"><a name="rest_code_895945bc8a484d57b616ecdf45cb5c36-1"></a>(Pdb) break 9
-<a name="rest_code_895945bc8a484d57b616ecdf45cb5c36-2"></a>Breakpoint 1 at .../pdb_break.py:9
-<a name="rest_code_895945bc8a484d57b616ecdf45cb5c36-3"></a>
-<a name="rest_code_895945bc8a484d57b616ecdf45cb5c36-4"></a>(Pdb) commands 1
-<a name="rest_code_895945bc8a484d57b616ecdf45cb5c36-5"></a>(com) print 'debug i =', i
-<a name="rest_code_895945bc8a484d57b616ecdf45cb5c36-6"></a>(com) print 'debug j =', j
-<a name="rest_code_895945bc8a484d57b616ecdf45cb5c36-7"></a>(com) print 'debug n =', n
-<a name="rest_code_895945bc8a484d57b616ecdf45cb5c36-8"></a>(com) end
+<pre class="code text"><a name="rest_code_6e6387651d094875ba4fe5f66e07dcaa-1"></a>(Pdb) break 9
+<a name="rest_code_6e6387651d094875ba4fe5f66e07dcaa-2"></a>Breakpoint 1 at .../pdb_break.py:9
+<a name="rest_code_6e6387651d094875ba4fe5f66e07dcaa-3"></a>
+<a name="rest_code_6e6387651d094875ba4fe5f66e07dcaa-4"></a>(Pdb) commands 1
+<a name="rest_code_6e6387651d094875ba4fe5f66e07dcaa-5"></a>(com) print 'debug i =', i
+<a name="rest_code_6e6387651d094875ba4fe5f66e07dcaa-6"></a>(com) print 'debug j =', j
+<a name="rest_code_6e6387651d094875ba4fe5f66e07dcaa-7"></a>(com) print 'debug n =', n
+<a name="rest_code_6e6387651d094875ba4fe5f66e07dcaa-8"></a>(com) end
 </pre>
 </div>
 <div class="section" id="jumps">
 <h2>Jumps</h2>
 <p><strong>jump line_no</strong> - jump ahead to line number without&nbsp;incrementing</p>
 <p><strong>run shlex_args</strong> - restart the&nbsp;command</p>
-<pre class="code text"><a name="rest_code_331e93f3c4684187899c87908ceb2926-1"></a>(Pdb) run one two three
+<pre class="code text"><a name="rest_code_19127ff6e79740ee9351d861651696e1-1"></a>(Pdb) run one two three
 </pre>
 </div>
 <div class="section" id="aliases">
 <h2>Aliases</h2>
-<pre class="code text"><a name="rest_code_e9ef6bfb72d9478a806e2e342109f3b2-1"></a>$ python -m pdb pdb_function_arguments.py
-<a name="rest_code_e9ef6bfb72d9478a806e2e342109f3b2-2"></a>&gt; .../pdb_function_arguments.py(7)&lt;module&gt;()
-<a name="rest_code_e9ef6bfb72d9478a806e2e342109f3b2-3"></a>-&gt; import pdb
-<a name="rest_code_e9ef6bfb72d9478a806e2e342109f3b2-4"></a>(Pdb) break 10
-<a name="rest_code_e9ef6bfb72d9478a806e2e342109f3b2-5"></a>Breakpoint 1 at .../pdb_function_arguments.py:10
-<a name="rest_code_e9ef6bfb72d9478a806e2e342109f3b2-6"></a>
-<a name="rest_code_e9ef6bfb72d9478a806e2e342109f3b2-7"></a>(Pdb) continue
-<a name="rest_code_e9ef6bfb72d9478a806e2e342109f3b2-8"></a>&gt; .../pdb_function_arguments.py(10)recursive_function()
-<a name="rest_code_e9ef6bfb72d9478a806e2e342109f3b2-9"></a>-&gt; if n &gt; 0:
-<a name="rest_code_e9ef6bfb72d9478a806e2e342109f3b2-10"></a>
-<a name="rest_code_e9ef6bfb72d9478a806e2e342109f3b2-11"></a>(Pdb) pp locals().keys()
-<a name="rest_code_e9ef6bfb72d9478a806e2e342109f3b2-12"></a>['output', 'n']
-<a name="rest_code_e9ef6bfb72d9478a806e2e342109f3b2-13"></a>
-<a name="rest_code_e9ef6bfb72d9478a806e2e342109f3b2-14"></a>(Pdb) alias pl pp locals().keys()
-<a name="rest_code_e9ef6bfb72d9478a806e2e342109f3b2-15"></a>
-<a name="rest_code_e9ef6bfb72d9478a806e2e342109f3b2-16"></a>(Pdb) pl
-<a name="rest_code_e9ef6bfb72d9478a806e2e342109f3b2-17"></a>['output', 'n']
+<pre class="code text"><a name="rest_code_1b06983362bc45bda08f03bfcbfe27b9-1"></a>$ python -m pdb pdb_function_arguments.py
+<a name="rest_code_1b06983362bc45bda08f03bfcbfe27b9-2"></a>&gt; .../pdb_function_arguments.py(7)&lt;module&gt;()
+<a name="rest_code_1b06983362bc45bda08f03bfcbfe27b9-3"></a>-&gt; import pdb
+<a name="rest_code_1b06983362bc45bda08f03bfcbfe27b9-4"></a>(Pdb) break 10
+<a name="rest_code_1b06983362bc45bda08f03bfcbfe27b9-5"></a>Breakpoint 1 at .../pdb_function_arguments.py:10
+<a name="rest_code_1b06983362bc45bda08f03bfcbfe27b9-6"></a>
+<a name="rest_code_1b06983362bc45bda08f03bfcbfe27b9-7"></a>(Pdb) continue
+<a name="rest_code_1b06983362bc45bda08f03bfcbfe27b9-8"></a>&gt; .../pdb_function_arguments.py(10)recursive_function()
+<a name="rest_code_1b06983362bc45bda08f03bfcbfe27b9-9"></a>-&gt; if n &gt; 0:
+<a name="rest_code_1b06983362bc45bda08f03bfcbfe27b9-10"></a>
+<a name="rest_code_1b06983362bc45bda08f03bfcbfe27b9-11"></a>(Pdb) pp locals().keys()
+<a name="rest_code_1b06983362bc45bda08f03bfcbfe27b9-12"></a>['output', 'n']
+<a name="rest_code_1b06983362bc45bda08f03bfcbfe27b9-13"></a>
+<a name="rest_code_1b06983362bc45bda08f03bfcbfe27b9-14"></a>(Pdb) alias pl pp locals().keys()
+<a name="rest_code_1b06983362bc45bda08f03bfcbfe27b9-15"></a>
+<a name="rest_code_1b06983362bc45bda08f03bfcbfe27b9-16"></a>(Pdb) pl
+<a name="rest_code_1b06983362bc45bda08f03bfcbfe27b9-17"></a>['output', 'n']
 </pre>
 <p><strong>alias</strong> - return list of all&nbsp;aliases</p>
-<pre class="code text"><a name="rest_code_0275421715354e8e959784868acecec9-1"></a>(Pdb) alias ph !help(%1)  # alias with ars
-<a name="rest_code_0275421715354e8e959784868acecec9-2"></a>
-<a name="rest_code_0275421715354e8e959784868acecec9-3"></a>(Pdb) ph locals
-<a name="rest_code_0275421715354e8e959784868acecec9-4"></a>Help on built-in function locals in module __builtin__:
+<pre class="code text"><a name="rest_code_fd8c99bde33949428712e2007075d390-1"></a>(Pdb) alias ph !help(%1)  # alias with ars
+<a name="rest_code_fd8c99bde33949428712e2007075d390-2"></a>
+<a name="rest_code_fd8c99bde33949428712e2007075d390-3"></a>(Pdb) ph locals
+<a name="rest_code_fd8c99bde33949428712e2007075d390-4"></a>Help on built-in function locals in module __builtin__:
 </pre>
 </div>
 </div>

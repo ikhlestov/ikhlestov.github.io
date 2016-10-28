@@ -158,7 +158,17 @@ MathJax.Hub.Config({
 <a href="#listingspandaspy-82">82</a>
 <a href="#listingspandaspy-83">83</a>
 <a href="#listingspandaspy-84">84</a>
-<a href="#listingspandaspy-85">85</a></pre></div></td>
+<a href="#listingspandaspy-85">85</a>
+<a href="#listingspandaspy-86">86</a>
+<a href="#listingspandaspy-87">87</a>
+<a href="#listingspandaspy-88">88</a>
+<a href="#listingspandaspy-89">89</a>
+<a href="#listingspandaspy-90">90</a>
+<a href="#listingspandaspy-91">91</a>
+<a href="#listingspandaspy-92">92</a>
+<a href="#listingspandaspy-93">93</a>
+<a href="#listingspandaspy-94">94</a>
+<a href="#listingspandaspy-95">95</a></pre></div></td>
 <td class="code"><pre class="code literal-block"><a name="listingspandaspy-1"></a><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 <a name="listingspandaspy-2"></a>
 <a name="listingspandaspy-3"></a><span class="c1"># load the data</span>
@@ -244,6 +254,16 @@ MathJax.Hub.Config({
 <a name="listingspandaspy-83"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">columns</span><span class="p">)</span>
 <a name="listingspandaspy-84"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">csv_lines</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">columns</span><span class="p">)</span>
 <a name="listingspandaspy-85"></a><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">save_file_name</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<a name="listingspandaspy-86"></a>
+<a name="listingspandaspy-87"></a><span class="c1"># create new dataframe if not exists or use existing one</span>
+<a name="listingspandaspy-88"></a><span class="c1"># csv_columns = list of names for columns</span>
+<a name="listingspandaspy-89"></a><span class="c1"># csv_data = dict with keys same as columns names</span>
+<a name="listingspandaspy-90"></a><span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">csv_f_name</span><span class="p">):</span>
+<a name="listingspandaspy-91"></a>    <span class="n">main_csv</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">csv_f_name</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<a name="listingspandaspy-92"></a><span class="k">else</span><span class="p">:</span>
+<a name="listingspandaspy-93"></a>    <span class="n">main_csv</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">csv_columns</span><span class="p">)</span>
+<a name="listingspandaspy-94"></a><span class="n">main_csv</span> <span class="o">=</span> <span class="n">main_csv</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">csv_data</span><span class="p">,</span> <span class="n">ignore_index</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<a name="listingspandaspy-95"></a><span class="n">main_csv</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">csv_f_name</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">na_rep</span><span class="o">=</span><span class="s1">'NaN'</span><span class="p">)</span>
 </pre></td>
 </tr></table>
 </div>
