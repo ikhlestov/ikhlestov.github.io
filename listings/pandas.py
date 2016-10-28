@@ -83,3 +83,13 @@ columns = ['word_1', 'word_2', 'target_similarity', 'calculated_similarity']
 df = pd.DataFrame(data=data, columns=columns)
 df = pd.DataFrame(data=csv_lines, columns=columns)
 df.to_csv(save_file_name, index=False, header=True)
+
+# create new dataframe if not exists or use existing one
+# csv_columns = list of names for columns
+# csv_data = dict with keys same as columns names
+if os.path.exists(csv_f_name):
+    main_csv = pd.read_csv(csv_f_name, index_col=0)
+else:
+    main_csv = pd.DataFrame(columns=csv_columns)
+main_csv = main_csv.append(csv_data, ignore_index=True)
+main_csv.to_csv(csv_f_name, index=True, header=True, na_rep='NaN')

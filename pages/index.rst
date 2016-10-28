@@ -22,7 +22,6 @@ Python related:
 * :doc:`Scikit-learn notes <scikit-learn-notes>`
 * :doc:`ipdb-commands`
 * :doc:`python-libraries`
-* :doc:`python-tips`
 * :doc:`numpy`
 * :doc:`matplotlib`
 

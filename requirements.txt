@@ -20,7 +20,7 @@ jupyter-client==4.3.0
 jupyter-core==4.1.0
 livereload==2.4.1
 Logbook==0.12.5
-lxml==3.6.0
+lxml==3.6.4
 Mako==1.0.4
 Markdown==2.6.6
 MarkupSafe==0.23

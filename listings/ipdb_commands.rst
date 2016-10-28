@@ -1,9 +1,30 @@
 Content
 =======
+* `Exit from ipdb Loop`_
 * `Main Commands`_
 * `Breakpoints`_
 * `Jumps`_
 * `Aliases`_
+
+Exit from ipdb Loop
+===================
+
+exit from ipdb(for example in case of loop)
+
+.. code-block:: python
+    
+    import os; os.system('kill -9 %d' % os.getpid())
+
+also you may place such alias in ``.pdbrc`` file at home or project folder
+
+.. code-block:: python
+    
+    import os
+
+    alias kk os.system('kill -9 %d' % os.getpid())
+
+or just jump to some line ``j 22``
+
 
 Main Commands
 =============
