@@ -15,6 +15,7 @@ Machine Learning:
 * :doc:`general-ml-notes`
 * :doc:`models-architectures`
 * :doc:`ml-bookmarks`
+* :doc:`tensorflow-hints`
 
 Python related:
 
