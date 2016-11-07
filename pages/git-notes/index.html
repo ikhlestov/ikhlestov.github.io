@@ -91,48 +91,51 @@ git diff --staged">
     </header><div class="e-content entry-content" itemprop="articleBody text">
     <div>
 <p><a class="reference external" href="../../listings/git.sh.html">git.sh</a></p>
-<pre class="code bash"><a name="rest_code_db5af31726454477b40ee92a373dcd67-1"></a>git init
-<a name="rest_code_db5af31726454477b40ee92a373dcd67-2"></a><span class="c1"># add all files or filename/folder</span>
-<a name="rest_code_db5af31726454477b40ee92a373dcd67-3"></a>git add --all
-<a name="rest_code_db5af31726454477b40ee92a373dcd67-4"></a><span class="c1"># add updated files only</span>
-<a name="rest_code_db5af31726454477b40ee92a373dcd67-5"></a>git add -u
-<a name="rest_code_db5af31726454477b40ee92a373dcd67-6"></a>git status
-<a name="rest_code_db5af31726454477b40ee92a373dcd67-7"></a><span class="c1"># know the difference with not staged</span>
-<a name="rest_code_db5af31726454477b40ee92a373dcd67-8"></a>git diff
-<a name="rest_code_db5af31726454477b40ee92a373dcd67-9"></a><span class="c1"># what will be commited</span>
-<a name="rest_code_db5af31726454477b40ee92a373dcd67-10"></a>git diff --staged
-<a name="rest_code_db5af31726454477b40ee92a373dcd67-11"></a>
-<a name="rest_code_db5af31726454477b40ee92a373dcd67-12"></a><span class="c1">#use commit message from command line</span>
-<a name="rest_code_db5af31726454477b40ee92a373dcd67-13"></a>git commit -m
-<a name="rest_code_db5af31726454477b40ee92a373dcd67-14"></a><span class="c1">#change and revrite existing files</span>
-<a name="rest_code_db5af31726454477b40ee92a373dcd67-15"></a>git commit -a
-<a name="rest_code_db5af31726454477b40ee92a373dcd67-16"></a><span class="c1">#the same and with comment</span>
-<a name="rest_code_db5af31726454477b40ee92a373dcd67-17"></a>git commit -am
-<a name="rest_code_db5af31726454477b40ee92a373dcd67-18"></a><span class="c1"># change the message if not pushed</span>
-<a name="rest_code_db5af31726454477b40ee92a373dcd67-19"></a>git commit --amend -m <span class="s2">"New commit message"</span>
-<a name="rest_code_db5af31726454477b40ee92a373dcd67-20"></a>
-<a name="rest_code_db5af31726454477b40ee92a373dcd67-21"></a><span class="c1"># commited messages by one line</span>
-<a name="rest_code_db5af31726454477b40ee92a373dcd67-22"></a>git log --oneline
-<a name="rest_code_db5af31726454477b40ee92a373dcd67-23"></a>
-<a name="rest_code_db5af31726454477b40ee92a373dcd67-24"></a><span class="c1">## how to create right commit messages</span>
-<a name="rest_code_db5af31726454477b40ee92a373dcd67-25"></a><span class="s2">"</span>
-<a name="rest_code_db5af31726454477b40ee92a373dcd67-26"></a><span class="s2">- Separate subject from body with a blank line</span>
-<a name="rest_code_db5af31726454477b40ee92a373dcd67-27"></a><span class="s2">- Limit the subject line to 50 characters</span>
-<a name="rest_code_db5af31726454477b40ee92a373dcd67-28"></a><span class="s2">- Capitalize the subject line</span>
-<a name="rest_code_db5af31726454477b40ee92a373dcd67-29"></a><span class="s2">- Do not end the subject line with a period</span>
-<a name="rest_code_db5af31726454477b40ee92a373dcd67-30"></a><span class="s2">- Use the imperative mood in the subject line</span>
-<a name="rest_code_db5af31726454477b40ee92a373dcd67-31"></a><span class="s2">- Wrap the body at 72 characters</span>
-<a name="rest_code_db5af31726454477b40ee92a373dcd67-32"></a><span class="s2">- Use the body to explain what and why vs. how</span>
-<a name="rest_code_db5af31726454477b40ee92a373dcd67-33"></a><span class="s2">"</span>
-<a name="rest_code_db5af31726454477b40ee92a373dcd67-34"></a>
-<a name="rest_code_db5af31726454477b40ee92a373dcd67-35"></a><span class="c1"># list both local and remote branches</span>
-<a name="rest_code_db5af31726454477b40ee92a373dcd67-36"></a>git branch -a
-<a name="rest_code_db5af31726454477b40ee92a373dcd67-37"></a><span class="c1"># list only remote branches</span>
-<a name="rest_code_db5af31726454477b40ee92a373dcd67-38"></a>git branch -r
-<a name="rest_code_db5af31726454477b40ee92a373dcd67-39"></a><span class="c1"># update list of local branches</span>
-<a name="rest_code_db5af31726454477b40ee92a373dcd67-40"></a>git remote update origin --prune
-<a name="rest_code_db5af31726454477b40ee92a373dcd67-41"></a><span class="c1"># delete branch</span>
-<a name="rest_code_db5af31726454477b40ee92a373dcd67-42"></a>git branch -d <span class="nv">$branch_name</span>
+<pre class="code bash"><a name="rest_code_8bda4e4cf4514ba0aedcb9159ab47d86-1"></a>git init
+<a name="rest_code_8bda4e4cf4514ba0aedcb9159ab47d86-2"></a><span class="c1"># add all files or filename/folder</span>
+<a name="rest_code_8bda4e4cf4514ba0aedcb9159ab47d86-3"></a>git add --all
+<a name="rest_code_8bda4e4cf4514ba0aedcb9159ab47d86-4"></a><span class="c1"># add updated files only</span>
+<a name="rest_code_8bda4e4cf4514ba0aedcb9159ab47d86-5"></a>git add -u
+<a name="rest_code_8bda4e4cf4514ba0aedcb9159ab47d86-6"></a>git status
+<a name="rest_code_8bda4e4cf4514ba0aedcb9159ab47d86-7"></a><span class="c1"># know the difference with not staged</span>
+<a name="rest_code_8bda4e4cf4514ba0aedcb9159ab47d86-8"></a>git diff
+<a name="rest_code_8bda4e4cf4514ba0aedcb9159ab47d86-9"></a><span class="c1"># what will be commited</span>
+<a name="rest_code_8bda4e4cf4514ba0aedcb9159ab47d86-10"></a>git diff --staged
+<a name="rest_code_8bda4e4cf4514ba0aedcb9159ab47d86-11"></a>
+<a name="rest_code_8bda4e4cf4514ba0aedcb9159ab47d86-12"></a><span class="c1">#use commit message from command line</span>
+<a name="rest_code_8bda4e4cf4514ba0aedcb9159ab47d86-13"></a>git commit -m
+<a name="rest_code_8bda4e4cf4514ba0aedcb9159ab47d86-14"></a><span class="c1">#change and revrite existing files</span>
+<a name="rest_code_8bda4e4cf4514ba0aedcb9159ab47d86-15"></a>git commit -a
+<a name="rest_code_8bda4e4cf4514ba0aedcb9159ab47d86-16"></a><span class="c1">#the same and with comment</span>
+<a name="rest_code_8bda4e4cf4514ba0aedcb9159ab47d86-17"></a>git commit -am
+<a name="rest_code_8bda4e4cf4514ba0aedcb9159ab47d86-18"></a><span class="c1"># change the message if not pushed</span>
+<a name="rest_code_8bda4e4cf4514ba0aedcb9159ab47d86-19"></a>git commit --amend -m <span class="s2">"New commit message"</span>
+<a name="rest_code_8bda4e4cf4514ba0aedcb9159ab47d86-20"></a>
+<a name="rest_code_8bda4e4cf4514ba0aedcb9159ab47d86-21"></a><span class="c1"># commited messages by one line</span>
+<a name="rest_code_8bda4e4cf4514ba0aedcb9159ab47d86-22"></a>git log --oneline
+<a name="rest_code_8bda4e4cf4514ba0aedcb9159ab47d86-23"></a>
+<a name="rest_code_8bda4e4cf4514ba0aedcb9159ab47d86-24"></a><span class="c1">## how to create right commit messages</span>
+<a name="rest_code_8bda4e4cf4514ba0aedcb9159ab47d86-25"></a><span class="s2">"</span>
+<a name="rest_code_8bda4e4cf4514ba0aedcb9159ab47d86-26"></a><span class="s2">- Separate subject from body with a blank line</span>
+<a name="rest_code_8bda4e4cf4514ba0aedcb9159ab47d86-27"></a><span class="s2">- Limit the subject line to 50 characters</span>
+<a name="rest_code_8bda4e4cf4514ba0aedcb9159ab47d86-28"></a><span class="s2">- Capitalize the subject line</span>
+<a name="rest_code_8bda4e4cf4514ba0aedcb9159ab47d86-29"></a><span class="s2">- Do not end the subject line with a period</span>
+<a name="rest_code_8bda4e4cf4514ba0aedcb9159ab47d86-30"></a><span class="s2">- Use the imperative mood in the subject line</span>
+<a name="rest_code_8bda4e4cf4514ba0aedcb9159ab47d86-31"></a><span class="s2">- Wrap the body at 72 characters</span>
+<a name="rest_code_8bda4e4cf4514ba0aedcb9159ab47d86-32"></a><span class="s2">- Use the body to explain what and why vs. how</span>
+<a name="rest_code_8bda4e4cf4514ba0aedcb9159ab47d86-33"></a><span class="s2">"</span>
+<a name="rest_code_8bda4e4cf4514ba0aedcb9159ab47d86-34"></a>
+<a name="rest_code_8bda4e4cf4514ba0aedcb9159ab47d86-35"></a><span class="c1"># list both local and remote branches</span>
+<a name="rest_code_8bda4e4cf4514ba0aedcb9159ab47d86-36"></a>git branch -a
+<a name="rest_code_8bda4e4cf4514ba0aedcb9159ab47d86-37"></a><span class="c1"># list only remote branches</span>
+<a name="rest_code_8bda4e4cf4514ba0aedcb9159ab47d86-38"></a>git branch -r
+<a name="rest_code_8bda4e4cf4514ba0aedcb9159ab47d86-39"></a><span class="c1"># update list of local branches</span>
+<a name="rest_code_8bda4e4cf4514ba0aedcb9159ab47d86-40"></a>git remote update origin --prune
+<a name="rest_code_8bda4e4cf4514ba0aedcb9159ab47d86-41"></a><span class="c1"># delete branch</span>
+<a name="rest_code_8bda4e4cf4514ba0aedcb9159ab47d86-42"></a>git branch -d <span class="nv">$branch_name</span>
+<a name="rest_code_8bda4e4cf4514ba0aedcb9159ab47d86-43"></a>
+<a name="rest_code_8bda4e4cf4514ba0aedcb9159ab47d86-44"></a><span class="c1"># if you want use some tool to display diff(meld, for example)</span>
+<a name="rest_code_8bda4e4cf4514ba0aedcb9159ab47d86-45"></a>git difftool -y -t meld some_filename
 </pre>
 </div>
     </div>

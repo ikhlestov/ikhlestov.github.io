@@ -40,3 +40,6 @@ git branch -r
 git remote update origin --prune
 # delete branch
 git branch -d $branch_name
+
+# if you want use some tool to display diff(meld, for example)
+git difftool -y -t meld some_filename

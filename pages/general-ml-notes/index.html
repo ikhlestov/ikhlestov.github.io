@@ -25,8 +25,7 @@ and Coursera ML Courses. They may seems to be some way unstructured, but such st
 Contents:
 
 General Approach
-Part I
-Part">
+Definitions">
 <meta property="og:type" content="article">
 <meta property="article:published_time" content="2016-10-02T23:00:05Z">
 </head>
@@ -93,21 +92,22 @@ and <a class="reference external" href="https://www.coursera.org/learn/machine-l
 <p class="topic-title first">Contents:</p>
 <ul class="simple">
 <li><a class="reference internal" href="#general-approach" id="id1">General&nbsp;Approach</a></li>
-<li><a class="reference internal" href="#part-i" id="id2">Part&nbsp;I</a></li>
-<li><a class="reference internal" href="#part-ii" id="id3">Part&nbsp;II</a></li>
-<li><a class="reference internal" href="#evaluation-of-algorithm" id="id4">Evaluation of&nbsp;algorithm</a></li>
-<li><a class="reference internal" href="#overfiting-and-underfitting" id="id5">Overfiting and&nbsp;underfitting</a></li>
+<li><a class="reference internal" href="#definitions" id="id2">Definitions</a></li>
+<li><a class="reference internal" href="#part-i" id="id3">Part&nbsp;I</a></li>
+<li><a class="reference internal" href="#part-ii" id="id4">Part&nbsp;II</a></li>
+<li><a class="reference internal" href="#evaluation-of-algorithm" id="id5">Evaluation of&nbsp;algorithm</a></li>
+<li><a class="reference internal" href="#overfiting-and-underfitting" id="id6">Overfiting and&nbsp;underfitting</a></li>
 <li>
-<a class="reference internal" href="#various-networks-types" id="id6">Various networks types</a><ul>
+<a class="reference internal" href="#various-networks-types" id="id7">Various networks types</a><ul>
 <li>
-<a class="reference internal" href="#convolutional-network-cnn-hyperparameters" id="id7">Convolutional Network (CNN) hyperparameters</a><ul>
-<li><a class="reference internal" href="#padding" id="id8">Padding</a></li>
-<li><a class="reference internal" href="#stride-size" id="id9">Stride&nbsp;Size</a></li>
-<li><a class="reference internal" href="#pooling" id="id10">Pooling</a></li>
-<li><a class="reference internal" href="#channels" id="id11">Channels</a></li>
+<a class="reference internal" href="#convolutional-network-cnn-hyperparameters" id="id8">Convolutional Network (CNN) hyperparameters</a><ul>
+<li><a class="reference internal" href="#padding" id="id9">Padding</a></li>
+<li><a class="reference internal" href="#stride-size" id="id10">Stride&nbsp;Size</a></li>
+<li><a class="reference internal" href="#pooling" id="id11">Pooling</a></li>
+<li><a class="reference internal" href="#channels" id="id12">Channels</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#highway-networks" id="id12">Highway&nbsp;Networks</a></li>
+<li><a class="reference internal" href="#highway-networks" id="id13">Highway&nbsp;Networks</a></li>
 </ul>
 </li>
 </ul>
@@ -121,8 +121,17 @@ and <a class="reference external" href="https://www.coursera.org/learn/machine-l
 <li>Train, tune&nbsp;hyperparameters.</li>
 </ul>
 </div>
+<div class="section" id="definitions">
+<h2><a class="toc-backref" href="#id2">Definitions</a></h2>
+<ul class="simple">
+<li>
+<strong>One-shot learning</strong> - aim to lean not from thousands of examples but from one or only a&nbsp;few.</li>
+<li>
+<strong>Transfer learning</strong> - apply already trained model with previous knowledge to the new&nbsp;domain.</li>
+</ul>
+</div>
 <div class="section" id="part-i">
-<h2><a class="toc-backref" href="#id2">Part&nbsp;I</a></h2>
+<h2><a class="toc-backref" href="#id3">Part&nbsp;I</a></h2>
 <p>Sigmoid&nbsp;function:</p>
 <div class="math">
 \begin{equation*}
@@ -160,7 +169,7 @@ So now gradinet can be computed&nbsp;as:</p>
 </div>
 </div>
 <div class="section" id="part-ii">
-<h2><a class="toc-backref" href="#id3">Part&nbsp;II</a></h2>
+<h2><a class="toc-backref" href="#id4">Part&nbsp;II</a></h2>
 <img alt="/images/ML_notes/weights_notation.png" src="../../images/ML_notes/weights_notation.png"><p>image from <a class="reference external" href="http://neuralnetworksanddeeplearning.com/chap2.html">this&nbsp;book</a></p>
 <p><em>Elementwise</em> product of the two vectors denoted as <span class="math">\(s \odot t\)</span> and can be called sometimes <em>Hadamard product</em> or <em>Schur product</em>.
 Her is an&nbsp;example:</p>
@@ -173,17 +182,17 @@ Her is an&nbsp;example:</p>
 \end{equation*}
 </div>
 <p>In tensorflow you should distinguish usual matrix multiplication and hadamard&nbsp;product</p>
-<pre class="code python"><a name="rest_code_6dc3eff8355145a297f24f83a0e41618-1"></a><span class="c1"># W, Q - some matrices</span>
-<a name="rest_code_6dc3eff8355145a297f24f83a0e41618-2"></a>
-<a name="rest_code_6dc3eff8355145a297f24f83a0e41618-3"></a><span class="c1"># matrix multiplication</span>
-<a name="rest_code_6dc3eff8355145a297f24f83a0e41618-4"></a><span class="n">res</span> <span class="o">=</span> <span class="n">math_ops</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="n">Q</span><span class="p">)</span>
-<a name="rest_code_6dc3eff8355145a297f24f83a0e41618-5"></a>
-<a name="rest_code_6dc3eff8355145a297f24f83a0e41618-6"></a><span class="c1"># hadamard product</span>
-<a name="rest_code_6dc3eff8355145a297f24f83a0e41618-7"></a><span class="n">res</span> <span class="o">=</span> <span class="n">W</span> <span class="o">*</span> <span class="n">Q</span>
+<pre class="code python"><a name="rest_code_822bf4cc827b43e79ee47c446ecf1301-1"></a><span class="c1"># W, Q - some matrices</span>
+<a name="rest_code_822bf4cc827b43e79ee47c446ecf1301-2"></a>
+<a name="rest_code_822bf4cc827b43e79ee47c446ecf1301-3"></a><span class="c1"># matrix multiplication</span>
+<a name="rest_code_822bf4cc827b43e79ee47c446ecf1301-4"></a><span class="n">res</span> <span class="o">=</span> <span class="n">math_ops</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="n">Q</span><span class="p">)</span>
+<a name="rest_code_822bf4cc827b43e79ee47c446ecf1301-5"></a>
+<a name="rest_code_822bf4cc827b43e79ee47c446ecf1301-6"></a><span class="c1"># hadamard product</span>
+<a name="rest_code_822bf4cc827b43e79ee47c446ecf1301-7"></a><span class="n">res</span> <span class="o">=</span> <span class="n">W</span> <span class="o">*</span> <span class="n">Q</span>
 </pre>
 </div>
 <div class="section" id="evaluation-of-algorithm">
-<h2><a class="toc-backref" href="#id4">Evaluation of&nbsp;algorithm</a></h2>
+<h2><a class="toc-backref" href="#id5">Evaluation of&nbsp;algorithm</a></h2>
 <p>What we should&nbsp;do:</p>
 <ol class="arabic simple">
 <li>Split the dataset into three portions: train set, validate set and test set, in a proportion&nbsp;3:1:1.</li>
@@ -211,7 +220,7 @@ Her is an&nbsp;example:</p>
 </div>
 </div>
 <div class="section" id="overfiting-and-underfitting">
-<h2><a class="toc-backref" href="#id5">Overfiting and&nbsp;underfitting</a></h2>
+<h2><a class="toc-backref" href="#id6">Overfiting and&nbsp;underfitting</a></h2>
 <p>High <strong>bias</strong> is <strong>underfitting</strong> and high <strong>variance</strong> is <strong>overfitting</strong>.</p>
 <p>For understanding what exactly mean <em>Bias</em> and <em>Variance</em> you may check <a class="reference external" href="http://scott.fortmann-roe.com/docs/BiasVariance.html">this</a>
 or <a class="reference external" href="http://machinelearningmastery.com/gentle-introduction-to-the-bias-variance-trade-off-in-machine-learning/">this</a>
@@ -243,12 +252,12 @@ bias_variance_explanation_2</object>
 bias_variance_workflow_2</object>
 </div>
 <div class="section" id="various-networks-types">
-<h2><a class="toc-backref" href="#id6">Various networks&nbsp;types</a></h2>
+<h2><a class="toc-backref" href="#id7">Various networks&nbsp;types</a></h2>
 <div class="section" id="convolutional-network-cnn-hyperparameters">
-<h3><a class="toc-backref" href="#id7">Convolutional Network (CNN)&nbsp;hyperparameters</a></h3>
+<h3><a class="toc-backref" href="#id8">Convolutional Network (CNN)&nbsp;hyperparameters</a></h3>
 <p>More about CNNs for NLP you may reed <a class="reference external" href="http://www.wildml.com/2015/11/understanding-convolutional-neural-networks-for-nlp/">here</a></p>
 <div class="section" id="padding">
-<h4><a class="toc-backref" href="#id8">Padding</a></h4>
+<h4><a class="toc-backref" href="#id9">Padding</a></h4>
 <p>There are two types of&nbsp;padding:</p>
 <ul class="simple">
 <li>
@@ -267,7 +276,7 @@ More generally, the formula for the output size is
 <span class="math">\(n_{out} = (n_{in} + 2 * n_{padding} - n_{filter}) +&nbsp;1\)</span></p>
 </div>
 <div class="section" id="stride-size">
-<h4><a class="toc-backref" href="#id9">Stride&nbsp;Size</a></h4>
+<h4><a class="toc-backref" href="#id10">Stride&nbsp;Size</a></h4>
 <p><strong>Stride size</strong> - defining how much you want to shift your filter at each step.
 Mainly we see stride sizes of 1, but a larger stride size may allow you to build a model that behaves somewhat similarly to a Recursive Neural Network, i.e. looks like a&nbsp;tree.</p>
 <div class="figure">
@@ -276,7 +285,7 @@ Mainly we see stride sizes of 1, but a larger stride size may allow you to build
 </div>
 </div>
 <div class="section" id="pooling">
-<h4><a class="toc-backref" href="#id10">Pooling</a></h4>
+<h4><a class="toc-backref" href="#id11">Pooling</a></h4>
 <p>Pooling layers subsample output of convolutional layers. There are two types of pooling - <strong>max pooling</strong> and <strong>average pooling</strong>. You don’t necessarily need to pool over the complete matrix, you could also pool over a&nbsp;window.</p>
 <div class="figure">
 <a class="reference external image-reference" href="../../images/ML_notes/pooling.png"><img alt="/images/ML_notes/pooling.thumbnail.png" src="../../images/ML_notes/pooling.thumbnail.png"></a>
@@ -284,12 +293,12 @@ Mainly we see stride sizes of 1, but a larger stride size may allow you to build
 </div>
 </div>
 <div class="section" id="channels">
-<h4><a class="toc-backref" href="#id11">Channels</a></h4>
+<h4><a class="toc-backref" href="#id12">Channels</a></h4>
 <p>Channels are different sources or representations of the data. For image it&#8217;s typically RGB(red, green, blue) channels. For NLP you could have separate channels for different embeddings of various translation of the&nbsp;sentences.</p>
 </div>
 </div>
 <div class="section" id="highway-networks">
-<h3><a class="toc-backref" href="#id12">Highway&nbsp;Networks</a></h3>
+<h3><a class="toc-backref" href="#id13">Highway&nbsp;Networks</a></h3>
 <p><strong>Highway networks</strong> -
 Like LSTM networks, utilize a learnable gating mechanism to improve information flow across layers.
 More simple - process previous input data to the next layer.
