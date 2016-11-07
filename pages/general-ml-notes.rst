@@ -21,6 +21,13 @@ General Approach
 * Calculate gradient descent if necessary
 * Train, tune hyperparameters.
 
+Definitions
+===========
+
++ **One-shot learning** - aim to lean not from thousands of examples but from one or only a few.
+
++ **Transfer learning** - apply already trained model with previous knowledge to the new domain.
+
 Part I
 ======
 

@@ -97,7 +97,52 @@ Full explanation why is it so you may found
 Handle last state from RNN inside graph
 =======================================
 
-pass
+When using rnn usual we get last state of RNNs and send back the through feed dict:
+
+.. code-block:: python
+
+    # inside model definition
+    cell = tf.nn.rnn_cell.LSTMCell(num_units=n_hidden)
+    self.initial_state = cell.zero_state(batch_size, dtype=tf.float32)
+    rnn_out, self.last_state_fw = nn.dynamic_rnn(
+        cell=cell,
+        inputs=inputs,
+        initial_state=self.initial_state)
+
+    # and after during session
+    last_state = None
+    if last_state is not None:
+        feed_dict = {self.initial_state: last_state}
+    _, last_state = sess.run(
+        [self.learning_op, self.last_state],
+        feed_dict=feed_dict)
+
+But in this case we move last state from GPU memory and backwards. This is unreasonable.
+We can handle last state inside GPU directly as:
+
+.. code-block:: python
+
+    # inside model definition
+    last_state = tf.Variable(tf.zeros([batch_size, n_hidden]), trainable=False)
+    cell = tf.nn.rnn_cell.LSTMCell(num_units=n_hidden)
+    rnn_out, final_states = tf.nn.dynamic_rnn(
+        cell=cell,
+        inputs=inputs,
+        initial_state=last_state)
+    
+    # and after to assign new value to last state we should use small trick
+    with tf.control_dependencies([tf.assign(last_state, final_states)]):
+        rnn_out = tf.identity(rnn_out)
+
+Run model without GPU
+=====================
+In case you have GPUs on your machine but want to train without them, you should
+just pass additional env variable `CUDA_VISIBLE_DEVICES=''` during script call.
+
+.. code-block:: bash
+
+    $ CUDA_VISIBLE_DEVICES='' python some_model.py
+    
 
 Data Readers simple explanation
 ===============================
