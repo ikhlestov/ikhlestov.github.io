@@ -20,12 +20,11 @@ MathJax.Hub.Config({
 <meta property="og:title" content="General ML Notes">
 <meta property="og:url" content="https://ikhlestov.github.io/pages/general-ml-notes/">
 <meta property="og:description" content="This notes based on Neural Networks and Deep Learning
-and Coursera ML Courses. They may seems to be some way unstructured, but such structure is useful for me.
+and Coursera ML Courses. They may seems to be some way unstructured, but work still in progress, so please be patient.
 
 Contents:
 
-General Approach
-Definitions">
+Ֆ General Appro">
 <meta property="og:type" content="article">
 <meta property="article:published_time" content="2016-10-02T23:00:05Z">
 </head>
@@ -87,33 +86,48 @@ Definitions">
     </header><div class="e-content entry-content" itemprop="articleBody text">
     <div>
 <p>This notes based on <a class="reference external" href="http://neuralnetworksanddeeplearning.com/index.html">Neural Networks and Deep Learning</a>
-and <a class="reference external" href="https://www.coursera.org/learn/machine-learning">Coursera ML Courses</a>. They may seems to be some way unstructured, but such structure is useful for&nbsp;me.</p>
+and <a class="reference external" href="https://www.coursera.org/learn/machine-learning">Coursera ML Courses</a>. They may seems to be some way unstructured, but work still in progress, so please be&nbsp;patient.</p>
 <div class="contents topic" id="contents">
 <p class="topic-title first">Contents:</p>
 <ul class="simple">
-<li><a class="reference internal" href="#general-approach" id="id1">General&nbsp;Approach</a></li>
-<li><a class="reference internal" href="#definitions" id="id2">Definitions</a></li>
-<li><a class="reference internal" href="#part-i" id="id3">Part&nbsp;I</a></li>
-<li><a class="reference internal" href="#part-ii" id="id4">Part&nbsp;II</a></li>
-<li><a class="reference internal" href="#evaluation-of-algorithm" id="id5">Evaluation of&nbsp;algorithm</a></li>
-<li><a class="reference internal" href="#overfiting-and-underfitting" id="id6">Overfiting and&nbsp;underfitting</a></li>
+<li><a class="reference internal" href="#general-approach" id="id1">Ֆ General&nbsp;Approach</a></li>
+<li><a class="reference internal" href="#definitions" id="id2">Ֆ&nbsp;Definitions</a></li>
+<li><a class="reference internal" href="#part-i" id="id3">Ֆ Part&nbsp;I</a></li>
+<li><a class="reference internal" href="#part-ii" id="id4">Ֆ Part&nbsp;II</a></li>
 <li>
-<a class="reference internal" href="#various-networks-types" id="id7">Various networks types</a><ul>
+<a class="reference internal" href="#part-iii" id="id5">Ֆ Part III</a><ul>
 <li>
-<a class="reference internal" href="#convolutional-network-cnn-hyperparameters" id="id8">Convolutional Network (CNN) hyperparameters</a><ul>
-<li><a class="reference internal" href="#padding" id="id9">Padding</a></li>
-<li><a class="reference internal" href="#stride-size" id="id10">Stride&nbsp;Size</a></li>
-<li><a class="reference internal" href="#pooling" id="id11">Pooling</a></li>
-<li><a class="reference internal" href="#channels" id="id12">Channels</a></li>
+<a class="reference internal" href="#how-to-choose-a-neural-network-s-hyper-parameters" id="id6">How to choose a neural network&#8217;s hyper-parameters?</a><ul>
+<li><a class="reference internal" href="#broad-strategy" id="id7">Broad&nbsp;strategy</a></li>
+<li><a class="reference internal" href="#learning-rate" id="id8">Learning rate (<strong>η</strong>)</a></li>
+<li><a class="reference internal" href="#using-early-stopping" id="id9">Using early&nbsp;stopping</a></li>
+<li><a class="reference internal" href="#learning-rate-schedule" id="id10">Learning rate&nbsp;schedule</a></li>
+<li><a class="reference internal" href="#mini-batch-size" id="id11">Mini-batch&nbsp;size</a></li>
+<li><a class="reference internal" href="#automated-techniques" id="id12">Automated&nbsp;techniques</a></li>
+<li><a class="reference internal" href="#futher-reading" id="id13">Futher&nbsp;reading</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#highway-networks" id="id13">Highway&nbsp;Networks</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#evaluation-of-algorithm" id="id14">Ֆ Evaluation of&nbsp;algorithm</a></li>
+<li><a class="reference internal" href="#overfiting-and-underfitting" id="id15">Ֆ Overfiting and&nbsp;underfitting</a></li>
+<li>
+<a class="reference internal" href="#various-networks-types" id="id16">Ֆ Various networks types</a><ul>
+<li>
+<a class="reference internal" href="#convolutional-network-cnn-hyperparameters" id="id17">Convolutional Network (CNN) hyperparameters</a><ul>
+<li><a class="reference internal" href="#padding" id="id18">Padding</a></li>
+<li><a class="reference internal" href="#stride-size" id="id19">Stride&nbsp;Size</a></li>
+<li><a class="reference internal" href="#pooling" id="id20">Pooling</a></li>
+<li><a class="reference internal" href="#channels" id="id21">Channels</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#highway-networks" id="id22">Highway&nbsp;Networks</a></li>
 </ul>
 </li>
 </ul>
 </div>
 <div class="section" id="general-approach">
-<h2><a class="toc-backref" href="#id1">General&nbsp;Approach</a></h2>
+<h2><a class="toc-backref" href="#id1">Ֆ General&nbsp;Approach</a></h2>
 <ul class="simple">
 <li>Define network&nbsp;architecture</li>
 <li>Choose right cost&nbsp;function</li>
@@ -122,7 +136,7 @@ and <a class="reference external" href="https://www.coursera.org/learn/machine-l
 </ul>
 </div>
 <div class="section" id="definitions">
-<h2><a class="toc-backref" href="#id2">Definitions</a></h2>
+<h2><a class="toc-backref" href="#id2">Ֆ&nbsp;Definitions</a></h2>
 <ul class="simple">
 <li>
 <strong>One-shot learning</strong> - aim to lean not from thousands of examples but from one or only a&nbsp;few.</li>
@@ -131,7 +145,7 @@ and <a class="reference external" href="https://www.coursera.org/learn/machine-l
 </ul>
 </div>
 <div class="section" id="part-i">
-<h2><a class="toc-backref" href="#id3">Part&nbsp;I</a></h2>
+<h2><a class="toc-backref" href="#id3">Ֆ Part&nbsp;I</a></h2>
 <p>Sigmoid&nbsp;function:</p>
 <div class="math">
 \begin{equation*}
@@ -169,7 +183,7 @@ So now gradinet can be computed&nbsp;as:</p>
 </div>
 </div>
 <div class="section" id="part-ii">
-<h2><a class="toc-backref" href="#id4">Part&nbsp;II</a></h2>
+<h2><a class="toc-backref" href="#id4">Ֆ Part&nbsp;II</a></h2>
 <img alt="/images/ML_notes/weights_notation.png" src="../../images/ML_notes/weights_notation.png"><p>image from <a class="reference external" href="http://neuralnetworksanddeeplearning.com/chap2.html">this&nbsp;book</a></p>
 <p><em>Elementwise</em> product of the two vectors denoted as <span class="math">\(s \odot t\)</span> and can be called sometimes <em>Hadamard product</em> or <em>Schur product</em>.
 Her is an&nbsp;example:</p>
@@ -182,17 +196,98 @@ Her is an&nbsp;example:</p>
 \end{equation*}
 </div>
 <p>In tensorflow you should distinguish usual matrix multiplication and hadamard&nbsp;product</p>
-<pre class="code python"><a name="rest_code_822bf4cc827b43e79ee47c446ecf1301-1"></a><span class="c1"># W, Q - some matrices</span>
-<a name="rest_code_822bf4cc827b43e79ee47c446ecf1301-2"></a>
-<a name="rest_code_822bf4cc827b43e79ee47c446ecf1301-3"></a><span class="c1"># matrix multiplication</span>
-<a name="rest_code_822bf4cc827b43e79ee47c446ecf1301-4"></a><span class="n">res</span> <span class="o">=</span> <span class="n">math_ops</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="n">Q</span><span class="p">)</span>
-<a name="rest_code_822bf4cc827b43e79ee47c446ecf1301-5"></a>
-<a name="rest_code_822bf4cc827b43e79ee47c446ecf1301-6"></a><span class="c1"># hadamard product</span>
-<a name="rest_code_822bf4cc827b43e79ee47c446ecf1301-7"></a><span class="n">res</span> <span class="o">=</span> <span class="n">W</span> <span class="o">*</span> <span class="n">Q</span>
+<pre class="code python"><a name="rest_code_bc1a85812a6242b0a9acc5685967c0b2-1"></a><span class="c1"># W, Q - some matrices</span>
+<a name="rest_code_bc1a85812a6242b0a9acc5685967c0b2-2"></a>
+<a name="rest_code_bc1a85812a6242b0a9acc5685967c0b2-3"></a><span class="c1"># matrix multiplication</span>
+<a name="rest_code_bc1a85812a6242b0a9acc5685967c0b2-4"></a><span class="n">res</span> <span class="o">=</span> <span class="n">math_ops</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="n">Q</span><span class="p">)</span>
+<a name="rest_code_bc1a85812a6242b0a9acc5685967c0b2-5"></a>
+<a name="rest_code_bc1a85812a6242b0a9acc5685967c0b2-6"></a><span class="c1"># hadamard product</span>
+<a name="rest_code_bc1a85812a6242b0a9acc5685967c0b2-7"></a><span class="n">res</span> <span class="o">=</span> <span class="n">W</span> <span class="o">*</span> <span class="n">Q</span>
 </pre>
 </div>
+<div class="section" id="part-iii">
+<h2><a class="toc-backref" href="#id5">Ֆ Part&nbsp;III</a></h2>
+<div class="section" id="how-to-choose-a-neural-network-s-hyper-parameters">
+<h3><a class="toc-backref" href="#id6">How to choose a neural network&#8217;s&nbsp;hyper-parameters?</a></h3>
+<div class="section" id="broad-strategy">
+<h4><a class="toc-backref" href="#id7">Broad&nbsp;strategy</a></h4>
+<ul class="simple">
+<li>Simplify the&nbsp;model</li>
+<li>Reduce classification&nbsp;classes</li>
+<li>Reduce training/validation&nbsp;data</li>
+<li>Increase frequency of&nbsp;monitoring</li>
+<li>With such updates you may try to find required hyper-parameters very&nbsp;fast</li>
+</ul>
+</div>
+<div class="section" id="learning-rate">
+<h4><a class="toc-backref" href="#id8">Learning rate (<strong>η</strong>)</a></h4>
+<ul class="simple">
+<li>Estimate the threshold value for <strong>η</strong> at which the cost on the training data immediately begins decreasing, instead of oscillating or&nbsp;increasing.</li>
+<li>After you likely want to use value of <strong>η</strong> that is smaller, say, a factor of two bellow the&nbsp;threshold.</li>
+</ul>
+</div>
+<div class="section" id="using-early-stopping">
+<h4><a class="toc-backref" href="#id9">Using early&nbsp;stopping</a></h4>
+<p>A better rule is to terminate if the best classification accuracy doesn&#8217;t improve for quite some time.
+For example we might elect to terminate if the classification accuracy hasn&#8217;t improved during the last ten&nbsp;epochs.</p>
+</div>
+<div class="section" id="learning-rate-schedule">
+<h4><a class="toc-backref" href="#id10">Learning rate&nbsp;schedule</a></h4>
+<p>We need choose when learning rate should be decreased and by what rule. Some of existing rules&nbsp;are:</p>
+<ul class="simple">
+<li>
+<strong>Step decay</strong> - reduce learning rate by some&nbsp;factor.</li>
+<li>
+<strong>Exponental decay</strong> - <span class="math">\(\alpha = \alpha_0 e^{-k t}\)</span>, where <span class="math">\(\alpha_0, k\)</span> are hyperparameters and <span class="math">\(t\)</span> is the iteration number (but you can also use units of&nbsp;epochs).</li>
+<li>
+<strong>1/t decay</strong> - <span class="math">\(\alpha = \alpha_0 / (1 + k t )\)</span>, where <span class="math">\(\alpha_0, k\)</span> are hyperparameters and <span class="math">\(t\)</span> is the iteration&nbsp;number.</li>
+</ul>
+<p>Also you may checked <a class="reference external" href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/training/learning_rate_decay.py">predefined learning schedules at tensorflow</a>.
+But prior to use learning rate schedule it&#8217;s better to get best performed model with fixed learning&nbsp;rate.</p>
+</div>
+<div class="section" id="mini-batch-size">
+<h4><a class="toc-backref" href="#id11">Mini-batch&nbsp;size</a></h4>
+<p>Wights updates for online learning can be declarated&nbsp;as:</p>
+<div class="math">
+\begin{equation*}
+w \rightarrow w&#8217; = w-\eta \nabla C_x
+\end{equation*}
+</div>
+<p>For case of mini-batch of size 100 we&nbsp;get:</p>
+<div class="math">
+\begin{equation*}
+w \rightarrow w&#8217; = w-\eta \frac{1}{100} \sum_x \nabla C_x
+\end{equation*}
+</div>
+<p>With this we may increase learning rate by a factor 100 and updated rules&nbsp;become:</p>
+<div class="math">
+\begin{equation*}
+w \rightarrow w&#8217; = w-\eta \sum_x \nabla C_x
+\end{equation*}
+</div>
+<p>With choosing mini-batch size we shouldn&#8217;t update any others hyper-parameters, only learning rate should be checked. After we may try different mini-batches sizes, scaling learning rate as required and choose what validation accuracy updates faster at real time(not related to epochs) in order to maximize our model overall&nbsp;speed.</p>
+</div>
+<div class="section" id="automated-techniques">
+<h4><a class="toc-backref" href="#id12">Automated&nbsp;techniques</a></h4>
+<p>For automated hyper-parameters choose we can use
+<a class="reference external" href="http://www.jmlr.org/papers/volume13/bergstra12a/bergstra12a.pdf">grid search</a>
+or something like
+<a class="reference external" href="http://papers.nips.cc/paper/4522-practical-bayesian-optimization-of-machine-learning-algorithms.pdf">Bayesian approach</a>
+(<a class="reference external" href="https://github.com/jaberg/hyperopt">source code</a>)</p>
+</div>
+<div class="section" id="futher-reading">
+<h4><a class="toc-backref" href="#id13">Futher&nbsp;reading</a></h4>
+<ul class="simple">
+<li><a class="reference external" href="https://arxiv.org/pdf/1206.5533v2.pdf">Practical recommendations for gradient-based training of deep&nbsp;architectures</a></li>
+<li><a class="reference external" href="http://yann.lecun.com/exdb/publis/pdf/lecun-98b.pdf">Efficient&nbsp;BackProp</a></li>
+<li>
+<a class="reference external" href="http://www.springer.com/gp/book/9783642352881">Neural Networks: Tricks of the Trade</a> (you may try not to use hwole book, but search for some articles from its&nbsp;authors)</li>
+</ul>
+</div>
+</div>
+</div>
 <div class="section" id="evaluation-of-algorithm">
-<h2><a class="toc-backref" href="#id5">Evaluation of&nbsp;algorithm</a></h2>
+<h2><a class="toc-backref" href="#id14">Ֆ Evaluation of&nbsp;algorithm</a></h2>
 <p>What we should&nbsp;do:</p>
 <ol class="arabic simple">
 <li>Split the dataset into three portions: train set, validate set and test set, in a proportion&nbsp;3:1:1.</li>
@@ -220,7 +315,7 @@ Her is an&nbsp;example:</p>
 </div>
 </div>
 <div class="section" id="overfiting-and-underfitting">
-<h2><a class="toc-backref" href="#id6">Overfiting and&nbsp;underfitting</a></h2>
+<h2><a class="toc-backref" href="#id15">Ֆ Overfiting and&nbsp;underfitting</a></h2>
 <p>High <strong>bias</strong> is <strong>underfitting</strong> and high <strong>variance</strong> is <strong>overfitting</strong>.</p>
 <p>For understanding what exactly mean <em>Bias</em> and <em>Variance</em> you may check <a class="reference external" href="http://scott.fortmann-roe.com/docs/BiasVariance.html">this</a>
 or <a class="reference external" href="http://machinelearningmastery.com/gentle-introduction-to-the-bias-variance-trade-off-in-machine-learning/">this</a>
@@ -252,12 +347,12 @@ bias_variance_explanation_2</object>
 bias_variance_workflow_2</object>
 </div>
 <div class="section" id="various-networks-types">
-<h2><a class="toc-backref" href="#id7">Various networks&nbsp;types</a></h2>
+<h2><a class="toc-backref" href="#id16">Ֆ Various networks&nbsp;types</a></h2>
 <div class="section" id="convolutional-network-cnn-hyperparameters">
-<h3><a class="toc-backref" href="#id8">Convolutional Network (CNN)&nbsp;hyperparameters</a></h3>
+<h3><a class="toc-backref" href="#id17">Convolutional Network (CNN)&nbsp;hyperparameters</a></h3>
 <p>More about CNNs for NLP you may reed <a class="reference external" href="http://www.wildml.com/2015/11/understanding-convolutional-neural-networks-for-nlp/">here</a></p>
 <div class="section" id="padding">
-<h4><a class="toc-backref" href="#id9">Padding</a></h4>
+<h4><a class="toc-backref" href="#id18">Padding</a></h4>
 <p>There are two types of&nbsp;padding:</p>
 <ul class="simple">
 <li>
@@ -276,7 +371,7 @@ More generally, the formula for the output size is
 <span class="math">\(n_{out} = (n_{in} + 2 * n_{padding} - n_{filter}) +&nbsp;1\)</span></p>
 </div>
 <div class="section" id="stride-size">
-<h4><a class="toc-backref" href="#id10">Stride&nbsp;Size</a></h4>
+<h4><a class="toc-backref" href="#id19">Stride&nbsp;Size</a></h4>
 <p><strong>Stride size</strong> - defining how much you want to shift your filter at each step.
 Mainly we see stride sizes of 1, but a larger stride size may allow you to build a model that behaves somewhat similarly to a Recursive Neural Network, i.e. looks like a&nbsp;tree.</p>
 <div class="figure">
@@ -285,7 +380,7 @@ Mainly we see stride sizes of 1, but a larger stride size may allow you to build
 </div>
 </div>
 <div class="section" id="pooling">
-<h4><a class="toc-backref" href="#id11">Pooling</a></h4>
+<h4><a class="toc-backref" href="#id20">Pooling</a></h4>
 <p>Pooling layers subsample output of convolutional layers. There are two types of pooling - <strong>max pooling</strong> and <strong>average pooling</strong>. You don’t necessarily need to pool over the complete matrix, you could also pool over a&nbsp;window.</p>
 <div class="figure">
 <a class="reference external image-reference" href="../../images/ML_notes/pooling.png"><img alt="/images/ML_notes/pooling.thumbnail.png" src="../../images/ML_notes/pooling.thumbnail.png"></a>
@@ -293,12 +388,12 @@ Mainly we see stride sizes of 1, but a larger stride size may allow you to build
 </div>
 </div>
 <div class="section" id="channels">
-<h4><a class="toc-backref" href="#id12">Channels</a></h4>
+<h4><a class="toc-backref" href="#id21">Channels</a></h4>
 <p>Channels are different sources or representations of the data. For image it&#8217;s typically RGB(red, green, blue) channels. For NLP you could have separate channels for different embeddings of various translation of the&nbsp;sentences.</p>
 </div>
 </div>
 <div class="section" id="highway-networks">
-<h3><a class="toc-backref" href="#id13">Highway&nbsp;Networks</a></h3>
+<h3><a class="toc-backref" href="#id22">Highway&nbsp;Networks</a></h3>
 <p><strong>Highway networks</strong> -
 Like LSTM networks, utilize a learnable gating mechanism to improve information flow across layers.
 More simple - process previous input data to the next layer.
