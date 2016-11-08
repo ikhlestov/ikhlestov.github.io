@@ -9,27 +9,27 @@
 .. author: Illarion Khlestov
 
 This notes based on `Neural Networks and Deep Learning <http://neuralnetworksanddeeplearning.com/index.html>`__
-and `Coursera ML Courses <https://www.coursera.org/learn/machine-learning>`__. They may seems to be some way unstructured, but such structure is useful for me.
+and `Coursera ML Courses <https://www.coursera.org/learn/machine-learning>`__. They may seems to be some way unstructured, but work still in progress, so please be patient.
 
 .. contents:: Contents:
 
-General Approach
-================
+Ֆ General Approach
+==================
 
 * Define network architecture
 * Choose right cost function
 * Calculate gradient descent if necessary
 * Train, tune hyperparameters.
 
-Definitions
-===========
+Ֆ Definitions
+=============
 
 + **One-shot learning** - aim to lean not from thousands of examples but from one or only a few.
 
 + **Transfer learning** - apply already trained model with previous knowledge to the new domain.
 
-Part I
-======
+Ֆ Part I
+========
 
 Sigmoid function: 
 
@@ -71,8 +71,8 @@ So now gradinet can be computed as:
     \nabla C \approx \frac{1}{m}\sum_{j=1}^m \nabla C_{X_j}
 
 
-Part II
-=======
+Ֆ Part II
+=========
 
 .. image:: /images/ML_notes/weights_notation.png
 
@@ -100,9 +100,94 @@ In tensorflow you should distinguish usual matrix multiplication and hadamard pr
   res = W * Q
 
 
+Ֆ Part III
+==========
 
-Evaluation of algorithm
-=======================
+How to choose a neural network's hyper-parameters?
+--------------------------------------------------
+
+--------------
+Broad strategy
+--------------
+
++ Simplify the model
++ Reduce classification classes
++ Reduce training/validation data
++ Increase frequency of monitoring
++ With such updates you may try to find required hyper-parameters very fast
+
+---------------------
+Learning rate (**η**)
+---------------------
+
++ Estimate the threshold value for **η** at which the cost on the training data immediately begins decreasing, instead of oscillating or increasing.
+
++ After you likely want to use value of **η** that is smaller, say, a factor of two bellow the threshold.
+
+--------------------
+Using early stopping
+--------------------
+
+A better rule is to terminate if the best classification accuracy doesn't improve for quite some time.
+For example we might elect to terminate if the classification accuracy hasn't improved during the last ten epochs.
+
+----------------------
+Learning rate schedule
+----------------------
+
+We need choose when learning rate should be decreased and by what rule. Some of existing rules are:
+
++ **Step decay** - reduce learning rate by some factor.
++ **Exponental decay** - :math:`\alpha = \alpha_0 e^{-k t}`, where :math:`\alpha_0, k` are hyperparameters and :math:`t` is the iteration number (but you can also use units of epochs).
++ **1/t decay** - :math:`\alpha = \alpha_0 / (1 + k t )`, where :math:`\alpha_0, k` are hyperparameters and :math:`t` is the iteration number.
+
+Also you may checked `predefined learning schedules at tensorflow <https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/training/learning_rate_decay.py>`__.
+But prior to use learning rate schedule it's better to get best performed model with fixed learning rate.
+
+---------------
+Mini-batch size
+---------------
+
+Wights updates for online learning can be declarated as:
+
+.. math::
+
+   w \rightarrow w' = w-\eta \nabla C_x
+
+For case of mini-batch of size 100 we get:
+
+.. math::
+
+  w \rightarrow w' = w-\eta \frac{1}{100} \sum_x \nabla C_x
+
+With this we may increase learning rate by a factor 100 and updated rules become:
+
+.. math::
+  
+  w \rightarrow w' = w-\eta \sum_x \nabla C_x
+
+With choosing mini-batch size we shouldn't update any others hyper-parameters, only learning rate should be checked. After we may try different mini-batches sizes, scaling learning rate as required and choose what validation accuracy updates faster at real time(not related to epochs) in order to maximize our model overall speed.
+
+--------------------
+Automated techniques
+--------------------
+
+For automated hyper-parameters choose we can use
+`grid search <http://www.jmlr.org/papers/volume13/bergstra12a/bergstra12a.pdf>`__
+or something like
+`Bayesian approach <http://papers.nips.cc/paper/4522-practical-bayesian-optimization-of-machine-learning-algorithms.pdf>`__
+(`source code <https://github.com/jaberg/hyperopt>`__)
+
+--------------
+Futher reading
+--------------
+
++ `Practical recommendations for gradient-based training of deep architectures <https://arxiv.org/pdf/1206.5533v2.pdf>`__
++ `Efficient BackProp <http://yann.lecun.com/exdb/publis/pdf/lecun-98b.pdf>`__
++ `Neural Networks: Tricks of the Trade <http://www.springer.com/gp/book/9783642352881>`__ (you may try not to use hwole book, but search for some articles from its authors)
+
+Ֆ Evaluation of algorithm
+=========================
 
 What we should do:
 
@@ -129,8 +214,8 @@ F1:
 .. math::
     \frac{{2*Recall*Precision}}{{Recall + Precision}}
 
-Overfiting and underfitting
-===========================
+Ֆ Overfiting and underfitting
+=============================
 
 High **bias** is **underfitting** and high **variance** is **overfitting**.  
 
@@ -188,8 +273,8 @@ And solution algorithm will be a little bit more longer:
 
 
 
-Various networks types
-======================
+Ֆ Various networks types
+========================
 
 Convolutional Network (CNN) hyperparameters
 -------------------------------------------
