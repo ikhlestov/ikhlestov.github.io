@@ -13,26 +13,29 @@ Here I will store list of commands, sometimes with short description but mainly 
 Machine Learning:
 
 * :doc:`general-ml-notes`
-* :doc:`models-architectures`
 * :doc:`ml-bookmarks`
+* :doc:`models-architectures`
 * :doc:`tensorflow-hints`
 
 Python related:
 
-* `Pandas commands <link://slug/pandas-commands>`__
-* :doc:`Scikit-learn notes <scikit-learn-notes>`
 * :doc:`ipdb-commands`
-* :doc:`python-libraries`
-* :doc:`numpy`
 * :doc:`matplotlib`
+* :doc:`numpy`
+* `Pandas commands <link://slug/pandas-commands>`__
+* :doc:`python-libraries`
+* :doc:`Scikit-learn notes <scikit-learn-notes>`
 
 Shortcuts:
 
-* :doc:`sublime-shortcuts`
 * :doc:`bash-shortcuts`
+* :doc:`nano-shortcuts`
+* :doc:`sublime-shortcuts`
+* :doc:`ubuntu-shortcuts`
 
 Another topics:
 
-* :doc:`hadoop-notes`
 * :doc:`docker-help-list`
 * :doc:`git-notes`
+* :doc:`hadoop-notes`
+* :doc:`ubuntu-bash-hints`

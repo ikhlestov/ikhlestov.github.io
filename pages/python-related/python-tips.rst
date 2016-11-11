@@ -10,6 +10,11 @@
 
 .. contents:: List of tips:
 
+Use tqdm
+Use cyton
+Usefull headers
+
+
 NOT USED AT THE CURENT MOMENT
 
 
