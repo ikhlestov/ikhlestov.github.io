@@ -1,0 +1,210 @@
+<html prefix="
+og: http://ogp.me/ns#
+article: http://ogp.me/ns/article#
+" lang="en">
+<head>
+<meta charset="utf-8">
+<base href="https://ikhlestov.github.io/listings/ubuntu-bash-hints.sh.html">
+<meta name="description" content="ubuntu-bash-hints.sh">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ubuntu-bash-hints.sh | Illarion Khlestov Blog</title>
+<link href="../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<meta content="#5670d4" name="theme-color">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
+<link rel="canonical" href="https://ikhlestov.github.io/listings/ubuntu-bash-hints.sh.html">
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    displayAlign: 'left', // Change this to 'center' to center equations.
+});
+</script><!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]-->
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-static-top"><div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://ikhlestov.github.io/">
+
+                <span id="blog-title">Illarion Khlestov Blog</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
+            <ul class="nav navbar-nav">
+<li>
+<a href="../">Blog</a>
+                </li>
+<li>
+<a href="../pages/">Pages</a>
+                </li>
+<li>
+<a href=".">Listings</a>
+                </li>
+<li>
+<a href="../archive.html">Archive</a>
+
+                
+            </li>
+</ul>
+<ul class="nav navbar-nav navbar-right">
+<li>
+    <a href="ubuntu-bash-hints.sh" id="sourcelink">Source</a>
+    </li>
+                
+            </ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+<nav class="breadcrumbs"><ul class="breadcrumb">
+<li><a href=".">listings</a></li>
+                <li>ubuntu-bash-hints.sh</li>
+</ul></nav><table class="codetable"><tr>
+<td class="linenos"><div class="linenodiv"><pre><a href="#listingsubuntu-bash-hintssh-1"> 1</a>
+<a href="#listingsubuntu-bash-hintssh-2"> 2</a>
+<a href="#listingsubuntu-bash-hintssh-3"> 3</a>
+<a href="#listingsubuntu-bash-hintssh-4"> 4</a>
+<a href="#listingsubuntu-bash-hintssh-5"> 5</a>
+<a href="#listingsubuntu-bash-hintssh-6"> 6</a>
+<a href="#listingsubuntu-bash-hintssh-7"> 7</a>
+<a href="#listingsubuntu-bash-hintssh-8"> 8</a>
+<a href="#listingsubuntu-bash-hintssh-9"> 9</a>
+<a href="#listingsubuntu-bash-hintssh-10">10</a>
+<a href="#listingsubuntu-bash-hintssh-11">11</a>
+<a href="#listingsubuntu-bash-hintssh-12">12</a>
+<a href="#listingsubuntu-bash-hintssh-13">13</a>
+<a href="#listingsubuntu-bash-hintssh-14">14</a>
+<a href="#listingsubuntu-bash-hintssh-15">15</a>
+<a href="#listingsubuntu-bash-hintssh-16">16</a>
+<a href="#listingsubuntu-bash-hintssh-17">17</a>
+<a href="#listingsubuntu-bash-hintssh-18">18</a>
+<a href="#listingsubuntu-bash-hintssh-19">19</a>
+<a href="#listingsubuntu-bash-hintssh-20">20</a>
+<a href="#listingsubuntu-bash-hintssh-21">21</a>
+<a href="#listingsubuntu-bash-hintssh-22">22</a>
+<a href="#listingsubuntu-bash-hintssh-23">23</a>
+<a href="#listingsubuntu-bash-hintssh-24">24</a>
+<a href="#listingsubuntu-bash-hintssh-25">25</a>
+<a href="#listingsubuntu-bash-hintssh-26">26</a>
+<a href="#listingsubuntu-bash-hintssh-27">27</a>
+<a href="#listingsubuntu-bash-hintssh-28">28</a>
+<a href="#listingsubuntu-bash-hintssh-29">29</a>
+<a href="#listingsubuntu-bash-hintssh-30">30</a>
+<a href="#listingsubuntu-bash-hintssh-31">31</a>
+<a href="#listingsubuntu-bash-hintssh-32">32</a>
+<a href="#listingsubuntu-bash-hintssh-33">33</a>
+<a href="#listingsubuntu-bash-hintssh-34">34</a>
+<a href="#listingsubuntu-bash-hintssh-35">35</a>
+<a href="#listingsubuntu-bash-hintssh-36">36</a>
+<a href="#listingsubuntu-bash-hintssh-37">37</a>
+<a href="#listingsubuntu-bash-hintssh-38">38</a>
+<a href="#listingsubuntu-bash-hintssh-39">39</a>
+<a href="#listingsubuntu-bash-hintssh-40">40</a>
+<a href="#listingsubuntu-bash-hintssh-41">41</a>
+<a href="#listingsubuntu-bash-hintssh-42">42</a>
+<a href="#listingsubuntu-bash-hintssh-43">43</a>
+<a href="#listingsubuntu-bash-hintssh-44">44</a>
+<a href="#listingsubuntu-bash-hintssh-45">45</a>
+<a href="#listingsubuntu-bash-hintssh-46">46</a>
+<a href="#listingsubuntu-bash-hintssh-47">47</a>
+<a href="#listingsubuntu-bash-hintssh-48">48</a>
+<a href="#listingsubuntu-bash-hintssh-49">49</a>
+<a href="#listingsubuntu-bash-hintssh-50">50</a>
+<a href="#listingsubuntu-bash-hintssh-51">51</a>
+<a href="#listingsubuntu-bash-hintssh-52">52</a>
+<a href="#listingsubuntu-bash-hintssh-53">53</a>
+<a href="#listingsubuntu-bash-hintssh-54">54</a>
+<a href="#listingsubuntu-bash-hintssh-55">55</a>
+<a href="#listingsubuntu-bash-hintssh-56">56</a>
+<a href="#listingsubuntu-bash-hintssh-57">57</a>
+<a href="#listingsubuntu-bash-hintssh-58">58</a>
+<a href="#listingsubuntu-bash-hintssh-59">59</a></pre></div></td>
+<td class="code"><pre class="code literal-block"><a name="listingsubuntu-bash-hintssh-1"></a><span class="c1"># get the location of the executable link</span>
+<a name="listingsubuntu-bash-hintssh-2"></a>$ readlink -f /usr/bin/java
+<a name="listingsubuntu-bash-hintssh-3"></a>/usr/lib/jvm/java-8-oracle/jre/bin/java
+<a name="listingsubuntu-bash-hintssh-4"></a>
+<a name="listingsubuntu-bash-hintssh-5"></a><span class="c1"># display part of the file</span>
+<a name="listingsubuntu-bash-hintssh-6"></a>$ cat filename <span class="p">|</span> less
+<a name="listingsubuntu-bash-hintssh-7"></a>$ tail -200 filename
+<a name="listingsubuntu-bash-hintssh-8"></a>$ head -200 filename
+<a name="listingsubuntu-bash-hintssh-9"></a>$ head -n <span class="m">1000</span> filename <span class="p">|</span> tail
+<a name="listingsubuntu-bash-hintssh-10"></a><span class="c1"># display to stdout</span>
+<a name="listingsubuntu-bash-hintssh-11"></a>$ <span class="nb">echo</span> SOMETHING
+<a name="listingsubuntu-bash-hintssh-12"></a>
+<a name="listingsubuntu-bash-hintssh-13"></a><span class="c1"># get list of all listened ports</span>
+<a name="listingsubuntu-bash-hintssh-14"></a>$ sudo netstat -peanut
+<a name="listingsubuntu-bash-hintssh-15"></a>
+<a name="listingsubuntu-bash-hintssh-16"></a><span class="c1"># check free disk space</span>
+<a name="listingsubuntu-bash-hintssh-17"></a>$ df -h
+<a name="listingsubuntu-bash-hintssh-18"></a>
+<a name="listingsubuntu-bash-hintssh-19"></a><span class="c1"># check memory every 1 second</span>
+<a name="listingsubuntu-bash-hintssh-20"></a>$ watch -n <span class="m">1</span> free -m
+<a name="listingsubuntu-bash-hintssh-21"></a>
+<a name="listingsubuntu-bash-hintssh-22"></a><span class="c1"># search recursive by folders</span>
+<a name="listingsubuntu-bash-hintssh-23"></a>$ grep -r <span class="s2">"/api/Profile/active_home_devices"</span> static/
+<a name="listingsubuntu-bash-hintssh-24"></a>
+<a name="listingsubuntu-bash-hintssh-25"></a><span class="c1"># search by file content</span>
+<a name="listingsubuntu-bash-hintssh-26"></a>$ grep -R <span class="s1">'GCModel'</span> SemanticProcessor/
+<a name="listingsubuntu-bash-hintssh-27"></a>
+<a name="listingsubuntu-bash-hintssh-28"></a><span class="c1"># find by filename</span>
+<a name="listingsubuntu-bash-hintssh-29"></a>find ~ -name readme.txt 
+<a name="listingsubuntu-bash-hintssh-30"></a>
+<a name="listingsubuntu-bash-hintssh-31"></a><span class="c1"># get folder size</span>
+<a name="listingsubuntu-bash-hintssh-32"></a>du -hs
+<a name="listingsubuntu-bash-hintssh-33"></a>
+<a name="listingsubuntu-bash-hintssh-34"></a><span class="c1"># sizes of files</span>
+<a name="listingsubuntu-bash-hintssh-35"></a>$ ls -lah
+<a name="listingsubuntu-bash-hintssh-36"></a>
+<a name="listingsubuntu-bash-hintssh-37"></a><span class="c1"># as per tutorial: http://manpages.ubuntu.com/manpages/trusty/man1/enca.1.html</span>
+<a name="listingsubuntu-bash-hintssh-38"></a><span class="c1"># get coding of document</span>
+<a name="listingsubuntu-bash-hintssh-39"></a>$ enca filename
+<a name="listingsubuntu-bash-hintssh-40"></a><span class="c1"># change encoding of doc</span>
+<a name="listingsubuntu-bash-hintssh-41"></a>$ enconv filename
+<a name="listingsubuntu-bash-hintssh-42"></a>
+<a name="listingsubuntu-bash-hintssh-43"></a><span class="c1"># merge all files in folder to one</span>
+<a name="listingsubuntu-bash-hintssh-44"></a>$ cat folder_path/* &gt; new_file
+<a name="listingsubuntu-bash-hintssh-45"></a>
+<a name="listingsubuntu-bash-hintssh-46"></a><span class="c1"># copy content of some text file(ssh for example)</span>
+<a name="listingsubuntu-bash-hintssh-47"></a>$ cat ~/.ssh/id_rsa.pub <span class="p">|</span> xclip -sel clip
+<a name="listingsubuntu-bash-hintssh-48"></a>
+<a name="listingsubuntu-bash-hintssh-49"></a><span class="c1"># get source code of some package</span>
+<a name="listingsubuntu-bash-hintssh-50"></a>http://askubuntu.com/questions/167468/where-can-i-find-the-source-code-of-ubuntu
+<a name="listingsubuntu-bash-hintssh-51"></a>
+<a name="listingsubuntu-bash-hintssh-52"></a><span class="c1"># get dependencies</span>
+<a name="listingsubuntu-bash-hintssh-53"></a>$ readelf -d some_exe
+<a name="listingsubuntu-bash-hintssh-54"></a>
+<a name="listingsubuntu-bash-hintssh-55"></a><span class="c1"># find location of installed files</span>
+<a name="listingsubuntu-bash-hintssh-56"></a>$ dpkg --listfiles libqt4-dev
+<a name="listingsubuntu-bash-hintssh-57"></a>
+<a name="listingsubuntu-bash-hintssh-58"></a><span class="c1"># remove range of folders starts with numbers</span>
+<a name="listingsubuntu-bash-hintssh-59"></a>$ rm -r output/logs/<span class="o">{</span>17..26<span class="o">}</span>*
+</pre></td>
+</tr></table>
+</div>
+        <!--End of body content-->
+
+        <footer id="footer">
+            Contents © 2016         <a href="mailto:ikhlestov@gmail.com">Illarion Khlestov</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>          <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script></footer>
+</div>
+</div>
+
+            <script src="../assets/js/all-nocdn.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates -->
+</body>
+</html>

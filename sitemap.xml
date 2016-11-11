@@ -7,98 +7,106 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>https://ikhlestov.github.io/</loc>
-  <lastmod>2016-10-28T16:13:00Z</lastmod>
+  <lastmod>2016-11-11T11:36:00Z</lastmod>
  </url>
  <url>
   <loc>https://ikhlestov.github.io/2016/</loc>
-  <lastmod>2016-10-28T16:13:00Z</lastmod>
+  <lastmod>2016-11-11T11:36:00Z</lastmod>
  </url>
  <url>
   <loc>https://ikhlestov.github.io/about-me/</loc>
-  <lastmod>2016-10-28T16:13:00Z</lastmod>
+  <lastmod>2016-11-11T11:36:00Z</lastmod>
  </url>
  <url>
   <loc>https://ikhlestov.github.io/categories/</loc>
-  <lastmod>2016-10-28T16:13:00Z</lastmod>
+  <lastmod>2016-11-11T11:36:00Z</lastmod>
  </url>
  <url>
   <loc>https://ikhlestov.github.io/listings/</loc>
-  <lastmod>2016-10-28T16:13:00Z</lastmod>
+  <lastmod>2016-11-11T11:57:00Z</lastmod>
  </url>
  <url>
   <loc>https://ikhlestov.github.io/pages/</loc>
-  <lastmod>2016-11-02T14:59:00Z</lastmod>
+  <lastmod>2016-11-11T11:36:00Z</lastmod>
  </url>
  <url>
-  <loc>https://ikhlestov.github.io/pages/bash-shortcuts/</loc>
-  <lastmod>2016-10-28T16:13:00Z</lastmod>
+  <loc>https://ikhlestov.github.io/pages/another-topics/docker-help-list/</loc>
+  <lastmod>2016-11-11T11:36:00Z</lastmod>
  </url>
  <url>
-  <loc>https://ikhlestov.github.io/pages/docker-help-list/</loc>
-  <lastmod>2016-10-28T16:13:00Z</lastmod>
+  <loc>https://ikhlestov.github.io/pages/another-topics/git-notes/</loc>
+  <lastmod>2016-11-11T11:36:00Z</lastmod>
  </url>
  <url>
-  <loc>https://ikhlestov.github.io/pages/general-ml-notes/</loc>
-  <lastmod>2016-10-28T16:13:00Z</lastmod>
+  <loc>https://ikhlestov.github.io/pages/another-topics/hadoop-notes/</loc>
+  <lastmod>2016-11-11T11:36:00Z</lastmod>
  </url>
  <url>
-  <loc>https://ikhlestov.github.io/pages/git-notes/</loc>
-  <lastmod>2016-10-28T16:13:00Z</lastmod>
+  <loc>https://ikhlestov.github.io/pages/another-topics/ubuntu-bash-hints/</loc>
+  <lastmod>2016-11-11T11:57:00Z</lastmod>
  </url>
  <url>
-  <loc>https://ikhlestov.github.io/pages/hadoop-notes/</loc>
-  <lastmod>2016-10-28T16:13:00Z</lastmod>
+  <loc>https://ikhlestov.github.io/pages/machine-learning/general-ml-notes/</loc>
+  <lastmod>2016-11-11T11:36:00Z</lastmod>
  </url>
  <url>
-  <loc>https://ikhlestov.github.io/pages/ipdb-commands/</loc>
-  <lastmod>2016-10-28T16:13:00Z</lastmod>
+  <loc>https://ikhlestov.github.io/pages/machine-learning/ml-bookmarks/</loc>
+  <lastmod>2016-11-11T11:36:00Z</lastmod>
  </url>
  <url>
-  <loc>https://ikhlestov.github.io/pages/matplotlib/</loc>
-  <lastmod>2016-10-28T16:13:00Z</lastmod>
+  <loc>https://ikhlestov.github.io/pages/machine-learning/models-architectures/</loc>
+  <lastmod>2016-11-11T11:36:00Z</lastmod>
  </url>
  <url>
-  <loc>https://ikhlestov.github.io/pages/ml-bookmarks/</loc>
-  <lastmod>2016-10-28T16:13:00Z</lastmod>
+  <loc>https://ikhlestov.github.io/pages/machine-learning/tensorflow-hints/</loc>
+  <lastmod>2016-11-11T11:36:00Z</lastmod>
  </url>
  <url>
-  <loc>https://ikhlestov.github.io/pages/models-architectures/</loc>
-  <lastmod>2016-10-28T16:13:00Z</lastmod>
+  <loc>https://ikhlestov.github.io/pages/python-related/ipdb-commands/</loc>
+  <lastmod>2016-11-11T11:36:00Z</lastmod>
  </url>
  <url>
-  <loc>https://ikhlestov.github.io/pages/numpy/</loc>
-  <lastmod>2016-10-28T16:13:00Z</lastmod>
+  <loc>https://ikhlestov.github.io/pages/python-related/matplotlib/</loc>
+  <lastmod>2016-11-11T11:36:00Z</lastmod>
  </url>
  <url>
-  <loc>https://ikhlestov.github.io/pages/pandas-commands/</loc>
-  <lastmod>2016-10-28T16:13:00Z</lastmod>
+  <loc>https://ikhlestov.github.io/pages/python-related/numpy/</loc>
+  <lastmod>2016-11-11T11:36:00Z</lastmod>
  </url>
  <url>
-  <loc>https://ikhlestov.github.io/pages/python-libraries/</loc>
-  <lastmod>2016-10-28T16:13:00Z</lastmod>
+  <loc>https://ikhlestov.github.io/pages/python-related/pandas-commands/</loc>
+  <lastmod>2016-11-11T11:36:00Z</lastmod>
  </url>
  <url>
-  <loc>https://ikhlestov.github.io/pages/python-notes/</loc>
-  <lastmod>2016-10-28T16:13:00Z</lastmod>
+  <loc>https://ikhlestov.github.io/pages/python-related/python-libraries/</loc>
+  <lastmod>2016-11-11T11:36:00Z</lastmod>
  </url>
  <url>
-  <loc>https://ikhlestov.github.io/pages/python-tips/</loc>
-  <lastmod>2016-10-28T16:13:00Z</lastmod>
+  <loc>https://ikhlestov.github.io/pages/python-related/python-tips/</loc>
+  <lastmod>2016-11-11T11:36:00Z</lastmod>
  </url>
  <url>
-  <loc>https://ikhlestov.github.io/pages/scikit-learn-notes/</loc>
-  <lastmod>2016-10-28T16:13:00Z</lastmod>
+  <loc>https://ikhlestov.github.io/pages/python-related/scikit-learn-notes/</loc>
+  <lastmod>2016-11-11T11:36:00Z</lastmod>
  </url>
  <url>
-  <loc>https://ikhlestov.github.io/pages/sublime-shortcuts/</loc>
-  <lastmod>2016-10-28T16:13:00Z</lastmod>
+  <loc>https://ikhlestov.github.io/pages/shortcuts/bash-shortcuts/</loc>
+  <lastmod>2016-11-11T11:36:00Z</lastmod>
  </url>
  <url>
-  <loc>https://ikhlestov.github.io/pages/tensorflow-hints/</loc>
-  <lastmod>2016-11-02T14:59:00Z</lastmod>
+  <loc>https://ikhlestov.github.io/pages/shortcuts/nano-shortcuts/</loc>
+  <lastmod>2016-11-11T11:53:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://ikhlestov.github.io/pages/shortcuts/sublime-shortcuts/</loc>
+  <lastmod>2016-11-11T11:36:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://ikhlestov.github.io/pages/shortcuts/ubuntu-shortcuts/</loc>
+  <lastmod>2016-11-11T11:48:00Z</lastmod>
  </url>
  <url>
   <loc>https://ikhlestov.github.io/posts/welcome-post/</loc>
-  <lastmod>2016-10-28T16:13:00Z</lastmod>
+  <lastmod>2016-11-11T11:36:00Z</lastmod>
  </url>
 </urlset>
