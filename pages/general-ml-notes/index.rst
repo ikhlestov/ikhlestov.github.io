@@ -103,6 +103,22 @@ In tensorflow you should distinguish usual matrix multiplication and hadamard pr
 Ֆ Part III
 ==========
 
+Cost functions
+--------------
+
+Note that cost function should be non negative!  
+
+**Quadratic cost function** :math:`C = \frac{(y-a)^2}{2}`.  
+
+**Cross-entropy cost function** :math:`C = -\frac{1}{n} \sum_x \left[y \ln a + (1-y ) \ln (1-a) \right]`
+
+Where:
+
++ :math:`n` - the total number of items of training data
++ :math:`x` - the sum is over all training inputs
++ :math:`y` - corresponding desired output
+
+
 How to choose a neural network's hyper-parameters?
 --------------------------------------------------
 

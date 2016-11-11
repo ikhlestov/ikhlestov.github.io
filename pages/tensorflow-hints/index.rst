@@ -142,7 +142,27 @@ just pass additional env variable `CUDA_VISIBLE_DEVICES=''` during script call.
 .. code-block:: bash
 
     $ CUDA_VISIBLE_DEVICES='' python some_model.py
-    
+
+Change inline setting during training
+=====================================
+
+.. code-block:: python
+
+    x = some_tensor
+    is_training = tflearn.get_training_mode()  # bool
+    # Only apply dropout at training time.
+    # tf.cond(cond, true_function, false_function)
+    new_x = tf.cond(is_training, tf.nn.dropout(x, keep_prob), lambda: x)
+
+
+Get last output from rnn
+========================
+
+.. code-block:: python
+
+    rnn_out, last_state = tf.nn.dynamic_rnn(..)
+    rnn_out = tf.reverse(rnn_out, [False, True, False])
+    rnn_out_last = tf.slice(rnn_out, [0, 0, 0], [-1, 1, -1])
 
 Data Readers simple explanation
 ===============================
