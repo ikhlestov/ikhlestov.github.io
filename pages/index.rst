@@ -14,6 +14,7 @@ Machine Learning:
 
 * :doc:`general-ml-notes`
 * :doc:`ml-bookmarks`
+* :doc:`ml-knowledge-base`
 * :doc:`models-architectures`
 * :doc:`tensorflow-hints`
 
