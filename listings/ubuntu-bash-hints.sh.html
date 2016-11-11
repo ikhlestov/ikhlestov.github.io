@@ -132,7 +132,10 @@ MathJax.Hub.Config({
 <a href="#listingsubuntu-bash-hintssh-56">56</a>
 <a href="#listingsubuntu-bash-hintssh-57">57</a>
 <a href="#listingsubuntu-bash-hintssh-58">58</a>
-<a href="#listingsubuntu-bash-hintssh-59">59</a></pre></div></td>
+<a href="#listingsubuntu-bash-hintssh-59">59</a>
+<a href="#listingsubuntu-bash-hintssh-60">60</a>
+<a href="#listingsubuntu-bash-hintssh-61">61</a>
+<a href="#listingsubuntu-bash-hintssh-62">62</a></pre></div></td>
 <td class="code"><pre class="code literal-block"><a name="listingsubuntu-bash-hintssh-1"></a><span class="c1"># get the location of the executable link</span>
 <a name="listingsubuntu-bash-hintssh-2"></a>$ readlink -f /usr/bin/java
 <a name="listingsubuntu-bash-hintssh-3"></a>/usr/lib/jvm/java-8-oracle/jre/bin/java
@@ -161,37 +164,40 @@ MathJax.Hub.Config({
 <a name="listingsubuntu-bash-hintssh-26"></a>$ grep -R <span class="s1">'GCModel'</span> SemanticProcessor/
 <a name="listingsubuntu-bash-hintssh-27"></a>
 <a name="listingsubuntu-bash-hintssh-28"></a><span class="c1"># find by filename</span>
-<a name="listingsubuntu-bash-hintssh-29"></a>find ~ -name readme.txt 
+<a name="listingsubuntu-bash-hintssh-29"></a>$ find ~ -name readme.txt 
 <a name="listingsubuntu-bash-hintssh-30"></a>
 <a name="listingsubuntu-bash-hintssh-31"></a><span class="c1"># get folder size</span>
-<a name="listingsubuntu-bash-hintssh-32"></a>du -hs
+<a name="listingsubuntu-bash-hintssh-32"></a>$ du -hs
 <a name="listingsubuntu-bash-hintssh-33"></a>
-<a name="listingsubuntu-bash-hintssh-34"></a><span class="c1"># sizes of files</span>
-<a name="listingsubuntu-bash-hintssh-35"></a>$ ls -lah
+<a name="listingsubuntu-bash-hintssh-34"></a><span class="c1"># get folders size inside another one</span>
+<a name="listingsubuntu-bash-hintssh-35"></a>$ du -h --max-depth<span class="o">=</span><span class="m">1</span> some_folder
 <a name="listingsubuntu-bash-hintssh-36"></a>
-<a name="listingsubuntu-bash-hintssh-37"></a><span class="c1"># as per tutorial: http://manpages.ubuntu.com/manpages/trusty/man1/enca.1.html</span>
-<a name="listingsubuntu-bash-hintssh-38"></a><span class="c1"># get coding of document</span>
-<a name="listingsubuntu-bash-hintssh-39"></a>$ enca filename
-<a name="listingsubuntu-bash-hintssh-40"></a><span class="c1"># change encoding of doc</span>
-<a name="listingsubuntu-bash-hintssh-41"></a>$ enconv filename
-<a name="listingsubuntu-bash-hintssh-42"></a>
-<a name="listingsubuntu-bash-hintssh-43"></a><span class="c1"># merge all files in folder to one</span>
-<a name="listingsubuntu-bash-hintssh-44"></a>$ cat folder_path/* &gt; new_file
+<a name="listingsubuntu-bash-hintssh-37"></a><span class="c1"># sizes of files</span>
+<a name="listingsubuntu-bash-hintssh-38"></a>$ ls -lah
+<a name="listingsubuntu-bash-hintssh-39"></a>
+<a name="listingsubuntu-bash-hintssh-40"></a><span class="c1"># as per tutorial: http://manpages.ubuntu.com/manpages/trusty/man1/enca.1.html</span>
+<a name="listingsubuntu-bash-hintssh-41"></a><span class="c1"># get coding of document</span>
+<a name="listingsubuntu-bash-hintssh-42"></a>$ enca filename
+<a name="listingsubuntu-bash-hintssh-43"></a><span class="c1"># change encoding of doc</span>
+<a name="listingsubuntu-bash-hintssh-44"></a>$ enconv filename
 <a name="listingsubuntu-bash-hintssh-45"></a>
-<a name="listingsubuntu-bash-hintssh-46"></a><span class="c1"># copy content of some text file(ssh for example)</span>
-<a name="listingsubuntu-bash-hintssh-47"></a>$ cat ~/.ssh/id_rsa.pub <span class="p">|</span> xclip -sel clip
+<a name="listingsubuntu-bash-hintssh-46"></a><span class="c1"># merge all files in folder to one</span>
+<a name="listingsubuntu-bash-hintssh-47"></a>$ cat folder_path/* &gt; new_file
 <a name="listingsubuntu-bash-hintssh-48"></a>
-<a name="listingsubuntu-bash-hintssh-49"></a><span class="c1"># get source code of some package</span>
-<a name="listingsubuntu-bash-hintssh-50"></a>http://askubuntu.com/questions/167468/where-can-i-find-the-source-code-of-ubuntu
+<a name="listingsubuntu-bash-hintssh-49"></a><span class="c1"># copy content of some text file(ssh for example)</span>
+<a name="listingsubuntu-bash-hintssh-50"></a>$ cat ~/.ssh/id_rsa.pub <span class="p">|</span> xclip -sel clip
 <a name="listingsubuntu-bash-hintssh-51"></a>
-<a name="listingsubuntu-bash-hintssh-52"></a><span class="c1"># get dependencies</span>
-<a name="listingsubuntu-bash-hintssh-53"></a>$ readelf -d some_exe
+<a name="listingsubuntu-bash-hintssh-52"></a><span class="c1"># get source code of some package</span>
+<a name="listingsubuntu-bash-hintssh-53"></a>http://askubuntu.com/questions/167468/where-can-i-find-the-source-code-of-ubuntu
 <a name="listingsubuntu-bash-hintssh-54"></a>
-<a name="listingsubuntu-bash-hintssh-55"></a><span class="c1"># find location of installed files</span>
-<a name="listingsubuntu-bash-hintssh-56"></a>$ dpkg --listfiles libqt4-dev
+<a name="listingsubuntu-bash-hintssh-55"></a><span class="c1"># get dependencies</span>
+<a name="listingsubuntu-bash-hintssh-56"></a>$ readelf -d some_exe
 <a name="listingsubuntu-bash-hintssh-57"></a>
-<a name="listingsubuntu-bash-hintssh-58"></a><span class="c1"># remove range of folders starts with numbers</span>
-<a name="listingsubuntu-bash-hintssh-59"></a>$ rm -r output/logs/<span class="o">{</span>17..26<span class="o">}</span>*
+<a name="listingsubuntu-bash-hintssh-58"></a><span class="c1"># find location of installed files</span>
+<a name="listingsubuntu-bash-hintssh-59"></a>$ dpkg --listfiles libqt4-dev
+<a name="listingsubuntu-bash-hintssh-60"></a>
+<a name="listingsubuntu-bash-hintssh-61"></a><span class="c1"># remove range of folders starts with numbers</span>
+<a name="listingsubuntu-bash-hintssh-62"></a>$ rm -r output/logs/<span class="o">{</span>17..26<span class="o">}</span>*
 </pre></td>
 </tr></table>
 </div>

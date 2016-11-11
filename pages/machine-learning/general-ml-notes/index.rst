@@ -21,44 +21,9 @@ and `Coursera ML Courses <https://www.coursera.org/learn/machine-learning>`__. T
 * Calculate gradient descent if necessary
 * Train, tune hyperparameters.
 
-Ֆ Definitions
-=============
-
-+ **One-shot learning** - aim to lean not from thousands of examples but from one or only a few.
-
-+ **Transfer learning** - apply already trained model with previous knowledge to the new domain.
 
 Ֆ Part I
 ========
-
-Sigmoid function: 
-
-.. math::
-    
-    \sigma(z) = \frac{1}{1 + e^{-z}}
-    
-:math:`\sigma(\infty)\approx 1`, :math:`\sigma(-\infty)\approx 0`, 
-but note, that :math:`\sigma(0)=1`  
-
-Note: *sigmoid function* (:math:`\sigma`) == *logistic function*
-so *sigmoid neurons* can be called as *logistic neurons*.  
-
-**MLP** is an abbreviation for *multilayer perceptrons*  
-
-*cost* fucntion == *loss* function == *objective* function.  
-
-*Quadratic cost function* (or *mean squared error*, or just *MSE*):  
-
-.. math::
-
-    C(w,b)  = \frac{1}{2n}\sum_{n}||y(x) - a||^2
-
-Here,
-*w* denotes the collection of all weights in the network,
-*b* all the biases,
-*n* is the total number of training inputs,
-*a* is the vector of outputs from the network when *x* is input,
-and the sum is over all training inputs, *x*.  
 
 An idea of *stochastic gradient descent* is to estimate the gradient 
 :math:`\nabla C` by computing :math:`\nabla Cx` for a small sample of randomly chosen training inputs,
@@ -103,21 +68,28 @@ In tensorflow you should distinguish usual matrix multiplication and hadamard pr
 Ֆ Part III
 ==========
 
-Cost functions
+Regularization
 --------------
 
-Note that cost function should be non negative!  
+---------------------------------
+Weight decay or L2 regularization
+---------------------------------
 
-**Quadratic cost function** :math:`C = \frac{(y-a)^2}{2}`.  
+The idea of L2 regularization is to add an extra term to the cost function, a term called the *regularization term*.
 
-**Cross-entropy cost function** :math:`C = -\frac{1}{n} \sum_x \left[y \ln a + (1-y ) \ln (1-a) \right]`
+.. math::
+  
+  C = C_0 + \frac{\lambda}{2n} \sum_w w^2
 
-Where:
+Where :math:`C_0` is the original cost, second part - regularization term itself
+(namely the sum of the squares of all the weights in the network).
+This is scaled by a factor :math:`\frac{\lambda}{2n}`, where :math:`\lambda > 0` is
+known as *regularization parameter*, and :math:`n` is, as ususal, the size of our
+training set.
 
-+ :math:`n` - the total number of items of training data
-+ :math:`x` - the sum is over all training inputs
-+ :math:`y` - corresponding desired output
-
+*Weight decay* factor - :math:`1-\frac{\eta\lambda}{n}`.
+So during training on larger dataset we should change :math:`\lambda` with respect
+to learning rate and size of training set.
 
 How to choose a neural network's hyper-parameters?
 --------------------------------------------------

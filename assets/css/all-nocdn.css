@@ -7210,6 +7210,10 @@ table.codetable { width: 100%;} td.linenos {text-align: right; width: 4em;}
     margin: 0 auto;
 }
 
+dl > dd {
+    margin-left: 20;
+}
+
 #contentcolumn {
     max-width: 760px;
 }

@@ -26,10 +26,13 @@ $ grep -r "/api/Profile/active_home_devices" static/
 $ grep -R 'GCModel' SemanticProcessor/
 
 # find by filename
-find ~ -name readme.txt 
+$ find ~ -name readme.txt 
 
 # get folder size
-du -hs
+$ du -hs
+
+# get folders size inside another one
+$ du -h --max-depth=1 some_folder
 
 # sizes of files
 $ ls -lah
