@@ -150,9 +150,12 @@ Change inline setting during training
 
     x = some_tensor
     is_training = tflearn.get_training_mode()  # bool
+    # should define as function, because under condition should be callable
+    def apply_dropout(): # Function to apply when training mode ON.
+         return tf.nn.dropout(x, keep_prob)
     # Only apply dropout at training time.
     # tf.cond(cond, true_function, false_function)
-    new_x = tf.cond(is_training, tf.nn.dropout(x, keep_prob), lambda: x)
+    new_x = tf.cond(is_training, apply_dropout, lambda: x)
 
 
 Get last output from rnn
