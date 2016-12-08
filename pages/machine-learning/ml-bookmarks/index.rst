@@ -28,6 +28,8 @@ RNN, seq2seq and all related
 
 + `Fully Character-Level Neural Machine Translation without Explicit Segmentation <https://arxiv.org/pdf/1610.03017v1.pdf>`__  model that maps a source character sequence to a target character sequence without any segmentation. (CNN + highway + biGRU)
 
++ `Phased LSTM: Accelerating Recurrent Network Training for Long or Event-based Sequences<https://arxiv.org/pdf/1610.09513v1.pdf>`__ LSTMs with additional time gate controlled by time step. This gate allow update *cell value* and *hidden output* only during an *"open"* phase.
+
 CNNs
 ====
 
