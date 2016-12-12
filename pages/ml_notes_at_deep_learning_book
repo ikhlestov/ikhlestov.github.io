@@ -1,0 +1,10 @@
+Chapter 1
+Использовать старые алгоритмы которые не работали ранее с новвыми, более большими объемами данных. Может взлетит.
+
+Chapter 2
+быстрая справка по linear algebra - `The Matrix Cookbook` - http://www2.imm.dtu.dk/pubdb/views/edoc_download.php/3274/pdf/imm3274.pdf
+Большая справка по линейной алгебре - Shilov 1977 linear algebra - https://cosmathclub.files.wordpress.com/2014/10/georgi-shilov-linear-algebra4.pdf
+L2 norm can claso be called as Euclidean norm
+Squared L2 norm can be calculated as mtamul(transpose(X), X)  - XtX - Increase slow near zero
+L1 norm - each increase faster near zero. Copy definition from page 39-40
+Really take all notes in latex for this chapter
