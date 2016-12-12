@@ -22,6 +22,9 @@ Transfer learning
 MLP
     is an abbreviation for *multilayer perceptrons*  
 
+Computational neuroscience
+    is primarily concerned with building more accurate models of how the brain actually works.
+
 
 Activation Functions
 ====================
