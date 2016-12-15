@@ -12,11 +12,13 @@ Here I will store list of commands, sometimes with short description but mainly 
 
 Machine Learning:
 
-* :doc:`general-ml-notes`
+* :doc:`definitions`
+* `Deep Learning Book <machine-learning/deep-learning-book>`_
 * :doc:`ml-bookmarks`
-* :doc:`ml-knowledge-base`
 * :doc:`models-architectures`
 * :doc:`tensorflow-hints`
+* :doc:`general-ml-notes`
+* :doc:`ml-knowledge-base`
 
 Python related:
 

@@ -10,22 +10,6 @@
 
 .. contents:: Contents:
 
-Definitions
-=============
-
-One-shot learning
-    aim to lean not from thousands of examples but from one or only a few.
-
-Transfer learning
-    apply already trained model with previous knowledge to the new domain.
-
-MLP
-    is an abbreviation for *multilayer perceptrons*  
-
-Computational neuroscience
-    is primarily concerned with building more accurate models of how the brain actually works.
-
-
 Activation Functions
 ====================
 
