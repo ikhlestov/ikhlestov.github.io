@@ -83,6 +83,10 @@ Take a look at :doc:`creating-a-theme` to know how to do it.
 # Listing
 .. listing:: foo.py python
 
-
 # LaTex
 To define matrix do not us `\&` and `\\` but use `\ ` and `\\\`
+
+LaTeX cheat sheets:
+http://users.dickinson.edu/~richesod/latex/latexcheatsheet.pdf
+http://www.auburn.edu/~tamtiny/Symbols.pdf
+https://wch.github.io/latexsheet/latexsheet.pdf

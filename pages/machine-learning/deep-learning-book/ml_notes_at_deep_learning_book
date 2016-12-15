@@ -1,0 +1,10 @@
+DEFINITIONS:
+
+Chapter 1
+Использовать старые алгоритмы которые не работали ранее с новвыми, более большими объемами данных. Может взлетит.
+
+Chapter 2
+L2 norm can claso be called as Euclidean norm
+Squared L2 norm can be calculated as mtamul(transpose(X), X)  - XtX - Increase slow near zero
+L1 norm - each increase faster near zero. Copy definition from page 39-40
+Really take all notes in latex for this chapter
