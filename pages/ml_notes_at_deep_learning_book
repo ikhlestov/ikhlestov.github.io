@@ -1,3 +1,7 @@
+DEFINITIONS:
+stochastic(non-determenistic) - A stochastic event or system is one that is unpredictable because of a random variable. 
+determenstic - is a system in which no randomness is involved in the development of future states of the system. 
+
 Chapter 1
 Использовать старые алгоритмы которые не работали ранее с новвыми, более большими объемами данных. Может взлетит.
 
