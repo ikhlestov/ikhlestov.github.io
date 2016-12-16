@@ -60,3 +60,13 @@ Only **square** matrix with linearly independent columns have **determinant**.
 A square matrix with linearly dependent columns is known as **singular**.
 
 For square matrices the left inverse and right inverse are equal :math:`AA^{-1}=I`.
+
+Norms
+    are functions mapping vectors to non-negative values. Can be threated as size of the vector.
+
+:math:`L^{p}` norm is given by :math:`||x||_{p}=(\sum_{i}|x_{i}|^{p})^{1/p}`, for :math:`p \in \mathbb{R}, p \geq 1`.
+
+Euclidean norm
+    the :math:`L^{2}` norm, with :math:`p = 2`.
+
+Squared :math:`L^{2}` norm can be calculated simply as :math:`x^{T}x`.

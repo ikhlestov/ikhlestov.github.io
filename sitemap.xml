@@ -46,48 +46,12 @@
   <lastmod>2016-11-12T11:28:00Z</lastmod>
  </url>
  <url>
-  <loc>https://ikhlestov.github.io/pages/bash-shortcuts/</loc>
-  <lastmod>2016-10-13T00:36:00Z</lastmod>
- </url>
- <url>
-  <loc>https://ikhlestov.github.io/pages/docker-help-list/</loc>
-  <lastmod>2016-10-13T00:36:00Z</lastmod>
- </url>
- <url>
-  <loc>https://ikhlestov.github.io/pages/general-ml-notes/</loc>
-  <lastmod>2016-10-13T00:36:00Z</lastmod>
- </url>
- <url>
-  <loc>https://ikhlestov.github.io/pages/git-notes/</loc>
-  <lastmod>2016-10-13T00:36:00Z</lastmod>
- </url>
- <url>
-  <loc>https://ikhlestov.github.io/pages/hadoop-notes/</loc>
-  <lastmod>2016-10-13T00:36:00Z</lastmod>
- </url>
- <url>
-  <loc>https://ikhlestov.github.io/pages/ipdb-commands/</loc>
-  <lastmod>2016-10-13T00:36:00Z</lastmod>
- </url>
- <url>
   <loc>https://ikhlestov.github.io/pages/machine-learning/deep-learning-book/</loc>
   <lastmod>2016-12-15T22:13:00Z</lastmod>
  </url>
  <url>
-  <loc>https://ikhlestov.github.io/pages/machine-learning/deep-learning-book/deep-learning-book-index/</loc>
-  <lastmod>2016-12-15T22:10:00Z</lastmod>
- </url>
- <url>
   <loc>https://ikhlestov.github.io/pages/machine-learning/deep-learning-book/i2linear-algebra/</loc>
   <lastmod>2016-12-15T22:10:00Z</lastmod>
- </url>
- <url>
-  <loc>https://ikhlestov.github.io/pages/machine-learning/deep_learning_book/deep-learning-book-index/</loc>
-  <lastmod>2016-12-15T22:07:00Z</lastmod>
- </url>
- <url>
-  <loc>https://ikhlestov.github.io/pages/machine-learning/deep_learning_book/i2linear-algebra/</loc>
-  <lastmod>2016-12-15T22:07:00Z</lastmod>
  </url>
  <url>
   <loc>https://ikhlestov.github.io/pages/machine-learning/definitions/</loc>
@@ -112,30 +76,6 @@
  <url>
   <loc>https://ikhlestov.github.io/pages/machine-learning/tensorflow-hints/</loc>
   <lastmod>2016-11-12T11:28:00Z</lastmod>
- </url>
- <url>
-  <loc>https://ikhlestov.github.io/pages/matplotlib/</loc>
-  <lastmod>2016-10-13T00:35:00Z</lastmod>
- </url>
- <url>
-  <loc>https://ikhlestov.github.io/pages/ml-bookmarks/</loc>
-  <lastmod>2016-10-13T00:36:00Z</lastmod>
- </url>
- <url>
-  <loc>https://ikhlestov.github.io/pages/numpy/</loc>
-  <lastmod>2016-10-13T00:35:00Z</lastmod>
- </url>
- <url>
-  <loc>https://ikhlestov.github.io/pages/pandas-commands/</loc>
-  <lastmod>2016-10-13T00:35:00Z</lastmod>
- </url>
- <url>
-  <loc>https://ikhlestov.github.io/pages/python-libraries/</loc>
-  <lastmod>2016-10-13T00:36:00Z</lastmod>
- </url>
- <url>
-  <loc>https://ikhlestov.github.io/pages/python-notes/</loc>
-  <lastmod>2016-10-13T00:35:00Z</lastmod>
  </url>
  <url>
   <loc>https://ikhlestov.github.io/pages/python-related/ipdb-commands/</loc>
@@ -166,14 +106,6 @@
   <lastmod>2016-11-12T11:28:00Z</lastmod>
  </url>
  <url>
-  <loc>https://ikhlestov.github.io/pages/python-tips/</loc>
-  <lastmod>2016-10-13T00:36:00Z</lastmod>
- </url>
- <url>
-  <loc>https://ikhlestov.github.io/pages/scikit-learn-notes/</loc>
-  <lastmod>2016-10-13T00:35:00Z</lastmod>
- </url>
- <url>
   <loc>https://ikhlestov.github.io/pages/shortcuts/bash-shortcuts/</loc>
   <lastmod>2016-11-12T11:28:00Z</lastmod>
  </url>
@@ -188,10 +120,6 @@
  <url>
   <loc>https://ikhlestov.github.io/pages/shortcuts/ubuntu-shortcuts/</loc>
   <lastmod>2016-11-12T11:28:00Z</lastmod>
- </url>
- <url>
-  <loc>https://ikhlestov.github.io/pages/sublime-shortcuts/</loc>
-  <lastmod>2016-10-13T00:36:00Z</lastmod>
  </url>
  <url>
   <loc>https://ikhlestov.github.io/posts/welcome-post/</loc>
