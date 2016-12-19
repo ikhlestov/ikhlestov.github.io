@@ -24,18 +24,13 @@ MathJax.Hub.Config({
 RNN + HighWay + CNN
 RNN + Attention(Google Translate)
 Highway Networks
+Residual block architecture(Res Net)
 Convolutional Network (CNN) hyperparameters
 Padding
 Stride Size
 Pooling
 Channels
-
-
-
-
-
-RNN + HighWay + CNN
-This models ">
+">
 <meta property="og:type" content="article">
 <meta property="article:published_time" content="2016-10-17T13:13:34Z">
 </head>
@@ -102,12 +97,13 @@ This models ">
 <li><a class="reference internal" href="#rnn-highway-cnn" id="id1">RNN + HighWay +&nbsp;CNN</a></li>
 <li><a class="reference internal" href="#rnn-attention-google-translate" id="id2">RNN + Attention(Google&nbsp;Translate)</a></li>
 <li><a class="reference internal" href="#highway-networks" id="id3">Highway&nbsp;Networks</a></li>
+<li><a class="reference internal" href="#residual-block-architecture-res-net" id="id4">Residual block architecture(Res&nbsp;Net)</a></li>
 <li>
-<a class="reference internal" href="#convolutional-network-cnn-hyperparameters" id="id4">Convolutional Network (CNN) hyperparameters</a><ul>
-<li><a class="reference internal" href="#padding" id="id5">Padding</a></li>
-<li><a class="reference internal" href="#stride-size" id="id6">Stride&nbsp;Size</a></li>
-<li><a class="reference internal" href="#pooling" id="id7">Pooling</a></li>
-<li><a class="reference internal" href="#channels" id="id8">Channels</a></li>
+<a class="reference internal" href="#convolutional-network-cnn-hyperparameters" id="id5">Convolutional Network (CNN) hyperparameters</a><ul>
+<li><a class="reference internal" href="#padding" id="id6">Padding</a></li>
+<li><a class="reference internal" href="#stride-size" id="id7">Stride&nbsp;Size</a></li>
+<li><a class="reference internal" href="#pooling" id="id8">Pooling</a></li>
+<li><a class="reference internal" href="#channels" id="id9">Channels</a></li>
 </ul>
 </li>
 </ul>
@@ -157,11 +153,17 @@ y = H (x ; W_{H} ) * T (x ; W_{T} ) + x * C (x ; W_{C} )
 <p>Gates express how much of the output is produced by transforming  the  input  and  carrying  it,  respectively.
 Sometimes carry gate can be set as <span class="math">\(C = 1 - T\)</span> for&nbsp;simplicity.</p>
 </div>
+<div class="section" id="residual-block-architecture-res-net">
+<h2><a class="toc-backref" href="#id4">Residual block architecture(Res&nbsp;Net)</a></h2>
+<div class="figure">
+<img alt="/images/models_architectures/resnets_modelvariants.png" src="../../../images/models_architectures/resnets_modelvariants.png">
+</div>
+</div>
 <div class="section" id="convolutional-network-cnn-hyperparameters">
-<h2><a class="toc-backref" href="#id4">Convolutional Network (CNN)&nbsp;hyperparameters</a></h2>
+<h2><a class="toc-backref" href="#id5">Convolutional Network (CNN)&nbsp;hyperparameters</a></h2>
 <p>More about CNNs for NLP you may reed <a class="reference external" href="http://www.wildml.com/2015/11/understanding-convolutional-neural-networks-for-nlp/">here</a></p>
 <div class="section" id="padding">
-<h3><a class="toc-backref" href="#id5">Padding</a></h3>
+<h3><a class="toc-backref" href="#id6">Padding</a></h3>
 <p>There are two types of&nbsp;padding:</p>
 <ul class="simple">
 <li>
@@ -180,7 +182,7 @@ More generally, the formula for the output size is
 <span class="math">\(n_{out} = (n_{in} + 2 * n_{padding} - n_{filter}) +&nbsp;1\)</span></p>
 </div>
 <div class="section" id="stride-size">
-<h3><a class="toc-backref" href="#id6">Stride&nbsp;Size</a></h3>
+<h3><a class="toc-backref" href="#id7">Stride&nbsp;Size</a></h3>
 <p><strong>Stride size</strong> - defining how much you want to shift your filter at each step.
 Mainly we see stride sizes of 1, but a larger stride size may allow you to build a model that behaves somewhat similarly to a Recursive Neural Network, i.e. looks like a&nbsp;tree.</p>
 <div class="figure">
@@ -189,7 +191,7 @@ Mainly we see stride sizes of 1, but a larger stride size may allow you to build
 </div>
 </div>
 <div class="section" id="pooling">
-<h3><a class="toc-backref" href="#id7">Pooling</a></h3>
+<h3><a class="toc-backref" href="#id8">Pooling</a></h3>
 <p>Pooling layers subsample output of convolutional layers. There are two types of pooling - <strong>max pooling</strong> and <strong>average pooling</strong>. You don’t necessarily need to pool over the complete matrix, you could also pool over a&nbsp;window.</p>
 <div class="figure">
 <a class="reference external image-reference" href="../../../images/ML_notes/pooling.png"><img alt="/images/ML_notes/pooling.thumbnail.png" src="../../../images/ML_notes/pooling.thumbnail.png"></a>
@@ -197,7 +199,7 @@ Mainly we see stride sizes of 1, but a larger stride size may allow you to build
 </div>
 </div>
 <div class="section" id="channels">
-<h3><a class="toc-backref" href="#id8">Channels</a></h3>
+<h3><a class="toc-backref" href="#id9">Channels</a></h3>
 <p>Channels are different sources or representations of the data. For image it&#8217;s typically RGB(red, green, blue) channels. For NLP you could have separate channels for different embeddings of various translation of the&nbsp;sentences.</p>
 </div>
 </div>
