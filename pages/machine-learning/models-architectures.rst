@@ -56,6 +56,11 @@ where:
 Gates express how much of the output is produced by transforming  the  input  and  carrying  it,  respectively.
 Sometimes carry gate can be set as :math:`C = 1 - T` for simplicity.
 
+Residual block architecture(Res Net)
+====================================
+
+.. figure:: /images/models_architectures/resnets_modelvariants.png
+
 
 Convolutional Network (CNN) hyperparameters
 ===========================================
