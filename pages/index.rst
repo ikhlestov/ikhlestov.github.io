@@ -19,6 +19,7 @@ Machine Learning:
 * :doc:`tensorflow-hints`
 * :doc:`general-ml-notes`
 * :doc:`ml-knowledge-base`
+* :doc:`batch-normalization` (I think it should be moved somewhere)
 
 Python related:
 
