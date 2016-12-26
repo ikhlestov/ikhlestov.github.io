@@ -29,6 +29,7 @@ Python related:
 * `Pandas commands <link://slug/pandas-commands>`__
 * :doc:`python-libraries`
 * :doc:`Scikit-learn notes <scikit-learn-notes>`
+* :doc:`python-bookmarks`
 
 Shortcuts:
 
