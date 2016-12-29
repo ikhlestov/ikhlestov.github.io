@@ -52,9 +52,22 @@ Optimization Techniques
 
 + `Styles of Truncated Backpropagation <http://r2rt.com/styles-of-truncated-backpropagation.html>`__
 
++ `Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift <https://arxiv.org/pdf/1502.03167v3.pdf>`__
+
 
 Other Topics
 ============
 
 + `Highway Networks <http://people.idsia.ch/~rupesh/very_deep_learning/>`__ - list of papers, code, etc.
 + `Set parameter for one network from another(Learning to learn by gradient descent by gradient descent) <https://arxiv.org/pdf/1606.04474.pdf>`__
+
+Build Neural Nets with another Neural Nets
+==========================================
+
++ `Neural Architecture Search with Reinforcement Learning <https://openreview.net/pdf?id=r1Ue8Hcxg>`__ - broad grid search for availbale models architectures with LSTM. As result we receive new conv-net architecture and new RNN node.
+
+One Shot Learning
+=================
+
++ `Matching Networks for One Shot Learning <https://arxiv.org/pdf/1606.04080v1.pdf>`__ - one shot learning from Google Deep Mind for image net
++ `The More You Know: Using Knowledge Graphs for Image Classification <https://arxiv.org/pdf/1612.04844v1.pdf>`__

@@ -19,6 +19,7 @@ Machine Learning:
 * :doc:`tensorflow-hints`
 * :doc:`general-ml-notes`
 * :doc:`ml-knowledge-base`
+* :doc:`batch-normalization` (I think it should be moved somewhere)
 
 Python related:
 
@@ -28,6 +29,7 @@ Python related:
 * `Pandas commands <link://slug/pandas-commands>`__
 * :doc:`python-libraries`
 * :doc:`Scikit-learn notes <scikit-learn-notes>`
+* :doc:`python-bookmarks`
 
 Shortcuts:
 
