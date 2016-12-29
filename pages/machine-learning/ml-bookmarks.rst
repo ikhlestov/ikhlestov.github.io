@@ -30,6 +30,8 @@ RNN, seq2seq and all related
 
 + `Phased LSTM: Accelerating Recurrent Network Training for Long or Event-based Sequences <https://arxiv.org/pdf/1610.09513v1.pdf>`__ LSTMs with additional time gate controlled by time step. This gate allow update *cell value* and *hidden output* only during an *"open"* phase.
 
++ `Search Results Words or Characters? Fine-grained Gating for Reading Comprehension <https://arxiv.org/pdf/1611.01724v1.pdf>`__
+
 CNNs
 ====
 
