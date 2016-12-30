@@ -1,7 +1,7 @@
 .. title: RBM based Autoencoders with tensorflow
 .. slug: rbm-based-autoencoders-with-tensorflow
 .. date: 2016-12-28 20:33:15 UTC
-.. tags: draft
+.. tags: 
 .. category: 
 .. link: 
 .. description: 
@@ -12,7 +12,7 @@
 
 Recently I try to implement RBM based autoencoder in tensorflow similar to RBMs described in `Semantic Hashing <http://www.cs.utoronto.ca/~rsalakhu/papers/semantic_final.pdf>`__ paper by Ruslan Salakhutdinov and Geoffrey Hinton. It seems that with RBM pretrained weights autoencoders should converge faster. So I've decide to check this.  
 
-This post will describe some roadblocks for RBMs/autoencoders implementation in tensorflow and compare results of different approaches. I assume reader previous knowledge of tensorflow and machine learning field.
+This post will describe some roadblocks for RBMs/autoencoders implementation in tensorflow and compare results of different approaches. I assume reader previous knowledge of tensorflow and machine learning field. All code can be found in `this repo <https://github.com/ikhlestov/rbm_based_autoencoders_with_tensorflow>`__
 
 RBMs different from usual neural networks in some ways:
 
@@ -33,7 +33,7 @@ As prototype one layer tensorflow rbm `implementation <https://github.com/blacke
 Many layers implementation
 ==========================
 
-At first I've implement `multi layers RBM(Add link to code here) <fill_link>`__ with 3 layers. Because we not use usual tensorflow optimizers we may stop gradient for every variable with `tf.stop_gradient(variable_name)` and this will speed up computation a little bit. After construction two questions arised:
+At first I've implement `multi layers RBM <https://github.com/ikhlestov/rbm_based_autoencoders_with_tensorflow/blob/master/rbm_all_layers_at_once.py>`__ with 3 layers. Because we not use usual tensorflow optimizers we may stop gradient for every variable with `tf.stop_gradient(variable_name)` and this will speed up computation a little bit. After construction two questions arised:
 - Should every layer hidden units be binary encoded or only last one?
 - Should we update every layer weights/biases at once per step, or first train only first two layers, after layers 2 and 3, and so on?
 
@@ -43,7 +43,7 @@ So I've run model with all binary units and only with last binary unit. And it s
 
     Errors with respect to steps
 
-So let's stop with last layer binarized and try different train approaches. To build model that will train only pair of layers we need train two layers model, save it, build new model with one more layer, load pretrained first two layers weights/biases and continue train last two layers. During implementation I've meet some trouble - tensorflow have no method to initialize all not initialized previously variables method. Maybe I just didn't find this. So I've finish with approach when I directly send variable that should be restored and variables that should be initialized.
+So let's stop with last layer binarized and try different train approaches. To build model that will train only pair of layers we need train two layers model, save it, build new model with one more layer, load pretrained first two layers weights/biases and continue train last two layers (`code <https://github.com/ikhlestov/rbm_based_autoencoders_with_tensorflow/blob/master/rbm_train_by_pair_layers.py>`__. During implementation I've meet some trouble - tensorflow have no method to initialize all not initialized previously variables method. Maybe I just didn't find this. So I've finish with approach when I directly send variable that should be restored and variables that should be initialized.
 
 .. code-block:: python
     
@@ -71,7 +71,7 @@ So we stop with RBM trained with only last layer binarized and trained with *two
 Build autoencoder from RBM
 ==========================
 
-After get pretrained weights from RMB it's time to build autoencoder for fine tuning. To get encoding layer output as much as possible binarized as per paper advise we add Gaussian noise prior to layer. To simulate *deterministic noise* behavior, noise was generate for each input prior training and not changed during training. Also we want compare autoencoder loaded from RBM weights with self initialized usual autoencoder.
+After get pretrained weights from RMB it's time to build autoencoder for fine tuning. To get encoding layer output as much as possible binarized as per paper advise we add Gaussian noise prior to layer. To simulate *deterministic noise* behavior, noise was generate for each input prior training and not changed during training. Also we want compare autoencoder loaded from RBM weights with self initialized usual autoencoder. `Code for autoencoder <https://github.com/ikhlestov/rbm_based_autoencoders_with_tensorflow/blob/master/autoencoder.py>`__
 
 .. thumbnail:: /images/rbm-based-autoencoders-with-tensorflow/03_rbm_and_new_initialized_autoencoders.png
 
@@ -83,17 +83,63 @@ It seems that RBM initialized autoencoder continue training, but newly initializ
     
     Only RBM based autoencoder training process, for clarity
 
-TODO: Visualize distribution of probabilities that should be converted to
+Also I've trained two autoencoders without Gaussian noise. Now we can see through distribution what embedding most similar to binary (`code for visualization <https://github.com/ikhlestov/rbm_based_autoencoders_with_tensorflow/blob/master/results_validation/visualize_distribution.py>`__):
+
+.. thumbnail:: /images/rbm-based-autoencoders-with-tensorflow/04_rbm_aec_embeddings_distribution.png
+
+    Comparison of embeddings distributions
+
+We can see that RBM based autoencoder with Gaussian noise works better than other for our purposes.
 
 Validation
 ==========
-To validate received embeddings I generate them for test and train sets and use two approaches:
-- Train SVM with train set and measure accuracy on test set.
-- With hamming distance or dot product find 10 most similar pictures/embeddings to provided one and check how many labels are the same to provided array label.
+To validate received embeddings I generate them for test and train sets for such networks:
 
+- Initial MNIST(without embedding at all)
+- RBM with last layer binarized and trained by pairs
+- Autoencoder based on RBM with Gaussian noise
+- Newly initialized autoencoder with Gaussian noise
 
-TODO:
-Final testing of all embeddings variants
-links to models
-links to validation approaches
-description of params
+and use two validation approaches:
+
+Train SVM with train set and measure accuracy on test set. SVM was used from sklearn with 'rbf' kernel with no `max_iter` == 50. Results table were generated with `this code <https://github.com/ikhlestov/rbm_based_autoencoders_with_tensorflow/blob/master/results_validation/svm_clusterization_test.py>`__
+
+.. csv-table::
+    :header: "notes", "accuracy", "prec", "f_score", "recall"
+    :widths: 50, 10, 10, 10, 10
+    
+    "default mnist dataset", "0.446", "0.647", "0.460", "0.454"
+    "rbm: train_layers_by_pairs__last_layer_binarized", "0.455", "0.450", "0.446", "0.453"
+    "autoencoder: rbm_initialized_model__with_Gaussian_noise", "0.499", "0.500", "0.493", "0.494"
+    "autoencoder: new_initialized_model__with_Gaussian_noise", "0.100", "0.098", "0.095", "0.099"
+
+With hamming distance or dot product find 10 most similar pictures/embeddings to provided one and check how many labels are the same to the submitted array label. `Code <https://github.com/ikhlestov/rbm_based_autoencoders_with_tensorflow/blob/master/results_validation/found_similiar.py>`__ to check distance accuracies.
+
+.. csv-table::
+    :header: "notes", "hamming_accuracy", "hamming_time_cons", "dot_product_accuracy", "dot_product_time_cons"
+    :widths: 50, 10, 10, 10, 10
+
+    "default mnist dataset", "0.910", "180.4", "0.916", "528.8"
+    "rbm: train_layers_by_pairs__last_layer_binarized", "0.633", "28.6", "0.638", "60.2"
+    "autoencoder: rbm_initialized_model__with_Gaussian_noise", "0.583", "28.9", "0.563", "61.6"
+    "autoencoder: new_initialized_model__with_Gaussian_noise", "0.099", "29.8", "0.099", "64.6"
+
+Conclusion
+==========
+As we can see embeddings can save some strong features, that can be used for future clusterization very well. But this features are not linearly correlated - so when we measure accuracy for most similar embeddings we get results worse than when we use full MNIST images. Of course maybe autoencoder should be trained with another leaning rate/longer but this is task for future research.
+
+At the same time we confirmed that training autoencoders from pretrained RBMs weights is good approach - network will pass local optimization minimum and not stack at some point during training.
+
+Training params
+===============
+For RBM training such params were used network was trained with:
+
+- epochs = 6
+- learning rate = 0.01
+- batch size = 100
+- shuffle batches = True
+- gibbs sampling steps = 1
+- layers quantity = 3
+- layers shapes(including input layer) = [784, 484, 196, 100]
+
+For autoencoder learning rate was changed to 1.0 because another optimization rule.
