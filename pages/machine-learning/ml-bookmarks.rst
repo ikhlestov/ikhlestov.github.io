@@ -62,6 +62,7 @@ Other Topics
 
 + `Highway Networks <http://people.idsia.ch/~rupesh/very_deep_learning/>`__ - list of papers, code, etc.
 + `Set parameter for one network from another(Learning to learn by gradient descent by gradient descent) <https://arxiv.org/pdf/1606.04474.pdf>`__
++ `NIPS 2016 Tutorial: Generative Adversarial Network <https://arxiv.org/pdf/1701.00160v1.pdf>`__
 
 Build Neural Nets with another Neural Nets
 ==========================================
