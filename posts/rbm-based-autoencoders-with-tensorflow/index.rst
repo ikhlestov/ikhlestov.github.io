@@ -30,6 +30,8 @@ Also key feature of RMB that it encode output in binary mode, not as probabiliti
 
 As prototype one layer tensorflow rbm `implementation <https://github.com/blackecho/Deep-Learning-TensorFlow/blob/master/yadlt/models/rbm_models/rbm.py>`__ was used. For testing I've take usual `MNIST <https://en.wikipedia.org/wiki/MNIST_database>`__ dataset(dataset of handwritten digits).
 
+.. TEASER_END
+
 Many layers implementation
 ==========================
 
