@@ -35,7 +35,8 @@ As prototype one layer tensorflow rbm `implementation <https://github.com/blacke
 Many layers implementation
 ==========================
 
-At first, I've implement `multilayers RBM <https://github.com/ikhlestov/rbm_based_autoencoders_with_tensorflow/blob/master/rbm_all_layers_at_once.py>`__ with three layers. Because we do not use usual tensorflow optimizers we may stop gradient for every variable with `tf.stop_gradient(variable_name) ` and this will speed up computation a little bit. After construction two questions arose:
+At first, I've implement `multilayers RBM <https://github.com/ikhlestov/rbm_based_autoencoders_with_tensorflow/blob/master/rbm_all_layers_at_once.py>`__ with three layers. Because we do not use usual tensorflow optimizers we may stop gradient for every variable with `tf.stop_gradient(variable_name)` and this will speed up computation a little bit. After construction two questions arose:
+
 - Should every layer hidden units be binary encoded or only last one?
 - Should we update every layer weights/biases at once per step, or first train only first two layers, after layers 2 and 3, and so on?
 
