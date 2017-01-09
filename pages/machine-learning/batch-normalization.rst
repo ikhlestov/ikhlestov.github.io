@@ -26,7 +26,7 @@ To understood what exactly each param handled by layer mean - take a look on alg
 
     inputs = tf.sigmoid(tf.contrib.layers.batch_norm(inputs, scale=True))
 
-    # next lines should be added so Optimizer seee variables to optimize
+    # next lines should be added so Optimizer can find variables to optimize
     update_ops = tf.get_collection(tf.GraphKeys.UPDATE_OPS)
     if update_ops:
         updates = tf.group(*update_ops)
