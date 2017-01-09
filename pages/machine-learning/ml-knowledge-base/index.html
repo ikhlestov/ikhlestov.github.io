@@ -13,7 +13,7 @@ article: http://ogp.me/ns/article#
 <link rel="canonical" href="https://ikhlestov.github.io/pages/machine-learning/ml-knowledge-base/">
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
-    displayAlign: 'left', // Change this to 'center' to center equations.
+    displayAlign: 'center', // Change this to 'center' to center equations.
 });
 </script><!--[if lt IE 9]><script src="../../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Illarion Khlestov">
 <meta property="og:site_name" content="Illarion Khlestov Blog">
@@ -109,11 +109,7 @@ More about another types of activations you may read <a class="reference externa
 <dl class="docutils">
 <dt>Sigmoid function (or <em>logistic function</em>)</dt>
 <dd>
-<div class="first math">
-\begin{equation*}
-\sigma(z) = \frac{1}{1 + e^{-z}}
-\end{equation*}
-</div>
+<p class="first"><span class="math">\(\sigma(z) = \frac{1}{1 +&nbsp;e^{-z}}\)</span></p>
 <p>Properties: <span class="math">\(\sigma(\infty)\approx 1\)</span>, <span class="math">\(\sigma(-\infty)\approx 0\)</span>,
 but note, that <span class="math">\(\sigma(0)=1\)</span>.</p>
 <p>Note: <em>sigmoid function</em> (<span class="math">\(\sigma\)</span>) == <em>logistic function</em>
@@ -124,11 +120,7 @@ For instance a picture can contain both an elephant and a dog at the same&nbsp;t
 </dd>
 <dt>Softmax&nbsp;function</dt>
 <dd>
-<div class="first math">
-\begin{equation*}
-a^L_j = \frac{e^{z^L_j}}{\sum_k e^{z^L_k}}
-\end{equation*}
-</div>
+<p class="first"><span class="math">\(a^L_j = \frac{e^{z^L_j}}{\sum_k&nbsp;e^{z^L_k}}\)</span></p>
 <p>The output activations from softmax are guaranteed to always sum up to&nbsp;1.</p>
 <p class="last">Generate probability for discrete classification tasks in which the classes
 are mutually exclusive (each entry is in exactly one class).

@@ -14,7 +14,7 @@ article: http://ogp.me/ns/article#
 <link rel="canonical" href="https://ikhlestov.github.io/">
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
-    displayAlign: 'left', // Change this to 'center' to center equations.
+    displayAlign: 'center', // Change this to 'center' to center equations.
 });
 </script><!--[if lt IE 9]><script src="assets/js/html5.js"></script><![endif]--><link rel="prefetch" href="posts/rbm-based-autoencoders-with-tensorflow/" type="text/html">
 </head>
@@ -85,11 +85,11 @@ MathJax.Hub.Config({
 <p>This post will describe some roadblocks for RBMs/autoencoders implementation in tensorflow and compare results of different approaches. I assume reader previous knowledge of tensorflow and machine learning field. All code can be found in <a class="reference external" href="https://github.com/ikhlestov/rbm_based_autoencoders_with_tensorflow">this&nbsp;repo</a></p>
 <p>RBMs different from usual neural networks in some&nbsp;ways:</p>
 <p>Neural networks usually perform weight update by Gradient Descent, but RMBs use <strong>Contrastive Divergence</strong> (which is basically a funky term for &#8220;approximate gradient descent&#8221; <a class="reference external" href="http://deeplearning.net/tutorial/rbm.html">link to read</a>). At a glance contrastive divergence compute difference between <strong>positive phase</strong> (energy of first encoding) and <strong>negative phase</strong> (energy of last&nbsp;encoding).</p>
-<pre class="code python"><a name="rest_code_e646da06b4dd41ab813cf06710a064b9-1"></a><span class="n">positive_phase</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span>
-<a name="rest_code_e646da06b4dd41ab813cf06710a064b9-2"></a>    <span class="n">tf</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">visib_inputs_initial</span><span class="p">),</span> <span class="n">first_encoded_probability</span><span class="p">)</span>
-<a name="rest_code_e646da06b4dd41ab813cf06710a064b9-3"></a><span class="n">negative_phase</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span>
-<a name="rest_code_e646da06b4dd41ab813cf06710a064b9-4"></a>    <span class="n">tf</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">last_reconstructed_probability</span><span class="p">),</span> <span class="n">last_encoded_probability</span><span class="p">)</span>
-<a name="rest_code_e646da06b4dd41ab813cf06710a064b9-5"></a><span class="n">contrastive_divergence</span> <span class="o">=</span> <span class="n">positive_phase</span> <span class="o">-</span> <span class="n">negative_phase</span>
+<pre class="code python"><a name="rest_code_2ddec130b5e54628ad16a334edc826a6-1"></a><span class="n">positive_phase</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span>
+<a name="rest_code_2ddec130b5e54628ad16a334edc826a6-2"></a>    <span class="n">tf</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">visib_inputs_initial</span><span class="p">),</span> <span class="n">first_encoded_probability</span><span class="p">)</span>
+<a name="rest_code_2ddec130b5e54628ad16a334edc826a6-3"></a><span class="n">negative_phase</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span>
+<a name="rest_code_2ddec130b5e54628ad16a334edc826a6-4"></a>    <span class="n">tf</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">last_reconstructed_probability</span><span class="p">),</span> <span class="n">last_encoded_probability</span><span class="p">)</span>
+<a name="rest_code_2ddec130b5e54628ad16a334edc826a6-5"></a><span class="n">contrastive_divergence</span> <span class="o">=</span> <span class="n">positive_phase</span> <span class="o">-</span> <span class="n">negative_phase</span>
 </pre>
 <p>Also key feature of RMB that it encode output in binary mode, not as probabilities. More about RMBs you may read <a class="reference external" href="http://blog.echen.me/2011/07/18/introduction-to-restricted-boltzmann-machines/">here</a> or <a class="reference external" href="http://rocknrollnerd.github.io/ml/2015/07/18/general-boltzmann-machines.html">here</a>.</p>
 <p>As prototype one layer tensorflow rbm <a class="reference external" href="https://github.com/blackecho/Deep-Learning-TensorFlow/blob/master/yadlt/models/rbm_models/rbm.py">implementation</a> was used. For testing I&#8217;ve take usual <a class="reference external" href="https://en.wikipedia.org/wiki/MNIST_database">MNIST</a> dataset(dataset of handwritten&nbsp;digits).</p>

@@ -20,9 +20,7 @@ So the combination of weights coefficients will not "generalized" to linear mode
 More about another types of activations you may read `here <https://en.wikipedia.org/wiki/Activation_function>`__.
 
 Sigmoid function (or *logistic function*) 
-    .. math::
-
-        \sigma(z) = \frac{1}{1 + e^{-z}}
+    :math:`\sigma(z) = \frac{1}{1 + e^{-z}}`
     
     Properties: :math:`\sigma(\infty)\approx 1`, :math:`\sigma(-\infty)\approx 0`,
     but note, that :math:`\sigma(0)=1`.  
@@ -36,9 +34,7 @@ Sigmoid function (or *logistic function*)
 
 
 Softmax function
-    .. math::
-
-      a^L_j = \frac{e^{z^L_j}}{\sum_k e^{z^L_k}}
+    :math:`a^L_j = \frac{e^{z^L_j}}{\sum_k e^{z^L_k}}`
 
     The output activations from softmax are guaranteed to always sum up to 1.
     

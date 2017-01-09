@@ -13,7 +13,7 @@ article: http://ogp.me/ns/article#
 <link rel="canonical" href="https://ikhlestov.github.io/pages/machine-learning/deep-learning-book/i2linear-algebra/">
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
-    displayAlign: 'left', // Change this to 'center' to center equations.
+    displayAlign: 'center', // Change this to 'center' to center equations.
 });
 </script><!--[if lt IE 9]><script src="../../../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Illarion Khlestov">
 <meta property="og:site_name" content="Illarion Khlestov Blog">
@@ -100,6 +100,8 @@ For full book about linear algebra - <a class="reference external" href="https:/
 <dt>Tensors</dt>
 <dd>an array with more than two&nbsp;axes.</dd>
 </dl>
+<div class="section" id="matrices">
+<h2>Matrices</h2>
 <p>The product operation of matrices(<strong>matrix product</strong>) <span class="math">\(C = AB\)</span> is defined as <span class="math">\(C_{i,j} = \sum_{k} A_{i,k} B_{j,k}\)</span>.</p>
 <p>Matrix containing the product of the individual elements called the <strong>element-wise product</strong> or <strong>Hadamard product</strong>, and is denoted as <span class="math">\(A \odot B\)</span>.</p>
 <p>Matrix multiplication is distributive <span class="math">\(A(B + C) = AB + AC\)</span>.</p>
@@ -114,6 +116,9 @@ For full book about linear algebra - <a class="reference external" href="https:/
 </div>
 <p>All the entries along the main diagonal in identity matrix is 1, while all other entries are&nbsp;zero.</p>
 <p>The <strong>matrix inverse</strong> of <span class="math">\(A\)</span> is denoted as <span class="math">\(A^{-1}\)</span> , and it is defined as the matrix such that <span class="math">\(A A^{-1} = I_{n}\)</span>.</p>
+</div>
+<div class="section" id="vectors">
+<h2>Vectors</h2>
 <dl class="docutils">
 <dt>Origin</dt>
 <dd>the point specified by the vector of all&nbsp;zeros.</dd>
@@ -126,6 +131,9 @@ For full book about linear algebra - <a class="reference external" href="https:/
 <p>Only <strong>square</strong> matrix with linearly independent columns have <strong>determinant</strong>.</p>
 <p>A square matrix with linearly dependent columns is known as <strong>singular</strong>.</p>
 <p>For square matrices the left inverse and right inverse are equal <span class="math">\(AA^{-1}=I\)</span>.</p>
+</div>
+<div class="section" id="norms">
+<h2>Norms</h2>
 <dl class="docutils">
 <dt>Norms</dt>
 <dd>are functions mapping vectors to non-negative values. Can be threated as size of the&nbsp;vector.</dd>
@@ -136,6 +144,113 @@ For full book about linear algebra - <a class="reference external" href="https:/
 <dd>the <span class="math">\(L^{2}\)</span> norm, with <span class="math">\(p = 2\)</span>.</dd>
 </dl>
 <p>Squared <span class="math">\(L^{2}\)</span> norm can be calculated simply as <span class="math">\(x^{T}x\)</span>.</p>
+<p><span class="math">\(L^{2}\)</span> norm may be undesirable because it increases very slowly near the origin.
+In these cases, we turn to a function that grows at the same rate in all locations, but retains mathematical simplicity: the <span class="math">\(L^{1}\)</span> norm.
+The <span class="math">\(L^{1}\)</span> norm is commonly used in machine learning when the difference between zero and nonzero elements is very&nbsp;important.</p>
+<dl class="docutils">
+<dt>
+<span class="math">\(L^{1}\)</span>&nbsp;norm</dt>
+<dd><span class="math">\(||x||_{1}=\sum_i|x_{i}\)</span></dd>
+</dl>
+<p>The <span class="math">\(L^{\infty}\)</span> norm, also known as the <strong>max norm</strong>. This norm simplifies to the absolute value of the element with the largest magnitude in the&nbsp;vector.</p>
+<dl class="docutils">
+<dt>
+<span class="math">\(L^{\infty}\)</span>&nbsp;norm</dt>
+<dd><span class="math">\(||x||_{\infty} =&nbsp;max_{i}|xi|\)</span></dd>
+</dl>
+<p>Most common way to measure the size of a matrix this is <strong>Frobenius norm</strong> which is analogous to the <span class="math">\(L^{2}\)</span> norm of a&nbsp;vector.</p>
+<dl class="docutils">
+<dt>Frobenius&nbsp;norm</dt>
+<dd><span class="math">\(||A||_{F}=\sqrt{\sum_{i,j}A^{2}_{i,j}}\)</span></dd>
+</dl>
+<p>The dot product of two vectors can be rewritten in terms of&nbsp;norms.</p>
+<dl class="docutils">
+<dt>Dot&nbsp;product</dt>
+<dd><span class="math">\(x^{T}y=||x||_{2}||y||_{2}\cos\theta\)</span></dd>
+</dl>
+<p>where <span class="math">\(\theta\)</span> is the angle between <span class="math">\(x\)</span> and <span class="math">\(y\)</span>.</p>
+</div>
+<div class="section" id="special-kinds-of-matrices-and-vectors">
+<h2>Special Kinds of Matrices and&nbsp;Vectors</h2>
+<p><strong>Diagonal</strong> matrices consist mostly of zeros and have non-zero entries only alongthe main diagonal.
+We write <span class="math">\(diag(v)\)</span> to denote a square diagonal matrix whose diagonal entries are given by the entries of the vector <span class="math">\(v\)</span>.
+To compute <span class="math">\(diag(v)x\)</span>, we only need to scale each element <span class="math">\(x_i\)</span> by <span class="math">\(v_i\)</span>. In other words, <span class="math">\(diag(v)x = x \odot y\)</span>.
+The inverse exists only if every diagonal entry is nonzero, and in that case, <span class="math">\(diag(v)^{-1} = diag([1/v_1, &#8230;, 1/v_n]^T)\)</span>.</p>
+<p>A <strong>symmetric matrix</strong> is any matrix that is equal to its own transpose: <span class="math">\(A = A^T\)</span>.</p>
+<p>A <strong>unit vector</strong> is a vector with unit norm: <span class="math">\(||x||_2 = 1\)</span>.</p>
+<p>A vector <span class="math">\(x\)</span> and a vector <span class="math">\(y\)</span> are <strong>orthogonal</strong> to each other if <span class="math">\(x^Ty = 0\)</span>.
+In <span class="math">\(\mathbb{R}^{n}\)</span>, at most <span class="math">\(n\)</span> vectors may be mutually orthogonal with nonzero norm.
+If the vectors are not only orthogonal but also have unit norm, we call them <strong>orthonormal</strong>.</p>
+<p>An <strong>orthogonal matrix</strong> is a square matrix whose rows are mutually orthonormal and whose columns are mutually orthonormal: <span class="math">\(A^TA = AA^T = I\)</span>.
+This implies that <span class="math">\(A^{-1} = A^T\)</span>.</p>
+</div>
+<div class="section" id="eigendecomposition">
+<h2>Eigendecomposition</h2>
+<p>calledeigen-decomposition, in which we decompose a matrix into a set of eigenvectors andeigenvalues.
+Aneigenvectorof a square matrixAis a non-zero vectorvsuch that multi-plication by A alters only the scale of v:Av = λv.
+The scalarλis known as theeigenvaluecorresponding to this eigenvector.
+Ifvis an eigenvector ofA, then so is any rescaled vectorsvfors ∈ R, s = 0.Moreover,svstill has the same&nbsp;eigenvalue.</p>
+<p>Suppose that a matrixAhasnlinearly independent eigenvectors,{v(1), &#8230; ,v(n)}, with corresponding eigenvalues{λ1, &#8230; , λn}. We may concatenate all of the
+igenvectors to form a matrixVwith one eigenvector per column:V= [v(1), &#8230; ,v(n)]. Likewise, we can concatenate the eigenvalues to form a vectorλ= [λ1, &#8230; ,λn]. The eigendecomposition of A is then given byA = V&nbsp;diag(λ)V−1</p>
+<p>every real symmetricmatrix can be decomposed into an expression using only real-valued eigenvectorsand eigenvalues:A = QΛQ, (2.41)whereQis an orthogonal matrix composed of eigenvectors ofA, andΛis adiagonal matrix. The eigenvalue Λi,iis associated with the eigenvector in columniofQ, denoted asQ:,i. BecauseQis an orthogonal matrix, we can think ofAasscaling space by λiin direction&nbsp;v(i).</p>
+<p>While any real symmetric matrixAis guaranteed to have an eigendecomposi-tion, the eigendecomposition may not be unique. If any two or more eigenvectorsshare the same eigenvalue, then any set of orthogonal vectors lying in their spanare also eigenvectors with that eigenvalue, and we could equivalently choose aQusing those eigenvectors instead. By convention, we usually sort the entries ofΛin descending order. Under this convention, the eigendecomposition is unique onlyif all of the eigenvalues are&nbsp;unique.</p>
+<p>The matrix is singular if and only if any of the eigenvalues are zero.The eigendecomposition of a real symmetric matrix can also be used to optimizequadratic expressions of the formf(x) =xAxsubject to||x||2= 1. Wheneverxis equal to an eigenvector ofA,ftakes on the value of the corresponding eigenvalue.The maximum value offwithin the constraint region is the maximum eigenvalueand its minimum value within the constraint region is the minimum&nbsp;eigenvalue.</p>
+<p>A matrix whose eigenvalues are all positive is calledpositive deﬁnite. Amatrix whose eigenvalues are all positive or zero-valued is calledpositive semideﬁ-nite.
+Positivesemideﬁnite matrices are interesting because they guarantee that∀x, xAx ≥0.Positive deﬁnite matrices additionally guarantee that xAx = 0 ⇒ x =&nbsp;0.</p>
+</div>
+<div class="section" id="singular-value-decomposition">
+<h2>Singular Value&nbsp;Decomposition</h2>
+<p>Thesingular value decomposition(SVD) provides another way to factorizea matrix, intosingular vectorsandsingular values.
+Every real matrix has a singular valuedecomposition, but the same is not true of the eigenvalue decomposition.
+Forexample, if a matrix is not square, the eigendecomposition is not deﬁned, and wemust use a singular value decomposition&nbsp;instead.</p>
+<p>The singular value decomposition is similar, except this time we will writeAas a product of three matrices:A = U&nbsp;DV.</p>
+<p>Suppose thatAis anm ×nmatrix. ThenUis deﬁned to be anm ×mmatrix,D to be an m × n matrix, and V to be an n ×n matrix
+Each of these matrices is deﬁned to have a special structure. The matricesUandVare both deﬁned to be orthogonal matrices. The matrixDis deﬁned to bea diagonal matrix. Note that D is not necessarily&nbsp;square</p>
+<p>The elements along the diagonal ofDare known as thesingular valuesofthe matrixA. The columns ofUare known as theleft-singular vectors. Thecolumns of V are known as as the right-singular vectors.
+We can actually interpret the singular value decomposition ofAin terms ofthe eigendecomposition of functions ofA. The left-singular vectors ofAare theeigenvectors ofAA. The right-singular vectors ofAare the eigenvectors ofAA.The non-zero singular values ofAare the square roots of the eigenvalues ofAA.The same is true for&nbsp;AA.</p>
+</div>
+<div class="section" id="moore-penrose-pseudoinverse">
+<h2>Moore-Penrose&nbsp;pseudoinverse</h2>
+<p>Suppose we want to make a left-inverse <span class="math">\(B\)</span> of a matrix <span class="math">\(A\)</span>, so that we can solve a linear equation <span class="math">\(Ax = y\)</span> by left-multiplying each side to obtain <span class="math">\(x = By\)</span>.
+Depending on the structure of the problem, it may not be possible to design a unique mapping from <span class="math">\(A\)</span> to <span class="math">\(B\)</span>.</p>
+<p>If <span class="math">\(A\)</span> is taller than it is wide, then it is possible for this equation to have no solution. If <span class="math">\(A\)</span> is wider than it is tall, then there could be multiple possible solutions.
+The pseudoinverse of <span class="math">\(A\)</span> is defined as a&nbsp;matrix</p>
+<div class="math">
+\begin{equation*}
+A^{+} = \lim_{\alpha\to 0} (A^TA + \alpha I)^{-1}A^T
+\end{equation*}
+</div>
+<p>Practical algorithms for computing the pseudoinverse are not based on this definition, but rather the&nbsp;formula</p>
+<div class="math">
+\begin{equation*}
+A^{+} = VD^{+}U^T
+\end{equation*}
+</div>
+<p>where <span class="math">\(U\)</span>, <span class="math">\(D\)</span> and <span class="math">\(V\)</span> are the singular value decomposition of <span class="math">\(A\)</span>, and the pseudoinverse <span class="math">\(D^{+}\)</span> of a diagonal matrix <span class="math">\(D\)</span> is obtained by taking the reciprocal of its non-zero elements then taking the transpose of the resulting&nbsp;matrix.</p>
+<p>When <span class="math">\(A\)</span> has more columns than rows, then solving a linear equation using the pseudoinverse provides one of the many possible solutions. Specifically, it provides the solution <span class="math">\(x=A^{+}y\)</span> with minimal Euclidean norm <span class="math">\(||x||_2\)</span> among all possible&nbsp;solutions.</p>
+<p>When <span class="math">\(A\)</span> has more rows than columns, it is possible for there to be no solution. In this case, using the pseudoinverse gives us the <span class="math">\(x\)</span> for which <span class="math">\(Ax\)</span> is as close as possible to <span class="math">\(y\)</span> in terms of Euclidean norm <span class="math">\(||Ax - y||_2\)</span>.</p>
+</div>
+<div class="section" id="the-trace-operator">
+<h2>The Trace&nbsp;Operator</h2>
+<p>Trace operator gives the sum of all of the diagonal entries of a&nbsp;matrix:</p>
+<div class="math">
+\begin{equation*}
+Tr(A) = \sum_i A_{i, i}
+\end{equation*}
+</div>
+<p>For example, the trace operator provides an alternative way of writing the Frobenius norm of a&nbsp;matrix:</p>
+<div class="math">
+\begin{equation*}
+||A||_F=\sqrt{(Tr(AA^T))}
+\end{equation*}
+</div>
+<p>Also: <span class="math">\(Tr(A) = Tr(A^T)\)</span>, and <span class="math">\(Tr(ABC) = Tr(CAB) = Tr(BCA)\)</span>.</p>
+</div>
+<div class="section" id="the-determinant">
+<h2>The&nbsp;Determinant</h2>
+<p>The determinant of a square matrix, denoted <span class="math">\(det(A)\)</span>, is a function mapping matrices to real scalars.
+The determinant is equal to the product of all the eigenvalues of the matrix. The absolute value of the determinant can be thought of as a measure of how much multiplication by the matrix expands or contracts space. If the determinant is 0, then space is contracted completely along at least one dimension, causing it to lose all of its volume. If the determinant is 1, then the transformation preserves&nbsp;volume.</p>
+</div>
 </div>
     </div>
     
