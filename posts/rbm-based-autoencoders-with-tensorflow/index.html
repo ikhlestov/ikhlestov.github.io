@@ -95,40 +95,43 @@ Recently I try to implement RBM based autoencoder in tensorflow similar to RBMs 
     </header><div class="e-content entry-content" itemprop="articleBody text">
     <div>
 <p><strong>This is draft of post - feel free to comment/mail me about any&nbsp;errors</strong></p>
-<p>Recently I try to implement RBM based autoencoder in tensorflow similar to RBMs described in <a class="reference external" href="http://www.cs.utoronto.ca/~rsalakhu/papers/semantic_final.pdf">Semantic Hashing</a> paper by Ruslan Salakhutdinov and Geoffrey Hinton. It seems that with RBM pretrained weights autoencoders should converge faster. So I&#8217;ve decide to check&nbsp;this.</p>
-<p>This post will describe some roadblocks for RBMs/autoencoders implementation in tensorflow and compare results of different approaches. I assume reader previous knowledge of tensorflow and machine learning field. All code can be found in <a class="reference external" href="https://github.com/ikhlestov/rbm_based_autoencoders_with_tensorflow">this&nbsp;repo</a></p>
+<p>Recently I try to implement RBM based autoencoder in tensorflow similar to RBMs described in <a class="reference external" href="http://www.cs.utoronto.ca/~rsalakhu/papers/semantic_final.pdf">Semantic Hashing</a> paper by Ruslan Salakhutdinov and Geoffrey Hinton. It seems that with weights that were pre-trained with RBM autoencoders should converge faster. So I&#8217;ve decided to check&nbsp;this.</p>
+<p>This post will describe some roadblocks for RBMs/autoencoders implementation in tensorflow and compare results of different approaches. I assume reader&#8217;s previous knowledge of tensorflow and machine learning field. All code can be found in <a class="reference external" href="https://github.com/ikhlestov/rbm_based_autoencoders_with_tensorflow">this&nbsp;repo</a></p>
 <p>RBMs different from usual neural networks in some&nbsp;ways:</p>
-<p>Neural networks usually perform weight update by Gradient Descent, but RMBs use <strong>Contrastive Divergence</strong> (which is basically a funky term for &#8220;approximate gradient descent&#8221; <a class="reference external" href="http://deeplearning.net/tutorial/rbm.html">link to read</a>). At a glance contrastive divergence compute difference between <strong>positive phase</strong> (energy of first encoding) and <strong>negative phase</strong> (energy of last&nbsp;encoding).</p>
-<pre class="code python"><a name="rest_code_2ddec130b5e54628ad16a334edc826a6-1"></a><span class="n">positive_phase</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span>
-<a name="rest_code_2ddec130b5e54628ad16a334edc826a6-2"></a>    <span class="n">tf</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">visib_inputs_initial</span><span class="p">),</span> <span class="n">first_encoded_probability</span><span class="p">)</span>
-<a name="rest_code_2ddec130b5e54628ad16a334edc826a6-3"></a><span class="n">negative_phase</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span>
-<a name="rest_code_2ddec130b5e54628ad16a334edc826a6-4"></a>    <span class="n">tf</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">last_reconstructed_probability</span><span class="p">),</span> <span class="n">last_encoded_probability</span><span class="p">)</span>
-<a name="rest_code_2ddec130b5e54628ad16a334edc826a6-5"></a><span class="n">contrastive_divergence</span> <span class="o">=</span> <span class="n">positive_phase</span> <span class="o">-</span> <span class="n">negative_phase</span>
+<p>Neural networks usually perform weight update by Gradient Descent, but RMBs use <strong>Contrastive Divergence</strong> (which is basically a funky term for &#8220;approximate gradient descent&#8221; <a class="reference external" href="http://deeplearning.net/tutorial/rbm.html">link to read</a>). At a glance, contrastive divergence computes a difference between <strong>positive phase</strong> (energy of first encoding) and <strong>negative phase</strong> (energy of the last&nbsp;encoding).</p>
+<pre class="code python"><a name="rest_code_7ae68cc489854d7fa4593bae69646640-1"></a><span class="n">positive_phase</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span>
+<a name="rest_code_7ae68cc489854d7fa4593bae69646640-2"></a>    <span class="n">tf</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">visib_inputs_initial</span><span class="p">),</span> <span class="n">first_encoded_probability</span><span class="p">)</span>
+<a name="rest_code_7ae68cc489854d7fa4593bae69646640-3"></a><span class="n">negative_phase</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span>
+<a name="rest_code_7ae68cc489854d7fa4593bae69646640-4"></a>    <span class="n">tf</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">last_reconstructed_probability</span><span class="p">),</span> <span class="n">last_encoded_probability</span><span class="p">)</span>
+<a name="rest_code_7ae68cc489854d7fa4593bae69646640-5"></a><span class="n">contrastive_divergence</span> <span class="o">=</span> <span class="n">positive_phase</span> <span class="o">-</span> <span class="n">negative_phase</span>
 </pre>
-<p>Also key feature of RMB that it encode output in binary mode, not as probabilities. More about RMBs you may read <a class="reference external" href="http://blog.echen.me/2011/07/18/introduction-to-restricted-boltzmann-machines/">here</a> or <a class="reference external" href="http://rocknrollnerd.github.io/ml/2015/07/18/general-boltzmann-machines.html">here</a>.</p>
-<p>As prototype one layer tensorflow rbm <a class="reference external" href="https://github.com/blackecho/Deep-Learning-TensorFlow/blob/master/yadlt/models/rbm_models/rbm.py">implementation</a> was used. For testing I&#8217;ve take usual <a class="reference external" href="https://en.wikipedia.org/wiki/MNIST_database">MNIST</a> dataset(dataset of handwritten&nbsp;digits).</p>
+<p>Also, a key feature of RMB that it encode output in binary mode, not as probabilities. More about RMBs you may read <a class="reference external" href="http://blog.echen.me/2011/07/18/introduction-to-restricted-boltzmann-machines/">here</a> or <a class="reference external" href="http://rocknrollnerd.github.io/ml/2015/07/18/general-boltzmann-machines.html">here</a>.</p>
+<p>As prototype one layer tensorflow rbm <a class="reference external" href="https://github.com/blackecho/Deep-Learning-TensorFlow/blob/master/yadlt/models/rbm_models/rbm.py">implementation</a> was used. For testing, I&#8217;ve taken well known <a class="reference external" href="https://en.wikipedia.org/wiki/MNIST_database">MNIST</a> dataset(dataset of handwritten&nbsp;digits).</p>
 <!-- TEASER_END -->
 <div class="section" id="many-layers-implementation">
 <h2>Many layers&nbsp;implementation</h2>
-<p>At first I&#8217;ve implement <a class="reference external" href="https://github.com/ikhlestov/rbm_based_autoencoders_with_tensorflow/blob/master/rbm_all_layers_at_once.py">multi layers RBM</a> with 3 layers. Because we not use usual tensorflow optimizers we may stop gradient for every variable with <cite>tf.stop_gradient(variable_name)</cite> and this will speed up computation a little bit. After construction two questions arised:
+<p>At first, I&#8217;ve implement <a class="reference external" href="https://github.com/ikhlestov/rbm_based_autoencoders_with_tensorflow/blob/master/rbm_all_layers_at_once.py">multilayers RBM</a> with three layers. Because we do not use usual tensorflow optimizers we may stop gradient for every variable with <a href="#id1"><span class="problematic" id="id2">`</span></a>tf.stop_gradient(variable_name) ` and this will speed up computation a little bit. After construction two questions arose:
 - Should every layer hidden units be binary encoded or only last one?
 - Should we update every layer weights/biases at once per step, or first train only first two layers, after layers 2 and 3, and so&nbsp;on?</p>
-<p>So I&#8217;ve run model with all binary units and only with last binary unit. And it seems that model with only last layer binarized trains better. After a while I note that this approach was already proposed in the paper, but I somehow miss&nbsp;this.</p>
+<div class="system-message" id="id1">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">&lt;string&gt;</tt>, line 28); <em><a href="#id2">backlink</a></em></p>
+Inline interpreted text or phrase reference start-string without end-string.</div>
+<p>So I&#8217;ve run the model with all binary units and only with last binary unit. And it seems that model with only last layer binarized trains better. After a while, I note that this approach was already proposed in the paper, but I somehow miss&nbsp;this.</p>
 <div class="figure">
 <a class="reference external image-reference" href="../../images/rbm-based-autoencoders-with-tensorflow/01_layers_binarization.png"><img alt="/images/rbm-based-autoencoders-with-tensorflow/01_layers_binarization.thumbnail.png" src="../../images/rbm-based-autoencoders-with-tensorflow/01_layers_binarization.thumbnail.png"></a>
 <p class="caption">Errors with respect to&nbsp;steps</p>
 </div>
-<p>So let&#8217;s stop with last layer binarized and try different train approaches. To build model that will train only pair of layers we need train two layers model, save it, build new model with one more layer, load pretrained first two layers weights/biases and continue train last two layers (<a class="reference external" href="https://github.com/ikhlestov/rbm_based_autoencoders_with_tensorflow/blob/master/rbm_train_by_pair_layers.py">code</a>. During implementation I&#8217;ve meet some trouble - tensorflow have no method to initialize all not initialized previously variables method. Maybe I just didn&#8217;t find this. So I&#8217;ve finish with approach when I directly send variable that should be restored and variables that should be&nbsp;initialized.</p>
-<pre class="code python"><a name="rest_code_65f2641013cc435f871c5306cd6156c1-1"></a><span class="c1"># restore previous variables</span>
-<a name="rest_code_65f2641013cc435f871c5306cd6156c1-2"></a><span class="n">restore_vars_dict</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_restored_variables_names</span><span class="p">()</span>
-<a name="rest_code_65f2641013cc435f871c5306cd6156c1-3"></a><span class="n">restorer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">Saver</span><span class="p">(</span><span class="n">restore_vars_dict</span><span class="p">)</span>
-<a name="rest_code_65f2641013cc435f871c5306cd6156c1-4"></a><span class="n">restorer</span><span class="o">.</span><span class="n">restore</span><span class="p">(</span><span class="n">sess</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">saves_path</span><span class="p">)</span>
-<a name="rest_code_65f2641013cc435f871c5306cd6156c1-5"></a>
-<a name="rest_code_65f2641013cc435f871c5306cd6156c1-6"></a><span class="c1"># initialize not restored variables</span>
-<a name="rest_code_65f2641013cc435f871c5306cd6156c1-7"></a><span class="n">new_variables</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_new_variables_names</span><span class="p">()</span>
-<a name="rest_code_65f2641013cc435f871c5306cd6156c1-8"></a><span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">initialize_variables</span><span class="p">(</span><span class="n">new_variables</span><span class="p">))</span>
+<p>So let&#8217;s stop with the last layer binarized and try different train approaches. To build model that will train only pair of layers we need train two layers model, save it, build new model with one more layer, load pre-trained first two layers weights/biases and continue train last two layers (<a class="reference external" href="https://github.com/ikhlestov/rbm_based_autoencoders_with_tensorflow/blob/master/rbm_train_by_pair_layers.py">code</a>. During implementation I&#8217;ve met some trouble - tensorflow have no method to initialize all not initialized previously variables method. Maybe I just didn&#8217;t find this. So I&#8217;ve finished with approach when I directly send variable that should be restored and variables that should be&nbsp;initialized.</p>
+<pre class="code python"><a name="rest_code_e6968d1b124f470ea2d063d0883a9a90-1"></a><span class="c1"># restore previous variables</span>
+<a name="rest_code_e6968d1b124f470ea2d063d0883a9a90-2"></a><span class="n">restore_vars_dict</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_restored_variables_names</span><span class="p">()</span>
+<a name="rest_code_e6968d1b124f470ea2d063d0883a9a90-3"></a><span class="n">restorer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">Saver</span><span class="p">(</span><span class="n">restore_vars_dict</span><span class="p">)</span>
+<a name="rest_code_e6968d1b124f470ea2d063d0883a9a90-4"></a><span class="n">restorer</span><span class="o">.</span><span class="n">restore</span><span class="p">(</span><span class="n">sess</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">saves_path</span><span class="p">)</span>
+<a name="rest_code_e6968d1b124f470ea2d063d0883a9a90-5"></a>
+<a name="rest_code_e6968d1b124f470ea2d063d0883a9a90-6"></a><span class="c1"># initialize not restored variables</span>
+<a name="rest_code_e6968d1b124f470ea2d063d0883a9a90-7"></a><span class="n">new_variables</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_new_variables_names</span><span class="p">()</span>
+<a name="rest_code_e6968d1b124f470ea2d063d0883a9a90-8"></a><span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">initialize_variables</span><span class="p">(</span><span class="n">new_variables</span><span class="p">))</span>
 </pre>
-<p>After testing is seems that both training approaches converge to approximately same error. But some another cool stuff - model that was trained by pair lairs trains faster in&nbsp;time.</p>
+<p>After testing seems that both training approaches converge to approximately same error. But some another cool stuff - the model that was trained by pair lairs trains faster in&nbsp;time.</p>
 <div class="figure">
 <a class="reference external image-reference" href="../../images/rbm-based-autoencoders-with-tensorflow/02_layers_training_error.png"><img alt="/images/rbm-based-autoencoders-with-tensorflow/02_layers_training_error.thumbnail.png" src="../../images/rbm-based-autoencoders-with-tensorflow/02_layers_training_error.thumbnail.png"></a>
 <p class="caption">Errors with respect to&nbsp;steps</p>
@@ -137,21 +140,21 @@ Recently I try to implement RBM based autoencoder in tensorflow similar to RBMs 
 <a class="reference external image-reference" href="../../images/rbm-based-autoencoders-with-tensorflow/02_layers_training_relative.png"><img alt="/images/rbm-based-autoencoders-with-tensorflow/02_layers_training_relative.thumbnail.png" src="../../images/rbm-based-autoencoders-with-tensorflow/02_layers_training_relative.thumbnail.png"></a>
 <p class="caption">Errors with respect to time&nbsp;consumption</p>
 </div>
-<p>So we stop with RBM trained with only last layer binarized and trained with <em>two layers only</em>&nbsp;strategy.</p>
+<p>So we stop with RBM trained with only last layer binarized and with <em>two layers only</em>&nbsp;strategy.</p>
 </div>
 <div class="section" id="build-autoencoder-from-rbm">
 <h2>Build autoencoder from&nbsp;RBM</h2>
-<p>After get pretrained weights from RMB it&#8217;s time to build autoencoder for fine tuning. To get encoding layer output as much as possible binarized as per paper advise we add Gaussian noise prior to layer. To simulate <em>deterministic noise</em> behavior, noise was generate for each input prior training and not changed during training. Also we want compare autoencoder loaded from RBM weights with self initialized usual autoencoder. <a class="reference external" href="https://github.com/ikhlestov/rbm_based_autoencoders_with_tensorflow/blob/master/autoencoder.py">Code for&nbsp;autoencoder</a></p>
+<p>After getting pre-trained weights from RMB, it&#8217;s time to build autoencoder for fine tuning. To get encoding layer output as much as possible binarized as per paper advice we add Gaussian noise before layer. To simulate <em>deterministic noise</em> behavior, noise generated for each input prior training and not changed during training. Also, we want compare autoencoder loaded from RBM weights with self-initialized usual autoencoder. <a class="reference external" href="https://github.com/ikhlestov/rbm_based_autoencoders_with_tensorflow/blob/master/autoencoder.py">Code for&nbsp;autoencoder</a></p>
 <div class="figure">
 <a class="reference external image-reference" href="../../images/rbm-based-autoencoders-with-tensorflow/03_rbm_and_new_initialized_autoencoders.png"><img alt="/images/rbm-based-autoencoders-with-tensorflow/03_rbm_and_new_initialized_autoencoders.thumbnail.png" src="../../images/rbm-based-autoencoders-with-tensorflow/03_rbm_and_new_initialized_autoencoders.thumbnail.png"></a>
-<p class="caption">RBM initialized autoencoder vs newly initialized&nbsp;autoencoder</p>
+<p class="caption">RBM initialized autoencoder vs. newly initialized&nbsp;autoencoder</p>
 </div>
 <p>It seems that RBM initialized autoencoder continue training, but newly initialized autoencoder with same architecture after a while stuck at some&nbsp;point.</p>
 <div class="figure">
 <a class="reference external image-reference" href="../../images/rbm-based-autoencoders-with-tensorflow/03_rbm_initialized_autoencoder.png"><img alt="/images/rbm-based-autoencoders-with-tensorflow/03_rbm_initialized_autoencoder.thumbnail.png" src="../../images/rbm-based-autoencoders-with-tensorflow/03_rbm_initialized_autoencoder.thumbnail.png"></a>
 <p class="caption">Only RBM based autoencoder training process, for&nbsp;clarity</p>
 </div>
-<p>Also I&#8217;ve trained two autoencoders without Gaussian noise. Now we can see through distribution what embedding most similar to binary (<a class="reference external" href="https://github.com/ikhlestov/rbm_based_autoencoders_with_tensorflow/blob/master/results_validation/visualize_distribution.py">code for visualization</a>):</p>
+<p>Also, I&#8217;ve trained two autoencoders without Gaussian noise. Now we can see through distribution what embedding most similar to binary (<a class="reference external" href="https://github.com/ikhlestov/rbm_based_autoencoders_with_tensorflow/blob/master/results_validation/visualize_distribution.py">code for visualization</a>):</p>
 <div class="figure">
 <a class="reference external image-reference" href="../../images/rbm-based-autoencoders-with-tensorflow/04_rbm_aec_embeddings_distribution.png"><img alt="/images/rbm-based-autoencoders-with-tensorflow/04_rbm_aec_embeddings_distribution.thumbnail.png" src="../../images/rbm-based-autoencoders-with-tensorflow/04_rbm_aec_embeddings_distribution.thumbnail.png"></a>
 <p class="caption">Comparison of embeddings&nbsp;distributions</p>
@@ -163,12 +166,12 @@ Recently I try to implement RBM based autoencoder in tensorflow similar to RBMs 
 <p>To validate received embeddings I generate them for test and train sets for such&nbsp;networks:</p>
 <ul class="simple">
 <li>Initial MNIST(without embedding at&nbsp;all)</li>
-<li>RBM with last layer binarized and trained by&nbsp;pairs</li>
+<li>RBM with the last layer binarized and trained by&nbsp;pairs</li>
 <li>Autoencoder based on RBM with Gaussian&nbsp;noise</li>
 <li>Newly initialized autoencoder with Gaussian&nbsp;noise</li>
 </ul>
 <p>and use two validation&nbsp;approaches:</p>
-<p>Train SVM with train set and measure accuracy on test set. SVM was used from sklearn with &#8216;rbf&#8217; kernel with no <cite>max_iter</cite> == 50. Results table were generated with <a class="reference external" href="https://github.com/ikhlestov/rbm_based_autoencoders_with_tensorflow/blob/master/results_validation/svm_clusterization_test.py">this&nbsp;code</a></p>
+<p>Train SVM with the train set and measure accuracy on the test set. SVM was used from sklearn with &#8216;rbf&#8217; kernel with no <cite>max_iter</cite> == 50. Results table were generated with <a class="reference external" href="https://github.com/ikhlestov/rbm_based_autoencoders_with_tensorflow/blob/master/results_validation/svm_clusterization_test.py">this&nbsp;code</a></p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="56%">
@@ -215,7 +218,7 @@ Recently I try to implement RBM based autoencoder in tensorflow similar to RBMs 
 </tr>
 </tbody>
 </table>
-<p>With hamming distance or dot product find 10 most similar pictures/embeddings to provided one and check how many labels are the same to the submitted array label. <a class="reference external" href="https://github.com/ikhlestov/rbm_based_autoencoders_with_tensorflow/blob/master/results_validation/found_similiar.py">Code</a> to check distance&nbsp;accuracies.</p>
+<p>With Hamming distance or dot product find ten most similar pictures/embeddings to provided one and check how many labels are the same to the submitted array label. <a class="reference external" href="https://github.com/ikhlestov/rbm_based_autoencoders_with_tensorflow/blob/master/results_validation/found_similiar.py">Code</a> to check distance&nbsp;accuracies.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="56%">
@@ -265,8 +268,8 @@ Recently I try to implement RBM based autoencoder in tensorflow similar to RBMs 
 </div>
 <div class="section" id="conclusion">
 <h2>Conclusion</h2>
-<p>As we can see embeddings can save some strong features, that can be used for future clusterization very well. But this features are not linearly correlated - so when we measure accuracy for most similar embeddings we get results worse than when we use full MNIST images. Of course maybe autoencoder should be trained with another leaning rate/longer but this is task for future&nbsp;research.</p>
-<p>At the same time we confirmed that training autoencoders from pretrained RBMs weights is good approach - network will pass local optimization minimum and not stack at some point during&nbsp;training.</p>
+<p>As we can see embeddings can save some strong features, that can be used for future clusterization very well. But these features are not linearly correlated - so when we measure accuracy for most similar embeddings, we get results worse than when we use full MNIST images. Of course, maybe autoencoder should be trained with another learning rate/longer, but this is the task for future&nbsp;research.</p>
+<p>At the same time, we confirmed that training autoencoders from pre-trained RBMs weights are right to approach - the network will pass local optimization minimum and not stack at some point during&nbsp;training.</p>
 </div>
 <div class="section" id="training-params">
 <h2>Training&nbsp;params</h2>
@@ -280,7 +283,7 @@ Recently I try to implement RBM based autoencoder in tensorflow similar to RBMs 
 <li>layers quantity =&nbsp;3</li>
 <li>layers shapes(including input layer) = [784, 484, 196,&nbsp;100]</li>
 </ul>
-<p>For autoencoder learning rate was changed to 1.0 because another optimization&nbsp;rule.</p>
+<p>For autoencoder learning rate was changed to 1.0 because of another optimization&nbsp;rule.</p>
 </div>
 </div>
     </div>
