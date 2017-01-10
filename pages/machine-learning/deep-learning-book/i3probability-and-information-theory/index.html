@@ -318,8 +318,55 @@ p(x; \lambda) = \lambda \boldsymbol{1}_{x \geq 0} \exp(-\lambda x)
 </div>
 <div class="section" id="the-dirac-distribution-and-empirical-distribution">
 <h3>The Dirac Distribution and Empirical&nbsp;Distribution</h3>
-<p>pass</p>
+<p>In some cases, we wish to specify that all of the mass in a probability distribution clusters around a single point. This can be accomplished by defining a PDF using the Dirac delta function, <span class="math">\(\delta (x)\)</span>:</p>
+<div class="math">
+\begin{equation*}
+p(x) = \delta (x - \mu)
+\end{equation*}
 </div>
+<p>The Dirac delta function is defined such that it is zero-valued everywhere except 0, yet integrates to 1.
+Dirac function is called a <strong>generalized function</strong> that is defined in terms of its properties when integrated.
+We can think of the Dirac delta function as being thelimit point of a series of functions that put less and less mass on all points other than&nbsp;zero.</p>
+<p>By defining <span class="math">\(p(x)\)</span> to be <span class="math">\(\delta\)</span> shifted by <span class="math">\(- \mu\)</span> we obtain an infinitely narrow and infinitely high peak of probability mass where <span class="math">\(x = \mu\)</span>.</p>
+<p>A common use of the Dirac delta distribution is as a component of an <strong>empirical distribution</strong>:</p>
+<div class="math">
+\begin{equation*}
+\hat{p}(\boldsymbol{x}) = \frac{1}{x}\sum_{i=1}^{m} \delta (\boldsymbol{x} - \boldsymbol{x}^i)
+\end{equation*}
+</div>
+<p>which puts probability mass <span class="math">\(\frac{1}{m}\)</span> on each of the <span class="math">\(m\)</span> points <span class="math">\(\boldsymbol{x}^{(1)}, &#8230;, \boldsymbol{x}^{(m)}\)</span> forming a given dataset or collection of&nbsp;samples.</p>
+<p>The Dirac delta distribution is only necessary to define the empirical distribution over continuous variables.
+For discrete variables,the situation is simpler: an empirical distribution can be conceptualized as a multinoulli distribution, with a probability associated to each possible input value that is simply equal to the <strong>empirical frequency</strong> of that value in the training&nbsp;set.</p>
+</div>
+<div class="section" id="mixtures-of-distributions">
+<h3>Mixtures of&nbsp;Distributions</h3>
+<p>One common way of combining distributions is to construct a <strong>mixture distribution</strong>.
+A mixture distribution is made up of several component distributions.
+On each trial, the choice of which component distribution generates the sample is determined by sampling a component identity from a multinoulli&nbsp;distribution:</p>
+<div class="math">
+\begin{equation*}
+P(\mathrm{x}) = \sum_{i} P(\mathrm{c} = i)P(\mathrm{x} | \mathrm{c} = i)
+\end{equation*}
+</div>
+<p>where <span class="math">\(P(\mathrm{c})\)</span> is the multinoulli distribution over component&nbsp;identities.</p>
+<p>A <strong>latent variable</strong> is a random variable that we cannot observe directly.
+The component identity variable <span class="math">\(\mathrm{c}\)</span> of the mixture model provides an example.
+Latent variables may be related to <span class="math">\(\mathrm{x}\)</span> through the joint distribution, in this case, <span class="math">\(P(\mathrm{x}, \mathrm{c}) = P(\mathrm{x} | \mathrm{c})P(\mathrm{c})\)</span>.
+The distribution <span class="math">\(P(\mathrm{c})\)</span> over the latent variable and the distribution <span class="math">\(P(\mathrm{x} | \mathrm{c})\)</span> relating the latent variables to the visible variables determines the shape of the distribution <span class="math">\(P(\mathrm{x})\)</span> even though it is possible to describe <span class="math">\(P(\mathrm{x})\)</span> without reference to the latent&nbsp;variable.</p>
+<p>A very powerful and common type of mixture model is the <strong>Gaussian mixture</strong> model, in which the components <span class="math">\(p(\boldsymbol{x} | c=i)\)</span> are Gaussians.
+Each component has a separately parametrized mean <span class="math">\(\boldsymbol{\mu}^{(i)}\)</span>boldsymbol{Sigma}^{(i)}`.
+Some mixtures can have more constraints.
+For example, the covariances could be shared across components via the constraint <span class="math">\(\boldsymbol{\Sigma}^{(i)} = \boldsymbol{\Sigma} \forall i\)</span>.
+As with a single Gaussian distribution, the mixture of Gaussians might constrain the covariance matrix for each component to be diagonal or&nbsp;isotropic.</p>
+<p>In addition to the means and covariances, the parameters of a Gaussian mixture specify the <strong>prior probability</strong> <span class="math">\(\alpha_{i} = P(\mathrm{c} = i)\)</span> given to each component <span class="math">\(i\)</span>.
+The word &#8220;prior&#8221; indicates that it expresses the model’s beliefs about <span class="math">\(\mathrm{c}\)</span> <em>before</em> it has observed <span class="math">\(\boldsymbol{x}\)</span>.
+By comparison, <span class="math">\(P(\mathrm{c} | \boldsymbol{x})\)</span> is a <strong>posterior probability</strong>, because it is computed <em>after</em> observation of <span class="math">\(\boldsymbol{x}\)</span>.
+A Gaussian mixture model is a <strong>universal approximator</strong> of densities, in the sense that any smooth density can be approximated with any specific, non-zero amount of error by a Gaussian mixture model with enough&nbsp;components</p>
+</div>
+</div>
+<div class="section" id="useful-properties-of-common-functions">
+<h2>Useful Properties of Common&nbsp;Functions</h2>
+<p>pass</p>
 </div>
 </div>
     </div>

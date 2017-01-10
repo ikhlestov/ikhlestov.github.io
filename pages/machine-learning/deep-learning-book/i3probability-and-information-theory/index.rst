@@ -266,4 +266,60 @@ A closely related probability distribution that allows us to place a sharp peak 
 The Dirac Distribution and Empirical Distribution
 -------------------------------------------------
 
+In some cases, we wish to specify that all of the mass in a probability distribution clusters around a single point. This can be accomplished by defining a PDF using the Dirac delta function, :math:`\delta (x)`:
+
+.. math::
+
+    p(x) = \delta (x - \mu)
+
+The Dirac delta function is defined such that it is zero-valued everywhere except 0, yet integrates to 1.
+Dirac function is called a **generalized function** that is defined in terms of its properties when integrated.
+We can think of the Dirac delta function as being thelimit point of a series of functions that put less and less mass on all points other than zero.
+
+By defining :math:`p(x)` to be :math:`\delta` shifted by :math:`- \mu` we obtain an infinitely narrow and infinitely high peak of probability mass where :math:`x = \mu`.
+
+A common use of the Dirac delta distribution is as a component of an **empirical distribution**:
+
+.. math::
+
+    \hat{p}(\boldsymbol{x}) = \frac{1}{x}\sum_{i=1}^{m} \delta (\boldsymbol{x} - \boldsymbol{x}^i)
+
+which puts probability mass :math:`\frac{1}{m}` on each of the :math:`m` points :math:`\boldsymbol{x}^{(1)}, ..., \boldsymbol{x}^{(m)}` forming a given dataset or collection of samples.
+
+The Dirac delta distribution is only necessary to define the empirical distribution over continuous variables.
+For discrete variables,the situation is simpler: an empirical distribution can be conceptualized as a multinoulli distribution, with a probability associated to each possible input value that is simply equal to the **empirical frequency** of that value in the training set.
+
+Mixtures of Distributions
+-------------------------
+
+One common way of combining distributions is to construct a **mixture distribution**.
+A mixture distribution is made up of several component distributions.
+On each trial, the choice of which component distribution generates the sample is determined by sampling a component identity from a multinoulli distribution:
+
+.. math::
+
+    P(\mathrm{x}) = \sum_{i} P(\mathrm{c} = i)P(\mathrm{x} | \mathrm{c} = i)
+
+where :math:`P(\mathrm{c})` is the multinoulli distribution over component identities.
+
+A **latent variable** is a random variable that we cannot observe directly.
+The component identity variable :math:`\mathrm{c}` of the mixture model provides an example.
+Latent variables may be related to :math:`\mathrm{x}` through the joint distribution, in this case, :math:`P(\mathrm{x}, \mathrm{c}) = P(\mathrm{x} | \mathrm{c})P(\mathrm{c})`.
+The distribution :math:`P(\mathrm{c})` over the latent variable and the distribution :math:`P(\mathrm{x} | \mathrm{c})` relating the latent variables to the visible variables determines the shape of the distribution :math:`P(\mathrm{x})` even though it is possible to describe :math:`P(\mathrm{x})` without reference to the latent variable.
+
+A very powerful and common type of mixture model is the **Gaussian mixture** model, in which the components :math:`p(\boldsymbol{x} | c=i)` are Gaussians.
+Each component has a separately parametrized mean :math:`\boldsymbol{\mu}^{(i)}`and covariance :math:`\boldsymbol{\Sigma}^{(i)}`.
+Some mixtures can have more constraints.
+For example, the covariances could be shared across components via the constraint :math:`\boldsymbol{\Sigma}^{(i)} = \boldsymbol{\Sigma} \forall i`.
+As with a single Gaussian distribution, the mixture of Gaussians might constrain the covariance matrix for each component to be diagonal or isotropic.
+
+In addition to the means and covariances, the parameters of a Gaussian mixture specify the **prior probability** :math:`\alpha_{i} = P(\mathrm{c} = i)` given to each component :math:`i`.
+The word "prior" indicates that it expresses the model’s beliefs about :math:`\mathrm{c}` *before* it has observed :math:`\boldsymbol{x}`.
+By comparison, :math:`P(\mathrm{c} | \boldsymbol{x})` is a **posterior probability**, because it is computed *after* observation of :math:`\boldsymbol{x}`.
+A Gaussian mixture model is a **universal approximator** of densities, in the sense that any smooth density can be approximated with any specific, non-zero amount of error by a Gaussian mixture model with enough components
+
+
+Useful Properties of Common Functions
+=====================================
+
 pass
