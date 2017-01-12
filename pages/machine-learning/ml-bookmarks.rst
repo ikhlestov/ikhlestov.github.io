@@ -36,6 +36,7 @@ CNNs
 ====
 
 + `Punctuation Prediction for Unsegmented Transcript Based on Word Vector <http://www.lrec-conf.org/proceedings/lrec2016/pdf/103_Paper.pdf>`__ CNN for inserting punctuation to the text.
++ `DelugeNets: Deep Networks with Massive and Flexible Cross-layer Information Inflows <https://arxiv.org/pdf/1611.05552v4.pdf>`__
 
 Reinforcement Learning
 ======================
