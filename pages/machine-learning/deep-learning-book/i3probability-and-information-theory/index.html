@@ -366,7 +366,85 @@ A Gaussian mixture model is a <strong>universal approximator</strong> of densiti
 </div>
 <div class="section" id="useful-properties-of-common-functions">
 <h2>Useful Properties of Common&nbsp;Functions</h2>
-<p>pass</p>
+<p><strong>logistic&nbsp;sigmoid</strong></p>
+<div class="math">
+\begin{equation*}
+\sigma (x) = \frac{1}{1 + \exp (-x)}
+\end{equation*}
+</div>
+<p>Logistic sigmoid is commonly used to produce the <span class="math">\(\phi\)</span> parameter of a Bernoulli distribution because its range is <span class="math">\((0,1)\)</span>.
+The sigmoid function <strong>saturates</strong> when its argument is very positive or very negative, meaning that the function becomes very flat and insensitive to small changes in its input. See figure&nbsp;1.</p>
+<div class="figure">
+<a class="reference external image-reference" href="../../../../images/ML_notes/deep_learning_book/01_sigmoid_distribution.png"><img alt="/images/ML_notes/deep_learning_book/01_sigmoid_distribution.thumbnail.png" src="../../../../images/ML_notes/deep_learning_book/01_sigmoid_distribution.thumbnail.png"></a>
+<p class="caption">Figure&nbsp;1.</p>
+</div>
+<p>Another common function is the <strong>softplus</strong></p>
+<div class="math">
+\begin{equation*}
+\zeta (x) = \log (1 + \exp (x))
+\end{equation*}
+</div>
+<p>The softplus function can be useful for producing the <span class="math">\(\beta\)</span> or <span class="math">\(\sigma\)</span> parameter of a normal distribution because its range is <span class="math">\((0 , \infty)\)</span>.</p>
+<p>Common properties to&nbsp;memorize:</p>
+<div class="math">
+\begin{equation*}
+\sigma (x) = \frac{\exp (x)}{\exp(x) + \exp(0)}
+\end{equation*}
+</div>
+<div class="math">
+\begin{equation*}
+\frac{d}{dx}\sigma(x) = \sigma(x)(1 - \sigma(x))
+\end{equation*}
+</div>
+<div class="math">
+\begin{equation*}
+1 - \sigma(x) = \sigma(-x)
+\end{equation*}
+</div>
+<div class="math">
+\begin{equation*}
+\log\sigma(x) = -\zeta(-x)
+\end{equation*}
+</div>
+<div class="math">
+\begin{equation*}
+\frac{d}{dx}\zeta(x) = \sigma(x)
+\end{equation*}
+</div>
+<div class="math">
+\begin{equation*}
+\forall x \in (0, 1), \sigma^{-1}(x) = \log(\frac{x}{1 - x})
+\end{equation*}
+</div>
+<div class="math">
+\begin{equation*}
+\forall x &gt; 0, \zeta^{-1}(x) = \log(\exp(x) - 1)
+\end{equation*}
+</div>
+<div class="math">
+\begin{equation*}
+\zeta(x) = \int_{-\infty}^{x} \sigma(y)dy
+\end{equation*}
+</div>
+<div class="math">
+\begin{equation*}
+\zeta(x) - \zeta(-x) = x
+\end{equation*}
+</div>
+</div>
+<div class="section" id="bayes-rule">
+<h2>Bayes&#8217;&nbsp;Rule</h2>
+<p>Compute <span class="math">\(P(\mathrm{x} | \mathrm{y})\)</span> from <span class="math">\(P(\mathrm{y} | \mathrm{x})\)</span> if we know <span class="math">\(P(\mathrm{x})\)</span>:</p>
+<div class="math">
+\begin{equation*}
+P(\mathrm{x} | \mathrm{y}) = \frac{P(\mathrm{x}) P(\mathrm {y}| \mathrm{x})}{P(\mathrm{y})}
+\end{equation*}
+</div>
+<p>also <span class="math">\(P(\mathrm{y})\)</span> can be computed as <span class="math">\(P(\mathrm{x}) = \sum_{x} P(\mathrm{y} | \mathrm{x})&nbsp;P(\mathrm{x})\)</span></p>
+</div>
+<div class="section" id="technical-details-of-continuous-variables">
+<h2>Technical Details of Continuous&nbsp;Variables</h2>
+<p>Based on <strong>measure&nbsp;theory</strong></p>
 </div>
 </div>
     </div>
