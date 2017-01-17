@@ -1,6 +1,8 @@
-#container {
-    width: 960px;
+.container {
+    width: 800px;
     margin: 0 auto;
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.6em;
 }
 
 dl > dd {

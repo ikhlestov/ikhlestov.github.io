@@ -322,4 +322,62 @@ A Gaussian mixture model is a **universal approximator** of densities, in the se
 Useful Properties of Common Functions
 =====================================
 
-pass
+**logistic sigmoid**
+
+.. math::
+    
+    \sigma (x) = \frac{1}{1 + \exp (-x)}
+
+Logistic sigmoid is commonly used to produce the :math:`\phi` parameter of a Bernoulli distribution because its range is :math:`(0,1)`.
+The sigmoid function **saturates** when its argument is very positive or very negative, meaning that the function becomes very flat and insensitive to small changes in its input. See figure 1.
+
+.. thumbnail:: /images/ML_notes/deep_learning_book/01_sigmoid_distribution.png
+
+    Figure 1.
+
+Another common function is the **softplus**
+
+.. math::
+
+    \zeta (x) = \log (1 + \exp (x))
+
+The softplus function can be useful for producing the :math:`\beta` or :math:`\sigma` parameter of a normal distribution because its range is :math:`(0 , \infty)`.
+
+Common properties to memorize:
+
+.. math::
+
+    \sigma (x) = \frac{\exp (x)}{\exp(x) + \exp(0)}
+
+    \frac{d}{dx}\sigma(x) = \sigma(x)(1 - \sigma(x))
+
+    1 - \sigma(x) = \sigma(-x)
+
+    \log\sigma(x) = -\zeta(-x)
+
+    \frac{d}{dx}\zeta(x) = \sigma(x)
+
+    \forall x \in (0, 1), \sigma^{-1}(x) = \log(\frac{x}{1 - x})
+
+    \forall x > 0, \zeta^{-1}(x) = \log(\exp(x) - 1)
+
+    \zeta(x) = \int_{-\infty}^{x} \sigma(y)dy
+
+    \zeta(x) - \zeta(-x) = x
+
+
+Bayes' Rule
+===========
+
+Compute :math:`P(\mathrm{x} | \mathrm{y})` from :math:`P(\mathrm{y} | \mathrm{x})` if we know :math:`P(\mathrm{x})`:
+
+.. math::
+
+    P(\mathrm{x} | \mathrm{y}) = \frac{P(\mathrm{x}) P(\mathrm {y}| \mathrm{x})}{P(\mathrm{y})}
+
+also :math:`P(\mathrm{y})` can be computed as :math:`P(\mathrm{x}) = \sum_{x} P(\mathrm{y} | \mathrm{x}) P(\mathrm{x})`
+
+
+Technical Details of Continuous Variables
+=========================================
+Based on **measure theory**

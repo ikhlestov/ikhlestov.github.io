@@ -46,7 +46,7 @@ So I've run the model with all binary units and only with last binary unit. And 
 
     Errors with respect to steps
 
-So let's stop with the last layer binarized and try different train approaches. To build model that will train only pair of layers we need train two layers model, save it, build new model with one more layer, load pre-trained first two layers weights/biases and continue train last two layers (`code <https://github.com/ikhlestov/rbm_based_autoencoders_with_tensorflow/blob/master/rbm_train_by_pair_layers.py>`__. During implementation I've met some trouble - tensorflow have no method to initialize all not initialized previously variables method. Maybe I just didn't find this. So I've finished with approach when I directly send variable that should be restored and variables that should be initialized.
+So let's stop with the last layer binarized and try different train approaches. To build model that will train only pair of layers we need train two layers model, save it, build new model with one more layer, load pre-trained first two layers weights/biases and continue train last two layers (`code <https://github.com/ikhlestov/rbm_based_autoencoders_with_tensorflow/blob/master/rbm_train_by_pair_layers.py>`__). During implementation I've met some trouble - tensorflow have no method to initialize all not initialized previously variables method. Maybe I just didn't find this. So I've finished with approach when I directly send variable that should be restored and variables that should be initialized.
 
 .. code-block:: python
     
@@ -112,20 +112,20 @@ Train SVM with the train set and measure accuracy on the test set. SVM was used 
     :widths: 50, 10, 10, 10, 10
     
     "default mnist dataset", "0.446", "0.647", "0.460", "0.454"
-    "rbm: train_layers_by_pairs__last_layer_binarized", "0.455", "0.450", "0.446", "0.453"
-    "autoencoder: rbm_initialized_model__with_Gaussian_noise", "0.499", "0.500", "0.493", "0.494"
-    "autoencoder: new_initialized_model__with_Gaussian_noise", "0.100", "0.098", "0.095", "0.099"
+    "rbm: train_layers_by_pairs  last_layer_binarized", "0.455", "0.450", "0.446", "0.453"
+    "autoencoder: rbm_initialized_model  with_Gaussian_noise", "0.499", "0.500", "0.493", "0.494"
+    "autoencoder: new_initialized_model  with_Gaussian_noise", "0.100", "0.098", "0.095", "0.099"
 
 With Hamming distance or dot product find ten most similar pictures/embeddings to provided one and check how many labels are the same to the submitted array label. `Code <https://github.com/ikhlestov/rbm_based_autoencoders_with_tensorflow/blob/master/results_validation/found_similiar.py>`__ to check distance accuracies.
 
 .. csv-table::
-    :header: "notes", "hamming_accuracy", "hamming_time_cons", "dot_product_accuracy", "dot_product_time_cons"
+    :header: "notes", "hamming accuracy", "hamming time_cons", "dot_product accuracy", "dot_product time_cons"
     :widths: 50, 10, 10, 10, 10
 
     "default mnist dataset", "0.910", "180.4", "0.916", "528.8"
-    "rbm: train_layers_by_pairs__last_layer_binarized", "0.633", "28.6", "0.638", "60.2"
-    "autoencoder: rbm_initialized_model__with_Gaussian_noise", "0.583", "28.9", "0.563", "61.6"
-    "autoencoder: new_initialized_model__with_Gaussian_noise", "0.099", "29.8", "0.099", "64.6"
+    "rbm: train_layers_by_pairs  last_layer_binarized", "0.633", "28.6", "0.638", "60.2"
+    "autoencoder: rbm_initialized_model  with_Gaussian_noise", "0.583", "28.9", "0.563", "61.6"
+    "autoencoder: new_initialized_model  with_Gaussian_noise", "0.099", "29.8", "0.099", "64.6"
 
 Conclusion
 ==========
