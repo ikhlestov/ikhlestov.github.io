@@ -37,7 +37,7 @@ Maybe sometimes easier use *in place* update of alpha and beta. In docs was ment
 .. code-block:: python
     
     # somewhere at training start
-    tflearn.is_training(False)
+    tflearn.is_training(True)
 
     # inside layers
     is_training = tflearn.get_training_mode()
