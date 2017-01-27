@@ -31,3 +31,16 @@ To understood what exactly each param handled by layer mean - take a look on alg
     if update_ops:
         updates = tf.group(*update_ops)
         total_loss = control_flow_ops.with_dependencies([updates], total_loss)
+
+Maybe sometimes easier use *in place* update of alpha and beta. In docs was mentioned that this approach can be a little bit slower, but at least it less boilerplate. Also for training flag it may be conveniently to use tflearn train flags
+
+.. code-block:: python
+    
+    # somewhere at training start
+    tflearn.is_training(False)
+
+    # inside layers
+    is_training = tflearn.get_training_mode()
+    output = tf.contrib.layers.batch_norm(
+        _input, scale=True, is_training=is_training,
+        updates_collections=None)
