@@ -380,4 +380,70 @@ also :math:`P(\mathrm{y})` can be computed as :math:`P(\mathrm{x}) = \sum_{x} P(
 
 Technical Details of Continuous Variables
 =========================================
-Based on **measure theory**
+Measure theory provides a rigorous way of describing that a set of points is negligibly small. Such a set is said to have **measure zero**.
+It is sufficient to understand the intuition that a set of measure zero occupies no volume in the space we are measuring.
+
+Another useful term from measure theory is **almost everywhere**.
+A property that holds almost everywhere holds throughout all of space except for on a set of measure zero.
+Some important results in probability theory hold for all discrete values but only hold "almost everywhere" for continuous values.
+
+Information Theory
+==================
+Information theory is a branch of applied mathematics that revolves around quantifying how much information is present in a signal.
+If you want dive deeper you may read `Cover and Thomas <http://staff.ustc.edu.cn/~cgong821/Wiley.Interscience.Elements.of.Information.Theory.Jul.2006.eBook-DDU.pdf>`__ book
+or `MacKay <http://www.inference.phy.cam.ac.uk/itila/book.html>`__ book.
+
+The basic intuition behind information theory is that learning that an unlikely event has occurred is more informative than learning that a likely event has occurred.
+
+- Likely events should have low information content, and in the extreme case, events that are guaranteed to happen should have no information content whatsoever.
+
+- Less likely events should have higher information content.
+
+- Independent events should have additive information. For example, finding out that a tossed coin has come up as heads twice should convey twice as much information as finding out that a tossed coin has come up as heads once.
+
+In order to satisfy all three of these properties, we define the self-information of an event :math:`\mathrm{x} = x` to be:
+
+.. math::
+    
+    I(x) = -\log P(x)
+
+Our definition of :math:`I(x)` is therefore written in units of **nats**.
+One nat is the amount of information gained by observing an event of probability :math:`\frac{1}{e}`.
+Other texts use base-2 logarithms and units called **bits** or **shannons**; information measured in bits is just a rescaling of information measured in nats.
+
+Self-information deals only with a single outcome. We can quantify the amount of uncertainty in an entire probability distribution using the **Shannon entropy**:
+
+.. math::
+    
+    H(\mathrm{x}) = \mathbb{E}_{\mathrm{x} \sim P}[I(x)] = -\mathbb{E}_{\mathrm{x} \sim P}[\log P(x)]
+
+also denoted :math:`H(P)`.
+In other words, the Shannon entropy of a distribution is the expected amount of information in an event drawn from that distribution.
+It gives a lower bound on the number of bits needed on average to encode symbols drawn from a distribution :math:`P`.
+Distributions that are nearly deterministic (where the outcome is nearly certain) have low entropy; distributions that are closer to uniform have high entropy.
+When :math:`x` is continuous, the Shannon entropy is known as the **differential entropy**.
+
+If we have two separate probability distributions :math:`P (\mathrm{x})` and :math:`Q (\mathrm{x})` over the same random variable :math:`\mathrm{x}`,
+we can measure how different these two distributions are using the **Kullback-Leibler (KL) divergence**:
+
+.. math::
+
+    D_{\mathrm{KL}}(P||Q)=\mathbb{E}_{\mathrm{x} \sim P}[\log\frac{P(x)}{Q(x)}] = \mathbb{E}_{\mathrm{x} \sim P}[\log P(x) - \log Q(x)].
+
+The KL divergence has many useful properties, most notably that it is non-negative.
+The KL divergence is 0 if and only if :math:`P` and :math:`Q` are the same distribution in the case of discrete variables, or equal "almost everywhere" in the case of continuous variables.
+Because the KL divergence is non-negative and measures the difference
+between two distributions, it is often conceptualized as measuring some sort of
+distance between these distributions. However, it is not a true distance measure
+because it is not symmetric: :math:`D_{\mathrm{KL}}(P||Q) \neq D_{\mathrm{KL}}(Q||P)` for some :math:`P` and :math:`Q`.
+
+A quantity that is closely related to the KL divergence is the **cross-entropy** :math:`H(P, Q) = H(P) + D_{\mathrm{KL}}(P||Q)`
+which is similar to the KL divergence but lacking the term on the left:
+
+.. math::
+    H(P, Q) = -\mathbb{E}_{\mathrm{x} \sim P} \log Q(x)
+
+Minimizing the cross-entropy with respect to :math:`Q` is equivalent to minimizing the KL divergence, because :math:`Q` does not participate in the omitted term.
+
+When computing many of these quantities, it is common to encounter expressions of the form :math:`0\log0`.
+By convention, in the context of information theory, we treat these expressions as :math:`\lim_{x\to 0} x \log x = 0`.
