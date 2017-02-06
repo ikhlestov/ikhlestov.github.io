@@ -61,3 +61,6 @@ $ dpkg --listfiles libqt4-dev
 # remove range of folders starts with numbers
 $ rm -r output/logs/{17..26}*
 
+# unzip tar.gz file
+$ tar -xvzf filename.tar.gz
+
