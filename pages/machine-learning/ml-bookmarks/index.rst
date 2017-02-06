@@ -10,14 +10,16 @@
 
 This is the list of some useful papers or resources with short explanation
 
-Leaning Neural Nets by itself
-=============================
+Build Neural Nets with another Neural Nets
+==========================================
 
 + `HYPER NETWORKS <https://arxiv.org/pdf/1609.09106v1.pdf>`__ This work explores hypernetworks:  an approach of using a small network, also known as a hypernetwork, to generate the weights for a larger network.
 
 + `AdaNet: Adaptive Structural Learning of Artificial Neural Networks <https://arxiv.org/pdf/1607.01097v1.pdf>`__  Our approach simultaneously and adaptively learns both the structure of the network as well as its weights.
 
 + `A Roadmap towards Machine Intelligence <https://arxiv.org/pdf/1511.08130v2.pdf>`__   In this paper, some fundamental properties that intelligent machines should have were proposed, focusing in particular on *communication* and *learning*.
+
++ `Neural Architecture Search with Reinforcement Learning <https://openreview.net/pdf?id=r1Ue8Hcxg>`__ - broad grid search for availbale models architectures with LSTM. As result we receive new conv-net architecture and new RNN node.
 
 RNN, seq2seq and all related
 ============================
@@ -64,11 +66,9 @@ Other Topics
 + `Highway Networks <http://people.idsia.ch/~rupesh/very_deep_learning/>`__ - list of papers, code, etc.
 + `Set parameter for one network from another(Learning to learn by gradient descent by gradient descent) <https://arxiv.org/pdf/1606.04474.pdf>`__
 + `NIPS 2016 Tutorial: Generative Adversarial Network <https://arxiv.org/pdf/1701.00160v1.pdf>`__
++ Gumbel-Softmax at Categorical Variational Autoencoders - `blog post <http://blog.evjang.com/2016/11/tutorial-categorical-variational.html>`__. Categorical Reparameterization with Gumbel-Softmax `original paper <https://arxiv.org/pdf/1611.01144.pdf>`__
 
-Build Neural Nets with another Neural Nets
-==========================================
 
-+ `Neural Architecture Search with Reinforcement Learning <https://openreview.net/pdf?id=r1Ue8Hcxg>`__ - broad grid search for availbale models architectures with LSTM. As result we receive new conv-net architecture and new RNN node.
 
 One Shot Learning
 =================
