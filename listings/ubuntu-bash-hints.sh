@@ -64,3 +64,5 @@ $ rm -r output/logs/{17..26}*
 # unzip tar.gz file
 $ tar -xvzf filename.tar.gz
 
+# send stdout to file and display it to the bash at the same time
+$ ./some_file.sh | tee -a logs.txt
