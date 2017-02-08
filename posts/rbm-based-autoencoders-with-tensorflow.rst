@@ -8,8 +8,6 @@
 .. type: text
 .. author: Illarion Khlestov
 
-**This is draft of post - feel free to comment/mail me about any errors**
-
 Recently I try to implement RBM based autoencoder in tensorflow similar to RBMs described in `Semantic Hashing <http://www.cs.utoronto.ca/~rsalakhu/papers/semantic_final.pdf>`__ paper by Ruslan Salakhutdinov and Geoffrey Hinton. It seems that with weights that were pre-trained with RBM autoencoders should converge faster. So I've decided to check this.  
 
 This post will describe some roadblocks for RBMs/autoencoders implementation in tensorflow and compare results of different approaches. I assume reader's previous knowledge of tensorflow and machine learning field. All code can be found in `this repo <https://github.com/ikhlestov/rbm_based_autoencoders_with_tensorflow>`__
