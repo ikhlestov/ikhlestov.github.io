@@ -20,8 +20,7 @@ MathJax.Hub.Config({
 <meta property="og:site_name" content="Illarion Khlestov Blog">
 <meta property="og:title" content="RBM based Autoencoders with tensorflow">
 <meta property="og:url" content="https://ikhlestov.github.io/posts/rbm-based-autoencoders-with-tensorflow/">
-<meta property="og:description" content="This is draft of post - feel free to comment/mail me about any errors
-Recently I try to implement RBM based autoencoder in tensorflow similar to RBMs described in Semantic Hashing paper by Ruslan Sala">
+<meta property="og:description" content="Recently I try to implement RBM based autoencoder in tensorflow similar to RBMs described in Semantic Hashing paper by Ruslan Salakhutdinov and Geoffrey Hinton. It seems that with weights that were pr">
 <meta property="og:type" content="article">
 <meta property="article:published_time" content="2016-12-28T20:33:15Z">
 </head>
@@ -94,16 +93,15 @@ Recently I try to implement RBM based autoencoder in tensorflow similar to RBMs 
         
     </header><div class="e-content entry-content" itemprop="articleBody text">
     <div>
-<p><strong>This is draft of post - feel free to comment/mail me about any&nbsp;errors</strong></p>
 <p>Recently I try to implement RBM based autoencoder in tensorflow similar to RBMs described in <a class="reference external" href="http://www.cs.utoronto.ca/~rsalakhu/papers/semantic_final.pdf">Semantic Hashing</a> paper by Ruslan Salakhutdinov and Geoffrey Hinton. It seems that with weights that were pre-trained with RBM autoencoders should converge faster. So I&#8217;ve decided to check&nbsp;this.</p>
 <p>This post will describe some roadblocks for RBMs/autoencoders implementation in tensorflow and compare results of different approaches. I assume reader&#8217;s previous knowledge of tensorflow and machine learning field. All code can be found in <a class="reference external" href="https://github.com/ikhlestov/rbm_based_autoencoders_with_tensorflow">this&nbsp;repo</a></p>
 <p>RBMs different from usual neural networks in some&nbsp;ways:</p>
 <p>Neural networks usually perform weight update by Gradient Descent, but RMBs use <strong>Contrastive Divergence</strong> (which is basically a funky term for &#8220;approximate gradient descent&#8221; <a class="reference external" href="http://deeplearning.net/tutorial/rbm.html">link to read</a>). At a glance, contrastive divergence computes a difference between <strong>positive phase</strong> (energy of first encoding) and <strong>negative phase</strong> (energy of the last&nbsp;encoding).</p>
-<pre class="code python"><a name="rest_code_76c52e78504e4d8089936890f453cde8-1"></a><span class="n">positive_phase</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span>
-<a name="rest_code_76c52e78504e4d8089936890f453cde8-2"></a>    <span class="n">tf</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">visib_inputs_initial</span><span class="p">),</span> <span class="n">first_encoded_probability</span><span class="p">)</span>
-<a name="rest_code_76c52e78504e4d8089936890f453cde8-3"></a><span class="n">negative_phase</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span>
-<a name="rest_code_76c52e78504e4d8089936890f453cde8-4"></a>    <span class="n">tf</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">last_reconstructed_probability</span><span class="p">),</span> <span class="n">last_encoded_probability</span><span class="p">)</span>
-<a name="rest_code_76c52e78504e4d8089936890f453cde8-5"></a><span class="n">contrastive_divergence</span> <span class="o">=</span> <span class="n">positive_phase</span> <span class="o">-</span> <span class="n">negative_phase</span>
+<pre class="code python"><a name="rest_code_98f9b0031b2d41c5a06e7cc110a1737b-1"></a><span class="n">positive_phase</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span>
+<a name="rest_code_98f9b0031b2d41c5a06e7cc110a1737b-2"></a>    <span class="n">tf</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">visib_inputs_initial</span><span class="p">),</span> <span class="n">first_encoded_probability</span><span class="p">)</span>
+<a name="rest_code_98f9b0031b2d41c5a06e7cc110a1737b-3"></a><span class="n">negative_phase</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span>
+<a name="rest_code_98f9b0031b2d41c5a06e7cc110a1737b-4"></a>    <span class="n">tf</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">last_reconstructed_probability</span><span class="p">),</span> <span class="n">last_encoded_probability</span><span class="p">)</span>
+<a name="rest_code_98f9b0031b2d41c5a06e7cc110a1737b-5"></a><span class="n">contrastive_divergence</span> <span class="o">=</span> <span class="n">positive_phase</span> <span class="o">-</span> <span class="n">negative_phase</span>
 </pre>
 <p>Also, a key feature of RMB that it encode output in binary mode, not as probabilities. More about RMBs you may read <a class="reference external" href="http://blog.echen.me/2011/07/18/introduction-to-restricted-boltzmann-machines/">here</a> or <a class="reference external" href="http://rocknrollnerd.github.io/ml/2015/07/18/general-boltzmann-machines.html">here</a>.</p>
 <p>As prototype one layer tensorflow rbm <a class="reference external" href="https://github.com/blackecho/Deep-Learning-TensorFlow/blob/master/yadlt/models/rbm_models/rbm.py">implementation</a> was used. For testing, I&#8217;ve taken well known <a class="reference external" href="https://en.wikipedia.org/wiki/MNIST_database">MNIST</a> dataset(dataset of handwritten&nbsp;digits).</p>
@@ -121,14 +119,14 @@ Recently I try to implement RBM based autoencoder in tensorflow similar to RBMs 
 <p class="caption">Errors with respect to&nbsp;steps</p>
 </div>
 <p>So let&#8217;s stop with the last layer binarized and try different train approaches. To build model that will train only pair of layers we need train two layers model, save it, build new model with one more layer, load pre-trained first two layers weights/biases and continue train last two layers (<a class="reference external" href="https://github.com/ikhlestov/rbm_based_autoencoders_with_tensorflow/blob/master/rbm_train_by_pair_layers.py">code</a>). During implementation I&#8217;ve met some trouble - tensorflow have no method to initialize all not initialized previously variables method. Maybe I just didn&#8217;t find this. So I&#8217;ve finished with approach when I directly send variable that should be restored and variables that should be&nbsp;initialized.</p>
-<pre class="code python"><a name="rest_code_2cf490d9f65246e59eee8b6b612aef8b-1"></a><span class="c1"># restore previous variables</span>
-<a name="rest_code_2cf490d9f65246e59eee8b6b612aef8b-2"></a><span class="n">restore_vars_dict</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_restored_variables_names</span><span class="p">()</span>
-<a name="rest_code_2cf490d9f65246e59eee8b6b612aef8b-3"></a><span class="n">restorer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">Saver</span><span class="p">(</span><span class="n">restore_vars_dict</span><span class="p">)</span>
-<a name="rest_code_2cf490d9f65246e59eee8b6b612aef8b-4"></a><span class="n">restorer</span><span class="o">.</span><span class="n">restore</span><span class="p">(</span><span class="n">sess</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">saves_path</span><span class="p">)</span>
-<a name="rest_code_2cf490d9f65246e59eee8b6b612aef8b-5"></a>
-<a name="rest_code_2cf490d9f65246e59eee8b6b612aef8b-6"></a><span class="c1"># initialize not restored variables</span>
-<a name="rest_code_2cf490d9f65246e59eee8b6b612aef8b-7"></a><span class="n">new_variables</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_new_variables_names</span><span class="p">()</span>
-<a name="rest_code_2cf490d9f65246e59eee8b6b612aef8b-8"></a><span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">initialize_variables</span><span class="p">(</span><span class="n">new_variables</span><span class="p">))</span>
+<pre class="code python"><a name="rest_code_5d6ad376b423491289930e8a37458ab1-1"></a><span class="c1"># restore previous variables</span>
+<a name="rest_code_5d6ad376b423491289930e8a37458ab1-2"></a><span class="n">restore_vars_dict</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_restored_variables_names</span><span class="p">()</span>
+<a name="rest_code_5d6ad376b423491289930e8a37458ab1-3"></a><span class="n">restorer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">Saver</span><span class="p">(</span><span class="n">restore_vars_dict</span><span class="p">)</span>
+<a name="rest_code_5d6ad376b423491289930e8a37458ab1-4"></a><span class="n">restorer</span><span class="o">.</span><span class="n">restore</span><span class="p">(</span><span class="n">sess</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">saves_path</span><span class="p">)</span>
+<a name="rest_code_5d6ad376b423491289930e8a37458ab1-5"></a>
+<a name="rest_code_5d6ad376b423491289930e8a37458ab1-6"></a><span class="c1"># initialize not restored variables</span>
+<a name="rest_code_5d6ad376b423491289930e8a37458ab1-7"></a><span class="n">new_variables</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_new_variables_names</span><span class="p">()</span>
+<a name="rest_code_5d6ad376b423491289930e8a37458ab1-8"></a><span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">initialize_variables</span><span class="p">(</span><span class="n">new_variables</span><span class="p">))</span>
 </pre>
 <p>After testing seems that both training approaches converge to approximately same error. But some another cool stuff - the model that was trained by pair lairs trains faster in&nbsp;time.</p>
 <div class="figure">
