@@ -14,3 +14,15 @@ Part I: Applied Math and Machine Learning Basics:
 
 * `2 Linear Algebra <link://slug/i2linear-algebra>`__
 * `3 Probability and Information Theory <link://slug/i3probability-and-information-theory>`__
+
+
+.. code-block::
+
+    @book{Goodfellow-et-al-2016,
+        title={Deep Learning},
+        author={Ian Goodfellow and Yoshua Bengio and Aaron Courville},
+        publisher={MIT Press},
+        note={\url{http://www.deeplearningbook.org}},
+        year={2016}
+    }
+
