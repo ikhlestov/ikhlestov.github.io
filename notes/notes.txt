@@ -90,3 +90,6 @@ LaTeX cheat sheets:
 http://users.dickinson.edu/~richesod/latex/latexcheatsheet.pdf
 http://www.auburn.edu/~tamtiny/Symbols.pdf
 https://wch.github.io/latexsheet/latexsheet.pdf
+
+Latex list of all math symbols
+https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols
