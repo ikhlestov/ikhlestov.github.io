@@ -149,7 +149,7 @@ Change inline setting during training
 .. code-block:: python
 
     x = some_tensor
-    is_training = tflearn.get_training_mode()  # bool
+    is_training = tf.placeholder(tf.bool, shape=[])
     # should define as function, because under condition should be callable
     def apply_dropout(): # Function to apply when training mode ON.
          return tf.nn.dropout(x, keep_prob)
@@ -185,7 +185,9 @@ To understood what exactly each param handled by layer mean - take a look on alg
 
 .. code-block:: python
 
-    inputs = tf.sigmoid(tf.contrib.layers.batch_norm(inputs, scale=True))
+    logits = tf.matmul(inputs, W)
+    normed_logits = tf.contrib.layers.batch_norm(inputs, scale=True)
+    output = tf.sigmoid(normed_logits)
 
     # next lines should be added so Optimizer can find variables to optimize
     update_ops = tf.get_collection(tf.GraphKeys.UPDATE_OPS)
@@ -197,11 +199,8 @@ Maybe sometimes easier use *in place* update of alpha and beta. In docs was ment
 
 .. code-block:: python
     
-    # somewhere at training start
-    tflearn.is_training(True)
+    is_training = tf.placeholder(tf.bool, shape=[])
 
-    # inside layers
-    is_training = tflearn.get_training_mode()
     output = tf.contrib.layers.batch_norm(
         _input, scale=True, is_training=is_training,
         updates_collections=None)
@@ -219,18 +218,10 @@ Applying weights regularization
     # now we should minimize sum of initial loss and regularization
     train_step = optimizer.minimize(cross_entropy + l2_loss * weight_decay)
 
-Data Readers simple explanation
-===============================
+TODO
+====
 
-pass
-
-tf.py_func inside data readers
-==============================
-
-pass
-
-Variables and Placeholders dynamic shapes inside graph
-======================================================
-
-pass
+- Data Readers simple explanation
+- tf.py_func inside data readers
+- Variables and Placeholders dynamic shapes inside graph
 
