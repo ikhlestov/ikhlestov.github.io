@@ -218,6 +218,40 @@ Applying weights regularization
     # now we should minimize sum of initial loss and regularization
     train_step = optimizer.minimize(cross_entropy + l2_loss * weight_decay)
 
+Load part of graph from previous run
+====================================
+.. code-block:: python
+
+    all_vars = tf.all_variables()
+    restored_scopes = ['Scope_1', 'Scope_2']
+    # get only restored variables
+    restored_vars = [
+        v for v in all_vars if v.name.split('/')[0] in restored_scopes]
+    loader = tf.train.Saver(var_list=restored_vars)
+    loader.restore(sess, previous_model_saves)
+
+    # now initialize all not resotred variables
+    initialized_vars = [v for v in all_vars if v not in restored_vars]
+    sess.run(tf.variables_initializer(initialized_vars))
+
+    # also sometimes to clarify it's better to print restored variables
+    print("Such vars were be restored")
+    for v in restored_vars:
+        print(v.name)
+
+Count trainable params
+======================
+.. code-block:: python
+    
+    total_parameters = 0
+    for variable in tf.trainable_variables():
+        shape = variable.get_shape()
+        variable_parametes = 1
+        for dim in shape:
+            variable_parametes *= dim.value
+        total_parameters += variable_parametes
+    print("Total training params: %.5fM" % (total_parameters / 1e6))
+
 TODO
 ====
 
