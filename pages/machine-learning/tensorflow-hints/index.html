@@ -99,37 +99,35 @@ Change inline setting ">
 <li><a class="reference internal" href="#get-last-output-from-rnn" id="id7">Get last output from&nbsp;rnn</a></li>
 <li><a class="reference internal" href="#batch-normalization" id="id8">Batch&nbsp;Normalization</a></li>
 <li><a class="reference internal" href="#applying-weights-regularization" id="id9">Applying weights&nbsp;regularization</a></li>
-<li><a class="reference internal" href="#data-readers-simple-explanation" id="id10">Data Readers simple&nbsp;explanation</a></li>
-<li><a class="reference internal" href="#tf-py-func-inside-data-readers" id="id11">tf.py_func inside data&nbsp;readers</a></li>
-<li><a class="reference internal" href="#variables-and-placeholders-dynamic-shapes-inside-graph" id="id12">Variables and Placeholders dynamic shapes inside&nbsp;graph</a></li>
+<li><a class="reference internal" href="#todo" id="id10">TODO</a></li>
 </ul>
 </div>
 <div class="section" id="add-logs-to-summary-writer-outside-from-graph">
 <h2><a class="toc-backref" href="#id1">Add logs to Summary Writer outside from&nbsp;graph</a></h2>
 <p>Usual we use summary writer in such&nbsp;way:</p>
-<pre class="code python"><a name="rest_code_899774cc43d24017a4e8dc87e4849dff-1"></a><span class="c1"># inside graph definition</span>
-<a name="rest_code_899774cc43d24017a4e8dc87e4849dff-2"></a><span class="n">tf</span><span class="o">.</span><span class="n">scalar_summary</span><span class="p">(</span><span class="s2">"some_var"</span><span class="p">,</span> <span class="n">some_var</span><span class="p">)</span>
-<a name="rest_code_899774cc43d24017a4e8dc87e4849dff-3"></a>
-<a name="rest_code_899774cc43d24017a4e8dc87e4849dff-4"></a><span class="c1"># inside graph execution</span>
-<a name="rest_code_899774cc43d24017a4e8dc87e4849dff-5"></a><span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
-<a name="rest_code_899774cc43d24017a4e8dc87e4849dff-6"></a>    <span class="n">summary_writer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">SummaryWriter</span><span class="p">(</span><span class="s1">'logs_dir'</span><span class="p">)</span>
-<a name="rest_code_899774cc43d24017a4e8dc87e4849dff-7"></a>    <span class="n">merged_summary</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">merge_all_summaries</span><span class="p">()</span>
-<a name="rest_code_899774cc43d24017a4e8dc87e4849dff-8"></a>    <span class="c1"># get results from session execution</span>
-<a name="rest_code_899774cc43d24017a4e8dc87e4849dff-9"></a>
-<a name="rest_code_899774cc43d24017a4e8dc87e4849dff-10"></a>    <span class="n">summary</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">merged_summary</span><span class="p">)</span>
-<a name="rest_code_899774cc43d24017a4e8dc87e4849dff-11"></a>    <span class="n">summary_writer</span><span class="o">.</span><span class="n">add_summary</span><span class="p">(</span><span class="n">summary</span><span class="p">,</span> <span class="n">some_step</span><span class="p">)</span>
+<pre class="code python"><a name="rest_code_1d738aed2c86486abf4515674705f1b6-1"></a><span class="c1"># inside graph definition</span>
+<a name="rest_code_1d738aed2c86486abf4515674705f1b6-2"></a><span class="n">tf</span><span class="o">.</span><span class="n">scalar_summary</span><span class="p">(</span><span class="s2">"some_var"</span><span class="p">,</span> <span class="n">some_var</span><span class="p">)</span>
+<a name="rest_code_1d738aed2c86486abf4515674705f1b6-3"></a>
+<a name="rest_code_1d738aed2c86486abf4515674705f1b6-4"></a><span class="c1"># inside graph execution</span>
+<a name="rest_code_1d738aed2c86486abf4515674705f1b6-5"></a><span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
+<a name="rest_code_1d738aed2c86486abf4515674705f1b6-6"></a>    <span class="n">summary_writer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">SummaryWriter</span><span class="p">(</span><span class="s1">'logs_dir'</span><span class="p">)</span>
+<a name="rest_code_1d738aed2c86486abf4515674705f1b6-7"></a>    <span class="n">merged_summary</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">merge_all_summaries</span><span class="p">()</span>
+<a name="rest_code_1d738aed2c86486abf4515674705f1b6-8"></a>    <span class="c1"># get results from session execution</span>
+<a name="rest_code_1d738aed2c86486abf4515674705f1b6-9"></a>
+<a name="rest_code_1d738aed2c86486abf4515674705f1b6-10"></a>    <span class="n">summary</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">merged_summary</span><span class="p">)</span>
+<a name="rest_code_1d738aed2c86486abf4515674705f1b6-11"></a>    <span class="n">summary_writer</span><span class="o">.</span><span class="n">add_summary</span><span class="p">(</span><span class="n">summary</span><span class="p">,</span> <span class="n">some_step</span><span class="p">)</span>
 </pre>
 <p>As you can see you can get only variables from the graph. But what if we want some post
 processing(for example mean loss per epoch, not per batch) of just add some self generated
 data? In this case we may generate <cite>summary</cite> by&nbsp;hands.</p>
-<pre class="code python"><a name="rest_code_c529067e023e42b68f2e357760ef88a4-1"></a><span class="c1"># no any definitions inside graph or session fetches.</span>
-<a name="rest_code_c529067e023e42b68f2e357760ef88a4-2"></a><span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
-<a name="rest_code_c529067e023e42b68f2e357760ef88a4-3"></a>    <span class="n">summary_writer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">SummaryWriter</span><span class="p">(</span><span class="s1">'logs_dir'</span><span class="p">)</span>
-<a name="rest_code_c529067e023e42b68f2e357760ef88a4-4"></a>    <span class="n">summary</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Summary</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="p">[</span>
-<a name="rest_code_c529067e023e42b68f2e357760ef88a4-5"></a>        <span class="n">tf</span><span class="o">.</span><span class="n">Summary</span><span class="o">.</span><span class="n">Value</span><span class="p">(</span><span class="n">tag</span><span class="o">=</span><span class="s2">"some_tag"</span><span class="p">,</span> <span class="n">simple_value</span><span class="o">=</span><span class="n">some_value</span><span class="p">),</span>
-<a name="rest_code_c529067e023e42b68f2e357760ef88a4-6"></a>        <span class="n">tf</span><span class="o">.</span><span class="n">Summary</span><span class="o">.</span><span class="n">Value</span><span class="p">(</span><span class="n">tag</span><span class="o">=</span><span class="s2">"mean_loss"</span><span class="p">,</span> <span class="n">simple_value</span><span class="o">=</span><span class="n">mean_loss</span><span class="p">)</span>
-<a name="rest_code_c529067e023e42b68f2e357760ef88a4-7"></a>    <span class="p">])</span>
-<a name="rest_code_c529067e023e42b68f2e357760ef88a4-8"></a>    <span class="n">summary_writer</span><span class="o">.</span><span class="n">add_summary</span><span class="p">(</span><span class="n">summary</span><span class="p">,</span> <span class="n">some_step</span><span class="p">)</span>
+<pre class="code python"><a name="rest_code_a0f4127d534141fc859f9b4b69e99bd2-1"></a><span class="c1"># no any definitions inside graph or session fetches.</span>
+<a name="rest_code_a0f4127d534141fc859f9b4b69e99bd2-2"></a><span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
+<a name="rest_code_a0f4127d534141fc859f9b4b69e99bd2-3"></a>    <span class="n">summary_writer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">SummaryWriter</span><span class="p">(</span><span class="s1">'logs_dir'</span><span class="p">)</span>
+<a name="rest_code_a0f4127d534141fc859f9b4b69e99bd2-4"></a>    <span class="n">summary</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Summary</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="p">[</span>
+<a name="rest_code_a0f4127d534141fc859f9b4b69e99bd2-5"></a>        <span class="n">tf</span><span class="o">.</span><span class="n">Summary</span><span class="o">.</span><span class="n">Value</span><span class="p">(</span><span class="n">tag</span><span class="o">=</span><span class="s2">"some_tag"</span><span class="p">,</span> <span class="n">simple_value</span><span class="o">=</span><span class="n">some_value</span><span class="p">),</span>
+<a name="rest_code_a0f4127d534141fc859f9b4b69e99bd2-6"></a>        <span class="n">tf</span><span class="o">.</span><span class="n">Summary</span><span class="o">.</span><span class="n">Value</span><span class="p">(</span><span class="n">tag</span><span class="o">=</span><span class="s2">"mean_loss"</span><span class="p">,</span> <span class="n">simple_value</span><span class="o">=</span><span class="n">mean_loss</span><span class="p">)</span>
+<a name="rest_code_a0f4127d534141fc859f9b4b69e99bd2-7"></a>    <span class="p">])</span>
+<a name="rest_code_a0f4127d534141fc859f9b4b69e99bd2-8"></a>    <span class="n">summary_writer</span><span class="o">.</span><span class="n">add_summary</span><span class="p">(</span><span class="n">summary</span><span class="p">,</span> <span class="n">some_step</span><span class="p">)</span>
 </pre>
 </div>
 <div class="section" id="handle-memory-consumption-by-graph">
@@ -139,9 +137,9 @@ But what in case you have very simple model and just want to run 2 or 3 of the o
 For such case you may use config inside session, that will provide to the model only required amount of memory.
 More about this you may read in
 <a class="reference external" href="https://www.tensorflow.org/versions/master/how_tos/using_gpu/index.html#allowing-gpu-memory-growth">tensorflow official docs</a>.</p>
-<pre class="code python"><a name="rest_code_bc54c985724542009293ca48460ee457-1"></a><span class="n">config</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">ConfigProto</span><span class="p">()</span>
-<a name="rest_code_bc54c985724542009293ca48460ee457-2"></a><span class="n">config</span><span class="o">.</span><span class="n">gpu_options</span><span class="o">.</span><span class="n">allow_growth</span> <span class="o">=</span> <span class="bp">True</span>
-<a name="rest_code_bc54c985724542009293ca48460ee457-3"></a><span class="n">session</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Session</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+<pre class="code python"><a name="rest_code_f68ccfb9b6754530bc2175b002f6c9c1-1"></a><span class="n">config</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">ConfigProto</span><span class="p">()</span>
+<a name="rest_code_f68ccfb9b6754530bc2175b002f6c9c1-2"></a><span class="n">config</span><span class="o">.</span><span class="n">gpu_options</span><span class="o">.</span><span class="n">allow_growth</span> <span class="o">=</span> <span class="bp">True</span>
+<a name="rest_code_f68ccfb9b6754530bc2175b002f6c9c1-3"></a><span class="n">session</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Session</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
 </pre>
 </div>
 <div class="section" id="dynamic-vs-static-rnns">
@@ -150,89 +148,89 @@ More about this you may read in
 They are faster to build and also not required manual resizing/spliting of the input data.
 Full explanation why is it so you may found
 <a class="reference external" href="http://www.wildml.com/2016/08/rnns-in-tensorflow-a-practical-guide-and-undocumented-features/">here</a>.</p>
-<pre class="code python"><a name="rest_code_fb076f8d06af4bbbb8aa1671b1be5899-1"></a><span class="n">inputs</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">int32</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">num_steps</span><span class="p">])</span>
-<a name="rest_code_fb076f8d06af4bbbb8aa1671b1be5899-2"></a>
-<a name="rest_code_fb076f8d06af4bbbb8aa1671b1be5899-3"></a><span class="c1"># usual RNN</span>
-<a name="rest_code_fb076f8d06af4bbbb8aa1671b1be5899-4"></a><span class="n">inputs_splited</span> <span class="o">=</span> <span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="n">input_step</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-<a name="rest_code_fb076f8d06af4bbbb8aa1671b1be5899-5"></a>                  <span class="k">for</span> <span class="n">input_step</span> <span class="ow">in</span> <span class="n">tf</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">num_steps</span><span class="p">,</span> <span class="n">inputs</span><span class="p">)]</span>
-<a name="rest_code_fb076f8d06af4bbbb8aa1671b1be5899-6"></a><span class="n">outputs</span><span class="p">,</span> <span class="n">state</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">rnn</span><span class="p">(</span>
-<a name="rest_code_fb076f8d06af4bbbb8aa1671b1be5899-7"></a>    <span class="n">cell</span><span class="p">,</span>
-<a name="rest_code_fb076f8d06af4bbbb8aa1671b1be5899-8"></a>    <span class="n">inputs_splited</span><span class="p">,</span>
-<a name="rest_code_fb076f8d06af4bbbb8aa1671b1be5899-9"></a>    <span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
-<a name="rest_code_fb076f8d06af4bbbb8aa1671b1be5899-10"></a>
-<a name="rest_code_fb076f8d06af4bbbb8aa1671b1be5899-11"></a><span class="c1"># for dynamic RNN we not required reshaping</span>
-<a name="rest_code_fb076f8d06af4bbbb8aa1671b1be5899-12"></a><span class="n">outputs</span><span class="p">,</span> <span class="n">state</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">dynamic_rnn</span><span class="p">(</span>
-<a name="rest_code_fb076f8d06af4bbbb8aa1671b1be5899-13"></a>    <span class="n">cell</span><span class="p">,</span>
-<a name="rest_code_fb076f8d06af4bbbb8aa1671b1be5899-14"></a>    <span class="n">inputs</span><span class="p">,</span>
-<a name="rest_code_fb076f8d06af4bbbb8aa1671b1be5899-15"></a>    <span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
-<a name="rest_code_fb076f8d06af4bbbb8aa1671b1be5899-16"></a><span class="c1"># if we provide data with shape num_step x batch_size</span>
-<a name="rest_code_fb076f8d06af4bbbb8aa1671b1be5899-17"></a><span class="c1"># we can just provide time_major=True flag to dynamic RNN call</span>
-<a name="rest_code_fb076f8d06af4bbbb8aa1671b1be5899-18"></a><span class="n">inputs_transposed</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
-<a name="rest_code_fb076f8d06af4bbbb8aa1671b1be5899-19"></a><span class="n">outputs</span><span class="p">,</span> <span class="n">state</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">dynamic_rnn</span><span class="p">(</span>
-<a name="rest_code_fb076f8d06af4bbbb8aa1671b1be5899-20"></a>    <span class="n">cell</span><span class="p">,</span>
-<a name="rest_code_fb076f8d06af4bbbb8aa1671b1be5899-21"></a>    <span class="n">inputs_transposes</span><span class="p">,</span>
-<a name="rest_code_fb076f8d06af4bbbb8aa1671b1be5899-22"></a>    <span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">float64</span><span class="p">,</span>
-<a name="rest_code_fb076f8d06af4bbbb8aa1671b1be5899-23"></a>    <span class="n">time_major</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<pre class="code python"><a name="rest_code_d95b7f859f514ab392a16c0f1534bccc-1"></a><span class="n">inputs</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">int32</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">num_steps</span><span class="p">])</span>
+<a name="rest_code_d95b7f859f514ab392a16c0f1534bccc-2"></a>
+<a name="rest_code_d95b7f859f514ab392a16c0f1534bccc-3"></a><span class="c1"># usual RNN</span>
+<a name="rest_code_d95b7f859f514ab392a16c0f1534bccc-4"></a><span class="n">inputs_splited</span> <span class="o">=</span> <span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="n">input_step</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<a name="rest_code_d95b7f859f514ab392a16c0f1534bccc-5"></a>                  <span class="k">for</span> <span class="n">input_step</span> <span class="ow">in</span> <span class="n">tf</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">num_steps</span><span class="p">,</span> <span class="n">inputs</span><span class="p">)]</span>
+<a name="rest_code_d95b7f859f514ab392a16c0f1534bccc-6"></a><span class="n">outputs</span><span class="p">,</span> <span class="n">state</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">rnn</span><span class="p">(</span>
+<a name="rest_code_d95b7f859f514ab392a16c0f1534bccc-7"></a>    <span class="n">cell</span><span class="p">,</span>
+<a name="rest_code_d95b7f859f514ab392a16c0f1534bccc-8"></a>    <span class="n">inputs_splited</span><span class="p">,</span>
+<a name="rest_code_d95b7f859f514ab392a16c0f1534bccc-9"></a>    <span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+<a name="rest_code_d95b7f859f514ab392a16c0f1534bccc-10"></a>
+<a name="rest_code_d95b7f859f514ab392a16c0f1534bccc-11"></a><span class="c1"># for dynamic RNN we not required reshaping</span>
+<a name="rest_code_d95b7f859f514ab392a16c0f1534bccc-12"></a><span class="n">outputs</span><span class="p">,</span> <span class="n">state</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">dynamic_rnn</span><span class="p">(</span>
+<a name="rest_code_d95b7f859f514ab392a16c0f1534bccc-13"></a>    <span class="n">cell</span><span class="p">,</span>
+<a name="rest_code_d95b7f859f514ab392a16c0f1534bccc-14"></a>    <span class="n">inputs</span><span class="p">,</span>
+<a name="rest_code_d95b7f859f514ab392a16c0f1534bccc-15"></a>    <span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+<a name="rest_code_d95b7f859f514ab392a16c0f1534bccc-16"></a><span class="c1"># if we provide data with shape num_step x batch_size</span>
+<a name="rest_code_d95b7f859f514ab392a16c0f1534bccc-17"></a><span class="c1"># we can just provide time_major=True flag to dynamic RNN call</span>
+<a name="rest_code_d95b7f859f514ab392a16c0f1534bccc-18"></a><span class="n">inputs_transposed</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<a name="rest_code_d95b7f859f514ab392a16c0f1534bccc-19"></a><span class="n">outputs</span><span class="p">,</span> <span class="n">state</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">dynamic_rnn</span><span class="p">(</span>
+<a name="rest_code_d95b7f859f514ab392a16c0f1534bccc-20"></a>    <span class="n">cell</span><span class="p">,</span>
+<a name="rest_code_d95b7f859f514ab392a16c0f1534bccc-21"></a>    <span class="n">inputs_transposes</span><span class="p">,</span>
+<a name="rest_code_d95b7f859f514ab392a16c0f1534bccc-22"></a>    <span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">float64</span><span class="p">,</span>
+<a name="rest_code_d95b7f859f514ab392a16c0f1534bccc-23"></a>    <span class="n">time_major</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 </pre>
 </div>
 <div class="section" id="handle-last-state-from-rnn-inside-graph">
 <h2><a class="toc-backref" href="#id4">Handle last state from RNN inside&nbsp;graph</a></h2>
 <p>When using rnn usual we get last state of RNNs and send back the through feed&nbsp;dict:</p>
-<pre class="code python"><a name="rest_code_c3341df1b4fe4e8abec4b244d59575ff-1"></a><span class="c1"># inside model definition</span>
-<a name="rest_code_c3341df1b4fe4e8abec4b244d59575ff-2"></a><span class="n">cell</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">rnn_cell</span><span class="o">.</span><span class="n">LSTMCell</span><span class="p">(</span><span class="n">num_units</span><span class="o">=</span><span class="n">n_hidden</span><span class="p">)</span>
-<a name="rest_code_c3341df1b4fe4e8abec4b244d59575ff-3"></a><span class="bp">self</span><span class="o">.</span><span class="n">initial_state</span> <span class="o">=</span> <span class="n">cell</span><span class="o">.</span><span class="n">zero_state</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
-<a name="rest_code_c3341df1b4fe4e8abec4b244d59575ff-4"></a><span class="n">rnn_out</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">last_state_fw</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">dynamic_rnn</span><span class="p">(</span>
-<a name="rest_code_c3341df1b4fe4e8abec4b244d59575ff-5"></a>    <span class="n">cell</span><span class="o">=</span><span class="n">cell</span><span class="p">,</span>
-<a name="rest_code_c3341df1b4fe4e8abec4b244d59575ff-6"></a>    <span class="n">inputs</span><span class="o">=</span><span class="n">inputs</span><span class="p">,</span>
-<a name="rest_code_c3341df1b4fe4e8abec4b244d59575ff-7"></a>    <span class="n">initial_state</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">initial_state</span><span class="p">)</span>
-<a name="rest_code_c3341df1b4fe4e8abec4b244d59575ff-8"></a>
-<a name="rest_code_c3341df1b4fe4e8abec4b244d59575ff-9"></a><span class="c1"># and after during session</span>
-<a name="rest_code_c3341df1b4fe4e8abec4b244d59575ff-10"></a><span class="n">last_state</span> <span class="o">=</span> <span class="bp">None</span>
-<a name="rest_code_c3341df1b4fe4e8abec4b244d59575ff-11"></a><span class="k">if</span> <span class="n">last_state</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
-<a name="rest_code_c3341df1b4fe4e8abec4b244d59575ff-12"></a>    <span class="n">feed_dict</span> <span class="o">=</span> <span class="p">{</span><span class="bp">self</span><span class="o">.</span><span class="n">initial_state</span><span class="p">:</span> <span class="n">last_state</span><span class="p">}</span>
-<a name="rest_code_c3341df1b4fe4e8abec4b244d59575ff-13"></a><span class="n">_</span><span class="p">,</span> <span class="n">last_state</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
-<a name="rest_code_c3341df1b4fe4e8abec4b244d59575ff-14"></a>    <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">learning_op</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">last_state</span><span class="p">],</span>
-<a name="rest_code_c3341df1b4fe4e8abec4b244d59575ff-15"></a>    <span class="n">feed_dict</span><span class="o">=</span><span class="n">feed_dict</span><span class="p">)</span>
+<pre class="code python"><a name="rest_code_6f287957b6f14ebfa3fb29cc6ac8a9a1-1"></a><span class="c1"># inside model definition</span>
+<a name="rest_code_6f287957b6f14ebfa3fb29cc6ac8a9a1-2"></a><span class="n">cell</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">rnn_cell</span><span class="o">.</span><span class="n">LSTMCell</span><span class="p">(</span><span class="n">num_units</span><span class="o">=</span><span class="n">n_hidden</span><span class="p">)</span>
+<a name="rest_code_6f287957b6f14ebfa3fb29cc6ac8a9a1-3"></a><span class="bp">self</span><span class="o">.</span><span class="n">initial_state</span> <span class="o">=</span> <span class="n">cell</span><span class="o">.</span><span class="n">zero_state</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+<a name="rest_code_6f287957b6f14ebfa3fb29cc6ac8a9a1-4"></a><span class="n">rnn_out</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">last_state_fw</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">dynamic_rnn</span><span class="p">(</span>
+<a name="rest_code_6f287957b6f14ebfa3fb29cc6ac8a9a1-5"></a>    <span class="n">cell</span><span class="o">=</span><span class="n">cell</span><span class="p">,</span>
+<a name="rest_code_6f287957b6f14ebfa3fb29cc6ac8a9a1-6"></a>    <span class="n">inputs</span><span class="o">=</span><span class="n">inputs</span><span class="p">,</span>
+<a name="rest_code_6f287957b6f14ebfa3fb29cc6ac8a9a1-7"></a>    <span class="n">initial_state</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">initial_state</span><span class="p">)</span>
+<a name="rest_code_6f287957b6f14ebfa3fb29cc6ac8a9a1-8"></a>
+<a name="rest_code_6f287957b6f14ebfa3fb29cc6ac8a9a1-9"></a><span class="c1"># and after during session</span>
+<a name="rest_code_6f287957b6f14ebfa3fb29cc6ac8a9a1-10"></a><span class="n">last_state</span> <span class="o">=</span> <span class="bp">None</span>
+<a name="rest_code_6f287957b6f14ebfa3fb29cc6ac8a9a1-11"></a><span class="k">if</span> <span class="n">last_state</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+<a name="rest_code_6f287957b6f14ebfa3fb29cc6ac8a9a1-12"></a>    <span class="n">feed_dict</span> <span class="o">=</span> <span class="p">{</span><span class="bp">self</span><span class="o">.</span><span class="n">initial_state</span><span class="p">:</span> <span class="n">last_state</span><span class="p">}</span>
+<a name="rest_code_6f287957b6f14ebfa3fb29cc6ac8a9a1-13"></a><span class="n">_</span><span class="p">,</span> <span class="n">last_state</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+<a name="rest_code_6f287957b6f14ebfa3fb29cc6ac8a9a1-14"></a>    <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">learning_op</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">last_state</span><span class="p">],</span>
+<a name="rest_code_6f287957b6f14ebfa3fb29cc6ac8a9a1-15"></a>    <span class="n">feed_dict</span><span class="o">=</span><span class="n">feed_dict</span><span class="p">)</span>
 </pre>
 <p>But in this case we move last state from GPU memory and backwards. This is unreasonable.
 We can handle last state inside GPU directly&nbsp;as:</p>
-<pre class="code python"><a name="rest_code_c0ce200245f447128124a83452675a14-1"></a><span class="c1"># inside model definition</span>
-<a name="rest_code_c0ce200245f447128124a83452675a14-2"></a><span class="n">last_state</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">n_hidden</span><span class="p">]),</span> <span class="n">trainable</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
-<a name="rest_code_c0ce200245f447128124a83452675a14-3"></a><span class="n">cell</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">rnn_cell</span><span class="o">.</span><span class="n">LSTMCell</span><span class="p">(</span><span class="n">num_units</span><span class="o">=</span><span class="n">n_hidden</span><span class="p">)</span>
-<a name="rest_code_c0ce200245f447128124a83452675a14-4"></a><span class="n">rnn_out</span><span class="p">,</span> <span class="n">final_states</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">dynamic_rnn</span><span class="p">(</span>
-<a name="rest_code_c0ce200245f447128124a83452675a14-5"></a>    <span class="n">cell</span><span class="o">=</span><span class="n">cell</span><span class="p">,</span>
-<a name="rest_code_c0ce200245f447128124a83452675a14-6"></a>    <span class="n">inputs</span><span class="o">=</span><span class="n">inputs</span><span class="p">,</span>
-<a name="rest_code_c0ce200245f447128124a83452675a14-7"></a>    <span class="n">initial_state</span><span class="o">=</span><span class="n">last_state</span><span class="p">)</span>
-<a name="rest_code_c0ce200245f447128124a83452675a14-8"></a>
-<a name="rest_code_c0ce200245f447128124a83452675a14-9"></a><span class="c1"># and after to assign new value to last state we should use small trick</span>
-<a name="rest_code_c0ce200245f447128124a83452675a14-10"></a><span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">control_dependencies</span><span class="p">([</span><span class="n">tf</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">last_state</span><span class="p">,</span> <span class="n">final_states</span><span class="p">)]):</span>
-<a name="rest_code_c0ce200245f447128124a83452675a14-11"></a>    <span class="n">rnn_out</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="n">rnn_out</span><span class="p">)</span>
+<pre class="code python"><a name="rest_code_f614ddfd1a04497087cfd06a48dfcc29-1"></a><span class="c1"># inside model definition</span>
+<a name="rest_code_f614ddfd1a04497087cfd06a48dfcc29-2"></a><span class="n">last_state</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">n_hidden</span><span class="p">]),</span> <span class="n">trainable</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<a name="rest_code_f614ddfd1a04497087cfd06a48dfcc29-3"></a><span class="n">cell</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">rnn_cell</span><span class="o">.</span><span class="n">LSTMCell</span><span class="p">(</span><span class="n">num_units</span><span class="o">=</span><span class="n">n_hidden</span><span class="p">)</span>
+<a name="rest_code_f614ddfd1a04497087cfd06a48dfcc29-4"></a><span class="n">rnn_out</span><span class="p">,</span> <span class="n">final_states</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">dynamic_rnn</span><span class="p">(</span>
+<a name="rest_code_f614ddfd1a04497087cfd06a48dfcc29-5"></a>    <span class="n">cell</span><span class="o">=</span><span class="n">cell</span><span class="p">,</span>
+<a name="rest_code_f614ddfd1a04497087cfd06a48dfcc29-6"></a>    <span class="n">inputs</span><span class="o">=</span><span class="n">inputs</span><span class="p">,</span>
+<a name="rest_code_f614ddfd1a04497087cfd06a48dfcc29-7"></a>    <span class="n">initial_state</span><span class="o">=</span><span class="n">last_state</span><span class="p">)</span>
+<a name="rest_code_f614ddfd1a04497087cfd06a48dfcc29-8"></a>
+<a name="rest_code_f614ddfd1a04497087cfd06a48dfcc29-9"></a><span class="c1"># and after to assign new value to last state we should use small trick</span>
+<a name="rest_code_f614ddfd1a04497087cfd06a48dfcc29-10"></a><span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">control_dependencies</span><span class="p">([</span><span class="n">tf</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">last_state</span><span class="p">,</span> <span class="n">final_states</span><span class="p">)]):</span>
+<a name="rest_code_f614ddfd1a04497087cfd06a48dfcc29-11"></a>    <span class="n">rnn_out</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="n">rnn_out</span><span class="p">)</span>
 </pre>
 </div>
 <div class="section" id="run-model-without-gpu">
 <h2><a class="toc-backref" href="#id5">Run model without&nbsp;GPU</a></h2>
 <p>In case you have GPUs on your machine but want to train without them, you should
 just pass additional env variable <cite>CUDA_VISIBLE_DEVICES=&#8221;</cite> during script&nbsp;call.</p>
-<pre class="code bash"><a name="rest_code_0cb44ed04b5c408f99ae09c3f4533407-1"></a>$ <span class="nv">CUDA_VISIBLE_DEVICES</span><span class="o">=</span><span class="s1">''</span> python some_model.py
+<pre class="code bash"><a name="rest_code_3f79e579720441428bfd7c2755694edc-1"></a>$ <span class="nv">CUDA_VISIBLE_DEVICES</span><span class="o">=</span><span class="s1">''</span> python some_model.py
 </pre>
 </div>
 <div class="section" id="change-inline-setting-during-training">
 <h2><a class="toc-backref" href="#id6">Change inline setting during&nbsp;training</a></h2>
-<pre class="code python"><a name="rest_code_d47d5b9db0ea4e12abd834531b3bdc1d-1"></a><span class="n">x</span> <span class="o">=</span> <span class="n">some_tensor</span>
-<a name="rest_code_d47d5b9db0ea4e12abd834531b3bdc1d-2"></a><span class="n">is_training</span> <span class="o">=</span> <span class="n">tflearn</span><span class="o">.</span><span class="n">get_training_mode</span><span class="p">()</span>  <span class="c1"># bool</span>
-<a name="rest_code_d47d5b9db0ea4e12abd834531b3bdc1d-3"></a><span class="c1"># should define as function, because under condition should be callable</span>
-<a name="rest_code_d47d5b9db0ea4e12abd834531b3bdc1d-4"></a><span class="k">def</span> <span class="nf">apply_dropout</span><span class="p">():</span> <span class="c1"># Function to apply when training mode ON.</span>
-<a name="rest_code_d47d5b9db0ea4e12abd834531b3bdc1d-5"></a>     <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">dropout</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">keep_prob</span><span class="p">)</span>
-<a name="rest_code_d47d5b9db0ea4e12abd834531b3bdc1d-6"></a><span class="c1"># Only apply dropout at training time.</span>
-<a name="rest_code_d47d5b9db0ea4e12abd834531b3bdc1d-7"></a><span class="c1"># tf.cond(cond, true_function, false_function)</span>
-<a name="rest_code_d47d5b9db0ea4e12abd834531b3bdc1d-8"></a><span class="n">new_x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">cond</span><span class="p">(</span><span class="n">is_training</span><span class="p">,</span> <span class="n">apply_dropout</span><span class="p">,</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">x</span><span class="p">)</span>
+<pre class="code python"><a name="rest_code_01a9c0e9dc304a67aeeba4acd1dc918d-1"></a><span class="n">x</span> <span class="o">=</span> <span class="n">some_tensor</span>
+<a name="rest_code_01a9c0e9dc304a67aeeba4acd1dc918d-2"></a><span class="n">is_training</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">bool</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[])</span>
+<a name="rest_code_01a9c0e9dc304a67aeeba4acd1dc918d-3"></a><span class="c1"># should define as function, because under condition should be callable</span>
+<a name="rest_code_01a9c0e9dc304a67aeeba4acd1dc918d-4"></a><span class="k">def</span> <span class="nf">apply_dropout</span><span class="p">():</span> <span class="c1"># Function to apply when training mode ON.</span>
+<a name="rest_code_01a9c0e9dc304a67aeeba4acd1dc918d-5"></a>     <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">dropout</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">keep_prob</span><span class="p">)</span>
+<a name="rest_code_01a9c0e9dc304a67aeeba4acd1dc918d-6"></a><span class="c1"># Only apply dropout at training time.</span>
+<a name="rest_code_01a9c0e9dc304a67aeeba4acd1dc918d-7"></a><span class="c1"># tf.cond(cond, true_function, false_function)</span>
+<a name="rest_code_01a9c0e9dc304a67aeeba4acd1dc918d-8"></a><span class="n">new_x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">cond</span><span class="p">(</span><span class="n">is_training</span><span class="p">,</span> <span class="n">apply_dropout</span><span class="p">,</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">x</span><span class="p">)</span>
 </pre>
 </div>
 <div class="section" id="get-last-output-from-rnn">
 <h2><a class="toc-backref" href="#id7">Get last output from&nbsp;rnn</a></h2>
-<pre class="code python"><a name="rest_code_83f97d72e52b4d12b6299f19f43ca3f8-1"></a><span class="n">rnn_out</span><span class="p">,</span> <span class="n">last_state</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">dynamic_rnn</span><span class="p">(</span><span class="o">..</span><span class="p">)</span>
-<a name="rest_code_83f97d72e52b4d12b6299f19f43ca3f8-2"></a><span class="n">rnn_out</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reverse</span><span class="p">(</span><span class="n">rnn_out</span><span class="p">,</span> <span class="p">[</span><span class="bp">False</span><span class="p">,</span> <span class="bp">True</span><span class="p">,</span> <span class="bp">False</span><span class="p">])</span>
-<a name="rest_code_83f97d72e52b4d12b6299f19f43ca3f8-3"></a><span class="n">rnn_out_last</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">slice</span><span class="p">(</span><span class="n">rnn_out</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<pre class="code python"><a name="rest_code_b263232e106b47c99c087afd53e900ca-1"></a><span class="n">rnn_out</span><span class="p">,</span> <span class="n">last_state</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">dynamic_rnn</span><span class="p">(</span><span class="o">..</span><span class="p">)</span>
+<a name="rest_code_b263232e106b47c99c087afd53e900ca-2"></a><span class="n">rnn_out</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reverse</span><span class="p">(</span><span class="n">rnn_out</span><span class="p">,</span> <span class="p">[</span><span class="bp">False</span><span class="p">,</span> <span class="bp">True</span><span class="p">,</span> <span class="bp">False</span><span class="p">])</span>
+<a name="rest_code_b263232e106b47c99c087afd53e900ca-3"></a><span class="n">rnn_out_last</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">slice</span><span class="p">(</span><span class="n">rnn_out</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 </pre>
 </div>
 <div class="section" id="batch-normalization">
@@ -247,48 +245,43 @@ Also due to internal shift <span class="math">\(\beta\)</span> existed in BN bia
 <p>If we apply <a class="reference external" href="https://www.tensorflow.org/api_docs/python/contrib.layers/higher_level_ops_for_building_neural_network_layers_#batch_norm">batch norm layer from tensorflow</a>
 we should clear declare param <cite>is_training=True/False</cite> during training/inference. Because for training and inference different approaches used by BN.
 To understood what exactly each param handled by layer mean - take a look on algorithms 1 and 2 descriptions in the <a class="reference external" href="https://arxiv.org/pdf/1502.03167v3.pdf">original paper</a> on pages 3 and 4 accordingly. Really is seems that it&#8217;s enough to use tf contrib layer with all default params only with redefined <cite>scale</cite> param. <span class="math">\(\gamma\)</span> (scale) and <span class="math">\(\beta\)</span> (shift) params will be trainable by&nbsp;default.</p>
-<pre class="code python"><a name="rest_code_5ffec5ca78df4846ac8585bb896b9451-1"></a><span class="n">inputs</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">contrib</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">batch_norm</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="bp">True</span><span class="p">))</span>
-<a name="rest_code_5ffec5ca78df4846ac8585bb896b9451-2"></a>
-<a name="rest_code_5ffec5ca78df4846ac8585bb896b9451-3"></a><span class="c1"># next lines should be added so Optimizer can find variables to optimize</span>
-<a name="rest_code_5ffec5ca78df4846ac8585bb896b9451-4"></a><span class="n">update_ops</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">get_collection</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">GraphKeys</span><span class="o">.</span><span class="n">UPDATE_OPS</span><span class="p">)</span>
-<a name="rest_code_5ffec5ca78df4846ac8585bb896b9451-5"></a><span class="k">if</span> <span class="n">update_ops</span><span class="p">:</span>
-<a name="rest_code_5ffec5ca78df4846ac8585bb896b9451-6"></a>    <span class="n">updates</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="o">*</span><span class="n">update_ops</span><span class="p">)</span>
-<a name="rest_code_5ffec5ca78df4846ac8585bb896b9451-7"></a>    <span class="n">total_loss</span> <span class="o">=</span> <span class="n">control_flow_ops</span><span class="o">.</span><span class="n">with_dependencies</span><span class="p">([</span><span class="n">updates</span><span class="p">],</span> <span class="n">total_loss</span><span class="p">)</span>
+<pre class="code python"><a name="rest_code_30b9e8152a234f4d86b2b5ed6aad22fa-1"></a><span class="n">logits</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">W</span><span class="p">)</span>
+<a name="rest_code_30b9e8152a234f4d86b2b5ed6aad22fa-2"></a><span class="n">normed_logits</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">contrib</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">batch_norm</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<a name="rest_code_30b9e8152a234f4d86b2b5ed6aad22fa-3"></a><span class="n">output</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">normed_logits</span><span class="p">)</span>
+<a name="rest_code_30b9e8152a234f4d86b2b5ed6aad22fa-4"></a>
+<a name="rest_code_30b9e8152a234f4d86b2b5ed6aad22fa-5"></a><span class="c1"># next lines should be added so Optimizer can find variables to optimize</span>
+<a name="rest_code_30b9e8152a234f4d86b2b5ed6aad22fa-6"></a><span class="n">update_ops</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">get_collection</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">GraphKeys</span><span class="o">.</span><span class="n">UPDATE_OPS</span><span class="p">)</span>
+<a name="rest_code_30b9e8152a234f4d86b2b5ed6aad22fa-7"></a><span class="k">if</span> <span class="n">update_ops</span><span class="p">:</span>
+<a name="rest_code_30b9e8152a234f4d86b2b5ed6aad22fa-8"></a>    <span class="n">updates</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="o">*</span><span class="n">update_ops</span><span class="p">)</span>
+<a name="rest_code_30b9e8152a234f4d86b2b5ed6aad22fa-9"></a>    <span class="n">total_loss</span> <span class="o">=</span> <span class="n">control_flow_ops</span><span class="o">.</span><span class="n">with_dependencies</span><span class="p">([</span><span class="n">updates</span><span class="p">],</span> <span class="n">total_loss</span><span class="p">)</span>
 </pre>
 <p>Maybe sometimes easier use <em>in place</em> update of alpha and beta. In docs was mentioned that this approach can be a little bit slower, but at least it less boilerplate. Also for training flag it may be conveniently to use tflearn train&nbsp;flags</p>
-<pre class="code python"><a name="rest_code_deeb1a4bcdc64ba3881245e333a6db8d-1"></a><span class="c1"># somewhere at training start</span>
-<a name="rest_code_deeb1a4bcdc64ba3881245e333a6db8d-2"></a><span class="n">tflearn</span><span class="o">.</span><span class="n">is_training</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
-<a name="rest_code_deeb1a4bcdc64ba3881245e333a6db8d-3"></a>
-<a name="rest_code_deeb1a4bcdc64ba3881245e333a6db8d-4"></a><span class="c1"># inside layers</span>
-<a name="rest_code_deeb1a4bcdc64ba3881245e333a6db8d-5"></a><span class="n">is_training</span> <span class="o">=</span> <span class="n">tflearn</span><span class="o">.</span><span class="n">get_training_mode</span><span class="p">()</span>
-<a name="rest_code_deeb1a4bcdc64ba3881245e333a6db8d-6"></a><span class="n">output</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">contrib</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">batch_norm</span><span class="p">(</span>
-<a name="rest_code_deeb1a4bcdc64ba3881245e333a6db8d-7"></a>    <span class="n">_input</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">is_training</span><span class="o">=</span><span class="n">is_training</span><span class="p">,</span>
-<a name="rest_code_deeb1a4bcdc64ba3881245e333a6db8d-8"></a>    <span class="n">updates_collections</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+<pre class="code python"><a name="rest_code_c84f4d39adf64484b122ff6ea7d46f30-1"></a><span class="n">is_training</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">bool</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[])</span>
+<a name="rest_code_c84f4d39adf64484b122ff6ea7d46f30-2"></a>
+<a name="rest_code_c84f4d39adf64484b122ff6ea7d46f30-3"></a><span class="n">output</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">contrib</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">batch_norm</span><span class="p">(</span>
+<a name="rest_code_c84f4d39adf64484b122ff6ea7d46f30-4"></a>    <span class="n">_input</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">is_training</span><span class="o">=</span><span class="n">is_training</span><span class="p">,</span>
+<a name="rest_code_c84f4d39adf64484b122ff6ea7d46f30-5"></a>    <span class="n">updates_collections</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
 </pre>
 </div>
 <div class="section" id="applying-weights-regularization">
 <h2><a class="toc-backref" href="#id9">Applying weights&nbsp;regularization</a></h2>
-<pre class="code python"><a name="rest_code_7e7cda5ec5dd4be5835d439076cef92e-1"></a><span class="c1"># some usual loss definition as cross-entropy or MSE</span>
-<a name="rest_code_7e7cda5ec5dd4be5835d439076cef92e-2"></a><span class="n">initial_loss</span> <span class="o">=</span> <span class="n">cross_entropy</span>
-<a name="rest_code_7e7cda5ec5dd4be5835d439076cef92e-3"></a><span class="n">l2_loss</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">add_n</span><span class="p">(</span>
-<a name="rest_code_7e7cda5ec5dd4be5835d439076cef92e-4"></a>    <span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">l2_loss</span><span class="p">(</span><span class="n">var</span><span class="p">)</span> <span class="k">for</span> <span class="n">var</span> <span class="ow">in</span> <span class="n">tf</span><span class="o">.</span><span class="n">trainable_variables</span><span class="p">()])</span>
-<a name="rest_code_7e7cda5ec5dd4be5835d439076cef92e-5"></a>
-<a name="rest_code_7e7cda5ec5dd4be5835d439076cef92e-6"></a><span class="n">optimizer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">SomeOptimizer</span><span class="p">(</span><span class="n">learning_rate</span><span class="p">)</span>
-<a name="rest_code_7e7cda5ec5dd4be5835d439076cef92e-7"></a><span class="c1"># now we should minimize sum of initial loss and regularization</span>
-<a name="rest_code_7e7cda5ec5dd4be5835d439076cef92e-8"></a><span class="n">train_step</span> <span class="o">=</span> <span class="n">optimizer</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">cross_entropy</span> <span class="o">+</span> <span class="n">l2_loss</span> <span class="o">*</span> <span class="n">weight_decay</span><span class="p">)</span>
+<pre class="code python"><a name="rest_code_93e4c30ec1834f668b12ab8aed767b4c-1"></a><span class="c1"># some usual loss definition as cross-entropy or MSE</span>
+<a name="rest_code_93e4c30ec1834f668b12ab8aed767b4c-2"></a><span class="n">initial_loss</span> <span class="o">=</span> <span class="n">cross_entropy</span>
+<a name="rest_code_93e4c30ec1834f668b12ab8aed767b4c-3"></a><span class="n">l2_loss</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">add_n</span><span class="p">(</span>
+<a name="rest_code_93e4c30ec1834f668b12ab8aed767b4c-4"></a>    <span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">l2_loss</span><span class="p">(</span><span class="n">var</span><span class="p">)</span> <span class="k">for</span> <span class="n">var</span> <span class="ow">in</span> <span class="n">tf</span><span class="o">.</span><span class="n">trainable_variables</span><span class="p">()])</span>
+<a name="rest_code_93e4c30ec1834f668b12ab8aed767b4c-5"></a>
+<a name="rest_code_93e4c30ec1834f668b12ab8aed767b4c-6"></a><span class="n">optimizer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">SomeOptimizer</span><span class="p">(</span><span class="n">learning_rate</span><span class="p">)</span>
+<a name="rest_code_93e4c30ec1834f668b12ab8aed767b4c-7"></a><span class="c1"># now we should minimize sum of initial loss and regularization</span>
+<a name="rest_code_93e4c30ec1834f668b12ab8aed767b4c-8"></a><span class="n">train_step</span> <span class="o">=</span> <span class="n">optimizer</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">cross_entropy</span> <span class="o">+</span> <span class="n">l2_loss</span> <span class="o">*</span> <span class="n">weight_decay</span><span class="p">)</span>
 </pre>
 </div>
-<div class="section" id="data-readers-simple-explanation">
-<h2><a class="toc-backref" href="#id10">Data Readers simple&nbsp;explanation</a></h2>
-<p>pass</p>
-</div>
-<div class="section" id="tf-py-func-inside-data-readers">
-<h2><a class="toc-backref" href="#id11">tf.py_func inside data&nbsp;readers</a></h2>
-<p>pass</p>
-</div>
-<div class="section" id="variables-and-placeholders-dynamic-shapes-inside-graph">
-<h2><a class="toc-backref" href="#id12">Variables and Placeholders dynamic shapes inside&nbsp;graph</a></h2>
-<p>pass</p>
+<div class="section" id="todo">
+<h2><a class="toc-backref" href="#id10">TODO</a></h2>
+<ul class="simple">
+<li>Data Readers simple&nbsp;explanation</li>
+<li>tf.py_func inside data&nbsp;readers</li>
+<li>Variables and Placeholders dynamic shapes inside&nbsp;graph</li>
+</ul>
 </div>
 </div>
     </div>
