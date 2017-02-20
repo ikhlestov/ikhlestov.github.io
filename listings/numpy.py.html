@@ -97,7 +97,23 @@ MathJax.Hub.Config({
 <a href="#listingsnumpypy-21">21</a>
 <a href="#listingsnumpypy-22">22</a>
 <a href="#listingsnumpypy-23">23</a>
-<a href="#listingsnumpypy-24">24</a></pre></div></td>
+<a href="#listingsnumpypy-24">24</a>
+<a href="#listingsnumpypy-25">25</a>
+<a href="#listingsnumpypy-26">26</a>
+<a href="#listingsnumpypy-27">27</a>
+<a href="#listingsnumpypy-28">28</a>
+<a href="#listingsnumpypy-29">29</a>
+<a href="#listingsnumpypy-30">30</a>
+<a href="#listingsnumpypy-31">31</a>
+<a href="#listingsnumpypy-32">32</a>
+<a href="#listingsnumpypy-33">33</a>
+<a href="#listingsnumpypy-34">34</a>
+<a href="#listingsnumpypy-35">35</a>
+<a href="#listingsnumpypy-36">36</a>
+<a href="#listingsnumpypy-37">37</a>
+<a href="#listingsnumpypy-38">38</a>
+<a href="#listingsnumpypy-39">39</a>
+<a href="#listingsnumpypy-40">40</a></pre></div></td>
 <td class="code"><pre class="code literal-block"><a name="listingsnumpypy-1"></a><span class="c1"># change display methods</span>
 <a name="listingsnumpypy-2"></a><span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <a name="listingsnumpypy-3"></a><span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">suppress</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
@@ -122,6 +138,22 @@ MathJax.Hub.Config({
 <a name="listingsnumpypy-22"></a>
 <a name="listingsnumpypy-23"></a><span class="c1"># Create list of 3 random items form 0 to 255</span>
 <a name="listingsnumpypy-24"></a><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="p">))</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<a name="listingsnumpypy-25"></a>
+<a name="listingsnumpypy-26"></a><span class="c1"># assign values to one line in array(notes for tensorflow)</span>
+<a name="listingsnumpypy-27"></a><span class="n">M_t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<a name="listingsnumpypy-28"></a><span class="c1"># array([[ 0,  1,  2],</span>
+<a name="listingsnumpypy-29"></a><span class="c1">#        [ 3,  4,  5],</span>
+<a name="listingsnumpypy-30"></a><span class="c1">#        [ 6,  7,  8],</span>
+<a name="listingsnumpypy-31"></a><span class="c1">#        [ 9, 10, 11],</span>
+<a name="listingsnumpypy-32"></a><span class="c1">#        [12, 13, 14]])</span>
+<a name="listingsnumpypy-33"></a><span class="n">indexes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<a name="listingsnumpypy-34"></a><span class="n">new_value</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">([</span><span class="mi">101</span><span class="p">,</span> <span class="mi">102</span><span class="p">,</span> <span class="mi">103</span><span class="p">])</span>
+<a name="listingsnumpypy-35"></a><span class="p">(</span><span class="n">M_t</span><span class="o">.</span><span class="n">T</span> <span class="o">*</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="p">(</span><span class="n">indexes</span> <span class="o">-</span><span class="mi">1</span><span class="p">)))</span><span class="o">.</span><span class="n">T</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">indexes</span><span class="p">,</span> <span class="n">new_value</span><span class="p">)</span>
+<a name="listingsnumpypy-36"></a><span class="c1"># array([[  0,   1,   2],</span>
+<a name="listingsnumpypy-37"></a><span class="c1">#        [103, 104, 105],</span>
+<a name="listingsnumpypy-38"></a><span class="c1">#        [  6,   7,   8],</span>
+<a name="listingsnumpypy-39"></a><span class="c1">#        [  9,  10,  11],</span>
+<a name="listingsnumpypy-40"></a><span class="c1">#        [ 12,  13,  14]])</span>
 </pre></td>
 </tr></table>
 </div>
