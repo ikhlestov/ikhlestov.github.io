@@ -22,3 +22,21 @@ reshaped.shape  # (6, 2)
 
 # Create list of 3 random items form 0 to 255
 np.random.randint(0, high=256, size=(3, )).tolist()
+
+# assign values to one line in array(notes for tensorflow)
+M_t = np.arange(15).reshape(5, 3)
+# array([[ 0,  1,  2],
+#        [ 3,  4,  5],
+#        [ 6,  7,  8],
+#        [ 9, 10, 11],
+#        [12, 13, 14]])
+indexes = np.array([0, 1, 0, 0, 0])
+new_value = np.arange([101, 102, 103])
+(M_t.T * (-1 * (indexes -1))).T + np.outer(indexes, new_value)
+# array([[  0,   1,   2],
+#        [103, 104, 105],
+#        [  6,   7,   8],
+#        [  9,  10,  11],
+#        [ 12,  13,  14]])
+
+
