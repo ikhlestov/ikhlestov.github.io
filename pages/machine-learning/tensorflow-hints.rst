@@ -252,6 +252,82 @@ Count trainable params
         total_parameters += variable_parametes
     print("Total training params: %.5fM" % (total_parameters / 1e6))
 
+Handle TensorArrays correct way inside tf.while_loop
+====================================================
+
+Sometimes we want to pass output from one loop step, to next step.
+For this we can use ``tf.TensorArray`` with read and write operations.
+But in case we read and write to same tensorarray inside loop - we should manually set number of available while loop ``parallel_iterations=1``.
+This is because in case of parallel loop execution(parallel_iterations > 1) some thread may try to read info from tensorArray, that was not written to it by another one thread.
+Try to copy/run code snippet below.
+
+.. code-block:: python
+
+    from tensorflow.examples.tutorials import mnist
+    # code require tensorflow verions==1.0
+    import tensorflow as tf
+
+    batch_size = 30
+    BREAK_CODE = True
+    if BREAK_CODE:
+        # fail with this settings
+        parallel_iterations = 10
+    else:
+        # work as expected with this settings
+        parallel_iterations = 1
+
+    _input = tf.placeholder(tf.float32, [batch_size, 784])
+    targets = tf.placeholder(tf.float32, [batch_size, 10])
+
+    input_array = tf.TensorArray(dtype=tf.float32, size=batch_size + 1)
+    output_array = tf.TensorArray(dtype=tf.float32, size=batch_size)
+    one_image = _input[0, :]
+    input_array = input_array.write(0, one_image)
+    W = tf.get_variable('W', [784, 10],
+                        tf.float32, tf.random_uniform_initializer())
+    W_out = tf.get_variable("W_out", [10, 784],
+                            tf.float32, tf.random_uniform_initializer())
+
+
+    def body(i, inp_array, out_array):
+        local_input = inp_array.read(i)
+        local_input_reshaped = tf.reshape(local_input, [1, 784])
+        result = tf.matmul(local_input_reshaped, W)
+        out_array = out_array.write(i, result)
+        next_input = tf.sigmoid(tf.squeeze(tf.matmul(result, W_out), axis=0))
+        inp_array = inp_array.write(i + 1, next_input)
+        return (i + 1, inp_array, out_array)
+
+
+    def cond(i, *args):
+        return i < batch_size
+
+    _, _, output_array = tf.while_loop(
+        cond, body, [0, input_array, output_array],
+        parallel_iterations=parallel_iterations)
+    results = output_array.stack()
+    results = tf.reshape(results, [batch_size, 10])
+
+    loss = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(
+        logits=results, labels=targets))
+    train_op = tf.train.AdamOptimizer().minimize(loss)
+
+    if __name__ == '__main__':
+        mnist_data = mnist.input_data.read_data_sets(
+            "/tmp/MNIST_data/", one_hot=True)
+        steps = 200
+        with tf.Session() as sess:
+            sess.run(tf.global_variables_initializer())
+            for i in range(steps):
+                batch = mnist_data.train.next_batch(batch_size)
+                feed_dict = {
+                    _input: batch[0],
+                    targets: batch[1]
+                }
+                fetches = [loss, train_op, results]
+                res_loss, _, res = sess.run(fetches, feed_dict=feed_dict)
+
+
 TODO
 ====
 
