@@ -75,3 +75,8 @@ One Shot Learning
 
 + `Matching Networks for One Shot Learning <https://arxiv.org/pdf/1606.04080v1.pdf>`__ - one shot learning from Google Deep Mind for image net
 + `The More You Know: Using Knowledge Graphs for Image Classification <https://arxiv.org/pdf/1612.04844v1.pdf>`__
+
+Benchmarks
+==========
+
++ `DeepBench <https://github.com/baidu-research/DeepBench>`__ Benchmarking Deep Learning operations on different hardware

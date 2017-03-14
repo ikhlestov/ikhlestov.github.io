@@ -201,6 +201,8 @@ The idea of regularization is to add an extra term to the cost function, a term 
 
 Regularization term for :math:`L_p` norm can be computed as :math:`||x||_{p}=(\sum_{i}|x_{i}|^{p})^{1/p}`.
 
+Great explanation can be found `on stackoverflow <http://stackoverflow.com/questions/32276391/feature-normalization-advantage-of-l2-normalization>`__
+
 Bias and variance
 =================
 

@@ -8,6 +8,7 @@
 .. type: text
 .. author: Illarion Khlestov
 
+.. contents:: Contents:
 
 4.1 Overflow and underflow
 ==========================
