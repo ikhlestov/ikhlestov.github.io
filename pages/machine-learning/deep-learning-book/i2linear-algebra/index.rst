@@ -8,6 +8,8 @@
 .. type: text
 .. author: Illarion Khlestov
 
+.. contents:: Contents:
+
 If you need just quick ref - see `The Matrix CookBook <http://www2.imm.dtu.dk/pubdb/views/edoc_download.php/3274/pdf/imm3274.pdf>`__.
 For full book about linear algebra - `Shilov 1977 linear algebra <https://cosmathclub.files.wordpress.com/2014/10/georgi-shilov-linear-algebra4.pdf>`__
 
@@ -127,37 +129,93 @@ This implies that :math:`A^{-1} = A^T`.
 Eigendecomposition
 ==================
 
-calledeigen-decomposition, in which we decompose a matrix into a set of eigenvectors andeigenvalues.
-Aneigenvectorof a square matrixAis a non-zero vectorvsuch that multi-plication by A alters only the scale of v:Av = λv.
-The scalarλis known as theeigenvaluecorresponding to this eigenvector.
-Ifvis an eigenvector ofA, then so is any rescaled vectorsvfors ∈ R, s = 0.Moreover,svstill has the same eigenvalue.
+**Edeigen-decomposition** decompose a matrix into a set of eigenvectors and eigenvalues.
+An **eigenvector** of a square matrix :math:`\pmb A` is a non-zero vector :math:`\pmb v` such that multiplication by :math:`\pmb A` alters only the scale of :math:`\pmb v`:
 
-Suppose that a matrixAhasnlinearly independent eigenvectors,{v(1), . . . ,v(n)}, with corresponding eigenvalues{λ1, . . . , λn}. We may concatenate all of the
-igenvectors to form a matrixVwith one eigenvector per column:V= [v(1), . . . ,v(n)]. Likewise, we can concatenate the eigenvalues to form a vectorλ= [λ1, . . . ,λn]. The eigendecomposition of A is then given byA = V diag(λ)V−1
+.. math::
+    
+    \pmb{Av} = \lambda \pmb{v}.
 
-every real symmetricmatrix can be decomposed into an expression using only real-valued eigenvectorsand eigenvalues:A = QΛQ, (2.41)whereQis an orthogonal matrix composed of eigenvectors ofA, andΛis adiagonal matrix. The eigenvalue Λi,iis associated with the eigenvector in columniofQ, denoted asQ:,i. BecauseQis an orthogonal matrix, we can think ofAasscaling space by λiin direction v(i).
+The scalar :math:`\lambda` is known as the **eigenvalue** corresponding to this eigenvector.
+If :math:`\pmb v` is an eigenvector of :math:`\pmb A`, then so is any rescaled vector :math:`\pmb{sv}` for :math:`\pmb{s} \in \mathbb{R}, s \neq 0`. 
+Moreover, :math:`\pmb{sv}` still has the same eigenvalue.
+For this reason, we usually only look for unit eigenvectors.
 
-While any real symmetric matrixAis guaranteed to have an eigendecomposi-tion, the eigendecomposition may not be unique. If any two or more eigenvectorsshare the same eigenvalue, then any set of orthogonal vectors lying in their spanare also eigenvectors with that eigenvalue, and we could equivalently choose aQusing those eigenvectors instead. By convention, we usually sort the entries ofΛin descending order. Under this convention, the eigendecomposition is unique onlyif all of the eigenvalues are unique.
+Suppose that a matrix :math:`\pmb A` has :math:`n` linearly independent eigenvectors,
+:math:`{v^{(1)}, ... ,v^{(n)}}`, with corresponding eigenvalues
+:math:`{\lambda_1, ... , \lambda_n}`.
+We may concatenate all of the eigenvectors to form a matrix :math:`\pmb V` with one eigenvector per column: :math:`\pmb V = [v^{(1)}, ... ,v^{(n)}]`.
+Likewise, we can concatenate the eigenvalues to form a vector
+:math:`\pmb{\lambda}= [\lambda_1, ... ,\lambda_n]^T`.
+The eigendecomposition of :math:`\pmb A` is then given by: 
 
-The matrix is singular if and only if any of the eigenvalues are zero.The eigendecomposition of a real symmetric matrix can also be used to optimizequadratic expressions of the formf(x) =xAxsubject to||x||2= 1. Wheneverxis equal to an eigenvector ofA,ftakes on the value of the corresponding eigenvalue.The maximum value offwithin the constraint region is the maximum eigenvalueand its minimum value within the constraint region is the minimum eigenvalue.
+.. math::
 
-A matrix whose eigenvalues are all positive is calledpositive deﬁnite. Amatrix whose eigenvalues are all positive or zero-valued is calledpositive semideﬁ-nite.
-Positivesemideﬁnite matrices are interesting because they guarantee that∀x, xAx ≥0.Positive deﬁnite matrices additionally guarantee that xAx = 0 ⇒ x = 0.
+    \pmb A = \pmb V diag(\pmb{\lambda}) \pmb V^{−1}
+
+Not every matrix can be decomposed into eigenvalues and eigenvectors.
+Every real symmetricmatrix can be decomposed into an expression using only real-valued eigenvectors and eigenvalues:
+
+.. math::
+    
+    \pmb A = \pmb{Q \wedge Q}^T
+
+where :math:`\pmb Q` is an orthogonal matrix composed of eigenvectors of :math:`\pmb A`,
+and :math:`\pmb{\wedge}` is a diagonal matrix.
+The eigenvalue :math:`\wedge_{i,i}` is associated with the eigenvector in columni of
+:math:`\pmb{Q}`, denoted as :math:`\pmb{Q}_{:,i}`.
+Because :math:`\pmb{Q}` is an orthogonal matrix, we can think of :math:`\pmb{A}` as scaling space by :math:`\lambda_i` in direction :math:`\pmb{v}^{(i)}`.
+
+While any real symmetric matrix :math:`\pmb{A}` is guaranteed to have an eigendecomposition, the eigendecomposition may not be unique.
+If any two or more eigenvectors share the same eigenvalue, then any set of orthogonal vectors lying in their span are also eigenvectors with that eigenvalue, and we could equivalently choose a :math:`\pmb{Q}` using those eigenvectors instead.
+By convention, we usually sort the entries of :math:`\pmb{\wedge}` in descending order.
+Under this convention, the eigendecomposition is unique only if all of the eigenvalues are unique.
+
+The matrix is singular if and only if any of the eigenvalues are zero.
+The eigendecomposition of a real symmetric matrix can also be used to optimize quadratic expressions of the form :math:`f(\pmb{x}) = \pmb{x}^T \pmb{Ax}`
+subject to :math:`||\pmb{x}||_2 = 1`.
+Whenever :math:`\pmb x` is equal to an eigenvector of :math:`\pmb A`, :math:`f` takes on the value of the corresponding eigenvalue.
+The maximum value of :math:`f` within the constraint region is the maximum eigenvalue and its minimum value within the constraint region is the minimum eigenvalue.
+
+A matrix whose eigenvalues are all positive is called **positive definite**.
+A matrix whose eigenvalues are all positive or zero-valued is called **positive semidefinite**.
+Positive semidefinite matrices are interesting because they guarantee that 
+:math:`\forall \pmb x, \pmb{x}^T \pmb{Ax} \geq 0`.
+Positive definite matrices additionally guarantee that
+:math:`\pmb{x}^T \pmb{Ax} = 0 \Rightarrow \pmb x = 0`.
 
 Singular Value Decomposition
 =============================
 
-Thesingular value decomposition(SVD) provides another way to factorizea matrix, intosingular vectorsandsingular values.
-Every real matrix has a singular valuedecomposition, but the same is not true of the eigenvalue decomposition.
-Forexample, if a matrix is not square, the eigendecomposition is not deﬁned, and wemust use a singular value decomposition instead.
+The **singular value decomposition** (SVD) provides another way to factorize a matrix, into **singular vectors** and **singular values**.
+Every real matrix has a singular value decomposition, but the same is not true of the eigenvalue decomposition.
+For example, if a matrix is not square, the eigendecomposition is not deﬁned, and we must use a singular value decomposition instead.
 
-The singular value decomposition is similar, except this time we will writeAas a product of three matrices:A = U DV.
+The singular value decomposition is similar to eigendecomposition, except this time we will write :math:`\pmb A` as a product of three matrices:
 
-Suppose thatAis anm ×nmatrix. ThenUis deﬁned to be anm ×mmatrix,D to be an m × n matrix, and V to be an n ×n matrix
-Each of these matrices is deﬁned to have a special structure. The matricesUandVare both deﬁned to be orthogonal matrices. The matrixDis deﬁned to bea diagonal matrix. Note that D is not necessarily square
+.. math::
+    
+    \pmb A = \pmb{U DV}^T
 
-The elements along the diagonal ofDare known as thesingular valuesofthe matrixA. The columns ofUare known as theleft-singular vectors. Thecolumns of V are known as as the right-singular vectors.
-We can actually interpret the singular value decomposition ofAin terms ofthe eigendecomposition of functions ofA. The left-singular vectors ofAare theeigenvectors ofAA. The right-singular vectors ofAare the eigenvectors ofAA.The non-zero singular values ofAare the square roots of the eigenvalues ofAA.The same is true for AA.
+Suppose that :math:`\pmb A` is an *m* x *n* matrix.
+Then :math:`\pmb U` is deﬁned to be an *m* x *m* matrix,
+:math:`\pmb D` to be an *m* x *n* matrix,
+and :math:`\pmb V` to be an *n* x *n* matrix.
+
+Each of these matrices is defined to have a special structure.
+The matrices :math:`\pmb U` and :math:`\pmb V` are both defined to be orthogonal matrices.
+The matrix :math:`\pmb D` is defined to bea diagonal matrix.
+Note that :math:`\pmb D` is not necessarily square.
+
+The elements along the diagonal of :math:`\pmb D` are known as the **singular values** of the matrix :math:`\pmb A` .
+The columns of :math:`\pmb U` are known as the **left-singular vectors**.
+The columns of :math:`\pmb V` are known as as the **right-singular vectors**.
+
+We can actually interpret the singular value decomposition of :math:`\pmb A` in terms of the eigendecomposition of functions of :math:`\pmb A`.
+The left-singular vectors of :math:`\pmb A` are theeigenvectors of :math:`\pmb{AA}^T`.
+The right-singular vectors of :math:`\pmb A` are the eigenvectors of
+:math:`\pmb{A}^T\pmb{A}` .
+The non-zero singular values of :math:`\pmb A` are the square roots of the eigenvalues of :math:`\pmb{A}^T\pmb{A}` . The same is true for :math:`\pmb{AA}^T` .
 
 Moore-Penrose pseudoinverse
 ===========================

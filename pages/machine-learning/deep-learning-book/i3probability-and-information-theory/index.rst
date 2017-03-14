@@ -8,6 +8,8 @@
 .. type: text
 .. author: Illarion Khlestov
 
+.. contents:: Contents:
+
 In many cases, it is more practical to use a simple but uncertain rule rather than a complex but certain one, even if the true rule is deterministic and our modeling system has the fidelity to accommodate a complex rule.
 
 When we say that an outcome has a probability :math:`p` of occurring, it means that if we repeated the experiment infinitely many times, then proportion :math:`p` of the repetitions would result in that outcome.

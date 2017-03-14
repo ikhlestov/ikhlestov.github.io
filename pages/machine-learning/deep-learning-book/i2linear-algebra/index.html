@@ -19,15 +19,20 @@ MathJax.Hub.Config({
 <meta property="og:site_name" content="Illarion Khlestov Blog">
 <meta property="og:title" content="I.2.Linear Algebra">
 <meta property="og:url" content="https://ikhlestov.github.io/pages/machine-learning/deep-learning-book/i2linear-algebra/">
-<meta property="og:description" content="If you need just quick ref - see The Matrix CookBook.
-For full book about linear algebra - Shilov 1977 linear algebra
+<meta property="og:description" content="Contents:
 
-Scalars
-is just a single number.
-Vectors
-is an array of numbers.
 Matrices
-is a 2-">
+Vectors
+Norms
+Special Kinds of Matrices and Vectors
+Eigendecomposition
+Singular Value Decomposition
+Moore-Penrose pseudoinverse
+The Trace Operator
+The Determinant
+
+
+If you need jus">
 <meta property="og:type" content="article">
 <meta property="article:published_time" content="2016-12-15T21:55:43Z">
 </head>
@@ -88,6 +93,20 @@ is a 2-">
         
     </header><div class="e-content entry-content" itemprop="articleBody text">
     <div>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents:</p>
+<ul class="simple">
+<li><a class="reference internal" href="#matrices" id="id1">Matrices</a></li>
+<li><a class="reference internal" href="#vectors" id="id2">Vectors</a></li>
+<li><a class="reference internal" href="#norms" id="id3">Norms</a></li>
+<li><a class="reference internal" href="#special-kinds-of-matrices-and-vectors" id="id4">Special Kinds of Matrices and&nbsp;Vectors</a></li>
+<li><a class="reference internal" href="#eigendecomposition" id="id5">Eigendecomposition</a></li>
+<li><a class="reference internal" href="#singular-value-decomposition" id="id6">Singular Value&nbsp;Decomposition</a></li>
+<li><a class="reference internal" href="#moore-penrose-pseudoinverse" id="id7">Moore-Penrose&nbsp;pseudoinverse</a></li>
+<li><a class="reference internal" href="#the-trace-operator" id="id8">The Trace&nbsp;Operator</a></li>
+<li><a class="reference internal" href="#the-determinant" id="id9">The&nbsp;Determinant</a></li>
+</ul>
+</div>
 <p>If you need just quick ref - see <a class="reference external" href="http://www2.imm.dtu.dk/pubdb/views/edoc_download.php/3274/pdf/imm3274.pdf">The Matrix CookBook</a>.
 For full book about linear algebra - <a class="reference external" href="https://cosmathclub.files.wordpress.com/2014/10/georgi-shilov-linear-algebra4.pdf">Shilov 1977 linear&nbsp;algebra</a></p>
 <dl class="docutils">
@@ -101,7 +120,7 @@ For full book about linear algebra - <a class="reference external" href="https:/
 <dd>an array with more than two&nbsp;axes.</dd>
 </dl>
 <div class="section" id="matrices">
-<h2>Matrices</h2>
+<h2><a class="toc-backref" href="#id1">Matrices</a></h2>
 <p>The product operation of matrices(<strong>matrix product</strong>) <span class="math">\(C = AB\)</span> is defined as <span class="math">\(C_{i,j} = \sum_{k} A_{i,k} B_{j,k}\)</span>.</p>
 <p>Matrix containing the product of the individual elements called the <strong>element-wise product</strong> or <strong>Hadamard product</strong>, and is denoted as <span class="math">\(A \odot B\)</span>.</p>
 <p>Matrix multiplication is distributive <span class="math">\(A(B + C) = AB + AC\)</span>.</p>
@@ -118,7 +137,7 @@ For full book about linear algebra - <a class="reference external" href="https:/
 <p>The <strong>matrix inverse</strong> of <span class="math">\(A\)</span> is denoted as <span class="math">\(A^{-1}\)</span> , and it is defined as the matrix such that <span class="math">\(A A^{-1} = I_{n}\)</span>.</p>
 </div>
 <div class="section" id="vectors">
-<h2>Vectors</h2>
+<h2><a class="toc-backref" href="#id2">Vectors</a></h2>
 <dl class="docutils">
 <dt>Origin</dt>
 <dd>the point specified by the vector of all&nbsp;zeros.</dd>
@@ -133,7 +152,7 @@ For full book about linear algebra - <a class="reference external" href="https:/
 <p>For square matrices the left inverse and right inverse are equal <span class="math">\(AA^{-1}=I\)</span>.</p>
 </div>
 <div class="section" id="norms">
-<h2>Norms</h2>
+<h2><a class="toc-backref" href="#id3">Norms</a></h2>
 <dl class="docutils">
 <dt>Norms</dt>
 <dd>are functions mapping vectors to non-negative values. Can be threated as size of the&nbsp;vector.</dd>
@@ -171,7 +190,7 @@ The <span class="math">\(L^{1}\)</span> norm is commonly used in machine learnin
 <p>where <span class="math">\(\theta\)</span> is the angle between <span class="math">\(x\)</span> and <span class="math">\(y\)</span>.</p>
 </div>
 <div class="section" id="special-kinds-of-matrices-and-vectors">
-<h2>Special Kinds of Matrices and&nbsp;Vectors</h2>
+<h2><a class="toc-backref" href="#id4">Special Kinds of Matrices and&nbsp;Vectors</a></h2>
 <p><strong>Diagonal</strong> matrices consist mostly of zeros and have non-zero entries only alongthe main diagonal.
 We write <span class="math">\(diag(v)\)</span> to denote a square diagonal matrix whose diagonal entries are given by the entries of the vector <span class="math">\(v\)</span>.
 To compute <span class="math">\(diag(v)x\)</span>, we only need to scale each element <span class="math">\(x_i\)</span> by <span class="math">\(v_i\)</span>. In other words, <span class="math">\(diag(v)x = x \odot y\)</span>.
@@ -185,32 +204,88 @@ If the vectors are not only orthogonal but also have unit norm, we call them <st
 This implies that <span class="math">\(A^{-1} = A^T\)</span>.</p>
 </div>
 <div class="section" id="eigendecomposition">
-<h2>Eigendecomposition</h2>
-<p>calledeigen-decomposition, in which we decompose a matrix into a set of eigenvectors andeigenvalues.
-Aneigenvectorof a square matrixAis a non-zero vectorvsuch that multi-plication by A alters only the scale of v:Av = λv.
-The scalarλis known as theeigenvaluecorresponding to this eigenvector.
-Ifvis an eigenvector ofA, then so is any rescaled vectorsvfors ∈ R, s = 0.Moreover,svstill has the same&nbsp;eigenvalue.</p>
-<p>Suppose that a matrixAhasnlinearly independent eigenvectors,{v(1), &#8230; ,v(n)}, with corresponding eigenvalues{λ1, &#8230; , λn}. We may concatenate all of the
-igenvectors to form a matrixVwith one eigenvector per column:V= [v(1), &#8230; ,v(n)]. Likewise, we can concatenate the eigenvalues to form a vectorλ= [λ1, &#8230; ,λn]. The eigendecomposition of A is then given byA = V&nbsp;diag(λ)V−1</p>
-<p>every real symmetricmatrix can be decomposed into an expression using only real-valued eigenvectorsand eigenvalues:A = QΛQ, (2.41)whereQis an orthogonal matrix composed of eigenvectors ofA, andΛis adiagonal matrix. The eigenvalue Λi,iis associated with the eigenvector in columniofQ, denoted asQ:,i. BecauseQis an orthogonal matrix, we can think ofAasscaling space by λiin direction&nbsp;v(i).</p>
-<p>While any real symmetric matrixAis guaranteed to have an eigendecomposi-tion, the eigendecomposition may not be unique. If any two or more eigenvectorsshare the same eigenvalue, then any set of orthogonal vectors lying in their spanare also eigenvectors with that eigenvalue, and we could equivalently choose aQusing those eigenvectors instead. By convention, we usually sort the entries ofΛin descending order. Under this convention, the eigendecomposition is unique onlyif all of the eigenvalues are&nbsp;unique.</p>
-<p>The matrix is singular if and only if any of the eigenvalues are zero.The eigendecomposition of a real symmetric matrix can also be used to optimizequadratic expressions of the formf(x) =xAxsubject to||x||2= 1. Wheneverxis equal to an eigenvector ofA,ftakes on the value of the corresponding eigenvalue.The maximum value offwithin the constraint region is the maximum eigenvalueand its minimum value within the constraint region is the minimum&nbsp;eigenvalue.</p>
-<p>A matrix whose eigenvalues are all positive is calledpositive deﬁnite. Amatrix whose eigenvalues are all positive or zero-valued is calledpositive semideﬁ-nite.
-Positivesemideﬁnite matrices are interesting because they guarantee that∀x, xAx ≥0.Positive deﬁnite matrices additionally guarantee that xAx = 0 ⇒ x =&nbsp;0.</p>
+<h2><a class="toc-backref" href="#id5">Eigendecomposition</a></h2>
+<p><strong>Edeigen-decomposition</strong> decompose a matrix into a set of eigenvectors and eigenvalues.
+An <strong>eigenvector</strong> of a square matrix <span class="math">\(\pmb A\)</span> is a non-zero vector <span class="math">\(\pmb v\)</span> such that multiplication by <span class="math">\(\pmb A\)</span> alters only the scale of <span class="math">\(\pmb v\)</span>:</p>
+<div class="math">
+\begin{equation*}
+\pmb{Av} = \lambda \pmb{v}.
+\end{equation*}
+</div>
+<p>The scalar <span class="math">\(\lambda\)</span> is known as the <strong>eigenvalue</strong> corresponding to this eigenvector.
+If <span class="math">\(\pmb v\)</span> is an eigenvector of <span class="math">\(\pmb A\)</span>, then so is any rescaled vector <span class="math">\(\pmb{sv}\)</span> for <span class="math">\(\pmb{s} \in \mathbb{R}, s \neq 0\)</span>.
+Moreover, <span class="math">\(\pmb{sv}\)</span> still has the same eigenvalue.
+For this reason, we usually only look for unit&nbsp;eigenvectors.</p>
+<p>Suppose that a matrix <span class="math">\(\pmb A\)</span> has <span class="math">\(n\)</span> linearly independent eigenvectors,
+<span class="math">\({v^{(1)}, &#8230; ,v^{(n)}}\)</span>, with corresponding eigenvalues
+<span class="math">\({\lambda_1, &#8230; , \lambda_n}\)</span>.
+We may concatenate all of the eigenvectors to form a matrix <span class="math">\(\pmb V\)</span> with one eigenvector per column: <span class="math">\(\pmb V = [v^{(1)}, &#8230; ,v^{(n)}]\)</span>.
+Likewise, we can concatenate the eigenvalues to form a vector
+<span class="math">\(\pmb{\lambda}= [\lambda_1, &#8230; ,\lambda_n]^T\)</span>.
+The eigendecomposition of <span class="math">\(\pmb A\)</span> is then given&nbsp;by:</p>
+<div class="math">
+\begin{equation*}
+\pmb A = \pmb V diag(\pmb{\lambda}) \pmb V^{-1}
+\end{equation*}
+</div>
+<p>Not every matrix can be decomposed into eigenvalues and eigenvectors.
+Every real symmetricmatrix can be decomposed into an expression using only real-valued eigenvectors and&nbsp;eigenvalues:</p>
+<div class="math">
+\begin{equation*}
+\pmb A = \pmb{Q \wedge Q}^T
+\end{equation*}
+</div>
+<p>where <span class="math">\(\pmb Q\)</span> is an orthogonal matrix composed of eigenvectors of <span class="math">\(\pmb A\)</span>,
+and <span class="math">\(\pmb{\wedge}\)</span> is a diagonal matrix.
+The eigenvalue <span class="math">\(\wedge_{i,i}\)</span> is associated with the eigenvector in columni of
+<span class="math">\(\pmb{Q}\)</span>, denoted as <span class="math">\(\pmb{Q}_{:,i}\)</span>.
+Because <span class="math">\(\pmb{Q}\)</span> is an orthogonal matrix, we can think of <span class="math">\(\pmb{A}\)</span> as scaling space by <span class="math">\(\lambda_i\)</span> in direction <span class="math">\(\pmb{v}^{(i)}\)</span>.</p>
+<p>While any real symmetric matrix <span class="math">\(\pmb{A}\)</span> is guaranteed to have an eigendecomposition, the eigendecomposition may not be unique.
+If any two or more eigenvectors share the same eigenvalue, then any set of orthogonal vectors lying in their span are also eigenvectors with that eigenvalue, and we could equivalently choose a <span class="math">\(\pmb{Q}\)</span> using those eigenvectors instead.
+By convention, we usually sort the entries of <span class="math">\(\pmb{\wedge}\)</span> in descending order.
+Under this convention, the eigendecomposition is unique only if all of the eigenvalues are&nbsp;unique.</p>
+<p>The matrix is singular if and only if any of the eigenvalues are zero.
+The eigendecomposition of a real symmetric matrix can also be used to optimize quadratic expressions of the form <span class="math">\(f(\pmb{x}) = \pmb{x}^T \pmb{Ax}\)</span>
+subject to <span class="math">\(||\pmb{x}||_2 = 1\)</span>.
+Whenever <span class="math">\(\pmb x\)</span> is equal to an eigenvector of <span class="math">\(\pmb A\)</span>, <span class="math">\(f\)</span> takes on the value of the corresponding eigenvalue.
+The maximum value of <span class="math">\(f\)</span> within the constraint region is the maximum eigenvalue and its minimum value within the constraint region is the minimum&nbsp;eigenvalue.</p>
+<p>A matrix whose eigenvalues are all positive is called <strong>positive definite</strong>.
+A matrix whose eigenvalues are all positive or zero-valued is called <strong>positive semidefinite</strong>.
+Positive semidefinite matrices are interesting because they guarantee that
+<span class="math">\(\forall \pmb x, \pmb{x}^T \pmb{Ax} \geq 0\)</span>.
+Positive definite matrices additionally guarantee that
+<span class="math">\(\pmb{x}^T \pmb{Ax} = 0 \Rightarrow \pmb x = 0\)</span>.</p>
 </div>
 <div class="section" id="singular-value-decomposition">
-<h2>Singular Value&nbsp;Decomposition</h2>
-<p>Thesingular value decomposition(SVD) provides another way to factorizea matrix, intosingular vectorsandsingular values.
-Every real matrix has a singular valuedecomposition, but the same is not true of the eigenvalue decomposition.
-Forexample, if a matrix is not square, the eigendecomposition is not deﬁned, and wemust use a singular value decomposition&nbsp;instead.</p>
-<p>The singular value decomposition is similar, except this time we will writeAas a product of three matrices:A = U&nbsp;DV.</p>
-<p>Suppose thatAis anm ×nmatrix. ThenUis deﬁned to be anm ×mmatrix,D to be an m × n matrix, and V to be an n ×n matrix
-Each of these matrices is deﬁned to have a special structure. The matricesUandVare both deﬁned to be orthogonal matrices. The matrixDis deﬁned to bea diagonal matrix. Note that D is not necessarily&nbsp;square</p>
-<p>The elements along the diagonal ofDare known as thesingular valuesofthe matrixA. The columns ofUare known as theleft-singular vectors. Thecolumns of V are known as as the right-singular vectors.
-We can actually interpret the singular value decomposition ofAin terms ofthe eigendecomposition of functions ofA. The left-singular vectors ofAare theeigenvectors ofAA. The right-singular vectors ofAare the eigenvectors ofAA.The non-zero singular values ofAare the square roots of the eigenvalues ofAA.The same is true for&nbsp;AA.</p>
+<h2><a class="toc-backref" href="#id6">Singular Value&nbsp;Decomposition</a></h2>
+<p>The <strong>singular value decomposition</strong> (SVD) provides another way to factorize a matrix, into <strong>singular vectors</strong> and <strong>singular values</strong>.
+Every real matrix has a singular value decomposition, but the same is not true of the eigenvalue decomposition.
+For example, if a matrix is not square, the eigendecomposition is not deﬁned, and we must use a singular value decomposition&nbsp;instead.</p>
+<p>The singular value decomposition is similar to eigendecomposition, except this time we will write <span class="math">\(\pmb A\)</span> as a product of three&nbsp;matrices:</p>
+<div class="math">
+\begin{equation*}
+\pmb A = \pmb{U DV}^T
+\end{equation*}
+</div>
+<p>Suppose that <span class="math">\(\pmb A\)</span> is an <em>m</em> x <em>n</em> matrix.
+Then <span class="math">\(\pmb U\)</span> is deﬁned to be an <em>m</em> x <em>m</em> matrix,
+<span class="math">\(\pmb D\)</span> to be an <em>m</em> x <em>n</em> matrix,
+and <span class="math">\(\pmb V\)</span> to be an <em>n</em> x <em>n</em>&nbsp;matrix.</p>
+<p>Each of these matrices is defined to have a special structure.
+The matrices <span class="math">\(\pmb U\)</span> and <span class="math">\(\pmb V\)</span> are both defined to be orthogonal matrices.
+The matrix <span class="math">\(\pmb D\)</span> is defined to bea diagonal matrix.
+Note that <span class="math">\(\pmb D\)</span> is not necessarily&nbsp;square.</p>
+<p>The elements along the diagonal of <span class="math">\(\pmb D\)</span> are known as the <strong>singular values</strong> of the matrix <span class="math">\(\pmb A\)</span> .
+The columns of <span class="math">\(\pmb U\)</span> are known as the <strong>left-singular vectors</strong>.
+The columns of <span class="math">\(\pmb V\)</span> are known as as the <strong>right-singular vectors</strong>.</p>
+<p>We can actually interpret the singular value decomposition of <span class="math">\(\pmb A\)</span> in terms of the eigendecomposition of functions of <span class="math">\(\pmb A\)</span>.
+The left-singular vectors of <span class="math">\(\pmb A\)</span> are theeigenvectors of <span class="math">\(\pmb{AA}^T\)</span>.
+The right-singular vectors of <span class="math">\(\pmb A\)</span> are the eigenvectors of
+<span class="math">\(\pmb{A}^T\pmb{A}\)</span> .
+The non-zero singular values of <span class="math">\(\pmb A\)</span> are the square roots of the eigenvalues of <span class="math">\(\pmb{A}^T\pmb{A}\)</span> . The same is true for <span class="math">\(\pmb{AA}^T\)</span>&nbsp;.</p>
 </div>
 <div class="section" id="moore-penrose-pseudoinverse">
-<h2>Moore-Penrose&nbsp;pseudoinverse</h2>
+<h2><a class="toc-backref" href="#id7">Moore-Penrose&nbsp;pseudoinverse</a></h2>
 <p>Suppose we want to make a left-inverse <span class="math">\(B\)</span> of a matrix <span class="math">\(A\)</span>, so that we can solve a linear equation <span class="math">\(Ax = y\)</span> by left-multiplying each side to obtain <span class="math">\(x = By\)</span>.
 Depending on the structure of the problem, it may not be possible to design a unique mapping from <span class="math">\(A\)</span> to <span class="math">\(B\)</span>.</p>
 <p>If <span class="math">\(A\)</span> is taller than it is wide, then it is possible for this equation to have no solution. If <span class="math">\(A\)</span> is wider than it is tall, then there could be multiple possible solutions.
@@ -231,7 +306,7 @@ A^{+} = VD^{+}U^T
 <p>When <span class="math">\(A\)</span> has more rows than columns, it is possible for there to be no solution. In this case, using the pseudoinverse gives us the <span class="math">\(x\)</span> for which <span class="math">\(Ax\)</span> is as close as possible to <span class="math">\(y\)</span> in terms of Euclidean norm <span class="math">\(||Ax - y||_2\)</span>.</p>
 </div>
 <div class="section" id="the-trace-operator">
-<h2>The Trace&nbsp;Operator</h2>
+<h2><a class="toc-backref" href="#id8">The Trace&nbsp;Operator</a></h2>
 <p>Trace operator gives the sum of all of the diagonal entries of a&nbsp;matrix:</p>
 <div class="math">
 \begin{equation*}
@@ -247,7 +322,7 @@ Tr(A) = \sum_i A_{i, i}
 <p>Also: <span class="math">\(Tr(A) = Tr(A^T)\)</span>, and <span class="math">\(Tr(ABC) = Tr(CAB) = Tr(BCA)\)</span>.</p>
 </div>
 <div class="section" id="the-determinant">
-<h2>The&nbsp;Determinant</h2>
+<h2><a class="toc-backref" href="#id9">The&nbsp;Determinant</a></h2>
 <p>The determinant of a square matrix, denoted <span class="math">\(det(A)\)</span>, is a function mapping matrices to real scalars.
 The determinant is equal to the product of all the eigenvalues of the matrix. The absolute value of the determinant can be thought of as a measure of how much multiplication by the matrix expands or contracts space. If the determinant is 0, then space is contracted completely along at least one dimension, causing it to lose all of its volume. If the determinant is 1, then the transformation preserves&nbsp;volume.</p>
 </div>

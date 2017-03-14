@@ -19,10 +19,17 @@ MathJax.Hub.Config({
 <meta property="og:site_name" content="Illarion Khlestov Blog">
 <meta property="og:title" content="I.4.Numerical Computation">
 <meta property="og:url" content="https://ikhlestov.github.io/pages/machine-learning/deep-learning-book/i3numerical/">
-<meta property="og:description" content="4.1 Overflow and underflow
+<meta property="og:description" content="Contents:
+
+4.1 Overflow and underflow
+4.2 Poor Conditioning
+4.3 Gradient-Based Optimization
+
+
+
+4.1 Overflow and underflow
 Problems regarding rounding errors.
-Underﬂow occurs when numbers near zero are rounded to zero.
-Overﬂow occurs when numbers with large magnitude are approximated as \(\infty">
+Underﬂow occurs when numbers near zero are">
 <meta property="og:type" content="article">
 <meta property="article:published_time" content="2017-01-08T14:06:13Z">
 </head>
@@ -83,21 +90,29 @@ Overﬂow occurs when numbers with large magnitude are approximated as \(\infty"
         
     </header><div class="e-content entry-content" itemprop="articleBody text">
     <div>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents:</p>
+<ul class="simple">
+<li><a class="reference internal" href="#overflow-and-underflow" id="id1">4.1 Overflow and&nbsp;underflow</a></li>
+<li><a class="reference internal" href="#poor-conditioning" id="id2">4.2 Poor&nbsp;Conditioning</a></li>
+<li><a class="reference internal" href="#gradient-based-optimization" id="id3">4.3 Gradient-Based&nbsp;Optimization</a></li>
+</ul>
+</div>
 <div class="section" id="overflow-and-underflow">
-<h2>4.1 Overflow and&nbsp;underflow</h2>
+<h2><a class="toc-backref" href="#id1">4.1 Overflow and&nbsp;underflow</a></h2>
 <p>Problems regarding rounding errors.
 <strong>Underﬂow</strong> occurs when numbers near zero are rounded to zero.
 <strong>Overﬂow</strong> occurs when numbers with large magnitude are approximated as <span class="math">\(\infty\)</span> or <span class="math">\(- \infty\)</span>.</p>
 </div>
 <div class="section" id="poor-conditioning">
-<h2>4.2 Poor&nbsp;Conditioning</h2>
+<h2><a class="toc-backref" href="#id2">4.2 Poor&nbsp;Conditioning</a></h2>
 <p>Conditioning refers to how rapidly a function changes with respect to small changes
 in its inputs. Functions that change rapidly when their inputs are perturbed slightly
 can be problematic for scientific computation because rounding errors in the inputs
 can result in large changes in the&nbsp;output.</p>
 </div>
 <div class="section" id="gradient-based-optimization">
-<h2>4.3 Gradient-Based&nbsp;Optimization</h2>
+<h2><a class="toc-backref" href="#id3">4.3 Gradient-Based&nbsp;Optimization</a></h2>
 <p>Optimization refers to the task of either minimizing or maximizing some function <span class="math">\(f (\boldsymbol{x})\)</span> by altering <span class="math">\(x\)</span>.</p>
 <p>The function we want to minimize or maximize is called the <strong>objective function</strong> or <strong>criterion</strong>.
 When we are minimizing it, we may also call it the <strong>cost function</strong>, <strong>loss function</strong> , or <strong>error function</strong>.</p>
