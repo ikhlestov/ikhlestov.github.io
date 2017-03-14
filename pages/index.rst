@@ -19,6 +19,7 @@ Machine Learning:
 * :doc:`tensorflow-hints`
 * :doc:`general-ml-notes`
 * :doc:`ml-knowledge-base`
+* :doc:`quck_ref`
 
 Python related:
 
