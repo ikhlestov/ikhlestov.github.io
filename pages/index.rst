@@ -14,6 +14,7 @@ Machine Learning:
 
 * :doc:`definitions`
 * `Deep Learning Book <machine-learning/deep-learning-book>`_
+* `cs231n notes <machine-learning/cs231n>`__
 * :doc:`ml-bookmarks`
 * :doc:`models-architectures`
 * :doc:`tensorflow-hints`
