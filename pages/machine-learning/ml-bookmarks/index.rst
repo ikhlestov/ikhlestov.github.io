@@ -67,7 +67,7 @@ Other Topics
 + `Set parameter for one network from another(Learning to learn by gradient descent by gradient descent) <https://arxiv.org/pdf/1606.04474.pdf>`__
 + `NIPS 2016 Tutorial: Generative Adversarial Network <https://arxiv.org/pdf/1701.00160v1.pdf>`__
 + Gumbel-Softmax at Categorical Variational Autoencoders - `blog post <http://blog.evjang.com/2016/11/tutorial-categorical-variational.html>`__. Categorical Reparameterization with Gumbel-Softmax `original paper <https://arxiv.org/pdf/1611.01144.pdf>`__
-
++ `A Few Useful Things to Know about Machine Learning <http://homes.cs.washington.edu/~pedrod/papers/cacm12.pdf>`__ from cs231n course.
 
 
 One Shot Learning
