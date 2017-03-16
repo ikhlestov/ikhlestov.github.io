@@ -12,3 +12,5 @@ Some notes based on `cs231n stanford course <http://cs231n.stanford.edu/index.ht
 Syllabus can be found `here <http://cs231n.stanford.edu/syllabus.html>`__. Lecture videos `here <https://www.youtube.com/playlist?list=PLkt2uSq6rBVctENoVBg1TpCC7OQi31AlC>`__
 
 * `Image classification and the data-driven approach, k-nearest neighbor <link://slug/1_image_classification>`__
+* `Linear classification <link://slug/2_linear_classification>`__
+* `Optimization <link://slug/3_optimization>`__

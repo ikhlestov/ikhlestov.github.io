@@ -203,3 +203,8 @@ Regularization term for :math:`L_p` norm can be computed as :math:`||x||_{p}=(\s
 
 Great explanation can be found `on stackoverflow <http://stackoverflow.com/questions/32276391/feature-normalization-advantage-of-l2-normalization>`__ 
 or `here <http://stats.stackexchange.com/questions/163388/l2-regularization-is-equivalent-to-gaussian-prior>`__
+
+Subgradient
+===========
+
+Something used for not differentiable functions. SHould be filled.
