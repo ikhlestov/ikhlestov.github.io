@@ -117,6 +117,7 @@ Stochastic gradient des">
 <li><a class="reference internal" href="#covariance-and-correlation" id="id13">Covariance and&nbsp;correlation</a></li>
 <li><a class="reference internal" href="#pca" id="id14">PCA</a></li>
 <li><a class="reference internal" href="#l1-l2-normalization" id="id15">L1/ L2&nbsp;normalization</a></li>
+<li><a class="reference internal" href="#subgradient" id="id16">Subgradient</a></li>
 </ul>
 </div>
 <div class="section" id="math">
@@ -126,19 +127,19 @@ Stochastic gradient des">
 <img alt="https://wikimedia.org/api/rest_v1/media/math/render/svg/780671bdfb3fab93187156d2c226df6fe36746fe" src="https://wikimedia.org/api/rest_v1/media/math/render/svg/780671bdfb3fab93187156d2c226df6fe36746fe"><div class="figure">
 <img alt="https://wikimedia.org/api/rest_v1/media/math/render/svg/24e439c972de89fb94297419cab45c58f1a32c43" src="https://wikimedia.org/api/rest_v1/media/math/render/svg/24e439c972de89fb94297419cab45c58f1a32c43">
 </div>
-<pre class="code python"><a name="rest_code_576e574250ae4311b4cf45118055ac86-1"></a><span class="c1"># shape (2, 3)</span>
-<a name="rest_code_576e574250ae4311b4cf45118055ac86-2"></a><span class="n">A</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
-<a name="rest_code_576e574250ae4311b4cf45118055ac86-3"></a>     <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]]</span>
-<a name="rest_code_576e574250ae4311b4cf45118055ac86-4"></a><span class="c1"># shape (3, 2)</span>
-<a name="rest_code_576e574250ae4311b4cf45118055ac86-5"></a><span class="n">B</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span>
-<a name="rest_code_576e574250ae4311b4cf45118055ac86-6"></a>     <span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span>
-<a name="rest_code_576e574250ae4311b4cf45118055ac86-7"></a>     <span class="p">[</span><span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">]]</span>
-<a name="rest_code_576e574250ae4311b4cf45118055ac86-8"></a>
-<a name="rest_code_576e574250ae4311b4cf45118055ac86-9"></a><span class="c1"># shape (2, 2)</span>
-<a name="rest_code_576e574250ae4311b4cf45118055ac86-10"></a><span class="n">Z</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span> <span class="o">*</span> <span class="mi">7</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="mi">9</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">1</span> <span class="o">*</span> <span class="mi">8</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="mi">12</span><span class="p">],</span>
-<a name="rest_code_576e574250ae4311b4cf45118055ac86-11"></a>     <span class="p">[</span><span class="mi">4</span> <span class="o">*</span> <span class="mi">7</span> <span class="o">+</span> <span class="mi">5</span> <span class="o">*</span> <span class="mi">9</span> <span class="o">+</span> <span class="mi">6</span> <span class="o">*</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">4</span> <span class="o">*</span> <span class="mi">8</span> <span class="o">+</span> <span class="mi">5</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">+</span> <span class="mi">6</span> <span class="o">*</span> <span class="mi">12</span><span class="p">]]</span>
-<a name="rest_code_576e574250ae4311b4cf45118055ac86-12"></a><span class="c1"># multiply row of A by the column of B and sum the result</span>
-<a name="rest_code_576e574250ae4311b4cf45118055ac86-13"></a><span class="n">Z</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">B</span><span class="p">[:,</span> <span class="n">j</span><span class="p">])</span>
+<pre class="code python"><a name="rest_code_686096c80670475f9d12b97006e286e8-1"></a><span class="c1"># shape (2, 3)</span>
+<a name="rest_code_686096c80670475f9d12b97006e286e8-2"></a><span class="n">A</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+<a name="rest_code_686096c80670475f9d12b97006e286e8-3"></a>     <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]]</span>
+<a name="rest_code_686096c80670475f9d12b97006e286e8-4"></a><span class="c1"># shape (3, 2)</span>
+<a name="rest_code_686096c80670475f9d12b97006e286e8-5"></a><span class="n">B</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span>
+<a name="rest_code_686096c80670475f9d12b97006e286e8-6"></a>     <span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span>
+<a name="rest_code_686096c80670475f9d12b97006e286e8-7"></a>     <span class="p">[</span><span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">]]</span>
+<a name="rest_code_686096c80670475f9d12b97006e286e8-8"></a>
+<a name="rest_code_686096c80670475f9d12b97006e286e8-9"></a><span class="c1"># shape (2, 2)</span>
+<a name="rest_code_686096c80670475f9d12b97006e286e8-10"></a><span class="n">Z</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span> <span class="o">*</span> <span class="mi">7</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="mi">9</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">1</span> <span class="o">*</span> <span class="mi">8</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="mi">12</span><span class="p">],</span>
+<a name="rest_code_686096c80670475f9d12b97006e286e8-11"></a>     <span class="p">[</span><span class="mi">4</span> <span class="o">*</span> <span class="mi">7</span> <span class="o">+</span> <span class="mi">5</span> <span class="o">*</span> <span class="mi">9</span> <span class="o">+</span> <span class="mi">6</span> <span class="o">*</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">4</span> <span class="o">*</span> <span class="mi">8</span> <span class="o">+</span> <span class="mi">5</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">+</span> <span class="mi">6</span> <span class="o">*</span> <span class="mi">12</span><span class="p">]]</span>
+<a name="rest_code_686096c80670475f9d12b97006e286e8-12"></a><span class="c1"># multiply row of A by the column of B and sum the result</span>
+<a name="rest_code_686096c80670475f9d12b97006e286e8-13"></a><span class="n">Z</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">B</span><span class="p">[:,</span> <span class="n">j</span><span class="p">])</span>
 </pre>
 <div class="figure">
 <img alt="https://wikimedia.org/api/rest_v1/media/math/render/svg/c6f7cdbe9cd36a436b0e5304ea2b42d640203777" src="https://wikimedia.org/api/rest_v1/media/math/render/svg/c6f7cdbe9cd36a436b0e5304ea2b42d640203777">
@@ -290,6 +291,10 @@ The eigenvector with the highest eigenvalue is therefore the principal&nbsp;comp
 <p>Regularization term for <span class="math">\(L_p\)</span> norm can be computed as <span class="math">\(||x||_{p}=(\sum_{i}|x_{i}|^{p})^{1/p}\)</span>.</p>
 <p>Great explanation can be found <a class="reference external" href="http://stackoverflow.com/questions/32276391/feature-normalization-advantage-of-l2-normalization">on stackoverflow</a>
 or <a class="reference external" href="http://stats.stackexchange.com/questions/163388/l2-regularization-is-equivalent-to-gaussian-prior">here</a></p>
+</div>
+<div class="section" id="subgradient">
+<h2><a class="toc-backref" href="#id16">Subgradient</a></h2>
+<p>Something used for not differentiable functions. SHould be&nbsp;filled.</p>
 </div>
 </div>
     </div>

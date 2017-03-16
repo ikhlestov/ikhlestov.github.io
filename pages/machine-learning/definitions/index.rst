@@ -25,3 +25,15 @@ Stochastic(non-determenistic)
 
 Determenstic
     is a system in which no randomness is involved in the development of future states of the system. 
+
+Gradient
+    is the vector of partial derivatives in each dimension.
+
+Gradient Descent
+    the procedure of repeatedly evaluating the gradient and then performing a parameter update.
+
+Stochastic Gradient Descent
+    depends on source it may mean Gradient Descent with batches, or with only one example(on-line gradient descent).
+
+Backpropagation
+    computing the gradient analytically using the chain rule.
