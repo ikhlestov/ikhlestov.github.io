@@ -8,11 +8,10 @@
 .. type: text
 .. author: Illarion Khlestov
 
-Here I will store list of commands, sometimes with short description but mainly without full explanation.
+Here I will store various notes based on some books, lectures or just tutorials for programming languages.
 
 Machine Learning:
 
-* :doc:`definitions`
 * `Deep Learning Book <machine-learning/deep-learning-book>`_
 * `cs231n notes <machine-learning/cs231n>`__
 * :doc:`ml-bookmarks`
