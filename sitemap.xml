@@ -47,7 +47,7 @@
  </url>
  <url>
   <loc>https://ikhlestov.github.io/pages/machine-learning/cs231n/</loc>
-  <lastmod>2017-03-16T14:32:00Z</lastmod>
+  <lastmod>2017-03-18T14:56:00Z</lastmod>
  </url>
  <url>
   <loc>https://ikhlestov.github.io/pages/machine-learning/cs231n/1_image_classification/</loc>
@@ -60,6 +60,10 @@
  <url>
   <loc>https://ikhlestov.github.io/pages/machine-learning/cs231n/3_optimization/</loc>
   <lastmod>2017-03-16T14:32:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://ikhlestov.github.io/pages/machine-learning/cs231n/4_backprob/</loc>
+  <lastmod>2017-03-18T14:56:00Z</lastmod>
  </url>
  <url>
   <loc>https://ikhlestov.github.io/pages/machine-learning/deep-learning-book/</loc>
@@ -76,10 +80,6 @@
  <url>
   <loc>https://ikhlestov.github.io/pages/machine-learning/deep-learning-book/i3probability-and-information-theory/</loc>
   <lastmod>2017-01-12T14:14:00Z</lastmod>
- </url>
- <url>
-  <loc>https://ikhlestov.github.io/pages/machine-learning/definitions/</loc>
-  <lastmod>2016-12-16T12:21:00Z</lastmod>
  </url>
  <url>
   <loc>https://ikhlestov.github.io/pages/machine-learning/general-ml-notes/</loc>
