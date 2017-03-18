@@ -10,8 +10,8 @@
 
 .. contents:: Contents:
 
-Defiitions
-==========
+Definitions
+===========
 
 One-shot learning
     aim to lean not from thousands of examples but from one or only a few.
@@ -25,10 +25,10 @@ MLP
 Computational neuroscience
     is primarily concerned with building more accurate models of how the brain actually works.
 
-Stochastic(non-determenistic)
+Stochastic(non-deterministic)
     a stochastic event or system is one that is unpredictable because of a random variable. 
 
-Determenstic
+Deterministic
     is a system in which no randomness is involved in the development of future states of the system. 
 
 Gradient
@@ -42,6 +42,9 @@ Stochastic Gradient Descent
 
 Backpropagation
     computing the gradient analytically using the chain rule.
+
+Chain Rule
+    Gradient expressions may be chained with multiplication of output gradient with local function gradient.
 
 Math
 ====

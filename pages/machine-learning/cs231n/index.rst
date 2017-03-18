@@ -14,3 +14,4 @@ Syllabus can be found `here <http://cs231n.stanford.edu/syllabus.html>`__. Lectu
 * `Image classification and the data-driven approach, k-nearest neighbor <link://slug/1_image_classification>`__
 * `Linear classification <link://slug/2_linear_classification>`__
 * `Optimization <link://slug/3_optimization>`__
+* `Backprobagation <link://slug/4_backprob>`__
