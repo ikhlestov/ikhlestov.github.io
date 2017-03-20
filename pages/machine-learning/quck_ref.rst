@@ -46,6 +46,12 @@ Backpropagation
 Chain Rule
     Gradient expressions may be chained with multiplication of output gradient with local function gradient.
 
+Bias
+    is a learner’s tendency to consistently learn the same wrong thing.
+
+Variance
+    is the tendency to learn random things irrespective of the real signal.
+
 Math
 ====
 
