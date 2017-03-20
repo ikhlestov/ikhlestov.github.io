@@ -148,6 +148,10 @@ Stochastic ">
 <dd>computing the gradient analytically using the chain&nbsp;rule.</dd>
 <dt>Chain&nbsp;Rule</dt>
 <dd>Gradient expressions may be chained with multiplication of output gradient with local function&nbsp;gradient.</dd>
+<dt>Bias</dt>
+<dd>is a learner’s tendency to consistently learn the same wrong&nbsp;thing.</dd>
+<dt>Variance</dt>
+<dd>is the tendency to learn random things irrespective of the real&nbsp;signal.</dd>
 </dl>
 </div>
 <div class="section" id="math">
@@ -157,19 +161,19 @@ Stochastic ">
 <img alt="https://wikimedia.org/api/rest_v1/media/math/render/svg/780671bdfb3fab93187156d2c226df6fe36746fe" src="https://wikimedia.org/api/rest_v1/media/math/render/svg/780671bdfb3fab93187156d2c226df6fe36746fe"><div class="figure">
 <img alt="https://wikimedia.org/api/rest_v1/media/math/render/svg/24e439c972de89fb94297419cab45c58f1a32c43" src="https://wikimedia.org/api/rest_v1/media/math/render/svg/24e439c972de89fb94297419cab45c58f1a32c43">
 </div>
-<pre class="code python"><a name="rest_code_87fddeba24dd4b50b820cb38f68bd5b4-1"></a><span class="c1"># shape (2, 3)</span>
-<a name="rest_code_87fddeba24dd4b50b820cb38f68bd5b4-2"></a><span class="n">A</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
-<a name="rest_code_87fddeba24dd4b50b820cb38f68bd5b4-3"></a>     <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]]</span>
-<a name="rest_code_87fddeba24dd4b50b820cb38f68bd5b4-4"></a><span class="c1"># shape (3, 2)</span>
-<a name="rest_code_87fddeba24dd4b50b820cb38f68bd5b4-5"></a><span class="n">B</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span>
-<a name="rest_code_87fddeba24dd4b50b820cb38f68bd5b4-6"></a>     <span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span>
-<a name="rest_code_87fddeba24dd4b50b820cb38f68bd5b4-7"></a>     <span class="p">[</span><span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">]]</span>
-<a name="rest_code_87fddeba24dd4b50b820cb38f68bd5b4-8"></a>
-<a name="rest_code_87fddeba24dd4b50b820cb38f68bd5b4-9"></a><span class="c1"># shape (2, 2)</span>
-<a name="rest_code_87fddeba24dd4b50b820cb38f68bd5b4-10"></a><span class="n">Z</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span> <span class="o">*</span> <span class="mi">7</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="mi">9</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">1</span> <span class="o">*</span> <span class="mi">8</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="mi">12</span><span class="p">],</span>
-<a name="rest_code_87fddeba24dd4b50b820cb38f68bd5b4-11"></a>     <span class="p">[</span><span class="mi">4</span> <span class="o">*</span> <span class="mi">7</span> <span class="o">+</span> <span class="mi">5</span> <span class="o">*</span> <span class="mi">9</span> <span class="o">+</span> <span class="mi">6</span> <span class="o">*</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">4</span> <span class="o">*</span> <span class="mi">8</span> <span class="o">+</span> <span class="mi">5</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">+</span> <span class="mi">6</span> <span class="o">*</span> <span class="mi">12</span><span class="p">]]</span>
-<a name="rest_code_87fddeba24dd4b50b820cb38f68bd5b4-12"></a><span class="c1"># multiply row of A by the column of B and sum the result</span>
-<a name="rest_code_87fddeba24dd4b50b820cb38f68bd5b4-13"></a><span class="n">Z</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">B</span><span class="p">[:,</span> <span class="n">j</span><span class="p">])</span>
+<pre class="code python"><a name="rest_code_2f611253a9be4e139926d5206aec0d92-1"></a><span class="c1"># shape (2, 3)</span>
+<a name="rest_code_2f611253a9be4e139926d5206aec0d92-2"></a><span class="n">A</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+<a name="rest_code_2f611253a9be4e139926d5206aec0d92-3"></a>     <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]]</span>
+<a name="rest_code_2f611253a9be4e139926d5206aec0d92-4"></a><span class="c1"># shape (3, 2)</span>
+<a name="rest_code_2f611253a9be4e139926d5206aec0d92-5"></a><span class="n">B</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span>
+<a name="rest_code_2f611253a9be4e139926d5206aec0d92-6"></a>     <span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span>
+<a name="rest_code_2f611253a9be4e139926d5206aec0d92-7"></a>     <span class="p">[</span><span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">]]</span>
+<a name="rest_code_2f611253a9be4e139926d5206aec0d92-8"></a>
+<a name="rest_code_2f611253a9be4e139926d5206aec0d92-9"></a><span class="c1"># shape (2, 2)</span>
+<a name="rest_code_2f611253a9be4e139926d5206aec0d92-10"></a><span class="n">Z</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span> <span class="o">*</span> <span class="mi">7</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="mi">9</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">1</span> <span class="o">*</span> <span class="mi">8</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="mi">12</span><span class="p">],</span>
+<a name="rest_code_2f611253a9be4e139926d5206aec0d92-11"></a>     <span class="p">[</span><span class="mi">4</span> <span class="o">*</span> <span class="mi">7</span> <span class="o">+</span> <span class="mi">5</span> <span class="o">*</span> <span class="mi">9</span> <span class="o">+</span> <span class="mi">6</span> <span class="o">*</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">4</span> <span class="o">*</span> <span class="mi">8</span> <span class="o">+</span> <span class="mi">5</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">+</span> <span class="mi">6</span> <span class="o">*</span> <span class="mi">12</span><span class="p">]]</span>
+<a name="rest_code_2f611253a9be4e139926d5206aec0d92-12"></a><span class="c1"># multiply row of A by the column of B and sum the result</span>
+<a name="rest_code_2f611253a9be4e139926d5206aec0d92-13"></a><span class="n">Z</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">B</span><span class="p">[:,</span> <span class="n">j</span><span class="p">])</span>
 </pre>
 <div class="figure">
 <img alt="https://wikimedia.org/api/rest_v1/media/math/render/svg/c6f7cdbe9cd36a436b0e5304ea2b42d640203777" src="https://wikimedia.org/api/rest_v1/media/math/render/svg/c6f7cdbe9cd36a436b0e5304ea2b42d640203777">
