@@ -69,12 +69,13 @@ Other Topics
 + Gumbel-Softmax at Categorical Variational Autoencoders - `blog post <http://blog.evjang.com/2016/11/tutorial-categorical-variational.html>`__. Categorical Reparameterization with Gumbel-Softmax `original paper <https://arxiv.org/pdf/1611.01144.pdf>`__
 + `A Few Useful Things to Know about Machine Learning <http://homes.cs.washington.edu/~pedrod/papers/cacm12.pdf>`__ from cs231n course.
 
-Papers regardding efficient backprop
-====================================
+Papers regardding efficient backprop and neural networks training
+=================================================================
 
 + `Stochastic Gradient Descent Tricks(Leon Bottou) <https://www.microsoft.com/en-us/research/wp-content/uploads/2012/01/tricks-2012.pdf>`__
 + `Efficient BackProb(Yann LeCun) <http://yann.lecun.com/exdb/publis/pdf/lecun-98b.pdf>`__
 + `Practical Recommendations for Gradient-Based Training of Deep Architectures(Yoshua Bengio) <https://arxiv.org/pdf/1206.5533v2.pdf>`__
++ `FitNets: Hints for Thin Deep Nets <https://arxiv.org/pdf/1412.6550.pdf>`__
 
 One Shot Learning
 =================
