@@ -31,6 +31,7 @@ Python related:
 * :doc:`python-libraries`
 * :doc:`Scikit-learn notes <scikit-learn-notes>`
 * :doc:`python-bookmarks`
+* :doc:`python-hints`
 
 Shortcuts:
 

@@ -4,14 +4,14 @@ article: http://ogp.me/ns/article#
 " lang="en">
 <head>
 <meta charset="utf-8">
-<base href="https://ikhlestov.github.io/listings/">
-<meta name="description" content="listings">
+<base href="https://ikhlestov.github.io/listings/python-hints.sh.html">
+<meta name="description" content="python-hints.sh">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>listings | Illarion Khlestov Blog</title>
+<title>python-hints.sh | Illarion Khlestov Blog</title>
 <link href="../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <meta content="#5670d4" name="theme-color">
 <link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
-<link rel="canonical" href="https://ikhlestov.github.io/listings/">
+<link rel="canonical" href="https://ikhlestov.github.io/listings/python-hints.sh.html">
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
     displayAlign: 'center', // Change this to 'center' to center equations.
@@ -46,8 +46,8 @@ MathJax.Hub.Config({
 <li>
 <a href="../pages/">Pages</a>
                 </li>
-<li class="active">
-<a href=".">Listings <span class="sr-only">(active)</span></a>
+<li>
+<a href=".">Listings</a>
                 </li>
 <li>
 <a href="../archive.html">Archive</a>
@@ -55,7 +55,12 @@ MathJax.Hub.Config({
                 
             </li>
 </ul>
-<ul class="nav navbar-nav navbar-right"></ul>
+<ul class="nav navbar-nav navbar-right">
+<li>
+    <a href="python-hints.sh" id="sourcelink">Source</a>
+    </li>
+                
+            </ul>
 </div>
 <!-- /.navbar-collapse -->
     </div>
@@ -67,44 +72,46 @@ MathJax.Hub.Config({
             
 <nav class="breadcrumbs"><ul class="breadcrumb">
 <li><a href=".">listings</a></li>
-</ul></nav><ul class="list-unstyled">
-<li>
-<a href="docker_help.sh.html"><i class="glyphicon glyphicon-file"></i>&nbsp;docker_help.sh</a>
-    </li>
-<li>
-<a href="git.sh.html"><i class="glyphicon glyphicon-file"></i>&nbsp;git.sh</a>
-    </li>
-<li>
-<a href="hadoop_notes.sh.html"><i class="glyphicon glyphicon-file"></i>&nbsp;hadoop_notes.sh</a>
-    </li>
-<li>
-<a href="ipdb_commands.rst.html"><i class="glyphicon glyphicon-file"></i>&nbsp;ipdb_commands.rst</a>
-    </li>
-<li>
-<a href="matplotlib.py.html"><i class="glyphicon glyphicon-file"></i>&nbsp;matplotlib.py</a>
-    </li>
-<li>
-<a href="numpy.py.html"><i class="glyphicon glyphicon-file"></i>&nbsp;numpy.py</a>
-    </li>
-<li>
-<a href="pandas.py.html"><i class="glyphicon glyphicon-file"></i>&nbsp;pandas.py</a>
-    </li>
-<li>
-<a href="python-hints.py.html"><i class="glyphicon glyphicon-file"></i>&nbsp;python-hints.py</a>
-    </li>
-<li>
-<a href="python-hints.sh.html"><i class="glyphicon glyphicon-file"></i>&nbsp;python-hints.sh</a>
-    </li>
-<li>
-<a href="scikit-learn.py.html"><i class="glyphicon glyphicon-file"></i>&nbsp;scikit-learn.py</a>
-    </li>
-<li>
-<a href="sublime_shortcuts.txt.html"><i class="glyphicon glyphicon-file"></i>&nbsp;sublime_shortcuts.txt</a>
-    </li>
-<li>
-<a href="ubuntu-bash-hints.sh.html"><i class="glyphicon glyphicon-file"></i>&nbsp;ubuntu-bash-hints.sh</a>
-</li>
-</ul>
+                <li>python-hints.sh</li>
+</ul></nav><table class="codetable"><tr>
+<td class="linenos"><div class="linenodiv"><pre><a href="#listingspython-hintssh-1"> 1</a>
+<a href="#listingspython-hintssh-2"> 2</a>
+<a href="#listingspython-hintssh-3"> 3</a>
+<a href="#listingspython-hintssh-4"> 4</a>
+<a href="#listingspython-hintssh-5"> 5</a>
+<a href="#listingspython-hintssh-6"> 6</a>
+<a href="#listingspython-hintssh-7"> 7</a>
+<a href="#listingspython-hintssh-8"> 8</a>
+<a href="#listingspython-hintssh-9"> 9</a>
+<a href="#listingspython-hintssh-10">10</a>
+<a href="#listingspython-hintssh-11">11</a>
+<a href="#listingspython-hintssh-12">12</a>
+<a href="#listingspython-hintssh-13">13</a>
+<a href="#listingspython-hintssh-14">14</a>
+<a href="#listingspython-hintssh-15">15</a>
+<a href="#listingspython-hintssh-16">16</a>
+<a href="#listingspython-hintssh-17">17</a>
+<a href="#listingspython-hintssh-18">18</a></pre></div></td>
+<td class="code"><pre class="code literal-block"><a name="listingspython-hintssh-1"></a><span class="c1"># ==========================================</span>
+<a name="listingspython-hintssh-2"></a><span class="c1"># serve current folder to web</span>
+<a name="listingspython-hintssh-3"></a><span class="c1"># python2</span>
+<a name="listingspython-hintssh-4"></a>$ python -m SimpleHTTPServer
+<a name="listingspython-hintssh-5"></a><span class="c1"># python3</span>
+<a name="listingspython-hintssh-6"></a>$ python3 -m http.server
+<a name="listingspython-hintssh-7"></a>
+<a name="listingspython-hintssh-8"></a><span class="c1"># ==========================================</span>
+<a name="listingspython-hintssh-9"></a><span class="c1"># create new virualenv</span>
+<a name="listingspython-hintssh-10"></a>$ virtualenv -p /usr/local/bin/python2.7 env_name
+<a name="listingspython-hintssh-11"></a>
+<a name="listingspython-hintssh-12"></a><span class="c1"># ==========================================</span>
+<a name="listingspython-hintssh-13"></a><span class="c1"># unistall all existing packages</span>
+<a name="listingspython-hintssh-14"></a>$ pip freeze <span class="p">|</span> xargs pip uninstall -y
+<a name="listingspython-hintssh-15"></a>
+<a name="listingspython-hintssh-16"></a><span class="c1"># ==========================================</span>
+<a name="listingspython-hintssh-17"></a><span class="c1"># check for PEP8 errors</span>
+<a name="listingspython-hintssh-18"></a>$ pep8 --first --show-source --show-pep8 
+</pre></td>
+</tr></table>
 </div>
         <!--End of body content-->
 

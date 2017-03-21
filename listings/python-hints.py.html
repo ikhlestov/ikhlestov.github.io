@@ -1,0 +1,183 @@
+<html prefix="
+og: http://ogp.me/ns#
+article: http://ogp.me/ns/article#
+" lang="en">
+<head>
+<meta charset="utf-8">
+<base href="https://ikhlestov.github.io/listings/python-hints.py.html">
+<meta name="description" content="python-hints.py">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>python-hints.py | Illarion Khlestov Blog</title>
+<link href="../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<meta content="#5670d4" name="theme-color">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
+<link rel="canonical" href="https://ikhlestov.github.io/listings/python-hints.py.html">
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    displayAlign: 'center', // Change this to 'center' to center equations.
+});
+</script><!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]-->
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-static-top"><div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://ikhlestov.github.io/">
+
+                <span id="blog-title">Illarion Khlestov Blog</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
+            <ul class="nav navbar-nav">
+<li>
+<a href="../">Blog</a>
+                </li>
+<li>
+<a href="../pages/">Pages</a>
+                </li>
+<li>
+<a href=".">Listings</a>
+                </li>
+<li>
+<a href="../archive.html">Archive</a>
+
+                
+            </li>
+</ul>
+<ul class="nav navbar-nav navbar-right">
+<li>
+    <a href="python-hints.py" id="sourcelink">Source</a>
+    </li>
+                
+            </ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+<nav class="breadcrumbs"><ul class="breadcrumb">
+<li><a href=".">listings</a></li>
+                <li>python-hints.py</li>
+</ul></nav><table class="codetable"><tr>
+<td class="linenos"><div class="linenodiv"><pre><a href="#listingspython-hintspy-1"> 1</a>
+<a href="#listingspython-hintspy-2"> 2</a>
+<a href="#listingspython-hintspy-3"> 3</a>
+<a href="#listingspython-hintspy-4"> 4</a>
+<a href="#listingspython-hintspy-5"> 5</a>
+<a href="#listingspython-hintspy-6"> 6</a>
+<a href="#listingspython-hintspy-7"> 7</a>
+<a href="#listingspython-hintspy-8"> 8</a>
+<a href="#listingspython-hintspy-9"> 9</a>
+<a href="#listingspython-hintspy-10">10</a>
+<a href="#listingspython-hintspy-11">11</a>
+<a href="#listingspython-hintspy-12">12</a>
+<a href="#listingspython-hintspy-13">13</a>
+<a href="#listingspython-hintspy-14">14</a>
+<a href="#listingspython-hintspy-15">15</a>
+<a href="#listingspython-hintspy-16">16</a>
+<a href="#listingspython-hintspy-17">17</a>
+<a href="#listingspython-hintspy-18">18</a>
+<a href="#listingspython-hintspy-19">19</a>
+<a href="#listingspython-hintspy-20">20</a>
+<a href="#listingspython-hintspy-21">21</a>
+<a href="#listingspython-hintspy-22">22</a>
+<a href="#listingspython-hintspy-23">23</a>
+<a href="#listingspython-hintspy-24">24</a>
+<a href="#listingspython-hintspy-25">25</a>
+<a href="#listingspython-hintspy-26">26</a>
+<a href="#listingspython-hintspy-27">27</a>
+<a href="#listingspython-hintspy-28">28</a>
+<a href="#listingspython-hintspy-29">29</a>
+<a href="#listingspython-hintspy-30">30</a>
+<a href="#listingspython-hintspy-31">31</a>
+<a href="#listingspython-hintspy-32">32</a>
+<a href="#listingspython-hintspy-33">33</a>
+<a href="#listingspython-hintspy-34">34</a>
+<a href="#listingspython-hintspy-35">35</a>
+<a href="#listingspython-hintspy-36">36</a>
+<a href="#listingspython-hintspy-37">37</a>
+<a href="#listingspython-hintspy-38">38</a>
+<a href="#listingspython-hintspy-39">39</a>
+<a href="#listingspython-hintspy-40">40</a>
+<a href="#listingspython-hintspy-41">41</a></pre></div></td>
+<td class="code"><pre class="code literal-block"><a name="listingspython-hintspy-1"></a><span class="c1"># ==========================================</span>
+<a name="listingspython-hintspy-2"></a><span class="c1"># add zeros at the start of string</span>
+<a name="listingspython-hintspy-3"></a><span class="s1">'22'</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<a name="listingspython-hintspy-4"></a><span class="c1"># out: '0000000022'</span>
+<a name="listingspython-hintspy-5"></a>
+<a name="listingspython-hintspy-6"></a><span class="c1"># ==========================================</span>
+<a name="listingspython-hintspy-7"></a><span class="c1"># make iterable slice</span>
+<a name="listingspython-hintspy-8"></a><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">islice</span>
+<a name="listingspython-hintspy-9"></a><span class="n">islice</span><span class="p">(</span><span class="n">iterable</span><span class="p">,</span> <span class="n">stop</span><span class="p">)</span>
+<a name="listingspython-hintspy-10"></a><span class="n">islice</span><span class="p">(</span><span class="n">iterable</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">)</span>
+<a name="listingspython-hintspy-11"></a><span class="n">islice</span><span class="p">(</span><span class="n">iterable</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">step</span><span class="p">)</span>
+<a name="listingspython-hintspy-12"></a>
+<a name="listingspython-hintspy-13"></a><span class="c1"># ==========================================</span>
+<a name="listingspython-hintspy-14"></a><span class="c1"># write directly to the file</span>
+<a name="listingspython-hintspy-15"></a><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'/tmp/filename'</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<a name="listingspython-hintspy-16"></a>    <span class="c1"># python2</span>
+<a name="listingspython-hintspy-17"></a>    <span class="k">print</span> <span class="o">&gt;&gt;</span> <span class="n">f</span><span class="p">,</span> <span class="s1">'some_text'</span>
+<a name="listingspython-hintspy-18"></a>    <span class="c1"># python3</span>
+<a name="listingspython-hintspy-19"></a>    <span class="k">print</span><span class="p">(</span><span class="s2">"some_text"</span><span class="p">,</span> <span class="nb">file</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
+<a name="listingspython-hintspy-20"></a>
+<a name="listingspython-hintspy-21"></a><span class="c1"># ==========================================</span>
+<a name="listingspython-hintspy-22"></a><span class="c1"># try statement</span>
+<a name="listingspython-hintspy-23"></a><span class="k">try</span><span class="p">:</span>
+<a name="listingspython-hintspy-24"></a>    <span class="c1"># something</span>
+<a name="listingspython-hintspy-25"></a><span class="k">except</span><span class="p">:</span>
+<a name="listingspython-hintspy-26"></a>    <span class="c1"># if exception was raised</span>
+<a name="listingspython-hintspy-27"></a><span class="k">else</span><span class="p">:</span>
+<a name="listingspython-hintspy-28"></a>    <span class="c1"># if try was successfully</span>
+<a name="listingspython-hintspy-29"></a><span class="k">finally</span><span class="p">:</span>
+<a name="listingspython-hintspy-30"></a>    <span class="c1"># do this stuff in any case</span>
+<a name="listingspython-hintspy-31"></a>
+<a name="listingspython-hintspy-32"></a><span class="c1"># ==========================================</span>
+<a name="listingspython-hintspy-33"></a><span class="c1"># lambda function</span>
+<a name="listingspython-hintspy-34"></a><span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+<a name="listingspython-hintspy-35"></a><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">)</span> <span class="k">else</span> <span class="bp">None</span>
+<a name="listingspython-hintspy-36"></a>
+<a name="listingspython-hintspy-37"></a><span class="c1"># ==========================================</span>
+<a name="listingspython-hintspy-38"></a><span class="c1"># get input from shell</span>
+<a name="listingspython-hintspy-39"></a><span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdin</span><span class="p">:</span>
+<a name="listingspython-hintspy-40"></a>    <span class="k">print</span><span class="p">(</span><span class="s2">"You entered: "</span><span class="p">,</span> <span class="n">line</span><span class="p">)</span>
+<a name="listingspython-hintspy-41"></a><span class="c1"># and after entering required data to the shell press ctrl+D</span>
+</pre></td>
+</tr></table>
+</div>
+        <!--End of body content-->
+
+        <footer id="footer">
+            Contents © 2017         <a href="mailto:ikhlestov@gmail.com">Illarion Khlestov</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>          <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script></footer>
+</div>
+</div>
+
+            <script src="../assets/js/all-nocdn.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates --><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-92406723-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>
