@@ -19,6 +19,8 @@ Machine Learning:
 * :doc:`tensorflow-hints`
 * :doc:`general-ml-notes`
 * :doc:`quck_ref`
+* :doc:`new-nn-checklist`
+* :doc:`architecture_vs_optimization_approaches`
 
 .. * :doc:`ml-knowledge-base`
 
