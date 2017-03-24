@@ -88,21 +88,51 @@ But using batch normalization or not - is optimization, because it can be added 
 <p>Architecture:</p>
 <ul class="simple">
 <li>Convs of with various&nbsp;kernels</li>
+<li>1x1 convolutions from <a class="reference external" href="https://arxiv.org/abs/1312.4400">Network-in-network(NiN)</a>. With them we may reduce features &gt; perform usual convolution &gt; increase number of&nbsp;features</li>
+<li>Average pooling layer as part of the last&nbsp;classifier</li>
+<li>Inception module(parallel computation of various filter with 1x1 convs and after concatenating&nbsp;them)</li>
+<li>Flattened convolutions(Cx1, 1xC&nbsp;kernels)</li>
+<li>Bypassing features over two layers(as in&nbsp;ResNet)</li>
 <li>Concatenating features from current layer with features from previous ones(as in&nbsp;DenseNet)</li>
+<li>Inception V4 - combine ResNet features propagating approach with Inception&nbsp;module.</li>
+<li>Combine Inception Block with DenseNet&nbsp;approach.</li>
+<li>
+<a class="reference external" href="https://medium.com/towards-data-science/neural-network-architectures-156e5bad51ba#.itgibj8dm">Blog post</a> about various Neural Networks for image&nbsp;classification.</li>
+<li>
+<a class="reference external" href="https://arxiv.org/pdf/1610.02357.pdf">XCeption block</a> with separable convolutions(with or without ReLU after&nbsp;it).</li>
+<li>Depthwise separable convolution filters <a class="reference external" href="https://arxiv.org/pdf/1412.5474.pdf">initial&nbsp;paper</a>
+</li>
 <li>LSTM or GRU&nbsp;cell</li>
 <li>attention&nbsp;mechanisms</li>
+<li>Various activation&nbsp;functions</li>
+<li>Max pooling or average&nbsp;pooling</li>
 </ul>
 <p>Optimization:</p>
 <ul class="simple">
 <li>Batch&nbsp;norm</li>
 <li>Regularization&nbsp;loss</li>
 <li>Various learning&nbsp;rate</li>
+<li>Dropout</li>
 </ul>
 <p>Learning:</p>
 <ul class="simple">
 <li>Dataset&nbsp;augmentation</li>
 <li>Learn network to one image size(224x224) and fine tune after for less epochs to larger size(448x448 for&nbsp;example)</li>
 <li>Train image detection network with image classification&nbsp;dataset</li>
+</ul>
+<p>A systematic evaluation of CNN&nbsp;modules:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://arxiv.org/pdf/1606.02228.pdf">Link to initial&nbsp;paper</a></li>
+<li>use ELU non-linearity without batchnorm or ReLU with&nbsp;it.</li>
+<li>apply a learned colorspace transformation of&nbsp;RGB.</li>
+<li>use the linear learning rate decay&nbsp;policy.</li>
+<li>use a sum of the average and max pooling&nbsp;layers.</li>
+<li>use mini-batch size around 128 or 256. If this is too big for your GPU, decrease the learning rate proportionally to the batch&nbsp;size.</li>
+<li>use fully-connected layers as convolutional and average the predictions for the final&nbsp;decision.</li>
+<li>when investing in increasing training set size, check if a plateau has not been&nbsp;reach.</li>
+<li>cleanliness of the data is more important then the&nbsp;size.</li>
+<li>if you cannot increase the input image size, reduce the stride in the con- sequent layers, it has roughly the same&nbsp;effect.</li>
+<li>if your network has a complex and highly optimized architecture, like e.g. GoogLeNet, be careful with&nbsp;modifications.</li>
 </ul>
 </div>
     </div>
