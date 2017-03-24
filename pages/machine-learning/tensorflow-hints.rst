@@ -170,6 +170,7 @@ Get last output from rnn
 Batch Normalization
 ===================
 Notes based on `this paper <https://arxiv.org/pdf/1502.03167v3.pdf>`__. I think to understood BN enough just quickly pass through 3rd paragraph.
+At glance batch normalizaion helps training as the layer does not have to learn offsets in the input data, and can focus on how to best combine features.
 
 It seems that when BN is used, such nuances should be considered:
 
