@@ -210,6 +210,34 @@ Example usage of ``yield from`` syntax:
         print(i)
 
 
+Change existing object with generator
+=====================================
+
+It is possible to create object at generator and after only change it's value.
+This will reduce memory consumption, but can lead to some errors:
+
+.. code-block:: python
+    
+    def generator():
+        d = {}
+        yield d
+        counter = 0
+        while True:
+            d["value"] = counter
+            counter += 1
+            yield
+
+    gen = generator()
+    res = next(gen)
+    print(res)
+    # out: {}
+    
+    # modify same dict
+    next(gen)
+    print(res)
+    # out: {'value': 0}
+
+
 Miscellaneous
 =============
 
