@@ -1,3 +1,6 @@
+# show running process by name with headers
+$ ps aux | egrep "python|PID"
+
 # get the location of the executable link
 $ readlink -f /usr/bin/java
 /usr/lib/jvm/java-8-oracle/jre/bin/java
