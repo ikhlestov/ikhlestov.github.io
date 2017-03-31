@@ -8,6 +8,8 @@
 .. type: text
 .. author: Illarion Khlestov
 
+.. contents:: Contents
+
 Continue run script after interrupting ssh session
 ==================================================
 
