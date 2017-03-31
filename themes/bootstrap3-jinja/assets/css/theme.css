@@ -1,3 +1,15 @@
+tt, code {
+    padding: 0.2em;
+    /*padding-top: 0.2em;*/
+    /*padding-bottom: 0.2em;*/
+    margin: 0;
+    font-size: 85%;
+    background-color: rgba(0,0,0,0.08);
+    border-radius: 3px;
+    font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
+
 .container {
     width: 800px;
     margin: 0 auto;
