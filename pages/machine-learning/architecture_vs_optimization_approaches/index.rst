@@ -30,6 +30,9 @@ Architecture:
 - attention mechanisms
 - Various activation functions
 - Max pooling or average pooling
+- Use conv with stride without overlaping, not average/max pooling
+- 1x1 convs and then separable by channels 3x3 convs
+- Separable by channnels 3x3 convs and after 1x1 convs for all features
 
 Optimization:
 
