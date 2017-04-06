@@ -72,6 +72,7 @@ Other Topics
 Papers regardding efficient backprop and neural networks training
 =================================================================
 
++ `Why Momentum Really Works <http://distill.pub/2017/momentum/>`__
 + `Stochastic Gradient Descent Tricks(Leon Bottou) <https://www.microsoft.com/en-us/research/wp-content/uploads/2012/01/tricks-2012.pdf>`__
 + `Efficient BackProb(Yann LeCun) <http://yann.lecun.com/exdb/publis/pdf/lecun-98b.pdf>`__
 + `Practical Recommendations for Gradient-Based Training of Deep Architectures(Yoshua Bengio) <https://arxiv.org/pdf/1206.5533v2.pdf>`__
