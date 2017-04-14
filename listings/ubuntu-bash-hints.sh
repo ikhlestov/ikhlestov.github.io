@@ -1,6 +1,30 @@
 # show running process by name with headers
 $ ps aux | egrep "python|PID"
 
+### la
+# sizes of files
+$ ls -lah
+# colored
+$ ls -G
+# count quantity of files inside folder
+$ ls -1 | wc -l
+
+### sizes
+# check free disk space
+$ df -h
+# get folder size
+$ du -hs
+# get folders size inside another one
+$ du -h --max-depth=1 some_folder
+
+### search
+# search recursive by folders
+$ grep -r "/api/Profile/active_home_devices" static/
+# search by file content
+$ grep -R 'GCModel' SemanticProcessor/
+# find by filename
+$ find ~ -name readme.txt 
+
 # get the location of the executable link
 $ readlink -f /usr/bin/java
 /usr/lib/jvm/java-8-oracle/jre/bin/java
@@ -16,29 +40,8 @@ $ echo SOMETHING
 # get list of all listened ports
 $ sudo netstat -peanut
 
-# check free disk space
-$ df -h
-
 # check memory every 1 second
 $ watch -n 1 free -m
-
-# search recursive by folders
-$ grep -r "/api/Profile/active_home_devices" static/
-
-# search by file content
-$ grep -R 'GCModel' SemanticProcessor/
-
-# find by filename
-$ find ~ -name readme.txt 
-
-# get folder size
-$ du -hs
-
-# get folders size inside another one
-$ du -h --max-depth=1 some_folder
-
-# sizes of files
-$ ls -lah
 
 # as per tutorial: http://manpages.ubuntu.com/manpages/trusty/man1/enca.1.html
 # get coding of document
@@ -51,6 +54,8 @@ $ cat folder_path/* > new_file
 
 # copy content of some text file(ssh for example)
 $ cat ~/.ssh/id_rsa.pub | xclip -sel clip
+# the same for mac
+$ pbcopy < ~/.ssh/id_rsa.pub
 
 # get source code of some package
 http://askubuntu.com/questions/167468/where-can-i-find-the-source-code-of-ubuntu

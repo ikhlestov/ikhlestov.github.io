@@ -1,10 +1,10 @@
+<!DOCTYPE html>
 <html prefix="
 og: http://ogp.me/ns#
 article: http://ogp.me/ns/article#
 " lang="en">
 <head>
 <meta charset="utf-8">
-<base href="https://ikhlestov.github.io/pages/another-topics/ubuntu-bash-hints/">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ubuntu bash hints | Illarion Khlestov Blog</title>
 <link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
@@ -83,7 +83,7 @@ When you close ssh session, scripts that were called from ssh user may ">
         <!--Body content-->
         <div class="row">
             
-<article class="storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Ubuntu bash&nbsp;hints</a></h1>
+<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Ubuntu bash&nbsp;hints</a></h1>
 
         
     </header><div class="e-content entry-content" itemprop="articleBody text">
@@ -132,78 +132,83 @@ When you close ssh session, scripts that were called from ssh user may ">
 </div>
 <div class="section" id="another-hints">
 <h2><a class="toc-backref" href="#id2">Another&nbsp;hints</a></h2>
-<p><a class="reference external" href="../../../listings/ubuntu-bash-hints.sh.html">ubuntu-bash-hints.sh</a></p>
-<pre class="code bash"><a name="rest_code_d63bd0eae5dc48a19d17fdb700e90507-1"></a><span class="c1"># show running process by name with headers</span>
-<a name="rest_code_d63bd0eae5dc48a19d17fdb700e90507-2"></a>$ ps aux <span class="p">|</span> egrep <span class="s2">"python|PID"</span>
-<a name="rest_code_d63bd0eae5dc48a19d17fdb700e90507-3"></a>
-<a name="rest_code_d63bd0eae5dc48a19d17fdb700e90507-4"></a><span class="c1"># get the location of the executable link</span>
-<a name="rest_code_d63bd0eae5dc48a19d17fdb700e90507-5"></a>$ readlink -f /usr/bin/java
-<a name="rest_code_d63bd0eae5dc48a19d17fdb700e90507-6"></a>/usr/lib/jvm/java-8-oracle/jre/bin/java
-<a name="rest_code_d63bd0eae5dc48a19d17fdb700e90507-7"></a>
-<a name="rest_code_d63bd0eae5dc48a19d17fdb700e90507-8"></a><span class="c1"># display part of the file</span>
-<a name="rest_code_d63bd0eae5dc48a19d17fdb700e90507-9"></a>$ cat filename <span class="p">|</span> less
-<a name="rest_code_d63bd0eae5dc48a19d17fdb700e90507-10"></a>$ tail -200 filename
-<a name="rest_code_d63bd0eae5dc48a19d17fdb700e90507-11"></a>$ head -200 filename
-<a name="rest_code_d63bd0eae5dc48a19d17fdb700e90507-12"></a>$ head -n <span class="m">1000</span> filename <span class="p">|</span> tail
-<a name="rest_code_d63bd0eae5dc48a19d17fdb700e90507-13"></a><span class="c1"># display to stdout</span>
-<a name="rest_code_d63bd0eae5dc48a19d17fdb700e90507-14"></a>$ <span class="nb">echo</span> SOMETHING
-<a name="rest_code_d63bd0eae5dc48a19d17fdb700e90507-15"></a>
-<a name="rest_code_d63bd0eae5dc48a19d17fdb700e90507-16"></a><span class="c1"># get list of all listened ports</span>
-<a name="rest_code_d63bd0eae5dc48a19d17fdb700e90507-17"></a>$ sudo netstat -peanut
-<a name="rest_code_d63bd0eae5dc48a19d17fdb700e90507-18"></a>
-<a name="rest_code_d63bd0eae5dc48a19d17fdb700e90507-19"></a><span class="c1"># check free disk space</span>
-<a name="rest_code_d63bd0eae5dc48a19d17fdb700e90507-20"></a>$ df -h
-<a name="rest_code_d63bd0eae5dc48a19d17fdb700e90507-21"></a>
-<a name="rest_code_d63bd0eae5dc48a19d17fdb700e90507-22"></a><span class="c1"># check memory every 1 second</span>
-<a name="rest_code_d63bd0eae5dc48a19d17fdb700e90507-23"></a>$ watch -n <span class="m">1</span> free -m
-<a name="rest_code_d63bd0eae5dc48a19d17fdb700e90507-24"></a>
-<a name="rest_code_d63bd0eae5dc48a19d17fdb700e90507-25"></a><span class="c1"># search recursive by folders</span>
-<a name="rest_code_d63bd0eae5dc48a19d17fdb700e90507-26"></a>$ grep -r <span class="s2">"/api/Profile/active_home_devices"</span> static/
-<a name="rest_code_d63bd0eae5dc48a19d17fdb700e90507-27"></a>
-<a name="rest_code_d63bd0eae5dc48a19d17fdb700e90507-28"></a><span class="c1"># search by file content</span>
-<a name="rest_code_d63bd0eae5dc48a19d17fdb700e90507-29"></a>$ grep -R <span class="s1">'GCModel'</span> SemanticProcessor/
-<a name="rest_code_d63bd0eae5dc48a19d17fdb700e90507-30"></a>
-<a name="rest_code_d63bd0eae5dc48a19d17fdb700e90507-31"></a><span class="c1"># find by filename</span>
-<a name="rest_code_d63bd0eae5dc48a19d17fdb700e90507-32"></a>$ find ~ -name readme.txt
-<a name="rest_code_d63bd0eae5dc48a19d17fdb700e90507-33"></a>
-<a name="rest_code_d63bd0eae5dc48a19d17fdb700e90507-34"></a><span class="c1"># get folder size</span>
-<a name="rest_code_d63bd0eae5dc48a19d17fdb700e90507-35"></a>$ du -hs
-<a name="rest_code_d63bd0eae5dc48a19d17fdb700e90507-36"></a>
-<a name="rest_code_d63bd0eae5dc48a19d17fdb700e90507-37"></a><span class="c1"># get folders size inside another one</span>
-<a name="rest_code_d63bd0eae5dc48a19d17fdb700e90507-38"></a>$ du -h --max-depth<span class="o">=</span><span class="m">1</span> some_folder
-<a name="rest_code_d63bd0eae5dc48a19d17fdb700e90507-39"></a>
-<a name="rest_code_d63bd0eae5dc48a19d17fdb700e90507-40"></a><span class="c1"># sizes of files</span>
-<a name="rest_code_d63bd0eae5dc48a19d17fdb700e90507-41"></a>$ ls -lah
-<a name="rest_code_d63bd0eae5dc48a19d17fdb700e90507-42"></a>
-<a name="rest_code_d63bd0eae5dc48a19d17fdb700e90507-43"></a><span class="c1"># as per tutorial: http://manpages.ubuntu.com/manpages/trusty/man1/enca.1.html</span>
-<a name="rest_code_d63bd0eae5dc48a19d17fdb700e90507-44"></a><span class="c1"># get coding of document</span>
-<a name="rest_code_d63bd0eae5dc48a19d17fdb700e90507-45"></a>$ enca filename
-<a name="rest_code_d63bd0eae5dc48a19d17fdb700e90507-46"></a><span class="c1"># change encoding of doc</span>
-<a name="rest_code_d63bd0eae5dc48a19d17fdb700e90507-47"></a>$ enconv filename
-<a name="rest_code_d63bd0eae5dc48a19d17fdb700e90507-48"></a>
-<a name="rest_code_d63bd0eae5dc48a19d17fdb700e90507-49"></a><span class="c1"># merge all files in folder to one</span>
-<a name="rest_code_d63bd0eae5dc48a19d17fdb700e90507-50"></a>$ cat folder_path/* &gt; new_file
-<a name="rest_code_d63bd0eae5dc48a19d17fdb700e90507-51"></a>
-<a name="rest_code_d63bd0eae5dc48a19d17fdb700e90507-52"></a><span class="c1"># copy content of some text file(ssh for example)</span>
-<a name="rest_code_d63bd0eae5dc48a19d17fdb700e90507-53"></a>$ cat ~/.ssh/id_rsa.pub <span class="p">|</span> xclip -sel clip
-<a name="rest_code_d63bd0eae5dc48a19d17fdb700e90507-54"></a>
-<a name="rest_code_d63bd0eae5dc48a19d17fdb700e90507-55"></a><span class="c1"># get source code of some package</span>
-<a name="rest_code_d63bd0eae5dc48a19d17fdb700e90507-56"></a>http://askubuntu.com/questions/167468/where-can-i-find-the-source-code-of-ubuntu
-<a name="rest_code_d63bd0eae5dc48a19d17fdb700e90507-57"></a>
-<a name="rest_code_d63bd0eae5dc48a19d17fdb700e90507-58"></a><span class="c1"># get dependencies</span>
-<a name="rest_code_d63bd0eae5dc48a19d17fdb700e90507-59"></a>$ readelf -d some_exe
-<a name="rest_code_d63bd0eae5dc48a19d17fdb700e90507-60"></a>
-<a name="rest_code_d63bd0eae5dc48a19d17fdb700e90507-61"></a><span class="c1"># find location of installed files</span>
-<a name="rest_code_d63bd0eae5dc48a19d17fdb700e90507-62"></a>$ dpkg --listfiles libqt4-dev
-<a name="rest_code_d63bd0eae5dc48a19d17fdb700e90507-63"></a>
-<a name="rest_code_d63bd0eae5dc48a19d17fdb700e90507-64"></a><span class="c1"># remove range of folders starts with numbers</span>
-<a name="rest_code_d63bd0eae5dc48a19d17fdb700e90507-65"></a>$ rm -r output/logs/<span class="o">{</span>17..26<span class="o">}</span>*
-<a name="rest_code_d63bd0eae5dc48a19d17fdb700e90507-66"></a>
-<a name="rest_code_d63bd0eae5dc48a19d17fdb700e90507-67"></a><span class="c1"># unzip tar.gz file</span>
-<a name="rest_code_d63bd0eae5dc48a19d17fdb700e90507-68"></a>$ tar -xvzf filename.tar.gz
-<a name="rest_code_d63bd0eae5dc48a19d17fdb700e90507-69"></a>
-<a name="rest_code_d63bd0eae5dc48a19d17fdb700e90507-70"></a><span class="c1"># send stdout to file and display it to the bash at the same time</span>
-<a name="rest_code_d63bd0eae5dc48a19d17fdb700e90507-71"></a>$ ./some_file.sh <span class="p">|</span> tee -a logs.txt
+<p><a class="reference external" href="../../../listings/ubuntu-bash-hints.sh.html">ubuntu-bash-hints.sh</a>  <a class="reference external" href="../../../listings/ubuntu-bash-hints.sh">(Source)</a></p>
+<pre class="code bash"><a name="rest_code_490ce3e40e6f41ea8e8664bdf3105e08-1"></a><span class="c1"># show running process by name with headers</span>
+<a name="rest_code_490ce3e40e6f41ea8e8664bdf3105e08-2"></a>$ ps aux <span class="p">|</span> egrep <span class="s2">"python|PID"</span>
+<a name="rest_code_490ce3e40e6f41ea8e8664bdf3105e08-3"></a>
+<a name="rest_code_490ce3e40e6f41ea8e8664bdf3105e08-4"></a><span class="c1">### la</span>
+<a name="rest_code_490ce3e40e6f41ea8e8664bdf3105e08-5"></a><span class="c1"># sizes of files</span>
+<a name="rest_code_490ce3e40e6f41ea8e8664bdf3105e08-6"></a>$ ls -lah
+<a name="rest_code_490ce3e40e6f41ea8e8664bdf3105e08-7"></a><span class="c1"># colored</span>
+<a name="rest_code_490ce3e40e6f41ea8e8664bdf3105e08-8"></a>$ ls -G
+<a name="rest_code_490ce3e40e6f41ea8e8664bdf3105e08-9"></a><span class="c1"># count quantity of files inside folder</span>
+<a name="rest_code_490ce3e40e6f41ea8e8664bdf3105e08-10"></a>$ ls -1 <span class="p">|</span> wc -l
+<a name="rest_code_490ce3e40e6f41ea8e8664bdf3105e08-11"></a>
+<a name="rest_code_490ce3e40e6f41ea8e8664bdf3105e08-12"></a><span class="c1">### sizes</span>
+<a name="rest_code_490ce3e40e6f41ea8e8664bdf3105e08-13"></a><span class="c1"># check free disk space</span>
+<a name="rest_code_490ce3e40e6f41ea8e8664bdf3105e08-14"></a>$ df -h
+<a name="rest_code_490ce3e40e6f41ea8e8664bdf3105e08-15"></a><span class="c1"># get folder size</span>
+<a name="rest_code_490ce3e40e6f41ea8e8664bdf3105e08-16"></a>$ du -hs
+<a name="rest_code_490ce3e40e6f41ea8e8664bdf3105e08-17"></a><span class="c1"># get folders size inside another one</span>
+<a name="rest_code_490ce3e40e6f41ea8e8664bdf3105e08-18"></a>$ du -h --max-depth<span class="o">=</span><span class="m">1</span> some_folder
+<a name="rest_code_490ce3e40e6f41ea8e8664bdf3105e08-19"></a>
+<a name="rest_code_490ce3e40e6f41ea8e8664bdf3105e08-20"></a><span class="c1">### search</span>
+<a name="rest_code_490ce3e40e6f41ea8e8664bdf3105e08-21"></a><span class="c1"># search recursive by folders</span>
+<a name="rest_code_490ce3e40e6f41ea8e8664bdf3105e08-22"></a>$ grep -r <span class="s2">"/api/Profile/active_home_devices"</span> static/
+<a name="rest_code_490ce3e40e6f41ea8e8664bdf3105e08-23"></a><span class="c1"># search by file content</span>
+<a name="rest_code_490ce3e40e6f41ea8e8664bdf3105e08-24"></a>$ grep -R <span class="s1">'GCModel'</span> SemanticProcessor/
+<a name="rest_code_490ce3e40e6f41ea8e8664bdf3105e08-25"></a><span class="c1"># find by filename</span>
+<a name="rest_code_490ce3e40e6f41ea8e8664bdf3105e08-26"></a>$ find ~ -name readme.txt
+<a name="rest_code_490ce3e40e6f41ea8e8664bdf3105e08-27"></a>
+<a name="rest_code_490ce3e40e6f41ea8e8664bdf3105e08-28"></a><span class="c1"># get the location of the executable link</span>
+<a name="rest_code_490ce3e40e6f41ea8e8664bdf3105e08-29"></a>$ readlink -f /usr/bin/java
+<a name="rest_code_490ce3e40e6f41ea8e8664bdf3105e08-30"></a>/usr/lib/jvm/java-8-oracle/jre/bin/java
+<a name="rest_code_490ce3e40e6f41ea8e8664bdf3105e08-31"></a>
+<a name="rest_code_490ce3e40e6f41ea8e8664bdf3105e08-32"></a><span class="c1"># display part of the file</span>
+<a name="rest_code_490ce3e40e6f41ea8e8664bdf3105e08-33"></a>$ cat filename <span class="p">|</span> less
+<a name="rest_code_490ce3e40e6f41ea8e8664bdf3105e08-34"></a>$ tail -200 filename
+<a name="rest_code_490ce3e40e6f41ea8e8664bdf3105e08-35"></a>$ head -200 filename
+<a name="rest_code_490ce3e40e6f41ea8e8664bdf3105e08-36"></a>$ head -n <span class="m">1000</span> filename <span class="p">|</span> tail
+<a name="rest_code_490ce3e40e6f41ea8e8664bdf3105e08-37"></a><span class="c1"># display to stdout</span>
+<a name="rest_code_490ce3e40e6f41ea8e8664bdf3105e08-38"></a>$ <span class="nb">echo</span> SOMETHING
+<a name="rest_code_490ce3e40e6f41ea8e8664bdf3105e08-39"></a>
+<a name="rest_code_490ce3e40e6f41ea8e8664bdf3105e08-40"></a><span class="c1"># get list of all listened ports</span>
+<a name="rest_code_490ce3e40e6f41ea8e8664bdf3105e08-41"></a>$ sudo netstat -peanut
+<a name="rest_code_490ce3e40e6f41ea8e8664bdf3105e08-42"></a>
+<a name="rest_code_490ce3e40e6f41ea8e8664bdf3105e08-43"></a><span class="c1"># check memory every 1 second</span>
+<a name="rest_code_490ce3e40e6f41ea8e8664bdf3105e08-44"></a>$ watch -n <span class="m">1</span> free -m
+<a name="rest_code_490ce3e40e6f41ea8e8664bdf3105e08-45"></a>
+<a name="rest_code_490ce3e40e6f41ea8e8664bdf3105e08-46"></a><span class="c1"># as per tutorial: http://manpages.ubuntu.com/manpages/trusty/man1/enca.1.html</span>
+<a name="rest_code_490ce3e40e6f41ea8e8664bdf3105e08-47"></a><span class="c1"># get coding of document</span>
+<a name="rest_code_490ce3e40e6f41ea8e8664bdf3105e08-48"></a>$ enca filename
+<a name="rest_code_490ce3e40e6f41ea8e8664bdf3105e08-49"></a><span class="c1"># change encoding of doc</span>
+<a name="rest_code_490ce3e40e6f41ea8e8664bdf3105e08-50"></a>$ enconv filename
+<a name="rest_code_490ce3e40e6f41ea8e8664bdf3105e08-51"></a>
+<a name="rest_code_490ce3e40e6f41ea8e8664bdf3105e08-52"></a><span class="c1"># merge all files in folder to one</span>
+<a name="rest_code_490ce3e40e6f41ea8e8664bdf3105e08-53"></a>$ cat folder_path/* &gt; new_file
+<a name="rest_code_490ce3e40e6f41ea8e8664bdf3105e08-54"></a>
+<a name="rest_code_490ce3e40e6f41ea8e8664bdf3105e08-55"></a><span class="c1"># copy content of some text file(ssh for example)</span>
+<a name="rest_code_490ce3e40e6f41ea8e8664bdf3105e08-56"></a>$ cat ~/.ssh/id_rsa.pub <span class="p">|</span> xclip -sel clip
+<a name="rest_code_490ce3e40e6f41ea8e8664bdf3105e08-57"></a><span class="c1"># the same for mac</span>
+<a name="rest_code_490ce3e40e6f41ea8e8664bdf3105e08-58"></a>$ pbcopy &lt; ~/.ssh/id_rsa.pub
+<a name="rest_code_490ce3e40e6f41ea8e8664bdf3105e08-59"></a>
+<a name="rest_code_490ce3e40e6f41ea8e8664bdf3105e08-60"></a><span class="c1"># get source code of some package</span>
+<a name="rest_code_490ce3e40e6f41ea8e8664bdf3105e08-61"></a>http://askubuntu.com/questions/167468/where-can-i-find-the-source-code-of-ubuntu
+<a name="rest_code_490ce3e40e6f41ea8e8664bdf3105e08-62"></a>
+<a name="rest_code_490ce3e40e6f41ea8e8664bdf3105e08-63"></a><span class="c1"># get dependencies</span>
+<a name="rest_code_490ce3e40e6f41ea8e8664bdf3105e08-64"></a>$ readelf -d some_exe
+<a name="rest_code_490ce3e40e6f41ea8e8664bdf3105e08-65"></a>
+<a name="rest_code_490ce3e40e6f41ea8e8664bdf3105e08-66"></a><span class="c1"># find location of installed files</span>
+<a name="rest_code_490ce3e40e6f41ea8e8664bdf3105e08-67"></a>$ dpkg --listfiles libqt4-dev
+<a name="rest_code_490ce3e40e6f41ea8e8664bdf3105e08-68"></a>
+<a name="rest_code_490ce3e40e6f41ea8e8664bdf3105e08-69"></a><span class="c1"># remove range of folders starts with numbers</span>
+<a name="rest_code_490ce3e40e6f41ea8e8664bdf3105e08-70"></a>$ rm -r output/logs/<span class="o">{</span><span class="m">17</span>..26<span class="o">}</span>*
+<a name="rest_code_490ce3e40e6f41ea8e8664bdf3105e08-71"></a>
+<a name="rest_code_490ce3e40e6f41ea8e8664bdf3105e08-72"></a><span class="c1"># unzip tar.gz file</span>
+<a name="rest_code_490ce3e40e6f41ea8e8664bdf3105e08-73"></a>$ tar -xvzf filename.tar.gz
+<a name="rest_code_490ce3e40e6f41ea8e8664bdf3105e08-74"></a>
+<a name="rest_code_490ce3e40e6f41ea8e8664bdf3105e08-75"></a><span class="c1"># send stdout to file and display it to the bash at the same time</span>
+<a name="rest_code_490ce3e40e6f41ea8e8664bdf3105e08-76"></a>$ ./some_file.sh <span class="p">|</span> tee -a logs.txt
 </pre>
 </div>
 </div>
