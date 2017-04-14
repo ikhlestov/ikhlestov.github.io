@@ -54,6 +54,8 @@ $ cat folder_path/* > new_file
 
 # copy content of some text file(ssh for example)
 $ cat ~/.ssh/id_rsa.pub | xclip -sel clip
+# the same for mac
+$ pbcopy < ~/.ssh/id_rsa.pub
 
 # get source code of some package
 http://askubuntu.com/questions/167468/where-can-i-find-the-source-code-of-ubuntu
