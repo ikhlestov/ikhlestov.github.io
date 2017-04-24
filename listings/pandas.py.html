@@ -168,7 +168,10 @@ MathJax.Hub.Config({
 <a href="#listingspandaspy-92">92</a>
 <a href="#listingspandaspy-93">93</a>
 <a href="#listingspandaspy-94">94</a>
-<a href="#listingspandaspy-95">95</a></pre></div></td>
+<a href="#listingspandaspy-95">95</a>
+<a href="#listingspandaspy-96">96</a>
+<a href="#listingspandaspy-97">97</a>
+<a href="#listingspandaspy-98">98</a></pre></div></td>
 <td class="code"><pre class="code literal-block"><a name="listingspandaspy-1"></a><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 <a name="listingspandaspy-2"></a>
 <a name="listingspandaspy-3"></a><span class="c1"># load the data</span>
@@ -215,55 +218,58 @@ MathJax.Hub.Config({
 <a name="listingspandaspy-44"></a><span class="c1"># The .apply method generates a new series</span>
 <a name="listingspandaspy-45"></a><span class="n">titanic</span><span class="p">[</span><span class="s2">"NameLength"</span><span class="p">]</span> <span class="o">=</span> <span class="n">titanic</span><span class="p">[</span><span class="s2">"Name"</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 <a name="listingspandaspy-46"></a>
-<a name="listingspandaspy-47"></a><span class="c1"># but sometimes more useful to apply method "by hands"</span>
-<a name="listingspandaspy-48"></a><span class="c1"># we have nearly the same perfomance, but more verbose output</span>
-<a name="listingspandaspy-49"></a><span class="c1"># previously you should install "tqdm"</span>
-<a name="listingspandaspy-50"></a><span class="n">result_array</span> <span class="o">=</span> <span class="p">[]</span>
-<a name="listingspandaspy-51"></a><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">xrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">"column_name"</span><span class="p">]))):</span>
-<a name="listingspandaspy-52"></a>    <span class="n">new_data</span> <span class="o">=</span> <span class="n">some_function</span><span class="p">(</span> <span class="n">data</span><span class="p">[</span><span class="s2">"column_name"</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="p">)</span>
-<a name="listingspandaspy-53"></a>    <span class="n">result_array</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_data</span><span class="p">)</span>
-<a name="listingspandaspy-54"></a>
-<a name="listingspandaspy-55"></a><span class="c1"># skip rows during data loading</span>
-<a name="listingspandaspy-56"></a><span class="n">test_set</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'http://archive.ics.uci.edu/ml/machine-learning-databases/adult/adult.test'</span><span class="p">,</span>
-<a name="listingspandaspy-57"></a>                      <span class="n">skiprows</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="bp">None</span><span class="p">)</span>
-<a name="listingspandaspy-58"></a>
-<a name="listingspandaspy-59"></a><span class="c1"># add names for colums</span>
-<a name="listingspandaspy-60"></a><span class="n">column_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'first'</span><span class="p">,</span> <span class="s1">'second'</span><span class="p">,</span> <span class="s1">'title'</span><span class="p">]</span>
-<a name="listingspandaspy-61"></a><span class="n">test_set</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">column_labels</span>
-<a name="listingspandaspy-62"></a>
-<a name="listingspandaspy-63"></a><span class="c1"># remove all rows contains '?' question mark</span>
-<a name="listingspandaspy-64"></a><span class="n">train_set</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">' ?'</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<a name="listingspandaspy-47"></a><span class="c1"># filter dataframe based on series</span>
+<a name="listingspandaspy-48"></a><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">filename</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">df_clear</span><span class="o">.</span><span class="n">filename</span><span class="p">)]</span>
+<a name="listingspandaspy-49"></a>
+<a name="listingspandaspy-50"></a><span class="c1"># but sometimes more useful to apply method "by hands"</span>
+<a name="listingspandaspy-51"></a><span class="c1"># we have nearly the same perfomance, but more verbose output</span>
+<a name="listingspandaspy-52"></a><span class="c1"># previously you should install "tqdm"</span>
+<a name="listingspandaspy-53"></a><span class="n">result_array</span> <span class="o">=</span> <span class="p">[]</span>
+<a name="listingspandaspy-54"></a><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">xrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">"column_name"</span><span class="p">]))):</span>
+<a name="listingspandaspy-55"></a>    <span class="n">new_data</span> <span class="o">=</span> <span class="n">some_function</span><span class="p">(</span> <span class="n">data</span><span class="p">[</span><span class="s2">"column_name"</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="p">)</span>
+<a name="listingspandaspy-56"></a>    <span class="n">result_array</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_data</span><span class="p">)</span>
+<a name="listingspandaspy-57"></a>
+<a name="listingspandaspy-58"></a><span class="c1"># skip rows during data loading</span>
+<a name="listingspandaspy-59"></a><span class="n">test_set</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'http://archive.ics.uci.edu/ml/machine-learning-databases/adult/adult.test'</span><span class="p">,</span>
+<a name="listingspandaspy-60"></a>                      <span class="n">skiprows</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="bp">None</span><span class="p">)</span>
+<a name="listingspandaspy-61"></a>
+<a name="listingspandaspy-62"></a><span class="c1"># add names for colums</span>
+<a name="listingspandaspy-63"></a><span class="n">column_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'first'</span><span class="p">,</span> <span class="s1">'second'</span><span class="p">,</span> <span class="s1">'title'</span><span class="p">]</span>
+<a name="listingspandaspy-64"></a><span class="n">test_set</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">column_labels</span>
 <a name="listingspandaspy-65"></a>
-<a name="listingspandaspy-66"></a><span class="c1"># replace one value by another in column</span>
-<a name="listingspandaspy-67"></a><span class="n">test_nomissing</span><span class="p">[</span><span class="s1">'wage_class'</span><span class="p">]</span> <span class="o">=</span> <span class="n">test_nomissing</span><span class="o">.</span><span class="n">wage_class</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span><span class="s1">' &lt;=50K.'</span><span class="p">:</span> <span class="s1">' &lt;=50K'</span><span class="p">,</span> <span class="s1">' &gt;50K.'</span><span class="p">:</span><span class="s1">' &gt;50K'</span><span class="p">})</span>
+<a name="listingspandaspy-66"></a><span class="c1"># remove all rows contains '?' question mark</span>
+<a name="listingspandaspy-67"></a><span class="n">train_set</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">' ?'</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
 <a name="listingspandaspy-68"></a>
-<a name="listingspandaspy-69"></a><span class="c1"># concatenate two datasets vertically</span>
-<a name="listingspandaspy-70"></a><span class="n">combined_set</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">train_nomissing</span><span class="p">,</span> <span class="n">test_nomissing</span><span class="p">],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+<a name="listingspandaspy-69"></a><span class="c1"># replace one value by another in column</span>
+<a name="listingspandaspy-70"></a><span class="n">test_nomissing</span><span class="p">[</span><span class="s1">'wage_class'</span><span class="p">]</span> <span class="o">=</span> <span class="n">test_nomissing</span><span class="o">.</span><span class="n">wage_class</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span><span class="s1">' &lt;=50K.'</span><span class="p">:</span> <span class="s1">' &lt;=50K'</span><span class="p">,</span> <span class="s1">' &gt;50K.'</span><span class="p">:</span><span class="s1">' &gt;50K'</span><span class="p">})</span>
 <a name="listingspandaspy-71"></a>
-<a name="listingspandaspy-72"></a><span class="c1"># replace every sting value to the integer</span>
-<a name="listingspandaspy-73"></a><span class="c1"># Loop through all columns in the dataframe</span>
-<a name="listingspandaspy-74"></a><span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">combined_set</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
-<a name="listingspandaspy-75"></a>    <span class="c1"># Only apply for columns with categorical strings</span>
-<a name="listingspandaspy-76"></a>    <span class="k">if</span> <span class="n">combined_set</span><span class="p">[</span><span class="n">feature</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="s1">'object'</span><span class="p">:</span>
-<a name="listingspandaspy-77"></a>        <span class="c1"># Replace strings with an integer</span>
-<a name="listingspandaspy-78"></a>        <span class="n">combined_set</span><span class="p">[</span><span class="n">feature</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Categorical</span><span class="p">(</span><span class="n">combined_set</span><span class="p">[</span><span class="n">feature</span><span class="p">])</span><span class="o">.</span><span class="n">codes</span>
-<a name="listingspandaspy-79"></a>
-<a name="listingspandaspy-80"></a><span class="c1"># create pandas data frame from data and save it</span>
-<a name="listingspandaspy-81"></a><span class="c1"># assume that data - nested list of lists, when each nested list - values for one line</span>
-<a name="listingspandaspy-82"></a><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'word_1'</span><span class="p">,</span> <span class="s1">'word_2'</span><span class="p">,</span> <span class="s1">'target_similarity'</span><span class="p">,</span> <span class="s1">'calculated_similarity'</span><span class="p">]</span>
-<a name="listingspandaspy-83"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">columns</span><span class="p">)</span>
-<a name="listingspandaspy-84"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">csv_lines</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">columns</span><span class="p">)</span>
-<a name="listingspandaspy-85"></a><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">save_file_name</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-<a name="listingspandaspy-86"></a>
-<a name="listingspandaspy-87"></a><span class="c1"># create new dataframe if not exists or use existing one</span>
-<a name="listingspandaspy-88"></a><span class="c1"># csv_columns = list of names for columns</span>
-<a name="listingspandaspy-89"></a><span class="c1"># csv_data = dict with keys same as columns names</span>
-<a name="listingspandaspy-90"></a><span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">csv_f_name</span><span class="p">):</span>
-<a name="listingspandaspy-91"></a>    <span class="n">main_csv</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">csv_f_name</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<a name="listingspandaspy-92"></a><span class="k">else</span><span class="p">:</span>
-<a name="listingspandaspy-93"></a>    <span class="n">main_csv</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">csv_columns</span><span class="p">)</span>
-<a name="listingspandaspy-94"></a><span class="n">main_csv</span> <span class="o">=</span> <span class="n">main_csv</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">csv_data</span><span class="p">,</span> <span class="n">ignore_index</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-<a name="listingspandaspy-95"></a><span class="n">main_csv</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">csv_f_name</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">na_rep</span><span class="o">=</span><span class="s1">'NaN'</span><span class="p">)</span>
+<a name="listingspandaspy-72"></a><span class="c1"># concatenate two datasets vertically</span>
+<a name="listingspandaspy-73"></a><span class="n">combined_set</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">train_nomissing</span><span class="p">,</span> <span class="n">test_nomissing</span><span class="p">],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+<a name="listingspandaspy-74"></a>
+<a name="listingspandaspy-75"></a><span class="c1"># replace every sting value to the integer</span>
+<a name="listingspandaspy-76"></a><span class="c1"># Loop through all columns in the dataframe</span>
+<a name="listingspandaspy-77"></a><span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">combined_set</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+<a name="listingspandaspy-78"></a>    <span class="c1"># Only apply for columns with categorical strings</span>
+<a name="listingspandaspy-79"></a>    <span class="k">if</span> <span class="n">combined_set</span><span class="p">[</span><span class="n">feature</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="s1">'object'</span><span class="p">:</span>
+<a name="listingspandaspy-80"></a>        <span class="c1"># Replace strings with an integer</span>
+<a name="listingspandaspy-81"></a>        <span class="n">combined_set</span><span class="p">[</span><span class="n">feature</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Categorical</span><span class="p">(</span><span class="n">combined_set</span><span class="p">[</span><span class="n">feature</span><span class="p">])</span><span class="o">.</span><span class="n">codes</span>
+<a name="listingspandaspy-82"></a>
+<a name="listingspandaspy-83"></a><span class="c1"># create pandas data frame from data and save it</span>
+<a name="listingspandaspy-84"></a><span class="c1"># assume that data - nested list of lists, when each nested list - values for one line</span>
+<a name="listingspandaspy-85"></a><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'word_1'</span><span class="p">,</span> <span class="s1">'word_2'</span><span class="p">,</span> <span class="s1">'target_similarity'</span><span class="p">,</span> <span class="s1">'calculated_similarity'</span><span class="p">]</span>
+<a name="listingspandaspy-86"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">columns</span><span class="p">)</span>
+<a name="listingspandaspy-87"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">csv_lines</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">columns</span><span class="p">)</span>
+<a name="listingspandaspy-88"></a><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">save_file_name</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<a name="listingspandaspy-89"></a>
+<a name="listingspandaspy-90"></a><span class="c1"># create new dataframe if not exists or use existing one</span>
+<a name="listingspandaspy-91"></a><span class="c1"># csv_columns = list of names for columns</span>
+<a name="listingspandaspy-92"></a><span class="c1"># csv_data = dict with keys same as columns names</span>
+<a name="listingspandaspy-93"></a><span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">csv_f_name</span><span class="p">):</span>
+<a name="listingspandaspy-94"></a>    <span class="n">main_csv</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">csv_f_name</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<a name="listingspandaspy-95"></a><span class="k">else</span><span class="p">:</span>
+<a name="listingspandaspy-96"></a>    <span class="n">main_csv</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">csv_columns</span><span class="p">)</span>
+<a name="listingspandaspy-97"></a><span class="n">main_csv</span> <span class="o">=</span> <span class="n">main_csv</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">csv_data</span><span class="p">,</span> <span class="n">ignore_index</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<a name="listingspandaspy-98"></a><span class="n">main_csv</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">csv_f_name</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">na_rep</span><span class="o">=</span><span class="s1">'NaN'</span><span class="p">)</span>
 </pre></td>
 </tr></table>
 </div>

@@ -128,7 +128,21 @@ String formatting
     # dictionary string formatting
     params = {"uid":"sa", "pwd":"secret"}
     print("%(pwd)s" % params)
+    print("{pwd}".format(**params))
     # out: 'secret'
+
+    # strip float precision length
+    print('%.2f' % 0.1245125)
+    print('{:.2f}'.format(0.1245125))
+    # out: 0.12
+
+    # free space before word
+    print('%10s' % 'some')
+    print('{:>10}'.format('some'))
+    # out: '        some'
+    print('%-10s' % 'some')
+    print('{:<10}'.format('some'))
+    # out: 'some        '
 
 Comprehensions
 ==============
