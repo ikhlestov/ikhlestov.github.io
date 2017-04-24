@@ -44,6 +44,9 @@ titanic["FamilySize"] = titanic["SibSp"] + titanic["Parch"]
 # The .apply method generates a new series
 titanic["NameLength"] = titanic["Name"].apply(lambda x: len(x))
 
+# filter dataframe based on series
+df = df[df.filename.isin(df_clear.filename)]
+
 # but sometimes more useful to apply method "by hands"
 # we have nearly the same perfomance, but more verbose output
 # previously you should install "tqdm"
