@@ -113,7 +113,15 @@ MathJax.Hub.Config({
 <a href="#listingsdocker_helpsh-37">37</a>
 <a href="#listingsdocker_helpsh-38">38</a>
 <a href="#listingsdocker_helpsh-39">39</a>
-<a href="#listingsdocker_helpsh-40">40</a></pre></div></td>
+<a href="#listingsdocker_helpsh-40">40</a>
+<a href="#listingsdocker_helpsh-41">41</a>
+<a href="#listingsdocker_helpsh-42">42</a>
+<a href="#listingsdocker_helpsh-43">43</a>
+<a href="#listingsdocker_helpsh-44">44</a>
+<a href="#listingsdocker_helpsh-45">45</a>
+<a href="#listingsdocker_helpsh-46">46</a>
+<a href="#listingsdocker_helpsh-47">47</a>
+<a href="#listingsdocker_helpsh-48">48</a></pre></div></td>
 <td class="code"><pre class="code literal-block"><a name="listingsdocker_helpsh-1"></a><span class="c1"># based on this tutorial https://docs.docker.com/engine/userguide/containers/dockerizing/</span>
 <a name="listingsdocker_helpsh-2"></a><span class="c1"># list running images</span>
 <a name="listingsdocker_helpsh-3"></a>$ docker ps
@@ -133,27 +141,35 @@ MathJax.Hub.Config({
 <a name="listingsdocker_helpsh-17"></a>$ docker run -t -i ouruser/sinatra:v2 /bin/bash
 <a name="listingsdocker_helpsh-18"></a><span class="c1"># run image with name</span>
 <a name="listingsdocker_helpsh-19"></a>$ docker run -d -P --name web training/webapp python app.py
-<a name="listingsdocker_helpsh-20"></a><span class="c1"># check the state of container by name</span>
-<a name="listingsdocker_helpsh-21"></a>$ docker inspect web
-<a name="listingsdocker_helpsh-22"></a><span class="c1"># list all networks drivers</span>
-<a name="listingsdocker_helpsh-23"></a>$ docker network ls
-<a name="listingsdocker_helpsh-24"></a><span class="c1"># again run an image</span>
-<a name="listingsdocker_helpsh-25"></a>$ docker run -itd --name<span class="o">=</span>networktest ubuntu
-<a name="listingsdocker_helpsh-26"></a><span class="c1"># inspec current sate of network</span>
-<a name="listingsdocker_helpsh-27"></a>$ docker network inspect bridge
-<a name="listingsdocker_helpsh-28"></a><span class="c1"># disconnect a container</span>
-<a name="listingsdocker_helpsh-29"></a>$ docker network disconnect bridge networktest
-<a name="listingsdocker_helpsh-30"></a><span class="c1"># enter inside running container</span>
-<a name="listingsdocker_helpsh-31"></a>$ docker <span class="nb">exec</span> -it CONTAINER_NAME bash
-<a name="listingsdocker_helpsh-32"></a><span class="c1"># remove the container and its image after exit</span>
-<a name="listingsdocker_helpsh-33"></a>$ docker run --rm CONTAINER_NAME
-<a name="listingsdocker_helpsh-34"></a><span class="c1"># Deploying changes</span>
-<a name="listingsdocker_helpsh-35"></a>$ docker-compose build web
-<a name="listingsdocker_helpsh-36"></a>$ docker-compose up --no-deps -d web
-<a name="listingsdocker_helpsh-37"></a><span class="c1"># run with additional settings file and in background</span>
-<a name="listingsdocker_helpsh-38"></a>$ docker-compose -f docker-compose.yml -f production.yml up -d
-<a name="listingsdocker_helpsh-39"></a><span class="c1"># enter to compose container</span>
-<a name="listingsdocker_helpsh-40"></a>$ docker-compose run CONTAINER_NAME bash
+<a name="listingsdocker_helpsh-20"></a><span class="c1"># login to docker on the AWS EC2 service</span>
+<a name="listingsdocker_helpsh-21"></a>$ <span class="k">$(</span>aws ecr get-login --region us-west-2<span class="k">)</span>
+<a name="listingsdocker_helpsh-22"></a><span class="c1"># attach to already running container</span>
+<a name="listingsdocker_helpsh-23"></a>$ docker start -ai container_name
+<a name="listingsdocker_helpsh-24"></a><span class="c1"># mount some folder inside docker container on the start</span>
+<a name="listingsdocker_helpsh-25"></a>$ docker run -it -v /path/from:/path/to /bin/bash
+<a name="listingsdocker_helpsh-26"></a><span class="c1"># run some web image</span>
+<a name="listingsdocker_helpsh-27"></a>$ docker run -it -d some.uri.amazonaws.com/mxnet:gpu /bin/bash
+<a name="listingsdocker_helpsh-28"></a><span class="c1"># check the state of container by name</span>
+<a name="listingsdocker_helpsh-29"></a>$ docker inspect web
+<a name="listingsdocker_helpsh-30"></a><span class="c1"># list all networks drivers</span>
+<a name="listingsdocker_helpsh-31"></a>$ docker network ls
+<a name="listingsdocker_helpsh-32"></a><span class="c1"># again run an image</span>
+<a name="listingsdocker_helpsh-33"></a>$ docker run -itd --name<span class="o">=</span>networktest ubuntu
+<a name="listingsdocker_helpsh-34"></a><span class="c1"># inspect current sate of network</span>
+<a name="listingsdocker_helpsh-35"></a>$ docker network inspect bridge
+<a name="listingsdocker_helpsh-36"></a><span class="c1"># disconnect a container</span>
+<a name="listingsdocker_helpsh-37"></a>$ docker network disconnect bridge networktest
+<a name="listingsdocker_helpsh-38"></a><span class="c1"># enter inside running container</span>
+<a name="listingsdocker_helpsh-39"></a>$ docker <span class="nb">exec</span> -it CONTAINER_NAME bash
+<a name="listingsdocker_helpsh-40"></a><span class="c1"># remove the container and its image after exit</span>
+<a name="listingsdocker_helpsh-41"></a>$ docker run --rm CONTAINER_NAME
+<a name="listingsdocker_helpsh-42"></a><span class="c1"># Deploying changes</span>
+<a name="listingsdocker_helpsh-43"></a>$ docker-compose build web
+<a name="listingsdocker_helpsh-44"></a>$ docker-compose up --no-deps -d web
+<a name="listingsdocker_helpsh-45"></a><span class="c1"># run with additional settings file and in background</span>
+<a name="listingsdocker_helpsh-46"></a>$ docker-compose -f docker-compose.yml -f production.yml up -d
+<a name="listingsdocker_helpsh-47"></a><span class="c1"># enter to compose container</span>
+<a name="listingsdocker_helpsh-48"></a>$ docker-compose run CONTAINER_NAME bash
 </pre></td>
 </tr></table>
 </div>

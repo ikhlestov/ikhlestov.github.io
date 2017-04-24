@@ -149,7 +149,15 @@ MathJax.Hub.Config({
 <a href="#listingsubuntu-bash-hintssh-73">73</a>
 <a href="#listingsubuntu-bash-hintssh-74">74</a>
 <a href="#listingsubuntu-bash-hintssh-75">75</a>
-<a href="#listingsubuntu-bash-hintssh-76">76</a></pre></div></td>
+<a href="#listingsubuntu-bash-hintssh-76">76</a>
+<a href="#listingsubuntu-bash-hintssh-77">77</a>
+<a href="#listingsubuntu-bash-hintssh-78">78</a>
+<a href="#listingsubuntu-bash-hintssh-79">79</a>
+<a href="#listingsubuntu-bash-hintssh-80">80</a>
+<a href="#listingsubuntu-bash-hintssh-81">81</a>
+<a href="#listingsubuntu-bash-hintssh-82">82</a>
+<a href="#listingsubuntu-bash-hintssh-83">83</a>
+<a href="#listingsubuntu-bash-hintssh-84">84</a></pre></div></td>
 <td class="code"><pre class="code literal-block"><a name="listingsubuntu-bash-hintssh-1"></a><span class="c1"># show running process by name with headers</span>
 <a name="listingsubuntu-bash-hintssh-2"></a>$ ps aux <span class="p">|</span> egrep <span class="s2">"python|PID"</span>
 <a name="listingsubuntu-bash-hintssh-3"></a>
@@ -175,57 +183,65 @@ MathJax.Hub.Config({
 <a name="listingsubuntu-bash-hintssh-23"></a><span class="c1"># search by file content</span>
 <a name="listingsubuntu-bash-hintssh-24"></a>$ grep -R <span class="s1">'GCModel'</span> SemanticProcessor/
 <a name="listingsubuntu-bash-hintssh-25"></a><span class="c1"># find by filename</span>
-<a name="listingsubuntu-bash-hintssh-26"></a>$ find ~ -name readme.txt 
+<a name="listingsubuntu-bash-hintssh-26"></a>$ find ~ -name readme.txt
 <a name="listingsubuntu-bash-hintssh-27"></a>
-<a name="listingsubuntu-bash-hintssh-28"></a><span class="c1"># get the location of the executable link</span>
-<a name="listingsubuntu-bash-hintssh-29"></a>$ readlink -f /usr/bin/java
-<a name="listingsubuntu-bash-hintssh-30"></a>/usr/lib/jvm/java-8-oracle/jre/bin/java
-<a name="listingsubuntu-bash-hintssh-31"></a>
-<a name="listingsubuntu-bash-hintssh-32"></a><span class="c1"># display part of the file</span>
-<a name="listingsubuntu-bash-hintssh-33"></a>$ cat filename <span class="p">|</span> less
-<a name="listingsubuntu-bash-hintssh-34"></a>$ tail -200 filename
-<a name="listingsubuntu-bash-hintssh-35"></a>$ head -200 filename
-<a name="listingsubuntu-bash-hintssh-36"></a>$ head -n <span class="m">1000</span> filename <span class="p">|</span> tail
-<a name="listingsubuntu-bash-hintssh-37"></a><span class="c1"># display to stdout</span>
-<a name="listingsubuntu-bash-hintssh-38"></a>$ <span class="nb">echo</span> SOMETHING
-<a name="listingsubuntu-bash-hintssh-39"></a>
-<a name="listingsubuntu-bash-hintssh-40"></a><span class="c1"># get list of all listened ports</span>
-<a name="listingsubuntu-bash-hintssh-41"></a>$ sudo netstat -peanut
+<a name="listingsubuntu-bash-hintssh-28"></a><span class="c1">### zipping/unzipping</span>
+<a name="listingsubuntu-bash-hintssh-29"></a><span class="c1"># unzip tar.gz file</span>
+<a name="listingsubuntu-bash-hintssh-30"></a>$ tar -xvzf filename.tar.gz
+<a name="listingsubuntu-bash-hintssh-31"></a><span class="c1"># zip something</span>
+<a name="listingsubuntu-bash-hintssh-32"></a>$ zip archive_name source_name
+<a name="listingsubuntu-bash-hintssh-33"></a><span class="c1"># unzip something</span>
+<a name="listingsubuntu-bash-hintssh-34"></a>$ unzip archive_name
+<a name="listingsubuntu-bash-hintssh-35"></a>
+<a name="listingsubuntu-bash-hintssh-36"></a><span class="c1"># execute output of some command(assume it in text file)</span>
+<a name="listingsubuntu-bash-hintssh-37"></a>$ <span class="k">$(</span>cat filename<span class="k">)</span>
+<a name="listingsubuntu-bash-hintssh-38"></a>
+<a name="listingsubuntu-bash-hintssh-39"></a><span class="c1"># get the location of the executable link</span>
+<a name="listingsubuntu-bash-hintssh-40"></a>$ readlink -f /usr/bin/java
+<a name="listingsubuntu-bash-hintssh-41"></a>/usr/lib/jvm/java-8-oracle/jre/bin/java
 <a name="listingsubuntu-bash-hintssh-42"></a>
-<a name="listingsubuntu-bash-hintssh-43"></a><span class="c1"># check memory every 1 second</span>
-<a name="listingsubuntu-bash-hintssh-44"></a>$ watch -n <span class="m">1</span> free -m
-<a name="listingsubuntu-bash-hintssh-45"></a>
-<a name="listingsubuntu-bash-hintssh-46"></a><span class="c1"># as per tutorial: http://manpages.ubuntu.com/manpages/trusty/man1/enca.1.html</span>
-<a name="listingsubuntu-bash-hintssh-47"></a><span class="c1"># get coding of document</span>
-<a name="listingsubuntu-bash-hintssh-48"></a>$ enca filename
-<a name="listingsubuntu-bash-hintssh-49"></a><span class="c1"># change encoding of doc</span>
-<a name="listingsubuntu-bash-hintssh-50"></a>$ enconv filename
-<a name="listingsubuntu-bash-hintssh-51"></a>
-<a name="listingsubuntu-bash-hintssh-52"></a><span class="c1"># merge all files in folder to one</span>
-<a name="listingsubuntu-bash-hintssh-53"></a>$ cat folder_path/* &gt; new_file
-<a name="listingsubuntu-bash-hintssh-54"></a>
-<a name="listingsubuntu-bash-hintssh-55"></a><span class="c1"># copy content of some text file(ssh for example)</span>
-<a name="listingsubuntu-bash-hintssh-56"></a>$ cat ~/.ssh/id_rsa.pub <span class="p">|</span> xclip -sel clip
-<a name="listingsubuntu-bash-hintssh-57"></a><span class="c1"># the same for mac</span>
-<a name="listingsubuntu-bash-hintssh-58"></a>$ pbcopy &lt; ~/.ssh/id_rsa.pub
-<a name="listingsubuntu-bash-hintssh-59"></a>
-<a name="listingsubuntu-bash-hintssh-60"></a><span class="c1"># get source code of some package</span>
-<a name="listingsubuntu-bash-hintssh-61"></a>http://askubuntu.com/questions/167468/where-can-i-find-the-source-code-of-ubuntu
+<a name="listingsubuntu-bash-hintssh-43"></a><span class="c1"># display part of the file</span>
+<a name="listingsubuntu-bash-hintssh-44"></a>$ cat filename <span class="p">|</span> less
+<a name="listingsubuntu-bash-hintssh-45"></a>$ tail -200 filename
+<a name="listingsubuntu-bash-hintssh-46"></a>$ head -200 filename
+<a name="listingsubuntu-bash-hintssh-47"></a>$ head -n <span class="m">1000</span> filename <span class="p">|</span> tail
+<a name="listingsubuntu-bash-hintssh-48"></a><span class="c1"># display to stdout</span>
+<a name="listingsubuntu-bash-hintssh-49"></a>$ <span class="nb">echo</span> SOMETHING
+<a name="listingsubuntu-bash-hintssh-50"></a>
+<a name="listingsubuntu-bash-hintssh-51"></a><span class="c1"># get list of all listened ports</span>
+<a name="listingsubuntu-bash-hintssh-52"></a>$ sudo netstat -peanut
+<a name="listingsubuntu-bash-hintssh-53"></a>
+<a name="listingsubuntu-bash-hintssh-54"></a><span class="c1"># check memory every 1 second</span>
+<a name="listingsubuntu-bash-hintssh-55"></a>$ watch -n <span class="m">1</span> free -m
+<a name="listingsubuntu-bash-hintssh-56"></a>
+<a name="listingsubuntu-bash-hintssh-57"></a><span class="c1"># as per tutorial: http://manpages.ubuntu.com/manpages/trusty/man1/enca.1.html</span>
+<a name="listingsubuntu-bash-hintssh-58"></a><span class="c1"># get coding of document</span>
+<a name="listingsubuntu-bash-hintssh-59"></a>$ enca filename
+<a name="listingsubuntu-bash-hintssh-60"></a><span class="c1"># change encoding of doc</span>
+<a name="listingsubuntu-bash-hintssh-61"></a>$ enconv filename
 <a name="listingsubuntu-bash-hintssh-62"></a>
-<a name="listingsubuntu-bash-hintssh-63"></a><span class="c1"># get dependencies</span>
-<a name="listingsubuntu-bash-hintssh-64"></a>$ readelf -d some_exe
+<a name="listingsubuntu-bash-hintssh-63"></a><span class="c1"># merge all files in folder to one</span>
+<a name="listingsubuntu-bash-hintssh-64"></a>$ cat folder_path/* &gt; new_file
 <a name="listingsubuntu-bash-hintssh-65"></a>
-<a name="listingsubuntu-bash-hintssh-66"></a><span class="c1"># find location of installed files</span>
-<a name="listingsubuntu-bash-hintssh-67"></a>$ dpkg --listfiles libqt4-dev
-<a name="listingsubuntu-bash-hintssh-68"></a>
-<a name="listingsubuntu-bash-hintssh-69"></a><span class="c1"># remove range of folders starts with numbers</span>
-<a name="listingsubuntu-bash-hintssh-70"></a>$ rm -r output/logs/<span class="o">{</span><span class="m">17</span>..26<span class="o">}</span>*
-<a name="listingsubuntu-bash-hintssh-71"></a>
-<a name="listingsubuntu-bash-hintssh-72"></a><span class="c1"># unzip tar.gz file</span>
-<a name="listingsubuntu-bash-hintssh-73"></a>$ tar -xvzf filename.tar.gz
-<a name="listingsubuntu-bash-hintssh-74"></a>
-<a name="listingsubuntu-bash-hintssh-75"></a><span class="c1"># send stdout to file and display it to the bash at the same time</span>
-<a name="listingsubuntu-bash-hintssh-76"></a>$ ./some_file.sh <span class="p">|</span> tee -a logs.txt
+<a name="listingsubuntu-bash-hintssh-66"></a><span class="c1"># copy content of some text file(ssh for example)</span>
+<a name="listingsubuntu-bash-hintssh-67"></a>$ cat ~/.ssh/id_rsa.pub <span class="p">|</span> xclip -sel clip
+<a name="listingsubuntu-bash-hintssh-68"></a><span class="c1"># the same for mac</span>
+<a name="listingsubuntu-bash-hintssh-69"></a>$ pbcopy &lt; ~/.ssh/id_rsa.pub
+<a name="listingsubuntu-bash-hintssh-70"></a>
+<a name="listingsubuntu-bash-hintssh-71"></a><span class="c1"># get source code of some package</span>
+<a name="listingsubuntu-bash-hintssh-72"></a>http://askubuntu.com/questions/167468/where-can-i-find-the-source-code-of-ubuntu
+<a name="listingsubuntu-bash-hintssh-73"></a>
+<a name="listingsubuntu-bash-hintssh-74"></a><span class="c1"># get dependencies</span>
+<a name="listingsubuntu-bash-hintssh-75"></a>$ readelf -d some_exe
+<a name="listingsubuntu-bash-hintssh-76"></a>
+<a name="listingsubuntu-bash-hintssh-77"></a><span class="c1"># find location of installed files</span>
+<a name="listingsubuntu-bash-hintssh-78"></a>$ dpkg --listfiles libqt4-dev
+<a name="listingsubuntu-bash-hintssh-79"></a>
+<a name="listingsubuntu-bash-hintssh-80"></a><span class="c1"># remove range of folders starts with numbers</span>
+<a name="listingsubuntu-bash-hintssh-81"></a>$ rm -r output/logs/<span class="o">{</span><span class="m">17</span>..26<span class="o">}</span>*
+<a name="listingsubuntu-bash-hintssh-82"></a>
+<a name="listingsubuntu-bash-hintssh-83"></a><span class="c1"># send stdout to file and display it to the bash at the same time</span>
+<a name="listingsubuntu-bash-hintssh-84"></a>$ ./some_file.sh <span class="p">|</span> tee -a logs.txt
 </pre></td>
 </tr></table>
 </div>
