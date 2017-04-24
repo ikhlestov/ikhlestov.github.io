@@ -23,7 +23,18 @@ $ grep -r "/api/Profile/active_home_devices" static/
 # search by file content
 $ grep -R 'GCModel' SemanticProcessor/
 # find by filename
-$ find ~ -name readme.txt 
+$ find ~ -name readme.txt
+
+### zipping/unzipping
+# unzip tar.gz file
+$ tar -xvzf filename.tar.gz
+# zip something
+$ zip archive_name source_name
+# unzip something
+$ unzip archive_name
+
+# execute output of some command(assume it in text file)
+$ $(cat filename)
 
 # get the location of the executable link
 $ readlink -f /usr/bin/java
@@ -68,9 +79,6 @@ $ dpkg --listfiles libqt4-dev
 
 # remove range of folders starts with numbers
 $ rm -r output/logs/{17..26}*
-
-# unzip tar.gz file
-$ tar -xvzf filename.tar.gz
 
 # send stdout to file and display it to the bash at the same time
 $ ./some_file.sh | tee -a logs.txt

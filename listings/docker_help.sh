@@ -17,13 +17,21 @@ $ docker build -t ikhlestov/thenotes-docker .
 $ docker run -t -i ouruser/sinatra:v2 /bin/bash
 # run image with name
 $ docker run -d -P --name web training/webapp python app.py
+# login to docker on the AWS EC2 service
+$ $(aws ecr get-login --region us-west-2)
+# attach to already running container
+$ docker start -ai container_name
+# mount some folder inside docker container on the start
+$ docker run -it -v /path/from:/path/to /bin/bash
+# run some web image
+$ docker run -it -d some.uri.amazonaws.com/mxnet:gpu /bin/bash
 # check the state of container by name
 $ docker inspect web
 # list all networks drivers
 $ docker network ls
 # again run an image
 $ docker run -itd --name=networktest ubuntu
-# inspec current sate of network
+# inspect current sate of network
 $ docker network inspect bridge
 # disconnect a container
 $ docker network disconnect bridge networktest
