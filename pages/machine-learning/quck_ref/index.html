@@ -1,10 +1,10 @@
-<!DOCTYPE html>
 <html prefix="
 og: http://ogp.me/ns#
 article: http://ogp.me/ns/article#
 " lang="en">
 <head>
 <meta charset="utf-8">
+<base href="https://ikhlestov.github.io/pages/machine-learning/quck_ref/">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Quick Reference | Illarion Khlestov Blog</title>
 <link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
@@ -89,7 +89,7 @@ Stochastic ">
         <!--Body content-->
         <div class="row">
             
-<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Quick Reference</a></h1>
+<article class="storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Quick&nbsp;Reference</a></h1>
 
         
     </header><div class="e-content entry-content" itemprop="articleBody text">
@@ -100,80 +100,80 @@ Stochastic ">
 <li><a class="reference internal" href="#definitions" id="id1">Definitions</a></li>
 <li>
 <a class="reference internal" href="#math" id="id2">Math</a><ul>
-<li><a class="reference internal" href="#matrix-multiplication" id="id3">Matrix multiplication</a></li>
-<li><a class="reference internal" href="#logarithms-exponents" id="id4">Logarithms / Exponents</a></li>
+<li><a class="reference internal" href="#matrix-multiplication" id="id3">Matrix&nbsp;multiplication</a></li>
+<li><a class="reference internal" href="#logarithms-exponents" id="id4">Logarithms /&nbsp;Exponents</a></li>
 <li><a class="reference internal" href="#derivatives" id="id5">Derivatives</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#statistics" id="id6">Statistics</a></li>
-<li><a class="reference internal" href="#activation-functions" id="id7">Activation functions</a></li>
+<li><a class="reference internal" href="#activation-functions" id="id7">Activation&nbsp;functions</a></li>
 <li>
 <a class="reference internal" href="#back-propagation-gradient-descent" id="id8">Back propagation / Gradient descent</a><ul>
-<li><a class="reference internal" href="#back-propagation" id="id9">Back propagation</a></li>
-<li><a class="reference internal" href="#gradient-descent" id="id10">Gradient descent</a></li>
-<li><a class="reference internal" href="#stochastic-gradient-descent" id="id11">Stochastic gradient descent</a></li>
+<li><a class="reference internal" href="#back-propagation" id="id9">Back&nbsp;propagation</a></li>
+<li><a class="reference internal" href="#gradient-descent" id="id10">Gradient&nbsp;descent</a></li>
+<li><a class="reference internal" href="#stochastic-gradient-descent" id="id11">Stochastic gradient&nbsp;descent</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#validation-metrics" id="id12">Validation metrics</a></li>
-<li><a class="reference internal" href="#knn-and-k-means" id="id13">kNN and k-means</a></li>
-<li><a class="reference internal" href="#covariance-and-correlation" id="id14">Covariance and correlation</a></li>
+<li><a class="reference internal" href="#validation-metrics" id="id12">Validation&nbsp;metrics</a></li>
+<li><a class="reference internal" href="#knn-and-k-means" id="id13">kNN and&nbsp;k-means</a></li>
+<li><a class="reference internal" href="#covariance-and-correlation" id="id14">Covariance and&nbsp;correlation</a></li>
 <li><a class="reference internal" href="#pca" id="id15">PCA</a></li>
-<li><a class="reference internal" href="#l1-l2-normalization" id="id16">L1/ L2 normalization</a></li>
+<li><a class="reference internal" href="#l1-l2-normalization" id="id16">L1/ L2&nbsp;normalization</a></li>
 <li><a class="reference internal" href="#subgradient" id="id17">Subgradient</a></li>
 </ul>
 </div>
 <div class="section" id="definitions">
 <h2><a class="toc-backref" href="#id1">Definitions</a></h2>
 <dl class="docutils">
-<dt>One-shot learning</dt>
-<dd>aim to lean not from thousands of examples but from one or only a few.</dd>
-<dt>Transfer learning</dt>
-<dd>apply already trained model with previous knowledge to the new domain.</dd>
+<dt>One-shot&nbsp;learning</dt>
+<dd>aim to lean not from thousands of examples but from one or only a&nbsp;few.</dd>
+<dt>Transfer&nbsp;learning</dt>
+<dd>apply already trained model with previous knowledge to the new&nbsp;domain.</dd>
 <dt>MLP</dt>
-<dd>is an abbreviation for <em>multilayer perceptrons</em>
+<dd>is an abbreviation for <em>multilayer&nbsp;perceptrons</em>
 </dd>
-<dt>Computational neuroscience</dt>
-<dd>is primarily concerned with building more accurate models of how the brain actually works.</dd>
+<dt>Computational&nbsp;neuroscience</dt>
+<dd>is primarily concerned with building more accurate models of how the brain actually&nbsp;works.</dd>
 <dt>Stochastic(non-deterministic)</dt>
-<dd>a stochastic event or system is one that is unpredictable because of a random variable.</dd>
+<dd>a stochastic event or system is one that is unpredictable because of a random&nbsp;variable.</dd>
 <dt>Deterministic</dt>
-<dd>is a system in which no randomness is involved in the development of future states of the system.</dd>
+<dd>is a system in which no randomness is involved in the development of future states of the&nbsp;system.</dd>
 <dt>Gradient</dt>
-<dd>is the vector of partial derivatives in each dimension.</dd>
-<dt>Gradient Descent</dt>
-<dd>the procedure of repeatedly evaluating the gradient and then performing a parameter update.</dd>
-<dt>Stochastic Gradient Descent</dt>
-<dd>depends on source it may mean Gradient Descent with batches, or with only one example(on-line gradient descent).</dd>
+<dd>is the vector of partial derivatives in each&nbsp;dimension.</dd>
+<dt>Gradient&nbsp;Descent</dt>
+<dd>the procedure of repeatedly evaluating the gradient and then performing a parameter&nbsp;update.</dd>
+<dt>Stochastic Gradient&nbsp;Descent</dt>
+<dd>depends on source it may mean Gradient Descent with batches, or with only one example(on-line gradient&nbsp;descent).</dd>
 <dt>Backpropagation</dt>
-<dd>computing the gradient analytically using the chain rule.</dd>
-<dt>Chain Rule</dt>
-<dd>Gradient expressions may be chained with multiplication of output gradient with local function gradient.</dd>
+<dd>computing the gradient analytically using the chain&nbsp;rule.</dd>
+<dt>Chain&nbsp;Rule</dt>
+<dd>Gradient expressions may be chained with multiplication of output gradient with local function&nbsp;gradient.</dd>
 <dt>Bias</dt>
-<dd>is a learner’s tendency to consistently learn the same wrong thing.</dd>
+<dd>is a learner’s tendency to consistently learn the same wrong&nbsp;thing.</dd>
 <dt>Variance</dt>
-<dd>is the tendency to learn random things irrespective of the real signal.</dd>
+<dd>is the tendency to learn random things irrespective of the real&nbsp;signal.</dd>
 </dl>
 </div>
 <div class="section" id="math">
 <h2><a class="toc-backref" href="#id2">Math</a></h2>
 <div class="section" id="matrix-multiplication">
-<h3><a class="toc-backref" href="#id3">Matrix multiplication</a></h3>
+<h3><a class="toc-backref" href="#id3">Matrix&nbsp;multiplication</a></h3>
 <img alt="https://wikimedia.org/api/rest_v1/media/math/render/svg/780671bdfb3fab93187156d2c226df6fe36746fe" src="https://wikimedia.org/api/rest_v1/media/math/render/svg/780671bdfb3fab93187156d2c226df6fe36746fe"><div class="figure">
 <img alt="https://wikimedia.org/api/rest_v1/media/math/render/svg/24e439c972de89fb94297419cab45c58f1a32c43" src="https://wikimedia.org/api/rest_v1/media/math/render/svg/24e439c972de89fb94297419cab45c58f1a32c43">
 </div>
-<pre class="code python"><a name="rest_code_752f2ad3de6446a4aa3d5afe1437afe5-1"></a><span class="c1"># shape (2, 3)</span>
-<a name="rest_code_752f2ad3de6446a4aa3d5afe1437afe5-2"></a><span class="n">A</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
-<a name="rest_code_752f2ad3de6446a4aa3d5afe1437afe5-3"></a>     <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]]</span>
-<a name="rest_code_752f2ad3de6446a4aa3d5afe1437afe5-4"></a><span class="c1"># shape (3, 2)</span>
-<a name="rest_code_752f2ad3de6446a4aa3d5afe1437afe5-5"></a><span class="n">B</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span>
-<a name="rest_code_752f2ad3de6446a4aa3d5afe1437afe5-6"></a>     <span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span>
-<a name="rest_code_752f2ad3de6446a4aa3d5afe1437afe5-7"></a>     <span class="p">[</span><span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">]]</span>
-<a name="rest_code_752f2ad3de6446a4aa3d5afe1437afe5-8"></a>
-<a name="rest_code_752f2ad3de6446a4aa3d5afe1437afe5-9"></a><span class="c1"># shape (2, 2)</span>
-<a name="rest_code_752f2ad3de6446a4aa3d5afe1437afe5-10"></a><span class="n">Z</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span> <span class="o">*</span> <span class="mi">7</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="mi">9</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">1</span> <span class="o">*</span> <span class="mi">8</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="mi">12</span><span class="p">],</span>
-<a name="rest_code_752f2ad3de6446a4aa3d5afe1437afe5-11"></a>     <span class="p">[</span><span class="mi">4</span> <span class="o">*</span> <span class="mi">7</span> <span class="o">+</span> <span class="mi">5</span> <span class="o">*</span> <span class="mi">9</span> <span class="o">+</span> <span class="mi">6</span> <span class="o">*</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">4</span> <span class="o">*</span> <span class="mi">8</span> <span class="o">+</span> <span class="mi">5</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">+</span> <span class="mi">6</span> <span class="o">*</span> <span class="mi">12</span><span class="p">]]</span>
-<a name="rest_code_752f2ad3de6446a4aa3d5afe1437afe5-12"></a><span class="c1"># multiply row of A by the column of B and sum the result</span>
-<a name="rest_code_752f2ad3de6446a4aa3d5afe1437afe5-13"></a><span class="n">Z</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">B</span><span class="p">[:,</span> <span class="n">j</span><span class="p">])</span>
+<pre class="code python"><a name="rest_code_22989571996d4a1fb8041332b439c139-1"></a><span class="c1"># shape (2, 3)</span>
+<a name="rest_code_22989571996d4a1fb8041332b439c139-2"></a><span class="n">A</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+<a name="rest_code_22989571996d4a1fb8041332b439c139-3"></a>     <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]]</span>
+<a name="rest_code_22989571996d4a1fb8041332b439c139-4"></a><span class="c1"># shape (3, 2)</span>
+<a name="rest_code_22989571996d4a1fb8041332b439c139-5"></a><span class="n">B</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span>
+<a name="rest_code_22989571996d4a1fb8041332b439c139-6"></a>     <span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span>
+<a name="rest_code_22989571996d4a1fb8041332b439c139-7"></a>     <span class="p">[</span><span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">]]</span>
+<a name="rest_code_22989571996d4a1fb8041332b439c139-8"></a>
+<a name="rest_code_22989571996d4a1fb8041332b439c139-9"></a><span class="c1"># shape (2, 2)</span>
+<a name="rest_code_22989571996d4a1fb8041332b439c139-10"></a><span class="n">Z</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span> <span class="o">*</span> <span class="mi">7</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="mi">9</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">1</span> <span class="o">*</span> <span class="mi">8</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="mi">12</span><span class="p">],</span>
+<a name="rest_code_22989571996d4a1fb8041332b439c139-11"></a>     <span class="p">[</span><span class="mi">4</span> <span class="o">*</span> <span class="mi">7</span> <span class="o">+</span> <span class="mi">5</span> <span class="o">*</span> <span class="mi">9</span> <span class="o">+</span> <span class="mi">6</span> <span class="o">*</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">4</span> <span class="o">*</span> <span class="mi">8</span> <span class="o">+</span> <span class="mi">5</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">+</span> <span class="mi">6</span> <span class="o">*</span> <span class="mi">12</span><span class="p">]]</span>
+<a name="rest_code_22989571996d4a1fb8041332b439c139-12"></a><span class="c1"># multiply row of A by the column of B and sum the result</span>
+<a name="rest_code_22989571996d4a1fb8041332b439c139-13"></a><span class="n">Z</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">B</span><span class="p">[:,</span> <span class="n">j</span><span class="p">])</span>
 </pre>
 <div class="figure">
 <img alt="https://wikimedia.org/api/rest_v1/media/math/render/svg/c6f7cdbe9cd36a436b0e5304ea2b42d640203777" src="https://wikimedia.org/api/rest_v1/media/math/render/svg/c6f7cdbe9cd36a436b0e5304ea2b42d640203777">
@@ -183,7 +183,7 @@ Stochastic ">
 </div>
 </div>
 <div class="section" id="logarithms-exponents">
-<h3><a class="toc-backref" href="#id4">Logarithms / Exponents</a></h3>
+<h3><a class="toc-backref" href="#id4">Logarithms /&nbsp;Exponents</a></h3>
 <div class="math">
 \begin{equation*}
 \ln (e ^ x) = x
@@ -203,10 +203,10 @@ Stochastic ">
 </div>
 <div class="section" id="statistics">
 <h2><a class="toc-backref" href="#id6">Statistics</a></h2>
-<p>standard deviation - square root of variance. <span class="math">\(std = \sqrt{variance}\)</span>. <span class="math">\(\sigma = \sqrt{ \frac{1}{n} \sum_{i=1}^{n}(x_i - x_{mean})^2}\)</span></p>
+<p>standard deviation - square root of variance. <span class="math">\(std = \sqrt{variance}\)</span>. <span class="math">\(\sigma = \sqrt{ \frac{1}{n} \sum_{i=1}^{n}(x_i -&nbsp;x_{mean})^2}\)</span></p>
 </div>
 <div class="section" id="activation-functions">
-<h2><a class="toc-backref" href="#id7">Activation functions</a></h2>
+<h2><a class="toc-backref" href="#id7">Activation&nbsp;functions</a></h2>
 <div class="math">
 \begin{equation*}
 \textsf{Sigmoid}
@@ -239,96 +239,96 @@ f(x)_i = \frac{e^{x_i}}{\sum_{k=1}^{K} e^{x_k}}
 </div>
 </div>
 <div class="section" id="back-propagation-gradient-descent">
-<h2><a class="toc-backref" href="#id8">Back propagation / Gradient descent</a></h2>
+<h2><a class="toc-backref" href="#id8">Back propagation / Gradient&nbsp;descent</a></h2>
 <div class="section" id="back-propagation">
-<h3><a class="toc-backref" href="#id9">Back propagation</a></h3>
+<h3><a class="toc-backref" href="#id9">Back&nbsp;propagation</a></h3>
 <p>Starting with the final output recursively applies the chain rule to compute the gradients of every layer.
-For <span class="math">\(L_{i}\)</span> layer backprop can be computed as derivative for every element based on <span class="math">\(L_{i + 1}\)</span> layer backprop output.</p>
+For <span class="math">\(L_{i}\)</span> layer backprop can be computed as derivative for every element based on <span class="math">\(L_{i + 1}\)</span> layer backprop&nbsp;output.</p>
 </div>
 <div class="section" id="gradient-descent">
-<h3><a class="toc-backref" href="#id10">Gradient descent</a></h3>
+<h3><a class="toc-backref" href="#id10">Gradient&nbsp;descent</a></h3>
 <p>To find a local minimum of a function using gradient descent, one takes steps proportional to the negative of the gradient (or of the approximate gradient) of the function at the current point.
-Gradient - vector containing all of the partial derivatives. This mean in case while computed derivative for one function input, all other stay the same.</p>
+Gradient - vector containing all of the partial derivatives. This mean in case while computed derivative for one function input, all other stay the&nbsp;same.</p>
 </div>
 <div class="section" id="stochastic-gradient-descent">
-<h3><a class="toc-backref" href="#id11">Stochastic gradient descent</a></h3>
-<p>Perform Gradient Descent only with some part of examples</p>
+<h3><a class="toc-backref" href="#id11">Stochastic gradient&nbsp;descent</a></h3>
+<p>Perform Gradient Descent only with some part of&nbsp;examples</p>
 </div>
 </div>
 <div class="section" id="validation-metrics">
-<h2><a class="toc-backref" href="#id12">Validation metrics</a></h2>
-<p>Confusion Matrix - matrix contains True/False positives/negatives.</p>
+<h2><a class="toc-backref" href="#id12">Validation&nbsp;metrics</a></h2>
+<p>Confusion Matrix - matrix contains True/False&nbsp;positives/negatives.</p>
 <p>Precision: <span class="math">\(\frac{{TruePositive}}{{TruePositive + FalsePositive}}\)</span>.
 Put another way, it is the number of positive predictions divided by the total number of positive class values predicted.
 A low precision can also indicate a large number of False Positives.
-<em>How many selected items are relevant</em></p>
+<em>How many selected items are&nbsp;relevant</em></p>
 <p>Recall: <span class="math">\(\frac{{TruePositive}}{{TruePositive + FalseNegtive}}\)</span>.
 Put another way it is the number of positive predictions divided by the number of positive class values in the test data.
 Recall can be thought of as a measure of a classifiers completeness. A low recall indicates many False Negatives.
-<em>How many relevant items are selected</em></p>
-<p>F1 score: <span class="math">\(\frac{{2*Recall*Precision}}{{Recall + Precision}}\)</span> balanced precision and recall.</p>
+<em>How many relevant items are&nbsp;selected</em></p>
+<p>F1 score: <span class="math">\(\frac{{2*Recall*Precision}}{{Recall + Precision}}\)</span> balanced precision and&nbsp;recall.</p>
 </div>
 <div class="section" id="knn-and-k-means">
-<h2><a class="toc-backref" href="#id13">kNN and k-means</a></h2>
-<p><strong>kNN(k-nearest neighbors algorithm)</strong> - classification algorithm when class of undefined element will be issued based on classes of K nearest neighbors.</p>
-<p><strong>k-means</strong> - clusterization algorithm. Aims to partition n observations into k clusters in which each observation belongs to the cluster with the nearest mean, serving as a prototype of the cluster:</p>
+<h2><a class="toc-backref" href="#id13">kNN and&nbsp;k-means</a></h2>
+<p><strong>kNN(k-nearest neighbors algorithm)</strong> - classification algorithm when class of undefined element will be issued based on classes of K nearest&nbsp;neighbors.</p>
+<p><strong>k-means</strong> - clusterization algorithm. Aims to partition n observations into k clusters in which each observation belongs to the cluster with the nearest mean, serving as a prototype of the&nbsp;cluster:</p>
 <ul class="simple">
-<li>Define k clusters</li>
-<li>Calculate distance to every point</li>
-<li>Assign each pending point to the nearest cluster</li>
-<li>Recalculate new clusters centers</li>
-<li>Recalculate new distances: <span class="math">\(v_i = (1/c_i) \sum_{j=1}^{c_i} x_i\)</span>, where <span class="math">\(c_i\)</span> represents number of data points in <span class="math">\(i^{th}\)</span> cluster.</li>
-<li>If no any points were reassigned - stop iterations</li>
+<li>Define k&nbsp;clusters</li>
+<li>Calculate distance to every&nbsp;point</li>
+<li>Assign each pending point to the nearest&nbsp;cluster</li>
+<li>Recalculate new clusters&nbsp;centers</li>
+<li>Recalculate new distances: <span class="math">\(v_i = (1/c_i) \sum_{j=1}^{c_i} x_i\)</span>, where <span class="math">\(c_i\)</span> represents number of data points in <span class="math">\(i^{th}\)</span>&nbsp;cluster.</li>
+<li>If no any points were reassigned - stop&nbsp;iterations</li>
 </ul>
 </div>
 <div class="section" id="covariance-and-correlation">
-<h2><a class="toc-backref" href="#id14">Covariance and correlation</a></h2>
-<p>Both describe the degree to which two random variables or sets of random variables tend to deviate from their expected values in similar ways.</p>
-<p>If <span class="math">\(X\)</span> and <span class="math">\(Y\)</span> are two random variables, with means (expected values) <span class="math">\(\mu_X\)</span> and <span class="math">\(\mu_Y\)</span> and standard deviations <span class="math">\(\sigma_X\)</span> and <span class="math">\(\sigma_Y\)</span>, respectively, then their covariance and correlation are as follows:</p>
+<h2><a class="toc-backref" href="#id14">Covariance and&nbsp;correlation</a></h2>
+<p>Both describe the degree to which two random variables or sets of random variables tend to deviate from their expected values in similar&nbsp;ways.</p>
+<p>If <span class="math">\(X\)</span> and <span class="math">\(Y\)</span> are two random variables, with means (expected values) <span class="math">\(\mu_X\)</span> and <span class="math">\(\mu_Y\)</span> and standard deviations <span class="math">\(\sigma_X\)</span> and <span class="math">\(\sigma_Y\)</span>, respectively, then their covariance and correlation are as&nbsp;follows:</p>
 <div class="figure">
 <img alt="https://wikimedia.org/api/rest_v1/media/math/render/svg/5f6328c2a98e12b74140dfc6fb614f7939e12a1c" src="https://wikimedia.org/api/rest_v1/media/math/render/svg/5f6328c2a98e12b74140dfc6fb614f7939e12a1c"><p class="caption">Covariance</p>
 </div>
 <div class="figure">
 <img alt="https://wikimedia.org/api/rest_v1/media/math/render/svg/c8ad7d4bca4314703d33deb0245732bcc249dfa4" src="https://wikimedia.org/api/rest_v1/media/math/render/svg/c8ad7d4bca4314703d33deb0245732bcc249dfa4"><p class="caption">Correlation</p>
 </div>
-<p>where <span class="math">\(E[ ]\)</span> is the expected value, also known as the mean.</p>
+<p>where <span class="math">\(E[ ]\)</span> is the expected value, also known as the&nbsp;mean.</p>
 </div>
 <div class="section" id="pca">
 <h2><a class="toc-backref" href="#id15">PCA</a></h2>
-<p>Principal components - components with most variation, directions where the data is most spread out.</p>
+<p>Principal components - components with most variation, directions where the data is most spread&nbsp;out.</p>
 <p>Eigenvectors and values exist in pairs: every eigenvector has a corresponding eigenvalue. An eigenvector is a direction.
 An eigenvalue is a number, telling you how much variance there is in the data in that direction, in the example above the eigenvalue is a number telling us how spread out the data is on the line.
-The eigenvector with the highest eigenvalue is therefore the principal component.</p>
-<p>In fact the amount of eigenvectors/values that exist equals the number of dimensions the data set has.</p>
-<p>Reducing dimension performed by stripping some eigenvectors with small eigenvalues. Only eigenvectors with large eigenvalues remains.</p>
-<p>Also Multiple Discriminant Analysis(MDA) approach exist. In MDA we are additionally interested to find the directions that maximize the separation (or discrimination) between different classes (for example, in pattern classification problems where our dataset consists of multiple classes. In contrast two PCA, which ignores the class labels).</p>
-<p>PCA step by step:</p>
+The eigenvector with the highest eigenvalue is therefore the principal&nbsp;component.</p>
+<p>In fact the amount of eigenvectors/values that exist equals the number of dimensions the data set&nbsp;has.</p>
+<p>Reducing dimension performed by stripping some eigenvectors with small eigenvalues. Only eigenvectors with large eigenvalues&nbsp;remains.</p>
+<p>Also Multiple Discriminant Analysis(MDA) approach exist. In MDA we are additionally interested to find the directions that maximize the separation (or discrimination) between different classes (for example, in pattern classification problems where our dataset consists of multiple classes. In contrast two PCA, which ignores the class&nbsp;labels).</p>
+<p>PCA step by&nbsp;step:</p>
 <ul class="simple">
-<li>Compute means of every dimension.</li>
-<li>Compute the scatter matrix <span class="math">\(S = \sum\limits_{k=1}^n (\pmb x_k - \pmb m)\;(\pmb x_k - \pmb m)^T\)</span>, where <span class="math">\(\pmb m\)</span> is the mean vector.</li>
-<li>Or alternatively compute covariance matrix (numpy.cov function) (a matrix whose element in the i, j position is the covariance between the <span class="math">\(i^{th}\)</span> and <span class="math">\(j^{th}\)</span> elements of a random vector).</li>
+<li>Compute means of every&nbsp;dimension.</li>
+<li>Compute the scatter matrix <span class="math">\(S = \sum\limits_{k=1}^n (\pmb x_k - \pmb m)\;(\pmb x_k - \pmb m)^T\)</span>, where <span class="math">\(\pmb m\)</span> is the mean&nbsp;vector.</li>
+<li>Or alternatively compute covariance matrix (numpy.cov function) (a matrix whose element in the i, j position is the covariance between the <span class="math">\(i^{th}\)</span> and <span class="math">\(j^{th}\)</span> elements of a random&nbsp;vector).</li>
 <li>Compute eigenvectors/ eigenvalues: <tt class="docutils literal">eig_val_sc, eig_vec_sc = np.linalg.eig(scatter_matrix)</tt><ul>
-<li>Eigenvalues <span class="math">\(\alpha\)</span> can be obtained by solving an equation <span class="math">\(|\textbf{A} - \alpha \textbf{I}| = 0\)</span>, where <span class="math">\(\textbf{A}\)</span> is a matrix and <span class="math">\(| |\)</span> means determinant.</li>
+<li>Eigenvalues <span class="math">\(\alpha\)</span> can be obtained by solving an equation <span class="math">\(|\textbf{A} - \alpha \textbf{I}| = 0\)</span>, where <span class="math">\(\textbf{A}\)</span> is a matrix and <span class="math">\(| |\)</span> means&nbsp;determinant.</li>
 <li>Eigenvectors <span class="math">\(\pmb v\)</span> than can be obtained by <span class="math">\((\textbf{A} - \alpha_j \textbf{I})\pmb v_j = 0\)</span>.</li>
 </ul>
 </li>
-<li>We can check correctness of eigenvectors/eigenvalues as <span class="math">\(\pmb\Sigma\pmb{v} = \lambda\pmb{v}\)</span>, where <span class="math">\(\pmb\Sigma\)</span> - covariance matrix, <span class="math">\(\pmb{v}\)</span> - eigenvector, <span class="math">\(\lambda\)</span> - eigenvalue.</li>
-<li>Sorting the eigenvectors by decreasing eigenvalues</li>
-<li>Choosing k eigenvectors with the largest eigenvalues and receive <span class="math">\(\pmb W\)</span> matrix.</li>
-<li>To receive dimension reduction we should only compute <span class="math">\(\pmb y = \pmb W^T \times \pmb x\)</span>
+<li>We can check correctness of eigenvectors/eigenvalues as <span class="math">\(\pmb\Sigma\pmb{v} = \lambda\pmb{v}\)</span>, where <span class="math">\(\pmb\Sigma\)</span> - covariance matrix, <span class="math">\(\pmb{v}\)</span> - eigenvector, <span class="math">\(\lambda\)</span> -&nbsp;eigenvalue.</li>
+<li>Sorting the eigenvectors by decreasing&nbsp;eigenvalues</li>
+<li>Choosing k eigenvectors with the largest eigenvalues and receive <span class="math">\(\pmb W\)</span>&nbsp;matrix.</li>
+<li>To receive dimension reduction we should only compute <span class="math">\(\pmb y = \pmb W^T \times \pmb&nbsp;x\)</span>
 </li>
 </ul>
 </div>
 <div class="section" id="l1-l2-normalization">
-<h2><a class="toc-backref" href="#id16">L1/ L2 normalization</a></h2>
-<p>The idea of regularization is to add an extra term to the cost function, a term called the regularization term.</p>
+<h2><a class="toc-backref" href="#id16">L1/ L2&nbsp;normalization</a></h2>
+<p>The idea of regularization is to add an extra term to the cost function, a term called the regularization&nbsp;term.</p>
 <p>Regularization term for <span class="math">\(L_p\)</span> norm can be computed as <span class="math">\(||x||_{p}=(\sum_{i}|x_{i}|^{p})^{1/p}\)</span>.</p>
 <p>Great explanation can be found <a class="reference external" href="http://stackoverflow.com/questions/32276391/feature-normalization-advantage-of-l2-normalization">on stackoverflow</a>
 or <a class="reference external" href="http://stats.stackexchange.com/questions/163388/l2-regularization-is-equivalent-to-gaussian-prior">here</a></p>
 </div>
 <div class="section" id="subgradient">
 <h2><a class="toc-backref" href="#id17">Subgradient</a></h2>
-<p>Something used for not differentiable functions. SHould be filled.</p>
+<p>Something used for not differentiable functions. SHould be&nbsp;filled.</p>
 </div>
 </div>
     </div>
