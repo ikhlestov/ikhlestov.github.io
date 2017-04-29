@@ -150,11 +150,28 @@ Comprehensions
 .. code-block:: python
     
     # nested list comprehension
-    mylist = [['40', '20', '10', '30'], ['20', '20', '20', '20', '20', '30', '20']]
+    mylist = [['10', '20', '30'], ['1', '2', '3']]
     # flattened list
     new_list = [float(entry) for sublist in mylist for entry in sublist]
+    [10.0, 20.0, 30.0, 1.0, 2.0, 3.0]
     # nested list of floats
     new_list = [[float(entry) for entry in sublist] for sublist in mylist]
+    [[10.0, 20.0, 30.0], [1.0, 2.0, 3.0]]
+    # also can be used to generate cartesian product
+    colors = ['black', 'white']
+    sizes = ['S', 'M', 'L']
+    tshirts = [(color, size) for color in colors
+                             for size in sizes]
+    [('black', 'S'),
+     ('black', 'M'),
+     ('black', 'L'),
+     ('white', 'S'),
+     ('white', 'M'),
+     ('white', 'L')]
+     # the same as:
+     for color in colors:
+        for size in sizes:
+            print(color, size)
 
     # dict comprehension
     my_dict = {key:value for item in list if conditional}
