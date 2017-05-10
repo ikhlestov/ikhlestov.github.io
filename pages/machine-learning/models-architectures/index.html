@@ -1,10 +1,10 @@
+<!DOCTYPE html>
 <html prefix="
 og: http://ogp.me/ns#
 article: http://ogp.me/ns/article#
 " lang="en">
 <head>
 <meta charset="utf-8">
-<base href="https://ikhlestov.github.io/pages/machine-learning/models-architectures/">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Models Architectures | Illarion Khlestov Blog</title>
 <link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
@@ -86,7 +86,7 @@ Channels
         <!--Body content-->
         <div class="row">
             
-<article class="storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Models&nbsp;Architectures</a></h1>
+<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Models Architectures</a></h1>
 
         
     </header><div class="e-content entry-content" itemprop="articleBody text">
@@ -94,14 +94,14 @@ Channels
 <div class="contents topic" id="contents">
 <p class="topic-title first">Contents:</p>
 <ul class="simple">
-<li><a class="reference internal" href="#rnn-highway-cnn" id="id1">RNN + HighWay +&nbsp;CNN</a></li>
-<li><a class="reference internal" href="#rnn-attention-google-translate" id="id2">RNN + Attention(Google&nbsp;Translate)</a></li>
-<li><a class="reference internal" href="#highway-networks" id="id3">Highway&nbsp;Networks</a></li>
-<li><a class="reference internal" href="#residual-block-architecture-res-net" id="id4">Residual block architecture(Res&nbsp;Net)</a></li>
+<li><a class="reference internal" href="#rnn-highway-cnn" id="id1">RNN + HighWay + CNN</a></li>
+<li><a class="reference internal" href="#rnn-attention-google-translate" id="id2">RNN + Attention(Google Translate)</a></li>
+<li><a class="reference internal" href="#highway-networks" id="id3">Highway Networks</a></li>
+<li><a class="reference internal" href="#residual-block-architecture-res-net" id="id4">Residual block architecture(Res Net)</a></li>
 <li>
 <a class="reference internal" href="#convolutional-network-cnn-hyperparameters" id="id5">Convolutional Network (CNN) hyperparameters</a><ul>
 <li><a class="reference internal" href="#padding" id="id6">Padding</a></li>
-<li><a class="reference internal" href="#stride-size" id="id7">Stride&nbsp;Size</a></li>
+<li><a class="reference internal" href="#stride-size" id="id7">Stride Size</a></li>
 <li><a class="reference internal" href="#pooling" id="id8">Pooling</a></li>
 <li><a class="reference internal" href="#channels" id="id9">Channels</a></li>
 </ul>
@@ -109,33 +109,34 @@ Channels
 </ul>
 </div>
 <div class="section" id="rnn-highway-cnn">
-<h2><a class="toc-backref" href="#id1">RNN + HighWay +&nbsp;CNN</a></h2>
+<h2><a class="toc-backref" href="#id1">RNN + HighWay + CNN</a></h2>
 <p>This models was proposed for text representation: <a class="reference external" href="https://arxiv.org/pdf/1606.06905.pdf">paper</a>.</p>
 <div class="figure">
-<img alt="/images/models_architectures/rnn_highway_cnn.png" src="../../../images/models_architectures/rnn_highway_cnn.png"><p class="caption"><a class="reference external" href="https://arxiv.org/pdf/1606.06905.pdf">image&nbsp;source</a></p>
+<img alt="/images/models_architectures/rnn_highway_cnn.png" src="../../../images/models_architectures/rnn_highway_cnn.png"><p class="caption"><a class="reference external" href="https://arxiv.org/pdf/1606.06905.pdf">image source</a></p>
 </div>
 </div>
 <div class="section" id="rnn-attention-google-translate">
-<h2><a class="toc-backref" href="#id2">RNN + Attention(Google&nbsp;Translate)</a></h2>
-<p>Google&#8217;s Neural Machine Translation System:
+<h2><a class="toc-backref" href="#id2">RNN + Attention(Google Translate)</a></h2>
+<p>Google's Neural Machine Translation System:
 <a class="reference external" href="https://arxiv.org/pdf/1609.08144v2.pdf">paper</a>,
 <a class="reference external" href="https://research.googleblog.com/2016/09/a-neural-network-for-machine.html">blog</a>.
-Interesting approaches were&nbsp;used:</p>
+Interesting approaches were used:</p>
 <ul class="simple">
-<li>They provide stacked LSTM with residual connections: input to the next layer is output from previous one element wise summed with initial&nbsp;input.</li>
-<li>Train model first with Adam optimizer, and after with simple&nbsp;SGD.</li>
+<li>They provide stacked LSTM with residual connections: input to the next layer is output from previous one element wise summed with initial input.</li>
+<li>Train model first with Adam optimizer, and after with simple SGD.</li>
 </ul>
 <div class="figure">
-<img alt="/images/models_architectures/rnn_attention.png" src="../../../images/models_architectures/rnn_attention.png"><p class="caption"><a class="reference external" href="https://arxiv.org/pdf/1609.08144v2.pdf">image&nbsp;source</a></p>
+<img alt="/images/models_architectures/rnn_attention.png" src="../../../images/models_architectures/rnn_attention.png"><p class="caption"><a class="reference external" href="https://arxiv.org/pdf/1609.08144v2.pdf">image source</a></p>
 </div>
 </div>
 <div class="section" id="highway-networks">
-<h2><a class="toc-backref" href="#id3">Highway&nbsp;Networks</a></h2>
+<h2><a class="toc-backref" href="#id3">Highway Networks</a></h2>
 <p><strong>Highway networks</strong> -
 Like LSTM networks, utilize a learnable gating mechanism to improve information flow across layers.
 More simple - process previous input data to the next layer.
 <a class="reference external" href="http://people.idsia.ch/~rupesh/very_deep_learning/">link to papers</a> and
-<a class="reference external" href="https://medium.com/jim-fleming/highway-networks-with-tensorflow-1e6dfa667daa">tensorflow implementation</a>.&nbsp;Intuition:</p>
+<a class="reference external" href="https://medium.com/jim-fleming/highway-networks-with-tensorflow-1e6dfa667daa">tensorflow implementation</a>.
+Intuition:</p>
 <div class="math">
 \begin{equation*}
 y = H (x ; W_{H} ) * T (x ; W_{T} ) + x * C (x ; W_{C} )
@@ -144,47 +145,47 @@ y = H (x ; W_{H} ) * T (x ; W_{T} ) + x * C (x ; W_{C} )
 <p>where:</p>
 <ul class="simple">
 <li>
-<em>T</em> is <em>transform&nbsp;gate</em>
+<em>T</em> is <em>transform gate</em>
 </li>
 <li>
-<em>C</em> is <em>carry&nbsp;gate</em>
+<em>C</em> is <em>carry gate</em>
 </li>
 </ul>
 <p>Gates express how much of the output is produced by transforming  the  input  and  carrying  it,  respectively.
-Sometimes carry gate can be set as <span class="math">\(C = 1 - T\)</span> for&nbsp;simplicity.</p>
+Sometimes carry gate can be set as <span class="math">\(C = 1 - T\)</span> for simplicity.</p>
 </div>
 <div class="section" id="residual-block-architecture-res-net">
-<h2><a class="toc-backref" href="#id4">Residual block architecture(Res&nbsp;Net)</a></h2>
+<h2><a class="toc-backref" href="#id4">Residual block architecture(Res Net)</a></h2>
 <div class="figure">
 <img alt="/images/models_architectures/resnets_modelvariants.png" src="../../../images/models_architectures/resnets_modelvariants.png">
 </div>
 </div>
 <div class="section" id="convolutional-network-cnn-hyperparameters">
-<h2><a class="toc-backref" href="#id5">Convolutional Network (CNN)&nbsp;hyperparameters</a></h2>
+<h2><a class="toc-backref" href="#id5">Convolutional Network (CNN) hyperparameters</a></h2>
 <p>More about CNNs for NLP you may reed <a class="reference external" href="http://www.wildml.com/2015/11/understanding-convolutional-neural-networks-for-nlp/">here</a></p>
 <div class="section" id="padding">
 <h3><a class="toc-backref" href="#id6">Padding</a></h3>
-<p>There are two types of&nbsp;padding:</p>
+<p>There are two types of padding:</p>
 <ul class="simple">
 <li>
-<strong>zerro-padding</strong>, also known as <strong>wide convolution</strong> - all elements that would fall outside of the matrix are taken by&nbsp;zero.</li>
+<strong>zerro-padding</strong>, also known as <strong>wide convolution</strong> - all elements that would fall outside of the matrix are taken by zero.</li>
 <li>
-<strong>narrow convolution</strong> - filters applied without&nbsp;padding.</li>
+<strong>narrow convolution</strong> - filters applied without padding.</li>
 </ul>
-<p>Next image give you more intuition about what&#8217;s going&nbsp;on:</p>
+<p>Next image give you more intuition about what's going on:</p>
 <div class="figure">
 <a class="reference external image-reference" href="../../../images/ML_notes/convolutions.png"><img alt="/images/ML_notes/convolutions.thumbnail.png" src="../../../images/ML_notes/convolutions.thumbnail.png"></a>
-<p class="caption"><em>Narrow vs. Wide Convolution. Filter size 5, input size 7. Source: A Convolutional Neural Network for Modelling Sentences&nbsp;(2014)</em></p>
+<p class="caption"><em>Narrow vs. Wide Convolution. Filter size 5, input size 7. Source: A Convolutional Neural Network for Modelling Sentences (2014)</em></p>
 </div>
 <p>In the above, the narrow convolution yields  an output of size <span class="math">\((7-5) + 1 = 3\)</span>,
 and a wide convolution an output of size <span class="math">\((7+2*4 - 5) + 1 = 11\)</span>.
 More generally, the formula for the output size is
-<span class="math">\(n_{out} = (n_{in} + 2 * n_{padding} - n_{filter}) +&nbsp;1\)</span></p>
+<span class="math">\(n_{out} = (n_{in} + 2 * n_{padding} - n_{filter}) + 1\)</span></p>
 </div>
 <div class="section" id="stride-size">
-<h3><a class="toc-backref" href="#id7">Stride&nbsp;Size</a></h3>
+<h3><a class="toc-backref" href="#id7">Stride Size</a></h3>
 <p><strong>Stride size</strong> - defining how much you want to shift your filter at each step.
-Mainly we see stride sizes of 1, but a larger stride size may allow you to build a model that behaves somewhat similarly to a Recursive Neural Network, i.e. looks like a&nbsp;tree.</p>
+Mainly we see stride sizes of 1, but a larger stride size may allow you to build a model that behaves somewhat similarly to a Recursive Neural Network, i.e. looks like a tree.</p>
 <div class="figure">
 <a class="reference external image-reference" href="../../../images/ML_notes/strides.png"><img alt="/images/ML_notes/strides.thumbnail.png" src="../../../images/ML_notes/strides.thumbnail.png"></a>
 <p class="caption">Convolution Stride Size. Left: Stride size 1. Right: Stride size 2. Source: <a class="reference external" href="http://cs231n.github.io/convolutional-networks/">http://cs231n.github.io/convolutional-networks/</a></p>
@@ -192,7 +193,7 @@ Mainly we see stride sizes of 1, but a larger stride size may allow you to build
 </div>
 <div class="section" id="pooling">
 <h3><a class="toc-backref" href="#id8">Pooling</a></h3>
-<p>Pooling layers subsample output of convolutional layers. There are two types of pooling - <strong>max pooling</strong> and <strong>average pooling</strong>. You don’t necessarily need to pool over the complete matrix, you could also pool over a&nbsp;window.</p>
+<p>Pooling layers subsample output of convolutional layers. There are two types of pooling - <strong>max pooling</strong> and <strong>average pooling</strong>. You don’t necessarily need to pool over the complete matrix, you could also pool over a window.</p>
 <div class="figure">
 <a class="reference external image-reference" href="../../../images/ML_notes/pooling.png"><img alt="/images/ML_notes/pooling.thumbnail.png" src="../../../images/ML_notes/pooling.thumbnail.png"></a>
 <p class="caption">Max pooling in CNN. Source: <a class="reference external" href="http://cs231n.github.io/convolutional-networks/#pool">http://cs231n.github.io/convolutional-networks/#pool</a></p>
@@ -200,7 +201,7 @@ Mainly we see stride sizes of 1, but a larger stride size may allow you to build
 </div>
 <div class="section" id="channels">
 <h3><a class="toc-backref" href="#id9">Channels</a></h3>
-<p>Channels are different sources or representations of the data. For image it&#8217;s typically RGB(red, green, blue) channels. For NLP you could have separate channels for different embeddings of various translation of the&nbsp;sentences.</p>
+<p>Channels are different sources or representations of the data. For image it's typically RGB(red, green, blue) channels. For NLP you could have separate channels for different embeddings of various translation of the sentences.</p>
 </div>
 </div>
 </div>

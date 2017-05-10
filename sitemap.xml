@@ -7,170 +7,226 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>https://ikhlestov.github.io/</loc>
-  <lastmod>2017-04-29T00:12:00Z</lastmod>
+  <lastmod>2017-04-14T10:40:00Z</lastmod>
  </url>
  <url>
   <loc>https://ikhlestov.github.io/2016/</loc>
-  <lastmod>2017-04-29T00:12:00Z</lastmod>
+  <lastmod>2017-04-14T10:40:00Z</lastmod>
  </url>
  <url>
   <loc>https://ikhlestov.github.io/about-me/</loc>
-  <lastmod>2017-04-29T00:12:00Z</lastmod>
+  <lastmod>2017-04-14T10:40:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://ikhlestov.github.io/archive.html</loc>
+  <lastmod>2017-04-14T10:40:00Z</lastmod>
  </url>
  <url>
   <loc>https://ikhlestov.github.io/categories/</loc>
-  <lastmod>2017-04-29T00:12:00Z</lastmod>
+  <lastmod>2017-04-14T10:40:00Z</lastmod>
  </url>
  <url>
   <loc>https://ikhlestov.github.io/listings/</loc>
-  <lastmod>2017-04-29T00:12:00Z</lastmod>
+  <lastmod>2017-04-14T10:40:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://ikhlestov.github.io/listings/docker_help.sh.html</loc>
+  <lastmod>2017-04-24T16:48:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://ikhlestov.github.io/listings/git.sh.html</loc>
+  <lastmod>2017-04-14T10:40:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://ikhlestov.github.io/listings/hadoop_notes.sh.html</loc>
+  <lastmod>2017-04-14T10:40:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://ikhlestov.github.io/listings/ipdb_commands.rst.html</loc>
+  <lastmod>2017-04-14T10:40:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://ikhlestov.github.io/listings/matplotlib.py.html</loc>
+  <lastmod>2017-04-14T10:40:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://ikhlestov.github.io/listings/numpy.py.html</loc>
+  <lastmod>2017-04-14T10:40:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://ikhlestov.github.io/listings/pandas.py.html</loc>
+  <lastmod>2017-04-24T16:38:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://ikhlestov.github.io/listings/python-hints.py.html</loc>
+  <lastmod>2017-04-14T10:40:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://ikhlestov.github.io/listings/python-hints.sh.html</loc>
+  <lastmod>2017-04-14T10:40:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://ikhlestov.github.io/listings/scikit-learn.py.html</loc>
+  <lastmod>2017-04-14T10:40:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://ikhlestov.github.io/listings/sublime_shortcuts.txt.html</loc>
+  <lastmod>2017-04-14T10:40:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://ikhlestov.github.io/listings/ubuntu-bash-hints.sh.html</loc>
+  <lastmod>2017-04-24T16:48:00Z</lastmod>
  </url>
  <url>
   <loc>https://ikhlestov.github.io/pages/</loc>
-  <lastmod>2017-04-29T00:12:00Z</lastmod>
+  <lastmod>2017-04-14T10:40:00Z</lastmod>
  </url>
  <url>
   <loc>https://ikhlestov.github.io/pages/another-topics/docker-help-list/</loc>
-  <lastmod>2017-04-29T00:12:00Z</lastmod>
+  <lastmod>2017-04-14T10:40:00Z</lastmod>
  </url>
  <url>
   <loc>https://ikhlestov.github.io/pages/another-topics/git-notes/</loc>
-  <lastmod>2017-04-29T00:12:00Z</lastmod>
+  <lastmod>2017-04-14T10:40:00Z</lastmod>
  </url>
  <url>
   <loc>https://ikhlestov.github.io/pages/another-topics/hadoop-notes/</loc>
-  <lastmod>2017-04-29T00:12:00Z</lastmod>
+  <lastmod>2017-04-14T10:40:00Z</lastmod>
  </url>
  <url>
   <loc>https://ikhlestov.github.io/pages/another-topics/ubuntu-bash-hints/</loc>
-  <lastmod>2017-04-29T00:12:00Z</lastmod>
+  <lastmod>2017-04-14T10:40:00Z</lastmod>
  </url>
  <url>
   <loc>https://ikhlestov.github.io/pages/machine-learning/architecture_vs_optimization_approaches/</loc>
-  <lastmod>2017-04-29T00:12:00Z</lastmod>
+  <lastmod>2017-04-14T10:40:00Z</lastmod>
  </url>
  <url>
   <loc>https://ikhlestov.github.io/pages/machine-learning/cs231n/</loc>
-  <lastmod>2017-04-29T00:12:00Z</lastmod>
+  <lastmod>2017-04-14T10:40:00Z</lastmod>
  </url>
  <url>
   <loc>https://ikhlestov.github.io/pages/machine-learning/cs231n/1_image_classification/</loc>
-  <lastmod>2017-04-29T00:12:00Z</lastmod>
+  <lastmod>2017-04-14T10:40:00Z</lastmod>
  </url>
  <url>
   <loc>https://ikhlestov.github.io/pages/machine-learning/cs231n/2_linear_classification/</loc>
-  <lastmod>2017-04-29T00:12:00Z</lastmod>
+  <lastmod>2017-04-14T10:40:00Z</lastmod>
  </url>
  <url>
   <loc>https://ikhlestov.github.io/pages/machine-learning/cs231n/3_optimization/</loc>
-  <lastmod>2017-04-29T00:12:00Z</lastmod>
+  <lastmod>2017-04-14T10:40:00Z</lastmod>
  </url>
  <url>
   <loc>https://ikhlestov.github.io/pages/machine-learning/cs231n/4_backprob/</loc>
-  <lastmod>2017-04-29T00:12:00Z</lastmod>
+  <lastmod>2017-04-14T10:40:00Z</lastmod>
  </url>
  <url>
   <loc>https://ikhlestov.github.io/pages/machine-learning/deep-learning-book/</loc>
-  <lastmod>2017-04-29T00:12:00Z</lastmod>
+  <lastmod>2017-04-14T10:40:00Z</lastmod>
  </url>
  <url>
   <loc>https://ikhlestov.github.io/pages/machine-learning/deep-learning-book/i2linear-algebra/</loc>
-  <lastmod>2017-04-29T00:12:00Z</lastmod>
+  <lastmod>2017-04-14T10:40:00Z</lastmod>
  </url>
  <url>
   <loc>https://ikhlestov.github.io/pages/machine-learning/deep-learning-book/i3numerical/</loc>
-  <lastmod>2017-04-29T00:12:00Z</lastmod>
+  <lastmod>2017-04-14T10:40:00Z</lastmod>
  </url>
  <url>
   <loc>https://ikhlestov.github.io/pages/machine-learning/deep-learning-book/i3probability-and-information-theory/</loc>
-  <lastmod>2017-04-29T00:12:00Z</lastmod>
+  <lastmod>2017-04-14T10:40:00Z</lastmod>
  </url>
  <url>
   <loc>https://ikhlestov.github.io/pages/machine-learning/general-ml-notes/</loc>
-  <lastmod>2017-04-29T00:12:00Z</lastmod>
+  <lastmod>2017-04-14T10:40:00Z</lastmod>
  </url>
  <url>
   <loc>https://ikhlestov.github.io/pages/machine-learning/ml-bookmarks/</loc>
-  <lastmod>2017-04-29T00:12:00Z</lastmod>
+  <lastmod>2017-04-14T10:40:00Z</lastmod>
  </url>
  <url>
   <loc>https://ikhlestov.github.io/pages/machine-learning/ml-knowledge-base/</loc>
-  <lastmod>2017-04-29T00:12:00Z</lastmod>
+  <lastmod>2017-04-14T10:40:00Z</lastmod>
  </url>
  <url>
   <loc>https://ikhlestov.github.io/pages/machine-learning/models-architectures/</loc>
-  <lastmod>2017-04-29T00:12:00Z</lastmod>
+  <lastmod>2017-04-14T10:40:00Z</lastmod>
  </url>
  <url>
   <loc>https://ikhlestov.github.io/pages/machine-learning/new-nn-checklist/</loc>
-  <lastmod>2017-04-29T00:12:00Z</lastmod>
+  <lastmod>2017-04-14T10:40:00Z</lastmod>
  </url>
  <url>
   <loc>https://ikhlestov.github.io/pages/machine-learning/quck_ref/</loc>
-  <lastmod>2017-04-29T00:12:00Z</lastmod>
+  <lastmod>2017-04-14T10:40:00Z</lastmod>
  </url>
  <url>
   <loc>https://ikhlestov.github.io/pages/machine-learning/tensorflow-hints/</loc>
-  <lastmod>2017-04-29T00:12:00Z</lastmod>
+  <lastmod>2017-04-14T10:40:00Z</lastmod>
  </url>
  <url>
   <loc>https://ikhlestov.github.io/pages/python-related/ipdb-commands/</loc>
-  <lastmod>2017-04-29T00:12:00Z</lastmod>
+  <lastmod>2017-04-14T10:40:00Z</lastmod>
  </url>
  <url>
   <loc>https://ikhlestov.github.io/pages/python-related/matplotlib/</loc>
-  <lastmod>2017-04-29T00:12:00Z</lastmod>
+  <lastmod>2017-04-14T10:40:00Z</lastmod>
  </url>
  <url>
   <loc>https://ikhlestov.github.io/pages/python-related/numpy/</loc>
-  <lastmod>2017-04-29T00:12:00Z</lastmod>
+  <lastmod>2017-04-14T10:40:00Z</lastmod>
  </url>
  <url>
   <loc>https://ikhlestov.github.io/pages/python-related/pandas-commands/</loc>
-  <lastmod>2017-04-29T00:12:00Z</lastmod>
+  <lastmod>2017-04-14T10:40:00Z</lastmod>
  </url>
  <url>
   <loc>https://ikhlestov.github.io/pages/python-related/python-bookmarks/</loc>
-  <lastmod>2017-04-29T00:12:00Z</lastmod>
+  <lastmod>2017-04-14T10:40:00Z</lastmod>
  </url>
  <url>
   <loc>https://ikhlestov.github.io/pages/python-related/python-hints/</loc>
-  <lastmod>2017-04-29T00:12:00Z</lastmod>
+  <lastmod>2017-04-14T10:40:00Z</lastmod>
  </url>
  <url>
   <loc>https://ikhlestov.github.io/pages/python-related/python-libraries/</loc>
-  <lastmod>2017-04-29T00:12:00Z</lastmod>
+  <lastmod>2017-04-14T10:40:00Z</lastmod>
  </url>
  <url>
   <loc>https://ikhlestov.github.io/pages/python-related/python-tips/</loc>
-  <lastmod>2017-04-29T00:12:00Z</lastmod>
+  <lastmod>2017-04-14T10:40:00Z</lastmod>
  </url>
  <url>
   <loc>https://ikhlestov.github.io/pages/python-related/scikit-learn-notes/</loc>
-  <lastmod>2017-04-29T00:12:00Z</lastmod>
+  <lastmod>2017-04-14T10:40:00Z</lastmod>
  </url>
  <url>
   <loc>https://ikhlestov.github.io/pages/shortcuts/bash-shortcuts/</loc>
-  <lastmod>2017-04-29T00:12:00Z</lastmod>
+  <lastmod>2017-04-14T10:40:00Z</lastmod>
  </url>
  <url>
   <loc>https://ikhlestov.github.io/pages/shortcuts/nano-shortcuts/</loc>
-  <lastmod>2017-04-29T00:12:00Z</lastmod>
+  <lastmod>2017-04-14T10:40:00Z</lastmod>
  </url>
  <url>
   <loc>https://ikhlestov.github.io/pages/shortcuts/sublime-shortcuts/</loc>
-  <lastmod>2017-04-29T00:12:00Z</lastmod>
+  <lastmod>2017-04-14T10:40:00Z</lastmod>
  </url>
  <url>
   <loc>https://ikhlestov.github.io/pages/shortcuts/ubuntu-shortcuts/</loc>
-  <lastmod>2017-04-29T00:12:00Z</lastmod>
+  <lastmod>2017-04-14T10:40:00Z</lastmod>
  </url>
  <url>
   <loc>https://ikhlestov.github.io/posts/rbm-based-autoencoders-with-tensorflow/</loc>
-  <lastmod>2017-04-29T00:12:00Z</lastmod>
+  <lastmod>2017-04-14T10:40:00Z</lastmod>
  </url>
  <url>
   <loc>https://ikhlestov.github.io/posts/welcome-post/</loc>
-  <lastmod>2017-04-29T00:12:00Z</lastmod>
+  <lastmod>2017-04-14T10:40:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://ikhlestov.github.io/tags.html</loc>
+  <lastmod>2017-04-14T10:40:00Z</lastmod>
  </url>
 </urlset>

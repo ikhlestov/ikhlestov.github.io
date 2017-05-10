@@ -1,10 +1,10 @@
+<!DOCTYPE html>
 <html prefix="
 og: http://ogp.me/ns#
 article: http://ogp.me/ns/article#
 " lang="en">
 <head>
 <meta charset="utf-8">
-<base href="https://ikhlestov.github.io/pages/machine-learning/deep-learning-book/i3numerical/">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>I.4.Numerical Computation | Illarion Khlestov Blog</title>
 <link href="../../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
@@ -85,7 +85,7 @@ Underﬂow occurs when numbers near zero are">
         <!--Body content-->
         <div class="row">
             
-<article class="storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">I.4.Numerical&nbsp;Computation</a></h1>
+<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">I.4.Numerical Computation</a></h1>
 
         
     </header><div class="e-content entry-content" itemprop="articleBody text">
@@ -93,49 +93,49 @@ Underﬂow occurs when numbers near zero are">
 <div class="contents topic" id="contents">
 <p class="topic-title first">Contents:</p>
 <ul class="simple">
-<li><a class="reference internal" href="#overflow-and-underflow" id="id1">4.1 Overflow and&nbsp;underflow</a></li>
-<li><a class="reference internal" href="#poor-conditioning" id="id2">4.2 Poor&nbsp;Conditioning</a></li>
-<li><a class="reference internal" href="#gradient-based-optimization" id="id3">4.3 Gradient-Based&nbsp;Optimization</a></li>
+<li><a class="reference internal" href="#overflow-and-underflow" id="id1">4.1 Overflow and underflow</a></li>
+<li><a class="reference internal" href="#poor-conditioning" id="id2">4.2 Poor Conditioning</a></li>
+<li><a class="reference internal" href="#gradient-based-optimization" id="id3">4.3 Gradient-Based Optimization</a></li>
 </ul>
 </div>
 <div class="section" id="overflow-and-underflow">
-<h2><a class="toc-backref" href="#id1">4.1 Overflow and&nbsp;underflow</a></h2>
+<h2><a class="toc-backref" href="#id1">4.1 Overflow and underflow</a></h2>
 <p>Problems regarding rounding errors.
 <strong>Underﬂow</strong> occurs when numbers near zero are rounded to zero.
 <strong>Overﬂow</strong> occurs when numbers with large magnitude are approximated as <span class="math">\(\infty\)</span> or <span class="math">\(- \infty\)</span>.</p>
 </div>
 <div class="section" id="poor-conditioning">
-<h2><a class="toc-backref" href="#id2">4.2 Poor&nbsp;Conditioning</a></h2>
+<h2><a class="toc-backref" href="#id2">4.2 Poor Conditioning</a></h2>
 <p>Conditioning refers to how rapidly a function changes with respect to small changes
 in its inputs. Functions that change rapidly when their inputs are perturbed slightly
 can be problematic for scientific computation because rounding errors in the inputs
-can result in large changes in the&nbsp;output.</p>
+can result in large changes in the output.</p>
 </div>
 <div class="section" id="gradient-based-optimization">
-<h2><a class="toc-backref" href="#id3">4.3 Gradient-Based&nbsp;Optimization</a></h2>
+<h2><a class="toc-backref" href="#id3">4.3 Gradient-Based Optimization</a></h2>
 <p>Optimization refers to the task of either minimizing or maximizing some function <span class="math">\(f (\boldsymbol{x})\)</span> by altering <span class="math">\(x\)</span>.</p>
 <p>The function we want to minimize or maximize is called the <strong>objective function</strong> or <strong>criterion</strong>.
 When we are minimizing it, we may also call it the <strong>cost function</strong>, <strong>loss function</strong> , or <strong>error function</strong>.</p>
 <p>Value that minimizes or maximizes a function can be denoted with *.
-For example <span class="math">\(\boldsymbol{x}^{*} = \arg \min&nbsp;f(\boldsymbol{x})\)</span></p>
-<p><strong>Derivative</strong> of some function <span class="math">\(y = f(x)\)</span> is denoted as <span class="math">\(f&#8217;(x)\)</span> or <span class="math">\(\frac{dy}{dx}\)</span>.
-The derivative <span class="math">\(f&#8217;(x)\)</span> gives the slope of <span class="math">\(f(x)\)</span> at the point <span class="math">\(x\)</span>.
-In other words, it specifies how to scale a small change in the input in order to obtain the corresponding change in the output: <span class="math">\(f(x + \epsilon) \approx f(x) + \epsilon&nbsp;f&#8217;(x)\)</span></p>
+For example <span class="math">\(\boldsymbol{x}^{*} = \arg \min f(\boldsymbol{x})\)</span></p>
+<p><strong>Derivative</strong> of some function <span class="math">\(y = f(x)\)</span> is denoted as <span class="math">\(f'(x)\)</span> or <span class="math">\(\frac{dy}{dx}\)</span>.
+The derivative <span class="math">\(f'(x)\)</span> gives the slope of <span class="math">\(f(x)\)</span> at the point <span class="math">\(x\)</span>.
+In other words, it specifies how to scale a small change in the input in order to obtain the corresponding change in the output: <span class="math">\(f(x + \epsilon) \approx f(x) + \epsilon f'(x)\)</span></p>
 <p>The derivative is useful for minimizing a function because it tells us how to change <span class="math">\(x\)</span> in order to make small improvement in <span class="math">\(y\)</span>.
-We can thus reduce <span class="math">\(f (x)\)</span> by moving <span class="math">\(x\)</span> in small steps with opposite sign of the derivative. This technique is called <strong>gradient descent</strong> (first definition, second will be&nbsp;later).</p>
-<p>When <span class="math">\(f&#8217;(x) = 0\)</span>, the derivative provides no information about which direction to move.
-Points where <span class="math">\(f&#8217;(x) = 0\)</span> are known as <strong>critical points</strong> or <strong>stationary points</strong>.
+We can thus reduce <span class="math">\(f (x)\)</span> by moving <span class="math">\(x\)</span> in small steps with opposite sign of the derivative. This technique is called <strong>gradient descent</strong> (first definition, second will be later).</p>
+<p>When <span class="math">\(f'(x) = 0\)</span>, the derivative provides no information about which direction to move.
+Points where <span class="math">\(f'(x) = 0\)</span> are known as <strong>critical points</strong> or <strong>stationary points</strong>.
 Some critical points are neither maxima nor minima. These are known as <strong>saddle points</strong>.</p>
 <p>A point that obtains the absolute lowest value of <span class="math">\(f (x)\)</span> is a <strong>global minimum</strong>.
-It is possible for there to be only <em>one</em> global minimum or <em>multiple</em> global minima of the&nbsp;function.</p>
+It is possible for there to be only <em>one</em> global minimum or <em>multiple</em> global minima of the function.</p>
 <p>We often minimize functions that have multiple inputs: <span class="math">\(f: \mathbb{R}^{n} \to \mathbb{R}\)</span>.
-For the concept of &#8220;minimization&#8221; to make sense, there must still be only one (scalar)&nbsp;output.</p>
+For the concept of "minimization" to make sense, there must still be only one (scalar) output.</p>
 <p>For functions with multiple inputs, we must make use of the concept of <strong>partial derivatives</strong>.
 The partial derivative <span class="math">\(\frac{\partial}{\partial x_{i}} f(x)\)</span> measures how <span class="math">\(f\)</span> changes <strong>as only variable</strong> <span class="math">\(x_{i}\)</span> increases at point <span class="math">\(\boldsymbol{x}\)</span>.
 The <strong>gradient</strong> generalizes the notion of derivative to the case where the derivative is with respect to a vector:
 the gradient of <span class="math">\(f\)</span> is the vector containing all of the partial derivatives, denoted
 <span class="math">\(\nabla_{\boldsymbol{x}} f(\boldsymbol{x})\)</span>.
-Element <span class="math">\(i\)</span> of the gradient is the partial derivative of <span class="math">\(f\)</span> with respect to <span class="math">\(x_i\)</span>. In multiple dimensions, critical points are points where every element of the gradient is equal to&nbsp;zero.</p>
+Element <span class="math">\(i\)</span> of the gradient is the partial derivative of <span class="math">\(f\)</span> with respect to <span class="math">\(x_i\)</span>. In multiple dimensions, critical points are points where every element of the gradient is equal to zero.</p>
 <p>The <strong>directional derivative</strong> in direction <span class="math">\(\boldsymbol{u}\)</span> (a unit vector) is the slope of the function <span class="math">\(f\)</span> in direction <span class="math">\(u\)</span>.
 In other words, the directional derivative is the derivative of the function
 <span class="math">\(f(\boldsymbol{x} + \alpha \boldsymbol{u})\)</span> with respect to <span class="math">\(\alpha\)</span>, evaluated
@@ -144,7 +144,7 @@ Using the chain rule, we can see that
 <span class="math">\(\frac{\partial}{\partial\alpha} f(\boldsymbol{x} + \alpha \boldsymbol{u})\)</span>
 evaluates to
 <span class="math">\(\boldsymbol{u}^{T} \nabla_{\boldsymbol{x}} f(\boldsymbol{x})\)</span> when <span class="math">\(\alpha = 0\)</span>.</p>
-<p>To minimize <span class="math">\(f\)</span>, we would like to find the direction in which <span class="math">\(f\)</span> decreases the fastest. We can do this using the directional&nbsp;derivative:</p>
+<p>To minimize <span class="math">\(f\)</span>, we would like to find the direction in which <span class="math">\(f\)</span> decreases the fastest. We can do this using the directional derivative:</p>
 <div class="math">
 \begin{equation*}
 \min_{\boldsymbol{u}, \boldsymbol{u}^T \boldsymbol{u} = 1} \boldsymbol{u}^{T} \nabla_{\boldsymbol{x}} f(\boldsymbol{x})
@@ -161,15 +161,15 @@ This is minimized when <span class="math">\(\boldsymbol{u}\)</span> points in th
 In other words, the gradient points directly uphill, and the negative gradient points directly downhill.
 We can decrease <span class="math">\(f\)</span> by moving in the direction of the negative gradient.
 This is known as the <strong>method of steepest descent</strong> or <strong>gradient descent</strong>.</p>
-<p>Steepest descent proposes a new&nbsp;point</p>
+<p>Steepest descent proposes a new point</p>
 <div class="math">
 \begin{equation*}
-\boldsymbol{x&#8217;} = \boldsymbol{x} - \epsilon \nabla_{\boldsymbol{x}} f(\boldsymbol{x})
+\boldsymbol{x'} = \boldsymbol{x} - \epsilon \nabla_{\boldsymbol{x}} f(\boldsymbol{x})
 \end{equation*}
 </div>
 <p>where <span class="math">\(\epsilon\)</span> is the <strong>learning rate</strong>, a positive scalar determining the size of the step.
 We can set <span class="math">\(\epsilon\)</span> to a small constant.
-Or evaluate <span class="math">\(f(\boldsymbol{x&#8217;} = \boldsymbol{x} - \epsilon \nabla_{\boldsymbol{x}} f(\boldsymbol{x}))\)</span> for several values of <span class="math">\(\epsilon\)</span> and choose the one that results in the smallest objective function value.
+Or evaluate <span class="math">\(f(\boldsymbol{x'} = \boldsymbol{x} - \epsilon \nabla_{\boldsymbol{x}} f(\boldsymbol{x}))\)</span> for several values of <span class="math">\(\epsilon\)</span> and choose the one that results in the smallest objective function value.
 This last strategy is called a <strong>line search</strong>.</p>
 <p>Steepest descent converges when every element of the gradient is zero (or, in practice, very close to zero). In some cases, we may be able to avoid running this iterative algorithm, and just jump directly to the critical point by solving the equation
 <span class="math">\(\nabla_{\boldsymbol{x}} f(\boldsymbol{x}) = 0\)</span> for <span class="math">\(\boldsymbol{x}\)</span>.</p>
