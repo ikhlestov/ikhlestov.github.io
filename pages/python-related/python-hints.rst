@@ -144,37 +144,6 @@ String formatting
     print('{:<10}'.format('some'))
     # out: 'some        '
 
-Comprehensions
-==============
-
-.. code-block:: python
-    
-    # nested list comprehension
-    mylist = [['10', '20', '30'], ['1', '2', '3']]
-    # flattened list
-    new_list = [float(entry) for sublist in mylist for entry in sublist]
-    [10.0, 20.0, 30.0, 1.0, 2.0, 3.0]
-    # nested list of floats
-    new_list = [[float(entry) for entry in sublist] for sublist in mylist]
-    [[10.0, 20.0, 30.0], [1.0, 2.0, 3.0]]
-    # also can be used to generate cartesian product
-    colors = ['black', 'white']
-    sizes = ['S', 'M', 'L']
-    tshirts = [(color, size) for color in colors
-                             for size in sizes]
-    [('black', 'S'),
-     ('black', 'M'),
-     ('black', 'L'),
-     ('white', 'S'),
-     ('white', 'M'),
-     ('white', 'L')]
-     # the same as:
-     for color in colors:
-        for size in sizes:
-            print(color, size)
-
-    # dict comprehension
-    my_dict = {key:value for item in list if conditional}
 
 Generators, yield from syntax
 =============================
@@ -268,6 +237,89 @@ This will reduce memory consumption, but can lead to some errors:
     print(res)
     # out: {'value': 0}
 
+
+List/Tuples(iterators)
+======================
+
+Comprehensions
+--------------
+
+.. code-block:: python
+    
+    # nested list comprehension
+    mylist = [['10', '20', '30'], ['1', '2', '3']]
+    # flattened list
+    new_list = [float(entry) for sublist in mylist for entry in sublist]
+    [10.0, 20.0, 30.0, 1.0, 2.0, 3.0]
+    # nested list of floats
+    new_list = [[float(entry) for entry in sublist] for sublist in mylist]
+    [[10.0, 20.0, 30.0], [1.0, 2.0, 3.0]]
+    # also can be used to generate cartesian product
+    colors = ['black', 'white']
+    sizes = ['S', 'M', 'L']
+    tshirts = [(color, size) for color in colors
+                             for size in sizes]
+    [('black', 'S'),
+     ('black', 'M'),
+     ('black', 'L'),
+     ('white', 'S'),
+     ('white', 'M'),
+     ('white', 'L')]
+     # the same as:
+     for color in colors:
+        for size in sizes:
+            print(color, size)
+
+    # dict comprehension
+    my_dict = {key:value for item in list if conditional}
+
+
+Using * to grab excess items
+----------------------------
+
+.. code-block:: python
+
+    a, b, *rest = range(5)
+    a, b, rest
+    # out: (0, 1, [2, 3, 4])
+
+    a, b, *rest = range(2)
+    # out: (0, 1, [])
+
+    # can be assigned at any position
+    a, *body, c, d = range(5)
+    a, body, c, d
+    # out: (0, [1, 2], 3, 4)
+
+Nested tuple unpacking
+----------------------
+
+.. code-block:: python
+    
+    # if we have list of tuples like this
+    metro_areas = [ ('Tokyo','JP',36.933,(35.689722,139.691667)), '...' ]
+    # we can unpack it like this:
+    for name, cc, pop, (latitude, longitude) in metro_areas:
+        if longitude <= 0:
+            print("Do something")
+
+Namedtuples
+-------------------
+
+.. code-block:: python
+
+    from collections import namedtuple
+    City = namedtuple('City', ['name', 'country', 'population', 'coordinates'])
+    # or provide just space delimited string
+    City = namedtuple('City', 'name country population coordinates')
+
+    tokyo = City('Tokyo', 'JP', 36.933, (35.689722, 139.691667))
+
+    City._fields
+    # out: ('name', 'country', 'population', 'coordinates')
+
+    # convert namedtuple to dict
+    tokyo._asdict()
 
 Miscellaneous
 =============
