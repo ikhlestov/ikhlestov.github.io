@@ -82,3 +82,7 @@ $ rm -r output/logs/{17..26}*
 
 # send stdout to file and display it to the bash at the same time
 $ ./some_file.sh | tee -a logs.txt
+
+# stop first running docker instance
+# all runing| second line| container name    | stop container by name
+$ docker ps | sed -n 2p  | awk '{print $NF}' | xargs docker stop

@@ -88,3 +88,8 @@ Benchmarks
 ==========
 
 + `DeepBench <https://github.com/baidu-research/DeepBench>`__ Benchmarking Deep Learning operations on different hardware
+
+Datasets
+========
+
++ `e-Lab Video Data Set(s) <https://engineering.purdue.edu/elab/eVDS/>`__ Objects Tracking Dataset

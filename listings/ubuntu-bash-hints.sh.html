@@ -157,7 +157,11 @@ MathJax.Hub.Config({
 <a href="#listingsubuntu-bash-hintssh-81">81</a>
 <a href="#listingsubuntu-bash-hintssh-82">82</a>
 <a href="#listingsubuntu-bash-hintssh-83">83</a>
-<a href="#listingsubuntu-bash-hintssh-84">84</a></pre></div></td>
+<a href="#listingsubuntu-bash-hintssh-84">84</a>
+<a href="#listingsubuntu-bash-hintssh-85">85</a>
+<a href="#listingsubuntu-bash-hintssh-86">86</a>
+<a href="#listingsubuntu-bash-hintssh-87">87</a>
+<a href="#listingsubuntu-bash-hintssh-88">88</a></pre></div></td>
 <td class="code"><pre class="code literal-block"><a name="listingsubuntu-bash-hintssh-1"></a><span class="c1"># show running process by name with headers</span>
 <a name="listingsubuntu-bash-hintssh-2"></a>$ ps aux <span class="p">|</span> egrep <span class="s2">"python|PID"</span>
 <a name="listingsubuntu-bash-hintssh-3"></a>
@@ -242,6 +246,10 @@ MathJax.Hub.Config({
 <a name="listingsubuntu-bash-hintssh-82"></a>
 <a name="listingsubuntu-bash-hintssh-83"></a><span class="c1"># send stdout to file and display it to the bash at the same time</span>
 <a name="listingsubuntu-bash-hintssh-84"></a>$ ./some_file.sh <span class="p">|</span> tee -a logs.txt
+<a name="listingsubuntu-bash-hintssh-85"></a>
+<a name="listingsubuntu-bash-hintssh-86"></a><span class="c1"># stop first running docker instance</span>
+<a name="listingsubuntu-bash-hintssh-87"></a><span class="c1"># all runing| second line| container name    | stop container by name</span>
+<a name="listingsubuntu-bash-hintssh-88"></a>$ docker ps <span class="p">|</span> sed -n 2p  <span class="p">|</span> awk <span class="s1">'{print $NF}'</span> <span class="p">|</span> xargs docker stop
 </pre></td>
 </tr></table>
 </div>
