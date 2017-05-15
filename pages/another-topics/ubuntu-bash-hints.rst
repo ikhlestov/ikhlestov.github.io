@@ -39,4 +39,7 @@ Tmux is very powerful tool with many other capabilities. For example you may wor
 Another hints
 =============
 
+- `one page bash tutorial <https://github.com/jlevy/the-art-of-command-line/blob/master/README.md>`__ `(ru) <https://github.com/jlevy/the-art-of-command-line/blob/master/README-ru.md>`__
+- `bash command explanation(explain shell) <https://explainshell.com/>`__
+
 .. listing:: ubuntu-bash-hints.sh bash
