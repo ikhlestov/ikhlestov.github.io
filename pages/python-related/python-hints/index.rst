@@ -10,6 +10,9 @@
 
 .. contents:: Contents
 
+
+`Python Tutor <http://www.pythontutor.com/>`__ is an awesome online tool to visualize how Python works in detail.
+
 Using namespace classes
 =======================
 
@@ -320,6 +323,38 @@ Namedtuples
 
     # convert namedtuple to dict
     tokyo._asdict()
+
+Slicing
+--------
+
+Slices can be assigned to variable and used after assigning:
+
+.. code-block:: pycon
+    
+    >>> test = 'test string'
+    >>> test[0:4]
+    'test'
+    >>> first_slice = slice(0, 4)
+    >>> test[first_slice]
+    'test'
+    >>> second_slice = slice(4, None)
+    >>> test[second_slice]
+    ' string'
+
+Assigning to slices
+-------------------
+
+.. code-block:: pycon
+
+    >>> l = list(range(10))
+    >>> l
+    [0, 1, 2, 3, 4, 5, 6, 7, 8, 9] 
+    >>> l[2:5] = [20, 30]
+    >>> l
+    [0, 1, 20, 30, 5, 6, 7, 8, 9]
+    >>> del l[5:7]
+    >>> l
+    [0, 1, 20, 30, 5, 8, 9]
 
 Miscellaneous
 =============
