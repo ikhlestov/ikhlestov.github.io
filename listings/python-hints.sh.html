@@ -91,25 +91,39 @@ MathJax.Hub.Config({
 <a href="#listingspython-hintssh-15">15</a>
 <a href="#listingspython-hintssh-16">16</a>
 <a href="#listingspython-hintssh-17">17</a>
-<a href="#listingspython-hintssh-18">18</a></pre></div></td>
+<a href="#listingspython-hintssh-18">18</a>
+<a href="#listingspython-hintssh-19">19</a>
+<a href="#listingspython-hintssh-20">20</a>
+<a href="#listingspython-hintssh-21">21</a>
+<a href="#listingspython-hintssh-22">22</a>
+<a href="#listingspython-hintssh-23">23</a>
+<a href="#listingspython-hintssh-24">24</a>
+<a href="#listingspython-hintssh-25">25</a></pre></div></td>
 <td class="code"><pre class="code literal-block"><a name="listingspython-hintssh-1"></a><span class="c1"># ==========================================</span>
 <a name="listingspython-hintssh-2"></a><span class="c1"># serve current folder to web</span>
 <a name="listingspython-hintssh-3"></a><span class="c1"># python2</span>
-<a name="listingspython-hintssh-4"></a>$ python -m SimpleHTTPServer
+<a name="listingspython-hintssh-4"></a>python -m SimpleHTTPServer
 <a name="listingspython-hintssh-5"></a><span class="c1"># python3</span>
-<a name="listingspython-hintssh-6"></a>$ python3 -m http.server
+<a name="listingspython-hintssh-6"></a>python3 -m http.server
 <a name="listingspython-hintssh-7"></a>
 <a name="listingspython-hintssh-8"></a><span class="c1"># ==========================================</span>
 <a name="listingspython-hintssh-9"></a><span class="c1"># create new virualenv</span>
-<a name="listingspython-hintssh-10"></a>$ virtualenv -p /usr/local/bin/python2.7 env_name
-<a name="listingspython-hintssh-11"></a>
-<a name="listingspython-hintssh-12"></a><span class="c1"># ==========================================</span>
-<a name="listingspython-hintssh-13"></a><span class="c1"># unistall all existing packages</span>
-<a name="listingspython-hintssh-14"></a>$ pip freeze <span class="p">|</span> xargs pip uninstall -y
-<a name="listingspython-hintssh-15"></a>
-<a name="listingspython-hintssh-16"></a><span class="c1"># ==========================================</span>
-<a name="listingspython-hintssh-17"></a><span class="c1"># check for PEP8 errors</span>
-<a name="listingspython-hintssh-18"></a>$ pep8 --first --show-source --show-pep8 
+<a name="listingspython-hintssh-10"></a>virtualenv -p /usr/local/bin/python2.7 env_name
+<a name="listingspython-hintssh-11"></a><span class="c1"># create new vierualenv with venv without pip</span>
+<a name="listingspython-hintssh-12"></a>python3.6 -m venv <span class="nv">$ENV_NAME</span> --without-pip
+<a name="listingspython-hintssh-13"></a><span class="nb">source</span> <span class="nv">$ENV_NAME</span>/bin/activate
+<a name="listingspython-hintssh-14"></a>wget https://bootstrap.pypa.io/get-pip.py
+<a name="listingspython-hintssh-15"></a>python get-pip.py
+<a name="listingspython-hintssh-16"></a><span class="c1"># or with pip just</span>
+<a name="listingspython-hintssh-17"></a>python3.6 -m venv <span class="nv">$ENV_NAME</span>
+<a name="listingspython-hintssh-18"></a>
+<a name="listingspython-hintssh-19"></a><span class="c1"># ==========================================</span>
+<a name="listingspython-hintssh-20"></a><span class="c1"># unistall all existing packages</span>
+<a name="listingspython-hintssh-21"></a>pip freeze <span class="p">|</span> xargs pip uninstall -y
+<a name="listingspython-hintssh-22"></a>
+<a name="listingspython-hintssh-23"></a><span class="c1"># ==========================================</span>
+<a name="listingspython-hintssh-24"></a><span class="c1"># check for PEP8 errors</span>
+<a name="listingspython-hintssh-25"></a>pep8 --first --show-source --show-pep8 
 </pre></td>
 </tr></table>
 </div>
