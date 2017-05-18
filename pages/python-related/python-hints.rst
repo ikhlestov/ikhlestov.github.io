@@ -356,6 +356,21 @@ Assigning to slices
     >>> l
     [0, 1, 20, 30, 5, 8, 9]
 
+bisect module
+=============
+
+Return the corresponding letter grade
+
+.. code-block:: pycon
+
+    >>> def grade(score, breakpoints=[60, 70, 80, 90], grades='FDCBA'):
+    ...     # returns index of where score should be inserted
+    ...     i = bisect.bisect(breakpoints, score)
+    ...     return grades[i]
+    ...
+    >>> [grade(score) for score in [33, 99, 77, 70, 89, 90, 100]]
+    ['F', 'A', 'C', 'C', 'B', 'A', 'A']
+
 Miscellaneous
 =============
 
