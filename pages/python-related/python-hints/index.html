@@ -110,374 +110,387 @@ Chang">
 <li><a class="reference internal" href="#assigning-to-slices" id="id15">Assigning to&nbsp;slices</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#miscellaneous" id="id16">Miscellaneous</a></li>
+<li><a class="reference internal" href="#bisect-module" id="id16">bisect&nbsp;module</a></li>
+<li><a class="reference internal" href="#miscellaneous" id="id17">Miscellaneous</a></li>
 </ul>
 </div>
 <p><a class="reference external" href="http://www.pythontutor.com/">Python Tutor</a> is an awesome online tool to visualize how Python works in&nbsp;detail.</p>
 <div class="section" id="using-namespace-classes">
 <h2><a class="toc-backref" href="#id1">Using namespace&nbsp;classes</a></h2>
 <p>This classes allow you directly assign params to&nbsp;class</p>
-<pre class="code python"><a name="rest_code_5f1a0cf2443d4458b545daeb75e24bee-1"></a><span class="kn">from</span> <span class="nn">types</span> <span class="kn">import</span> <span class="n">SimpleNamespace</span>
-<a name="rest_code_5f1a0cf2443d4458b545daeb75e24bee-2"></a><span class="k">class</span> <span class="nc">S</span><span class="p">(</span><span class="n">SimpleNamespace</span><span class="p">):</span>
-<a name="rest_code_5f1a0cf2443d4458b545daeb75e24bee-3"></a>    <span class="k">pass</span>
-<a name="rest_code_5f1a0cf2443d4458b545daeb75e24bee-4"></a>
-<a name="rest_code_5f1a0cf2443d4458b545daeb75e24bee-5"></a><span class="n">s</span> <span class="o">=</span> <span class="n">S</span><span class="p">(</span><span class="n">some</span><span class="o">=</span><span class="s1">'some'</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s1">'42'</span><span class="p">)</span>
-<a name="rest_code_5f1a0cf2443d4458b545daeb75e24bee-6"></a><span class="k">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">some</span><span class="p">)</span>
-<a name="rest_code_5f1a0cf2443d4458b545daeb75e24bee-7"></a><span class="c1"># out: 'some'</span>
-<a name="rest_code_5f1a0cf2443d4458b545daeb75e24bee-8"></a><span class="k">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
-<a name="rest_code_5f1a0cf2443d4458b545daeb75e24bee-9"></a><span class="c1"># out: '42'</span>
+<pre class="code python"><a name="rest_code_02713b94bc324e0a99b4fffb1d6a0203-1"></a><span class="kn">from</span> <span class="nn">types</span> <span class="kn">import</span> <span class="n">SimpleNamespace</span>
+<a name="rest_code_02713b94bc324e0a99b4fffb1d6a0203-2"></a><span class="k">class</span> <span class="nc">S</span><span class="p">(</span><span class="n">SimpleNamespace</span><span class="p">):</span>
+<a name="rest_code_02713b94bc324e0a99b4fffb1d6a0203-3"></a>    <span class="k">pass</span>
+<a name="rest_code_02713b94bc324e0a99b4fffb1d6a0203-4"></a>
+<a name="rest_code_02713b94bc324e0a99b4fffb1d6a0203-5"></a><span class="n">s</span> <span class="o">=</span> <span class="n">S</span><span class="p">(</span><span class="n">some</span><span class="o">=</span><span class="s1">'some'</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s1">'42'</span><span class="p">)</span>
+<a name="rest_code_02713b94bc324e0a99b4fffb1d6a0203-6"></a><span class="k">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">some</span><span class="p">)</span>
+<a name="rest_code_02713b94bc324e0a99b4fffb1d6a0203-7"></a><span class="c1"># out: 'some'</span>
+<a name="rest_code_02713b94bc324e0a99b4fffb1d6a0203-8"></a><span class="k">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+<a name="rest_code_02713b94bc324e0a99b4fffb1d6a0203-9"></a><span class="c1"># out: '42'</span>
 </pre>
 <p>can be replaced such&nbsp;way:</p>
-<pre class="code python"><a name="rest_code_fc7079aa6db84b9ea48fd1380fd30559-1"></a><span class="k">class</span> <span class="nc">adict</span><span class="p">(</span><span class="nb">dict</span><span class="p">):</span>
-<a name="rest_code_fc7079aa6db84b9ea48fd1380fd30559-2"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">av</span><span class="p">,</span> <span class="o">**</span><span class="n">kav</span><span class="p">):</span>
-<a name="rest_code_fc7079aa6db84b9ea48fd1380fd30559-3"></a>        <span class="nb">dict</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">av</span><span class="p">,</span> <span class="o">**</span><span class="n">kav</span><span class="p">)</span>
-<a name="rest_code_fc7079aa6db84b9ea48fd1380fd30559-4"></a>        <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span> <span class="o">=</span> <span class="bp">self</span>
+<pre class="code python"><a name="rest_code_794cec3675744211875a5b11d61097a7-1"></a><span class="k">class</span> <span class="nc">adict</span><span class="p">(</span><span class="nb">dict</span><span class="p">):</span>
+<a name="rest_code_794cec3675744211875a5b11d61097a7-2"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">av</span><span class="p">,</span> <span class="o">**</span><span class="n">kav</span><span class="p">):</span>
+<a name="rest_code_794cec3675744211875a5b11d61097a7-3"></a>        <span class="nb">dict</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">av</span><span class="p">,</span> <span class="o">**</span><span class="n">kav</span><span class="p">)</span>
+<a name="rest_code_794cec3675744211875a5b11d61097a7-4"></a>        <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span> <span class="o">=</span> <span class="bp">self</span>
 </pre>
 </div>
 <div class="section" id="checking-args-prior-to-runtime">
 <h2><a class="toc-backref" href="#id2">Checking args prior to&nbsp;runtime</a></h2>
 <p>It is useful to check args received by function prior to runtime.
 This can be implemented with&nbsp;decorator:</p>
-<pre class="code python"><a name="rest_code_3c81390c1cef43ffb316342c3690a763-1"></a><span class="c1"># define decorator</span>
-<a name="rest_code_3c81390c1cef43ffb316342c3690a763-2"></a><span class="k">def</span> <span class="nf">check_args</span><span class="p">(</span><span class="o">*</span><span class="n">types</span><span class="p">):</span>
-<a name="rest_code_3c81390c1cef43ffb316342c3690a763-3"></a>    <span class="k">def</span> <span class="nf">real_decorator</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
-<a name="rest_code_3c81390c1cef43ffb316342c3690a763-4"></a>        <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<a name="rest_code_3c81390c1cef43ffb316342c3690a763-5"></a>            <span class="k">for</span> <span class="n">val</span><span class="p">,</span> <span class="n">typ</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">types</span><span class="p">):</span>
-<a name="rest_code_3c81390c1cef43ffb316342c3690a763-6"></a>                <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">typ</span><span class="p">):</span>
-<a name="rest_code_3c81390c1cef43ffb316342c3690a763-7"></a>                    <span class="n">msg</span> <span class="o">=</span> <span class="s2">"Value {} is not of expected type {}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">typ</span><span class="p">)</span>
-<a name="rest_code_3c81390c1cef43ffb316342c3690a763-8"></a>                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
-<a name="rest_code_3c81390c1cef43ffb316342c3690a763-9"></a>            <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<a name="rest_code_3c81390c1cef43ffb316342c3690a763-10"></a>        <span class="k">return</span> <span class="n">wrapper</span>
-<a name="rest_code_3c81390c1cef43ffb316342c3690a763-11"></a>    <span class="k">return</span> <span class="n">real_decorator</span>
-<a name="rest_code_3c81390c1cef43ffb316342c3690a763-12"></a>
-<a name="rest_code_3c81390c1cef43ffb316342c3690a763-13"></a><span class="c1"># example usage of decorator</span>
-<a name="rest_code_3c81390c1cef43ffb316342c3690a763-14"></a><span class="nd">@check_args</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
-<a name="rest_code_3c81390c1cef43ffb316342c3690a763-15"></a><span class="k">def</span> <span class="nf">print_something</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">quantity</span><span class="p">):</span>
-<a name="rest_code_3c81390c1cef43ffb316342c3690a763-16"></a>    <span class="k">print</span><span class="p">(</span><span class="s2">"name: {}, quantity: {}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">quantity</span><span class="p">))</span>
+<pre class="code python"><a name="rest_code_96c1f8392a2345a6b132433cef681085-1"></a><span class="c1"># define decorator</span>
+<a name="rest_code_96c1f8392a2345a6b132433cef681085-2"></a><span class="k">def</span> <span class="nf">check_args</span><span class="p">(</span><span class="o">*</span><span class="n">types</span><span class="p">):</span>
+<a name="rest_code_96c1f8392a2345a6b132433cef681085-3"></a>    <span class="k">def</span> <span class="nf">real_decorator</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+<a name="rest_code_96c1f8392a2345a6b132433cef681085-4"></a>        <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<a name="rest_code_96c1f8392a2345a6b132433cef681085-5"></a>            <span class="k">for</span> <span class="n">val</span><span class="p">,</span> <span class="n">typ</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">types</span><span class="p">):</span>
+<a name="rest_code_96c1f8392a2345a6b132433cef681085-6"></a>                <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">typ</span><span class="p">):</span>
+<a name="rest_code_96c1f8392a2345a6b132433cef681085-7"></a>                    <span class="n">msg</span> <span class="o">=</span> <span class="s2">"Value {} is not of expected type {}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">typ</span><span class="p">)</span>
+<a name="rest_code_96c1f8392a2345a6b132433cef681085-8"></a>                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+<a name="rest_code_96c1f8392a2345a6b132433cef681085-9"></a>            <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<a name="rest_code_96c1f8392a2345a6b132433cef681085-10"></a>        <span class="k">return</span> <span class="n">wrapper</span>
+<a name="rest_code_96c1f8392a2345a6b132433cef681085-11"></a>    <span class="k">return</span> <span class="n">real_decorator</span>
+<a name="rest_code_96c1f8392a2345a6b132433cef681085-12"></a>
+<a name="rest_code_96c1f8392a2345a6b132433cef681085-13"></a><span class="c1"># example usage of decorator</span>
+<a name="rest_code_96c1f8392a2345a6b132433cef681085-14"></a><span class="nd">@check_args</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<a name="rest_code_96c1f8392a2345a6b132433cef681085-15"></a><span class="k">def</span> <span class="nf">print_something</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">quantity</span><span class="p">):</span>
+<a name="rest_code_96c1f8392a2345a6b132433cef681085-16"></a>    <span class="k">print</span><span class="p">(</span><span class="s2">"name: {}, quantity: {}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">quantity</span><span class="p">))</span>
 </pre>
 </div>
 <div class="section" id="palindromes">
 <h2><a class="toc-backref" href="#id3">Palindromes</a></h2>
-<pre class="code python"><a name="rest_code_12b9f452e0984260bb74350eb555fb0d-1"></a><span class="c1"># simple example</span>
-<a name="rest_code_12b9f452e0984260bb74350eb555fb0d-2"></a><span class="k">def</span> <span class="nf">is_palindrome</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
-<a name="rest_code_12b9f452e0984260bb74350eb555fb0d-3"></a>    <span class="k">return</span> <span class="n">s</span> <span class="o">==</span> <span class="n">s</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-<a name="rest_code_12b9f452e0984260bb74350eb555fb0d-4"></a>
-<a name="rest_code_12b9f452e0984260bb74350eb555fb0d-5"></a><span class="c1"># for unicode data</span>
-<a name="rest_code_12b9f452e0984260bb74350eb555fb0d-6"></a><span class="kn">import</span> <span class="nn">unicodedata</span>
-<a name="rest_code_12b9f452e0984260bb74350eb555fb0d-7"></a><span class="k">def</span> <span class="nf">is_palindrome</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
-<a name="rest_code_12b9f452e0984260bb74350eb555fb0d-8"></a>    <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">unicodedata</span><span class="o">.</span><span class="n">combining</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">s</span><span class="p">):</span>
-<a name="rest_code_12b9f452e0984260bb74350eb555fb0d-9"></a>        <span class="n">s</span> <span class="o">=</span> <span class="n">unicodedata</span><span class="o">.</span><span class="n">normalize</span><span class="p">(</span><span class="s1">'NFC'</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
-<a name="rest_code_12b9f452e0984260bb74350eb555fb0d-10"></a>    <span class="k">return</span> <span class="n">s</span> <span class="o">==</span> <span class="n">s</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<pre class="code python"><a name="rest_code_fd081b591e99465ca19d5ce191fdad8a-1"></a><span class="c1"># simple example</span>
+<a name="rest_code_fd081b591e99465ca19d5ce191fdad8a-2"></a><span class="k">def</span> <span class="nf">is_palindrome</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+<a name="rest_code_fd081b591e99465ca19d5ce191fdad8a-3"></a>    <span class="k">return</span> <span class="n">s</span> <span class="o">==</span> <span class="n">s</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<a name="rest_code_fd081b591e99465ca19d5ce191fdad8a-4"></a>
+<a name="rest_code_fd081b591e99465ca19d5ce191fdad8a-5"></a><span class="c1"># for unicode data</span>
+<a name="rest_code_fd081b591e99465ca19d5ce191fdad8a-6"></a><span class="kn">import</span> <span class="nn">unicodedata</span>
+<a name="rest_code_fd081b591e99465ca19d5ce191fdad8a-7"></a><span class="k">def</span> <span class="nf">is_palindrome</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+<a name="rest_code_fd081b591e99465ca19d5ce191fdad8a-8"></a>    <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">unicodedata</span><span class="o">.</span><span class="n">combining</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">s</span><span class="p">):</span>
+<a name="rest_code_fd081b591e99465ca19d5ce191fdad8a-9"></a>        <span class="n">s</span> <span class="o">=</span> <span class="n">unicodedata</span><span class="o">.</span><span class="n">normalize</span><span class="p">(</span><span class="s1">'NFC'</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+<a name="rest_code_fd081b591e99465ca19d5ce191fdad8a-10"></a>    <span class="k">return</span> <span class="n">s</span> <span class="o">==</span> <span class="n">s</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 </pre>
 </div>
 <div class="section" id="change-handling-function-based-on-length-of-provided-arguments">
 <h2><a class="toc-backref" href="#id4">Change handling function based on length of provided&nbsp;arguments</a></h2>
-<pre class="code python"><a name="rest_code_2a84f3d9f9d84aa388e55855012f4810-1"></a><span class="kn">import</span> <span class="nn">math</span>
-<a name="rest_code_2a84f3d9f9d84aa388e55855012f4810-2"></a><span class="err">​</span>
-<a name="rest_code_2a84f3d9f9d84aa388e55855012f4810-3"></a><span class="n">formula_gerona</span> <span class="o">=</span> <span class="s2">"</span><span class="si">%.5f</span><span class="s2">*(</span><span class="si">%.5f</span><span class="s2">-a)*(</span><span class="si">%.5f</span><span class="s2">-b)*(</span><span class="si">%.5f</span><span class="s2">-c)"</span>
-<a name="rest_code_2a84f3d9f9d84aa388e55855012f4810-4"></a><span class="n">figur</span> <span class="o">=</span> <span class="p">[</span>
-<a name="rest_code_2a84f3d9f9d84aa388e55855012f4810-5"></a>    <span class="k">lambda</span> <span class="n">d</span><span class="p">:</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="p">((</span><span class="n">d</span><span class="o">/</span><span class="mf">2.0</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">),</span>                                  <span class="c1">#Circle</span>
-<a name="rest_code_2a84f3d9f9d84aa388e55855012f4810-6"></a>    <span class="k">lambda</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">:</span> <span class="n">a</span><span class="o">*</span><span class="n">b</span><span class="p">,</span>                                                 <span class="c1">#Square/Rectangle</span>
-<a name="rest_code_2a84f3d9f9d84aa388e55855012f4810-7"></a>    <span class="k">lambda</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">:</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="nb">eval</span><span class="p">(</span><span class="n">formula_gerona</span><span class="o">%</span><span class="p">(((</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="o">+</span><span class="n">c</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">,)</span><span class="o">*</span><span class="mi">4</span><span class="p">)</span> <span class="p">)),</span> <span class="c1">#Triangle</span>
-<a name="rest_code_2a84f3d9f9d84aa388e55855012f4810-8"></a><span class="p">]</span>
-<a name="rest_code_2a84f3d9f9d84aa388e55855012f4810-9"></a><span class="err">​</span>
-<a name="rest_code_2a84f3d9f9d84aa388e55855012f4810-10"></a><span class="k">def</span> <span class="nf">simple_areas</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
-<a name="rest_code_2a84f3d9f9d84aa388e55855012f4810-11"></a>    <span class="k">return</span> <span class="n">figur</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">](</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
+<pre class="code python"><a name="rest_code_aaf0f528e99c4fe0867d8d7c8e8a009e-1"></a><span class="kn">import</span> <span class="nn">math</span>
+<a name="rest_code_aaf0f528e99c4fe0867d8d7c8e8a009e-2"></a><span class="err">​</span>
+<a name="rest_code_aaf0f528e99c4fe0867d8d7c8e8a009e-3"></a><span class="n">formula_gerona</span> <span class="o">=</span> <span class="s2">"</span><span class="si">%.5f</span><span class="s2">*(</span><span class="si">%.5f</span><span class="s2">-a)*(</span><span class="si">%.5f</span><span class="s2">-b)*(</span><span class="si">%.5f</span><span class="s2">-c)"</span>
+<a name="rest_code_aaf0f528e99c4fe0867d8d7c8e8a009e-4"></a><span class="n">figur</span> <span class="o">=</span> <span class="p">[</span>
+<a name="rest_code_aaf0f528e99c4fe0867d8d7c8e8a009e-5"></a>    <span class="k">lambda</span> <span class="n">d</span><span class="p">:</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="p">((</span><span class="n">d</span><span class="o">/</span><span class="mf">2.0</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">),</span>                                  <span class="c1">#Circle</span>
+<a name="rest_code_aaf0f528e99c4fe0867d8d7c8e8a009e-6"></a>    <span class="k">lambda</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">:</span> <span class="n">a</span><span class="o">*</span><span class="n">b</span><span class="p">,</span>                                                 <span class="c1">#Square/Rectangle</span>
+<a name="rest_code_aaf0f528e99c4fe0867d8d7c8e8a009e-7"></a>    <span class="k">lambda</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">:</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="nb">eval</span><span class="p">(</span><span class="n">formula_gerona</span><span class="o">%</span><span class="p">(((</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="o">+</span><span class="n">c</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">,)</span><span class="o">*</span><span class="mi">4</span><span class="p">)</span> <span class="p">)),</span> <span class="c1">#Triangle</span>
+<a name="rest_code_aaf0f528e99c4fe0867d8d7c8e8a009e-8"></a><span class="p">]</span>
+<a name="rest_code_aaf0f528e99c4fe0867d8d7c8e8a009e-9"></a><span class="err">​</span>
+<a name="rest_code_aaf0f528e99c4fe0867d8d7c8e8a009e-10"></a><span class="k">def</span> <span class="nf">simple_areas</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+<a name="rest_code_aaf0f528e99c4fe0867d8d7c8e8a009e-11"></a>    <span class="k">return</span> <span class="n">figur</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">](</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
 </pre>
 </div>
 <div class="section" id="pytest">
 <h2><a class="toc-backref" href="#id5">PyTest</a></h2>
-<pre class="code bash"><a name="rest_code_1a4172a0cea448e3964b2bc115bc4528-1"></a><span class="c1"># Allow pdb/ipdb at the pytest</span>
-<a name="rest_code_1a4172a0cea448e3964b2bc115bc4528-2"></a>pytest -s tests/
-<a name="rest_code_1a4172a0cea448e3964b2bc115bc4528-3"></a>
-<a name="rest_code_1a4172a0cea448e3964b2bc115bc4528-4"></a><span class="c1"># run pytest with coverage</span>
-<a name="rest_code_1a4172a0cea448e3964b2bc115bc4528-5"></a>coverage run -m pytest tests
-<a name="rest_code_1a4172a0cea448e3964b2bc115bc4528-6"></a>
-<a name="rest_code_1a4172a0cea448e3964b2bc115bc4528-7"></a><span class="c1"># Run pytest coverage for many installed django apps at once</span>
-<a name="rest_code_1a4172a0cea448e3964b2bc115bc4528-8"></a>py.test --cov-report html --cov<span class="o">={</span>app1, app2, ...<span class="o">}</span> */tests.py
+<pre class="code bash"><a name="rest_code_8d21e4c3ce374a75b2d34dc0ebbb05b3-1"></a><span class="c1"># Allow pdb/ipdb at the pytest</span>
+<a name="rest_code_8d21e4c3ce374a75b2d34dc0ebbb05b3-2"></a>pytest -s tests/
+<a name="rest_code_8d21e4c3ce374a75b2d34dc0ebbb05b3-3"></a>
+<a name="rest_code_8d21e4c3ce374a75b2d34dc0ebbb05b3-4"></a><span class="c1"># run pytest with coverage</span>
+<a name="rest_code_8d21e4c3ce374a75b2d34dc0ebbb05b3-5"></a>coverage run -m pytest tests
+<a name="rest_code_8d21e4c3ce374a75b2d34dc0ebbb05b3-6"></a>
+<a name="rest_code_8d21e4c3ce374a75b2d34dc0ebbb05b3-7"></a><span class="c1"># Run pytest coverage for many installed django apps at once</span>
+<a name="rest_code_8d21e4c3ce374a75b2d34dc0ebbb05b3-8"></a>py.test --cov-report html --cov<span class="o">={</span>app1, app2, ...<span class="o">}</span> */tests.py
 </pre>
 <p>Example .coveragerc&nbsp;file:</p>
-<pre class="code text"><a name="rest_code_6de6a6fde8584458bf2463819fd2437c-1"></a>[run]
-<a name="rest_code_6de6a6fde8584458bf2463819fd2437c-2"></a>source = package_name
-<a name="rest_code_6de6a6fde8584458bf2463819fd2437c-3"></a>omit = site-packages, .env
-<a name="rest_code_6de6a6fde8584458bf2463819fd2437c-4"></a>
-<a name="rest_code_6de6a6fde8584458bf2463819fd2437c-5"></a>[html]
-<a name="rest_code_6de6a6fde8584458bf2463819fd2437c-6"></a>directory = htmlcov
+<pre class="code text"><a name="rest_code_9b48a7ad85724cf3a6353b62e8e5f7ae-1"></a>[run]
+<a name="rest_code_9b48a7ad85724cf3a6353b62e8e5f7ae-2"></a>source = package_name
+<a name="rest_code_9b48a7ad85724cf3a6353b62e8e5f7ae-3"></a>omit = site-packages, .env
+<a name="rest_code_9b48a7ad85724cf3a6353b62e8e5f7ae-4"></a>
+<a name="rest_code_9b48a7ad85724cf3a6353b62e8e5f7ae-5"></a>[html]
+<a name="rest_code_9b48a7ad85724cf3a6353b62e8e5f7ae-6"></a>directory = htmlcov
 </pre>
 </div>
 <div class="section" id="string-formatting">
 <h2><a class="toc-backref" href="#id6">String&nbsp;formatting</a></h2>
-<pre class="code python"><a name="rest_code_8bf00f8999a54232a73ace32870c6e82-1"></a><span class="c1"># dictionary string formatting</span>
-<a name="rest_code_8bf00f8999a54232a73ace32870c6e82-2"></a><span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"uid"</span><span class="p">:</span><span class="s2">"sa"</span><span class="p">,</span> <span class="s2">"pwd"</span><span class="p">:</span><span class="s2">"secret"</span><span class="p">}</span>
-<a name="rest_code_8bf00f8999a54232a73ace32870c6e82-3"></a><span class="k">print</span><span class="p">(</span><span class="s2">"</span><span class="si">%(pwd)s</span><span class="s2">"</span> <span class="o">%</span> <span class="n">params</span><span class="p">)</span>
-<a name="rest_code_8bf00f8999a54232a73ace32870c6e82-4"></a><span class="k">print</span><span class="p">(</span><span class="s2">"{pwd}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">params</span><span class="p">))</span>
-<a name="rest_code_8bf00f8999a54232a73ace32870c6e82-5"></a><span class="c1"># out: 'secret'</span>
-<a name="rest_code_8bf00f8999a54232a73ace32870c6e82-6"></a>
-<a name="rest_code_8bf00f8999a54232a73ace32870c6e82-7"></a><span class="c1"># strip float precision length</span>
-<a name="rest_code_8bf00f8999a54232a73ace32870c6e82-8"></a><span class="k">print</span><span class="p">(</span><span class="s1">'</span><span class="si">%.2f</span><span class="s1">'</span> <span class="o">%</span> <span class="mf">0.1245125</span><span class="p">)</span>
-<a name="rest_code_8bf00f8999a54232a73ace32870c6e82-9"></a><span class="k">print</span><span class="p">(</span><span class="s1">'{:.2f}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mf">0.1245125</span><span class="p">))</span>
-<a name="rest_code_8bf00f8999a54232a73ace32870c6e82-10"></a><span class="c1"># out: 0.12</span>
-<a name="rest_code_8bf00f8999a54232a73ace32870c6e82-11"></a>
-<a name="rest_code_8bf00f8999a54232a73ace32870c6e82-12"></a><span class="c1"># free space before word</span>
-<a name="rest_code_8bf00f8999a54232a73ace32870c6e82-13"></a><span class="k">print</span><span class="p">(</span><span class="s1">'</span><span class="si">%10s</span><span class="s1">'</span> <span class="o">%</span> <span class="s1">'some'</span><span class="p">)</span>
-<a name="rest_code_8bf00f8999a54232a73ace32870c6e82-14"></a><span class="k">print</span><span class="p">(</span><span class="s1">'{:&gt;10}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">'some'</span><span class="p">))</span>
-<a name="rest_code_8bf00f8999a54232a73ace32870c6e82-15"></a><span class="c1"># out: '        some'</span>
-<a name="rest_code_8bf00f8999a54232a73ace32870c6e82-16"></a><span class="k">print</span><span class="p">(</span><span class="s1">'</span><span class="si">%-10s</span><span class="s1">'</span> <span class="o">%</span> <span class="s1">'some'</span><span class="p">)</span>
-<a name="rest_code_8bf00f8999a54232a73ace32870c6e82-17"></a><span class="k">print</span><span class="p">(</span><span class="s1">'{:&lt;10}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">'some'</span><span class="p">))</span>
-<a name="rest_code_8bf00f8999a54232a73ace32870c6e82-18"></a><span class="c1"># out: 'some        '</span>
+<pre class="code python"><a name="rest_code_67eb2b13a87a41bb898c16e41cece882-1"></a><span class="c1"># dictionary string formatting</span>
+<a name="rest_code_67eb2b13a87a41bb898c16e41cece882-2"></a><span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"uid"</span><span class="p">:</span><span class="s2">"sa"</span><span class="p">,</span> <span class="s2">"pwd"</span><span class="p">:</span><span class="s2">"secret"</span><span class="p">}</span>
+<a name="rest_code_67eb2b13a87a41bb898c16e41cece882-3"></a><span class="k">print</span><span class="p">(</span><span class="s2">"</span><span class="si">%(pwd)s</span><span class="s2">"</span> <span class="o">%</span> <span class="n">params</span><span class="p">)</span>
+<a name="rest_code_67eb2b13a87a41bb898c16e41cece882-4"></a><span class="k">print</span><span class="p">(</span><span class="s2">"{pwd}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">params</span><span class="p">))</span>
+<a name="rest_code_67eb2b13a87a41bb898c16e41cece882-5"></a><span class="c1"># out: 'secret'</span>
+<a name="rest_code_67eb2b13a87a41bb898c16e41cece882-6"></a>
+<a name="rest_code_67eb2b13a87a41bb898c16e41cece882-7"></a><span class="c1"># strip float precision length</span>
+<a name="rest_code_67eb2b13a87a41bb898c16e41cece882-8"></a><span class="k">print</span><span class="p">(</span><span class="s1">'</span><span class="si">%.2f</span><span class="s1">'</span> <span class="o">%</span> <span class="mf">0.1245125</span><span class="p">)</span>
+<a name="rest_code_67eb2b13a87a41bb898c16e41cece882-9"></a><span class="k">print</span><span class="p">(</span><span class="s1">'{:.2f}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mf">0.1245125</span><span class="p">))</span>
+<a name="rest_code_67eb2b13a87a41bb898c16e41cece882-10"></a><span class="c1"># out: 0.12</span>
+<a name="rest_code_67eb2b13a87a41bb898c16e41cece882-11"></a>
+<a name="rest_code_67eb2b13a87a41bb898c16e41cece882-12"></a><span class="c1"># free space before word</span>
+<a name="rest_code_67eb2b13a87a41bb898c16e41cece882-13"></a><span class="k">print</span><span class="p">(</span><span class="s1">'</span><span class="si">%10s</span><span class="s1">'</span> <span class="o">%</span> <span class="s1">'some'</span><span class="p">)</span>
+<a name="rest_code_67eb2b13a87a41bb898c16e41cece882-14"></a><span class="k">print</span><span class="p">(</span><span class="s1">'{:&gt;10}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">'some'</span><span class="p">))</span>
+<a name="rest_code_67eb2b13a87a41bb898c16e41cece882-15"></a><span class="c1"># out: '        some'</span>
+<a name="rest_code_67eb2b13a87a41bb898c16e41cece882-16"></a><span class="k">print</span><span class="p">(</span><span class="s1">'</span><span class="si">%-10s</span><span class="s1">'</span> <span class="o">%</span> <span class="s1">'some'</span><span class="p">)</span>
+<a name="rest_code_67eb2b13a87a41bb898c16e41cece882-17"></a><span class="k">print</span><span class="p">(</span><span class="s1">'{:&lt;10}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">'some'</span><span class="p">))</span>
+<a name="rest_code_67eb2b13a87a41bb898c16e41cece882-18"></a><span class="c1"># out: 'some        '</span>
 </pre>
 </div>
 <div class="section" id="generators-yield-from-syntax">
 <h2><a class="toc-backref" href="#id7">Generators, yield from&nbsp;syntax</a></h2>
 <p>Example of <tt class="docutils literal">yield</tt> as&nbsp;generator:</p>
-<pre class="code python"><a name="rest_code_d890077112bf4c949e73b03737217f98-1"></a><span class="k">def</span> <span class="nf">generator</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-<a name="rest_code_d890077112bf4c949e73b03737217f98-2"></a>    <span class="c1"># here generator will be interupted and wait for next call</span>
-<a name="rest_code_d890077112bf4c949e73b03737217f98-3"></a>    <span class="k">yield</span> <span class="n">x</span>
-<a name="rest_code_d890077112bf4c949e73b03737217f98-4"></a>    <span class="k">yield</span> <span class="n">x</span><span class="o">*</span><span class="mi">2</span>
-<a name="rest_code_d890077112bf4c949e73b03737217f98-5"></a>
-<a name="rest_code_d890077112bf4c949e73b03737217f98-6"></a><span class="c1"># example:</span>
-<a name="rest_code_d890077112bf4c949e73b03737217f98-7"></a><span class="n">gen</span> <span class="o">=</span> <span class="n">generator</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<a name="rest_code_d890077112bf4c949e73b03737217f98-8"></a><span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>
-<a name="rest_code_d890077112bf4c949e73b03737217f98-9"></a><span class="c1"># out: 10</span>
-<a name="rest_code_d890077112bf4c949e73b03737217f98-10"></a><span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>
-<a name="rest_code_d890077112bf4c949e73b03737217f98-11"></a><span class="c1"># out: 20</span>
+<pre class="code python"><a name="rest_code_d9a94002f39642fea76bb1e1d2a1e3c5-1"></a><span class="k">def</span> <span class="nf">generator</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<a name="rest_code_d9a94002f39642fea76bb1e1d2a1e3c5-2"></a>    <span class="c1"># here generator will be interupted and wait for next call</span>
+<a name="rest_code_d9a94002f39642fea76bb1e1d2a1e3c5-3"></a>    <span class="k">yield</span> <span class="n">x</span>
+<a name="rest_code_d9a94002f39642fea76bb1e1d2a1e3c5-4"></a>    <span class="k">yield</span> <span class="n">x</span><span class="o">*</span><span class="mi">2</span>
+<a name="rest_code_d9a94002f39642fea76bb1e1d2a1e3c5-5"></a>
+<a name="rest_code_d9a94002f39642fea76bb1e1d2a1e3c5-6"></a><span class="c1"># example:</span>
+<a name="rest_code_d9a94002f39642fea76bb1e1d2a1e3c5-7"></a><span class="n">gen</span> <span class="o">=</span> <span class="n">generator</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<a name="rest_code_d9a94002f39642fea76bb1e1d2a1e3c5-8"></a><span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>
+<a name="rest_code_d9a94002f39642fea76bb1e1d2a1e3c5-9"></a><span class="c1"># out: 10</span>
+<a name="rest_code_d9a94002f39642fea76bb1e1d2a1e3c5-10"></a><span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>
+<a name="rest_code_d9a94002f39642fea76bb1e1d2a1e3c5-11"></a><span class="c1"># out: 20</span>
 </pre>
 <p>Example of <tt class="docutils literal">yield</tt> as&nbsp;coroutine:</p>
-<pre class="code python"><a name="rest_code_f22cbafff6494f04b6f97859b43ff58f-1"></a><span class="k">def</span> <span class="nf">writer</span><span class="p">():</span>
-<a name="rest_code_f22cbafff6494f04b6f97859b43ff58f-2"></a>    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
-<a name="rest_code_f22cbafff6494f04b6f97859b43ff58f-3"></a>        <span class="c1"># rcv a data</span>
-<a name="rest_code_f22cbafff6494f04b6f97859b43ff58f-4"></a>        <span class="n">w</span> <span class="o">=</span> <span class="k">yield</span>
-<a name="rest_code_f22cbafff6494f04b6f97859b43ff58f-5"></a>        <span class="k">print</span><span class="p">(</span><span class="s2">"was received:"</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
-<a name="rest_code_f22cbafff6494f04b6f97859b43ff58f-6"></a>
-<a name="rest_code_f22cbafff6494f04b6f97859b43ff58f-7"></a><span class="n">w</span> <span class="o">=</span> <span class="n">writer</span><span class="p">()</span>
-<a name="rest_code_f22cbafff6494f04b6f97859b43ff58f-8"></a><span class="c1"># initialize the generator</span>
-<a name="rest_code_f22cbafff6494f04b6f97859b43ff58f-9"></a><span class="n">w</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="bp">None</span><span class="p">)</span>
-<a name="rest_code_f22cbafff6494f04b6f97859b43ff58f-10"></a><span class="n">w</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<a name="rest_code_f22cbafff6494f04b6f97859b43ff58f-11"></a><span class="c1"># out: "was received: 10"</span>
-<a name="rest_code_f22cbafff6494f04b6f97859b43ff58f-12"></a><span class="n">w</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s2">"some text"</span><span class="p">)</span>
-<a name="rest_code_f22cbafff6494f04b6f97859b43ff58f-13"></a><span class="c1"># out: "was received: some text"</span>
+<pre class="code python"><a name="rest_code_37fd3ccf729a43938baca4c7af79e113-1"></a><span class="k">def</span> <span class="nf">writer</span><span class="p">():</span>
+<a name="rest_code_37fd3ccf729a43938baca4c7af79e113-2"></a>    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+<a name="rest_code_37fd3ccf729a43938baca4c7af79e113-3"></a>        <span class="c1"># rcv a data</span>
+<a name="rest_code_37fd3ccf729a43938baca4c7af79e113-4"></a>        <span class="n">w</span> <span class="o">=</span> <span class="k">yield</span>
+<a name="rest_code_37fd3ccf729a43938baca4c7af79e113-5"></a>        <span class="k">print</span><span class="p">(</span><span class="s2">"was received:"</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
+<a name="rest_code_37fd3ccf729a43938baca4c7af79e113-6"></a>
+<a name="rest_code_37fd3ccf729a43938baca4c7af79e113-7"></a><span class="n">w</span> <span class="o">=</span> <span class="n">writer</span><span class="p">()</span>
+<a name="rest_code_37fd3ccf729a43938baca4c7af79e113-8"></a><span class="c1"># initialize the generator</span>
+<a name="rest_code_37fd3ccf729a43938baca4c7af79e113-9"></a><span class="n">w</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="bp">None</span><span class="p">)</span>
+<a name="rest_code_37fd3ccf729a43938baca4c7af79e113-10"></a><span class="n">w</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<a name="rest_code_37fd3ccf729a43938baca4c7af79e113-11"></a><span class="c1"># out: "was received: 10"</span>
+<a name="rest_code_37fd3ccf729a43938baca4c7af79e113-12"></a><span class="n">w</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s2">"some text"</span><span class="p">)</span>
+<a name="rest_code_37fd3ccf729a43938baca4c7af79e113-13"></a><span class="c1"># out: "was received: some text"</span>
 </pre>
 <p>Example usage of <tt class="docutils literal">yield from</tt> syntax:</p>
-<pre class="code python"><a name="rest_code_fcd78a5e575d4f428f59bdb78796484e-1"></a><span class="c1"># define our generator</span>
-<a name="rest_code_fcd78a5e575d4f428f59bdb78796484e-2"></a><span class="k">def</span> <span class="nf">generator</span><span class="p">():</span>
-<a name="rest_code_fcd78a5e575d4f428f59bdb78796484e-3"></a>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
-<a name="rest_code_fcd78a5e575d4f428f59bdb78796484e-4"></a>        <span class="k">yield</span> <span class="n">i</span>
-<a name="rest_code_fcd78a5e575d4f428f59bdb78796484e-5"></a>
-<a name="rest_code_fcd78a5e575d4f428f59bdb78796484e-6"></a><span class="c1"># manually fetch data</span>
-<a name="rest_code_fcd78a5e575d4f428f59bdb78796484e-7"></a><span class="k">def</span> <span class="nf">fetcher</span><span class="p">(</span><span class="n">g</span><span class="p">):</span>
-<a name="rest_code_fcd78a5e575d4f428f59bdb78796484e-8"></a>    <span class="k">for</span> <span class="n">fetch</span> <span class="ow">in</span> <span class="n">g</span><span class="p">:</span>
-<a name="rest_code_fcd78a5e575d4f428f59bdb78796484e-9"></a>        <span class="k">yield</span> <span class="n">fetch</span>
-<a name="rest_code_fcd78a5e575d4f428f59bdb78796484e-10"></a>
-<a name="rest_code_fcd78a5e575d4f428f59bdb78796484e-11"></a><span class="c1"># yield from fetcher</span>
-<a name="rest_code_fcd78a5e575d4f428f59bdb78796484e-12"></a><span class="k">def</span> <span class="nf">fetcher_yield</span><span class="p">(</span><span class="n">g</span><span class="p">):</span>
-<a name="rest_code_fcd78a5e575d4f428f59bdb78796484e-13"></a>    <span class="k">yield from</span> <span class="n">g</span>
-<a name="rest_code_fcd78a5e575d4f428f59bdb78796484e-14"></a>
-<a name="rest_code_fcd78a5e575d4f428f59bdb78796484e-15"></a><span class="c1"># examples:</span>
-<a name="rest_code_fcd78a5e575d4f428f59bdb78796484e-16"></a><span class="n">fetch_results</span> <span class="o">=</span> <span class="n">fetcher</span><span class="p">(</span><span class="n">generator</span><span class="p">())</span>
-<a name="rest_code_fcd78a5e575d4f428f59bdb78796484e-17"></a><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">fetch_results</span><span class="p">:</span>
-<a name="rest_code_fcd78a5e575d4f428f59bdb78796484e-18"></a>    <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-<a name="rest_code_fcd78a5e575d4f428f59bdb78796484e-19"></a>
-<a name="rest_code_fcd78a5e575d4f428f59bdb78796484e-20"></a><span class="n">fetch_results</span> <span class="o">=</span> <span class="n">fetcher_yield</span><span class="p">(</span><span class="n">generator</span><span class="p">())</span>
-<a name="rest_code_fcd78a5e575d4f428f59bdb78796484e-21"></a><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">fetch_results</span><span class="p">:</span>
-<a name="rest_code_fcd78a5e575d4f428f59bdb78796484e-22"></a>    <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<pre class="code python"><a name="rest_code_676511552daf4d4bba47f5b170d5a32d-1"></a><span class="c1"># define our generator</span>
+<a name="rest_code_676511552daf4d4bba47f5b170d5a32d-2"></a><span class="k">def</span> <span class="nf">generator</span><span class="p">():</span>
+<a name="rest_code_676511552daf4d4bba47f5b170d5a32d-3"></a>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+<a name="rest_code_676511552daf4d4bba47f5b170d5a32d-4"></a>        <span class="k">yield</span> <span class="n">i</span>
+<a name="rest_code_676511552daf4d4bba47f5b170d5a32d-5"></a>
+<a name="rest_code_676511552daf4d4bba47f5b170d5a32d-6"></a><span class="c1"># manually fetch data</span>
+<a name="rest_code_676511552daf4d4bba47f5b170d5a32d-7"></a><span class="k">def</span> <span class="nf">fetcher</span><span class="p">(</span><span class="n">g</span><span class="p">):</span>
+<a name="rest_code_676511552daf4d4bba47f5b170d5a32d-8"></a>    <span class="k">for</span> <span class="n">fetch</span> <span class="ow">in</span> <span class="n">g</span><span class="p">:</span>
+<a name="rest_code_676511552daf4d4bba47f5b170d5a32d-9"></a>        <span class="k">yield</span> <span class="n">fetch</span>
+<a name="rest_code_676511552daf4d4bba47f5b170d5a32d-10"></a>
+<a name="rest_code_676511552daf4d4bba47f5b170d5a32d-11"></a><span class="c1"># yield from fetcher</span>
+<a name="rest_code_676511552daf4d4bba47f5b170d5a32d-12"></a><span class="k">def</span> <span class="nf">fetcher_yield</span><span class="p">(</span><span class="n">g</span><span class="p">):</span>
+<a name="rest_code_676511552daf4d4bba47f5b170d5a32d-13"></a>    <span class="k">yield from</span> <span class="n">g</span>
+<a name="rest_code_676511552daf4d4bba47f5b170d5a32d-14"></a>
+<a name="rest_code_676511552daf4d4bba47f5b170d5a32d-15"></a><span class="c1"># examples:</span>
+<a name="rest_code_676511552daf4d4bba47f5b170d5a32d-16"></a><span class="n">fetch_results</span> <span class="o">=</span> <span class="n">fetcher</span><span class="p">(</span><span class="n">generator</span><span class="p">())</span>
+<a name="rest_code_676511552daf4d4bba47f5b170d5a32d-17"></a><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">fetch_results</span><span class="p">:</span>
+<a name="rest_code_676511552daf4d4bba47f5b170d5a32d-18"></a>    <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<a name="rest_code_676511552daf4d4bba47f5b170d5a32d-19"></a>
+<a name="rest_code_676511552daf4d4bba47f5b170d5a32d-20"></a><span class="n">fetch_results</span> <span class="o">=</span> <span class="n">fetcher_yield</span><span class="p">(</span><span class="n">generator</span><span class="p">())</span>
+<a name="rest_code_676511552daf4d4bba47f5b170d5a32d-21"></a><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">fetch_results</span><span class="p">:</span>
+<a name="rest_code_676511552daf4d4bba47f5b170d5a32d-22"></a>    <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 </pre>
 </div>
 <div class="section" id="change-existing-object-with-generator">
 <h2><a class="toc-backref" href="#id8">Change existing object with&nbsp;generator</a></h2>
 <p>It is possible to create object at generator and after only change it&#8217;s value.
 This will reduce memory consumption, but can lead to some&nbsp;errors:</p>
-<pre class="code python"><a name="rest_code_71cf3f4b3faa4c4dbadede6e6c2cf08d-1"></a><span class="k">def</span> <span class="nf">generator</span><span class="p">():</span>
-<a name="rest_code_71cf3f4b3faa4c4dbadede6e6c2cf08d-2"></a>    <span class="n">d</span> <span class="o">=</span> <span class="p">{}</span>
-<a name="rest_code_71cf3f4b3faa4c4dbadede6e6c2cf08d-3"></a>    <span class="k">yield</span> <span class="n">d</span>
-<a name="rest_code_71cf3f4b3faa4c4dbadede6e6c2cf08d-4"></a>    <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
-<a name="rest_code_71cf3f4b3faa4c4dbadede6e6c2cf08d-5"></a>    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
-<a name="rest_code_71cf3f4b3faa4c4dbadede6e6c2cf08d-6"></a>        <span class="n">d</span><span class="p">[</span><span class="s2">"value"</span><span class="p">]</span> <span class="o">=</span> <span class="n">counter</span>
-<a name="rest_code_71cf3f4b3faa4c4dbadede6e6c2cf08d-7"></a>        <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
-<a name="rest_code_71cf3f4b3faa4c4dbadede6e6c2cf08d-8"></a>        <span class="k">yield</span>
-<a name="rest_code_71cf3f4b3faa4c4dbadede6e6c2cf08d-9"></a>
-<a name="rest_code_71cf3f4b3faa4c4dbadede6e6c2cf08d-10"></a><span class="n">gen</span> <span class="o">=</span> <span class="n">generator</span><span class="p">()</span>
-<a name="rest_code_71cf3f4b3faa4c4dbadede6e6c2cf08d-11"></a><span class="n">res</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>
-<a name="rest_code_71cf3f4b3faa4c4dbadede6e6c2cf08d-12"></a><span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
-<a name="rest_code_71cf3f4b3faa4c4dbadede6e6c2cf08d-13"></a><span class="c1"># out: {}</span>
-<a name="rest_code_71cf3f4b3faa4c4dbadede6e6c2cf08d-14"></a>
-<a name="rest_code_71cf3f4b3faa4c4dbadede6e6c2cf08d-15"></a><span class="c1"># modify same dict</span>
-<a name="rest_code_71cf3f4b3faa4c4dbadede6e6c2cf08d-16"></a><span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>
-<a name="rest_code_71cf3f4b3faa4c4dbadede6e6c2cf08d-17"></a><span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
-<a name="rest_code_71cf3f4b3faa4c4dbadede6e6c2cf08d-18"></a><span class="c1"># out: {'value': 0}</span>
+<pre class="code python"><a name="rest_code_cf7d8aefe0e94b7fbce67d94b01eb985-1"></a><span class="k">def</span> <span class="nf">generator</span><span class="p">():</span>
+<a name="rest_code_cf7d8aefe0e94b7fbce67d94b01eb985-2"></a>    <span class="n">d</span> <span class="o">=</span> <span class="p">{}</span>
+<a name="rest_code_cf7d8aefe0e94b7fbce67d94b01eb985-3"></a>    <span class="k">yield</span> <span class="n">d</span>
+<a name="rest_code_cf7d8aefe0e94b7fbce67d94b01eb985-4"></a>    <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+<a name="rest_code_cf7d8aefe0e94b7fbce67d94b01eb985-5"></a>    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+<a name="rest_code_cf7d8aefe0e94b7fbce67d94b01eb985-6"></a>        <span class="n">d</span><span class="p">[</span><span class="s2">"value"</span><span class="p">]</span> <span class="o">=</span> <span class="n">counter</span>
+<a name="rest_code_cf7d8aefe0e94b7fbce67d94b01eb985-7"></a>        <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
+<a name="rest_code_cf7d8aefe0e94b7fbce67d94b01eb985-8"></a>        <span class="k">yield</span>
+<a name="rest_code_cf7d8aefe0e94b7fbce67d94b01eb985-9"></a>
+<a name="rest_code_cf7d8aefe0e94b7fbce67d94b01eb985-10"></a><span class="n">gen</span> <span class="o">=</span> <span class="n">generator</span><span class="p">()</span>
+<a name="rest_code_cf7d8aefe0e94b7fbce67d94b01eb985-11"></a><span class="n">res</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>
+<a name="rest_code_cf7d8aefe0e94b7fbce67d94b01eb985-12"></a><span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+<a name="rest_code_cf7d8aefe0e94b7fbce67d94b01eb985-13"></a><span class="c1"># out: {}</span>
+<a name="rest_code_cf7d8aefe0e94b7fbce67d94b01eb985-14"></a>
+<a name="rest_code_cf7d8aefe0e94b7fbce67d94b01eb985-15"></a><span class="c1"># modify same dict</span>
+<a name="rest_code_cf7d8aefe0e94b7fbce67d94b01eb985-16"></a><span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>
+<a name="rest_code_cf7d8aefe0e94b7fbce67d94b01eb985-17"></a><span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+<a name="rest_code_cf7d8aefe0e94b7fbce67d94b01eb985-18"></a><span class="c1"># out: {'value': 0}</span>
 </pre>
 </div>
 <div class="section" id="list-tuples-iterators">
 <h2><a class="toc-backref" href="#id9">List/Tuples(iterators)</a></h2>
 <div class="section" id="comprehensions">
 <h3><a class="toc-backref" href="#id10">Comprehensions</a></h3>
-<pre class="code python"><a name="rest_code_c6a112bfdb5d4641886e877afd8f4d80-1"></a><span class="c1"># nested list comprehension</span>
-<a name="rest_code_c6a112bfdb5d4641886e877afd8f4d80-2"></a><span class="n">mylist</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">'10'</span><span class="p">,</span> <span class="s1">'20'</span><span class="p">,</span> <span class="s1">'30'</span><span class="p">],</span> <span class="p">[</span><span class="s1">'1'</span><span class="p">,</span> <span class="s1">'2'</span><span class="p">,</span> <span class="s1">'3'</span><span class="p">]]</span>
-<a name="rest_code_c6a112bfdb5d4641886e877afd8f4d80-3"></a><span class="c1"># flattened list</span>
-<a name="rest_code_c6a112bfdb5d4641886e877afd8f4d80-4"></a><span class="n">new_list</span> <span class="o">=</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span> <span class="k">for</span> <span class="n">sublist</span> <span class="ow">in</span> <span class="n">mylist</span> <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">sublist</span><span class="p">]</span>
-<a name="rest_code_c6a112bfdb5d4641886e877afd8f4d80-5"></a><span class="p">[</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">,</span> <span class="mf">30.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">]</span>
-<a name="rest_code_c6a112bfdb5d4641886e877afd8f4d80-6"></a><span class="c1"># nested list of floats</span>
-<a name="rest_code_c6a112bfdb5d4641886e877afd8f4d80-7"></a><span class="n">new_list</span> <span class="o">=</span> <span class="p">[[</span><span class="nb">float</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span> <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">sublist</span><span class="p">]</span> <span class="k">for</span> <span class="n">sublist</span> <span class="ow">in</span> <span class="n">mylist</span><span class="p">]</span>
-<a name="rest_code_c6a112bfdb5d4641886e877afd8f4d80-8"></a><span class="p">[[</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">,</span> <span class="mf">30.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">]]</span>
-<a name="rest_code_c6a112bfdb5d4641886e877afd8f4d80-9"></a><span class="c1"># also can be used to generate cartesian product</span>
-<a name="rest_code_c6a112bfdb5d4641886e877afd8f4d80-10"></a><span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'black'</span><span class="p">,</span> <span class="s1">'white'</span><span class="p">]</span>
-<a name="rest_code_c6a112bfdb5d4641886e877afd8f4d80-11"></a><span class="n">sizes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'S'</span><span class="p">,</span> <span class="s1">'M'</span><span class="p">,</span> <span class="s1">'L'</span><span class="p">]</span>
-<a name="rest_code_c6a112bfdb5d4641886e877afd8f4d80-12"></a><span class="n">tshirts</span> <span class="o">=</span> <span class="p">[(</span><span class="n">color</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span> <span class="k">for</span> <span class="n">color</span> <span class="ow">in</span> <span class="n">colors</span>
-<a name="rest_code_c6a112bfdb5d4641886e877afd8f4d80-13"></a>                         <span class="k">for</span> <span class="n">size</span> <span class="ow">in</span> <span class="n">sizes</span><span class="p">]</span>
-<a name="rest_code_c6a112bfdb5d4641886e877afd8f4d80-14"></a><span class="p">[(</span><span class="s1">'black'</span><span class="p">,</span> <span class="s1">'S'</span><span class="p">),</span>
-<a name="rest_code_c6a112bfdb5d4641886e877afd8f4d80-15"></a> <span class="p">(</span><span class="s1">'black'</span><span class="p">,</span> <span class="s1">'M'</span><span class="p">),</span>
-<a name="rest_code_c6a112bfdb5d4641886e877afd8f4d80-16"></a> <span class="p">(</span><span class="s1">'black'</span><span class="p">,</span> <span class="s1">'L'</span><span class="p">),</span>
-<a name="rest_code_c6a112bfdb5d4641886e877afd8f4d80-17"></a> <span class="p">(</span><span class="s1">'white'</span><span class="p">,</span> <span class="s1">'S'</span><span class="p">),</span>
-<a name="rest_code_c6a112bfdb5d4641886e877afd8f4d80-18"></a> <span class="p">(</span><span class="s1">'white'</span><span class="p">,</span> <span class="s1">'M'</span><span class="p">),</span>
-<a name="rest_code_c6a112bfdb5d4641886e877afd8f4d80-19"></a> <span class="p">(</span><span class="s1">'white'</span><span class="p">,</span> <span class="s1">'L'</span><span class="p">)]</span>
-<a name="rest_code_c6a112bfdb5d4641886e877afd8f4d80-20"></a> <span class="c1"># the same as:</span>
-<a name="rest_code_c6a112bfdb5d4641886e877afd8f4d80-21"></a> <span class="k">for</span> <span class="n">color</span> <span class="ow">in</span> <span class="n">colors</span><span class="p">:</span>
-<a name="rest_code_c6a112bfdb5d4641886e877afd8f4d80-22"></a>    <span class="k">for</span> <span class="n">size</span> <span class="ow">in</span> <span class="n">sizes</span><span class="p">:</span>
-<a name="rest_code_c6a112bfdb5d4641886e877afd8f4d80-23"></a>        <span class="k">print</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
-<a name="rest_code_c6a112bfdb5d4641886e877afd8f4d80-24"></a>
-<a name="rest_code_c6a112bfdb5d4641886e877afd8f4d80-25"></a><span class="c1"># dict comprehension</span>
-<a name="rest_code_c6a112bfdb5d4641886e877afd8f4d80-26"></a><span class="n">my_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">key</span><span class="p">:</span><span class="n">value</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">list</span> <span class="k">if</span> <span class="n">conditional</span><span class="p">}</span>
+<pre class="code python"><a name="rest_code_bcfd4de96717463eac3590e145b56fc0-1"></a><span class="c1"># nested list comprehension</span>
+<a name="rest_code_bcfd4de96717463eac3590e145b56fc0-2"></a><span class="n">mylist</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">'10'</span><span class="p">,</span> <span class="s1">'20'</span><span class="p">,</span> <span class="s1">'30'</span><span class="p">],</span> <span class="p">[</span><span class="s1">'1'</span><span class="p">,</span> <span class="s1">'2'</span><span class="p">,</span> <span class="s1">'3'</span><span class="p">]]</span>
+<a name="rest_code_bcfd4de96717463eac3590e145b56fc0-3"></a><span class="c1"># flattened list</span>
+<a name="rest_code_bcfd4de96717463eac3590e145b56fc0-4"></a><span class="n">new_list</span> <span class="o">=</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span> <span class="k">for</span> <span class="n">sublist</span> <span class="ow">in</span> <span class="n">mylist</span> <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">sublist</span><span class="p">]</span>
+<a name="rest_code_bcfd4de96717463eac3590e145b56fc0-5"></a><span class="p">[</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">,</span> <span class="mf">30.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">]</span>
+<a name="rest_code_bcfd4de96717463eac3590e145b56fc0-6"></a><span class="c1"># nested list of floats</span>
+<a name="rest_code_bcfd4de96717463eac3590e145b56fc0-7"></a><span class="n">new_list</span> <span class="o">=</span> <span class="p">[[</span><span class="nb">float</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span> <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">sublist</span><span class="p">]</span> <span class="k">for</span> <span class="n">sublist</span> <span class="ow">in</span> <span class="n">mylist</span><span class="p">]</span>
+<a name="rest_code_bcfd4de96717463eac3590e145b56fc0-8"></a><span class="p">[[</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">,</span> <span class="mf">30.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">]]</span>
+<a name="rest_code_bcfd4de96717463eac3590e145b56fc0-9"></a><span class="c1"># also can be used to generate cartesian product</span>
+<a name="rest_code_bcfd4de96717463eac3590e145b56fc0-10"></a><span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'black'</span><span class="p">,</span> <span class="s1">'white'</span><span class="p">]</span>
+<a name="rest_code_bcfd4de96717463eac3590e145b56fc0-11"></a><span class="n">sizes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'S'</span><span class="p">,</span> <span class="s1">'M'</span><span class="p">,</span> <span class="s1">'L'</span><span class="p">]</span>
+<a name="rest_code_bcfd4de96717463eac3590e145b56fc0-12"></a><span class="n">tshirts</span> <span class="o">=</span> <span class="p">[(</span><span class="n">color</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span> <span class="k">for</span> <span class="n">color</span> <span class="ow">in</span> <span class="n">colors</span>
+<a name="rest_code_bcfd4de96717463eac3590e145b56fc0-13"></a>                         <span class="k">for</span> <span class="n">size</span> <span class="ow">in</span> <span class="n">sizes</span><span class="p">]</span>
+<a name="rest_code_bcfd4de96717463eac3590e145b56fc0-14"></a><span class="p">[(</span><span class="s1">'black'</span><span class="p">,</span> <span class="s1">'S'</span><span class="p">),</span>
+<a name="rest_code_bcfd4de96717463eac3590e145b56fc0-15"></a> <span class="p">(</span><span class="s1">'black'</span><span class="p">,</span> <span class="s1">'M'</span><span class="p">),</span>
+<a name="rest_code_bcfd4de96717463eac3590e145b56fc0-16"></a> <span class="p">(</span><span class="s1">'black'</span><span class="p">,</span> <span class="s1">'L'</span><span class="p">),</span>
+<a name="rest_code_bcfd4de96717463eac3590e145b56fc0-17"></a> <span class="p">(</span><span class="s1">'white'</span><span class="p">,</span> <span class="s1">'S'</span><span class="p">),</span>
+<a name="rest_code_bcfd4de96717463eac3590e145b56fc0-18"></a> <span class="p">(</span><span class="s1">'white'</span><span class="p">,</span> <span class="s1">'M'</span><span class="p">),</span>
+<a name="rest_code_bcfd4de96717463eac3590e145b56fc0-19"></a> <span class="p">(</span><span class="s1">'white'</span><span class="p">,</span> <span class="s1">'L'</span><span class="p">)]</span>
+<a name="rest_code_bcfd4de96717463eac3590e145b56fc0-20"></a> <span class="c1"># the same as:</span>
+<a name="rest_code_bcfd4de96717463eac3590e145b56fc0-21"></a> <span class="k">for</span> <span class="n">color</span> <span class="ow">in</span> <span class="n">colors</span><span class="p">:</span>
+<a name="rest_code_bcfd4de96717463eac3590e145b56fc0-22"></a>    <span class="k">for</span> <span class="n">size</span> <span class="ow">in</span> <span class="n">sizes</span><span class="p">:</span>
+<a name="rest_code_bcfd4de96717463eac3590e145b56fc0-23"></a>        <span class="k">print</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
+<a name="rest_code_bcfd4de96717463eac3590e145b56fc0-24"></a>
+<a name="rest_code_bcfd4de96717463eac3590e145b56fc0-25"></a><span class="c1"># dict comprehension</span>
+<a name="rest_code_bcfd4de96717463eac3590e145b56fc0-26"></a><span class="n">my_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">key</span><span class="p">:</span><span class="n">value</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">list</span> <span class="k">if</span> <span class="n">conditional</span><span class="p">}</span>
 </pre>
 </div>
 <div class="section" id="using-to-grab-excess-items">
 <h3><a class="toc-backref" href="#id11">Using * to grab excess&nbsp;items</a></h3>
-<pre class="code python"><a name="rest_code_9240b7e140c243b2a7a899afbf88098f-1"></a><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="o">*</span><span class="n">rest</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<a name="rest_code_9240b7e140c243b2a7a899afbf88098f-2"></a><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">rest</span>
-<a name="rest_code_9240b7e140c243b2a7a899afbf88098f-3"></a><span class="c1"># out: (0, 1, [2, 3, 4])</span>
-<a name="rest_code_9240b7e140c243b2a7a899afbf88098f-4"></a>
-<a name="rest_code_9240b7e140c243b2a7a899afbf88098f-5"></a><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="o">*</span><span class="n">rest</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<a name="rest_code_9240b7e140c243b2a7a899afbf88098f-6"></a><span class="c1"># out: (0, 1, [])</span>
-<a name="rest_code_9240b7e140c243b2a7a899afbf88098f-7"></a>
-<a name="rest_code_9240b7e140c243b2a7a899afbf88098f-8"></a><span class="c1"># can be assigned at any position</span>
-<a name="rest_code_9240b7e140c243b2a7a899afbf88098f-9"></a><span class="n">a</span><span class="p">,</span> <span class="o">*</span><span class="n">body</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<a name="rest_code_9240b7e140c243b2a7a899afbf88098f-10"></a><span class="n">a</span><span class="p">,</span> <span class="n">body</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span>
-<a name="rest_code_9240b7e140c243b2a7a899afbf88098f-11"></a><span class="c1"># out: (0, [1, 2], 3, 4)</span>
+<pre class="code python"><a name="rest_code_05ce411da38e4450a53479f419240d8d-1"></a><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="o">*</span><span class="n">rest</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<a name="rest_code_05ce411da38e4450a53479f419240d8d-2"></a><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">rest</span>
+<a name="rest_code_05ce411da38e4450a53479f419240d8d-3"></a><span class="c1"># out: (0, 1, [2, 3, 4])</span>
+<a name="rest_code_05ce411da38e4450a53479f419240d8d-4"></a>
+<a name="rest_code_05ce411da38e4450a53479f419240d8d-5"></a><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="o">*</span><span class="n">rest</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<a name="rest_code_05ce411da38e4450a53479f419240d8d-6"></a><span class="c1"># out: (0, 1, [])</span>
+<a name="rest_code_05ce411da38e4450a53479f419240d8d-7"></a>
+<a name="rest_code_05ce411da38e4450a53479f419240d8d-8"></a><span class="c1"># can be assigned at any position</span>
+<a name="rest_code_05ce411da38e4450a53479f419240d8d-9"></a><span class="n">a</span><span class="p">,</span> <span class="o">*</span><span class="n">body</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<a name="rest_code_05ce411da38e4450a53479f419240d8d-10"></a><span class="n">a</span><span class="p">,</span> <span class="n">body</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span>
+<a name="rest_code_05ce411da38e4450a53479f419240d8d-11"></a><span class="c1"># out: (0, [1, 2], 3, 4)</span>
 </pre>
 </div>
 <div class="section" id="nested-tuple-unpacking">
 <h3><a class="toc-backref" href="#id12">Nested tuple&nbsp;unpacking</a></h3>
-<pre class="code python"><a name="rest_code_e0ff27f83aaf4fe1a8beb16c81a14c36-1"></a><span class="c1"># if we have list of tuples like this</span>
-<a name="rest_code_e0ff27f83aaf4fe1a8beb16c81a14c36-2"></a><span class="n">metro_areas</span> <span class="o">=</span> <span class="p">[</span> <span class="p">(</span><span class="s1">'Tokyo'</span><span class="p">,</span><span class="s1">'JP'</span><span class="p">,</span><span class="mf">36.933</span><span class="p">,(</span><span class="mf">35.689722</span><span class="p">,</span><span class="mf">139.691667</span><span class="p">)),</span> <span class="s1">'...'</span> <span class="p">]</span>
-<a name="rest_code_e0ff27f83aaf4fe1a8beb16c81a14c36-3"></a><span class="c1"># we can unpack it like this:</span>
-<a name="rest_code_e0ff27f83aaf4fe1a8beb16c81a14c36-4"></a><span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">cc</span><span class="p">,</span> <span class="n">pop</span><span class="p">,</span> <span class="p">(</span><span class="n">latitude</span><span class="p">,</span> <span class="n">longitude</span><span class="p">)</span> <span class="ow">in</span> <span class="n">metro_areas</span><span class="p">:</span>
-<a name="rest_code_e0ff27f83aaf4fe1a8beb16c81a14c36-5"></a>    <span class="k">if</span> <span class="n">longitude</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
-<a name="rest_code_e0ff27f83aaf4fe1a8beb16c81a14c36-6"></a>        <span class="k">print</span><span class="p">(</span><span class="s2">"Do something"</span><span class="p">)</span>
+<pre class="code python"><a name="rest_code_6a27a512f3a443b8b4b8a3ed15f27842-1"></a><span class="c1"># if we have list of tuples like this</span>
+<a name="rest_code_6a27a512f3a443b8b4b8a3ed15f27842-2"></a><span class="n">metro_areas</span> <span class="o">=</span> <span class="p">[</span> <span class="p">(</span><span class="s1">'Tokyo'</span><span class="p">,</span><span class="s1">'JP'</span><span class="p">,</span><span class="mf">36.933</span><span class="p">,(</span><span class="mf">35.689722</span><span class="p">,</span><span class="mf">139.691667</span><span class="p">)),</span> <span class="s1">'...'</span> <span class="p">]</span>
+<a name="rest_code_6a27a512f3a443b8b4b8a3ed15f27842-3"></a><span class="c1"># we can unpack it like this:</span>
+<a name="rest_code_6a27a512f3a443b8b4b8a3ed15f27842-4"></a><span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">cc</span><span class="p">,</span> <span class="n">pop</span><span class="p">,</span> <span class="p">(</span><span class="n">latitude</span><span class="p">,</span> <span class="n">longitude</span><span class="p">)</span> <span class="ow">in</span> <span class="n">metro_areas</span><span class="p">:</span>
+<a name="rest_code_6a27a512f3a443b8b4b8a3ed15f27842-5"></a>    <span class="k">if</span> <span class="n">longitude</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+<a name="rest_code_6a27a512f3a443b8b4b8a3ed15f27842-6"></a>        <span class="k">print</span><span class="p">(</span><span class="s2">"Do something"</span><span class="p">)</span>
 </pre>
 </div>
 <div class="section" id="namedtuples">
 <h3><a class="toc-backref" href="#id13">Namedtuples</a></h3>
-<pre class="code python"><a name="rest_code_37042347bc634b2cace73ecc6e633a99-1"></a><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">namedtuple</span>
-<a name="rest_code_37042347bc634b2cace73ecc6e633a99-2"></a><span class="n">City</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s1">'City'</span><span class="p">,</span> <span class="p">[</span><span class="s1">'name'</span><span class="p">,</span> <span class="s1">'country'</span><span class="p">,</span> <span class="s1">'population'</span><span class="p">,</span> <span class="s1">'coordinates'</span><span class="p">])</span>
-<a name="rest_code_37042347bc634b2cace73ecc6e633a99-3"></a><span class="c1"># or provide just space delimited string</span>
-<a name="rest_code_37042347bc634b2cace73ecc6e633a99-4"></a><span class="n">City</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s1">'City'</span><span class="p">,</span> <span class="s1">'name country population coordinates'</span><span class="p">)</span>
-<a name="rest_code_37042347bc634b2cace73ecc6e633a99-5"></a>
-<a name="rest_code_37042347bc634b2cace73ecc6e633a99-6"></a><span class="n">tokyo</span> <span class="o">=</span> <span class="n">City</span><span class="p">(</span><span class="s1">'Tokyo'</span><span class="p">,</span> <span class="s1">'JP'</span><span class="p">,</span> <span class="mf">36.933</span><span class="p">,</span> <span class="p">(</span><span class="mf">35.689722</span><span class="p">,</span> <span class="mf">139.691667</span><span class="p">))</span>
-<a name="rest_code_37042347bc634b2cace73ecc6e633a99-7"></a>
-<a name="rest_code_37042347bc634b2cace73ecc6e633a99-8"></a><span class="n">City</span><span class="o">.</span><span class="n">_fields</span>
-<a name="rest_code_37042347bc634b2cace73ecc6e633a99-9"></a><span class="c1"># out: ('name', 'country', 'population', 'coordinates')</span>
-<a name="rest_code_37042347bc634b2cace73ecc6e633a99-10"></a>
-<a name="rest_code_37042347bc634b2cace73ecc6e633a99-11"></a><span class="c1"># convert namedtuple to dict</span>
-<a name="rest_code_37042347bc634b2cace73ecc6e633a99-12"></a><span class="n">tokyo</span><span class="o">.</span><span class="n">_asdict</span><span class="p">()</span>
+<pre class="code python"><a name="rest_code_55d0132b212349a69d7c4743d02ca8b1-1"></a><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">namedtuple</span>
+<a name="rest_code_55d0132b212349a69d7c4743d02ca8b1-2"></a><span class="n">City</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s1">'City'</span><span class="p">,</span> <span class="p">[</span><span class="s1">'name'</span><span class="p">,</span> <span class="s1">'country'</span><span class="p">,</span> <span class="s1">'population'</span><span class="p">,</span> <span class="s1">'coordinates'</span><span class="p">])</span>
+<a name="rest_code_55d0132b212349a69d7c4743d02ca8b1-3"></a><span class="c1"># or provide just space delimited string</span>
+<a name="rest_code_55d0132b212349a69d7c4743d02ca8b1-4"></a><span class="n">City</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s1">'City'</span><span class="p">,</span> <span class="s1">'name country population coordinates'</span><span class="p">)</span>
+<a name="rest_code_55d0132b212349a69d7c4743d02ca8b1-5"></a>
+<a name="rest_code_55d0132b212349a69d7c4743d02ca8b1-6"></a><span class="n">tokyo</span> <span class="o">=</span> <span class="n">City</span><span class="p">(</span><span class="s1">'Tokyo'</span><span class="p">,</span> <span class="s1">'JP'</span><span class="p">,</span> <span class="mf">36.933</span><span class="p">,</span> <span class="p">(</span><span class="mf">35.689722</span><span class="p">,</span> <span class="mf">139.691667</span><span class="p">))</span>
+<a name="rest_code_55d0132b212349a69d7c4743d02ca8b1-7"></a>
+<a name="rest_code_55d0132b212349a69d7c4743d02ca8b1-8"></a><span class="n">City</span><span class="o">.</span><span class="n">_fields</span>
+<a name="rest_code_55d0132b212349a69d7c4743d02ca8b1-9"></a><span class="c1"># out: ('name', 'country', 'population', 'coordinates')</span>
+<a name="rest_code_55d0132b212349a69d7c4743d02ca8b1-10"></a>
+<a name="rest_code_55d0132b212349a69d7c4743d02ca8b1-11"></a><span class="c1"># convert namedtuple to dict</span>
+<a name="rest_code_55d0132b212349a69d7c4743d02ca8b1-12"></a><span class="n">tokyo</span><span class="o">.</span><span class="n">_asdict</span><span class="p">()</span>
 </pre>
 </div>
 <div class="section" id="slicing">
 <h3><a class="toc-backref" href="#id14">Slicing</a></h3>
 <p>Slices can be assigned to variable and used after&nbsp;assigning:</p>
-<pre class="code pycon"><a name="rest_code_94670fcc713f4c5db948dfb0836c0314-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="s1">'test string'</span>
-<a name="rest_code_94670fcc713f4c5db948dfb0836c0314-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
-<a name="rest_code_94670fcc713f4c5db948dfb0836c0314-3"></a><span class="go">'test'</span>
-<a name="rest_code_94670fcc713f4c5db948dfb0836c0314-4"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">first_slice</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
-<a name="rest_code_94670fcc713f4c5db948dfb0836c0314-5"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="p">[</span><span class="n">first_slice</span><span class="p">]</span>
-<a name="rest_code_94670fcc713f4c5db948dfb0836c0314-6"></a><span class="go">'test'</span>
-<a name="rest_code_94670fcc713f4c5db948dfb0836c0314-7"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">second_slice</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
-<a name="rest_code_94670fcc713f4c5db948dfb0836c0314-8"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="p">[</span><span class="n">second_slice</span><span class="p">]</span>
-<a name="rest_code_94670fcc713f4c5db948dfb0836c0314-9"></a><span class="go">' string'</span>
+<pre class="code pycon"><a name="rest_code_16419863be9649f08838a904e5b3484d-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="s1">'test string'</span>
+<a name="rest_code_16419863be9649f08838a904e5b3484d-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
+<a name="rest_code_16419863be9649f08838a904e5b3484d-3"></a><span class="go">'test'</span>
+<a name="rest_code_16419863be9649f08838a904e5b3484d-4"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">first_slice</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<a name="rest_code_16419863be9649f08838a904e5b3484d-5"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="p">[</span><span class="n">first_slice</span><span class="p">]</span>
+<a name="rest_code_16419863be9649f08838a904e5b3484d-6"></a><span class="go">'test'</span>
+<a name="rest_code_16419863be9649f08838a904e5b3484d-7"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">second_slice</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+<a name="rest_code_16419863be9649f08838a904e5b3484d-8"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="p">[</span><span class="n">second_slice</span><span class="p">]</span>
+<a name="rest_code_16419863be9649f08838a904e5b3484d-9"></a><span class="go">' string'</span>
 </pre>
 </div>
 <div class="section" id="assigning-to-slices">
 <h3><a class="toc-backref" href="#id15">Assigning to&nbsp;slices</a></h3>
-<pre class="code pycon"><a name="rest_code_6aff941d85924927ab2ded0e0a838b32-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">l</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
-<a name="rest_code_6aff941d85924927ab2ded0e0a838b32-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">l</span>
-<a name="rest_code_6aff941d85924927ab2ded0e0a838b32-3"></a><span class="go">[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</span>
-<a name="rest_code_6aff941d85924927ab2ded0e0a838b32-4"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">l</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
-<a name="rest_code_6aff941d85924927ab2ded0e0a838b32-5"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">l</span>
-<a name="rest_code_6aff941d85924927ab2ded0e0a838b32-6"></a><span class="go">[0, 1, 20, 30, 5, 6, 7, 8, 9]</span>
-<a name="rest_code_6aff941d85924927ab2ded0e0a838b32-7"></a><span class="gp">&gt;&gt;&gt; </span><span class="k">del</span> <span class="n">l</span><span class="p">[</span><span class="mi">5</span><span class="p">:</span><span class="mi">7</span><span class="p">]</span>
-<a name="rest_code_6aff941d85924927ab2ded0e0a838b32-8"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">l</span>
-<a name="rest_code_6aff941d85924927ab2ded0e0a838b32-9"></a><span class="go">[0, 1, 20, 30, 5, 8, 9]</span>
+<pre class="code pycon"><a name="rest_code_2422e6e9f9e84041a8af269c99c557ed-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">l</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<a name="rest_code_2422e6e9f9e84041a8af269c99c557ed-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">l</span>
+<a name="rest_code_2422e6e9f9e84041a8af269c99c557ed-3"></a><span class="go">[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</span>
+<a name="rest_code_2422e6e9f9e84041a8af269c99c557ed-4"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">l</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
+<a name="rest_code_2422e6e9f9e84041a8af269c99c557ed-5"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">l</span>
+<a name="rest_code_2422e6e9f9e84041a8af269c99c557ed-6"></a><span class="go">[0, 1, 20, 30, 5, 6, 7, 8, 9]</span>
+<a name="rest_code_2422e6e9f9e84041a8af269c99c557ed-7"></a><span class="gp">&gt;&gt;&gt; </span><span class="k">del</span> <span class="n">l</span><span class="p">[</span><span class="mi">5</span><span class="p">:</span><span class="mi">7</span><span class="p">]</span>
+<a name="rest_code_2422e6e9f9e84041a8af269c99c557ed-8"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">l</span>
+<a name="rest_code_2422e6e9f9e84041a8af269c99c557ed-9"></a><span class="go">[0, 1, 20, 30, 5, 8, 9]</span>
 </pre>
 </div>
+</div>
+<div class="section" id="bisect-module">
+<h2><a class="toc-backref" href="#id16">bisect&nbsp;module</a></h2>
+<p>Return the corresponding letter&nbsp;grade</p>
+<pre class="code pycon"><a name="rest_code_b8aad235f238473c9c690b1c2c60a248-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">grade</span><span class="p">(</span><span class="n">score</span><span class="p">,</span> <span class="n">breakpoints</span><span class="o">=</span><span class="p">[</span><span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">],</span> <span class="n">grades</span><span class="o">=</span><span class="s1">'FDCBA'</span><span class="p">):</span>
+<a name="rest_code_b8aad235f238473c9c690b1c2c60a248-2"></a><span class="gp">... </span>    <span class="c1"># returns index of where score should be inserted</span>
+<a name="rest_code_b8aad235f238473c9c690b1c2c60a248-3"></a><span class="gp">... </span>    <span class="n">i</span> <span class="o">=</span> <span class="n">bisect</span><span class="o">.</span><span class="n">bisect</span><span class="p">(</span><span class="n">breakpoints</span><span class="p">,</span> <span class="n">score</span><span class="p">)</span>
+<a name="rest_code_b8aad235f238473c9c690b1c2c60a248-4"></a><span class="gp">... </span>    <span class="k">return</span> <span class="n">grades</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+<a name="rest_code_b8aad235f238473c9c690b1c2c60a248-5"></a><span class="gp">...</span>
+<a name="rest_code_b8aad235f238473c9c690b1c2c60a248-6"></a><span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">grade</span><span class="p">(</span><span class="n">score</span><span class="p">)</span> <span class="k">for</span> <span class="n">score</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">33</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="mi">77</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">89</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">100</span><span class="p">]]</span>
+<a name="rest_code_b8aad235f238473c9c690b1c2c60a248-7"></a><span class="go">['F', 'A', 'C', 'C', 'B', 'A', 'A']</span>
+</pre>
 </div>
 <div class="section" id="miscellaneous">
-<h2><a class="toc-backref" href="#id16">Miscellaneous</a></h2>
+<h2><a class="toc-backref" href="#id17">Miscellaneous</a></h2>
 <p><a class="reference external" href="../../../listings/python-hints.py.html">python-hints.py</a>  <a class="reference external" href="../../../listings/python-hints.py">(Source)</a></p>
-<pre class="code python"><a name="rest_code_b3ae1c4e13b24f358ef45d4c3c0bd95e-1"></a><span class="c1"># ==========================================</span>
-<a name="rest_code_b3ae1c4e13b24f358ef45d4c3c0bd95e-2"></a><span class="c1"># add zeros at the start of string</span>
-<a name="rest_code_b3ae1c4e13b24f358ef45d4c3c0bd95e-3"></a><span class="s1">'22'</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<a name="rest_code_b3ae1c4e13b24f358ef45d4c3c0bd95e-4"></a><span class="c1"># out: '0000000022'</span>
-<a name="rest_code_b3ae1c4e13b24f358ef45d4c3c0bd95e-5"></a>
-<a name="rest_code_b3ae1c4e13b24f358ef45d4c3c0bd95e-6"></a><span class="c1"># ==========================================</span>
-<a name="rest_code_b3ae1c4e13b24f358ef45d4c3c0bd95e-7"></a><span class="c1"># make iterable slice</span>
-<a name="rest_code_b3ae1c4e13b24f358ef45d4c3c0bd95e-8"></a><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">islice</span>
-<a name="rest_code_b3ae1c4e13b24f358ef45d4c3c0bd95e-9"></a><span class="n">islice</span><span class="p">(</span><span class="n">iterable</span><span class="p">,</span> <span class="n">stop</span><span class="p">)</span>
-<a name="rest_code_b3ae1c4e13b24f358ef45d4c3c0bd95e-10"></a><span class="n">islice</span><span class="p">(</span><span class="n">iterable</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">)</span>
-<a name="rest_code_b3ae1c4e13b24f358ef45d4c3c0bd95e-11"></a><span class="n">islice</span><span class="p">(</span><span class="n">iterable</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">step</span><span class="p">)</span>
-<a name="rest_code_b3ae1c4e13b24f358ef45d4c3c0bd95e-12"></a>
-<a name="rest_code_b3ae1c4e13b24f358ef45d4c3c0bd95e-13"></a><span class="c1"># ==========================================</span>
-<a name="rest_code_b3ae1c4e13b24f358ef45d4c3c0bd95e-14"></a><span class="c1"># write directly to the file</span>
-<a name="rest_code_b3ae1c4e13b24f358ef45d4c3c0bd95e-15"></a><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'/tmp/filename'</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-<a name="rest_code_b3ae1c4e13b24f358ef45d4c3c0bd95e-16"></a>    <span class="c1"># python2</span>
-<a name="rest_code_b3ae1c4e13b24f358ef45d4c3c0bd95e-17"></a>    <span class="k">print</span> <span class="o">&gt;&gt;</span> <span class="n">f</span><span class="p">,</span> <span class="s1">'some_text'</span>
-<a name="rest_code_b3ae1c4e13b24f358ef45d4c3c0bd95e-18"></a>    <span class="c1"># python3</span>
-<a name="rest_code_b3ae1c4e13b24f358ef45d4c3c0bd95e-19"></a>    <span class="k">print</span><span class="p">(</span><span class="s2">"some_text"</span><span class="p">,</span> <span class="nb">file</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
-<a name="rest_code_b3ae1c4e13b24f358ef45d4c3c0bd95e-20"></a>
-<a name="rest_code_b3ae1c4e13b24f358ef45d4c3c0bd95e-21"></a><span class="c1"># ==========================================</span>
-<a name="rest_code_b3ae1c4e13b24f358ef45d4c3c0bd95e-22"></a><span class="c1"># try statement</span>
-<a name="rest_code_b3ae1c4e13b24f358ef45d4c3c0bd95e-23"></a><span class="k">try</span><span class="p">:</span>
-<a name="rest_code_b3ae1c4e13b24f358ef45d4c3c0bd95e-24"></a>    <span class="c1"># something</span>
-<a name="rest_code_b3ae1c4e13b24f358ef45d4c3c0bd95e-25"></a><span class="k">except</span><span class="p">:</span>
-<a name="rest_code_b3ae1c4e13b24f358ef45d4c3c0bd95e-26"></a>    <span class="c1"># if exception was raised</span>
-<a name="rest_code_b3ae1c4e13b24f358ef45d4c3c0bd95e-27"></a><span class="k">else</span><span class="p">:</span>
-<a name="rest_code_b3ae1c4e13b24f358ef45d4c3c0bd95e-28"></a>    <span class="c1"># if try was successfully</span>
-<a name="rest_code_b3ae1c4e13b24f358ef45d4c3c0bd95e-29"></a><span class="k">finally</span><span class="p">:</span>
-<a name="rest_code_b3ae1c4e13b24f358ef45d4c3c0bd95e-30"></a>    <span class="c1"># do this stuff in any case</span>
-<a name="rest_code_b3ae1c4e13b24f358ef45d4c3c0bd95e-31"></a>
-<a name="rest_code_b3ae1c4e13b24f358ef45d4c3c0bd95e-32"></a><span class="c1"># ==========================================</span>
-<a name="rest_code_b3ae1c4e13b24f358ef45d4c3c0bd95e-33"></a><span class="c1"># lambda function</span>
-<a name="rest_code_b3ae1c4e13b24f358ef45d4c3c0bd95e-34"></a><span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
-<a name="rest_code_b3ae1c4e13b24f358ef45d4c3c0bd95e-35"></a><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">)</span> <span class="k">else</span> <span class="bp">None</span>
-<a name="rest_code_b3ae1c4e13b24f358ef45d4c3c0bd95e-36"></a>
-<a name="rest_code_b3ae1c4e13b24f358ef45d4c3c0bd95e-37"></a><span class="c1"># ==========================================</span>
-<a name="rest_code_b3ae1c4e13b24f358ef45d4c3c0bd95e-38"></a><span class="c1"># get input from shell</span>
-<a name="rest_code_b3ae1c4e13b24f358ef45d4c3c0bd95e-39"></a><span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdin</span><span class="p">:</span>
-<a name="rest_code_b3ae1c4e13b24f358ef45d4c3c0bd95e-40"></a>    <span class="k">print</span><span class="p">(</span><span class="s2">"You entered: "</span><span class="p">,</span> <span class="n">line</span><span class="p">)</span>
-<a name="rest_code_b3ae1c4e13b24f358ef45d4c3c0bd95e-41"></a><span class="c1"># and after entering required data to the shell press ctrl+D</span>
+<pre class="code python"><a name="rest_code_3ebe01eab7984d1a982a869a100ff3a2-1"></a><span class="c1"># ==========================================</span>
+<a name="rest_code_3ebe01eab7984d1a982a869a100ff3a2-2"></a><span class="c1"># add zeros at the start of string</span>
+<a name="rest_code_3ebe01eab7984d1a982a869a100ff3a2-3"></a><span class="s1">'22'</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<a name="rest_code_3ebe01eab7984d1a982a869a100ff3a2-4"></a><span class="c1"># out: '0000000022'</span>
+<a name="rest_code_3ebe01eab7984d1a982a869a100ff3a2-5"></a>
+<a name="rest_code_3ebe01eab7984d1a982a869a100ff3a2-6"></a><span class="c1"># ==========================================</span>
+<a name="rest_code_3ebe01eab7984d1a982a869a100ff3a2-7"></a><span class="c1"># make iterable slice</span>
+<a name="rest_code_3ebe01eab7984d1a982a869a100ff3a2-8"></a><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">islice</span>
+<a name="rest_code_3ebe01eab7984d1a982a869a100ff3a2-9"></a><span class="n">islice</span><span class="p">(</span><span class="n">iterable</span><span class="p">,</span> <span class="n">stop</span><span class="p">)</span>
+<a name="rest_code_3ebe01eab7984d1a982a869a100ff3a2-10"></a><span class="n">islice</span><span class="p">(</span><span class="n">iterable</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">)</span>
+<a name="rest_code_3ebe01eab7984d1a982a869a100ff3a2-11"></a><span class="n">islice</span><span class="p">(</span><span class="n">iterable</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">step</span><span class="p">)</span>
+<a name="rest_code_3ebe01eab7984d1a982a869a100ff3a2-12"></a>
+<a name="rest_code_3ebe01eab7984d1a982a869a100ff3a2-13"></a><span class="c1"># ==========================================</span>
+<a name="rest_code_3ebe01eab7984d1a982a869a100ff3a2-14"></a><span class="c1"># write directly to the file</span>
+<a name="rest_code_3ebe01eab7984d1a982a869a100ff3a2-15"></a><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'/tmp/filename'</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<a name="rest_code_3ebe01eab7984d1a982a869a100ff3a2-16"></a>    <span class="c1"># python2</span>
+<a name="rest_code_3ebe01eab7984d1a982a869a100ff3a2-17"></a>    <span class="k">print</span> <span class="o">&gt;&gt;</span> <span class="n">f</span><span class="p">,</span> <span class="s1">'some_text'</span>
+<a name="rest_code_3ebe01eab7984d1a982a869a100ff3a2-18"></a>    <span class="c1"># python3</span>
+<a name="rest_code_3ebe01eab7984d1a982a869a100ff3a2-19"></a>    <span class="k">print</span><span class="p">(</span><span class="s2">"some_text"</span><span class="p">,</span> <span class="nb">file</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
+<a name="rest_code_3ebe01eab7984d1a982a869a100ff3a2-20"></a>
+<a name="rest_code_3ebe01eab7984d1a982a869a100ff3a2-21"></a><span class="c1"># ==========================================</span>
+<a name="rest_code_3ebe01eab7984d1a982a869a100ff3a2-22"></a><span class="c1"># try statement</span>
+<a name="rest_code_3ebe01eab7984d1a982a869a100ff3a2-23"></a><span class="k">try</span><span class="p">:</span>
+<a name="rest_code_3ebe01eab7984d1a982a869a100ff3a2-24"></a>    <span class="c1"># something</span>
+<a name="rest_code_3ebe01eab7984d1a982a869a100ff3a2-25"></a><span class="k">except</span><span class="p">:</span>
+<a name="rest_code_3ebe01eab7984d1a982a869a100ff3a2-26"></a>    <span class="c1"># if exception was raised</span>
+<a name="rest_code_3ebe01eab7984d1a982a869a100ff3a2-27"></a><span class="k">else</span><span class="p">:</span>
+<a name="rest_code_3ebe01eab7984d1a982a869a100ff3a2-28"></a>    <span class="c1"># if try was successfully</span>
+<a name="rest_code_3ebe01eab7984d1a982a869a100ff3a2-29"></a><span class="k">finally</span><span class="p">:</span>
+<a name="rest_code_3ebe01eab7984d1a982a869a100ff3a2-30"></a>    <span class="c1"># do this stuff in any case</span>
+<a name="rest_code_3ebe01eab7984d1a982a869a100ff3a2-31"></a>
+<a name="rest_code_3ebe01eab7984d1a982a869a100ff3a2-32"></a><span class="c1"># ==========================================</span>
+<a name="rest_code_3ebe01eab7984d1a982a869a100ff3a2-33"></a><span class="c1"># lambda function</span>
+<a name="rest_code_3ebe01eab7984d1a982a869a100ff3a2-34"></a><span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+<a name="rest_code_3ebe01eab7984d1a982a869a100ff3a2-35"></a><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">)</span> <span class="k">else</span> <span class="bp">None</span>
+<a name="rest_code_3ebe01eab7984d1a982a869a100ff3a2-36"></a>
+<a name="rest_code_3ebe01eab7984d1a982a869a100ff3a2-37"></a><span class="c1"># ==========================================</span>
+<a name="rest_code_3ebe01eab7984d1a982a869a100ff3a2-38"></a><span class="c1"># get input from shell</span>
+<a name="rest_code_3ebe01eab7984d1a982a869a100ff3a2-39"></a><span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdin</span><span class="p">:</span>
+<a name="rest_code_3ebe01eab7984d1a982a869a100ff3a2-40"></a>    <span class="k">print</span><span class="p">(</span><span class="s2">"You entered: "</span><span class="p">,</span> <span class="n">line</span><span class="p">)</span>
+<a name="rest_code_3ebe01eab7984d1a982a869a100ff3a2-41"></a><span class="c1"># and after entering required data to the shell press ctrl+D</span>
 </pre>
 <p><a class="reference external" href="../../../listings/python-hints.sh.html">python-hints.sh</a>  <a class="reference external" href="../../../listings/python-hints.sh">(Source)</a></p>
-<pre class="code bash"><a name="rest_code_1af58ec76ab84be188882edfaecaa53b-1"></a><span class="c1"># ==========================================</span>
-<a name="rest_code_1af58ec76ab84be188882edfaecaa53b-2"></a><span class="c1"># serve current folder to web</span>
-<a name="rest_code_1af58ec76ab84be188882edfaecaa53b-3"></a><span class="c1"># python2</span>
-<a name="rest_code_1af58ec76ab84be188882edfaecaa53b-4"></a>python -m SimpleHTTPServer
-<a name="rest_code_1af58ec76ab84be188882edfaecaa53b-5"></a><span class="c1"># python3</span>
-<a name="rest_code_1af58ec76ab84be188882edfaecaa53b-6"></a>python3 -m http.server
-<a name="rest_code_1af58ec76ab84be188882edfaecaa53b-7"></a>
-<a name="rest_code_1af58ec76ab84be188882edfaecaa53b-8"></a><span class="c1"># ==========================================</span>
-<a name="rest_code_1af58ec76ab84be188882edfaecaa53b-9"></a><span class="c1"># create new virualenv</span>
-<a name="rest_code_1af58ec76ab84be188882edfaecaa53b-10"></a>virtualenv -p /usr/local/bin/python2.7 env_name
-<a name="rest_code_1af58ec76ab84be188882edfaecaa53b-11"></a><span class="c1"># create new vierualenv with venv without pip</span>
-<a name="rest_code_1af58ec76ab84be188882edfaecaa53b-12"></a>python3.6 -m venv <span class="nv">$ENV_NAME</span> --without-pip
-<a name="rest_code_1af58ec76ab84be188882edfaecaa53b-13"></a><span class="nb">source</span> <span class="nv">$ENV_NAME</span>/bin/activate
-<a name="rest_code_1af58ec76ab84be188882edfaecaa53b-14"></a>wget https://bootstrap.pypa.io/get-pip.py
-<a name="rest_code_1af58ec76ab84be188882edfaecaa53b-15"></a>python get-pip.py
-<a name="rest_code_1af58ec76ab84be188882edfaecaa53b-16"></a><span class="c1"># or with pip just</span>
-<a name="rest_code_1af58ec76ab84be188882edfaecaa53b-17"></a>python3.6 -m venv <span class="nv">$ENV_NAME</span>
-<a name="rest_code_1af58ec76ab84be188882edfaecaa53b-18"></a>
-<a name="rest_code_1af58ec76ab84be188882edfaecaa53b-19"></a><span class="c1"># ==========================================</span>
-<a name="rest_code_1af58ec76ab84be188882edfaecaa53b-20"></a><span class="c1"># unistall all existing packages</span>
-<a name="rest_code_1af58ec76ab84be188882edfaecaa53b-21"></a>pip freeze <span class="p">|</span> xargs pip uninstall -y
-<a name="rest_code_1af58ec76ab84be188882edfaecaa53b-22"></a>
-<a name="rest_code_1af58ec76ab84be188882edfaecaa53b-23"></a><span class="c1"># ==========================================</span>
-<a name="rest_code_1af58ec76ab84be188882edfaecaa53b-24"></a><span class="c1"># check for PEP8 errors</span>
-<a name="rest_code_1af58ec76ab84be188882edfaecaa53b-25"></a>pep8 --first --show-source --show-pep8
+<pre class="code bash"><a name="rest_code_c43f79004fc34e4bb4a207b2cd74f9e1-1"></a><span class="c1"># ==========================================</span>
+<a name="rest_code_c43f79004fc34e4bb4a207b2cd74f9e1-2"></a><span class="c1"># serve current folder to web</span>
+<a name="rest_code_c43f79004fc34e4bb4a207b2cd74f9e1-3"></a><span class="c1"># python2</span>
+<a name="rest_code_c43f79004fc34e4bb4a207b2cd74f9e1-4"></a>python -m SimpleHTTPServer
+<a name="rest_code_c43f79004fc34e4bb4a207b2cd74f9e1-5"></a><span class="c1"># python3</span>
+<a name="rest_code_c43f79004fc34e4bb4a207b2cd74f9e1-6"></a>python3 -m http.server
+<a name="rest_code_c43f79004fc34e4bb4a207b2cd74f9e1-7"></a>
+<a name="rest_code_c43f79004fc34e4bb4a207b2cd74f9e1-8"></a><span class="c1"># ==========================================</span>
+<a name="rest_code_c43f79004fc34e4bb4a207b2cd74f9e1-9"></a><span class="c1"># create new virualenv</span>
+<a name="rest_code_c43f79004fc34e4bb4a207b2cd74f9e1-10"></a>virtualenv -p /usr/local/bin/python2.7 env_name
+<a name="rest_code_c43f79004fc34e4bb4a207b2cd74f9e1-11"></a><span class="c1"># create new vierualenv with venv without pip</span>
+<a name="rest_code_c43f79004fc34e4bb4a207b2cd74f9e1-12"></a>python3.6 -m venv <span class="nv">$ENV_NAME</span> --without-pip
+<a name="rest_code_c43f79004fc34e4bb4a207b2cd74f9e1-13"></a><span class="nb">source</span> <span class="nv">$ENV_NAME</span>/bin/activate
+<a name="rest_code_c43f79004fc34e4bb4a207b2cd74f9e1-14"></a>wget https://bootstrap.pypa.io/get-pip.py
+<a name="rest_code_c43f79004fc34e4bb4a207b2cd74f9e1-15"></a>python get-pip.py
+<a name="rest_code_c43f79004fc34e4bb4a207b2cd74f9e1-16"></a><span class="c1"># or with pip just</span>
+<a name="rest_code_c43f79004fc34e4bb4a207b2cd74f9e1-17"></a>python3.6 -m venv <span class="nv">$ENV_NAME</span>
+<a name="rest_code_c43f79004fc34e4bb4a207b2cd74f9e1-18"></a>
+<a name="rest_code_c43f79004fc34e4bb4a207b2cd74f9e1-19"></a><span class="c1"># ==========================================</span>
+<a name="rest_code_c43f79004fc34e4bb4a207b2cd74f9e1-20"></a><span class="c1"># unistall all existing packages</span>
+<a name="rest_code_c43f79004fc34e4bb4a207b2cd74f9e1-21"></a>pip freeze <span class="p">|</span> xargs pip uninstall -y
+<a name="rest_code_c43f79004fc34e4bb4a207b2cd74f9e1-22"></a>
+<a name="rest_code_c43f79004fc34e4bb4a207b2cd74f9e1-23"></a><span class="c1"># ==========================================</span>
+<a name="rest_code_c43f79004fc34e4bb4a207b2cd74f9e1-24"></a><span class="c1"># check for PEP8 errors</span>
+<a name="rest_code_c43f79004fc34e4bb4a207b2cd74f9e1-25"></a>pep8 --first --show-source --show-pep8
 </pre>
 </div>
 </div>
