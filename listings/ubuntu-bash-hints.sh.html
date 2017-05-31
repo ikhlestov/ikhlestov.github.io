@@ -161,7 +161,10 @@ MathJax.Hub.Config({
 <a href="#listingsubuntu-bash-hintssh-85">85</a>
 <a href="#listingsubuntu-bash-hintssh-86">86</a>
 <a href="#listingsubuntu-bash-hintssh-87">87</a>
-<a href="#listingsubuntu-bash-hintssh-88">88</a></pre></div></td>
+<a href="#listingsubuntu-bash-hintssh-88">88</a>
+<a href="#listingsubuntu-bash-hintssh-89">89</a>
+<a href="#listingsubuntu-bash-hintssh-90">90</a>
+<a href="#listingsubuntu-bash-hintssh-91">91</a></pre></div></td>
 <td class="code"><pre class="code literal-block"><a name="listingsubuntu-bash-hintssh-1"></a><span class="c1"># show running process by name with headers</span>
 <a name="listingsubuntu-bash-hintssh-2"></a>$ ps aux <span class="p">|</span> egrep <span class="s2">"python|PID"</span>
 <a name="listingsubuntu-bash-hintssh-3"></a>
@@ -250,6 +253,9 @@ MathJax.Hub.Config({
 <a name="listingsubuntu-bash-hintssh-86"></a><span class="c1"># stop first running docker instance</span>
 <a name="listingsubuntu-bash-hintssh-87"></a><span class="c1"># all runing| second line| container name    | stop container by name</span>
 <a name="listingsubuntu-bash-hintssh-88"></a>$ docker ps <span class="p">|</span> sed -n 2p  <span class="p">|</span> awk <span class="s1">'{print $NF}'</span> <span class="p">|</span> xargs docker stop
+<a name="listingsubuntu-bash-hintssh-89"></a>
+<a name="listingsubuntu-bash-hintssh-90"></a><span class="c1"># get version of CUDA</span>
+<a name="listingsubuntu-bash-hintssh-91"></a>$ dpkg -l <span class="p">|</span> grep cuda
 </pre></td>
 </tr></table>
 </div>

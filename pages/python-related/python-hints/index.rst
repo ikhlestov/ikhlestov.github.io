@@ -357,7 +357,7 @@ Assigning to slices
     [0, 1, 20, 30, 5, 8, 9]
 
 bisect module
-=============
+-------------
 
 Return the corresponding letter grade
 
