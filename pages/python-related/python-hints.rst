@@ -309,6 +309,9 @@ Nested tuple unpacking
 Namedtuples
 -------------------
 
+Intro
+~~~~~
+
 .. code-block:: python
 
     from collections import namedtuple
@@ -323,6 +326,48 @@ Namedtuples
 
     # convert namedtuple to dict
     tokyo._asdict()
+
+Inherit from namedtuple
+~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: pycon
+    
+    >>> Car = namedtuple('Car', 'color mileage')
+    >>> class MyCarWithMethods(Car):
+    ...     def hexcolor(self):
+    ...         if self.color == 'red':
+    ...            return '#ff0000'
+    ...         else:
+    ...             return '#000000'
+
+    >>> c = MyCarWithMethods('red', 1234)
+    >>> c.hexcolor()
+    '#ff0000'
+
+Use _fields attribute
+~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: pycon
+    
+    >>> Car = namedtuple('Car', 'color mileage')
+    >>> ElectricCar = namedtuple(
+    ...     'ElectricCar', Car._fields + ('charge',))
+
+Additional methods
+~~~~~~~~~~~~~~~~~~
+
+.. code-block:: pycon
+
+    >>> my_car._asdict()
+    OrderedDict([('color', 'red'), ('mileage', 3812.4)])
+    >>> json.dumps(my_car._asdict())
+    '{"color": "red", "mileage": 3812.4}'
+
+    >>> my_car._replace(color='blue')
+    Car(color='blue', mileage=3812.4)
+
+    >>> Car._make(['red', 999])
+    Car(color='red', mileage=999)
 
 Slicing
 --------
