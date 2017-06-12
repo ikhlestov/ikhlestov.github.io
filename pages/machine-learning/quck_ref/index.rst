@@ -154,12 +154,14 @@ Confusion Matrix - matrix contains True/False positives/negatives.
 Precision: :math:`\frac{{TruePositive}}{{TruePositive + FalsePositive}}`.
 Put another way, it is the number of positive predictions divided by the total number of positive class values predicted.
 A low precision can also indicate a large number of False Positives.
-*How many selected items are relevant*
+*How many selected items are relevant*.
+Also the precision is intuitively the ability of the classifier not to label as positive a sample that is negative.
 
 Recall: :math:`\frac{{TruePositive}}{{TruePositive + FalseNegtive}}`.
 Put another way it is the number of positive predictions divided by the number of positive class values in the test data.
 Recall can be thought of as a measure of a classifiers completeness. A low recall indicates many False Negatives.
-*How many relevant items are selected*
+*How many relevant items are selected*. 
+Also the recall is intuitively the ability of the classifier to find all the positive samples.
 
 F1 score: :math:`\frac{{2*Recall*Precision}}{{Recall + Precision}}` balanced precision and recall.
 
