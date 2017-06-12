@@ -96,3 +96,8 @@ else:
     main_csv = pd.DataFrame(columns=csv_columns)
 main_csv = main_csv.append(csv_data, ignore_index=True)
 main_csv.to_csv(csv_f_name, index=True, header=True, na_rep='NaN')
+
+# convert sting list to python list
+from ast import literal_eval
+literal_eval('[1.23, 2.34]')
+[1.23, 2.34]
