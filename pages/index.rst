@@ -36,16 +36,19 @@ Python related:
 * :doc:`python-hints`
 * `Large cheat sheet for ML(External) <https://medium.com/@kailashahirwar/essential-cheat-sheets-for-machine-learning-and-deep-learning-researchers-efb6a8ebd2e5>`__
 
-Shortcuts:
+Ubuntu:
 
+* :doc:`bash-commands`
 * :doc:`bash-shortcuts`
+* :doc:`ubuntu-shortcuts`
+
+Text editors:
+
 * :doc:`nano-shortcuts`
 * :doc:`sublime-shortcuts`
-* :doc:`ubuntu-shortcuts`
 
 Another topics:
 
 * :doc:`docker-help-list`
 * :doc:`git-notes`
 * :doc:`hadoop-notes`
-* :doc:`ubuntu-bash-hints`
