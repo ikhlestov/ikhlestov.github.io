@@ -1,10 +1,10 @@
-<!DOCTYPE html>
 <html prefix="
 og: http://ogp.me/ns#
 article: http://ogp.me/ns/article#
 " lang="en">
 <head>
 <meta charset="utf-8">
+<base href="https://ikhlestov.github.io/">
 <meta name="description" content="Site about coding notes">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Illarion Khlestov Blog</title>
@@ -67,10 +67,10 @@ MathJax.Hub.Config({
             
     
 <div class="postindex">
-    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/rbm-based-autoencoders-with-tensorflow/" class="u-url">RBM based Autoencoders with tensorflow</a></h1>
+    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/rbm-based-autoencoders-with-tensorflow/" class="u-url">RBM based Autoencoders with&nbsp;tensorflow</a></h1>
         <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
-                Illarion Khlestov
+            <p class="byline author vcard"><span class="byline-name fn">
+                Illarion&nbsp;Khlestov
             </span></p>
             <p class="dateline"><a href="posts/rbm-based-autoencoders-with-tensorflow/" rel="bookmark"><time class="published dt-published" datetime="2016-12-28T20:33:15Z" title="2016-12-28 20:33">2016-12-28 20:33</time></a></p>
                 <p class="commentline">            <a href="posts/rbm-based-autoencoders-with-tensorflow/#disqus_thread" data-disqus-identifier="cache/posts/rbm-based-autoencoders-with-tensorflow.html">Comments</a>
@@ -80,25 +80,25 @@ MathJax.Hub.Config({
 </div>
     </header><div class="p-summary entry-summary">
     <div>
-<p>Recently I try to implement RBM based autoencoder in tensorflow similar to RBMs described in <a class="reference external" href="http://www.cs.utoronto.ca/~rsalakhu/papers/semantic_final.pdf">Semantic Hashing</a> paper by Ruslan Salakhutdinov and Geoffrey Hinton. It seems that with weights that were pre-trained with RBM autoencoders should converge faster. So I've decided to check this.</p>
-<p>This post will describe some roadblocks for RBMs/autoencoders implementation in tensorflow and compare results of different approaches. I assume reader's previous knowledge of tensorflow and machine learning field. All code can be found in <a class="reference external" href="https://github.com/ikhlestov/rbm_based_autoencoders_with_tensorflow">this repo</a></p>
-<p>RBMs different from usual neural networks in some ways:</p>
-<p>Neural networks usually perform weight update by Gradient Descent, but RMBs use <strong>Contrastive Divergence</strong> (which is basically a funky term for "approximate gradient descent" <a class="reference external" href="http://deeplearning.net/tutorial/rbm.html">link to read</a>). At a glance, contrastive divergence computes a difference between <strong>positive phase</strong> (energy of first encoding) and <strong>negative phase</strong> (energy of the last encoding).</p>
-<pre class="code python"><a name="rest_code_6457deb7dbcd42298a5730bb55ea539c-1"></a><span class="n">positive_phase</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span>
-<a name="rest_code_6457deb7dbcd42298a5730bb55ea539c-2"></a>    <span class="n">tf</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">visib_inputs_initial</span><span class="p">),</span> <span class="n">first_encoded_probability</span><span class="p">)</span>
-<a name="rest_code_6457deb7dbcd42298a5730bb55ea539c-3"></a><span class="n">negative_phase</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span>
-<a name="rest_code_6457deb7dbcd42298a5730bb55ea539c-4"></a>    <span class="n">tf</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">last_reconstructed_probability</span><span class="p">),</span> <span class="n">last_encoded_probability</span><span class="p">)</span>
-<a name="rest_code_6457deb7dbcd42298a5730bb55ea539c-5"></a><span class="n">contrastive_divergence</span> <span class="o">=</span> <span class="n">positive_phase</span> <span class="o">-</span> <span class="n">negative_phase</span>
+<p>Recently I try to implement RBM based autoencoder in tensorflow similar to RBMs described in <a class="reference external" href="http://www.cs.utoronto.ca/~rsalakhu/papers/semantic_final.pdf">Semantic Hashing</a> paper by Ruslan Salakhutdinov and Geoffrey Hinton. It seems that with weights that were pre-trained with RBM autoencoders should converge faster. So I&#8217;ve decided to check&nbsp;this.</p>
+<p>This post will describe some roadblocks for RBMs/autoencoders implementation in tensorflow and compare results of different approaches. I assume reader&#8217;s previous knowledge of tensorflow and machine learning field. All code can be found in <a class="reference external" href="https://github.com/ikhlestov/rbm_based_autoencoders_with_tensorflow">this&nbsp;repo</a></p>
+<p>RBMs different from usual neural networks in some&nbsp;ways:</p>
+<p>Neural networks usually perform weight update by Gradient Descent, but RMBs use <strong>Contrastive Divergence</strong> (which is basically a funky term for &#8220;approximate gradient descent&#8221; <a class="reference external" href="http://deeplearning.net/tutorial/rbm.html">link to read</a>). At a glance, contrastive divergence computes a difference between <strong>positive phase</strong> (energy of first encoding) and <strong>negative phase</strong> (energy of the last&nbsp;encoding).</p>
+<pre class="code python"><a name="rest_code_0eaeacbb30754f339a501f37d8385bf4-1"></a><span class="n">positive_phase</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span>
+<a name="rest_code_0eaeacbb30754f339a501f37d8385bf4-2"></a>    <span class="n">tf</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">visib_inputs_initial</span><span class="p">),</span> <span class="n">first_encoded_probability</span><span class="p">)</span>
+<a name="rest_code_0eaeacbb30754f339a501f37d8385bf4-3"></a><span class="n">negative_phase</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span>
+<a name="rest_code_0eaeacbb30754f339a501f37d8385bf4-4"></a>    <span class="n">tf</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">last_reconstructed_probability</span><span class="p">),</span> <span class="n">last_encoded_probability</span><span class="p">)</span>
+<a name="rest_code_0eaeacbb30754f339a501f37d8385bf4-5"></a><span class="n">contrastive_divergence</span> <span class="o">=</span> <span class="n">positive_phase</span> <span class="o">-</span> <span class="n">negative_phase</span>
 </pre>
 <p>Also, a key feature of RMB that it encode output in binary mode, not as probabilities. More about RMBs you may read <a class="reference external" href="http://blog.echen.me/2011/07/18/introduction-to-restricted-boltzmann-machines/">here</a> or <a class="reference external" href="http://rocknrollnerd.github.io/ml/2015/07/18/general-boltzmann-machines.html">here</a>.</p>
-<p>As prototype one layer tensorflow rbm <a class="reference external" href="https://github.com/blackecho/Deep-Learning-TensorFlow/blob/master/yadlt/models/rbm_models/rbm.py">implementation</a> was used. For testing, I've taken well known <a class="reference external" href="https://en.wikipedia.org/wiki/MNIST_database">MNIST</a> dataset(dataset of handwritten digits).</p>
-<p class="more"><a href="posts/rbm-based-autoencoders-with-tensorflow/">Read more…</a></p>
+<p>As prototype one layer tensorflow rbm <a class="reference external" href="https://github.com/blackecho/Deep-Learning-TensorFlow/blob/master/yadlt/models/rbm_models/rbm.py">implementation</a> was used. For testing, I&#8217;ve taken well known <a class="reference external" href="https://en.wikipedia.org/wiki/MNIST_database">MNIST</a> dataset(dataset of handwritten&nbsp;digits).</p>
+<p class="more"><a href="posts/rbm-based-autoencoders-with-tensorflow/">Read&nbsp;more…</a></p>
 </div>
     </div>
-    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/welcome-post/" class="u-url">Welcome Post</a></h1>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/welcome-post/" class="u-url">Welcome&nbsp;Post</a></h1>
         <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
-                Illarion Khlestov
+            <p class="byline author vcard"><span class="byline-name fn">
+                Illarion&nbsp;Khlestov
             </span></p>
             <p class="dateline"><a href="posts/welcome-post/" rel="bookmark"><time class="published dt-published" datetime="2016-06-29T01:39:27Z" title="2016-06-29 01:39">2016-06-29 01:39</time></a></p>
                 <p class="commentline">            <a href="posts/welcome-post/#disqus_thread" data-disqus-identifier="cache/posts/welcome-post.html">Comments</a>
@@ -107,10 +107,10 @@ MathJax.Hub.Config({
         </p>
 </div>
     </header><div class="p-summary entry-summary">
-    <p>Hi to all! There only a few days I've set up this blog and I've decided that there should be at least one post.
+    <p>Hi to all! There only a few days I&#8217;ve set up this blog and I&#8217;ve decided that there should be at least one post.
 The main purpose of this blog to collect and organize some coding related info.
 At the <a class="reference external" href="pages">Pages</a>, I will keep lists with useful commands mainly without the long explanation.
-At the Blogs, I will post some more verbose things. Will see how it will go.</p>
+At the Blogs, I will post some more verbose things. Will see how it will&nbsp;go.</p>
     </div>
     </article>
 </div>

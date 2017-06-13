@@ -1,10 +1,10 @@
-<!DOCTYPE html>
 <html prefix="
 og: http://ogp.me/ns#
 article: http://ogp.me/ns/article#
 " lang="en">
 <head>
 <meta charset="utf-8">
+<base href="https://ikhlestov.github.io/pages/machine-learning/quck_ref/">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Quick Reference | Illarion Khlestov Blog</title>
 <link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
@@ -89,7 +89,7 @@ Stochastic ">
         <!--Body content-->
         <div class="row">
             
-<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Quick&nbsp;Reference</a></h1>
+<article class="storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Quick&nbsp;Reference</a></h1>
 
         
     </header><div class="e-content entry-content" itemprop="articleBody text">
@@ -161,19 +161,19 @@ Stochastic ">
 <img alt="https://wikimedia.org/api/rest_v1/media/math/render/svg/780671bdfb3fab93187156d2c226df6fe36746fe" src="https://wikimedia.org/api/rest_v1/media/math/render/svg/780671bdfb3fab93187156d2c226df6fe36746fe"><div class="figure">
 <img alt="https://wikimedia.org/api/rest_v1/media/math/render/svg/24e439c972de89fb94297419cab45c58f1a32c43" src="https://wikimedia.org/api/rest_v1/media/math/render/svg/24e439c972de89fb94297419cab45c58f1a32c43">
 </div>
-<pre class="code python"><a name="rest_code_0e48c2b582ef48ee8fb1381ebc11e900-1"></a><span class="c1"># shape (2, 3)</span>
-<a name="rest_code_0e48c2b582ef48ee8fb1381ebc11e900-2"></a><span class="n">A</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
-<a name="rest_code_0e48c2b582ef48ee8fb1381ebc11e900-3"></a>     <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]]</span>
-<a name="rest_code_0e48c2b582ef48ee8fb1381ebc11e900-4"></a><span class="c1"># shape (3, 2)</span>
-<a name="rest_code_0e48c2b582ef48ee8fb1381ebc11e900-5"></a><span class="n">B</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span>
-<a name="rest_code_0e48c2b582ef48ee8fb1381ebc11e900-6"></a>     <span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span>
-<a name="rest_code_0e48c2b582ef48ee8fb1381ebc11e900-7"></a>     <span class="p">[</span><span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">]]</span>
-<a name="rest_code_0e48c2b582ef48ee8fb1381ebc11e900-8"></a>
-<a name="rest_code_0e48c2b582ef48ee8fb1381ebc11e900-9"></a><span class="c1"># shape (2, 2)</span>
-<a name="rest_code_0e48c2b582ef48ee8fb1381ebc11e900-10"></a><span class="n">Z</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span> <span class="o">*</span> <span class="mi">7</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="mi">9</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">1</span> <span class="o">*</span> <span class="mi">8</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="mi">12</span><span class="p">],</span>
-<a name="rest_code_0e48c2b582ef48ee8fb1381ebc11e900-11"></a>     <span class="p">[</span><span class="mi">4</span> <span class="o">*</span> <span class="mi">7</span> <span class="o">+</span> <span class="mi">5</span> <span class="o">*</span> <span class="mi">9</span> <span class="o">+</span> <span class="mi">6</span> <span class="o">*</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">4</span> <span class="o">*</span> <span class="mi">8</span> <span class="o">+</span> <span class="mi">5</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">+</span> <span class="mi">6</span> <span class="o">*</span> <span class="mi">12</span><span class="p">]]</span>
-<a name="rest_code_0e48c2b582ef48ee8fb1381ebc11e900-12"></a><span class="c1"># multiply row of A by the column of B and sum the result</span>
-<a name="rest_code_0e48c2b582ef48ee8fb1381ebc11e900-13"></a><span class="n">Z</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">B</span><span class="p">[:,</span> <span class="n">j</span><span class="p">])</span>
+<pre class="code python"><a name="rest_code_210721a50c85475881a33ba4bffd6894-1"></a><span class="c1"># shape (2, 3)</span>
+<a name="rest_code_210721a50c85475881a33ba4bffd6894-2"></a><span class="n">A</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+<a name="rest_code_210721a50c85475881a33ba4bffd6894-3"></a>     <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]]</span>
+<a name="rest_code_210721a50c85475881a33ba4bffd6894-4"></a><span class="c1"># shape (3, 2)</span>
+<a name="rest_code_210721a50c85475881a33ba4bffd6894-5"></a><span class="n">B</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span>
+<a name="rest_code_210721a50c85475881a33ba4bffd6894-6"></a>     <span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span>
+<a name="rest_code_210721a50c85475881a33ba4bffd6894-7"></a>     <span class="p">[</span><span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">]]</span>
+<a name="rest_code_210721a50c85475881a33ba4bffd6894-8"></a>
+<a name="rest_code_210721a50c85475881a33ba4bffd6894-9"></a><span class="c1"># shape (2, 2)</span>
+<a name="rest_code_210721a50c85475881a33ba4bffd6894-10"></a><span class="n">Z</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span> <span class="o">*</span> <span class="mi">7</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="mi">9</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">1</span> <span class="o">*</span> <span class="mi">8</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="mi">12</span><span class="p">],</span>
+<a name="rest_code_210721a50c85475881a33ba4bffd6894-11"></a>     <span class="p">[</span><span class="mi">4</span> <span class="o">*</span> <span class="mi">7</span> <span class="o">+</span> <span class="mi">5</span> <span class="o">*</span> <span class="mi">9</span> <span class="o">+</span> <span class="mi">6</span> <span class="o">*</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">4</span> <span class="o">*</span> <span class="mi">8</span> <span class="o">+</span> <span class="mi">5</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">+</span> <span class="mi">6</span> <span class="o">*</span> <span class="mi">12</span><span class="p">]]</span>
+<a name="rest_code_210721a50c85475881a33ba4bffd6894-12"></a><span class="c1"># multiply row of A by the column of B and sum the result</span>
+<a name="rest_code_210721a50c85475881a33ba4bffd6894-13"></a><span class="n">Z</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">B</span><span class="p">[:,</span> <span class="n">j</span><span class="p">])</span>
 </pre>
 <div class="figure">
 <img alt="https://wikimedia.org/api/rest_v1/media/math/render/svg/c6f7cdbe9cd36a436b0e5304ea2b42d640203777" src="https://wikimedia.org/api/rest_v1/media/math/render/svg/c6f7cdbe9cd36a436b0e5304ea2b42d640203777">

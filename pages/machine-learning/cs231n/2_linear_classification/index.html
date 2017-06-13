@@ -1,10 +1,10 @@
-<!DOCTYPE html>
 <html prefix="
 og: http://ogp.me/ns#
 article: http://ogp.me/ns/article#
 " lang="en">
 <head>
 <meta charset="utf-8">
+<base href="https://ikhlestov.github.io/pages/machine-learning/cs231n/2_linear_classification/">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Linear classification | Illarion Khlestov Blog</title>
 <link href="../../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
@@ -88,7 +88,7 @@ Softmax classifi">
         <!--Body content-->
         <div class="row">
             
-<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Linear classification</a></h1>
+<article class="storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Linear&nbsp;classification</a></h1>
 
         
     </header><div class="e-content entry-content" itemprop="articleBody text">
@@ -98,46 +98,46 @@ Softmax classifi">
 <ul class="simple">
 <li>
 <a class="reference internal" href="#parameterized-mapping-from-images-to-label-scores" id="id1">Parameterized mapping from images to label scores</a><ul>
-<li><a class="reference internal" href="#linear-classifier" id="id2">Linear classifier</a></li>
-<li><a class="reference internal" href="#bias-trick" id="id3">Bias trick</a></li>
-<li><a class="reference internal" href="#image-data-processing" id="id4">Image data processing</a></li>
+<li><a class="reference internal" href="#linear-classifier" id="id2">Linear&nbsp;classifier</a></li>
+<li><a class="reference internal" href="#bias-trick" id="id3">Bias&nbsp;trick</a></li>
+<li><a class="reference internal" href="#image-data-processing" id="id4">Image data&nbsp;processing</a></li>
 </ul>
 </li>
 <li>
 <a class="reference internal" href="#loss-function" id="id5">Loss function</a><ul>
-<li><a class="reference internal" href="#multiclass-support-vector-machine-loss" id="id6">Multiclass Support Vector Machine loss</a></li>
+<li><a class="reference internal" href="#multiclass-support-vector-machine-loss" id="id6">Multiclass Support Vector Machine&nbsp;loss</a></li>
 <li><a class="reference internal" href="#regularization" id="id7">Regularization</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#softmax-classifier" id="id8">Softmax classifier</a></li>
-<li><a class="reference internal" href="#softmax-classifier-provides-probabilities-for-each-class" id="id9">Softmax classifier provides “probabilities” for each class</a></li>
+<li><a class="reference internal" href="#softmax-classifier" id="id8">Softmax&nbsp;classifier</a></li>
+<li><a class="reference internal" href="#softmax-classifier-provides-probabilities-for-each-class" id="id9">Softmax classifier provides “probabilities” for each&nbsp;class</a></li>
 </ul>
 </div>
 <p>The approach will have two major components:
 a <strong>score function</strong> that maps the raw data to class scores,
 and a <strong>loss function</strong> that quantifies the agreement between the predicted scores and the ground truth labels.
-We will then cast this as an optimization problem in which we will minimize the loss function with respect to the parameters of the score function.</p>
+We will then cast this as an optimization problem in which we will minimize the loss function with respect to the parameters of the score&nbsp;function.</p>
 <div class="section" id="parameterized-mapping-from-images-to-label-scores">
-<h2><a class="toc-backref" href="#id1">Parameterized mapping from images to label scores</a></h2>
+<h2><a class="toc-backref" href="#id1">Parameterized mapping from images to label&nbsp;scores</a></h2>
 <p>We have training dataset of images <span class="math">\(x_i \in R^D\)</span>, each associated with label <span class="math">\(y_i\)</span>.
 Here <span class="math">\(i = 1 \dots N\)</span>, where <span class="math">\(N\)</span> - num examples, and
 <span class="math">\(y_i \in { 1 \dots K }\)</span>, where <span class="math">\(K\)</span> - num classes.
-We will now define the score function <span class="math">\(f: R^D \mapsto R^K\)</span> that maps the raw image pixels to class scores.</p>
+We will now define the score function <span class="math">\(f: R^D \mapsto R^K\)</span> that maps the raw image pixels to class&nbsp;scores.</p>
 <div class="section" id="linear-classifier">
-<h3><a class="toc-backref" href="#id2">Linear classifier</a></h3>
-<p>Can be defined as:</p>
+<h3><a class="toc-backref" href="#id2">Linear&nbsp;classifier</a></h3>
+<p>Can be defined&nbsp;as:</p>
 <div class="math">
 \begin{equation*}
 f(x_i, W, b) =  W x_i + b
 \end{equation*}
 </div>
-<p>Every row of <span class="math">\(W\)</span> became a classifier for one of the classes.</p>
+<p>Every row of <span class="math">\(W\)</span> became a classifier for one of the&nbsp;classes.</p>
 <p><strong>Interpretation of linear classifiers as template matching</strong>. Another interpretation for the weights <span class="math">\(W\)</span> is that each row of <span class="math">\(W\)</span> corresponds to a template (or sometimes also called a prototype) for one of the classes.
-Another way to think of it is that we are still effectively doing Nearest Neighbor, but instead of having thousands of training images we are only using a single image per class (although we will learn it, and it does not necessarily have to be one of the images in the training set).</p>
+Another way to think of it is that we are still effectively doing Nearest Neighbor, but instead of having thousands of training images we are only using a single image per class (although we will learn it, and it does not necessarily have to be one of the images in the training&nbsp;set).</p>
 </div>
 <div class="section" id="bias-trick">
-<h3><a class="toc-backref" href="#id3">Bias trick</a></h3>
-<p>A commonly used trick is to combine the two sets of parameters into a single matrix that holds both of them by extending the vector <span class="math">\(x_i\)</span> with one additional dimension that always holds the constant <span class="math">\(1\)</span> - a <em>default bias dimension</em>. With the extra dimension, the new score function will simplify to a single matrix multiply:</p>
+<h3><a class="toc-backref" href="#id3">Bias&nbsp;trick</a></h3>
+<p>A commonly used trick is to combine the two sets of parameters into a single matrix that holds both of them by extending the vector <span class="math">\(x_i\)</span> with one additional dimension that always holds the constant <span class="math">\(1\)</span> - a <em>default bias dimension</em>. With the extra dimension, the new score function will simplify to a single matrix&nbsp;multiply:</p>
 <div class="math">
 \begin{equation*}
 f(x_i, W) =  W x_i
@@ -145,22 +145,22 @@ f(x_i, W) =  W x_i
 </div>
 </div>
 <div class="section" id="image-data-processing">
-<h3><a class="toc-backref" href="#id4">Image data processing</a></h3>
+<h3><a class="toc-backref" href="#id4">Image data&nbsp;processing</a></h3>
 <p>It is important to <strong>center your data</strong> by subtracting the mean from every feature.
 In the case of images, this corresponds to computing a mean image across the training images and subtracting it from every image to get images where the pixels range from approximately [-127 … 127].
-Further common preprocessing is to scale each input feature so that its values range from [-1, 1] (divide by standard deviation).</p>
+Further common preprocessing is to scale each input feature so that its values range from [-1, 1] (divide by standard&nbsp;deviation).</p>
 </div>
 </div>
 <div class="section" id="loss-function">
-<h2><a class="toc-backref" href="#id5">Loss function</a></h2>
+<h2><a class="toc-backref" href="#id5">Loss&nbsp;function</a></h2>
 <p>We are going to measure correctness of outcomes classes with a <strong>loss function</strong> (or sometimes also referred to as the <strong>cost function</strong> or the <strong>objective</strong>).</p>
 <div class="section" id="multiclass-support-vector-machine-loss">
-<h3><a class="toc-backref" href="#id6">Multiclass Support Vector Machine loss</a></h3>
+<h3><a class="toc-backref" href="#id6">Multiclass Support Vector Machine&nbsp;loss</a></h3>
 <p>As a first example we will first develop a commonly used loss called the <strong>Multiclass Support Vector Machine</strong> (SVM) loss.
-The SVM loss is set up so that the SVM “wants” the correct class for each image to a have a score higher than the incorrect classes by some fixed margin <span class="math">\(\Delta\)</span> .</p>
+The SVM loss is set up so that the SVM “wants” the correct class for each image to a have a score higher than the incorrect classes by some fixed margin <span class="math">\(\Delta\)</span>&nbsp;.</p>
 <p>The score function takes the pixels and computes the vector <span class="math">\(f(x_i,W)\)</span> of class scores, which we will abbreviate to <span class="math">\(s\)</span> (short for scores).
 For example, the score for the j-th class is the j-th element: <span class="math">\(s_j = f(x_i, W)_j\)</span> .
-The Multiclass SVM loss for the i-th example is then formalized as follows:</p>
+The Multiclass SVM loss for the i-th example is then formalized as&nbsp;follows:</p>
 <div class="math">
 \begin{equation*}
 L_i = \sum_{j\neq y_i} \max(0, s_j - s_{y_i} + \Delta)
@@ -169,29 +169,29 @@ L_i = \sum_{j\neq y_i} \max(0, s_j - s_{y_i} + \Delta)
 <p><strong>Example.</strong>
 Suppose that we have three classes that receive the scores <span class="math">\(s=[13,-7,11]\)</span> , and that the first class is the true class (i.e. <span class="math">\(y_i=0\)</span> ).
 Also assume that <span class="math">\(\Delta = 10\)</span> .
-The expression above sums over all incorrect classes <span class="math">\(j \neq y_i\)</span> , so we get two terms:</p>
+The expression above sums over all incorrect classes <span class="math">\(j \neq y_i\)</span> , so we get two&nbsp;terms:</p>
 <div class="math">
 \begin{equation*}
 L_i = \max(0, -7 - 13 + 10) + \max(0, 11 - 13 + 10) = 8
 \end{equation*}
 </div>
-<p>In summary, the SVM loss function wants the score of the correct class <span class="math">\(y_i\)</span> to be larger than the incorrect class scores by at least by <span class="math">\(\Delta\)</span> (delta).</p>
-<p>We can also rewrite the loss function in this equivalent form:</p>
+<p>In summary, the SVM loss function wants the score of the correct class <span class="math">\(y_i\)</span> to be larger than the incorrect class scores by at least by <span class="math">\(\Delta\)</span>&nbsp;(delta).</p>
+<p>We can also rewrite the loss function in this equivalent&nbsp;form:</p>
 <div class="math">
 \begin{equation*}
 L_i = \sum_{j\neq y_i} \max(0, w_j^T x_i - w_{y_i}^T x_i + \Delta)
 \end{equation*}
 </div>
-<p>where <span class="math">\(w_j\)</span> is the j-th row of the <span class="math">\(W\)</span> reshaped as a column.</p>
+<p>where <span class="math">\(w_j\)</span> is the j-th row of the <span class="math">\(W\)</span> reshaped as a&nbsp;column.</p>
 <p>A last piece of terminology we’ll mention before we finish with this section is that the threshold at zero <span class="math">\(max(0, -)\)</span> function is often called <strong>hinge loss</strong>.
-You’ll sometimes hear about people instead using the squared hinge loss SVM (or L2-SVM), which uses the form <span class="math">\(max(0,-)^2\)</span> that penalizes violated margins more strongly (quadratically instead of linearly)</p>
+You’ll sometimes hear about people instead using the squared hinge loss SVM (or L2-SVM), which uses the form <span class="math">\(max(0,-)^2\)</span> that penalizes violated margins more strongly (quadratically instead of&nbsp;linearly)</p>
 </div>
 <div class="section" id="regularization">
 <h3><a class="toc-backref" href="#id7">Regularization</a></h3>
 <p>There might be many similar <span class="math">\(W\)</span> that correctly classify the examples. To get such weights we may just multiply existing weights by some scalar <span class="math">\(\lambda &gt; 1\)</span>, such as <span class="math">\(\lambda W\)</span>.</p>
 <p>We wish to encode some preference for a certain set of weights <span class="math">\(W\)</span> over others to remove this ambiguity.
 We can do so by extending the loss function with a <strong>regularization penalty</strong> <span class="math">\(R(W)\)</span>.
-The most common regularization penalty is the <strong>L2</strong> norm that discourages large weights through an elementwise quadratic penalty over all parameters:</p>
+The most common regularization penalty is the <strong>L2</strong> norm that discourages large weights through an elementwise quadratic penalty over all&nbsp;parameters:</p>
 <div class="math">
 \begin{equation*}
 R(W) = \sum_k\sum_l W_{k,l}^2
@@ -200,46 +200,46 @@ R(W) = \sum_k\sum_l W_{k,l}^2
 <p>Including the regularization penalty completes the full Multiclass Support Vector Machine loss, which is made up of two components: the <strong>data loss</strong> and the <strong>regularization loss</strong>.</p>
 <div class="math">
 \begin{align*}
-L =  \underbrace{ \frac{1}{N} \sum_i L_i }_\text{data loss} + \underbrace{ \lambda R(W) }_\text{regularization loss} \\\\
+L =  \underbrace{ \frac{1}{N} \sum_i L_i }_\text{data loss} + \underbrace{ \lambda R(W) }_\text{regularization loss} &#92;&#92;
 \end{align*}
 </div>
-<p>Or expanding this out in its full form:</p>
+<p>Or expanding this out in its full&nbsp;form:</p>
 <div class="math">
 \begin{equation*}
 L = \frac{1}{N} \sum_i \sum_{j\neq y_i} \left[ \max(0, f(x_i; W)_j - f(x_i; W)_{y_i} + \Delta) \right] + \lambda \sum_k\sum_l W_{k,l}^2
 \end{equation*}
 </div>
 <p>Where <span class="math">\(N\)</span> is the number of training examples. As you can see, we append the regularization penalty to the loss objective, weighted by a hyperparameter <span class="math">\(\alpha\)</span>.
-There is no simple way of setting this hyperparameter and it is usually determined by cross-validation.</p>
+There is no simple way of setting this hyperparameter and it is usually determined by&nbsp;cross-validation.</p>
 <p>The most appealing property is that penalizing large weights tends to improve generalization, because it means that no input dimension can have a very large influence on the scores all by itself.
-(Also check <a class="reference external" href="http://cs231n.github.io/linear-classify/">full lecture notes</a> explanation why mentioned behavior exits.)</p>
+(Also check <a class="reference external" href="http://cs231n.github.io/linear-classify/">full lecture notes</a> explanation why mentioned behavior&nbsp;exits.)</p>
 </div>
 </div>
 <div class="section" id="softmax-classifier">
-<h2><a class="toc-backref" href="#id8">Softmax classifier</a></h2>
+<h2><a class="toc-backref" href="#id8">Softmax&nbsp;classifier</a></h2>
 <p>The other popular choice is the <strong>Softmax classifier</strong>, which has a different loss function.
 Unlike the SVM which treats the outputs <span class="math">\(f(x_i,W)\)</span> as (uncalibrated and possibly difficult to interpret) scores for each class, the Softmax classifier gives a slightly more intuitive output (normalized class probabilities) and also has a probabilistic interpretation that we will describe shortly.
-We will replace the <em>hinge loss</em> with a <strong>cross-entropy loss</strong> that has the form:</p>
+We will replace the <em>hinge loss</em> with a <strong>cross-entropy loss</strong> that has the&nbsp;form:</p>
 <div class="math">
 \begin{equation*}
 L_i = -\log\left(\frac{e^{f_{y_i}}}{ \sum_j e^{f_j} }\right) \hspace{0.5in} \text{or equivalently} \hspace{0.5in} L_i = -f_{y_i} + \log\sum_j e^{f_j}
 \end{equation*}
 </div>
 <p>where we are using the notation <span class="math">\(f_j\)</span> to mean the j-th element of the vector of class scores <span class="math">\(f\)</span>.
-The function <span class="math">\(f_j(z) = \frac{e^{z_j}}{\sum_k e^{z_k}}\)</span> is called the <strong>softmax function</strong>: It takes a vector of arbitrary real-valued scores (in <span class="math">\(z\)</span> ) and squashes it to a vector of values between zero and one that sum to one.</p>
+The function <span class="math">\(f_j(z) = \frac{e^{z_j}}{\sum_k e^{z_k}}\)</span> is called the <strong>softmax function</strong>: It takes a vector of arbitrary real-valued scores (in <span class="math">\(z\)</span> ) and squashes it to a vector of values between zero and one that sum to&nbsp;one.</p>
 <p><strong>Information theory view.</strong>
-The <em>cross-entropy</em> between a "true" distribution <span class="math">\(p\)</span> and an estimated distribution <span class="math">\(q\)</span> is defined as:</p>
+The <em>cross-entropy</em> between a &#8220;true&#8221; distribution <span class="math">\(p\)</span> and an estimated distribution <span class="math">\(q\)</span> is defined&nbsp;as:</p>
 <div class="math">
 \begin{equation*}
 H(p,q) = - \sum_x p(x) \log q(x)
 \end{equation*}
 </div>
 <p>The Softmax classifier is hence minimizing the cross-entropy between the estimated class probabilities ( <span class="math">\(q = e^{f_{y_i}}  / \sum_j e^{f_j}\)</span> as seen above)
-and the "true" distribution, which in this interpretation is the distribution where all probability mass is on the correct class (i.e. <span class="math">\(p=[0,\ldots 1,\ldots ,0]\)</span> contains a single 1 at the <span class="math">\(y_i\)</span> -th position.).
+and the &#8220;true&#8221; distribution, which in this interpretation is the distribution where all probability mass is on the correct class (i.e. <span class="math">\(p=[0,\ldots 1,\ldots ,0]\)</span> contains a single 1 at the <span class="math">\(y_i\)</span> -th position.).
 Moreover, since the cross-entropy can be written in terms of entropy and the Kullback-Leibler divergence as <span class="math">\(H(p,q) = H(p) + D_{KL}(p||q)\)</span> ,
 and the entropy of the delta function <span class="math">\(p\)</span> is zero, this is also equivalent to minimizing the KL divergence between the two distributions (a measure of distance).
-In other words, the cross-entropy objective <em>wants</em> the predicted distribution to have all of its mass on the correct answer.</p>
-<p><strong>Probabilistic interpretation.</strong> Looking at the expression, we see that</p>
+In other words, the cross-entropy objective <em>wants</em> the predicted distribution to have all of its mass on the correct&nbsp;answer.</p>
+<p><strong>Probabilistic interpretation.</strong> Looking at the expression, we see&nbsp;that</p>
 <div class="math">
 \begin{equation*}
 P(y_i \mid x_i; W) = \frac{e^{f_{y_i}}}{\sum_j e^{f_j} }
@@ -250,10 +250,10 @@ To see this, remember that the Softmax classifier interprets the scores inside t
 Exponentiating these quantities therefore gives the (unnormalized) probabilities, and the division performs the normalization so that the probabilities sum to one.
 In the probabilistic interpretation, we are therefore minimizing the negative log likelihood of the correct class, which can be interpreted as performing <em>Maximum Likelihood Estimation</em> (MLE).
 A nice feature of this view is that we can now also interpret the regularization term <span class="math">\(R(W)\)</span> in the full loss function as coming from a Gaussian prior over the weight matrix <span class="math">\(W\)</span>,
-where instead of MLE we are performing the <em>Maximum a posteriori</em> (MAP) estimation.</p>
+where instead of MLE we are performing the <em>Maximum a posteriori</em> (MAP)&nbsp;estimation.</p>
 <p><strong>Practical issues: Numeric stability.</strong>
 When you’re writing code for computing the Softmax function in practice, the intermediate terms <span class="math">\(e^{f_{y_i}}\)</span> and <span class="math">\(\sum_j e^{f_j}\)</span> may be very large due to the exponentials.
-But if we multiply the top and bottom of the fraction by a constant <span class="math">\(C\)</span> and push it into the sum, we get the following (mathematically equivalent) expression:</p>
+But if we multiply the top and bottom of the fraction by a constant <span class="math">\(C\)</span> and push it into the sum, we get the following (mathematically equivalent)&nbsp;expression:</p>
 <div class="math">
 \begin{equation*}
 \frac{e^{f_{y_i}}}{\sum_j e^{f_j}}
@@ -264,22 +264,22 @@ But if we multiply the top and bottom of the fraction by a constant <span class=
 <p>We are free to choose the value of <span class="math">\(C\)</span>.
 This will not change any of the results, but we can use this value to improve the numerical stability of the computation.
 A common choice for <span class="math">\(C\)</span> is to set <span class="math">\(\log C = -\max_j f_j\)</span>.
-This simply states that we should shift the values inside the vector <span class="math">\(f\)</span> so that the highest value is zero.</p>
-<pre class="code python"><a name="rest_code_2623398d08bb4e30ba9df2361b6390fa-1"></a><span class="n">f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">123</span><span class="p">,</span> <span class="mi">456</span><span class="p">,</span> <span class="mi">789</span><span class="p">])</span> <span class="c1"># example with 3 classes and each having large scores</span>
-<a name="rest_code_2623398d08bb4e30ba9df2361b6390fa-2"></a><span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">f</span><span class="p">))</span> <span class="c1"># Bad: Numeric problem, potential blowup</span>
-<a name="rest_code_2623398d08bb4e30ba9df2361b6390fa-3"></a>
-<a name="rest_code_2623398d08bb4e30ba9df2361b6390fa-4"></a><span class="c1"># instead: first shift the values of f so that the highest number is 0:</span>
-<a name="rest_code_2623398d08bb4e30ba9df2361b6390fa-5"></a><span class="n">f</span> <span class="o">-=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="c1"># f becomes [-666, -333, 0]</span>
-<a name="rest_code_2623398d08bb4e30ba9df2361b6390fa-6"></a><span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">f</span><span class="p">))</span> <span class="c1"># safe to do, gives the correct answer</span>
+This simply states that we should shift the values inside the vector <span class="math">\(f\)</span> so that the highest value is&nbsp;zero.</p>
+<pre class="code python"><a name="rest_code_bec0d54f125b4f16ab0c2ccf759f3d79-1"></a><span class="n">f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">123</span><span class="p">,</span> <span class="mi">456</span><span class="p">,</span> <span class="mi">789</span><span class="p">])</span> <span class="c1"># example with 3 classes and each having large scores</span>
+<a name="rest_code_bec0d54f125b4f16ab0c2ccf759f3d79-2"></a><span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">f</span><span class="p">))</span> <span class="c1"># Bad: Numeric problem, potential blowup</span>
+<a name="rest_code_bec0d54f125b4f16ab0c2ccf759f3d79-3"></a>
+<a name="rest_code_bec0d54f125b4f16ab0c2ccf759f3d79-4"></a><span class="c1"># instead: first shift the values of f so that the highest number is 0:</span>
+<a name="rest_code_bec0d54f125b4f16ab0c2ccf759f3d79-5"></a><span class="n">f</span> <span class="o">-=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="c1"># f becomes [-666, -333, 0]</span>
+<a name="rest_code_bec0d54f125b4f16ab0c2ccf759f3d79-6"></a><span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">f</span><span class="p">))</span> <span class="c1"># safe to do, gives the correct answer</span>
 </pre>
 <p><strong>Possibly confusing naming conventions.</strong>
 To be precise, the <em>SVM classifier</em> uses the <em>hinge loss</em>, or also sometimes called the <em>max-margin loss</em>.
 The <em>Softmax classifier</em> uses the <em>cross-entropy loss</em>.</p>
 </div>
 <div class="section" id="softmax-classifier-provides-probabilities-for-each-class">
-<h2><a class="toc-backref" href="#id9">Softmax classifier provides “probabilities” for each class</a></h2>
+<h2><a class="toc-backref" href="#id9">Softmax classifier provides “probabilities” for each&nbsp;class</a></h2>
 <p>We put the word “probabilities” in quotes, however, is that how peaky or diffuse these probabilities are depends directly on the regularization strength <span class="math">\(\lambda\)</span> - which you are in charge of as input to the system.
-For example, suppose that the unnormalized log-probabilities for some three classes come out to be [1, -2, 0]. The softmax function would then compute:</p>
+For example, suppose that the unnormalized log-probabilities for some three classes come out to be [1, -2, 0]. The softmax function would then&nbsp;compute:</p>
 <div class="math">
 \begin{equation*}
 [1, -2, 0] \rightarrow [e^1, e^{-2}, e^0] = [2.71, 0.14, 1] \rightarrow [0.7, 0.04, 0.26]
@@ -287,14 +287,14 @@ For example, suppose that the unnormalized log-probabilities for some three clas
 </div>
 <p>Where the steps taken are to exponentiate and normalize to sum to one.
 Now, if the regularization strength <span class="math">\(\alpha\)</span> was higher, the weights <span class="math">\(W\)</span> would be penalized more and this would lead to smaller weights.
-For example, suppose that the weights became one half smaller ([0.5, -1, 0]). The softmax would now compute:</p>
+For example, suppose that the weights became one half smaller ([0.5, -1, 0]). The softmax would now&nbsp;compute:</p>
 <div class="math">
 \begin{equation*}
 [0.5, -1, 0] \rightarrow [e^{0.5}, e^{-1}, e^0] = [1.65, 0.37, 1] \rightarrow [0.55, 0.12, 0.33]
 \end{equation*}
 </div>
 <p>where the probabilites are now more diffuse.
-Moreover, in the limit where the weights go towards tiny numbers due to very strong regularization strength <span class="math">\(\alpha\)</span>, the output probabilities would be near uniform.</p>
+Moreover, in the limit where the weights go towards tiny numbers due to very strong regularization strength <span class="math">\(\alpha\)</span>, the output probabilities would be near&nbsp;uniform.</p>
 </div>
 </div>
     </div>

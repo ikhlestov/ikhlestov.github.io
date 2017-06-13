@@ -1,10 +1,10 @@
-<!DOCTYPE html>
 <html prefix="
 og: http://ogp.me/ns#
 article: http://ogp.me/ns/article#
 " lang="en">
 <head>
 <meta charset="utf-8">
+<base href="https://ikhlestov.github.io/pages/machine-learning/general-ml-notes/">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>General ML Notes | Illarion Khlestov Blog</title>
 <link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
@@ -80,60 +80,60 @@ Contents:
         <!--Body content-->
         <div class="row">
             
-<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">General ML Notes</a></h1>
+<article class="storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">General ML&nbsp;Notes</a></h1>
 
         
     </header><div class="e-content entry-content" itemprop="articleBody text">
     <div>
 <p>This notes based on <a class="reference external" href="http://neuralnetworksanddeeplearning.com/index.html">Neural Networks and Deep Learning</a>
-and <a class="reference external" href="https://www.coursera.org/learn/machine-learning">Coursera ML Courses</a>. They may seems to be some way unstructured, but work still in progress, so please be patient.</p>
+and <a class="reference external" href="https://www.coursera.org/learn/machine-learning">Coursera ML Courses</a>. They may seems to be some way unstructured, but work still in progress, so please be&nbsp;patient.</p>
 <div class="contents topic" id="contents">
 <p class="topic-title first">Contents:</p>
 <ul class="simple">
-<li><a class="reference internal" href="#general-approach" id="id1">Ֆ General Approach</a></li>
-<li><a class="reference internal" href="#part-i" id="id2">Ֆ Part I</a></li>
-<li><a class="reference internal" href="#part-ii" id="id3">Ֆ Part II</a></li>
+<li><a class="reference internal" href="#general-approach" id="id1">Ֆ General&nbsp;Approach</a></li>
+<li><a class="reference internal" href="#part-i" id="id2">Ֆ Part&nbsp;I</a></li>
+<li><a class="reference internal" href="#part-ii" id="id3">Ֆ Part&nbsp;II</a></li>
 <li>
 <a class="reference internal" href="#part-iii" id="id4">Ֆ Part III</a><ul>
 <li>
 <a class="reference internal" href="#regularization" id="id5">Regularization</a><ul>
-<li><a class="reference internal" href="#weight-decay-or-l2-regularization" id="id6">Weight decay or L2 regularization</a></li>
+<li><a class="reference internal" href="#weight-decay-or-l2-regularization" id="id6">Weight decay or L2&nbsp;regularization</a></li>
 </ul>
 </li>
 <li>
-<a class="reference internal" href="#how-to-choose-a-neural-network-s-hyper-parameters" id="id7">How to choose a neural network's hyper-parameters?</a><ul>
-<li><a class="reference internal" href="#broad-strategy" id="id8">Broad strategy</a></li>
+<a class="reference internal" href="#how-to-choose-a-neural-network-s-hyper-parameters" id="id7">How to choose a neural network&#8217;s hyper-parameters?</a><ul>
+<li><a class="reference internal" href="#broad-strategy" id="id8">Broad&nbsp;strategy</a></li>
 <li><a class="reference internal" href="#learning-rate" id="id9">Learning rate (<strong>η</strong>)</a></li>
-<li><a class="reference internal" href="#using-early-stopping" id="id10">Using early stopping</a></li>
-<li><a class="reference internal" href="#learning-rate-schedule" id="id11">Learning rate schedule</a></li>
-<li><a class="reference internal" href="#mini-batch-size" id="id12">Mini-batch size</a></li>
-<li><a class="reference internal" href="#automated-techniques" id="id13">Automated techniques</a></li>
-<li><a class="reference internal" href="#futher-reading" id="id14">Futher reading</a></li>
+<li><a class="reference internal" href="#using-early-stopping" id="id10">Using early&nbsp;stopping</a></li>
+<li><a class="reference internal" href="#learning-rate-schedule" id="id11">Learning rate&nbsp;schedule</a></li>
+<li><a class="reference internal" href="#mini-batch-size" id="id12">Mini-batch&nbsp;size</a></li>
+<li><a class="reference internal" href="#automated-techniques" id="id13">Automated&nbsp;techniques</a></li>
+<li><a class="reference internal" href="#futher-reading" id="id14">Futher&nbsp;reading</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#evaluation-of-algorithm" id="id15">Ֆ Evaluation of algorithm</a></li>
-<li><a class="reference internal" href="#overfiting-and-underfitting" id="id16">Ֆ Overfiting and underfitting</a></li>
+<li><a class="reference internal" href="#evaluation-of-algorithm" id="id15">Ֆ Evaluation of&nbsp;algorithm</a></li>
+<li><a class="reference internal" href="#overfiting-and-underfitting" id="id16">Ֆ Overfiting and&nbsp;underfitting</a></li>
 </ul>
 </div>
 <div class="section" id="general-approach">
-<h2><a class="toc-backref" href="#id1">Ֆ General Approach</a></h2>
+<h2><a class="toc-backref" href="#id1">Ֆ General&nbsp;Approach</a></h2>
 <ul class="simple">
-<li>Define network architecture</li>
-<li>Choose right cost function</li>
-<li>Calculate gradient descent if necessary</li>
-<li>Train, tune hyperparameters.</li>
+<li>Define network&nbsp;architecture</li>
+<li>Choose right cost&nbsp;function</li>
+<li>Calculate gradient descent if&nbsp;necessary</li>
+<li>Train, tune&nbsp;hyperparameters.</li>
 </ul>
 </div>
 <div class="section" id="part-i">
-<h2><a class="toc-backref" href="#id2">Ֆ Part I</a></h2>
+<h2><a class="toc-backref" href="#id2">Ֆ Part&nbsp;I</a></h2>
 <p>An idea of <em>stochastic gradient descent</em> is to estimate the gradient
 <span class="math">\(\nabla C\)</span> by computing <span class="math">\(\nabla Cx\)</span> for a small sample of randomly chosen training inputs,
 not for all inputs as usual <em>gradient descent</em> do.
 For this stochastic gradient descent take small number of <em>m</em> randomly chosen training inputs.
-We'll label those random training inputs <span class="math">\(X1,X2,\ldots  ,Xm\)</span> and refer to them as a <em>mini-batch</em>.
-So now gradinet can be computed as:</p>
+We&#8217;ll label those random training inputs <span class="math">\(X1,X2,\ldots  ,Xm\)</span> and refer to them as a <em>mini-batch</em>.
+So now gradinet can be computed&nbsp;as:</p>
 <div class="math">
 \begin{equation*}
 \nabla C \approx \frac{1}{m}\sum_{j=1}^m \nabla C_{X_j}
@@ -141,34 +141,34 @@ So now gradinet can be computed as:</p>
 </div>
 </div>
 <div class="section" id="part-ii">
-<h2><a class="toc-backref" href="#id3">Ֆ Part II</a></h2>
-<img alt="/images/ML_notes/weights_notation.png" src="../../../images/ML_notes/weights_notation.png"><p>image from <a class="reference external" href="http://neuralnetworksanddeeplearning.com/chap2.html">this book</a></p>
+<h2><a class="toc-backref" href="#id3">Ֆ Part&nbsp;II</a></h2>
+<img alt="/images/ML_notes/weights_notation.png" src="../../../images/ML_notes/weights_notation.png"><p>image from <a class="reference external" href="http://neuralnetworksanddeeplearning.com/chap2.html">this&nbsp;book</a></p>
 <p><em>Elementwise</em> product of the two vectors denoted as <span class="math">\(s \odot t\)</span> and can be called sometimes <em>Hadamard product</em> or <em>Schur product</em>.
-Her is an example:</p>
+Her is an&nbsp;example:</p>
 <div class="math">
 \begin{equation*}
-\left[\begin{array}{c} 1 \\\ 2 \end{array}\right]
-  \odot \left[\begin{array}{c} 3 \\\ 4\end{array} \right]
-= \left[ \begin{array}{c} 1 * 3 \\\ 2 * 4 \end{array} \right]
-= \left[ \begin{array}{c} 3 \\\ 8 \end{array} \right]
+\left[\begin{array}{c} 1 &#92;\ 2 \end{array}\right]
+  \odot \left[\begin{array}{c} 3 &#92;\ 4\end{array} \right]
+= \left[ \begin{array}{c} 1 * 3 &#92;\ 2 * 4 \end{array} \right]
+= \left[ \begin{array}{c} 3 &#92;\ 8 \end{array} \right]
 \end{equation*}
 </div>
-<p>In tensorflow you should distinguish usual matrix multiplication and hadamard product</p>
-<pre class="code python"><a name="rest_code_54f01ee694324beaab5a30433a649d2b-1"></a><span class="c1"># W, Q - some matrices</span>
-<a name="rest_code_54f01ee694324beaab5a30433a649d2b-2"></a>
-<a name="rest_code_54f01ee694324beaab5a30433a649d2b-3"></a><span class="c1"># matrix multiplication</span>
-<a name="rest_code_54f01ee694324beaab5a30433a649d2b-4"></a><span class="n">res</span> <span class="o">=</span> <span class="n">math_ops</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="n">Q</span><span class="p">)</span>
-<a name="rest_code_54f01ee694324beaab5a30433a649d2b-5"></a>
-<a name="rest_code_54f01ee694324beaab5a30433a649d2b-6"></a><span class="c1"># hadamard product</span>
-<a name="rest_code_54f01ee694324beaab5a30433a649d2b-7"></a><span class="n">res</span> <span class="o">=</span> <span class="n">W</span> <span class="o">*</span> <span class="n">Q</span>
+<p>In tensorflow you should distinguish usual matrix multiplication and hadamard&nbsp;product</p>
+<pre class="code python"><a name="rest_code_33b1653b714641aebe22fbf004b47bf0-1"></a><span class="c1"># W, Q - some matrices</span>
+<a name="rest_code_33b1653b714641aebe22fbf004b47bf0-2"></a>
+<a name="rest_code_33b1653b714641aebe22fbf004b47bf0-3"></a><span class="c1"># matrix multiplication</span>
+<a name="rest_code_33b1653b714641aebe22fbf004b47bf0-4"></a><span class="n">res</span> <span class="o">=</span> <span class="n">math_ops</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="n">Q</span><span class="p">)</span>
+<a name="rest_code_33b1653b714641aebe22fbf004b47bf0-5"></a>
+<a name="rest_code_33b1653b714641aebe22fbf004b47bf0-6"></a><span class="c1"># hadamard product</span>
+<a name="rest_code_33b1653b714641aebe22fbf004b47bf0-7"></a><span class="n">res</span> <span class="o">=</span> <span class="n">W</span> <span class="o">*</span> <span class="n">Q</span>
 </pre>
 </div>
 <div class="section" id="part-iii">
-<h2><a class="toc-backref" href="#id4">Ֆ Part III</a></h2>
+<h2><a class="toc-backref" href="#id4">Ֆ Part&nbsp;III</a></h2>
 <div class="section" id="regularization">
 <h3><a class="toc-backref" href="#id5">Regularization</a></h3>
 <div class="section" id="weight-decay-or-l2-regularization">
-<h4><a class="toc-backref" href="#id6">Weight decay or L2 regularization</a></h4>
+<h4><a class="toc-backref" href="#id6">Weight decay or L2&nbsp;regularization</a></h4>
 <p>The idea of L2 regularization is to add an extra term to the cost function, a term called the <em>regularization term</em>.</p>
 <div class="math">
 \begin{equation*}
@@ -179,74 +179,74 @@ C = C_0 + \frac{\lambda}{2n} \sum_w w^2
 (namely the sum of the squares of all the weights in the network).
 This is scaled by a factor <span class="math">\(\frac{\lambda}{2n}\)</span>, where <span class="math">\(\lambda &gt; 0\)</span> is
 known as <em>regularization parameter</em>, and <span class="math">\(n\)</span> is, as ususal, the size of our
-training set.</p>
+training&nbsp;set.</p>
 <p><em>Weight decay</em> factor - <span class="math">\(1-\frac{\eta\lambda}{n}\)</span>.
 So during training on larger dataset we should change <span class="math">\(\lambda\)</span> with respect
-to learning rate and size of training set.</p>
+to learning rate and size of training&nbsp;set.</p>
 </div>
 </div>
 <div class="section" id="how-to-choose-a-neural-network-s-hyper-parameters">
-<h3><a class="toc-backref" href="#id7">How to choose a neural network's hyper-parameters?</a></h3>
+<h3><a class="toc-backref" href="#id7">How to choose a neural network&#8217;s&nbsp;hyper-parameters?</a></h3>
 <div class="section" id="broad-strategy">
-<h4><a class="toc-backref" href="#id8">Broad strategy</a></h4>
+<h4><a class="toc-backref" href="#id8">Broad&nbsp;strategy</a></h4>
 <ul class="simple">
-<li>Simplify the model</li>
-<li>Reduce classification classes</li>
-<li>Reduce training/validation data</li>
-<li>Increase frequency of monitoring</li>
-<li>With such updates you may try to find required hyper-parameters very fast</li>
+<li>Simplify the&nbsp;model</li>
+<li>Reduce classification&nbsp;classes</li>
+<li>Reduce training/validation&nbsp;data</li>
+<li>Increase frequency of&nbsp;monitoring</li>
+<li>With such updates you may try to find required hyper-parameters very&nbsp;fast</li>
 </ul>
 </div>
 <div class="section" id="learning-rate">
 <h4><a class="toc-backref" href="#id9">Learning rate (<strong>η</strong>)</a></h4>
 <ul class="simple">
-<li>Estimate the threshold value for <strong>η</strong> at which the cost on the training data immediately begins decreasing, instead of oscillating or increasing.</li>
-<li>After you likely want to use value of <strong>η</strong> that is smaller, say, a factor of two bellow the threshold.</li>
+<li>Estimate the threshold value for <strong>η</strong> at which the cost on the training data immediately begins decreasing, instead of oscillating or&nbsp;increasing.</li>
+<li>After you likely want to use value of <strong>η</strong> that is smaller, say, a factor of two bellow the&nbsp;threshold.</li>
 </ul>
 </div>
 <div class="section" id="using-early-stopping">
-<h4><a class="toc-backref" href="#id10">Using early stopping</a></h4>
-<p>A better rule is to terminate if the best classification accuracy doesn't improve for quite some time.
-For example we might elect to terminate if the classification accuracy hasn't improved during the last ten epochs.</p>
+<h4><a class="toc-backref" href="#id10">Using early&nbsp;stopping</a></h4>
+<p>A better rule is to terminate if the best classification accuracy doesn&#8217;t improve for quite some time.
+For example we might elect to terminate if the classification accuracy hasn&#8217;t improved during the last ten&nbsp;epochs.</p>
 </div>
 <div class="section" id="learning-rate-schedule">
-<h4><a class="toc-backref" href="#id11">Learning rate schedule</a></h4>
-<p>We need choose when learning rate should be decreased and by what rule. Some of existing rules are:</p>
+<h4><a class="toc-backref" href="#id11">Learning rate&nbsp;schedule</a></h4>
+<p>We need choose when learning rate should be decreased and by what rule. Some of existing rules&nbsp;are:</p>
 <ul class="simple">
 <li>
-<strong>Step decay</strong> - reduce learning rate by some factor.</li>
+<strong>Step decay</strong> - reduce learning rate by some&nbsp;factor.</li>
 <li>
-<strong>Exponental decay</strong> - <span class="math">\(\alpha = \alpha_0 e^{-k t}\)</span>, where <span class="math">\(\alpha_0, k\)</span> are hyperparameters and <span class="math">\(t\)</span> is the iteration number (but you can also use units of epochs).</li>
+<strong>Exponental decay</strong> - <span class="math">\(\alpha = \alpha_0 e^{-k t}\)</span>, where <span class="math">\(\alpha_0, k\)</span> are hyperparameters and <span class="math">\(t\)</span> is the iteration number (but you can also use units of&nbsp;epochs).</li>
 <li>
-<strong>1/t decay</strong> - <span class="math">\(\alpha = \alpha_0 / (1 + k t )\)</span>, where <span class="math">\(\alpha_0, k\)</span> are hyperparameters and <span class="math">\(t\)</span> is the iteration number.</li>
+<strong>1/t decay</strong> - <span class="math">\(\alpha = \alpha_0 / (1 + k t )\)</span>, where <span class="math">\(\alpha_0, k\)</span> are hyperparameters and <span class="math">\(t\)</span> is the iteration&nbsp;number.</li>
 </ul>
 <p>Also you may checked <a class="reference external" href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/training/learning_rate_decay.py">predefined learning schedules at tensorflow</a>.
-But prior to use learning rate schedule it's better to get best performed model with fixed learning rate.</p>
+But prior to use learning rate schedule it&#8217;s better to get best performed model with fixed learning&nbsp;rate.</p>
 </div>
 <div class="section" id="mini-batch-size">
-<h4><a class="toc-backref" href="#id12">Mini-batch size</a></h4>
-<p>Wights updates for online learning can be declarated as:</p>
+<h4><a class="toc-backref" href="#id12">Mini-batch&nbsp;size</a></h4>
+<p>Wights updates for online learning can be declarated&nbsp;as:</p>
 <div class="math">
 \begin{equation*}
-w \rightarrow w' = w-\eta \nabla C_x
+w \rightarrow w&#8217; = w-\eta \nabla C_x
 \end{equation*}
 </div>
-<p>For case of mini-batch of size 100 we get:</p>
+<p>For case of mini-batch of size 100 we&nbsp;get:</p>
 <div class="math">
 \begin{equation*}
-w \rightarrow w' = w-\eta \frac{1}{100} \sum_x \nabla C_x
+w \rightarrow w&#8217; = w-\eta \frac{1}{100} \sum_x \nabla C_x
 \end{equation*}
 </div>
-<p>With this we may increase learning rate by a factor 100 and updated rules become:</p>
+<p>With this we may increase learning rate by a factor 100 and updated rules&nbsp;become:</p>
 <div class="math">
 \begin{equation*}
-w \rightarrow w' = w-\eta \sum_x \nabla C_x
+w \rightarrow w&#8217; = w-\eta \sum_x \nabla C_x
 \end{equation*}
 </div>
-<p>With choosing mini-batch size we shouldn't update any others hyper-parameters, only learning rate should be checked. After we may try different mini-batches sizes, scaling learning rate as required and choose what validation accuracy updates faster at real time(not related to epochs) in order to maximize our model overall speed.</p>
+<p>With choosing mini-batch size we shouldn&#8217;t update any others hyper-parameters, only learning rate should be checked. After we may try different mini-batches sizes, scaling learning rate as required and choose what validation accuracy updates faster at real time(not related to epochs) in order to maximize our model overall&nbsp;speed.</p>
 </div>
 <div class="section" id="automated-techniques">
-<h4><a class="toc-backref" href="#id13">Automated techniques</a></h4>
+<h4><a class="toc-backref" href="#id13">Automated&nbsp;techniques</a></h4>
 <p>For automated hyper-parameters choose we can use
 <a class="reference external" href="http://www.jmlr.org/papers/volume13/bergstra12a/bergstra12a.pdf">grid search</a>
 or something like
@@ -254,24 +254,24 @@ or something like
 (<a class="reference external" href="https://github.com/jaberg/hyperopt">source code</a>)</p>
 </div>
 <div class="section" id="futher-reading">
-<h4><a class="toc-backref" href="#id14">Futher reading</a></h4>
+<h4><a class="toc-backref" href="#id14">Futher&nbsp;reading</a></h4>
 <ul class="simple">
-<li><a class="reference external" href="https://arxiv.org/pdf/1206.5533v2.pdf">Practical recommendations for gradient-based training of deep architectures</a></li>
-<li><a class="reference external" href="http://yann.lecun.com/exdb/publis/pdf/lecun-98b.pdf">Efficient BackProp</a></li>
+<li><a class="reference external" href="https://arxiv.org/pdf/1206.5533v2.pdf">Practical recommendations for gradient-based training of deep&nbsp;architectures</a></li>
+<li><a class="reference external" href="http://yann.lecun.com/exdb/publis/pdf/lecun-98b.pdf">Efficient&nbsp;BackProp</a></li>
 <li>
-<a class="reference external" href="http://www.springer.com/gp/book/9783642352881">Neural Networks: Tricks of the Trade</a> (you may try not to use hwole book, but search for some articles from its authors)</li>
+<a class="reference external" href="http://www.springer.com/gp/book/9783642352881">Neural Networks: Tricks of the Trade</a> (you may try not to use hwole book, but search for some articles from its&nbsp;authors)</li>
 </ul>
 </div>
 </div>
 </div>
 <div class="section" id="evaluation-of-algorithm">
-<h2><a class="toc-backref" href="#id15">Ֆ Evaluation of algorithm</a></h2>
-<p>What we should do:</p>
+<h2><a class="toc-backref" href="#id15">Ֆ Evaluation of&nbsp;algorithm</a></h2>
+<p>What we should&nbsp;do:</p>
 <ol class="arabic simple">
-<li>Split the dataset into three portions: train set, validate set and test set, in a proportion 3:1:1.</li>
-<li>When the number of examples <em>m</em> increase, the cost <span class="math">\({J_{test}}\)</span> increases, while <span class="math">\({J_{val}}\)</span> decrease. When <em>m</em> is very large, if <span class="math">\({J_{test}}\)</span> is about equal to <span class="math">\({J_{val}}\)</span> the algorithm may suffer from large bias(underfiting), while if there is a gap between <span class="math">\({J_{test}}\)</span> and <span class="math">\({J_{val}}\)</span> the algorithm may suffer from large variance(overfitting).</li>
-<li>To solve the problem of large bias, you may decrease <span class="math">\({\rm{\lambda }}\)</span> in regularization, while increase it for the problem of large variance.</li>
-<li>To evaluate the performance of a classification algorithm, we can use the value: precision, recall and F1.</li>
+<li>Split the dataset into three portions: train set, validate set and test set, in a proportion&nbsp;3:1:1.</li>
+<li>When the number of examples <em>m</em> increase, the cost <span class="math">\({J_{test}}\)</span> increases, while <span class="math">\({J_{val}}\)</span> decrease. When <em>m</em> is very large, if <span class="math">\({J_{test}}\)</span> is about equal to <span class="math">\({J_{val}}\)</span> the algorithm may suffer from large bias(underfiting), while if there is a gap between <span class="math">\({J_{test}}\)</span> and <span class="math">\({J_{val}}\)</span> the algorithm may suffer from large&nbsp;variance(overfitting).</li>
+<li>To solve the problem of large bias, you may decrease <span class="math">\({\rm{\lambda }}\)</span> in regularization, while increase it for the problem of large&nbsp;variance.</li>
+<li>To evaluate the performance of a classification algorithm, we can use the value: precision, recall and&nbsp;F1.</li>
 </ol>
 <p>Precision:</p>
 <div class="math">
@@ -293,11 +293,11 @@ or something like
 </div>
 </div>
 <div class="section" id="overfiting-and-underfitting">
-<h2><a class="toc-backref" href="#id16">Ֆ Overfiting and underfitting</a></h2>
+<h2><a class="toc-backref" href="#id16">Ֆ Overfiting and&nbsp;underfitting</a></h2>
 <p>High <strong>bias</strong> is <strong>underfitting</strong> and high <strong>variance</strong> is <strong>overfitting</strong>.</p>
 <p>For understanding what exactly mean <em>Bias</em> and <em>Variance</em> you may check <a class="reference external" href="http://scott.fortmann-roe.com/docs/BiasVariance.html">this</a>
 or <a class="reference external" href="http://machinelearningmastery.com/gentle-introduction-to-the-bias-variance-trade-off-in-machine-learning/">this</a>
-cool articles.</p>
+cool&nbsp;articles.</p>
 <p>Next notes based on awesome Andre Ng <a class="reference external" href="https://www.youtube.com/watch?v=F1ka6a13S9I">lecture</a></p>
 <p>During training as usual you split your data on train, validation and test sets.
 <em>Note:</em> You should keep your validation/test data the same for model you want to compare.
@@ -306,21 +306,21 @@ In this case difference between <em>human error</em> (how human perform such tas
 On the other hand, difference between <em>train error</em> and <em>validation error</em> will be <strong>variance</strong>.</p>
 <object data="../../../images/ML_notes/bias_variance_explanation_1.svg" style="width: 320px; height: 120px;" type="image/svg+xml">
 bias_variance_explanation_1</object>
-<p>In such case you should consider this methods</p>
+<p>In such case you should consider this&nbsp;methods</p>
 <object data="../../../images/ML_notes/bias_variance_workflow_1.svg" style="width: 443px; height: 402px;" type="image/svg+xml">
 bias_variance_workflow_1</object>
-<p>Solutions inside blue boxes should be applied as first approach.</p>
+<p>Solutions inside blue boxes should be applied as first&nbsp;approach.</p>
 <p>But sometimes you may have a lot of data from one domain, but test data comes from another.
 In this case validation and test data should be from the same domain.
 Also you may consider get validation data also from large domain.
 But it should be additional validation(say <em>train-valid</em>).
-Let's see an example.</p>
+Let&#8217;s see an&nbsp;example.</p>
 <object data="../../../images/ML_notes/data_spliting_in_domains.svg" style="width: 473px; height: 93px;" type="image/svg+xml">
 data_spliting_in_domains</object>
-<p>In this case we receive another correlation between errors:</p>
+<p>In this case we receive another correlation between&nbsp;errors:</p>
 <object data="../../../images/ML_notes/bias_variance_explanation_2.svg" style="width: 453px; height: 166px;" type="image/svg+xml">
 bias_variance_explanation_2</object>
-<p>And solution algorithm will be a little bit more longer:</p>
+<p>And solution algorithm will be a little bit more&nbsp;longer:</p>
 <object data="../../../images/ML_notes/bias_variance_workflow_2.svg" style="width: 443px; height: 675px;" type="image/svg+xml">
 bias_variance_workflow_2</object>
 </div>
