@@ -11,3 +11,4 @@ _site/
 cache/
 output/
 state_data.json
+.idea/
