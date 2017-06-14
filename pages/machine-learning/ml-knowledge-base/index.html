@@ -1,10 +1,10 @@
+<!DOCTYPE html>
 <html prefix="
 og: http://ogp.me/ns#
 article: http://ogp.me/ns/article#
 " lang="en">
 <head>
 <meta charset="utf-8">
-<base href="https://ikhlestov.github.io/pages/machine-learning/ml-knowledge-base/">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ML Knowledge Base | Illarion Khlestov Blog</title>
 <link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
@@ -86,7 +86,7 @@ Allow us add som">
         <!--Body content-->
         <div class="row">
             
-<article class="storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">ML Knowledge&nbsp;Base</a></h1>
+<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">ML Knowledge Base</a></h1>
 
         
     </header><div class="e-content entry-content" itemprop="articleBody text">
@@ -94,68 +94,68 @@ Allow us add som">
 <div class="contents topic" id="contents">
 <p class="topic-title first">Contents:</p>
 <ul class="simple">
-<li><a class="reference internal" href="#activation-functions" id="id1">Activation&nbsp;Functions</a></li>
-<li><a class="reference internal" href="#cost-functions" id="id2">Cost&nbsp;Functions</a></li>
-<li><a class="reference internal" href="#regularization-approaches" id="id3">Regularization&nbsp;approaches</a></li>
-<li><a class="reference internal" href="#evaluation-metrics" id="id4">Evaluation&nbsp;metrics</a></li>
+<li><a class="reference internal" href="#activation-functions" id="id1">Activation Functions</a></li>
+<li><a class="reference internal" href="#cost-functions" id="id2">Cost Functions</a></li>
+<li><a class="reference internal" href="#regularization-approaches" id="id3">Regularization approaches</a></li>
+<li><a class="reference internal" href="#evaluation-metrics" id="id4">Evaluation metrics</a></li>
 </ul>
 </div>
 <div class="section" id="activation-functions">
-<h2><a class="toc-backref" href="#id1">Activation&nbsp;Functions</a></h2>
-<p># TODO: add why they different and what types better for what&nbsp;tasks</p>
+<h2><a class="toc-backref" href="#id1">Activation Functions</a></h2>
+<p># TODO: add why they different and what types better for what tasks</p>
 <p>Allow us add some nonlinearity to the model and to produce a non-linear decision boundary.
-So the combination of weights coefficients will not &#8220;generalized&#8221; to linear model.
+So the combination of weights coefficients will not "generalized" to linear model.
 More about another types of activations you may read <a class="reference external" href="https://en.wikipedia.org/wiki/Activation_function">here</a>.</p>
 <dl class="docutils">
 <dt>Sigmoid function (or <em>logistic function</em>)</dt>
 <dd>
-<p class="first"><span class="math">\(\sigma(z) = \frac{1}{1 +&nbsp;e^{-z}}\)</span></p>
+<p class="first"><span class="math">\(\sigma(z) = \frac{1}{1 + e^{-z}}\)</span></p>
 <p>Properties: <span class="math">\(\sigma(\infty)\approx 1\)</span>, <span class="math">\(\sigma(-\infty)\approx 0\)</span>,
 but note, that <span class="math">\(\sigma(0)=1\)</span>.</p>
 <p>Note: <em>sigmoid function</em> (<span class="math">\(\sigma\)</span>) == <em>logistic function</em>
 so <em>sigmoid neurons</em> can be called as <em>logistic neurons</em>.</p>
 <p class="last">Generate probability for discrete classification tasks in which each class is
 independent and not mutually exclusive.
-For instance a picture can contain both an elephant and a dog at the same&nbsp;time.</p>
+For instance a picture can contain both an elephant and a dog at the same time.</p>
 </dd>
-<dt>Softmax&nbsp;function</dt>
+<dt>Softmax function</dt>
 <dd>
-<p class="first"><span class="math">\(a^L_j = \frac{e^{z^L_j}}{\sum_k&nbsp;e^{z^L_k}}\)</span></p>
-<p>The output activations from softmax are guaranteed to always sum up to&nbsp;1.</p>
+<p class="first"><span class="math">\(a^L_j = \frac{e^{z^L_j}}{\sum_k e^{z^L_k}}\)</span></p>
+<p>The output activations from softmax are guaranteed to always sum up to 1.</p>
 <p class="last">Generate probability for discrete classification tasks in which the classes
 are mutually exclusive (each entry is in exactly one class).
-For instance a picture can contain elephant or dog, not&nbsp;both.</p>
+For instance a picture can contain elephant or dog, not both.</p>
 </dd>
 </dl>
 </div>
 <div class="section" id="cost-functions">
-<h2><a class="toc-backref" href="#id2">Cost&nbsp;Functions</a></h2>
-<p>Note that cost function should be non&nbsp;negative!</p>
+<h2><a class="toc-backref" href="#id2">Cost Functions</a></h2>
+<p>Note that cost function should be non negative!</p>
 <p>Cost function also can be called as <em>loss function</em> or <em>objective function</em>.</p>
 <dl class="docutils">
-<dt>Quadratic cost&nbsp;function</dt>
+<dt>Quadratic cost function</dt>
 <dd>
-<p class="first"><span class="math">\(C = \frac{1}{2n}\sum_{n}(y -&nbsp;a)^2\)</span></p>
+<p class="first"><span class="math">\(C = \frac{1}{2n}\sum_{n}(y - a)^2\)</span></p>
 <ul class="simple">
 <li>
-<span class="math">\(y\)</span> - the target&nbsp;output</li>
+<span class="math">\(y\)</span> - the target output</li>
 <li>
-<span class="math">\(a\)</span> - the network&nbsp;output</li>
+<span class="math">\(a\)</span> - the network output</li>
 <li>
-<span class="math">\(n\)</span> - the total number of training&nbsp;inputs</li>
+<span class="math">\(n\)</span> - the total number of training inputs</li>
 </ul>
 <p class="last">Can be called as <em>mean squared error</em>, or just <em>MSE</em>.</p>
 </dd>
-<dt>Cross-entropy cost&nbsp;function</dt>
+<dt>Cross-entropy cost function</dt>
 <dd>
-<p class="first"><span class="math">\(C = -\frac{1}{n} \sum_x \left[y_t \ln y_o + (1-y_t ) \ln (1-y_o)&nbsp;\right]\)</span></p>
+<p class="first"><span class="math">\(C = -\frac{1}{n} \sum_x \left[y_t \ln y_o + (1-y_t ) \ln (1-y_o) \right]\)</span></p>
 <ul class="last simple">
 <li>
-<span class="math">\(n\)</span> - the total number of items of training&nbsp;data</li>
+<span class="math">\(n\)</span> - the total number of items of training data</li>
 <li>
-<span class="math">\(x\)</span> - the sum is over all training&nbsp;inputs</li>
+<span class="math">\(x\)</span> - the sum is over all training inputs</li>
 <li>
-<span class="math">\(y_t\)</span> - corresponding target&nbsp;output</li>
+<span class="math">\(y_t\)</span> - corresponding target output</li>
 <li>
 <span class="math">\(y_o\)</span> - the network output(predicted values). Can be replaced with <span class="math">\(a\)</span>.</li>
 </ul>
@@ -163,19 +163,19 @@ For instance a picture can contain elephant or dog, not&nbsp;both.</p>
 </dl>
 </div>
 <div class="section" id="regularization-approaches">
-<h2><a class="toc-backref" href="#id3">Regularization&nbsp;approaches</a></h2>
+<h2><a class="toc-backref" href="#id3">Regularization approaches</a></h2>
 <dl class="docutils">
-<dt>L1&nbsp;regularization</dt>
-<dd>to be&nbsp;filled</dd>
-<dt>L2&nbsp;regularization</dt>
-<dd>to be&nbsp;filled</dd>
+<dt>L1 regularization</dt>
+<dd>to be filled</dd>
+<dt>L2 regularization</dt>
+<dd>to be filled</dd>
 <dt>Dropout</dt>
-<dd>to be&nbsp;filled</dd>
+<dd>to be filled</dd>
 </dl>
 </div>
 <div class="section" id="evaluation-metrics">
-<h2><a class="toc-backref" href="#id4">Evaluation&nbsp;metrics</a></h2>
-<p>to be&nbsp;filled</p>
+<h2><a class="toc-backref" href="#id4">Evaluation metrics</a></h2>
+<p>to be filled</p>
 </div>
 </div>
     </div>

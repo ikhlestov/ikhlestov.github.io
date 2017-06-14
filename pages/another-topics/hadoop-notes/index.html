@@ -1,10 +1,10 @@
+<!DOCTYPE html>
 <html prefix="
 og: http://ogp.me/ns#
 article: http://ogp.me/ns/article#
 " lang="en">
 <head>
 <meta charset="utf-8">
-<base href="https://ikhlestov.github.io/pages/another-topics/hadoop-notes/">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Hadoop notes | Illarion Khlestov Blog</title>
 <link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
@@ -19,13 +19,13 @@ MathJax.Hub.Config({
 <meta property="og:site_name" content="Illarion Khlestov Blog">
 <meta property="og:title" content="Hadoop notes">
 <meta property="og:url" content="https://ikhlestov.github.io/pages/another-topics/hadoop-notes/">
-<meta property="og:description" content="hadoop_notes.sh
+<meta property="og:description" content="hadoop_notes.sh  (Source)
 # hadoop was setup with this tutorial
 # http://thepowerofdata.io/setting-up-a-apache-hadoop-2-7-single-node-on-ubuntu-14-04/
 # to start
 $ start-dfs.sh
 $ start-yarn.sh
-# to check all is">
+# to ch">
 <meta property="og:type" content="article">
 <meta property="article:published_time" content="2016-06-26T00:01:02Z">
 <meta property="article:tag" content="hadoop">
@@ -83,43 +83,43 @@ $ start-yarn.sh
         <!--Body content-->
         <div class="row">
             
-<article class="storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Hadoop&nbsp;notes</a></h1>
+<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Hadoop notes</a></h1>
 
         
     </header><div class="e-content entry-content" itemprop="articleBody text">
     <div>
-<p><a class="reference external" href="../../../listings/hadoop_notes.sh.html">hadoop_notes.sh</a></p>
-<pre class="code bash"><a name="rest_code_3f42dbe4166e4d519e9afd038b76419b-1"></a><span class="c1"># hadoop was setup with this tutorial</span>
-<a name="rest_code_3f42dbe4166e4d519e9afd038b76419b-2"></a><span class="c1"># http://thepowerofdata.io/setting-up-a-apache-hadoop-2-7-single-node-on-ubuntu-14-04/</span>
-<a name="rest_code_3f42dbe4166e4d519e9afd038b76419b-3"></a><span class="c1"># to start</span>
-<a name="rest_code_3f42dbe4166e4d519e9afd038b76419b-4"></a>$ start-dfs.sh
-<a name="rest_code_3f42dbe4166e4d519e9afd038b76419b-5"></a>$ start-yarn.sh
-<a name="rest_code_3f42dbe4166e4d519e9afd038b76419b-6"></a><span class="c1"># to check all is running</span>
-<a name="rest_code_3f42dbe4166e4d519e9afd038b76419b-7"></a>$ jps
-<a name="rest_code_3f42dbe4166e4d519e9afd038b76419b-8"></a><span class="c1"># to stop</span>
-<a name="rest_code_3f42dbe4166e4d519e9afd038b76419b-9"></a>
-<a name="rest_code_3f42dbe4166e4d519e9afd038b76419b-10"></a><span class="c1"># do something with the file</span>
-<a name="rest_code_3f42dbe4166e4d519e9afd038b76419b-11"></a>$ hadoop fs -ls /
-<a name="rest_code_3f42dbe4166e4d519e9afd038b76419b-12"></a><span class="c1"># move file to HDFS</span>
-<a name="rest_code_3f42dbe4166e4d519e9afd038b76419b-13"></a>$ hadoop fs -put filename.txt
-<a name="rest_code_3f42dbe4166e4d519e9afd038b76419b-14"></a><span class="c1"># remove file</span>
-<a name="rest_code_3f42dbe4166e4d519e9afd038b76419b-15"></a>$ hadoop fs -rm filename.txt
-<a name="rest_code_3f42dbe4166e4d519e9afd038b76419b-16"></a><span class="c1"># create dir</span>
-<a name="rest_code_3f42dbe4166e4d519e9afd038b76419b-17"></a>$ hadoop fs -mkdir /dirname
-<a name="rest_code_3f42dbe4166e4d519e9afd038b76419b-18"></a><span class="c1"># copy file to dir</span>
-<a name="rest_code_3f42dbe4166e4d519e9afd038b76419b-19"></a>$ hadoop fs -put filename.txt /dirname
-<a name="rest_code_3f42dbe4166e4d519e9afd038b76419b-20"></a><span class="c1"># get to the local disk</span>
-<a name="rest_code_3f42dbe4166e4d519e9afd038b76419b-21"></a>$ hadoop fs -get out_file local_filename
-<a name="rest_code_3f42dbe4166e4d519e9afd038b76419b-22"></a><span class="c1"># remove folder</span>
-<a name="rest_code_3f42dbe4166e4d519e9afd038b76419b-23"></a>$ hadoop fs -rmr /dirname
-<a name="rest_code_3f42dbe4166e4d519e9afd038b76419b-24"></a>
-<a name="rest_code_3f42dbe4166e4d519e9afd038b76419b-25"></a><span class="c1"># run the command (output folder should not exist!)</span>
-<a name="rest_code_3f42dbe4166e4d519e9afd038b76419b-26"></a>$ hadoop jar /usr/local/lib/hadoop-2.7.0/share/hadoop/tools/lib/hadoop-streaming-2.7.0.jar -mapper mapper.py -reducer reducer.py -file mapper.py -file reducer.py -input /myinput -output /joboutput
-<a name="rest_code_3f42dbe4166e4d519e9afd038b76419b-27"></a>
-<a name="rest_code_3f42dbe4166e4d519e9afd038b76419b-28"></a><span class="c1"># generate test file</span>
-<a name="rest_code_3f42dbe4166e4d519e9afd038b76419b-29"></a>$ head -50 hadoop_data/purchases.txt &gt; test_file
-<a name="rest_code_3f42dbe4166e4d519e9afd038b76419b-30"></a><span class="c1"># testing whole line</span>
-<a name="rest_code_3f42dbe4166e4d519e9afd038b76419b-31"></a>$ cat test_file <span class="p">|</span> ./mapper.py <span class="p">|</span> sort <span class="p">|</span> ./reducer.py
+<p><a class="reference external" href="../../../listings/hadoop_notes.sh.html">hadoop_notes.sh</a>  <a class="reference external" href="../../../listings/hadoop_notes.sh">(Source)</a></p>
+<pre class="code bash"><a name="rest_code_3ae8993d3e9b4313890b39e1487d7be4-1"></a><span class="c1"># hadoop was setup with this tutorial</span>
+<a name="rest_code_3ae8993d3e9b4313890b39e1487d7be4-2"></a><span class="c1"># http://thepowerofdata.io/setting-up-a-apache-hadoop-2-7-single-node-on-ubuntu-14-04/</span>
+<a name="rest_code_3ae8993d3e9b4313890b39e1487d7be4-3"></a><span class="c1"># to start</span>
+<a name="rest_code_3ae8993d3e9b4313890b39e1487d7be4-4"></a>$ start-dfs.sh
+<a name="rest_code_3ae8993d3e9b4313890b39e1487d7be4-5"></a>$ start-yarn.sh
+<a name="rest_code_3ae8993d3e9b4313890b39e1487d7be4-6"></a><span class="c1"># to check all is running</span>
+<a name="rest_code_3ae8993d3e9b4313890b39e1487d7be4-7"></a>$ jps
+<a name="rest_code_3ae8993d3e9b4313890b39e1487d7be4-8"></a><span class="c1"># to stop</span>
+<a name="rest_code_3ae8993d3e9b4313890b39e1487d7be4-9"></a>
+<a name="rest_code_3ae8993d3e9b4313890b39e1487d7be4-10"></a><span class="c1"># do something with the file</span>
+<a name="rest_code_3ae8993d3e9b4313890b39e1487d7be4-11"></a>$ hadoop fs -ls /
+<a name="rest_code_3ae8993d3e9b4313890b39e1487d7be4-12"></a><span class="c1"># move file to HDFS</span>
+<a name="rest_code_3ae8993d3e9b4313890b39e1487d7be4-13"></a>$ hadoop fs -put filename.txt
+<a name="rest_code_3ae8993d3e9b4313890b39e1487d7be4-14"></a><span class="c1"># remove file</span>
+<a name="rest_code_3ae8993d3e9b4313890b39e1487d7be4-15"></a>$ hadoop fs -rm filename.txt
+<a name="rest_code_3ae8993d3e9b4313890b39e1487d7be4-16"></a><span class="c1"># create dir</span>
+<a name="rest_code_3ae8993d3e9b4313890b39e1487d7be4-17"></a>$ hadoop fs -mkdir /dirname
+<a name="rest_code_3ae8993d3e9b4313890b39e1487d7be4-18"></a><span class="c1"># copy file to dir</span>
+<a name="rest_code_3ae8993d3e9b4313890b39e1487d7be4-19"></a>$ hadoop fs -put filename.txt /dirname
+<a name="rest_code_3ae8993d3e9b4313890b39e1487d7be4-20"></a><span class="c1"># get to the local disk</span>
+<a name="rest_code_3ae8993d3e9b4313890b39e1487d7be4-21"></a>$ hadoop fs -get out_file local_filename
+<a name="rest_code_3ae8993d3e9b4313890b39e1487d7be4-22"></a><span class="c1"># remove folder</span>
+<a name="rest_code_3ae8993d3e9b4313890b39e1487d7be4-23"></a>$ hadoop fs -rmr /dirname
+<a name="rest_code_3ae8993d3e9b4313890b39e1487d7be4-24"></a>
+<a name="rest_code_3ae8993d3e9b4313890b39e1487d7be4-25"></a><span class="c1"># run the command (output folder should not exist!)</span>
+<a name="rest_code_3ae8993d3e9b4313890b39e1487d7be4-26"></a>$ hadoop jar /usr/local/lib/hadoop-2.7.0/share/hadoop/tools/lib/hadoop-streaming-2.7.0.jar -mapper mapper.py -reducer reducer.py -file mapper.py -file reducer.py -input /myinput -output /joboutput
+<a name="rest_code_3ae8993d3e9b4313890b39e1487d7be4-27"></a>
+<a name="rest_code_3ae8993d3e9b4313890b39e1487d7be4-28"></a><span class="c1"># generate test file</span>
+<a name="rest_code_3ae8993d3e9b4313890b39e1487d7be4-29"></a>$ head -50 hadoop_data/purchases.txt &gt; test_file
+<a name="rest_code_3ae8993d3e9b4313890b39e1487d7be4-30"></a><span class="c1"># testing whole line</span>
+<a name="rest_code_3ae8993d3e9b4313890b39e1487d7be4-31"></a>$ cat test_file <span class="p">|</span> ./mapper.py <span class="p">|</span> sort <span class="p">|</span> ./reducer.py
 </pre>
 </div>
     </div>

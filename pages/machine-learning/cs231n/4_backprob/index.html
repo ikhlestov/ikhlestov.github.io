@@ -1,10 +1,10 @@
+<!DOCTYPE html>
 <html prefix="
 og: http://ogp.me/ns#
 article: http://ogp.me/ns/article#
 " lang="en">
 <head>
 <meta charset="utf-8">
-<base href="https://ikhlestov.github.io/pages/machine-learning/cs231n/4_backprob/">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Backpropagation | Illarion Khlestov Blog</title>
 <link href="../../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
@@ -82,7 +82,7 @@ Patterns in backw">
         <!--Body content-->
         <div class="row">
             
-<article class="storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Backpropagation</a></h1>
+<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Backpropagation</a></h1>
 
         
     </header><div class="e-content entry-content" itemprop="articleBody text">
@@ -91,37 +91,37 @@ Patterns in backw">
 <p class="topic-title first">Contents</p>
 <ul class="simple">
 <li><a class="reference internal" href="#introduction" id="id1">Introduction</a></li>
-<li><a class="reference internal" href="#simple-expressions-and-interpretation-of-the-gradient" id="id2">Simple expressions and interpretation of the&nbsp;gradient</a></li>
-<li><a class="reference internal" href="#compound-expressions-with-chain-rule" id="id3">Compound expressions with chain&nbsp;rule</a></li>
-<li><a class="reference internal" href="#modularity-sigmoid-example" id="id4">Modularity: Sigmoid&nbsp;example</a></li>
-<li><a class="reference internal" href="#backprop-in-practice-staged-computation" id="id5">Backprop in practice: Staged&nbsp;computation</a></li>
-<li><a class="reference internal" href="#patterns-in-backward-flow" id="id6">Patterns in backward&nbsp;flow</a></li>
-<li><a class="reference internal" href="#gradients-for-vectorized-operations" id="id7">Gradients for vectorized&nbsp;operations</a></li>
+<li><a class="reference internal" href="#simple-expressions-and-interpretation-of-the-gradient" id="id2">Simple expressions and interpretation of the gradient</a></li>
+<li><a class="reference internal" href="#compound-expressions-with-chain-rule" id="id3">Compound expressions with chain rule</a></li>
+<li><a class="reference internal" href="#modularity-sigmoid-example" id="id4">Modularity: Sigmoid example</a></li>
+<li><a class="reference internal" href="#backprop-in-practice-staged-computation" id="id5">Backprop in practice: Staged computation</a></li>
+<li><a class="reference internal" href="#patterns-in-backward-flow" id="id6">Patterns in backward flow</a></li>
+<li><a class="reference internal" href="#gradients-for-vectorized-operations" id="id7">Gradients for vectorized operations</a></li>
 <li><a class="reference internal" href="#references" id="id8">References</a></li>
 </ul>
 </div>
 <div class="section" id="introduction">
 <h2><a class="toc-backref" href="#id1">Introduction</a></h2>
 <p>In this section we will develop expertise with an intuitive understanding of <strong>backpropagation</strong>, which is a way of computing gradients of expressions through recursive application of <strong>chain rule</strong>.</p>
-<p>The core problem studied in this section is as follows: We are given some function <span class="math">\(f(x)\)</span> where <span class="math">\(x\)</span> is a vector of inputs and we are interested in computing the gradient of <span class="math">\(f\)</span> at <span class="math">\(x\)</span> (i.e. <span class="math">\(\nabla f(x)\)</span>&nbsp;).</p>
+<p>The core problem studied in this section is as follows: We are given some function <span class="math">\(f(x)\)</span> where <span class="math">\(x\)</span> is a vector of inputs and we are interested in computing the gradient of <span class="math">\(f\)</span> at <span class="math">\(x\)</span> (i.e. <span class="math">\(\nabla f(x)\)</span> ).</p>
 </div>
 <div class="section" id="simple-expressions-and-interpretation-of-the-gradient">
-<h2><a class="toc-backref" href="#id2">Simple expressions and interpretation of the&nbsp;gradient</a></h2>
+<h2><a class="toc-backref" href="#id2">Simple expressions and interpretation of the gradient</a></h2>
 <div class="math">
 \begin{equation*}
 f(x,y) = x y \hspace{0.5in} \rightarrow \hspace{0.5in} \frac{\partial f}{\partial x} = y \hspace{0.5in} \frac{\partial f}{\partial y} = x
 \end{equation*}
 </div>
-<p>where derivatives indicate the rate of change of a function with respect to that variable surrounding an infinitesimally small region near a particular&nbsp;point:</p>
+<p>where derivatives indicate the rate of change of a function with respect to that variable surrounding an infinitesimally small region near a particular point:</p>
 <div class="math">
 \begin{equation*}
 \frac{df(x)}{dx} = \lim_{h\ \to 0} \frac{f(x + h) - f(x)}{h}
 \end{equation*}
 </div>
 <p>A nice way to think about the expression above is that when <span class="math">\(h\)</span> is very small, then the function is well-approximated by a straight line, and the derivative is its slope.
-In other words, the derivative on each variable tells you the sensitivity of the whole expression on its&nbsp;value.</p>
+In other words, the derivative on each variable tells you the sensitivity of the whole expression on its value.</p>
 <p>As mentioned, the gradient <span class="math">\(\nabla f\)</span> is the vector of partial derivatives, so we have that <span class="math">\(\nabla f = [\frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}] = [y, x]\)</span>
-Another operations may be also be&nbsp;derived:</p>
+Another operations may be also be derived:</p>
 <div class="math">
 \begin{equation*}
 f(x,y) = x + y \hspace{0.5in} \rightarrow \hspace{0.5in} \frac{\partial f}{\partial x} = 1 \hspace{0.5in} \frac{\partial f}{\partial y} = 1
@@ -132,33 +132,33 @@ f(x,y) = x + y \hspace{0.5in} \rightarrow \hspace{0.5in} \frac{\partial f}{\part
 f(x,y) = \max(x, y) \hspace{0.5in} \rightarrow \hspace{0.5in} \frac{\partial f}{\partial x} = \mathbb{1}(x &gt;= y) \hspace{0.5in} \frac{\partial f}{\partial y} = \mathbb{1}(y &gt;= x)
 \end{equation*}
 </div>
-<p>Max function sensitive only to changing bigger&nbsp;value.</p>
+<p>Max function sensitive only to changing bigger value.</p>
 </div>
 <div class="section" id="compound-expressions-with-chain-rule">
-<h2><a class="toc-backref" href="#id3">Compound expressions with chain&nbsp;rule</a></h2>
+<h2><a class="toc-backref" href="#id3">Compound expressions with chain rule</a></h2>
 <p>Lets now start to consider more complicated expressions that involve multiple composed functions, such as <span class="math">\(f(x,y,z)=(x+y)z\)</span>.
 Note that this expression can be broken down into two expressions: <span class="math">\(q=x+y\)</span> and <span class="math">\(f=qz\)</span>.
 Moreover, we know how to compute the derivatives of both expressions separately, as seen in the previous section. <span class="math">\(f\)</span> is just multiplication of <span class="math">\(q\)</span> and <span class="math">\(z\)</span>,
 so <span class="math">\(\frac{\partial f}{\partial q} = z, \frac{\partial f}{\partial z} = q\)</span>,
 and <span class="math">\(q\)</span> is addition of <span class="math">\(x\)</span> and <span class="math">\(y\)</span> so <span class="math">\(\frac{\partial q}{\partial x} = 1, \frac{\partial q}{\partial y} = 1\)</span>.
-The <strong>chain rule</strong> tells us that the correct way to &#8220;chain&#8221; these gradient expressions together is through multiplication.
+The <strong>chain rule</strong> tells us that the correct way to "chain" these gradient expressions together is through multiplication.
 For example, <span class="math">\(\frac{\partial f}{\partial x} = \frac{\partial q}{\partial x} \frac{\partial f}{\partial q}\)</span>.
-In practice this is simply a multiplication of the two numbers that hold the two&nbsp;gradients.</p>
-<pre class="code python"><a name="rest_code_6c976196aaa9411a9f1afc3264e75bdf-1"></a><span class="c1"># set some inputs</span>
-<a name="rest_code_6c976196aaa9411a9f1afc3264e75bdf-2"></a><span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span><span class="p">;</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span> <span class="n">z</span> <span class="o">=</span> <span class="o">-</span><span class="mi">4</span>
-<a name="rest_code_6c976196aaa9411a9f1afc3264e75bdf-3"></a>
-<a name="rest_code_6c976196aaa9411a9f1afc3264e75bdf-4"></a><span class="c1"># perform the forward pass</span>
-<a name="rest_code_6c976196aaa9411a9f1afc3264e75bdf-5"></a><span class="n">q</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="c1"># q becomes 3</span>
-<a name="rest_code_6c976196aaa9411a9f1afc3264e75bdf-6"></a><span class="n">f</span> <span class="o">=</span> <span class="n">q</span> <span class="o">*</span> <span class="n">z</span> <span class="c1"># f becomes -12</span>
-<a name="rest_code_6c976196aaa9411a9f1afc3264e75bdf-7"></a>
-<a name="rest_code_6c976196aaa9411a9f1afc3264e75bdf-8"></a><span class="c1"># perform the backward pass (backpropagation) in reverse order:</span>
-<a name="rest_code_6c976196aaa9411a9f1afc3264e75bdf-9"></a><span class="c1"># first backprop through f = q * z</span>
-<a name="rest_code_6c976196aaa9411a9f1afc3264e75bdf-10"></a><span class="n">dfdz</span> <span class="o">=</span> <span class="n">q</span> <span class="o">=</span> <span class="mi">3</span>
-<a name="rest_code_6c976196aaa9411a9f1afc3264e75bdf-11"></a><span class="n">dfdq</span> <span class="o">=</span> <span class="n">z</span> <span class="o">=</span> <span class="o">-</span><span class="mi">4</span>
-<a name="rest_code_6c976196aaa9411a9f1afc3264e75bdf-12"></a>
-<a name="rest_code_6c976196aaa9411a9f1afc3264e75bdf-13"></a><span class="c1"># now backprop through q = x + y</span>
-<a name="rest_code_6c976196aaa9411a9f1afc3264e75bdf-14"></a><span class="n">dfdx</span> <span class="o">=</span> <span class="n">dqdx</span> <span class="o">*</span> <span class="n">dfdq</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">*</span> <span class="o">-</span><span class="mi">4</span> <span class="o">=</span> <span class="o">-</span><span class="mi">4</span>
-<a name="rest_code_6c976196aaa9411a9f1afc3264e75bdf-15"></a><span class="n">dfdy</span> <span class="o">=</span> <span class="n">dqdy</span> <span class="o">*</span> <span class="n">dfdq</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">*</span> <span class="o">-</span><span class="mi">4</span> <span class="o">=</span> <span class="o">-</span><span class="mi">4</span>
+In practice this is simply a multiplication of the two numbers that hold the two gradients.</p>
+<pre class="code python"><a name="rest_code_0cecf86f74bb496f8eb0454da8123d21-1"></a><span class="c1"># set some inputs</span>
+<a name="rest_code_0cecf86f74bb496f8eb0454da8123d21-2"></a><span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span><span class="p">;</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span> <span class="n">z</span> <span class="o">=</span> <span class="o">-</span><span class="mi">4</span>
+<a name="rest_code_0cecf86f74bb496f8eb0454da8123d21-3"></a>
+<a name="rest_code_0cecf86f74bb496f8eb0454da8123d21-4"></a><span class="c1"># perform the forward pass</span>
+<a name="rest_code_0cecf86f74bb496f8eb0454da8123d21-5"></a><span class="n">q</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="c1"># q becomes 3</span>
+<a name="rest_code_0cecf86f74bb496f8eb0454da8123d21-6"></a><span class="n">f</span> <span class="o">=</span> <span class="n">q</span> <span class="o">*</span> <span class="n">z</span> <span class="c1"># f becomes -12</span>
+<a name="rest_code_0cecf86f74bb496f8eb0454da8123d21-7"></a>
+<a name="rest_code_0cecf86f74bb496f8eb0454da8123d21-8"></a><span class="c1"># perform the backward pass (backpropagation) in reverse order:</span>
+<a name="rest_code_0cecf86f74bb496f8eb0454da8123d21-9"></a><span class="c1"># first backprop through f = q * z</span>
+<a name="rest_code_0cecf86f74bb496f8eb0454da8123d21-10"></a><span class="n">dfdz</span> <span class="o">=</span> <span class="n">q</span> <span class="o">=</span> <span class="mi">3</span>
+<a name="rest_code_0cecf86f74bb496f8eb0454da8123d21-11"></a><span class="n">dfdq</span> <span class="o">=</span> <span class="n">z</span> <span class="o">=</span> <span class="o">-</span><span class="mi">4</span>
+<a name="rest_code_0cecf86f74bb496f8eb0454da8123d21-12"></a>
+<a name="rest_code_0cecf86f74bb496f8eb0454da8123d21-13"></a><span class="c1"># now backprop through q = x + y</span>
+<a name="rest_code_0cecf86f74bb496f8eb0454da8123d21-14"></a><span class="n">dfdx</span> <span class="o">=</span> <span class="n">dqdx</span> <span class="o">*</span> <span class="n">dfdq</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">*</span> <span class="o">-</span><span class="mi">4</span> <span class="o">=</span> <span class="o">-</span><span class="mi">4</span>
+<a name="rest_code_0cecf86f74bb496f8eb0454da8123d21-15"></a><span class="n">dfdy</span> <span class="o">=</span> <span class="n">dqdy</span> <span class="o">*</span> <span class="n">dfdq</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">*</span> <span class="o">-</span><span class="mi">4</span> <span class="o">=</span> <span class="o">-</span><span class="mi">4</span>
 </pre>
 <p>At the end we are left with the gradient in the variables <tt class="docutils literal">[dfdx,dfdy,dfdz]</tt>, which tell us the sensitivity of the variables <tt class="docutils literal">x,y,z</tt> on <tt class="docutils literal">f</tt>!.</p>
 <div class="figure">
@@ -166,171 +166,171 @@ In practice this is simply a multiplication of the two numbers that hold the two
 </div>
 </div>
 <div class="section" id="modularity-sigmoid-example">
-<h2><a class="toc-backref" href="#id4">Modularity: Sigmoid&nbsp;example</a></h2>
-<p>Let&#8217;s take a look to <em>sigmoid activation</em>&nbsp;function:</p>
+<h2><a class="toc-backref" href="#id4">Modularity: Sigmoid example</a></h2>
+<p>Let's take a look to <em>sigmoid activation</em> function:</p>
 <div class="math">
 \begin{equation*}
 f(w,x) = \frac{1}{1+e^{-(w_0x_0 + w_1x_1 + w_2)}}
 \end{equation*}
 </div>
-<p>The function is made up of multiple gates. Here are the derivatives for&nbsp;them:</p>
+<p>The function is made up of multiple gates. Here are the derivatives for them:</p>
 <div class="math">
 \begin{align*}
 f(x) = \frac{1}{x}
 \hspace{1in} \rightarrow \hspace{1in}
 \frac{df}{dx} = -1/x^2
-&#92;&#92;
+\\\\
 f_c(x) = c + x
 \hspace{1in} \rightarrow \hspace{1in}
 \frac{df}{dx} = 1
-&#92;&#92;
+\\\\
 f(x) = e^x
 \hspace{1in} \rightarrow \hspace{1in}
 \frac{df}{dx} = e^x
-&#92;&#92;
+\\\\
 f_a(x) = ax
 \hspace{1in} \rightarrow \hspace{1in}
 \frac{df}{dx} = a
 \end{align*}
 </div>
-<p>Where the functions <span class="math">\(f_c, f_a\)</span> translate the input by a constant of <span class="math">\(c\)</span> and scale the input by a constant of <span class="math">\(a\)</span>,&nbsp;respectively.</p>
+<p>Where the functions <span class="math">\(f_c, f_a\)</span> translate the input by a constant of <span class="math">\(c\)</span> and scale the input by a constant of <span class="math">\(a\)</span>, respectively.</p>
 <div class="figure">
 <img alt="/images/ML_notes/cs231n/circuit_2.png" src="../../../../images/ML_notes/cs231n/circuit_2.png">
 </div>
-<p>so, to apply chain rule&nbsp;we:</p>
+<p>so, to apply chain rule we:</p>
 <ul class="simple">
-<li>Compute local derivative of the part of function according to it&#8217;s&nbsp;inputs</li>
-<li>Multiply local derivative to derivative from <span class="math">\(L_{i+1}\)</span>&nbsp;layer</li>
+<li>Compute local derivative of the part of function according to it's inputs</li>
+<li>Multiply local derivative to derivative from <span class="math">\(L_{i+1}\)</span> layer</li>
 </ul>
-<p>For example from&nbsp;circuit:</p>
+<p>For example from circuit:</p>
 <ul class="simple">
-<li>for <span class="math">\(f(x) = e^x\)</span> input was <span class="math">\(x=-1.0\)</span>, derivative at next layer <span class="math">\(\frac{dL_{i+1}}{dx} =&nbsp;-0.53\)</span>
+<li>for <span class="math">\(f(x) = e^x\)</span> input was <span class="math">\(x=-1.0\)</span>, derivative at next layer <span class="math">\(\frac{dL_{i+1}}{dx} = -0.53\)</span>
 </li>
-<li>derivative for <span class="math">\(L_i\)</span> layer is <span class="math">\(\frac{df}{dx} = e^x = e^{-1} = 0.37\)</span> (local derivative, not exist at&nbsp;picture)</li>
-<li>now to get gradient we should multiply local derivative with derivative from the next layer <span class="math">\(res = \frac{df}{dx} * \frac{dL_{i+1}}{dx} = 0.37 * -0.53 =&nbsp;-0.2\)</span>
+<li>derivative for <span class="math">\(L_i\)</span> layer is <span class="math">\(\frac{df}{dx} = e^x = e^{-1} = 0.37\)</span> (local derivative, not exist at picture)</li>
+<li>now to get gradient we should multiply local derivative with derivative from the next layer <span class="math">\(res = \frac{df}{dx} * \frac{dL_{i+1}}{dx} = 0.37 * -0.53 = -0.2\)</span>
 </li>
 </ul>
-<p>It turns out that the derivative of the sigmoid function with respect to its input simplifies if you perform the&nbsp;derivation:</p>
+<p>It turns out that the derivative of the sigmoid function with respect to its input simplifies if you perform the derivation:</p>
 <div class="math">
 \begin{align*}
-\sigma(x) = \frac{1}{1+e^{-x}} &#92;&#92;
+\sigma(x) = \frac{1}{1+e^{-x}} \\\\
 \rightarrow \hspace{0.3in} \frac{d\sigma(x)}{dx} = \frac{e^{-x}}{(1+e^{-x})^2} = \left( \frac{1 + e^{-x} - 1}{1 + e^{-x}} \right) \left( \frac{1}{1+e^{-x}} \right)
 = \left( 1 - \sigma(x) \right) \sigma(x)
 \end{align*}
 </div>
 <p>As we see, the gradient turns out to simplify and becomes surprisingly simple.
 For example, the sigmoid expression receives the input 1.0 and computes the output 0.73 during the forward pass.
-The derivation above shows that the <em>local gradient</em> would simply be (1 - 0.73) * 0.73 ~=&nbsp;0.2</p>
-<pre class="code python"><a name="rest_code_b14ab292f7284ddf97fdf4adab584538-1"></a><span class="n">w</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">]</span> <span class="c1"># assume some random weights and data</span>
-<a name="rest_code_b14ab292f7284ddf97fdf4adab584538-2"></a><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">]</span>
-<a name="rest_code_b14ab292f7284ddf97fdf4adab584538-3"></a>
-<a name="rest_code_b14ab292f7284ddf97fdf4adab584538-4"></a><span class="c1"># forward pass</span>
-<a name="rest_code_b14ab292f7284ddf97fdf4adab584538-5"></a><span class="n">dot</span> <span class="o">=</span> <span class="n">w</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">w</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">w</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-<a name="rest_code_b14ab292f7284ddf97fdf4adab584538-6"></a><span class="n">f</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">dot</span><span class="p">))</span> <span class="c1"># sigmoid function</span>
-<a name="rest_code_b14ab292f7284ddf97fdf4adab584538-7"></a>
-<a name="rest_code_b14ab292f7284ddf97fdf4adab584538-8"></a><span class="c1"># backward pass through the neuron (backpropagation)</span>
-<a name="rest_code_b14ab292f7284ddf97fdf4adab584538-9"></a><span class="n">ddot</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">f</span><span class="p">)</span> <span class="o">*</span> <span class="n">f</span> <span class="c1"># gradient on dot variable, using the sigmoid gradient derivation</span>
-<a name="rest_code_b14ab292f7284ddf97fdf4adab584538-10"></a><span class="n">dx</span> <span class="o">=</span> <span class="p">[</span><span class="n">w</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">ddot</span><span class="p">,</span> <span class="n">w</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">ddot</span><span class="p">]</span> <span class="c1"># backprop into x</span>
-<a name="rest_code_b14ab292f7284ddf97fdf4adab584538-11"></a><span class="n">dw</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">ddot</span><span class="p">,</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">ddot</span><span class="p">,</span> <span class="mf">1.0</span> <span class="o">*</span> <span class="n">ddot</span><span class="p">]</span> <span class="c1"># backprop into w</span>
-<a name="rest_code_b14ab292f7284ddf97fdf4adab584538-12"></a><span class="c1"># we're done! we have the gradients on the inputs to the circuit</span>
+The derivation above shows that the <em>local gradient</em> would simply be (1 - 0.73) * 0.73 ~= 0.2</p>
+<pre class="code python"><a name="rest_code_bf5fd1f730cb40e99cb4e3d8548b3cb3-1"></a><span class="n">w</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">]</span> <span class="c1"># assume some random weights and data</span>
+<a name="rest_code_bf5fd1f730cb40e99cb4e3d8548b3cb3-2"></a><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+<a name="rest_code_bf5fd1f730cb40e99cb4e3d8548b3cb3-3"></a>
+<a name="rest_code_bf5fd1f730cb40e99cb4e3d8548b3cb3-4"></a><span class="c1"># forward pass</span>
+<a name="rest_code_bf5fd1f730cb40e99cb4e3d8548b3cb3-5"></a><span class="n">dot</span> <span class="o">=</span> <span class="n">w</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">w</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">w</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<a name="rest_code_bf5fd1f730cb40e99cb4e3d8548b3cb3-6"></a><span class="n">f</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">dot</span><span class="p">))</span> <span class="c1"># sigmoid function</span>
+<a name="rest_code_bf5fd1f730cb40e99cb4e3d8548b3cb3-7"></a>
+<a name="rest_code_bf5fd1f730cb40e99cb4e3d8548b3cb3-8"></a><span class="c1"># backward pass through the neuron (backpropagation)</span>
+<a name="rest_code_bf5fd1f730cb40e99cb4e3d8548b3cb3-9"></a><span class="n">ddot</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">f</span><span class="p">)</span> <span class="o">*</span> <span class="n">f</span> <span class="c1"># gradient on dot variable, using the sigmoid gradient derivation</span>
+<a name="rest_code_bf5fd1f730cb40e99cb4e3d8548b3cb3-10"></a><span class="n">dx</span> <span class="o">=</span> <span class="p">[</span><span class="n">w</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">ddot</span><span class="p">,</span> <span class="n">w</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">ddot</span><span class="p">]</span> <span class="c1"># backprop into x</span>
+<a name="rest_code_bf5fd1f730cb40e99cb4e3d8548b3cb3-11"></a><span class="n">dw</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">ddot</span><span class="p">,</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">ddot</span><span class="p">,</span> <span class="mf">1.0</span> <span class="o">*</span> <span class="n">ddot</span><span class="p">]</span> <span class="c1"># backprop into w</span>
+<a name="rest_code_bf5fd1f730cb40e99cb4e3d8548b3cb3-12"></a><span class="c1"># we're done! we have the gradients on the inputs to the circuit</span>
 </pre>
 <p><strong>Implementation protip:</strong> staged backpropagation.
 As shown in the code above, in practice it is always helpful to break down the forward pass into stages that are easily backpropped through.
 For example here we created an intermediate variable <tt class="docutils literal">dot</tt> which holds the output of the dot product between <tt class="docutils literal">w</tt> and <tt class="docutils literal">x</tt>.
-During backward pass we then successively compute (in reverse order) the corresponding variables (e.g. <tt class="docutils literal">ddot</tt>, and ultimately <tt class="docutils literal">dw</tt>, <tt class="docutils literal">dx</tt>) that hold the gradients of those&nbsp;variables.</p>
+During backward pass we then successively compute (in reverse order) the corresponding variables (e.g. <tt class="docutils literal">ddot</tt>, and ultimately <tt class="docutils literal">dw</tt>, <tt class="docutils literal">dx</tt>) that hold the gradients of those variables.</p>
 </div>
 <div class="section" id="backprop-in-practice-staged-computation">
-<h2><a class="toc-backref" href="#id5">Backprop in practice: Staged&nbsp;computation</a></h2>
-<p>Suppose that we have a function of the&nbsp;form:</p>
+<h2><a class="toc-backref" href="#id5">Backprop in practice: Staged computation</a></h2>
+<p>Suppose that we have a function of the form:</p>
 <div class="math">
 \begin{equation*}
 f(x,y) = \frac{x + \sigma(y)}{\sigma(x) + (x+y)^2}
 \end{equation*}
 </div>
-<p>Forward&nbsp;pass:</p>
-<pre class="code python"><a name="rest_code_8108e3a255164943bda6028685ef25e1-1"></a><span class="n">x</span> <span class="o">=</span> <span class="mi">3</span> <span class="c1"># example values</span>
-<a name="rest_code_8108e3a255164943bda6028685ef25e1-2"></a><span class="n">y</span> <span class="o">=</span> <span class="o">-</span><span class="mi">4</span>
-<a name="rest_code_8108e3a255164943bda6028685ef25e1-3"></a>
-<a name="rest_code_8108e3a255164943bda6028685ef25e1-4"></a><span class="c1"># forward pass</span>
-<a name="rest_code_8108e3a255164943bda6028685ef25e1-5"></a><span class="n">sigy</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">y</span><span class="p">))</span> <span class="c1"># sigmoid in numerator   #(1)</span>
-<a name="rest_code_8108e3a255164943bda6028685ef25e1-6"></a><span class="n">num</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">sigy</span> <span class="c1"># numerator                               #(2)</span>
-<a name="rest_code_8108e3a255164943bda6028685ef25e1-7"></a><span class="n">sigx</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">))</span> <span class="c1"># sigmoid in denominator #(3)</span>
-<a name="rest_code_8108e3a255164943bda6028685ef25e1-8"></a><span class="n">xpy</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>                                              <span class="c1">#(4)</span>
-<a name="rest_code_8108e3a255164943bda6028685ef25e1-9"></a><span class="n">xpysqr</span> <span class="o">=</span> <span class="n">xpy</span><span class="o">**</span><span class="mi">2</span>                                          <span class="c1">#(5)</span>
-<a name="rest_code_8108e3a255164943bda6028685ef25e1-10"></a><span class="n">den</span> <span class="o">=</span> <span class="n">sigx</span> <span class="o">+</span> <span class="n">xpysqr</span> <span class="c1"># denominator                        #(6)</span>
-<a name="rest_code_8108e3a255164943bda6028685ef25e1-11"></a><span class="n">invden</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">den</span>                                       <span class="c1">#(7)</span>
-<a name="rest_code_8108e3a255164943bda6028685ef25e1-12"></a><span class="n">f</span> <span class="o">=</span> <span class="n">num</span> <span class="o">*</span> <span class="n">invden</span> <span class="c1"># done!                                 #(8)</span>
+<p>Forward pass:</p>
+<pre class="code python"><a name="rest_code_49b3ac4dd09248b8a85bafe6b3498e02-1"></a><span class="n">x</span> <span class="o">=</span> <span class="mi">3</span> <span class="c1"># example values</span>
+<a name="rest_code_49b3ac4dd09248b8a85bafe6b3498e02-2"></a><span class="n">y</span> <span class="o">=</span> <span class="o">-</span><span class="mi">4</span>
+<a name="rest_code_49b3ac4dd09248b8a85bafe6b3498e02-3"></a>
+<a name="rest_code_49b3ac4dd09248b8a85bafe6b3498e02-4"></a><span class="c1"># forward pass</span>
+<a name="rest_code_49b3ac4dd09248b8a85bafe6b3498e02-5"></a><span class="n">sigy</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">y</span><span class="p">))</span> <span class="c1"># sigmoid in numerator   #(1)</span>
+<a name="rest_code_49b3ac4dd09248b8a85bafe6b3498e02-6"></a><span class="n">num</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">sigy</span> <span class="c1"># numerator                               #(2)</span>
+<a name="rest_code_49b3ac4dd09248b8a85bafe6b3498e02-7"></a><span class="n">sigx</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">))</span> <span class="c1"># sigmoid in denominator #(3)</span>
+<a name="rest_code_49b3ac4dd09248b8a85bafe6b3498e02-8"></a><span class="n">xpy</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>                                              <span class="c1">#(4)</span>
+<a name="rest_code_49b3ac4dd09248b8a85bafe6b3498e02-9"></a><span class="n">xpysqr</span> <span class="o">=</span> <span class="n">xpy</span><span class="o">**</span><span class="mi">2</span>                                          <span class="c1">#(5)</span>
+<a name="rest_code_49b3ac4dd09248b8a85bafe6b3498e02-10"></a><span class="n">den</span> <span class="o">=</span> <span class="n">sigx</span> <span class="o">+</span> <span class="n">xpysqr</span> <span class="c1"># denominator                        #(6)</span>
+<a name="rest_code_49b3ac4dd09248b8a85bafe6b3498e02-11"></a><span class="n">invden</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">den</span>                                       <span class="c1">#(7)</span>
+<a name="rest_code_49b3ac4dd09248b8a85bafe6b3498e02-12"></a><span class="n">f</span> <span class="o">=</span> <span class="n">num</span> <span class="o">*</span> <span class="n">invden</span> <span class="c1"># done!                                 #(8)</span>
 </pre>
-<p>Backward&nbsp;pass</p>
-<pre class="code python"><a name="rest_code_13e1f069f99f41e893fc9ca92b70451d-1"></a><span class="c1"># backprop f = num * invden</span>
-<a name="rest_code_13e1f069f99f41e893fc9ca92b70451d-2"></a><span class="n">dnum</span> <span class="o">=</span> <span class="n">invden</span> <span class="c1"># gradient on numerator                             #(8)</span>
-<a name="rest_code_13e1f069f99f41e893fc9ca92b70451d-3"></a><span class="n">dinvden</span> <span class="o">=</span> <span class="n">num</span>                                                     <span class="c1">#(8)</span>
-<a name="rest_code_13e1f069f99f41e893fc9ca92b70451d-4"></a><span class="c1"># backprop invden = 1.0 / den</span>
-<a name="rest_code_13e1f069f99f41e893fc9ca92b70451d-5"></a><span class="n">dden</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mf">1.0</span> <span class="o">/</span> <span class="p">(</span><span class="n">den</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span> <span class="o">*</span> <span class="n">dinvden</span>                                <span class="c1">#(7)</span>
-<a name="rest_code_13e1f069f99f41e893fc9ca92b70451d-6"></a><span class="c1"># backprop den = sigx + xpysqr</span>
-<a name="rest_code_13e1f069f99f41e893fc9ca92b70451d-7"></a><span class="n">dsigx</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">dden</span>                                                <span class="c1">#(6)</span>
-<a name="rest_code_13e1f069f99f41e893fc9ca92b70451d-8"></a><span class="n">dxpysqr</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">dden</span>                                              <span class="c1">#(6)</span>
-<a name="rest_code_13e1f069f99f41e893fc9ca92b70451d-9"></a><span class="c1"># backprop xpysqr = xpy**2</span>
-<a name="rest_code_13e1f069f99f41e893fc9ca92b70451d-10"></a><span class="n">dxpy</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">xpy</span><span class="p">)</span> <span class="o">*</span> <span class="n">dxpysqr</span>                                        <span class="c1">#(5)</span>
-<a name="rest_code_13e1f069f99f41e893fc9ca92b70451d-11"></a><span class="c1"># backprop xpy = x + y</span>
-<a name="rest_code_13e1f069f99f41e893fc9ca92b70451d-12"></a><span class="n">dx</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">dxpy</span>                                                   <span class="c1">#(4)</span>
-<a name="rest_code_13e1f069f99f41e893fc9ca92b70451d-13"></a><span class="n">dy</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">dxpy</span>                                                   <span class="c1">#(4)</span>
-<a name="rest_code_13e1f069f99f41e893fc9ca92b70451d-14"></a><span class="c1"># backprop sigx = 1.0 / (1 + math.exp(-x))</span>
-<a name="rest_code_13e1f069f99f41e893fc9ca92b70451d-15"></a><span class="n">dx</span> <span class="o">+=</span> <span class="p">((</span><span class="mi">1</span> <span class="o">-</span> <span class="n">sigx</span><span class="p">)</span> <span class="o">*</span> <span class="n">sigx</span><span class="p">)</span> <span class="o">*</span> <span class="n">dsigx</span> <span class="c1"># Notice += !! See notes below  #(3)</span>
-<a name="rest_code_13e1f069f99f41e893fc9ca92b70451d-16"></a><span class="c1"># backprop num = x + sigy</span>
-<a name="rest_code_13e1f069f99f41e893fc9ca92b70451d-17"></a><span class="n">dx</span> <span class="o">+=</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">dnum</span>                                                  <span class="c1">#(2)</span>
-<a name="rest_code_13e1f069f99f41e893fc9ca92b70451d-18"></a><span class="n">dsigy</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">dnum</span>                                                <span class="c1">#(2)</span>
-<a name="rest_code_13e1f069f99f41e893fc9ca92b70451d-19"></a><span class="c1"># backprop sigy = 1.0 / (1 + math.exp(-y))</span>
-<a name="rest_code_13e1f069f99f41e893fc9ca92b70451d-20"></a><span class="n">dy</span> <span class="o">+=</span> <span class="p">((</span><span class="mi">1</span> <span class="o">-</span> <span class="n">sigy</span><span class="p">)</span> <span class="o">*</span> <span class="n">sigy</span><span class="p">)</span> <span class="o">*</span> <span class="n">dsigy</span>                                 <span class="c1">#(1)</span>
-<a name="rest_code_13e1f069f99f41e893fc9ca92b70451d-21"></a><span class="c1"># done! phew</span>
+<p>Backward pass</p>
+<pre class="code python"><a name="rest_code_828e9db0adf840ddbefa278a0b5ad3b5-1"></a><span class="c1"># backprop f = num * invden</span>
+<a name="rest_code_828e9db0adf840ddbefa278a0b5ad3b5-2"></a><span class="n">dnum</span> <span class="o">=</span> <span class="n">invden</span> <span class="c1"># gradient on numerator                             #(8)</span>
+<a name="rest_code_828e9db0adf840ddbefa278a0b5ad3b5-3"></a><span class="n">dinvden</span> <span class="o">=</span> <span class="n">num</span>                                                     <span class="c1">#(8)</span>
+<a name="rest_code_828e9db0adf840ddbefa278a0b5ad3b5-4"></a><span class="c1"># backprop invden = 1.0 / den</span>
+<a name="rest_code_828e9db0adf840ddbefa278a0b5ad3b5-5"></a><span class="n">dden</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mf">1.0</span> <span class="o">/</span> <span class="p">(</span><span class="n">den</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span> <span class="o">*</span> <span class="n">dinvden</span>                                <span class="c1">#(7)</span>
+<a name="rest_code_828e9db0adf840ddbefa278a0b5ad3b5-6"></a><span class="c1"># backprop den = sigx + xpysqr</span>
+<a name="rest_code_828e9db0adf840ddbefa278a0b5ad3b5-7"></a><span class="n">dsigx</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">dden</span>                                                <span class="c1">#(6)</span>
+<a name="rest_code_828e9db0adf840ddbefa278a0b5ad3b5-8"></a><span class="n">dxpysqr</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">dden</span>                                              <span class="c1">#(6)</span>
+<a name="rest_code_828e9db0adf840ddbefa278a0b5ad3b5-9"></a><span class="c1"># backprop xpysqr = xpy**2</span>
+<a name="rest_code_828e9db0adf840ddbefa278a0b5ad3b5-10"></a><span class="n">dxpy</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">xpy</span><span class="p">)</span> <span class="o">*</span> <span class="n">dxpysqr</span>                                        <span class="c1">#(5)</span>
+<a name="rest_code_828e9db0adf840ddbefa278a0b5ad3b5-11"></a><span class="c1"># backprop xpy = x + y</span>
+<a name="rest_code_828e9db0adf840ddbefa278a0b5ad3b5-12"></a><span class="n">dx</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">dxpy</span>                                                   <span class="c1">#(4)</span>
+<a name="rest_code_828e9db0adf840ddbefa278a0b5ad3b5-13"></a><span class="n">dy</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">dxpy</span>                                                   <span class="c1">#(4)</span>
+<a name="rest_code_828e9db0adf840ddbefa278a0b5ad3b5-14"></a><span class="c1"># backprop sigx = 1.0 / (1 + math.exp(-x))</span>
+<a name="rest_code_828e9db0adf840ddbefa278a0b5ad3b5-15"></a><span class="n">dx</span> <span class="o">+=</span> <span class="p">((</span><span class="mi">1</span> <span class="o">-</span> <span class="n">sigx</span><span class="p">)</span> <span class="o">*</span> <span class="n">sigx</span><span class="p">)</span> <span class="o">*</span> <span class="n">dsigx</span> <span class="c1"># Notice += !! See notes below  #(3)</span>
+<a name="rest_code_828e9db0adf840ddbefa278a0b5ad3b5-16"></a><span class="c1"># backprop num = x + sigy</span>
+<a name="rest_code_828e9db0adf840ddbefa278a0b5ad3b5-17"></a><span class="n">dx</span> <span class="o">+=</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">dnum</span>                                                  <span class="c1">#(2)</span>
+<a name="rest_code_828e9db0adf840ddbefa278a0b5ad3b5-18"></a><span class="n">dsigy</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">dnum</span>                                                <span class="c1">#(2)</span>
+<a name="rest_code_828e9db0adf840ddbefa278a0b5ad3b5-19"></a><span class="c1"># backprop sigy = 1.0 / (1 + math.exp(-y))</span>
+<a name="rest_code_828e9db0adf840ddbefa278a0b5ad3b5-20"></a><span class="n">dy</span> <span class="o">+=</span> <span class="p">((</span><span class="mi">1</span> <span class="o">-</span> <span class="n">sigy</span><span class="p">)</span> <span class="o">*</span> <span class="n">sigy</span><span class="p">)</span> <span class="o">*</span> <span class="n">dsigy</span>                                 <span class="c1">#(1)</span>
+<a name="rest_code_828e9db0adf840ddbefa278a0b5ad3b5-21"></a><span class="c1"># done! phew</span>
 </pre>
 <p><strong>Cache forward pass variables.</strong>
 To compute the backward pass it is very helpful to have some of the variables that were used in the forward pass.
-In practice you want to structure your code so that you cache these variables, and so that they are available during&nbsp;backpropagation.</p>
+In practice you want to structure your code so that you cache these variables, and so that they are available during backpropagation.</p>
 <p><strong>Gradients add up at forks.</strong>
 The forward expression involves the variables <span class="math">\(x,y\)</span> multiple times, so when we perform backpropagation we must be careful to use <tt class="docutils literal">+=</tt> instead of <tt class="docutils literal">=</tt> to accumulate the gradient on these variables (otherwise we would overwrite it).
 This follows the <strong>multivariable chain rule</strong> in Calculus, which states that if a variable branches out to different parts of the circuit, then the <strong>gradients that flow back to it will add</strong>.</p>
 </div>
 <div class="section" id="patterns-in-backward-flow">
-<h2><a class="toc-backref" href="#id6">Patterns in backward&nbsp;flow</a></h2>
+<h2><a class="toc-backref" href="#id6">Patterns in backward flow</a></h2>
 <p>It is interesting to note that in many cases the backward-flowing gradient can be interpreted on an intuitive level.
-For example, the three most commonly used gates in neural networks (<em>add,mul,max</em>), all have very simple interpretations in terms of how they act during&nbsp;backpropagation.</p>
-<p>The <strong>add gate</strong> always takes the gradient on its output and distributes it equally to all of its inputs, regardless of what their values were during the forward&nbsp;pass.</p>
+For example, the three most commonly used gates in neural networks (<em>add,mul,max</em>), all have very simple interpretations in terms of how they act during backpropagation.</p>
+<p>The <strong>add gate</strong> always takes the gradient on its output and distributes it equally to all of its inputs, regardless of what their values were during the forward pass.</p>
 <p>The <strong>max gate</strong> routes the gradient.
-Unlike the add gate which distributed the gradient unchanged to all its inputs, the max gate distributes the gradient (unchanged) to exactly one of its inputs (the input that had the highest value during the forward&nbsp;pass).</p>
+Unlike the add gate which distributed the gradient unchanged to all its inputs, the max gate distributes the gradient (unchanged) to exactly one of its inputs (the input that had the highest value during the forward pass).</p>
 <p>The <strong>multiply gate</strong> is a little less easy to interpret.
-Its local gradients are the input values (except switched), and this is multiplied by the gradient on its output during the chain&nbsp;rule.</p>
+Its local gradients are the input values (except switched), and this is multiplied by the gradient on its output during the chain rule.</p>
 <p><em>Unintuitive effects and their consequences.</em>
 Notice that if one of the inputs to the multiply gate is very small and the other is very big, then the multiply gate will do something slightly unintuitive: it will assign a relatively huge gradient to the small input and a tiny gradient to the large input.
 Note that in linear classifiers where the weights are dot producted <span class="math">\(w^T x_i\)</span> (multiplied) with the inputs, this implies that the scale of the data has an effect on the magnitude of the gradient for the weights.
 For example, if you multiplied all input data examples <span class="math">\(x_i\)</span> by 1000 during preprocessing, then the gradient on the weights will be 1000 times larger, and you’d have to lower the learning rate by that factor to compensate.
 This is why preprocessing matters a lot, sometimes in subtle ways!
-And having intuitive understanding for how the gradients flow can help you debug some of these&nbsp;cases.</p>
+And having intuitive understanding for how the gradients flow can help you debug some of these cases.</p>
 </div>
 <div class="section" id="gradients-for-vectorized-operations">
-<h2><a class="toc-backref" href="#id7">Gradients for vectorized&nbsp;operations</a></h2>
-<p>Possibly the most tricky operation is the matrix-matrix multiplication (which generalizes all matrix-vector and vector-vector) multiply&nbsp;operations:</p>
-<pre class="code python"><a name="rest_code_510f7ffb8b4f494fbd587a9734fbea29-1"></a><span class="c1"># forward pass</span>
-<a name="rest_code_510f7ffb8b4f494fbd587a9734fbea29-2"></a><span class="n">W</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
-<a name="rest_code_510f7ffb8b4f494fbd587a9734fbea29-3"></a><span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<a name="rest_code_510f7ffb8b4f494fbd587a9734fbea29-4"></a><span class="n">D</span> <span class="o">=</span> <span class="n">W</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-<a name="rest_code_510f7ffb8b4f494fbd587a9734fbea29-5"></a>
-<a name="rest_code_510f7ffb8b4f494fbd587a9734fbea29-6"></a><span class="c1"># now suppose we had the gradient on D from above in the circuit</span>
-<a name="rest_code_510f7ffb8b4f494fbd587a9734fbea29-7"></a><span class="n">dD</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="o">*</span><span class="n">D</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="c1"># same shape as D</span>
-<a name="rest_code_510f7ffb8b4f494fbd587a9734fbea29-8"></a><span class="n">dW</span> <span class="o">=</span> <span class="n">dD</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="c1">#.T gives the transpose of the matrix</span>
-<a name="rest_code_510f7ffb8b4f494fbd587a9734fbea29-9"></a><span class="n">dX</span> <span class="o">=</span> <span class="n">W</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">dD</span><span class="p">)</span>
+<h2><a class="toc-backref" href="#id7">Gradients for vectorized operations</a></h2>
+<p>Possibly the most tricky operation is the matrix-matrix multiplication (which generalizes all matrix-vector and vector-vector) multiply operations:</p>
+<pre class="code python"><a name="rest_code_4521909e69a542e6936ea54eaa1848e2-1"></a><span class="c1"># forward pass</span>
+<a name="rest_code_4521909e69a542e6936ea54eaa1848e2-2"></a><span class="n">W</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<a name="rest_code_4521909e69a542e6936ea54eaa1848e2-3"></a><span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<a name="rest_code_4521909e69a542e6936ea54eaa1848e2-4"></a><span class="n">D</span> <span class="o">=</span> <span class="n">W</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<a name="rest_code_4521909e69a542e6936ea54eaa1848e2-5"></a>
+<a name="rest_code_4521909e69a542e6936ea54eaa1848e2-6"></a><span class="c1"># now suppose we had the gradient on D from above in the circuit</span>
+<a name="rest_code_4521909e69a542e6936ea54eaa1848e2-7"></a><span class="n">dD</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="o">*</span><span class="n">D</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="c1"># same shape as D</span>
+<a name="rest_code_4521909e69a542e6936ea54eaa1848e2-8"></a><span class="n">dW</span> <span class="o">=</span> <span class="n">dD</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="c1">#.T gives the transpose of the matrix</span>
+<a name="rest_code_4521909e69a542e6936ea54eaa1848e2-9"></a><span class="n">dX</span> <span class="o">=</span> <span class="n">W</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">dD</span><span class="p">)</span>
 </pre>
 <p><em>Tip: use dimension analysis!</em>
 Note that you do not need to remember the expressions for <tt class="docutils literal">dW</tt> and <tt class="docutils literal">dX</tt> because they are easy to re-derive based on dimensions.
 For instance, we know that the gradient on the weights <tt class="docutils literal">dW</tt> must be of the same size as <tt class="docutils literal">W</tt> after it is computed, and that it must depend on matrix multiplication of <tt class="docutils literal">X</tt> and <tt class="docutils literal">dD</tt> (as is the case when both <tt class="docutils literal">X,W</tt> are single numbers and not matrices).
 There is always exactly one way of achieving this so that the dimensions work out.
-For example, <tt class="docutils literal">X</tt> is of size [10 x 3] and <tt class="docutils literal">dD</tt> of size [5 x 3], so if we want <tt class="docutils literal">dW</tt> and <tt class="docutils literal">W</tt> has shape [5 x 10], then the only way of achieving this is with <tt class="docutils literal">dD.dot(X.T)</tt>, as shown&nbsp;above.</p>
+For example, <tt class="docutils literal">X</tt> is of size [10 x 3] and <tt class="docutils literal">dD</tt> of size [5 x 3], so if we want <tt class="docutils literal">dW</tt> and <tt class="docutils literal">W</tt> has shape [5 x 10], then the only way of achieving this is with <tt class="docutils literal">dD.dot(X.T)</tt>, as shown above.</p>
 </div>
 <div class="section" id="references">
 <h2><a class="toc-backref" href="#id8">References</a></h2>
 <ul class="simple">
-<li><a class="reference external" href="http://cs231n.stanford.edu/vecDerivs.pdf">Taking matrix/vector derivatives by Erik&nbsp;Learned-Miller</a></li>
-<li><a class="reference external" href="http://arxiv.org/abs/1502.05767">Automatic differentiation in machine learning: a&nbsp;survey</a></li>
+<li><a class="reference external" href="http://cs231n.stanford.edu/vecDerivs.pdf">Taking matrix/vector derivatives by Erik Learned-Miller</a></li>
+<li><a class="reference external" href="http://arxiv.org/abs/1502.05767">Automatic differentiation in machine learning: a survey</a></li>
 </ul>
 </div>
 </div>
