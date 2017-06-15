@@ -145,10 +145,15 @@ flags:
 - ``-n`` - display line number as well at the output
 - ``-c`` - display quantity of matched lines
 
-Piping
-======
+Piping and redirection
+======================
 
-TODO
+- ``>`` - STDOUT to a file. ``cat filename > out``
+- ``<`` - STDIN from a file. ``wc -l < filename``
+- STDIN and STDOUT. ``wc -l < barry.txt > myoutput``
+- ``2>`` - redirect STDERR
+- ``ls -l > out 2>&1`` redirect STDERR to STDOUT and STDOUT to a file
+- ``|`` - pipe. Output of program to the next one. Ex: ``ls | head -3 | tail -1``
 
 bash[rc, _profile] explanation
 ==============================
