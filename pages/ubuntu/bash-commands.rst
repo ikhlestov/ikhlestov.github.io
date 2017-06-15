@@ -84,11 +84,12 @@ Commands descriptions
 
     - ``sed 's/oranges/bananas/g' mysampledata.txt`` - replace oranges with bananas
   
-  - **``uniq [options] [path]``** - report or filter out repeated lines in a file
-  - **``tac [path]``** - concatenate and print files in reverse (reversed ``cat``).
+  - **uniq [options] [path]** - report or filter out repeated lines in a file
+  - **tac [path]** - concatenate and print files in reverse (reversed ``cat``).
 
-- **``diff [options] <files>``** - compare two files
-
+- **diff [options] <files>** - compare two files
+- **top** - display and update sorted information about processes
+- **ps** - process status
 
 Wildcards
 =========
@@ -154,6 +155,14 @@ Piping and redirection
 - ``2>`` - redirect STDERR
 - ``ls -l > out 2>&1`` redirect STDERR to STDOUT and STDOUT to a file
 - ``|`` - pipe. Output of program to the next one. Ex: ``ls | head -3 | tail -1``
+
+Foreground and Background Jobs
+==============================
+
+- ``program_name &`` - run program in background
+- ``ctrl+z`` - pause the current foreground process and move it into the background
+- ``jobs`` - show background jobs
+- ``fg <job number>`` - return job to foreground
 
 bash[rc, _profile] explanation
 ==============================
