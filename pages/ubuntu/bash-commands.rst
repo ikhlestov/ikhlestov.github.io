@@ -90,6 +90,9 @@ Commands descriptions
 - **diff [options] <files>** - compare two files
 - **top** - display and update sorted information about processes
 - **ps** - process status
+- **date** - display current date.
+
+  - ``date +%F`` - display in format year-month-day
 
 Wildcards
 =========
@@ -155,6 +158,7 @@ Piping and redirection
 - ``2>`` - redirect STDERR
 - ``ls -l > out 2>&1`` redirect STDERR to STDOUT and STDOUT to a file
 - ``|`` - pipe. Output of program to the next one. Ex: ``ls | head -3 | tail -1``
+- save the output from the command to the variable - ``lines=\`cat $1 | wc -l\```
 
 Foreground and Background Jobs
 ==============================
@@ -172,7 +176,42 @@ TODO
 bash scripting
 ==============
 
-TODO
+- assign variable ``var_name=value``
+- refer a variable ``$var_name``
+- ``$0`` - The name of the script.
+- ``$1`` - ``$9`` - Any command line arguments given to the script. $1 is the first argument, $2 the second and so on.
+- ``$#`` - How many command line arguments were given to the script.
+- ``$*`` - All of the command line arguments.
+
+if statements:
+
+.. code-block:: bash
+
+  if [ <some test> ]
+  then
+    <commands>
+  else
+    <another>
+  fi
+
+while loop:
+
+.. code-block:: bash
+
+  while [ <some test> ]
+  do
+    <commands>
+  done
+
+for loops:
+
+.. code-block:: bash
+
+  # for value in {1..5}
+  for var in <list>
+  do
+    <commands>
+  done
 
 By category
 ===========
