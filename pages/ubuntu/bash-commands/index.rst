@@ -94,6 +94,21 @@ Commands descriptions
 
   - ``date +%F`` - display in format year-month-day
 
+- **xargs** - construct argument list(s) and execute utility
+- **find** - walk a file hierarchy
+  
+  - ``find . -type f`` - find all files
+  - ``find . -type d`` - find all directories
+  - ``find . -size +200M -exec ls -sh {} \`` - find and display all files more than 200M
+  - ``find . -mtime -1`` - find all recently changed files
+
+- **tar** - manipulate tape archives
+
+  - ``tar -zcvf mytar.tar.gz *`` - add all files in folder to the archive
+  - ``tar -zxvf mytar.tar.gz`` - extract files from archive
+
+- **awk 'pattern { action }'** - pattern-directed scanning and processing language
+
 Wildcards
 =========
 
