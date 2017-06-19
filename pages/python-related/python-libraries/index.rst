@@ -63,3 +63,18 @@ Cand be replaced by ubuntu `notify-send <http://manpages.ubuntu.com/manpages/tru
 
     $ notify-send <title> <message> 
 
+sultan
+======
+Sultan is a Python package for interfacing with command-line utilities, like yum, apt-get, or ls, in a Pythonic manner.
+`Git <https://github.com/aeroxis/sultan>`__
+
+.. code-block:: python
+
+    from sultan.api import Sultan
+    s = Sultan()
+    s.sudo("yum install -y tree").run()
+
+in one line
+===========
+
+- `youtag <https://github.com/JoseTomasTocino/yotaq>`__ - Your Own Task Queue for Python

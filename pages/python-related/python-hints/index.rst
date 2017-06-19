@@ -416,6 +416,36 @@ Return the corresponding letter grade
     >>> [grade(score) for score in [33, 99, 77, 70, 89, 90, 100]]
     ['F', 'A', 'C', 'C', 'B', 'A', 'A']
 
+Things in Pythno3
+=================
+
+Get first and last line of the file
+-----------------------------------
+
+.. code-block:: pycon
+
+    >>> with open("using_python_to_profit") as f:
+    ...     first, *_, last = f.readlines()
+    >>> first
+    'Step 1: Use Python 3\n'
+    >>> last
+    'Step 10: Profit!\n'
+
+Keyword only arguments
+----------------------
+
+.. code-block:: python
+
+    def f(a, b, *args, option=True):
+        pass
+
+Raise chained exceptions
+------------------------
+
+.. code-block:: python
+
+    raise exception from e
+
 Miscellaneous
 =============
 
