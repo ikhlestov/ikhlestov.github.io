@@ -98,24 +98,24 @@ MathJax.Hub.Config({
 <h2><a class="toc-backref" href="#id1">tqdm</a></h2>
 <p>Progress bar for any iterations.
 <a class="reference external" href="https://pypi.python.org/pypi/tqdm">PyPi</a></p>
-<pre class="code python"><a name="rest_code_4b5c5158f398404a829e1d0c033a5a3d-1"></a><span class="kn">import</span> <span class="nn">time</span>
-<a name="rest_code_4b5c5158f398404a829e1d0c033a5a3d-2"></a><span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
-<a name="rest_code_4b5c5158f398404a829e1d0c033a5a3d-3"></a>
-<a name="rest_code_4b5c5158f398404a829e1d0c033a5a3d-4"></a><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)):</span>
-<a name="rest_code_4b5c5158f398404a829e1d0c033a5a3d-5"></a>    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<pre class="code python"><a name="rest_code_cdd6606cb5ad4bd4a01561ddceb1fe3c-1"></a><span class="kn">import</span> <span class="nn">time</span>
+<a name="rest_code_cdd6606cb5ad4bd4a01561ddceb1fe3c-2"></a><span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+<a name="rest_code_cdd6606cb5ad4bd4a01561ddceb1fe3c-3"></a>
+<a name="rest_code_cdd6606cb5ad4bd4a01561ddceb1fe3c-4"></a><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)):</span>
+<a name="rest_code_cdd6606cb5ad4bd4a01561ddceb1fe3c-5"></a>    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre>
 </div>
 <div class="section" id="pyperclip">
 <h2><a class="toc-backref" href="#id2">pyperclip</a></h2>
 <p>An easy python interface to the system clipboard.
 <a class="reference external" href="https://github.com/asweigart/pyperclip">Pypi</a></p>
-<pre class="code python"><a name="rest_code_6265dcdce2894fd19b3c92825b29ad56-1"></a><span class="kn">import</span> <span class="nn">pyperclip</span> <span class="kn">as</span> <span class="nn">clip</span>
-<a name="rest_code_6265dcdce2894fd19b3c92825b29ad56-2"></a>
-<a name="rest_code_6265dcdce2894fd19b3c92825b29ad56-3"></a><span class="c1"># copy string to buffer</span>
-<a name="rest_code_6265dcdce2894fd19b3c92825b29ad56-4"></a><span class="n">clip</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="s2">"Some text"</span><span class="p">)</span>
-<a name="rest_code_6265dcdce2894fd19b3c92825b29ad56-5"></a>
-<a name="rest_code_6265dcdce2894fd19b3c92825b29ad56-6"></a><span class="c1"># copy text from buffer</span>
-<a name="rest_code_6265dcdce2894fd19b3c92825b29ad56-7"></a><span class="n">data</span> <span class="o">=</span> <span class="n">clip</span><span class="o">.</span><span class="n">paste</span><span class="p">()</span>
+<pre class="code python"><a name="rest_code_b5310baa623d41bb9e4f9e1eb8074be1-1"></a><span class="kn">import</span> <span class="nn">pyperclip</span> <span class="kn">as</span> <span class="nn">clip</span>
+<a name="rest_code_b5310baa623d41bb9e4f9e1eb8074be1-2"></a>
+<a name="rest_code_b5310baa623d41bb9e4f9e1eb8074be1-3"></a><span class="c1"># copy string to buffer</span>
+<a name="rest_code_b5310baa623d41bb9e4f9e1eb8074be1-4"></a><span class="n">clip</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="s2">"Some text"</span><span class="p">)</span>
+<a name="rest_code_b5310baa623d41bb9e4f9e1eb8074be1-5"></a>
+<a name="rest_code_b5310baa623d41bb9e4f9e1eb8074be1-6"></a><span class="c1"># copy text from buffer</span>
+<a name="rest_code_b5310baa623d41bb9e4f9e1eb8074be1-7"></a><span class="n">data</span> <span class="o">=</span> <span class="n">clip</span><span class="o">.</span><span class="n">paste</span><span class="p">()</span>
 </pre>
 <p>Note: you may also try <a class="reference external" href="https://pypi.python.org/pypi/pyclip-copycat/1.0">pyclip-copycat</a></p>
 </div>
@@ -124,23 +124,23 @@ MathJax.Hub.Config({
 <p>Brings notification to your shell.
 <a class="reference external" href="https://pypi.python.org/pypi/ntfy">PyPi</a>
 <a class="reference external" href="http://ntfy.readthedocs.io/en/latest/">Docs</a></p>
-<pre class="code bash"><a name="rest_code_aa048cc475604b768b87316b74a44bdd-1"></a>$ ntfy send message
-<a name="rest_code_aa048cc475604b768b87316b74a44bdd-2"></a>$ ntfy send <span class="s1">'test long message'</span>
-<a name="rest_code_aa048cc475604b768b87316b74a44bdd-3"></a><span class="c1"># send message after command completion</span>
-<a name="rest_code_aa048cc475604b768b87316b74a44bdd-4"></a>$ ntfy send sleep <span class="m">10</span>
-<a name="rest_code_aa048cc475604b768b87316b74a44bdd-5"></a>$ ntfy send cat some.txt
+<pre class="code bash"><a name="rest_code_3e5663c34772403eb1ceabaf392155c5-1"></a>$ ntfy send message
+<a name="rest_code_3e5663c34772403eb1ceabaf392155c5-2"></a>$ ntfy send <span class="s1">'test long message'</span>
+<a name="rest_code_3e5663c34772403eb1ceabaf392155c5-3"></a><span class="c1"># send message after command completion</span>
+<a name="rest_code_3e5663c34772403eb1ceabaf392155c5-4"></a>$ ntfy send sleep <span class="m">10</span>
+<a name="rest_code_3e5663c34772403eb1ceabaf392155c5-5"></a>$ ntfy send cat some.txt
 </pre>
 <p>Cand be replaced by ubuntu <a class="reference external" href="http://manpages.ubuntu.com/manpages/trusty/man1/notify-send.1.html">notify-send</a></p>
-<pre class="code bash"><a name="rest_code_61ac96c850e5427faaa3beeffd22dc5b-1"></a>$ notify-send &lt;title&gt; &lt;message&gt;
+<pre class="code bash"><a name="rest_code_57e8a4bc2f214c52a8e21f505d9c546d-1"></a>$ notify-send &lt;title&gt; &lt;message&gt;
 </pre>
 </div>
 <div class="section" id="sultan">
 <h2><a class="toc-backref" href="#id4">sultan</a></h2>
 <p>Sultan is a Python package for interfacing with command-line utilities, like yum, apt-get, or ls, in a Pythonic manner.
 <a class="reference external" href="https://github.com/aeroxis/sultan">Git</a></p>
-<pre class="code python"><a name="rest_code_bf638076a36349ed972601f2a54f4a3b-1"></a><span class="kn">from</span> <span class="nn">sultan.api</span> <span class="kn">import</span> <span class="n">Sultan</span>
-<a name="rest_code_bf638076a36349ed972601f2a54f4a3b-2"></a><span class="n">s</span> <span class="o">=</span> <span class="n">Sultan</span><span class="p">()</span>
-<a name="rest_code_bf638076a36349ed972601f2a54f4a3b-3"></a><span class="n">s</span><span class="o">.</span><span class="n">sudo</span><span class="p">(</span><span class="s2">"yum install -y tree"</span><span class="p">)</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+<pre class="code python"><a name="rest_code_29e9be5438794028be93aee21885d462-1"></a><span class="kn">from</span> <span class="nn">sultan.api</span> <span class="kn">import</span> <span class="n">Sultan</span>
+<a name="rest_code_29e9be5438794028be93aee21885d462-2"></a><span class="n">s</span> <span class="o">=</span> <span class="n">Sultan</span><span class="p">()</span>
+<a name="rest_code_29e9be5438794028be93aee21885d462-3"></a><span class="n">s</span><span class="o">.</span><span class="n">sudo</span><span class="p">(</span><span class="s2">"yum install -y tree"</span><span class="p">)</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 </pre>
 </div>
 <div class="section" id="in-one-line">
@@ -148,6 +148,8 @@ MathJax.Hub.Config({
 <ul class="simple">
 <li>
 <a class="reference external" href="https://github.com/JoseTomasTocino/yotaq">youtag</a> - Your Own Task Queue for&nbsp;Python</li>
+<li>
+<a class="reference external" href="https://github.com/jd/tenacity">tenacity</a> - Retrying library for&nbsp;Python</li>
 </ul>
 </div>
 </div>
