@@ -78,3 +78,4 @@ in one line
 ===========
 
 - `youtag <https://github.com/JoseTomasTocino/yotaq>`__ - Your Own Task Queue for Python
+- `tenacity <https://github.com/jd/tenacity>`__ - Retrying library for Python
