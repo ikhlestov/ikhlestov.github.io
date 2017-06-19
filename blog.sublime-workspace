@@ -523,15 +523,32 @@
 			"file": "pages/ubuntu/bash-commands.rst",
 			"settings":
 			{
-				"buffer_size": 3767,
+				"buffer_size": 9380,
+				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "pages/ubuntu/bash-shortcuts.rst",
+			"file": "/Users/illarionkhliestov/PycharmProjects/ssd_squeeze_validation/model_service.py",
 			"settings":
 			{
-				"buffer_size": 1534,
+				"buffer_size": 4338,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/illarionkhliestov/PycharmProjects/nn_var_data_train/trainer_neighborhood.py",
+			"settings":
+			{
+				"buffer_size": 13502,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "pages/index.rst",
+			"settings":
+			{
+				"buffer_size": 1277,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -564,10 +581,14 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 87.0,
-		"last_filter": "package control: insl\t",
+		"height": 247.0,
+		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
 			[
 				"package control: insl\t",
 				"Package Control: Install Package"
@@ -592,14 +613,27 @@
 		"side_bar_visible": false,
 		"status_bar_visible": false
 	},
+	"expanded_folders":
+	[
+		"/Users/illarionkhliestov/Projects/blog"
+	],
 	"file_history":
 	[
+		"/Users/illarionkhliestov/.bash_history",
+		"/private/tmp/test/text2",
+		"/private/tmp/test/text1",
+		"/private/tmp/test/sample_data",
+		"/Users/illarionkhliestov/Library/Application Support/Sublime Text 3/Packages/OmniMarkupPreviewer/Default (OSX).sublime-keymap",
+		"/Users/illarionkhliestov/Library/Application Support/Sublime Text 3/Packages/OmniMarkupPreviewer/OmniMarkupPreviewer.sublime-settings",
+		"/Users/illarionkhliestov/Library/Application Support/Sublime Text 3/Packages/User/OmniMarkupPreviewer.sublime-settings",
+		"/Users/illarionkhliestov/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap",
+		"/private/tmp/req",
+		"/Users/illarionkhliestov/Projects/blog/pages/ubuntu/bash-shortcuts.rst",
 		"/Users/illarionkhliestov/Projects/blog/pages/ubuntu/bash-commands.rst",
 		"/Users/illarionkhliestov/PycharmProjects/ringlabs-common/setup.py",
 		"/Users/illarionkhliestov/PycharmProjects/ssd_squeeze_validation/model_service_multy.py",
 		"/Users/illarionkhliestov/PycharmProjects/ssd_squeeze_validation/make_predictions.py",
 		"/Users/illarionkhliestov/Library/Application Support/Sublime Text 3/Packages/Anaconda/Default (OSX).sublime-keymap",
-		"/Users/illarionkhliestov/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap",
 		"/Users/illarionkhliestov/PycharmProjects/ringlabs-common/ringlabs-common.sublime-project",
 		"/Users/illarionkhliestov/Library/Application Support/Sublime Text 3/Packages/User/Anaconda.sublime-settings",
 		"/Users/illarionkhliestov/PycharmProjects/ringlabs-common/data_handler/downloader.py",
@@ -712,24 +746,15 @@
 		"/Users/illarionkhliestov/PycharmProjects/sounds_check/checker/inputs_and_tmp/db_dump.json",
 		"/Users/illarionkhliestov/PycharmProjects/sounds_check/checker/inputs_and_tmp/doorbots_ids.txt",
 		"/Users/illarionkhliestov/PycharmProjects/sounds_check/checker/requirements.txt",
-		"/Users/illarionkhliestov/.ssh/config",
-		"/Users/illarionkhliestov/PycharmProjects/sounds_check/checker/downloader_bu.py",
-		"/Users/illarionkhliestov/PycharmProjects/sounds_check/checker/downloader_bu_2.py",
-		"/Users/illarionkhliestov/PycharmProjects/sounds_check/generate_incorect_labels.py",
-		"/Users/illarionkhliestov/Projects/blog/listings/docker_help.sh",
-		"/Users/illarionkhliestov/Projects/blog/pages/another-topics/ubuntu-bash-hints.rst",
-		"/Users/illarionkhliestov/Documents/model_eval_tmp_results.txt",
-		"/Users/illarionkhliestov/Documents/data_description.rst",
-		"/Users/illarionkhliestov/Documents/models_evaluations.rst",
-		"/Users/illarionkhliestov/Projects/blog/listings/python-hints.sh"
+		"/Users/illarionkhliestov/.ssh/config"
 	],
 	"find":
 	{
-		"height": 22.0
+		"height": 35.0
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 93.0,
 		"where_history":
 		[
 		]
@@ -739,6 +764,11 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"Squeezenet",
+			"_get_model_state_dict_path",
+			"awk",
+			"stdout",
+			"stdin",
 			"create_model_service",
 			"anaconda_run_current_file_tests",
 			"anaconda_find_usages",
@@ -861,12 +891,7 @@
 			"ImageValidator",
 			"illarion",
 			"transforms",
-			"logger",
-			"squeezenet_base",
-			"models",
-			"val_dataset",
-			"Squeezenet",
-			"loader"
+			"logger"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -893,15 +918,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3767,
+						"buffer_size": 9380,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								4195,
+								4195
 							]
 						],
 						"settings":
@@ -920,11 +945,6 @@
 								},
 								"unmatched":
 								{
-									"1":
-									[
-										3579,
-										3580
-									]
 								}
 							},
 							"bracket_highlighter.regions":
@@ -986,32 +1006,241 @@
 								"bh_round_content"
 							],
 							"git_gutter_is_enabled": true,
+							"spell_check": true,
 							"syntax": "Packages/RestructuredText/reStructuredText.sublime-syntax",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1073.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "pages/ubuntu/bash-shortcuts.rst",
+					"file": "/Users/illarionkhliestov/PycharmProjects/ssd_squeeze_validation/model_service.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1534,
+						"buffer_size": 4338,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								1280,
+								1288
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content"
+							],
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 553.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/Users/illarionkhliestov/PycharmProjects/nn_var_data_train/trainer_neighborhood.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 13502,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								375,
+								385
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content"
+							],
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1813.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "pages/index.rst",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1277,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1074,
+								1074
 							]
 						],
 						"settings":
@@ -1097,7 +1326,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 3,
 					"type": "text"
 				}
 			]
@@ -1166,7 +1395,7 @@
 		[
 			[
 				"",
-				"~/PycharmProjects/ringlabs-common/ringlabs-common.sublime-project"
+				"~/Projects/blog/conf.sublime-workspace"
 			]
 		],
 		"width": 380.0

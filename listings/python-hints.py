@@ -39,3 +39,8 @@ lambda x: x if (x < 3) else None
 for line in sys.stdin:
     print("You entered: ", line)
 # and after entering required data to the shell press ctrl+D
+
+# ==========================================
+# get first and last line of the file
+with open("using_python_to_profit") as f:
+    first, *_, last = f.readlines()
