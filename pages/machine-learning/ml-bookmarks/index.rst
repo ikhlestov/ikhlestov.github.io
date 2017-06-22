@@ -77,6 +77,7 @@ Papers regardding efficient backprop and neural networks training
 + `Efficient BackProb(Yann LeCun) <http://yann.lecun.com/exdb/publis/pdf/lecun-98b.pdf>`__
 + `Practical Recommendations for Gradient-Based Training of Deep Architectures(Yoshua Bengio) <https://arxiv.org/pdf/1206.5533v2.pdf>`__
 + `FitNets: Hints for Thin Deep Nets <https://arxiv.org/pdf/1412.6550.pdf>`__
++ `Sobolev Training for Neural Networks <https://arxiv.org/pdf/1706.04859.pdf>`__ - training network with respect to optimize function derivatives.
 
 One Shot Learning
 =================
