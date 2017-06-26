@@ -39,6 +39,7 @@ CNNs
 
 + `Punctuation Prediction for Unsegmented Transcript Based on Word Vector <http://www.lrec-conf.org/proceedings/lrec2016/pdf/103_Paper.pdf>`__ CNN for inserting punctuation to the text.
 + `DelugeNets: Deep Networks with Massive and Flexible Cross-layer Information Inflows <https://arxiv.org/pdf/1611.05552v4.pdf>`__
++ `Grad-CAM: Visual Explanations from Deep Networks via Gradient-based Localization <https://arxiv.org/pdf/1610.02391.pdf>`__ (`git repo <https://github.com/ramprs/grad-cam>`__)
 
 Reinforcement Learning
 ======================
@@ -69,7 +70,7 @@ Other Topics
 + Gumbel-Softmax at Categorical Variational Autoencoders - `blog post <http://blog.evjang.com/2016/11/tutorial-categorical-variational.html>`__. Categorical Reparameterization with Gumbel-Softmax `original paper <https://arxiv.org/pdf/1611.01144.pdf>`__
 + `A Few Useful Things to Know about Machine Learning <http://homes.cs.washington.edu/~pedrod/papers/cacm12.pdf>`__ from cs231n course.
 
-Papers regardding efficient backprop and neural networks training
+Papers regarding efficient backprop and neural networks training
 =================================================================
 
 + `Why Momentum Really Works <http://distill.pub/2017/momentum/>`__
