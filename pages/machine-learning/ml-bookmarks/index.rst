@@ -60,6 +60,8 @@ Optimization Techniques
 
 + `Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift <https://arxiv.org/pdf/1502.03167v3.pdf>`__
 
++ `Hyperparameter optimization for Neural Networks <http://neupy.com/2016/12/17/hyperparameter_optimization_for_neural_networks.html>`__ - example of many optimization approaches from NeuPy library.
+
 
 Other Topics
 ============
