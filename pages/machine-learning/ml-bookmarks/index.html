@@ -19,11 +19,22 @@ MathJax.Hub.Config({
 <meta property="og:site_name" content="Illarion Khlestov Blog">
 <meta property="og:title" content="ML Bookmarks">
 <meta property="og:url" content="https://ikhlestov.github.io/pages/machine-learning/ml-bookmarks/">
-<meta property="og:description" content="This is the list of some useful papers or resources with short explanation
+<meta property="og:description" content="Contents
 
+RNN, seq2seq and all related
+CNNs
+LightWeight CNNs
+
+
+Special Nets
+One Shot Learning
+Reinforcement Learning
 Build Neural Nets with another Neural Nets
+Other Topics
 
-HYPER NETWORKS This work explores hypernetworks:  an approach of using a small n">
+
+Optimization Techniques
+P">
 <meta property="og:type" content="article">
 <meta property="article:published_time" content="2016-10-11T14:59:07Z">
 </head>
@@ -84,22 +95,38 @@ HYPER NETWORKS This work explores hypernetworks:  an approach of using a small n
         
     </header><div class="e-content entry-content" itemprop="articleBody text">
     <div>
-<p>This is the list of some useful papers or resources with short&nbsp;explanation</p>
-<div class="section" id="build-neural-nets-with-another-neural-nets">
-<h2>Build Neural Nets with another Neural&nbsp;Nets</h2>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
 <ul class="simple">
+<li><a class="reference internal" href="#rnn-seq2seq-and-all-related" id="id1">RNN, seq2seq and all&nbsp;related</a></li>
 <li>
-<a class="reference external" href="https://arxiv.org/pdf/1609.09106v1.pdf">HYPER NETWORKS</a> This work explores hypernetworks:  an approach of using a small network, also known as a hypernetwork, to generate the weights for a larger&nbsp;network.</li>
+<a class="reference internal" href="#cnns" id="id2">CNNs</a><ul>
+<li><a class="reference internal" href="#lightweight-cnns" id="id3">LightWeight&nbsp;CNNs</a></li>
+</ul>
+</li>
 <li>
-<a class="reference external" href="https://arxiv.org/pdf/1607.01097v1.pdf">AdaNet: Adaptive Structural Learning of Artificial Neural Networks</a>  Our approach simultaneously and adaptively learns both the structure of the network as well as its&nbsp;weights.</li>
+<a class="reference internal" href="#special-nets" id="id4">Special Nets</a><ul>
+<li><a class="reference internal" href="#one-shot-learning" id="id5">One Shot&nbsp;Learning</a></li>
+<li><a class="reference internal" href="#reinforcement-learning" id="id6">Reinforcement&nbsp;Learning</a></li>
+<li><a class="reference internal" href="#build-neural-nets-with-another-neural-nets" id="id7">Build Neural Nets with another Neural&nbsp;Nets</a></li>
+<li><a class="reference internal" href="#other-topics" id="id8">Other&nbsp;Topics</a></li>
+</ul>
+</li>
 <li>
-<a class="reference external" href="https://arxiv.org/pdf/1511.08130v2.pdf">A Roadmap towards Machine Intelligence</a>   In this paper, some fundamental properties that intelligent machines should have were proposed, focusing in particular on <em>communication</em> and <em>learning</em>.</li>
+<a class="reference internal" href="#optimization-techniques" id="id9">Optimization Techniques</a><ul>
+<li><a class="reference internal" href="#papers-regarding-efficient-backprop-and-neural-networks-training" id="id10">Papers regarding efficient backprop and neural networks&nbsp;training</a></li>
+</ul>
+</li>
 <li>
-<a class="reference external" href="https://openreview.net/pdf?id=r1Ue8Hcxg">Neural Architecture Search with Reinforcement Learning</a> - broad grid search for availbale models architectures with LSTM. As result we receive new conv-net architecture and new RNN&nbsp;node.</li>
+<a class="reference internal" href="#additional-resources" id="id11">Additional Resources</a><ul>
+<li><a class="reference internal" href="#benchmarks" id="id12">Benchmarks</a></li>
+<li><a class="reference internal" href="#datasets" id="id13">Datasets</a></li>
+</ul>
+</li>
 </ul>
 </div>
 <div class="section" id="rnn-seq2seq-and-all-related">
-<h2>RNN, seq2seq and all&nbsp;related</h2>
+<h2><a class="toc-backref" href="#id1">RNN, seq2seq and all&nbsp;related</a></h2>
 <ul class="simple">
 <li>
 <a class="reference external" href="https://arxiv.org/pdf/1511.04868v4.pdf">A Neural Transducer</a> Net than can generate predicition as more inputs arrives, without attention&nbsp;mechanism.</li>
@@ -113,7 +140,7 @@ HYPER NETWORKS This work explores hypernetworks:  an approach of using a small n
 </ul>
 </div>
 <div class="section" id="cnns">
-<h2>CNNs</h2>
+<h2><a class="toc-backref" href="#id2">CNNs</a></h2>
 <ul class="simple">
 <li>
 <a class="reference external" href="http://www.lrec-conf.org/proceedings/lrec2016/pdf/103_Paper.pdf">Punctuation Prediction for Unsegmented Transcript Based on Word Vector</a> CNN for inserting punctuation to the&nbsp;text.</li>
@@ -121,9 +148,28 @@ HYPER NETWORKS This work explores hypernetworks:  an approach of using a small n
 <li>
 <a class="reference external" href="https://arxiv.org/pdf/1610.02391.pdf">Grad-CAM: Visual Explanations from Deep Networks via Gradient-based Localization</a> (<a class="reference external" href="https://github.com/ramprs/grad-cam">git repo</a>)</li>
 </ul>
+<div class="section" id="lightweight-cnns">
+<h3><a class="toc-backref" href="#id3">LightWeight&nbsp;CNNs</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://arxiv.org/abs/1602.07360">SqueezeNet</a></li>
+<li><a class="reference external" href="https://arxiv.org/abs/1704.04861">MobileNet</a></li>
+<li><a class="reference external" href="https://arxiv.org/abs/1707.01083">ShuffleNet</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="special-nets">
+<h2><a class="toc-backref" href="#id4">Special&nbsp;Nets</a></h2>
+<div class="section" id="one-shot-learning">
+<h3><a class="toc-backref" href="#id5">One Shot&nbsp;Learning</a></h3>
+<ul class="simple">
+<li>
+<a class="reference external" href="https://arxiv.org/pdf/1606.04080v1.pdf">Matching Networks for One Shot Learning</a> - one shot learning from Google Deep Mind for image&nbsp;net</li>
+<li><a class="reference external" href="https://arxiv.org/pdf/1612.04844v1.pdf">The More You Know: Using Knowledge Graphs for Image&nbsp;Classification</a></li>
+<li><a class="reference external" href="https://arxiv.org/pdf/1703.05175.pdf">Prototypical Networks for Few-shot&nbsp;Learning</a></li>
+</ul>
 </div>
 <div class="section" id="reinforcement-learning">
-<h2>Reinforcement&nbsp;Learning</h2>
+<h3><a class="toc-backref" href="#id6">Reinforcement&nbsp;Learning</a></h3>
 <ul class="simple">
 <li>
 <a class="reference external" href="https://arxiv.org/pdf/1606.04671.pdf">Progressive Neural Networks</a>  progressive networks approach immune to forgetting and can leverage prior knowledge via lateral connections to previously learned&nbsp;features.</li>
@@ -131,8 +177,32 @@ HYPER NETWORKS This work explores hypernetworks:  an approach of using a small n
 <a class="reference external" href="https://arxiv.org/pdf/1609.00150v1.pdf">Reward Augmented Maximum Likelihood for Neural Structured Prediction</a> (<a class="reference external" href="https://drive.google.com/file/d/0B3Rdm_P3VbRDVUQ4SVBRYW82dU0/view">Short Summary</a>)This paper presents a simple and computationally efficient approach to incorporate task reward into a  maximum likelihood framework. We establish a connection between the log-likelihood and regularized expected reward objectives, showing that at a zero temperature, they are approximately equivalent in  the vicinity of the  optimal&nbsp;solution.</li>
 </ul>
 </div>
+<div class="section" id="build-neural-nets-with-another-neural-nets">
+<h3><a class="toc-backref" href="#id7">Build Neural Nets with another Neural&nbsp;Nets</a></h3>
+<ul class="simple">
+<li>
+<a class="reference external" href="https://arxiv.org/pdf/1609.09106v1.pdf">HYPER NETWORKS</a> This work explores hypernetworks:  an approach of using a small network, also known as a hypernetwork, to generate the weights for a larger&nbsp;network.</li>
+<li>
+<a class="reference external" href="https://arxiv.org/pdf/1607.01097v1.pdf">AdaNet: Adaptive Structural Learning of Artificial Neural Networks</a>  Our approach simultaneously and adaptively learns both the structure of the network as well as its&nbsp;weights.</li>
+<li>
+<a class="reference external" href="https://arxiv.org/pdf/1511.08130v2.pdf">A Roadmap towards Machine Intelligence</a>   In this paper, some fundamental properties that intelligent machines should have were proposed, focusing in particular on <em>communication</em> and <em>learning</em>.</li>
+<li>
+<a class="reference external" href="https://openreview.net/pdf?id=r1Ue8Hcxg">Neural Architecture Search with Reinforcement Learning</a> - broad grid search for availbale models architectures with LSTM. As result we receive new conv-net architecture and new RNN&nbsp;node.</li>
+</ul>
+</div>
+<div class="section" id="other-topics">
+<h3><a class="toc-backref" href="#id8">Other&nbsp;Topics</a></h3>
+<ul class="simple">
+<li>
+<a class="reference external" href="http://people.idsia.ch/~rupesh/very_deep_learning/">Highway Networks</a> - list of papers, code,&nbsp;etc.</li>
+<li><a class="reference external" href="https://arxiv.org/pdf/1701.00160v1.pdf">NIPS 2016 Tutorial: Generative Adversarial&nbsp;Network</a></li>
+<li>Gumbel-Softmax at Categorical Variational Autoencoders - <a class="reference external" href="http://blog.evjang.com/2016/11/tutorial-categorical-variational.html">blog post</a>. Categorical Reparameterization with Gumbel-Softmax <a class="reference external" href="https://arxiv.org/pdf/1611.01144.pdf">original&nbsp;paper</a>
+</li>
+</ul>
+</div>
+</div>
 <div class="section" id="optimization-techniques">
-<h2>Optimization&nbsp;Techniques</h2>
+<h2><a class="toc-backref" href="#id9">Optimization&nbsp;Techniques</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://arxiv.org/pdf/1409.2329v5.pdf">RECURRENT NEURAL NETWORK&nbsp;REGULARIZATION</a></li>
 <li><a class="reference external" href="http://arxiv.org/pdf/1603.05118.pdf">Recurrent Dropout without Memory&nbsp;Loss</a></li>
@@ -141,22 +211,8 @@ HYPER NETWORKS This work explores hypernetworks:  an approach of using a small n
 <li>
 <a class="reference external" href="http://neupy.com/2016/12/17/hyperparameter_optimization_for_neural_networks.html">Hyperparameter optimization for Neural Networks</a> - example of many optimization approaches from NeuPy&nbsp;library.</li>
 </ul>
-</div>
-<div class="section" id="other-topics">
-<h2>Other&nbsp;Topics</h2>
-<ul class="simple">
-<li>
-<a class="reference external" href="http://people.idsia.ch/~rupesh/very_deep_learning/">Highway Networks</a> - list of papers, code,&nbsp;etc.</li>
-<li><a class="reference external" href="https://arxiv.org/pdf/1606.04474.pdf">Set parameter for one network from another(Learning to learn by gradient descent by gradient&nbsp;descent)</a></li>
-<li><a class="reference external" href="https://arxiv.org/pdf/1701.00160v1.pdf">NIPS 2016 Tutorial: Generative Adversarial&nbsp;Network</a></li>
-<li>Gumbel-Softmax at Categorical Variational Autoencoders - <a class="reference external" href="http://blog.evjang.com/2016/11/tutorial-categorical-variational.html">blog post</a>. Categorical Reparameterization with Gumbel-Softmax <a class="reference external" href="https://arxiv.org/pdf/1611.01144.pdf">original&nbsp;paper</a>
-</li>
-<li>
-<a class="reference external" href="http://homes.cs.washington.edu/~pedrod/papers/cacm12.pdf">A Few Useful Things to Know about Machine Learning</a> from cs231n&nbsp;course.</li>
-</ul>
-</div>
 <div class="section" id="papers-regarding-efficient-backprop-and-neural-networks-training">
-<h2>Papers regarding efficient backprop and neural networks&nbsp;training</h2>
+<h3><a class="toc-backref" href="#id10">Papers regarding efficient backprop and neural networks&nbsp;training</a></h3>
 <ul class="simple">
 <li><a class="reference external" href="http://distill.pub/2017/momentum/">Why Momentum Really&nbsp;Works</a></li>
 <li><a class="reference external" href="https://www.microsoft.com/en-us/research/wp-content/uploads/2012/01/tricks-2012.pdf">Stochastic Gradient Descent Tricks(Leon&nbsp;Bottou)</a></li>
@@ -165,30 +221,30 @@ HYPER NETWORKS This work explores hypernetworks:  an approach of using a small n
 <li><a class="reference external" href="https://arxiv.org/pdf/1412.6550.pdf">FitNets: Hints for Thin Deep&nbsp;Nets</a></li>
 <li>
 <a class="reference external" href="https://arxiv.org/pdf/1706.04859.pdf">Sobolev Training for Neural Networks</a> - training network with respect to optimize function&nbsp;derivatives.</li>
+<li><a class="reference external" href="https://arxiv.org/pdf/1606.04474.pdf">Set parameter for one network from another(Learning to learn by gradient descent by gradient&nbsp;descent)</a></li>
 </ul>
 </div>
-<div class="section" id="one-shot-learning">
-<h2>One Shot&nbsp;Learning</h2>
+</div>
+<div class="section" id="additional-resources">
+<h2><a class="toc-backref" href="#id11">Additional&nbsp;Resources</a></h2>
 <ul class="simple">
 <li>
-<a class="reference external" href="https://arxiv.org/pdf/1606.04080v1.pdf">Matching Networks for One Shot Learning</a> - one shot learning from Google Deep Mind for image&nbsp;net</li>
-<li><a class="reference external" href="https://arxiv.org/pdf/1612.04844v1.pdf">The More You Know: Using Knowledge Graphs for Image&nbsp;Classification</a></li>
-<li><a class="reference external" href="https://arxiv.org/pdf/1703.05175.pdf">Prototypical Networks for Few-shot&nbsp;Learning</a></li>
+<a class="reference external" href="http://homes.cs.washington.edu/~pedrod/papers/cacm12.pdf">A Few Useful Things to Know about Machine Learning</a> from cs231n&nbsp;course.</li>
 </ul>
-</div>
 <div class="section" id="benchmarks">
-<h2>Benchmarks</h2>
+<h3><a class="toc-backref" href="#id12">Benchmarks</a></h3>
 <ul class="simple">
 <li>
 <a class="reference external" href="https://github.com/baidu-research/DeepBench">DeepBench</a> Benchmarking Deep Learning operations on different&nbsp;hardware</li>
 </ul>
 </div>
 <div class="section" id="datasets">
-<h2>Datasets</h2>
+<h3><a class="toc-backref" href="#id13">Datasets</a></h3>
 <ul class="simple">
 <li>
 <a class="reference external" href="https://engineering.purdue.edu/elab/eVDS/">e-Lab Video Data Set(s)</a> Objects Tracking&nbsp;Dataset</li>
 </ul>
+</div>
 </div>
 </div>
     </div>
