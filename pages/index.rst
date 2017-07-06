@@ -20,7 +20,7 @@ Machine Learning:
 * :doc:`general-ml-notes`
 * :doc:`quck_ref`
 * :doc:`new-nn-checklist`
-* :doc:`architecture_vs_optimization_approaches`
+* :doc:`architecture-decisions-flow`
 
 .. * :doc:`ml-knowledge-base`
 
@@ -30,9 +30,9 @@ Python related:
 * :doc:`matplotlib`
 * :doc:`numpy`
 * `Pandas commands <link://slug/pandas-commands>`__
-* :doc:`python-libraries`
 * :doc:`Scikit-learn notes <scikit-learn-notes>`
 * :doc:`python-bookmarks`
+* :doc:`python-libraries`
 * :doc:`python-hints`
 * `Large cheat sheet for ML(External) <https://medium.com/@kailashahirwar/essential-cheat-sheets-for-machine-learning-and-deep-learning-researchers-efb6a8ebd2e5>`__
 
