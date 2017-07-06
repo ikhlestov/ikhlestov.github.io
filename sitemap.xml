@@ -79,7 +79,7 @@
  </url>
  <url>
   <loc>https://ikhlestov.github.io/pages/</loc>
-  <lastmod>2017-06-14T17:06:00Z</lastmod>
+  <lastmod>2017-07-06T17:33:00Z</lastmod>
  </url>
  <url>
   <loc>https://ikhlestov.github.io/pages/another-topics/docker-help-list/</loc>
@@ -92,6 +92,10 @@
  <url>
   <loc>https://ikhlestov.github.io/pages/another-topics/hadoop-notes/</loc>
   <lastmod>2017-04-14T10:40:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://ikhlestov.github.io/pages/machine-learning/architecture-decisions-flow/</loc>
+  <lastmod>2017-07-06T17:33:00Z</lastmod>
  </url>
  <url>
   <loc>https://ikhlestov.github.io/pages/machine-learning/architecture_vs_optimization_approaches/</loc>
@@ -160,6 +164,10 @@
  <url>
   <loc>https://ikhlestov.github.io/pages/machine-learning/tensorflow-hints/</loc>
   <lastmod>2017-04-14T10:40:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://ikhlestov.github.io/pages/math/math-notations/</loc>
+  <lastmod>2017-07-06T17:33:00Z</lastmod>
  </url>
  <url>
   <loc>https://ikhlestov.github.io/pages/python-related/ipdb-commands/</loc>

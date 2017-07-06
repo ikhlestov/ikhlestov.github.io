@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html prefix="
+og: http://ogp.me/ns#
+article: http://ogp.me/ns/article#
+" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Architecture Decisions Flow | Illarion Khlestov Blog</title>
+<link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<meta content="#5670d4" name="theme-color">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../../../rss.xml">
+<link rel="canonical" href="https://ikhlestov.github.io/pages/machine-learning/architecture-decisions-flow/">
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    displayAlign: 'center', // Change this to 'center' to center equations.
+});
+</script><!--[if lt IE 9]><script src="../../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Illarion Khlestov">
+<meta property="og:site_name" content="Illarion Khlestov Blog">
+<meta property="og:title" content="Architecture Decisions Flow">
+<meta property="og:url" content="https://ikhlestov.github.io/pages/machine-learning/architecture-decisions-flow/">
+<meta property="og:description" content="Contents
+
+Data Augmentation
+Initialization
+Activation functions
+Loss functions
+Regularization
+Normalization
+Optimizers
+Convolutions
+Another architectures decisions
+A systematic evaluation of CNN modul">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2017-07-06T17:13:58Z">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-static-top"><div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://ikhlestov.github.io/">
+
+                <span id="blog-title">Illarion Khlestov Blog</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
+            <ul class="nav navbar-nav">
+<li>
+<a href="../../../">Blog</a>
+                </li>
+<li>
+<a href="../../">Pages</a>
+                </li>
+<li>
+<a href="../../../listings/">Listings</a>
+                </li>
+<li>
+<a href="../../../archive.html">Archive</a>
+
+                
+            </li>
+</ul>
+<ul class="nav navbar-nav navbar-right">
+<li>
+    <a href="index.rst" id="sourcelink">Source</a>
+    </li>
+                
+            </ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Architecture Decisions&nbsp;Flow</a></h1>
+
+        
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#data-augmentation" id="id1">Data&nbsp;Augmentation</a></li>
+<li><a class="reference internal" href="#initialization" id="id2">Initialization</a></li>
+<li><a class="reference internal" href="#activation-functions" id="id3">Activation&nbsp;functions</a></li>
+<li><a class="reference internal" href="#loss-functions" id="id4">Loss&nbsp;functions</a></li>
+<li><a class="reference internal" href="#regularization" id="id5">Regularization</a></li>
+<li><a class="reference internal" href="#normalization" id="id6">Normalization</a></li>
+<li><a class="reference internal" href="#optimizers" id="id7">Optimizers</a></li>
+<li><a class="reference internal" href="#convolutions" id="id8">Convolutions</a></li>
+<li><a class="reference internal" href="#another-architectures-decisions" id="id9">Another architectures&nbsp;decisions</a></li>
+<li><a class="reference internal" href="#a-systematic-evaluation-of-cnn-modules" id="id10">A systematic evaluation of CNN&nbsp;modules</a></li>
+</ul>
+</div>
+<div class="section" id="data-augmentation">
+<h2><a class="toc-backref" href="#id1">Data&nbsp;Augmentation</a></h2>
+<ul class="simple">
+<li>Train network to one image size(224x224) and fine tune after for less epochs to larger size(448x448 for&nbsp;example)</li>
+<li>Train image detection network with image classification&nbsp;dataset</li>
+</ul>
+</div>
+<div class="section" id="initialization">
+<h2><a class="toc-backref" href="#id2">Initialization</a></h2>
+<ul class="simple">
+<li>Random</li>
+<li>Xavier</li>
+</ul>
+</div>
+<div class="section" id="activation-functions">
+<h2><a class="reference external" href="https://en.wikipedia.org/wiki/Activation_function">Activation&nbsp;functions</a></h2>
+<ul class="simple">
+<li>Sigmoid</li>
+<li>ReLU</li>
+<li>Leaky&nbsp;ReLU</li>
+<li>ELU</li>
+<li><a class="reference external" href="https://arxiv.org/pdf/1706.02515.pdf">SELU</a></li>
+</ul>
+</div>
+<div class="section" id="loss-functions">
+<h2><a class="toc-backref" href="#id4">Loss&nbsp;functions</a></h2>
+<ul class="simple">
+<li>hinge loss <span class="math">\(L_i = \sum_{j\neq y_i} \max(0, s_j - s_{y_i} +&nbsp;\Delta)\)</span>
+</li>
+<li>cross-entropy&nbsp;loss</li>
+<li>Triplet-loss - multi class loss from <a class="reference external" href="https://arxiv.org/abs/1503.03832">FaceNet</a>
+</li>
+<li>Center-loss - from <a class="reference external" href="http://ydwen.github.io/papers/WenECCV16.pdf">this&nbsp;paper</a>
+</li>
+<li>Angular Softmax - from <a class="reference external" href="https://arxiv.org/abs/1704.08063">Sphere&nbsp;Face</a>
+</li>
+</ul>
+</div>
+<div class="section" id="regularization">
+<h2><a class="toc-backref" href="#id5">Regularization</a></h2>
+<ul class="simple">
+<li>Dropout</li>
+<li>GaussianDropout</li>
+<li>L1, L2,&nbsp;Lp</li>
+<li>Label&nbsp;smoothing</li>
+</ul>
+</div>
+<div class="section" id="normalization">
+<h2><a class="toc-backref" href="#id6">Normalization</a></h2>
+<ul class="simple">
+<li>Batch&nbsp;Norm</li>
+<li>Layer&nbsp;Norm</li>
+<li>Weight&nbsp;Norm</li>
+<li>Fusing&nbsp;parameters(???)</li>
+</ul>
+</div>
+<div class="section" id="optimizers">
+<h2><a class="toc-backref" href="#id7">Optimizers</a></h2>
+<ul class="simple">
+<li>First order<ul>
+<li>Gradient&nbsp;Descent</li>
+<li>Momentum</li>
+<li>Adam</li>
+</ul>
+</li>
+<li>Second&nbsp;order</li>
+</ul>
+</div>
+<div class="section" id="convolutions">
+<h2><a class="toc-backref" href="#id8">Convolutions</a></h2>
+<ul class="simple">
+<li>Usual&nbsp;convolutions</li>
+<li>3x3 is&nbsp;better</li>
+<li>1x1 convolutions from <a class="reference external" href="https://arxiv.org/abs/1312.4400">Network-in-network(NiN)</a>
+</li>
+<li>Flattened convolutions(Cx1, 1xC kernels)(<a class="reference external" href="https://arxiv.org/abs/1412.5474">Paper</a>)</li>
+<li>depthwise separable convolutions(<a class="reference external" href="https://arxiv.org/abs/1610.02357">Xception</a>)<ul>
+<li>1x1 convs and then separable by channels 3x3&nbsp;convs</li>
+<li>Separable by channels 3x3 convs and after 1x1 convs for all&nbsp;features</li>
+</ul>
+</li>
+<li>Grouped convolutions (initially in AlexNet, updated in <a class="reference external" href="https://arxiv.org/abs/1611.05431">ResNeXt</a>)</li>
+<li>Shuffled Grouped Convolutions(<a class="reference external" href="https://arxiv.org/abs/1707.01083v1">Shuffle Net</a>)</li>
+</ul>
+</div>
+<div class="section" id="another-architectures-decisions">
+<h2><a class="toc-backref" href="#id9">Another architectures&nbsp;decisions</a></h2>
+<ul class="simple">
+<li>Average pooling as part of the last&nbsp;classifier</li>
+<li>Use conv with stride without overlapping, not average/max&nbsp;pooling</li>
+<li>Inception module(parallel computation of various filters with 1x1 convs and after concatenating&nbsp;them)</li>
+<li>Bypassing features over two layers(as in ResNet or&nbsp;HighwayNets)</li>
+<li>Concatenating features from current layer with features from previous ones(as in&nbsp;DenseNet)</li>
+<li>Combine Inception Block with DenseNet&nbsp;approach</li>
+</ul>
+<!-- Selection of hyperparameters --><!-- ============================ -->
+</div>
+<div class="section" id="a-systematic-evaluation-of-cnn-modules">
+<h2><a class="toc-backref" href="#id10">A systematic evaluation of CNN&nbsp;modules</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://arxiv.org/pdf/1606.02228.pdf">Link to initial&nbsp;paper</a></li>
+<li>use ELU non-linearity without batchnorm or ReLU with&nbsp;it.</li>
+<li>apply a learned color space transformation of&nbsp;RGB.</li>
+<li>use the linear learning rate decay&nbsp;policy.</li>
+<li>use a sum of the average and max pooling&nbsp;layers.</li>
+<li>use mini-batch size around 128 or 256. If this is too big for your GPU, decrease the learning rate proportionally to the batch&nbsp;size.</li>
+<li>use fully-connected layers as convolutional and average the predictions for the final&nbsp;decision.</li>
+<li>when investing in increasing training set size, check if a plateau has not been&nbsp;reach.</li>
+<li>cleanliness of the data is more important then the&nbsp;size.</li>
+<li>if you cannot increase the input image size, reduce the stride in the consequent layers, it has roughly the same&nbsp;effect.</li>
+<li>if your network has a complex and highly optimized architecture, like e.g. GoogLeNet, be careful with&nbsp;modifications.</li>
+</ul>
+</div>
+</div>
+    </div>
+    
+</article>
+</div>
+        <!--End of body content-->
+
+        <footer id="footer">
+            Contents © 2017         <a href="mailto:ikhlestov@gmail.com">Illarion Khlestov</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>          <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script></footer>
+</div>
+</div>
+
+            <script src="../../../assets/js/all-nocdn.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates --><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-92406723-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>
