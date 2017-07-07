@@ -72,7 +72,7 @@ Convolutions
 
 - Usual convolutions
 - 3x3 is better
-- 1x1 convolutions from `Network-in-network(NiN) <https://arxiv.org/abs/1312.4400>`__
+- 1x1 convs(pointwise convolutions) from `Network-in-network(NiN) <https://arxiv.org/abs/1312.4400>`__
 - Flattened convolutions(Cx1, 1xC kernels)(`Paper <https://arxiv.org/abs/1412.5474>`__)
 - depthwise separable convolutions(`Xception <https://arxiv.org/abs/1610.02357>`__)
 
@@ -80,7 +80,7 @@ Convolutions
   - Separable by channels 3x3 convs and after 1x1 convs for all features
 
 - Grouped convolutions (initially in AlexNet, updated in `ResNeXt <https://arxiv.org/abs/1611.05431>`__)
-- Shuffled Grouped Convolutions(`Shuffle Net <https://arxiv.org/abs/1707.01083v1>`__)
+- Shuffled Grouped Convolutions(`Shuffle Net <https://arxiv.org/abs/1707.01083>`__)
 
 Another architectures decisions
 ===============================

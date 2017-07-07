@@ -21,6 +21,7 @@ Machine Learning:
 * :doc:`quck_ref`
 * :doc:`new-nn-checklist`
 * :doc:`architecture-decisions-flow`
+* :doc:`convolutions-types`
 
 .. * :doc:`ml-knowledge-base`
 
