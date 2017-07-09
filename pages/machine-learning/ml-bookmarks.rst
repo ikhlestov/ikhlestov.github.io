@@ -97,6 +97,7 @@ Papers regarding efficient backprop and neural networks training
 + `FitNets: Hints for Thin Deep Nets <https://arxiv.org/pdf/1412.6550.pdf>`__
 + `Sobolev Training for Neural Networks <https://arxiv.org/pdf/1706.04859.pdf>`__ - training network with respect to optimize function derivatives.
 + `Set parameter for one network from another(Learning to learn by gradient descent by gradient descent) <https://arxiv.org/pdf/1606.04474.pdf>`__
++ `The Marginal Value of Adaptive Gradient Methods in Machine Learning <https://arxiv.org/abs/1705.08292>`__ - explanation why SGD can be better than Adam or other methods
 
 
 Additional Resources
