@@ -46,7 +46,7 @@ Regularization
 - Dropout
 - GaussianDropout
 - L1, L2, Lp
-- Label smoothing
+- Labels smoothing
 
 Normalization
 ===================
@@ -91,6 +91,7 @@ Another architectures decisions
 - Bypassing features over two layers(as in ResNet or HighwayNets)
 - Concatenating features from current layer with features from previous ones(as in DenseNet)
 - Combine Inception Block with DenseNet approach
+- Switch from Cartesian coordinate system to Polar coordinate system
 
 .. Selection of hyperparameters
 .. ============================
