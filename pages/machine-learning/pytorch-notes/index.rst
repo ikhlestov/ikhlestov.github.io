@@ -43,7 +43,7 @@ Define manual seed
     # GPU seed
     torch.cuda.manual_seed_all(42)
 
-Move from CPU to GPU and back
+Move tensor from CPU to GPU and back
 ----------------------------------------
 
 .. code-block:: python
@@ -393,3 +393,25 @@ Weight initializtion in pytorch can be implemented in two ways:
                 elif isinstance(m, nn.Linear):
                     m.bias.data.zero_()
 
+Work with CUDA
+---------------
+
+.. code-block:: python
+
+    import torch
+    
+    # check is cuda enabled
+    torch.cuda.is_available()
+
+    # set required device
+    torch.cuda.set_device(0)
+
+    # work with some required cuda device
+    with torch.cuda.device(1):
+        # allocates a tensor on GPU 1
+        a = torch.cuda.FloatTensor(1)
+        # a.get_device() == 1
+
+        # but you still can manually assign tensor to required device
+        d = torch.randn(2).cuda(2)
+        # d.get_device() == 2
