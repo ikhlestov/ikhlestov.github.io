@@ -523,7 +523,7 @@
 			"file": "pages/machine-learning/ml-bookmarks.rst",
 			"settings":
 			{
-				"buffer_size": 6843,
+				"buffer_size": 6983,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -576,7 +576,19 @@
 			"file": "pages/index.rst",
 			"settings":
 			{
-				"buffer_size": 1293,
+				"buffer_size": 1373,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": ".. title: PyTorch Notes\n.. slug: pytorch-notes\n.. date: 2017-07-17 17:14:51 UTC\n.. tags: \n.. category: \n.. link: \n.. description: \n.. type: text\n.. author: Illarion Khlestov\n\n.. contents::\n\nPyTorch Fundamentals\n====================\n\nSimple array manipulations/creations\n----------------------------------------\n\n.. code-block:: python\n\n    import torch\n\n    # convert numpy array to pytorch array\n    torch.Tensor(numpy_tensor)\n    # or another way\n    torch.from_numpy(numpy_tensor)\n\n    # convert torch tensor to numpy representation\n    pytorch_tensor.numpy()\n\n    # create default arrays\n    torch.ones((2, 2))\n    torch.rand(2, 2)\n\nDefine manual seed\n----------------------------------------\n\n.. code-block:: python\n    \n    # CPU seed\n    torch.manual_seed(42)\n\n    # GPU seed\n    torch.cuda.manual_seed_all(42)\n\nMove from CPU to GPU and back\n----------------------------------------\n\n.. code-block:: python\n\n    # move to GPU\n    cpu_tensor.cuda()\n\n    # move to CPU\n    gpu_tensor.cpu()\n\nTensor manipulations\n----------------------------------------\n\n.. code-block:: python\n\n    a = torch.rand(2, 3)\n\n    # get the shape of tensor\n    a.size()\n\n    # reshape tensor to required shape\n    a.view(3, -1)\n\n    # simple addition\n    b = torch.ones((2, 3))\n    c = a + b\n    c = torch.add(a, b)\n\n    # in-place addition\n    a.add_(b)\n\n    # get the mean and std\n    a.mean(dim=0)\n    a.std(dim=1)\n\nVariables and Gradients\n=======================\n\nVariable creation\n----------------------------------------\n\n.. code-block:: python\n\n    import torch\n    from torch.autograd import Variable\n\n    # create variable\n    a = Variable(torch.ones((2, 3)), requires_grad=True)\n\n    # access variable tensor\n    a.data\n\n    # access variable gradient\n    a.grad\n\nCompute gradient\n----------------------------------------\n\n.. code-block:: python\n\n    x = Variable(torch.ones(2), requires_grad=True)\n    y = 5 * (x + 2) ** 2\n\n    # backward should be called only on a scalar\n    o = (1 / 2) * torch.sum(y)\n\n    # compute backward\n    o.backward()\n\n    # now we have the gradients of x\n    x.grad\n    # 10, 10\n\nNeural Networks\n===============\n\nDefine simple NN\n-----------------\n\nSimple network without any optimizer and manually defined loss function\n\n.. code-block:: python\n\n    import torch\n    from torch.autograd import Variable\n\n    dtype = torch.FloatTensor\n    N, D_in, H, D_out = 64, 1000, 100, 10\n\n    x = Variable(torch.randn(N, D_in).type(dtype), requires_grad=False)\n    y = Variable(torch.randn(N, D_out).type(dtype), requires_grad=False)\n\n    w1 = Variable(torch.randn(D_in, H).type(dtype), requires_grad=True)\n    w2 = Variable(torch.randn(H, D_out).type(dtype), requires_grad=True)\n\n    learning_rate = 1e-6\n\n    for t in range(500):\n\n        y_pred = x.mm(w1)\n        # simulate ReLU behavior\n        y_pred = y_pred.clamp(min=0)\n        y_pred = y_pred @ w2\n\n        loss = (y_pred - y).pow(2).sum()\n        # compute backward pass\n        loss.backward()\n\n        # manually apply the gradients\n        w1.data -= learning_rate * w1.grad.data\n        w2.data -= learning_rate * w2.grad.data\n\n        # Manually zero the gradients after updating weights\n        w1.grad.data.zero_()\n        w2.grad.data.zero_()\n\nNN with optimizer and loss\n--------------------------\n\nNow we will define network with `nn` module and with already predefined optimizer and loss\n\n.. code-block:: python\n\n    import torch\n    from torch.autograd import Variable\n\n    N, D_in, H, D_out = 64, 1000, 100, 10\n\n    x = Variable(torch.randn(N, D_in))\n    y = Variable(torch.randn(N, D_out), requires_grad=False)\n\n    model = torch.nn.Sequential(\n        torch.nn.Linear(D_in, H),\n        torch.nn.ReLU(),\n        torch.nn.Linear(H, D_out),\n    )\n\n    learning_rate = 1e-6\n    loss_fn = torch.nn.MSELoss(size_average=False)\n    optimizer = optim.SGD(model.parameters(), lr=learning_rate)\n\n    for t in range(500):\n        \n",
+			"file": "pages/machine-learning/pytorch-notes.rst",
+			"file_size": 3869,
+			"file_write_time": 131447901880000000,
+			"settings":
+			{
+				"buffer_size": 3904,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -609,7 +621,7 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 247.0,
+		"height": 392.0,
 		"last_filter": "",
 		"selected_items":
 		[
@@ -792,6 +804,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"ls",
 			"sigmoid",
 			"Squeezenet",
 			"_get_model_state_dict_path",
@@ -918,8 +931,7 @@
 			"path",
 			"requests",
 			"ImageValidator",
-			"illarion",
-			"transforms"
+			"illarion"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -937,7 +949,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 7,
 			"sheets":
 			[
 				{
@@ -946,15 +958,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6843,
+						"buffer_size": 6983,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								6389,
-								6389
+								4756,
+								4756
 							]
 						],
 						"settings":
@@ -1037,10 +1049,10 @@
 							"syntax": "Packages/RestructuredText/reStructuredText.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 180.0,
+						"translation.y": 767.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
@@ -1140,10 +1152,10 @@
 							"syntax": "Packages/RestructuredText/reStructuredText.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1217.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
@@ -1243,10 +1255,10 @@
 							"syntax": "Packages/RestructuredText/reStructuredText.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 297.0,
+						"translation.y": 317.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
@@ -1350,7 +1362,7 @@
 						"translation.y": 317.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
@@ -1468,7 +1480,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
@@ -1484,8 +1496,8 @@
 						"selection":
 						[
 							[
-								188,
-								175
+								197,
+								197
 							]
 						],
 						"settings":
@@ -1508,61 +1520,61 @@
 							},
 							"bracket_highlighter.regions":
 							[
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
 								"bh_curly",
 								"bh_curly_center",
 								"bh_curly_open",
 								"bh_curly_close",
 								"bh_curly_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
 								"bh_unmatched",
 								"bh_unmatched_center",
 								"bh_unmatched_open",
 								"bh_unmatched_close",
 								"bh_unmatched_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
 								"bh_angle",
 								"bh_angle_center",
 								"bh_angle_open",
 								"bh_angle_close",
 								"bh_angle_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content"
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
 							],
 							"git_gutter_is_enabled": true,
 							"syntax": "Packages/RestructuredText/reStructuredText.sublime-syntax",
@@ -1573,7 +1585,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
@@ -1582,15 +1594,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1293,
+						"buffer_size": 1373,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								609,
-								609
+								387,
+								387
 							]
 						],
 						"settings":
@@ -1613,61 +1625,61 @@
 							},
 							"bracket_highlighter.regions":
 							[
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
 								"bh_curly",
 								"bh_curly_center",
 								"bh_curly_open",
 								"bh_curly_close",
 								"bh_curly_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
 								"bh_unmatched",
 								"bh_unmatched_center",
 								"bh_unmatched_open",
 								"bh_unmatched_close",
 								"bh_unmatched_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
 								"bh_angle",
 								"bh_angle_center",
 								"bh_angle_open",
 								"bh_angle_close",
 								"bh_angle_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content"
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
 							],
 							"git_gutter_is_enabled": true,
 							"syntax": "Packages/RestructuredText/reStructuredText.sublime-syntax"
@@ -1676,7 +1688,113 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "pages/machine-learning/pytorch-notes.rst",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3904,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3903,
+								3903
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
+							],
+							"git_gutter_is_enabled": true,
+							"spell_check": true,
+							"syntax": "Packages/RestructuredText/reStructuredText.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2604.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
 					"type": "text"
 				}
 			]
@@ -1684,7 +1802,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 22.0
+		"height": 23.0
 	},
 	"input":
 	{
@@ -1725,7 +1843,7 @@
 	"project": "blog.sublime-project",
 	"replace":
 	{
-		"height": 40.0
+		"height": 42.0
 	},
 	"save_all_on_build": true,
 	"select_file":

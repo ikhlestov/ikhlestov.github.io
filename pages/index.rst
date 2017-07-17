@@ -12,16 +12,23 @@ Here I will store various notes based on some books, lectures or just tutorials 
 
 Machine Learning:
 
-* `Deep Learning Book <machine-learning/deep-learning-book>`_
-* `cs231n notes <machine-learning/cs231n>`__
 * :doc:`ml-bookmarks`
 * :doc:`models-architectures`
-* :doc:`tensorflow-hints`
 * :doc:`general-ml-notes`
 * :doc:`quck_ref`
 * :doc:`new-nn-checklist`
 * :doc:`architecture-decisions-flow`
 * :doc:`convolutions-types`
+
+ML books/courses notes:
+
+* `Deep Learning Book <machine-learning/deep-learning-book>`_
+* `cs231n notes <machine-learning/cs231n>`__
+
+Machine Learning Frameworks:
+
+* :doc:`tensorflow-hints`
+* :doc:`pytorch-notes`
 
 .. * :doc:`ml-knowledge-base`
 
