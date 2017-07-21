@@ -61,6 +61,11 @@ Residual block architecture(Res Net)
 
 .. figure:: /images/models_architectures/resnets_modelvariants.png
 
+Mobile Net(`paper <https://arxiv.org/abs/1704.04861>`__)
+========================================================
+
+.. figure:: /images/models_architectures/mobile_net.png
+
 
 Convolutional Network (CNN) hyperparameters
 ===========================================
