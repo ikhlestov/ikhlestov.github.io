@@ -57,7 +57,8 @@ Spatial convolutions means convolutions performed in **spatial dimensions** - **
 Depthwise Separable Convolutions(separable convolutions)
 =========================================================
 
-A lot about such convolutions published in the (`Xception paper <https://arxiv.org/abs/1610.02357>`__).
+A lot about such convolutions published in the (`Xception paper <https://arxiv.org/abs/1610.02357>`__) or
+(`MobileNet paper <https://arxiv.org/abs/1704.04861>`__).
 Consist of:
 
 - **Depthwise convolution**, i.e. a spatial convolution performed independently over each channel of an input.
@@ -67,6 +68,8 @@ Difference between Inception module and separable convolutions:
 
 - Separable convolutions perform first channel-wise spatial convolution and then perform 1x1 convolution, whereas Inception performs the 1x1 convolution first.
 - depthwise separable convolutions are usually implemented without non-linearities.
+
+.. image:: /images/ML_notes/convolutions/07_deepwise_convolutions.png
 
 
 Grouped Convolutions
