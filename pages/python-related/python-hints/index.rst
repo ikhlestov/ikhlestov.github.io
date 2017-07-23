@@ -485,6 +485,22 @@ contextlib based
     with custom_open('file') as f:
         contents = f.read()
 
+Slots Usage
+===========
+
+.. code-block:: pycon
+
+    >>> class Point:
+    ...     __slots__ = ('x', 'y')
+    ...
+    >>> p = Point()
+    >>> p.x = 1
+    >>> p.y = 2
+    >>> p.z = 33
+    Traceback (most recent call last):
+      File "<stdin>", line 1, in <module>
+    AttributeError: 'Point' object has no attribute 'z'
+
 Miscellaneous
 =============
 
