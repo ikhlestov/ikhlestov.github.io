@@ -78,6 +78,8 @@ Grouped Convolutions
 Grouped convolutions were initial mentioned in AlexNet, and later reused in `ResNeXt <https://arxiv.org/abs/1611.05431>`__.
 Main motivation of such convolutions is to reduce computational complexity while dividing features on groups.
 
+.. image:: /images/ML_notes/convolutions/05_2_group_convolutions.png
+
 .. image:: /images/ML_notes/convolutions/05_group_convolutions.png
 
 Shuffled Grouped Convolutions
