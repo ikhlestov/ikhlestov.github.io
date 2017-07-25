@@ -19,6 +19,7 @@ Machine Learning:
 * :doc:`new-nn-checklist`
 * :doc:`architecture-decisions-flow`
 * :doc:`convolutions-types`
+* :doc:`nn-models-compression-techniques`
 
 ML books/courses notes:
 
