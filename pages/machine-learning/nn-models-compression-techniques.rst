@@ -68,3 +68,5 @@ Links for Tensorflow:
 Links for pytorch:
 
 - `Sparse Tensors in PyTorch <https://discuss.pytorch.org/t/sparse-tensors-in-pytorch/859>`__
+
+Also you should note that there two approaches for squeezing exist - one for model size reducing, and another for model speedup.
