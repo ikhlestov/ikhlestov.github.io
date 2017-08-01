@@ -157,13 +157,13 @@ Consist&nbsp;of:</p>
 <li>Separable convolutions perform first channel-wise spatial convolution and then perform 1x1 convolution, whereas Inception performs the 1x1 convolution&nbsp;first.</li>
 <li>depthwise separable convolutions are usually implemented without&nbsp;non-linearities.</li>
 </ul>
-<img alt="/images/ML_notes/convolutions/07_deepwise_convolutions.png" src="../../../images/ML_notes/convolutions/07_deepwise_convolutions.png">
+<img alt="/images/ML_notes/convolutions/05_1_deepwise_convolutions.png" src="../../../images/ML_notes/convolutions/05_1_deepwise_convolutions.png">
 </div>
 <div class="section" id="grouped-convolutions">
 <h2><a class="toc-backref" href="#id6">Grouped&nbsp;Convolutions</a></h2>
 <p>Grouped convolutions were initial mentioned in AlexNet, and later reused in <a class="reference external" href="https://arxiv.org/abs/1611.05431">ResNeXt</a>.
 Main motivation of such convolutions is to reduce computational complexity while dividing features on&nbsp;groups.</p>
-<img alt="/images/ML_notes/convolutions/05_2_group_convolutions.png" src="../../../images/ML_notes/convolutions/05_2_group_convolutions.png"><img alt="/images/ML_notes/convolutions/05_group_convolutions.png" src="../../../images/ML_notes/convolutions/05_group_convolutions.png">
+<img alt="/images/ML_notes/convolutions/05_2_group_convolutions.png" src="../../../images/ML_notes/convolutions/05_2_group_convolutions.png">
 </div>
 <div class="section" id="shuffled-grouped-convolutions">
 <h2><a class="toc-backref" href="#id7">Shuffled Grouped&nbsp;Convolutions</a></h2>
@@ -175,7 +175,8 @@ Main motivation of such convolutions is to reduce computational complexity while
 <li>transpose&nbsp;output</li>
 <li>flatten output&nbsp;back</li>
 </ul>
-<img alt="/images/ML_notes/convolutions/06_shuffled_grouped_convolutions.png" src="../../../images/ML_notes/convolutions/06_shuffled_grouped_convolutions.png">
+<img alt="/images/ML_notes/convolutions/06_shuffled_grouped_convolutions.png" src="../../../images/ML_notes/convolutions/06_shuffled_grouped_convolutions.png"><p>So at the end in paper was proposed to use such convolutions for 1x1 convolutions to reduce computation costs. Notice, that 3x3 convolutions still usual depthwise approach and last operation was changed from <em>Add</em> to <em>Concat</em>.</p>
+<img alt="/images/ML_notes/convolutions/07_shuffled_grouped_convolutions_usage.png" src="../../../images/ML_notes/convolutions/07_shuffled_grouped_convolutions_usage.png">
 </div>
 </div>
     </div>
