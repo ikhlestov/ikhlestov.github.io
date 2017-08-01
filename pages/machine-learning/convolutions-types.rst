@@ -69,7 +69,7 @@ Difference between Inception module and separable convolutions:
 - Separable convolutions perform first channel-wise spatial convolution and then perform 1x1 convolution, whereas Inception performs the 1x1 convolution first.
 - depthwise separable convolutions are usually implemented without non-linearities.
 
-.. image:: /images/ML_notes/convolutions/07_deepwise_convolutions.png
+.. image:: /images/ML_notes/convolutions/05_1_deepwise_convolutions.png
 
 
 Grouped Convolutions
@@ -79,8 +79,6 @@ Grouped convolutions were initial mentioned in AlexNet, and later reused in `Res
 Main motivation of such convolutions is to reduce computational complexity while dividing features on groups.
 
 .. image:: /images/ML_notes/convolutions/05_2_group_convolutions.png
-
-.. image:: /images/ML_notes/convolutions/05_group_convolutions.png
 
 Shuffled Grouped Convolutions
 =============================
@@ -94,3 +92,7 @@ They proposed shuffle channels in such way(layer with :math:`g` groups whose out
 - flatten output back
 
 .. image:: /images/ML_notes/convolutions/06_shuffled_grouped_convolutions.png
+
+So at the end in paper was proposed to use such convolutions for 1x1 convolutions to reduce computation costs. Notice, that 3x3 convolutions still usual depthwise approach and last operation was changed from *Add* to *Concat*.
+
+.. image:: /images/ML_notes/convolutions/07_shuffled_grouped_convolutions_usage.png
