@@ -73,6 +73,7 @@ Other Topics
 + `NIPS 2016 Tutorial: Generative Adversarial Network <https://arxiv.org/pdf/1701.00160v1.pdf>`__
 + Gumbel-Softmax at Categorical Variational Autoencoders - `blog post <http://blog.evjang.com/2016/11/tutorial-categorical-variational.html>`__. Categorical Reparameterization with Gumbel-Softmax `original paper <https://arxiv.org/pdf/1611.01144.pdf>`__
 + `Survey of resampling techniques for improving classification performance in unbalanced datasets <https://arxiv.org/pdf/1608.06048.pdf>`__
++ `Speed/accuracy trade-offs for modern convolutional object detectors <https://arxiv.org/abs/1611.10012>`__
 
 Optimization Techniques
 =======================
