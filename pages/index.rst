@@ -49,6 +49,7 @@ Ubuntu:
 
 * :doc:`bash-commands`
 * :doc:`bash-shortcuts`
+* :doc:`makefiles`
 * :doc:`ubuntu-shortcuts`
 
 Text editors:
