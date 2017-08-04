@@ -164,7 +164,13 @@ MathJax.Hub.Config({
 <a href="#listingsubuntu-bash-hintssh-88">88</a>
 <a href="#listingsubuntu-bash-hintssh-89">89</a>
 <a href="#listingsubuntu-bash-hintssh-90">90</a>
-<a href="#listingsubuntu-bash-hintssh-91">91</a></pre></div></td>
+<a href="#listingsubuntu-bash-hintssh-91">91</a>
+<a href="#listingsubuntu-bash-hintssh-92">92</a>
+<a href="#listingsubuntu-bash-hintssh-93">93</a>
+<a href="#listingsubuntu-bash-hintssh-94">94</a>
+<a href="#listingsubuntu-bash-hintssh-95">95</a>
+<a href="#listingsubuntu-bash-hintssh-96">96</a>
+<a href="#listingsubuntu-bash-hintssh-97">97</a></pre></div></td>
 <td class="code"><pre class="code literal-block"><a name="listingsubuntu-bash-hintssh-1"></a><span class="c1"># show running process by name with headers</span>
 <a name="listingsubuntu-bash-hintssh-2"></a>$ ps aux <span class="p">|</span> egrep <span class="s2">"python|PID"</span>
 <a name="listingsubuntu-bash-hintssh-3"></a>
@@ -256,6 +262,12 @@ MathJax.Hub.Config({
 <a name="listingsubuntu-bash-hintssh-89"></a>
 <a name="listingsubuntu-bash-hintssh-90"></a><span class="c1"># get version of CUDA</span>
 <a name="listingsubuntu-bash-hintssh-91"></a>$ dpkg -l <span class="p">|</span> grep cuda
+<a name="listingsubuntu-bash-hintssh-92"></a>
+<a name="listingsubuntu-bash-hintssh-93"></a><span class="c1"># rename some folders by pattern</span>
+<a name="listingsubuntu-bash-hintssh-94"></a><span class="c1"># find required folders  | split folder by '/' or '_' |</span>
+<a name="listingsubuntu-bash-hintssh-95"></a><span class="c1"># based on split generate new name | call `mv` command with `system ()` flag</span>
+<a name="listingsubuntu-bash-hintssh-96"></a><span class="c1"># note that splaces added in quotes</span>
+<a name="listingsubuntu-bash-hintssh-97"></a>find . -type d -name <span class="s2">"celeb*"</span> <span class="p">|</span>  awk -F <span class="s1">'/|_'</span> <span class="s1">'{system ("mv " $0 " " $2"_mobile_"$3)}'</span>
 </pre></td>
 </tr></table>
 </div>

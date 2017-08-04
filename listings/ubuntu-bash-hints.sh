@@ -89,3 +89,9 @@ $ docker ps | sed -n 2p  | awk '{print $NF}' | xargs docker stop
 
 # get version of CUDA
 $ dpkg -l | grep cuda
+
+# rename some folders by pattern
+# find required folders  | split folder by '/' or '_' |
+# based on split generate new name | call `mv` command with `system ()` flag
+# note that splaces added in quotes
+find . -type d -name "celeb*" |  awk -F '/|_' '{system ("mv " $0 " " $2"_mobile_"$3)}'
