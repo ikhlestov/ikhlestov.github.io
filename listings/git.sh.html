@@ -118,52 +118,82 @@ MathJax.Hub.Config({
 <a href="#listingsgitsh-42">42</a>
 <a href="#listingsgitsh-43">43</a>
 <a href="#listingsgitsh-44">44</a>
-<a href="#listingsgitsh-45">45</a></pre></div></td>
-<td class="code"><pre class="code literal-block"><a name="listingsgitsh-1"></a>git init
-<a name="listingsgitsh-2"></a><span class="c1"># add all files or filename/folder</span>
-<a name="listingsgitsh-3"></a>git add --all
-<a name="listingsgitsh-4"></a><span class="c1"># add updated files only</span>
-<a name="listingsgitsh-5"></a>git add -u
-<a name="listingsgitsh-6"></a>git status
+<a href="#listingsgitsh-45">45</a>
+<a href="#listingsgitsh-46">46</a>
+<a href="#listingsgitsh-47">47</a>
+<a href="#listingsgitsh-48">48</a>
+<a href="#listingsgitsh-49">49</a>
+<a href="#listingsgitsh-50">50</a>
+<a href="#listingsgitsh-51">51</a>
+<a href="#listingsgitsh-52">52</a>
+<a href="#listingsgitsh-53">53</a>
+<a href="#listingsgitsh-54">54</a>
+<a href="#listingsgitsh-55">55</a>
+<a href="#listingsgitsh-56">56</a>
+<a href="#listingsgitsh-57">57</a>
+<a href="#listingsgitsh-58">58</a>
+<a href="#listingsgitsh-59">59</a>
+<a href="#listingsgitsh-60">60</a></pre></div></td>
+<td class="code"><pre class="code literal-block"><a name="listingsgitsh-1"></a><span class="c1"># add all files or filename/folder</span>
+<a name="listingsgitsh-2"></a>git add --all
+<a name="listingsgitsh-3"></a><span class="c1"># add updated files only</span>
+<a name="listingsgitsh-4"></a>git add -u
+<a name="listingsgitsh-5"></a>
+<a name="listingsgitsh-6"></a><span class="c1">### SHOW THE DIFF</span>
 <a name="listingsgitsh-7"></a><span class="c1"># know the difference with not staged</span>
 <a name="listingsgitsh-8"></a>git diff
-<a name="listingsgitsh-9"></a><span class="c1"># what will be commited</span>
+<a name="listingsgitsh-9"></a><span class="c1"># what will be committed</span>
 <a name="listingsgitsh-10"></a>git diff --staged
 <a name="listingsgitsh-11"></a>
-<a name="listingsgitsh-12"></a><span class="c1">#use commit message from command line</span>
-<a name="listingsgitsh-13"></a>git commit -m
-<a name="listingsgitsh-14"></a><span class="c1">#change and revrite existing files</span>
-<a name="listingsgitsh-15"></a>git commit -a
-<a name="listingsgitsh-16"></a><span class="c1">#the same and with comment</span>
-<a name="listingsgitsh-17"></a>git commit -am
-<a name="listingsgitsh-18"></a><span class="c1"># change the message if not pushed</span>
-<a name="listingsgitsh-19"></a>git commit --amend -m <span class="s2">"New commit message"</span>
-<a name="listingsgitsh-20"></a>
-<a name="listingsgitsh-21"></a><span class="c1"># commited messages by one line</span>
-<a name="listingsgitsh-22"></a>git log --oneline
-<a name="listingsgitsh-23"></a>
-<a name="listingsgitsh-24"></a><span class="c1">## how to create right commit messages</span>
-<a name="listingsgitsh-25"></a><span class="s2">"</span>
-<a name="listingsgitsh-26"></a><span class="s2">- Separate subject from body with a blank line</span>
-<a name="listingsgitsh-27"></a><span class="s2">- Limit the subject line to 50 characters</span>
-<a name="listingsgitsh-28"></a><span class="s2">- Capitalize the subject line</span>
-<a name="listingsgitsh-29"></a><span class="s2">- Do not end the subject line with a period</span>
-<a name="listingsgitsh-30"></a><span class="s2">- Use the imperative mood in the subject line</span>
-<a name="listingsgitsh-31"></a><span class="s2">- Wrap the body at 72 characters</span>
-<a name="listingsgitsh-32"></a><span class="s2">- Use the body to explain what and why vs. how</span>
-<a name="listingsgitsh-33"></a><span class="s2">"</span>
-<a name="listingsgitsh-34"></a>
-<a name="listingsgitsh-35"></a><span class="c1"># list both local and remote branches</span>
-<a name="listingsgitsh-36"></a>git branch -a
-<a name="listingsgitsh-37"></a><span class="c1"># list only remote branches</span>
-<a name="listingsgitsh-38"></a>git branch -r
-<a name="listingsgitsh-39"></a><span class="c1"># update list of local branches</span>
-<a name="listingsgitsh-40"></a>git remote update origin --prune
-<a name="listingsgitsh-41"></a><span class="c1"># delete branch</span>
-<a name="listingsgitsh-42"></a>git branch -d <span class="nv">$branch_name</span>
-<a name="listingsgitsh-43"></a>
-<a name="listingsgitsh-44"></a><span class="c1"># if you want use some tool to display diff(meld, for example)</span>
-<a name="listingsgitsh-45"></a>git difftool -y -t meld some_filename
+<a name="listingsgitsh-12"></a><span class="c1">### CREATE COMMIT</span>
+<a name="listingsgitsh-13"></a><span class="c1"># use commit message from command line</span>
+<a name="listingsgitsh-14"></a>git commit -m
+<a name="listingsgitsh-15"></a><span class="c1"># change and rewrite existing files</span>
+<a name="listingsgitsh-16"></a>git commit -a
+<a name="listingsgitsh-17"></a><span class="c1">#the same and with comment</span>
+<a name="listingsgitsh-18"></a>git commit -am
+<a name="listingsgitsh-19"></a><span class="c1"># change the message if not pushed</span>
+<a name="listingsgitsh-20"></a>git commit --amend -m <span class="s2">"New commit message"</span>
+<a name="listingsgitsh-21"></a><span class="c1"># how to create right commit messages</span>
+<a name="listingsgitsh-22"></a><span class="s2">"</span>
+<a name="listingsgitsh-23"></a><span class="s2">- Separate subject from body with a blank line</span>
+<a name="listingsgitsh-24"></a><span class="s2">- Limit the subject line to 50 characters</span>
+<a name="listingsgitsh-25"></a><span class="s2">- Capitalize the subject line</span>
+<a name="listingsgitsh-26"></a><span class="s2">- Do not end the subject line with a period</span>
+<a name="listingsgitsh-27"></a><span class="s2">- Use the imperative mood in the subject line</span>
+<a name="listingsgitsh-28"></a><span class="s2">- Wrap the body at 72 characters</span>
+<a name="listingsgitsh-29"></a><span class="s2">- Use the body to explain what and why vs. how</span>
+<a name="listingsgitsh-30"></a><span class="s2">"</span>
+<a name="listingsgitsh-31"></a>
+<a name="listingsgitsh-32"></a><span class="c1">### WORK WITH BRANCHES</span>
+<a name="listingsgitsh-33"></a><span class="c1"># list both local and remote branches</span>
+<a name="listingsgitsh-34"></a>git branch -a
+<a name="listingsgitsh-35"></a><span class="c1"># list only remote branches</span>
+<a name="listingsgitsh-36"></a>git branch -r
+<a name="listingsgitsh-37"></a><span class="c1"># update list of local branches</span>
+<a name="listingsgitsh-38"></a>git remote update origin --prune
+<a name="listingsgitsh-39"></a><span class="c1"># delete branch</span>
+<a name="listingsgitsh-40"></a>git branch -d <span class="nv">$branch_name</span>
+<a name="listingsgitsh-41"></a>
+<a name="listingsgitsh-42"></a><span class="c1">### UNDO SOME THINGS</span>
+<a name="listingsgitsh-43"></a><span class="c1"># local update</span>
+<a name="listingsgitsh-44"></a>git add some/changed/file.ext
+<a name="listingsgitsh-45"></a>git commit --amend -m <span class="s2">"commit message"</span>
+<a name="listingsgitsh-46"></a><span class="c1">## Undoing local changes</span>
+<a name="listingsgitsh-47"></a><span class="c1"># reset one file to the last committed version</span>
+<a name="listingsgitsh-48"></a>git checkout HEAD file/to/restore.ext
+<a name="listingsgitsh-49"></a><span class="c1"># reset all files</span>
+<a name="listingsgitsh-50"></a>git reset --hard HEAD
+<a name="listingsgitsh-51"></a><span class="c1">## Undoing Committed Changes</span>
+<a name="listingsgitsh-52"></a><span class="c1"># revert commit == reapply some commit one more time, history will be saved</span>
+<a name="listingsgitsh-53"></a>git revert 2b504be
+<a name="listingsgitsh-54"></a><span class="c1"># reset commit == all next commits will be erased, last history will be destroyed</span>
+<a name="listingsgitsh-55"></a>git reset --hard 2be18d9
+<a name="listingsgitsh-56"></a>
+<a name="listingsgitsh-57"></a><span class="c1"># if you want use some tool to display diff(meld, for example)</span>
+<a name="listingsgitsh-58"></a>git difftool -y -t meld some_filename
+<a name="listingsgitsh-59"></a><span class="c1"># committed messages by one line</span>
+<a name="listingsgitsh-60"></a>git log --oneline
 </pre></td>
 </tr></table>
 </div>

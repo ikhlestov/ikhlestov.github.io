@@ -19,17 +19,19 @@ MathJax.Hub.Config({
 <meta property="og:site_name" content="Illarion Khlestov Blog">
 <meta property="og:title" content="Git notes">
 <meta property="og:url" content="https://ikhlestov.github.io/pages/another-topics/git-notes/">
-<meta property="og:description" content="Git cheat sheet
+<meta property="og:description" content="Cool resourses:
+
+Git cheat sheet
+Undoing things
+
 git.sh  (Source)
-git init
 # add all files or filename/folder
 git add --all
 # add updated files only
 git add -u
-git status
-# know the difference with not staged
-git diff
-# what will be ">
+
+### SHOW THE DIFF
+# know the difference with not">
 <meta property="og:type" content="article">
 <meta property="article:published_time" content="2016-06-26T01:03:23Z">
 </head>
@@ -90,53 +92,72 @@ git diff
         
     </header><div class="e-content entry-content" itemprop="articleBody text">
     <div>
-<p><a class="reference external" href="http://files.zeroturnaround.com/pdf/zt_git_cheat_sheet.pdf">Git cheat&nbsp;sheet</a></p>
+<p>Cool&nbsp;resourses:</p>
+<ul class="simple">
+<li><a class="reference external" href="http://files.zeroturnaround.com/pdf/zt_git_cheat_sheet.pdf">Git cheat&nbsp;sheet</a></li>
+<li><a class="reference external" href="https://www.git-tower.com/learn/git/ebook/en/command-line/advanced-topics/undoing-things">Undoing&nbsp;things</a></li>
+</ul>
 <p><a class="reference external" href="../../../listings/git.sh.html">git.sh</a>  <a class="reference external" href="../../../listings/git.sh">(Source)</a></p>
-<pre class="code bash"><a name="rest_code_4085b061d70a46b78f78afa499fb8d4f-1"></a>git init
-<a name="rest_code_4085b061d70a46b78f78afa499fb8d4f-2"></a><span class="c1"># add all files or filename/folder</span>
-<a name="rest_code_4085b061d70a46b78f78afa499fb8d4f-3"></a>git add --all
-<a name="rest_code_4085b061d70a46b78f78afa499fb8d4f-4"></a><span class="c1"># add updated files only</span>
-<a name="rest_code_4085b061d70a46b78f78afa499fb8d4f-5"></a>git add -u
-<a name="rest_code_4085b061d70a46b78f78afa499fb8d4f-6"></a>git status
-<a name="rest_code_4085b061d70a46b78f78afa499fb8d4f-7"></a><span class="c1"># know the difference with not staged</span>
-<a name="rest_code_4085b061d70a46b78f78afa499fb8d4f-8"></a>git diff
-<a name="rest_code_4085b061d70a46b78f78afa499fb8d4f-9"></a><span class="c1"># what will be commited</span>
-<a name="rest_code_4085b061d70a46b78f78afa499fb8d4f-10"></a>git diff --staged
-<a name="rest_code_4085b061d70a46b78f78afa499fb8d4f-11"></a>
-<a name="rest_code_4085b061d70a46b78f78afa499fb8d4f-12"></a><span class="c1">#use commit message from command line</span>
-<a name="rest_code_4085b061d70a46b78f78afa499fb8d4f-13"></a>git commit -m
-<a name="rest_code_4085b061d70a46b78f78afa499fb8d4f-14"></a><span class="c1">#change and revrite existing files</span>
-<a name="rest_code_4085b061d70a46b78f78afa499fb8d4f-15"></a>git commit -a
-<a name="rest_code_4085b061d70a46b78f78afa499fb8d4f-16"></a><span class="c1">#the same and with comment</span>
-<a name="rest_code_4085b061d70a46b78f78afa499fb8d4f-17"></a>git commit -am
-<a name="rest_code_4085b061d70a46b78f78afa499fb8d4f-18"></a><span class="c1"># change the message if not pushed</span>
-<a name="rest_code_4085b061d70a46b78f78afa499fb8d4f-19"></a>git commit --amend -m <span class="s2">"New commit message"</span>
-<a name="rest_code_4085b061d70a46b78f78afa499fb8d4f-20"></a>
-<a name="rest_code_4085b061d70a46b78f78afa499fb8d4f-21"></a><span class="c1"># commited messages by one line</span>
-<a name="rest_code_4085b061d70a46b78f78afa499fb8d4f-22"></a>git log --oneline
-<a name="rest_code_4085b061d70a46b78f78afa499fb8d4f-23"></a>
-<a name="rest_code_4085b061d70a46b78f78afa499fb8d4f-24"></a><span class="c1">## how to create right commit messages</span>
-<a name="rest_code_4085b061d70a46b78f78afa499fb8d4f-25"></a><span class="s2">"</span>
-<a name="rest_code_4085b061d70a46b78f78afa499fb8d4f-26"></a><span class="s2">- Separate subject from body with a blank line</span>
-<a name="rest_code_4085b061d70a46b78f78afa499fb8d4f-27"></a><span class="s2">- Limit the subject line to 50 characters</span>
-<a name="rest_code_4085b061d70a46b78f78afa499fb8d4f-28"></a><span class="s2">- Capitalize the subject line</span>
-<a name="rest_code_4085b061d70a46b78f78afa499fb8d4f-29"></a><span class="s2">- Do not end the subject line with a period</span>
-<a name="rest_code_4085b061d70a46b78f78afa499fb8d4f-30"></a><span class="s2">- Use the imperative mood in the subject line</span>
-<a name="rest_code_4085b061d70a46b78f78afa499fb8d4f-31"></a><span class="s2">- Wrap the body at 72 characters</span>
-<a name="rest_code_4085b061d70a46b78f78afa499fb8d4f-32"></a><span class="s2">- Use the body to explain what and why vs. how</span>
-<a name="rest_code_4085b061d70a46b78f78afa499fb8d4f-33"></a><span class="s2">"</span>
-<a name="rest_code_4085b061d70a46b78f78afa499fb8d4f-34"></a>
-<a name="rest_code_4085b061d70a46b78f78afa499fb8d4f-35"></a><span class="c1"># list both local and remote branches</span>
-<a name="rest_code_4085b061d70a46b78f78afa499fb8d4f-36"></a>git branch -a
-<a name="rest_code_4085b061d70a46b78f78afa499fb8d4f-37"></a><span class="c1"># list only remote branches</span>
-<a name="rest_code_4085b061d70a46b78f78afa499fb8d4f-38"></a>git branch -r
-<a name="rest_code_4085b061d70a46b78f78afa499fb8d4f-39"></a><span class="c1"># update list of local branches</span>
-<a name="rest_code_4085b061d70a46b78f78afa499fb8d4f-40"></a>git remote update origin --prune
-<a name="rest_code_4085b061d70a46b78f78afa499fb8d4f-41"></a><span class="c1"># delete branch</span>
-<a name="rest_code_4085b061d70a46b78f78afa499fb8d4f-42"></a>git branch -d <span class="nv">$branch_name</span>
-<a name="rest_code_4085b061d70a46b78f78afa499fb8d4f-43"></a>
-<a name="rest_code_4085b061d70a46b78f78afa499fb8d4f-44"></a><span class="c1"># if you want use some tool to display diff(meld, for example)</span>
-<a name="rest_code_4085b061d70a46b78f78afa499fb8d4f-45"></a>git difftool -y -t meld some_filename
+<pre class="code bash"><a name="rest_code_3c473ad2a972463fb0d284c547c94ac2-1"></a><span class="c1"># add all files or filename/folder</span>
+<a name="rest_code_3c473ad2a972463fb0d284c547c94ac2-2"></a>git add --all
+<a name="rest_code_3c473ad2a972463fb0d284c547c94ac2-3"></a><span class="c1"># add updated files only</span>
+<a name="rest_code_3c473ad2a972463fb0d284c547c94ac2-4"></a>git add -u
+<a name="rest_code_3c473ad2a972463fb0d284c547c94ac2-5"></a>
+<a name="rest_code_3c473ad2a972463fb0d284c547c94ac2-6"></a><span class="c1">### SHOW THE DIFF</span>
+<a name="rest_code_3c473ad2a972463fb0d284c547c94ac2-7"></a><span class="c1"># know the difference with not staged</span>
+<a name="rest_code_3c473ad2a972463fb0d284c547c94ac2-8"></a>git diff
+<a name="rest_code_3c473ad2a972463fb0d284c547c94ac2-9"></a><span class="c1"># what will be committed</span>
+<a name="rest_code_3c473ad2a972463fb0d284c547c94ac2-10"></a>git diff --staged
+<a name="rest_code_3c473ad2a972463fb0d284c547c94ac2-11"></a>
+<a name="rest_code_3c473ad2a972463fb0d284c547c94ac2-12"></a><span class="c1">### CREATE COMMIT</span>
+<a name="rest_code_3c473ad2a972463fb0d284c547c94ac2-13"></a><span class="c1"># use commit message from command line</span>
+<a name="rest_code_3c473ad2a972463fb0d284c547c94ac2-14"></a>git commit -m
+<a name="rest_code_3c473ad2a972463fb0d284c547c94ac2-15"></a><span class="c1"># change and rewrite existing files</span>
+<a name="rest_code_3c473ad2a972463fb0d284c547c94ac2-16"></a>git commit -a
+<a name="rest_code_3c473ad2a972463fb0d284c547c94ac2-17"></a><span class="c1">#the same and with comment</span>
+<a name="rest_code_3c473ad2a972463fb0d284c547c94ac2-18"></a>git commit -am
+<a name="rest_code_3c473ad2a972463fb0d284c547c94ac2-19"></a><span class="c1"># change the message if not pushed</span>
+<a name="rest_code_3c473ad2a972463fb0d284c547c94ac2-20"></a>git commit --amend -m <span class="s2">"New commit message"</span>
+<a name="rest_code_3c473ad2a972463fb0d284c547c94ac2-21"></a><span class="c1"># how to create right commit messages</span>
+<a name="rest_code_3c473ad2a972463fb0d284c547c94ac2-22"></a><span class="s2">"</span>
+<a name="rest_code_3c473ad2a972463fb0d284c547c94ac2-23"></a><span class="s2">- Separate subject from body with a blank line</span>
+<a name="rest_code_3c473ad2a972463fb0d284c547c94ac2-24"></a><span class="s2">- Limit the subject line to 50 characters</span>
+<a name="rest_code_3c473ad2a972463fb0d284c547c94ac2-25"></a><span class="s2">- Capitalize the subject line</span>
+<a name="rest_code_3c473ad2a972463fb0d284c547c94ac2-26"></a><span class="s2">- Do not end the subject line with a period</span>
+<a name="rest_code_3c473ad2a972463fb0d284c547c94ac2-27"></a><span class="s2">- Use the imperative mood in the subject line</span>
+<a name="rest_code_3c473ad2a972463fb0d284c547c94ac2-28"></a><span class="s2">- Wrap the body at 72 characters</span>
+<a name="rest_code_3c473ad2a972463fb0d284c547c94ac2-29"></a><span class="s2">- Use the body to explain what and why vs. how</span>
+<a name="rest_code_3c473ad2a972463fb0d284c547c94ac2-30"></a><span class="s2">"</span>
+<a name="rest_code_3c473ad2a972463fb0d284c547c94ac2-31"></a>
+<a name="rest_code_3c473ad2a972463fb0d284c547c94ac2-32"></a><span class="c1">### WORK WITH BRANCHES</span>
+<a name="rest_code_3c473ad2a972463fb0d284c547c94ac2-33"></a><span class="c1"># list both local and remote branches</span>
+<a name="rest_code_3c473ad2a972463fb0d284c547c94ac2-34"></a>git branch -a
+<a name="rest_code_3c473ad2a972463fb0d284c547c94ac2-35"></a><span class="c1"># list only remote branches</span>
+<a name="rest_code_3c473ad2a972463fb0d284c547c94ac2-36"></a>git branch -r
+<a name="rest_code_3c473ad2a972463fb0d284c547c94ac2-37"></a><span class="c1"># update list of local branches</span>
+<a name="rest_code_3c473ad2a972463fb0d284c547c94ac2-38"></a>git remote update origin --prune
+<a name="rest_code_3c473ad2a972463fb0d284c547c94ac2-39"></a><span class="c1"># delete branch</span>
+<a name="rest_code_3c473ad2a972463fb0d284c547c94ac2-40"></a>git branch -d <span class="nv">$branch_name</span>
+<a name="rest_code_3c473ad2a972463fb0d284c547c94ac2-41"></a>
+<a name="rest_code_3c473ad2a972463fb0d284c547c94ac2-42"></a><span class="c1">### UNDO SOME THINGS</span>
+<a name="rest_code_3c473ad2a972463fb0d284c547c94ac2-43"></a><span class="c1"># local update</span>
+<a name="rest_code_3c473ad2a972463fb0d284c547c94ac2-44"></a>git add some/changed/file.ext
+<a name="rest_code_3c473ad2a972463fb0d284c547c94ac2-45"></a>git commit --amend -m <span class="s2">"commit message"</span>
+<a name="rest_code_3c473ad2a972463fb0d284c547c94ac2-46"></a><span class="c1">## Undoing local changes</span>
+<a name="rest_code_3c473ad2a972463fb0d284c547c94ac2-47"></a><span class="c1"># reset one file to the last committed version</span>
+<a name="rest_code_3c473ad2a972463fb0d284c547c94ac2-48"></a>git checkout HEAD file/to/restore.ext
+<a name="rest_code_3c473ad2a972463fb0d284c547c94ac2-49"></a><span class="c1"># reset all files</span>
+<a name="rest_code_3c473ad2a972463fb0d284c547c94ac2-50"></a>git reset --hard HEAD
+<a name="rest_code_3c473ad2a972463fb0d284c547c94ac2-51"></a><span class="c1">## Undoing Committed Changes</span>
+<a name="rest_code_3c473ad2a972463fb0d284c547c94ac2-52"></a><span class="c1"># revert commit == reapply some commit one more time, history will be saved</span>
+<a name="rest_code_3c473ad2a972463fb0d284c547c94ac2-53"></a>git revert 2b504be
+<a name="rest_code_3c473ad2a972463fb0d284c547c94ac2-54"></a><span class="c1"># reset commit == all next commits will be erased, last history will be destroyed</span>
+<a name="rest_code_3c473ad2a972463fb0d284c547c94ac2-55"></a>git reset --hard 2be18d9
+<a name="rest_code_3c473ad2a972463fb0d284c547c94ac2-56"></a>
+<a name="rest_code_3c473ad2a972463fb0d284c547c94ac2-57"></a><span class="c1"># if you want use some tool to display diff(meld, for example)</span>
+<a name="rest_code_3c473ad2a972463fb0d284c547c94ac2-58"></a>git difftool -y -t meld some_filename
+<a name="rest_code_3c473ad2a972463fb0d284c547c94ac2-59"></a><span class="c1"># committed messages by one line</span>
+<a name="rest_code_3c473ad2a972463fb0d284c547c94ac2-60"></a>git log --oneline
 </pre>
 </div>
     </div>
