@@ -282,6 +282,75 @@ Convolution Examples
 
     model = Model()
 
+Define custom functions
+=======================
+
+New style
+---------
+
+.. code-block:: python
+
+    import torch
+
+    # definition itself
+    class MyFunction(torch.autograd.Function):
+
+        @staticmethod
+        def forward(ctx, input):
+            ctx.save_for_backward(input)
+            output = torch.sign(input)
+            return output
+
+        @staticmethod
+        def backward(ctx, grad_output):
+            # saved tensors - tuple of tensors, so we need get first
+            input, = ctx.saved_variables
+            grad_output[input.ge(1)] = 0
+            grad_output[input.le(-1)] = 0
+            return grad_output
+
+    # usage
+    x = torch.randn(10, 20)
+    y = MyFunction.apply(x)
+    # or
+    my_func = MyFunction.apply
+    y = my_func(x)
+
+    # and if we want to use inside nn.Module
+    class MyFunctionModule(torch.nn.Module):
+        def forward(self, x):
+            return MyFunction.apply(x)
+
+Old style
+---------
+
+.. code-block:: python
+
+    import torch
+
+    # definition itself
+    class MyFunction(torch.autograd.Function):
+
+        def forward(self, input):
+            self.save_for_backward(input)
+            output = torch.sign(input)
+            return output
+
+        def backward(self, grad_output):
+            input, = self.saved_tensors
+            grad_output[input.ge(1)] = 0
+            grad_output[input.le(-1)] = 0
+            return grad_output
+
+    # usage
+    x = torch.randn(10, 20)
+    y = MyFunction()(x)
+
+    # and if we want to use inside nn.Module
+    class MyFunctionModule(torch.nn.Module):
+        def forward(self, x):
+            return MyFunction()(x)
+
 Additional topics
 ==================
 
@@ -304,9 +373,9 @@ PyTorch have a lot of learning rate schedulers `out of the box <http://pytorch.o
 
 .. code-block:: python
 
-    # TODO: how they should be imported?
+    from torch.optim import lr_scheduler
 
-    scheduler = StepLR(optimizer, step_size=30, gamma=0.1)
+    scheduler = lr_scheduler.StepLR(optimizer, step_size=30, gamma=0.1)
     for epoch in range(100):
         scheduler.step()
         train()
