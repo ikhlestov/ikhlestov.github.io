@@ -232,6 +232,24 @@ Create NN as class inherited from ``torch.nn.Module`` with convolution and linea
         loss.backward()
         optimizer.step()
 
+NN sequential mixed with class approach
+-----------------------------------------
+
+.. code-block:: python
+    
+    import torch
+
+    class Model(torch.nn.Module):
+        super().__init__()
+        self.feature_extractor = nn.Sequential(
+            Conv2d(3, 12, kernel_size=3, padding=1, stride=1),
+            Conv2d(12, 24, kernel_size=3, padding=1, stride=1),
+        )
+
+    def forward(self, x):
+        x = self.feature_extractor(x)
+        return x
+
 Convolution Examples
 --------------------
 
