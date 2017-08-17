@@ -10,6 +10,11 @@
 
 Here I will store various notes based on some books, lectures or just tutorials for programming languages.
 
+Math:
+
+* :doc:`math-notations`
+* `Probability theory <math/probability-theory>`__
+
 Machine Learning:
 
 * :doc:`ml-bookmarks`
