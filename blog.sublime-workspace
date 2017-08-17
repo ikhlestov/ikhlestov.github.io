@@ -577,7 +577,7 @@
 			"file": "pages/machine-learning/pytorch-notes.rst",
 			"settings":
 			{
-				"buffer_size": 10376,
+				"buffer_size": 11991,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -1604,15 +1604,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 10376,
+						"buffer_size": 11991,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								6811,
-								6811
+								7659,
+								7659
 							]
 						],
 						"settings":
@@ -1698,7 +1698,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 5037.0,
+						"translation.y": 5197.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
