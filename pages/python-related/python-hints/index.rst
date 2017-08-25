@@ -485,6 +485,16 @@ contextlib based
     with custom_open('file') as f:
         contents = f.read()
 
+Errors suppressing
+------------------
+
+.. code-block:: python
+
+    import contextlib
+
+    with contextlib.suppress(FileNotFoundError):
+        os.remove('somefile.tmp')
+
 Slots Usage
 ===========
 
