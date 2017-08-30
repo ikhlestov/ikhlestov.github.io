@@ -11,6 +11,7 @@
 Cool resourses:
 
 - `Git cheat sheet <http://files.zeroturnaround.com/pdf/zt_git_cheat_sheet.pdf>`__
+- `Another cheat sheet <https://gist.github.com/eashish93/3eca6a90fef1ea6e586b7ec211ff72a5>`__
 - `Undoing things <https://www.git-tower.com/learn/git/ebook/en/command-line/advanced-topics/undoing-things>`__
 
 

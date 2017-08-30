@@ -246,9 +246,9 @@ NN sequential mixed with class approach
             Conv2d(12, 24, kernel_size=3, padding=1, stride=1),
         )
 
-    def forward(self, x):
-        x = self.feature_extractor(x)
-        return x
+        def forward(self, x):
+            x = self.feature_extractor(x)
+            return x
 
 Convolution Examples
 --------------------
@@ -270,15 +270,15 @@ Convolution Examples
     # class based
     class Model(nn.Module):
 
-    def __init__(self):
-        super().__init__()
-        self.conv1 = nn.Conv2d(1, 6, 5)
-        self.conv2 = nn.Conv2d(6, 16, 5)
+        def __init__(self):
+            super().__init__()
+            self.conv1 = nn.Conv2d(1, 6, 5)
+            self.conv2 = nn.Conv2d(6, 16, 5)
 
-    def forward(self, x):
-        x = F.max_pool2d(F.relu(self.conv1(x)), (2, 2))
-        x = F.max_pool2d(F.relu(self.conv2(x)), 2)
-        return x
+        def forward(self, x):
+            x = F.max_pool2d(F.relu(self.conv1(x)), (2, 2))
+            x = F.max_pool2d(F.relu(self.conv2(x)), 2)
+            return x
 
     model = Model()
 
