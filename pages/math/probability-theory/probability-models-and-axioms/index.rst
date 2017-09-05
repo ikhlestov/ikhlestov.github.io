@@ -79,14 +79,30 @@ Some simple consequences of the axioms:
 - :math:`P(\varnothing) = 0`
 - :math:`P(A) + P(A^c) = 1`
 - if :math:`A_1, ..., A_k` disjoint, then :math:`P(A \cup ... \cup A_k) = \sum_{i=1}^{k}P(A_i)`
+- :math:`P(\{S_1, S_2, ..., S_k\}) = P(\{S_1\} \cup \{S_2\} \cup ... \cup \{S_k\}) = P(\{S_1\}) + ... P(\{S_k\}) = P(S_1) + ... + P(S_k)`
+
+More consequences of the axioms:
+
+- if :math:`A \subset B`, then :math:`P(A) \leqslant P(B)` (img 1)
+- :math:`P(A \cup B) = P(A) + P(B) - P(A \cap B) = P(A) + P(A^c \cap B)` (img 2)
+- :math:`P(A \cup B) \leqslant P(A) + P(B)` - union bound
+- :math:`P(A \cup B \cup C) = P(A) + P(A^c \cap B) + P(A^c \cap B^c \cap C)` (img 3)
+
+.. image:: /images/math/probability-theory/probability-models-and-axioms/conseq_of_axioms.png
+  :width: 600
 
 Probability calculations
 ========================
 
-pass
+Discrete uniform law:
+Discrete finite example:
+Discrete continious example:
+
+Probability calculations step:
 
 Countable additivity
 ====================
 
-pass
+Countable additivity axiom
+--------------------------
 
