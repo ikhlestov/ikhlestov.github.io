@@ -558,7 +558,7 @@
 			"file": "pages/math/probability-theory/probability-models-and-axioms.rst",
 			"settings":
 			{
-				"buffer_size": 2053,
+				"buffer_size": 2778,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -1379,15 +1379,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2053,
+						"buffer_size": 2778,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1571,
-								1571
+								1583,
+								1583
 							]
 						],
 						"settings":
@@ -1468,10 +1468,12 @@
 							],
 							"git_gutter_is_enabled": true,
 							"spell_check": true,
-							"syntax": "Packages/RestructuredText/reStructuredText.sublime-syntax"
+							"syntax": "Packages/RestructuredText/reStructuredText.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 776.0,
+						"translation.y": 1038.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -1576,7 +1578,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1124.0,
+						"translation.y": 427.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,

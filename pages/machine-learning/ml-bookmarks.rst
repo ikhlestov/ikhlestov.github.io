@@ -29,6 +29,7 @@ CNNs
 + `Punctuation Prediction for Unsegmented Transcript Based on Word Vector <http://www.lrec-conf.org/proceedings/lrec2016/pdf/103_Paper.pdf>`__ CNN for inserting punctuation to the text.
 + `DelugeNets: Deep Networks with Massive and Flexible Cross-layer Information Inflows <https://arxiv.org/pdf/1611.05552v4.pdf>`__
 + `Grad-CAM: Visual Explanations from Deep Networks via Gradient-based Localization <https://arxiv.org/pdf/1610.02391.pdf>`__ (`git repo <https://github.com/ramprs/grad-cam>`__)
++ `Speed/accuracy trade-offs for modern convolutional object detectors <https://arxiv.org/abs/1611.10012>`__
 
 LightWeight CNNs
 ----------------
