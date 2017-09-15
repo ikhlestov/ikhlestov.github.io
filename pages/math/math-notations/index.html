@@ -32,13 +32,10 @@ Other
 
 
 Sets notations
+Set a collection of distinct elements:
 
-\(\in\) - is member of
-\(2 \in \{1, 2, 3, 4\}\)
-
-
-\(\notin\) - is not member of
-\(2 \noti">
+\({a, b, c, d}\) - finite
+\(\mathbb{R}\) : real nu">
 <meta property="og:type" content="article">
 <meta property="article:published_time" content="2017-07-06T17:31:46Z">
 </head>
@@ -114,7 +111,19 @@ Sets notations
 </div>
 <div class="section" id="sets-notations">
 <h2><a class="toc-backref" href="#id1">Sets&nbsp;notations</a></h2>
+<p>Set a collection of distinct&nbsp;elements:</p>
 <ul class="simple">
+<li>
+<span class="math">\({a, b, c, d}\)</span> -&nbsp;finite</li>
+<li>
+<span class="math">\(\mathbb{R}\)</span> : real numbers -&nbsp;infinite</li>
+<li>
+<span class="math">\({x \in \mathbb{R}: cos(x) &gt; 1/2}\)</span> - set with&nbsp;restriction</li>
+</ul>
+<p>Notations:</p>
+<ul class="simple">
+<li>
+<span class="math">\(\Omega\)</span> - universal set(set that contain all&nbsp;objects)</li>
 <li>
 <span class="math">\(\in\)</span> - is member of<ul>
 <li><span class="math">\(2 \in \{1, 2, 3,&nbsp;4\}\)</span></li>
@@ -126,15 +135,29 @@ Sets notations
 </ul>
 </li>
 <li>
-<span class="math">\(\emptyset\)</span> and <span class="math">\(\varnothing\)</span> or <span class="math">\(\{ \}\)</span> - empty&nbsp;set</li>
+<span class="math">\(A&#8217;\)</span>, <span class="math">\(A^c\)</span>, <span class="math">\(\overline{\rm A}\)</span> - <span class="math">\(A\)</span> compliment, everything not in <span class="math">\(A\)</span><ul>
+<li><span class="math">\(x \in S^c if x \in \Omega, x \notin&nbsp;S\)</span></li>
+</ul>
+</li>
+<li>
+<span class="math">\(\emptyset\)</span> and <span class="math">\(\varnothing\)</span> or <span class="math">\(\{ \}\)</span> - empty set<ul>
+<li><span class="math">\(\Omega^c =&nbsp;\emptyset\)</span></li>
+</ul>
+</li>
 <li>
 <span class="math">\(\cup\)</span> - union, everything in both sets<ul>
 <li><span class="math">\(\{1, 2, 3\} \cup \{3, 4, 5\} = \{1, 2, 3, 4,&nbsp;5\}\)</span></li>
+<li><span class="math">\(x \in S \cup T \leftrightarrow x \in S \, \textsf{or} \&gt; x \in&nbsp;T\)</span></li>
+<li>
+<span class="math">\(\cup_{n} S_{n}\)</span> - union of all <span class="math">\(n\)</span>&nbsp;sets</li>
 </ul>
 </li>
 <li>
 <span class="math">\(\cap\)</span> - intersection, only what is in common in both sets<ul>
 <li><span class="math">\(\{1, 2, 3\} \cap \{2, 3, 4\} = \{2,&nbsp;3\}\)</span></li>
+<li><span class="math">\(x \in S \cap T \leftrightarrow x \in S \, \textsf{and} \, x \in&nbsp;T\)</span></li>
+<li>
+<span class="math">\(\cap_{n} S_{n}\)</span> - intersection of all <span class="math">\(n\)</span>&nbsp;sets</li>
 </ul>
 </li>
 <li>
@@ -147,11 +170,25 @@ Sets notations
 <li><span class="math">\(\{1, 2, 3, 4, 8\} \supset \{1, 2,&nbsp;3\}\)</span></li>
 </ul>
 </li>
-<li>
-<span class="math">\(A&#8217;\)</span>, <span class="math">\(A^c\)</span>, <span class="math">\(\overline{\rm A}\)</span> - <span class="math">\(A\)</span> compliment, everything not in <span class="math">\(A\)</span>
-</li>
 </ul>
-<img alt="/images/math/math-notations/set_notations.jpg" src="../../../images/math/math-notations/set_notations.jpg">
+<img alt="/images/math/math-notations/set_notations.jpg" src="../../../images/math/math-notations/set_notations.jpg"><p>Sets&nbsp;properties:</p>
+<ul class="simple">
+<li><span class="math">\(S \cup T = T \cup&nbsp;S\)</span></li>
+<li><span class="math">\(S \cap (T \cup U) = (S \cap T) \cup (S \cap&nbsp;U)\)</span></li>
+<li><span class="math">\((S^c)^c =&nbsp;S\)</span></li>
+<li><span class="math">\(S \cup \Omega =&nbsp;\Omega\)</span></li>
+<li><span class="math">\(S \cap S^c =&nbsp;\emptyset\)</span></li>
+<li><span class="math">\(S \cap \Omega =&nbsp;S\)</span></li>
+<li><span class="math">\(S \cup (T \cup U) = (S \cup T) \cup&nbsp;U\)</span></li>
+<li><span class="math">\(S \cup (T \cap U) = (S \cup T) \cap (S \cup&nbsp;U)\)</span></li>
+</ul>
+<p>De Morgan&#8217;s&nbsp;laws</p>
+<ul class="simple">
+<li><span class="math">\((S \cap T)^c = S^c \cup&nbsp;T^c\)</span></li>
+<li><span class="math">\((\cap_{n} S_{n}^c) = \cup_{n}&nbsp;S_{n}^c\)</span></li>
+<li><span class="math">\((S \cup T)^c = S^c \cap&nbsp;T^c\)</span></li>
+<li><span class="math">\((\cup_n S_{n}^c) = \cap_n&nbsp;S_{n}^c\)</span></li>
+</ul>
 </div>
 <div class="section" id="progressions">
 <h2><a class="toc-backref" href="#id2">Progressions</a></h2>
@@ -237,6 +274,7 @@ where r \ne 1
 <li>
 <span class="math">\(r\)</span> - common&nbsp;ratio</li>
 </ul>
+<p>Simplified: <span class="math">\(S = \sum_{i=0}^{\inf} \alpha^i = 1 + \alpha + \alpha^2 + &#8230; = \frac{1}{1 - \alpha}\)</span>, if <span class="math">\(|\alpha| &lt;&nbsp;1\)</span></p>
 </div>
 </div>
 <div class="section" id="other">
