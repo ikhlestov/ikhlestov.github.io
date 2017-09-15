@@ -329,6 +329,47 @@ Try to copy/run code snippet below.
                 res_loss, _, res = sess.run(fetches, feed_dict=feed_dict)
 
 
+Explore checkpoints file
+========================
+
+This can be done with such helper methods `print_tensors_in_checkpoint_file <https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/tools/inspect_checkpoint.py>`__ and `pywrap_tensorflow <https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/pywrap_tensorflow.py>`__
+
+.. code-block:: python
+
+    from tensorflow.python.tools.inspect_checkpoint import print_tensors_in_checkpoint_file
+    from tensorflow.python import pywrap_tensorflow
+
+    reader = pywrap_tensorflow.NewCheckpointReader(checkpoint)
+    var_to_shape_map = reader.get_variable_to_shape_map()
+
+    if reader.has_tensor('a'):
+        # numpy array
+        saved_tensor = reader.get_tensor('a')
+
+
+Restore part of the tensor from saving
+======================================
+
+.. code-block:: python
+
+    import tensorflow as tf
+
+    # create some variables
+    tf.reset_default_graph()
+    a = tf.Variable(tf.zeros([5, 6]), name='a')
+    b = tf.Variable(tf.ones([5, 5]), name='b')
+
+    # initialize the variables and save them
+    sess = tf.InteractiveSession()
+    sess.run(tf.global_variables_initializer())
+    saver = tf.train.Saver()
+    tmp_checkpoint = saver.save(sess, "/tmp/model.ckpt")
+
+    # get saved variable and assign it to the value
+    tmp_reader = pywrap_tensorflow.NewCheckpointReader(tmp_checkpoint)
+    saved_b = tmp_reader.get_tensor('b')
+    sess.run(a[:, :5].assign(saved_b))
+
 TODO
 ====
 
