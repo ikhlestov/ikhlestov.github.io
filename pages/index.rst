@@ -12,7 +12,7 @@ Here I will store various notes based on some books, lectures or just tutorials 
 
 Math:
 
-* :doc:`additional-notes`
+* :doc:`math-background`
 * :doc:`math-notations`
 * `Probability theory <math/probability-theory>`__
 

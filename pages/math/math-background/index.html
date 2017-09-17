@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html prefix="
+og: http://ogp.me/ns#
+article: http://ogp.me/ns/article#
+" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Math background | Illarion Khlestov Blog</title>
+<link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<meta content="#5670d4" name="theme-color">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../../../rss.xml">
+<link rel="canonical" href="https://ikhlestov.github.io/pages/math/math-background/">
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    displayAlign: 'center', // Change this to 'center' to center equations.
+});
+</script><!--[if lt IE 9]><script src="../../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Illarion Khlestov">
+<meta property="og:site_name" content="Illarion Khlestov Blog">
+<meta property="og:title" content="Math background">
+<meta property="og:url" content="https://ikhlestov.github.io/pages/math/math-background/">
+<meta property="og:description" content="Contents
+
+Sets
+Sets properties
+De Morgan's laws
+Countable versus uncountable infinite sets
+
+
+Sequences ant their limits
+Series
+Infinite series
+Order of summation in series
+Arithmetic progression
+Geome">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2017-08-24T08:58:24Z">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-static-top"><div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://ikhlestov.github.io/">
+
+                <span id="blog-title">Illarion Khlestov Blog</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
+            <ul class="nav navbar-nav">
+<li>
+<a href="../../../">Blog</a>
+                </li>
+<li>
+<a href="../../">Pages</a>
+                </li>
+<li>
+<a href="../../../listings/">Listings</a>
+                </li>
+<li>
+<a href="../../../archive.html">Archive</a>
+
+                
+            </li>
+</ul>
+<ul class="nav navbar-nav navbar-right">
+<li>
+    <a href="index.rst" id="sourcelink">Source</a>
+    </li>
+                
+            </ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Math&nbsp;background</a></h1>
+
+        
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li>
+<a class="reference internal" href="#sets" id="id1">Sets</a><ul>
+<li><a class="reference internal" href="#sets-properties" id="id2">Sets&nbsp;properties</a></li>
+<li><a class="reference internal" href="#de-morgan-s-laws" id="id3">De Morgan&#8217;s&nbsp;laws</a></li>
+<li><a class="reference internal" href="#countable-versus-uncountable-infinite-sets" id="id4">Countable versus uncountable infinite&nbsp;sets</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#sequences-ant-their-limits" id="id5">Sequences ant their&nbsp;limits</a></li>
+<li>
+<a class="reference internal" href="#series" id="id6">Series</a><ul>
+<li><a class="reference internal" href="#infinite-series" id="id7">Infinite&nbsp;series</a></li>
+<li><a class="reference internal" href="#order-of-summation-in-series" id="id8">Order of summation in&nbsp;series</a></li>
+<li><a class="reference internal" href="#arithmetic-progression" id="id9">Arithmetic&nbsp;progression</a></li>
+<li><a class="reference internal" href="#geometric-progression" id="id10">Geometric&nbsp;progression</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#other" id="id11">Other</a></li>
+</ul>
+</div>
+<div class="section" id="sets">
+<h2><a class="toc-backref" href="#id1">Sets</a></h2>
+<p>Set a collection of distinct&nbsp;elements:</p>
+<ul class="simple">
+<li>
+<span class="math">\({a, b, c, d}\)</span> -&nbsp;finite</li>
+<li>
+<span class="math">\(\mathbb{R}\)</span> : real numbers -&nbsp;infinite</li>
+<li>
+<span class="math">\({x \in \mathbb{R}: cos(x) &gt; 1/2}\)</span> - set with&nbsp;restriction</li>
+</ul>
+<p>Notations:</p>
+<ul class="simple">
+<li>
+<span class="math">\(\Omega\)</span> - universal set(set that contain all&nbsp;objects)</li>
+<li>
+<span class="math">\(\in\)</span> - is member of<ul>
+<li><span class="math">\(2 \in \{1, 2, 3,&nbsp;4\}\)</span></li>
+</ul>
+</li>
+<li>
+<span class="math">\(\notin\)</span> - is not member of<ul>
+<li><span class="math">\(2 \notin \{1, 3,&nbsp;5\}\)</span></li>
+</ul>
+</li>
+<li>
+<span class="math">\(A&#8217;\)</span>, <span class="math">\(A^c\)</span>, <span class="math">\(\overline{\rm A}\)</span> - <span class="math">\(A\)</span> compliment, everything not in <span class="math">\(A\)</span><ul>
+<li><span class="math">\(x \in S^c if x \in \Omega, x \notin&nbsp;S\)</span></li>
+</ul>
+</li>
+<li>
+<span class="math">\(\emptyset\)</span> and <span class="math">\(\varnothing\)</span> or <span class="math">\(\{ \}\)</span> - empty set<ul>
+<li><span class="math">\(\Omega^c =&nbsp;\emptyset\)</span></li>
+</ul>
+</li>
+<li>
+<span class="math">\(\cup\)</span> - union, everything in both sets<ul>
+<li><span class="math">\(\{1, 2, 3\} \cup \{3, 4, 5\} = \{1, 2, 3, 4,&nbsp;5\}\)</span></li>
+<li><span class="math">\(x \in S \cup T \leftrightarrow x \in S \, \textsf{or} \&gt; x \in&nbsp;T\)</span></li>
+<li>
+<span class="math">\(\cup_{n} S_{n}\)</span> - union of all <span class="math">\(n\)</span>&nbsp;sets</li>
+</ul>
+</li>
+<li>
+<span class="math">\(\cap\)</span> - intersection, only what is in common in both sets<ul>
+<li><span class="math">\(\{1, 2, 3\} \cap \{2, 3, 4\} = \{2,&nbsp;3\}\)</span></li>
+<li><span class="math">\(x \in S \cap T \leftrightarrow x \in S \, \textsf{and} \, x \in&nbsp;T\)</span></li>
+<li>
+<span class="math">\(\cap_{n} S_{n}\)</span> - intersection of all <span class="math">\(n\)</span>&nbsp;sets</li>
+</ul>
+</li>
+<li>
+<span class="math">\(\subset\)</span> - subset of set<ul>
+<li><span class="math">\(\{1, 2, 3\} \subset \{1, 2, 3, 4,&nbsp;8\}\)</span></li>
+</ul>
+</li>
+<li>
+<span class="math">\(\supset\)</span> - superset of set<ul>
+<li><span class="math">\(\{1, 2, 3, 4, 8\} \supset \{1, 2,&nbsp;3\}\)</span></li>
+</ul>
+</li>
+</ul>
+<img alt="/images/math/math-notations/set_notations.jpg" src="../../../images/math/math-notations/set_notations.jpg"><div class="section" id="sets-properties">
+<h3><a class="toc-backref" href="#id2">Sets&nbsp;properties</a></h3>
+<ul class="simple">
+<li><span class="math">\(S \cup T = T \cup&nbsp;S\)</span></li>
+<li><span class="math">\(S \cap (T \cup U) = (S \cap T) \cup (S \cap&nbsp;U)\)</span></li>
+<li><span class="math">\((S^c)^c =&nbsp;S\)</span></li>
+<li><span class="math">\(S \cup \Omega =&nbsp;\Omega\)</span></li>
+<li><span class="math">\(S \cap S^c =&nbsp;\emptyset\)</span></li>
+<li><span class="math">\(S \cap \Omega =&nbsp;S\)</span></li>
+<li><span class="math">\(S \cup (T \cup U) = (S \cup T) \cup&nbsp;U\)</span></li>
+<li><span class="math">\(S \cup (T \cap U) = (S \cup T) \cap (S \cup&nbsp;U)\)</span></li>
+</ul>
+</div>
+<div class="section" id="de-morgan-s-laws">
+<h3><a class="toc-backref" href="#id3">De Morgan&#8217;s&nbsp;laws</a></h3>
+<ul class="simple">
+<li><span class="math">\((S \cap T)^c = S^c \cup&nbsp;T^c\)</span></li>
+<li><span class="math">\((\cap_{n} S_{n}^c) = \cup_{n}&nbsp;S_{n}^c\)</span></li>
+<li><span class="math">\((S \cup T)^c = S^c \cap&nbsp;T^c\)</span></li>
+<li><span class="math">\((\cup_n S_{n}^c) = \cap_n&nbsp;S_{n}^c\)</span></li>
+</ul>
+</div>
+<div class="section" id="countable-versus-uncountable-infinite-sets">
+<h3><a class="toc-backref" href="#id4">Countable versus uncountable infinite&nbsp;sets</a></h3>
+<p>Countable: can be put in 1-1 correspondence with positive&nbsp;integers:</p>
+<ul class="simple">
+<li>Positive&nbsp;integers</li>
+<li>Integers: <span class="math">\(0, 1, -1, 2, -2,&nbsp;&#8230;\)</span>
+</li>
+<li>Pairs of positive&nbsp;integers</li>
+<li>Rational numbers <span class="math">\(q\)</span>, with <span class="math">\(0 &lt; q &lt; 1\)</span>, <span class="math">\(1/2, 1/3, 2/3, 1/4, 2/4,&nbsp;&#8230;\)</span>
+</li>
+</ul>
+<p>Uncountable: not&nbsp;countable:</p>
+<ul class="simple">
+<li>The interval [0,&nbsp;1]</li>
+<li>The&nbsp;reals</li>
+<li>The&nbsp;plane</li>
+</ul>
+</div>
+</div>
+<div class="section" id="sequences-ant-their-limits">
+<h2><a class="toc-backref" href="#id5">Sequences ant their&nbsp;limits</a></h2>
+<p>Sequence is some collection of an&nbsp;elements:</p>
+<ul class="simple">
+<li><span class="math">\(a_1, a_2, a_3,&nbsp;&#8230;\)</span></li>
+<li>sequence <span class="math">\(a_1\)</span>
+</li>
+<li><span class="math">\(\{a_i\}\)</span></li>
+<li>formal - function <span class="math">\(f: \mathbb{N} -&gt; S, f(i) =&nbsp;a_i\)</span>
+</li>
+</ul>
+<p>When does a sequence&nbsp;converge:</p>
+<ul class="simple">
+<li>If <span class="math">\(a_i \leq a_{i + 1}\)</span> for all <span class="math">\(i\)</span>, then either:<ul>
+<li>the sequence &#8220;converges to <span class="math">\(\infty\)</span>&#8221;</li>
+<li>the sequence converges to some real number <span class="math">\(a\)</span>
+</li>
+</ul>
+</li>
+<li>if <span class="math">\(|a_i - a| \leq b_i\)</span> for all <span class="math">\(i\)</span>, and <span class="math">\(b_i -&gt; 0\)</span>, then <span class="math">\(a_i -&gt;&nbsp;a\)</span>
+</li>
+</ul>
+</div>
+<div class="section" id="series">
+<h2><a class="toc-backref" href="#id6">Series</a></h2>
+<div class="section" id="infinite-series">
+<h3><a class="toc-backref" href="#id7">Infinite&nbsp;series</a></h3>
+<p><span class="math">\(\sum_{i=1}^{\infty} a_i = \lim_{n -&gt; \infty} \sum_{i=1}^n a_i\)</span> (provided limit&nbsp;exists)</p>
+<ul class="simple">
+<li>if <span class="math">\(a_i \geq 0\)</span>: limit&nbsp;exists</li>
+<li>if terms <span class="math">\(a_i\)</span> do not all have the same sign:<ul>
+<li>limit need not&nbsp;exist</li>
+<li>limit may exist but be different if we sum in different&nbsp;order</li>
+<li>
+<strong>Fact</strong>: limit exists and independent of order of summation if <span class="math">\(\sum_{i=1}^{\infty} |a_i| &lt;&nbsp;\infty\)</span>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="order-of-summation-in-series">
+<h3><a class="toc-backref" href="#id8">Order of summation in&nbsp;series</a></h3>
+<p>only if <span class="math">\(\sum |a_{ij}| &lt; \infty\)</span>,&nbsp;then:</p>
+<ul class="simple">
+<li><span class="math">\(\sum_{i \geq 1, j \geq 1} a_{ij} = \sum_{i=1}^{\infty}(\sum_{j = 1}^{\infty} a_{ij}) = \sum_{j=1}^{\infty}(\sum_{i = 1}^{\infty}&nbsp;a_{ij})\)</span></li>
+<li><span class="math">\(\sum_{(i, j) : j \leq i} a_{ij} = \sum_{i=1}^{\infty} \sum_{j=1}^{i} a_{ij} = \sum_{j=1}^{\infty} \sum_{i=j}^{\infty}&nbsp;a_{ij}\)</span></li>
+</ul>
+</div>
+<div class="section" id="arithmetic-progression">
+<h3><a class="toc-backref" href="#id9">Arithmetic&nbsp;progression</a></h3>
+<div class="math">
+\begin{equation*}
+a_{n}=a_{1}+(n-1)d
+\end{equation*}
+</div>
+<div class="math">
+\begin{equation*}
+a_{n}=a_{m}+(n-m)d
+\end{equation*}
+</div>
+<div class="math">
+\begin{equation*}
+S_n = \frac{n}{2}[2a_1 + (n - 1)d]
+\end{equation*}
+</div>
+<div class="math">
+\begin{equation*}
+S_n = \frac{n}{2}[a_1 + a_n]
+\end{equation*}
+</div>
+<div class="math">
+\begin{equation*}
+\overline{\rm n} = S_n / n
+\end{equation*}
+</div>
+<div class="math">
+\begin{equation*}
+\overline{\rm n} = \frac{a_1 + a_n}{2}
+\end{equation*}
+</div>
+<p>where:</p>
+<ul class="simple">
+<li>
+<span class="math">\(a_1\)</span> is the first term of an arithmetic&nbsp;progression.</li>
+<li>
+<span class="math">\(a_n\)</span> is the nth term of an arithmetic&nbsp;progression.</li>
+<li>
+<span class="math">\(d\)</span> is the difference between terms of the arithmetic&nbsp;progression.</li>
+<li>
+<span class="math">\(n\)</span> is the number of terms in the arithmetic&nbsp;progression.</li>
+<li>
+<span class="math">\(S_n\)</span> is the sum of n terms in the arithmetic&nbsp;progression.</li>
+<li>
+<span class="math">\(\overline{\rm n}\)</span> is the mean value of arithmetic&nbsp;series.</li>
+</ul>
+</div>
+<div class="section" id="geometric-progression">
+<h3><a class="toc-backref" href="#id10">Geometric&nbsp;progression</a></h3>
+<div class="math">
+\begin{equation*}
+a_n = ar^{n - 1}
+\end{equation*}
+</div>
+<div class="math">
+\begin{equation*}
+a_n = ra_{n - 1}
+\end{equation*}
+</div>
+<div class="math">
+\begin{equation*}
+S_n = \frac{a_1 (1 - r^n)}{1 - r}
+\end{equation*}
+</div>
+<div class="math">
+\begin{equation*}
+S_n = \frac{a_1 - a_n * r}{1 - r}
+\end{equation*}
+</div>
+<div class="math">
+\begin{equation*}
+where r \ne 1
+\end{equation*}
+</div>
+<p>where:</p>
+<ul class="simple">
+<li>
+<span class="math">\(a\)</span> - initial&nbsp;value</li>
+<li>
+<span class="math">\(r\)</span> - common&nbsp;ratio</li>
+</ul>
+<p>Simplified: <span class="math">\(S = \sum_{i=0}^{\inf} \alpha^i = 1 + \alpha + \alpha^2 + &#8230; = \frac{1}{1 - \alpha}\)</span>, if <span class="math">\(|\alpha| &lt;&nbsp;1\)</span></p>
+<p>pass</p>
+</div>
+</div>
+<div class="section" id="other">
+<h2><a class="toc-backref" href="#id11">Other</a></h2>
+<p>If <span class="math">\(X\)</span> is a vector, and <span class="math">\(X \in \{-1, 1\}^{n}\)</span>, then <span class="math">\(X^{T}X == n\)</span>, where <span class="math">\(n\)</span> is a constant, and <span class="math">\(n == len(X)\)</span>.</p>
+</div>
+</div>
+    </div>
+    
+</article>
+</div>
+        <!--End of body content-->
+
+        <footer id="footer">
+            Contents © 2017         <a href="mailto:ikhlestov@gmail.com">Illarion Khlestov</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>          <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script></footer>
+</div>
+</div>
+
+            <script src="../../../assets/js/all-nocdn.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates --><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-92406723-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>
