@@ -91,18 +91,74 @@ More consequences of the axioms:
 .. image:: /images/math/probability-theory/probability-models-and-axioms/conseq_of_axioms.png
   :width: 600
 
+
 Probability calculations
 ========================
 
-Discrete uniform law:
-Discrete finite example:
-Discrete continious example:
+Discrete finite example
+-------------------------
 
-Probability calculations step:
+Discrete uniform law:
+
+- Assume :math:`\Omega` finite consist of :math:`n` equally likely elements
+- Assume :math:`A` consist of :math:`k` elements, then
+
+:math:`P(A) = k * frac{1}{n}`
+
+.. TODO: add image 4
+
+every outcome prob == :math:`\frac{1}{16}`
+
+- :math:`P(X = 1) = 4 * \frac{1}{16}`
+- let :math:`Z = min(X, Y)`
+
+  - :math:`P(Z = 4) = 1/16`
+  - :math:`P(Z = 2) = 5 * \frac{1}{16}`
+
+.. TODO: add image 5
+
+Discrete continuous example
+----------------------------
+
+Suppose we have :math:`(x, y)` such that :math:`0 \leq x, y, \leq 1`
+
+Uniform probability law: Probability = Area
+
+:math:`P(\{(x, y) | x + y \leq 1/2 \})` = triangle area = :math:`\frac{1}{2} * \frac{1}{2} * \frac{1}{2}`
+
+:math:`P(\{0.5, 0.3 \})` = area of one point = :math:`0`
+
+.. TODO: img 6
+
+Probability calculations step
+------------------------------
+
+- Specify sample space
+- Specify a probability law
+- Identify an event of interest(if possible - graphical way)
+- Calculate ...
 
 Countable additivity
 ====================
 
+Let's we have sample space :math:`\{1, 2, 3, ... \}`
+
+:math:`P(n) = \frac{1}{2^n}, n=1, 2..`
+
+:math:`\sum_{n=1}^{\infty} \frac{1}{2^n} = \frac{1}{2} \sum_{n=0}^{\infty} \frac{1}{2^n} = \frac{1}{2} * \frac{1}{1 - 1/2} = 1`
+
+.. TODO: img 7
+
+P(outcome is even) = :math:`P(\{2, 4, 6, ... \} ) = P(\{2\} \cup \{4\} \cup ..) = P(2) + P(4) + .. =`
+
+:math:`= \frac{1}{2^2} + \frac{1}{2^4} + ... = \frac{1}{4}(1 + \frac{1}{4} + \frac{1}{4^2} + ...) = \frac{1}{4} * \frac{1}{1 - 1/4} = \frac{1}{3}`
+
 Countable additivity axiom
 --------------------------
 
+Strengthens the finite additivity axiom:
+
+- if :math:`A_1, A_2. A_3` is an finite sequence of disjoint events, then :math:`P(A_1 \cup A_2 \cup A_3 ...) = P(A_1) + P(A_2) + P(A_3)`
+- additivity holds only for "countable" sequence of events
+- the unit square(similarly the real line, etc.) is not countable. (It's elements cannot be arranged in a sequence)
+- "Area" is a legitimate probability law on the unit square, as long as we do not try to assign probabilities/areas to "very strange" sets
