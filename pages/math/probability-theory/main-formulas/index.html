@@ -85,7 +85,7 @@ MathJax.Hub.Config({
         
     </header><div class="e-content entry-content" itemprop="articleBody text">
     <div>
-<p>Some&nbsp;Axioms</p>
+<p><strong>Some&nbsp;Axioms</strong></p>
 <ul class="simple">
 <li><span class="math">\(P(A) + P(A^c) =&nbsp;1\)</span></li>
 <li><span class="math">\(P(A \cup B) = P(A) + P(B) - P(A \cap B) = P(A) + P(A^c \cap&nbsp;B)\)</span></li>
@@ -93,13 +93,13 @@ MathJax.Hub.Config({
 <span class="math">\(P(A \cup B) \leqslant P(A) + P(B)\)</span> - union&nbsp;bound</li>
 <li><span class="math">\(P(A \cup B \cup C) = P(A) + P(A^c \cap B) + P(A^c \cap B^c \cap&nbsp;C)\)</span></li>
 </ul>
-<p>From De Morgan’s&nbsp;laws</p>
+<p><strong>From De Morgan’s&nbsp;laws</strong></p>
 <ul class="simple">
 <li><span class="math">\((S \cap T)^c = S^c \cup&nbsp;T^c\)</span></li>
 <li><span class="math">\((S \cup T)^c = S^c \cap&nbsp;T^c\)</span></li>
 <li><span class="math">\(P(A \cap B) = 1 - P(A \cap B)^c = 1 - P(A)^c \cup P(B)^c = 1 - (1 - P(A)) \cup (1 -&nbsp;P(B))\)</span></li>
 </ul>
-<p>Conditional Probability (probability of A given&nbsp;B)</p>
+<p><strong>Conditional Probability (probability of A given&nbsp;B)</strong></p>
 <ul class="simple">
 <li>
 <span class="math">\(P(A|B) = \frac{P(A \cap B)}{P(B)}\)</span> if <span class="math">\(P(B) &gt;&nbsp;0\)</span>
@@ -118,18 +118,42 @@ MathJax.Hub.Config({
 <li><span class="math">\(P(A|B) = \frac{P(A \cap&nbsp;B)}{P(B)}\)</span></li>
 <li><span class="math">\(P(A \cap B) = P(B) * P(A|B) = P(A) *&nbsp;P(B|A)\)</span></li>
 </ul>
-<p>Total probability&nbsp;theorem:</p>
+<p><strong>Total probability&nbsp;theorem:</strong></p>
 <div class="math">
 \begin{equation*}
 P(B) = \sum_{i}P(A_i) * P(B|A_i)
 \end{equation*}
 </div>
-<p>Bayes&#8217;&nbsp;rule</p>
+<p><strong>Bayes&#8217;&nbsp;rule</strong></p>
 <div class="math">
 \begin{equation*}
 P(A_i | B) = \frac{P(A_i) * P(B | A_i)}{\sum_j P(A_j) * P(B | A_j)}
 \end{equation*}
 </div>
+<p><strong>Independence</strong></p>
+<div class="math">
+\begin{equation*}
+P(A \cap B) = P(A) * P(B)
+\end{equation*}
+</div>
+<ul class="simple">
+<li><span class="math">\(P(A \cap B) = P(A)P(B|A) =&nbsp;P(B)P(A|B)\)</span></li>
+<li><span class="math">\(P(A|B) =&nbsp;P(A)\)</span></li>
+<li><span class="math">\(P(A \cap B^c) = P(A)&nbsp;P(B^c)\)</span></li>
+<li><span class="math">\(P(A^c \cap B^c) = P(A^c)&nbsp;P(B^c)\)</span></li>
+</ul>
+<p><strong>Conditional&nbsp;independence</strong></p>
+<p><span class="math">\(P(A \cap B | C) = P(A|C) * P(B&nbsp;|C)\)</span></p>
+<p><strong>Reliability</strong></p>
+<p>Serial: <span class="math">\(P(a \rightarrow b) =&nbsp;p^k\)</span></p>
+<p>Parallel: <span class="math">\(P(a \rightarrow b) = 1 - (1 -&nbsp;p)^k\)</span></p>
+<p><strong>Conditional probability of smaller&nbsp;subset</strong></p>
+<p>Given events <span class="math">\(C, D, E\)</span> such&nbsp;that:</p>
+<ul class="simple">
+<li><span class="math">\(D \subset&nbsp;E\)</span></li>
+<li><span class="math">\(C \cap D = C \cap&nbsp;E\)</span></li>
+</ul>
+<p>than: <span class="math">\(P(C|D) \geq&nbsp;P(C|E)\)</span></p>
 </div>
     </div>
     
