@@ -555,6 +555,15 @@
 			}
 		},
 		{
+			"file": "pages/math/probability-theory/main-formulas.rst",
+			"settings":
+			{
+				"buffer_size": 1902,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
 			"file": "pages/machine-learning/ml-bookmarks.rst",
 			"settings":
 			{
@@ -656,6 +665,7 @@
 	],
 	"file_history":
 	[
+		"/Users/illarionkhliestov/Downloads/выписки_3_квартал_хлестов/UAH.csv",
 		"/Users/illarionkhliestov/Projects/blog/pages/math/probability-theory/index.rst",
 		"/Users/illarionkhliestov/Projects/blog/pages/math/additional-notes.rst",
 		"/Users/illarionkhliestov/Projects/blog/notes/notes.txt",
@@ -782,8 +792,7 @@
 		"/Users/illarionkhliestov/PycharmProjects/sounds_check/checker/server.py",
 		"/Users/illarionkhliestov/PycharmProjects/sounds_check/checker/templates/view_sub_results.html",
 		"/Users/illarionkhliestov/PycharmProjects/sounds_check/checker/.gitignore",
-		"/Users/illarionkhliestov/PycharmProjects/sounds_check/checker/README.rst",
-		"/Users/illarionkhliestov/PycharmProjects/sounds_check/main.py"
+		"/Users/illarionkhliestov/PycharmProjects/sounds_check/checker/README.rst"
 	],
 	"find":
 	{
@@ -801,6 +810,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"geq",
 			"theta",
 			"inf",
 			"figure",
@@ -927,8 +937,7 @@
 			"validate_image",
 			"downloader",
 			"clear_data",
-			"data",
-			"folder"
+			"data"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1050,7 +1059,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
@@ -1155,7 +1164,7 @@
 						"translation.y": 155.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
@@ -1171,39 +1180,8 @@
 						"selection":
 						[
 							[
-								2589,
-								2589
-							]
-						],
-						"settings":
-						{
-							"spell_check": true,
-							"syntax": "Packages/RestructuredText/reStructuredText.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1000.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "pages/math/probability-theory/probability-models-and-axioms.rst",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4660,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2206,
-								2206
+								822,
+								811
 							]
 						],
 						"settings":
@@ -1213,27 +1191,12 @@
 							{
 								"close":
 								{
-									"1":
-									[
-										2205,
-										2206
-									]
 								},
 								"icon":
 								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/round_bracket.png",
-										"brackethighlighter.default"
-									]
 								},
 								"open":
 								{
-									"1":
-									[
-										2196,
-										2197
-									]
 								},
 								"unmatched":
 								{
@@ -1304,14 +1267,226 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2227.0,
+						"translation.y": 170.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
 					"type": "text"
 				},
 				{
+					"buffer": 3,
+					"file": "pages/math/probability-theory/probability-models-and-axioms.rst",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4660,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1603,
+								1611
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content"
+							],
+							"git_gutter_is_enabled": false,
+							"spell_check": true,
+							"syntax": "Packages/RestructuredText/reStructuredText.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 201.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
 					"buffer": 4,
+					"file": "pages/math/probability-theory/main-formulas.rst",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1902,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1902,
+								1902
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content"
+							],
+							"git_gutter_is_enabled": false,
+							"spell_check": false,
+							"syntax": "Packages/RestructuredText/reStructuredText.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 499.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
 					"file": "pages/machine-learning/ml-bookmarks.rst",
 					"semi_transient": false,
 					"settings":
@@ -1411,11 +1586,11 @@
 						"translation.y": 1113.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 6,
 					"file": "pages/math/math-notations.rst",
 					"semi_transient": false,
 					"settings":
@@ -1451,16 +1626,26 @@
 							},
 							"bracket_highlighter.regions":
 							[
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
 								"bh_single_quote",
 								"bh_single_quote_center",
 								"bh_single_quote_open",
@@ -1481,33 +1666,23 @@
 								"bh_regex_open",
 								"bh_regex_close",
 								"bh_regex_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
 								"bh_square",
 								"bh_square_center",
 								"bh_square_open",
 								"bh_square_close",
 								"bh_square_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content"
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content"
 							],
-							"git_gutter_is_enabled": true,
+							"git_gutter_is_enabled": false,
 							"spell_check": true,
 							"syntax": "Packages/RestructuredText/reStructuredText.sublime-syntax",
 							"tab_size": 2,
@@ -1517,11 +1692,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 7,
 					"file": "pages/machine-learning/nn-models-compression-techniques.rst",
 					"semi_transient": false,
 					"settings":
@@ -1623,11 +1798,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
-					"buffer": 7,
+					"buffer": 8,
 					"file": "pages/machine-learning/models-architectures.rst",
 					"semi_transient": false,
 					"settings":
@@ -1726,7 +1901,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 8,
 					"type": "text"
 				}
 			]
