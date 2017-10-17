@@ -511,6 +511,50 @@ Slots Usage
       File "<stdin>", line 1, in <module>
     AttributeError: 'Point' object has no attribute 'z'
 
+Json pretty printing
+====================
+
+.. code-block:: bash
+
+    $ echo '{"json":"obj"}' | python -m json.tool
+
+    {
+        "json": "obj"
+    }
+
+Post mortem debug
+==================
+
+.. code-block:: bash
+
+    python -m pdb script.py
+
+Working with archives
+=====================
+
+.. code-blcok:: bash
+
+    # Create a new TAR archive
+    $ python3 -m tarfile -c <tarname>.tgz <file> <file>
+
+    # Extract from an existing TAR archive
+    $ python3 -m tarfile -e <tarname>.tgz
+
+    # pack directory into archive and make it executable
+    $ python3 -m zipapp myapp
+    $ python3 myapp.pyz
+    <output from myapp>
+
+Print system configuration
+===========================
+
+.. code-block: bash
+
+    $ python -m sysconfig
+    Platform: "macosx-10.6-intel"
+    Python version: "3.6"
+    Current installation scheme: "posix_prefix"
+
 Miscellaneous
 =============
 
