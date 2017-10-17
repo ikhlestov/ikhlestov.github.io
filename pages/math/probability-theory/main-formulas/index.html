@@ -130,13 +130,15 @@ P(B) = \sum_{i}P(A_i) * P(B|A_i)
 P(A_i | B) = \frac{P(A_i) * P(B | A_i)}{\sum_j P(A_j) * P(B | A_j)}
 \end{equation*}
 </div>
-<p><strong>Independence</strong></p>
 <div class="math">
 \begin{equation*}
-P(A \cap B) = P(A) * P(B)
+P(A|B) = \frac{P(A) * P(B|A)}{P(B)}
 \end{equation*}
 </div>
+<p><strong>Independence</strong></p>
 <ul class="simple">
+<li><span class="math">\(P({A, B, C}) = P(A) + P(B) +&nbsp;P(C)\)</span></li>
+<li><span class="math">\(P(A \cap B) = P(A) *&nbsp;P(B)\)</span></li>
 <li><span class="math">\(P(A \cap B) = P(A)P(B|A) =&nbsp;P(B)P(A|B)\)</span></li>
 <li><span class="math">\(P(A|B) =&nbsp;P(A)\)</span></li>
 <li><span class="math">\(P(A \cap B^c) = P(A)&nbsp;P(B^c)\)</span></li>
@@ -145,6 +147,7 @@ P(A \cap B) = P(A) * P(B)
 <p><strong>Conditional&nbsp;independence</strong></p>
 <p><span class="math">\(P(A \cap B | C) = P(A|C) * P(B&nbsp;|C)\)</span></p>
 <p><strong>Reliability</strong></p>
+<p><span class="math">\(P(A \cap B) = P(A) *&nbsp;P(B)\)</span></p>
 <p>Serial: <span class="math">\(P(a \rightarrow b) =&nbsp;p^k\)</span></p>
 <p>Parallel: <span class="math">\(P(a \rightarrow b) = 1 - (1 -&nbsp;p)^k\)</span></p>
 <p><strong>Conditional probability of smaller&nbsp;subset</strong></p>
