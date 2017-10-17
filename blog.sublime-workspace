@@ -558,7 +558,7 @@
 			"file": "pages/math/probability-theory/main-formulas.rst",
 			"settings":
 			{
-				"buffer_size": 1902,
+				"buffer_size": 2027,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -1385,15 +1385,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1902,
+						"buffer_size": 2027,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1902,
-								1902
+								1376,
+								1376
 							]
 						],
 						"settings":
@@ -1403,12 +1403,27 @@
 							{
 								"close":
 								{
+									"1":
+									[
+										1375,
+										1376
+									]
 								},
 								"icon":
 								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/round_bracket.png",
+										"brackethighlighter.default"
+									]
 								},
 								"open":
 								{
+									"1":
+									[
+										1373,
+										1374
+									]
 								},
 								"unmatched":
 								{
@@ -1479,7 +1494,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 499.0,
+						"translation.y": 463.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,

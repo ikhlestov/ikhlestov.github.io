@@ -47,12 +47,14 @@ Radar example:
 
   P(A_i | B) = \frac{P(A_i) * P(B | A_i)}{\sum_j P(A_j) * P(B | A_j)}
 
-**Independence**
-
 .. math::
 
-  P(A \cap B) = P(A) * P(B)
+  P(A|B) = \frac{P(A) * P(B|A)}{P(B)}
 
+**Independence**
+
+- :math:`P({A, B, C}) = P(A) + P(B) + P(C)`
+- :math:`P(A \cap B) = P(A) * P(B)`
 - :math:`P(A \cap B) = P(A)P(B|A) = P(B)P(A|B)`
 - :math:`P(A|B) = P(A)`
 - :math:`P(A \cap B^c) = P(A) P(B^c)`
@@ -63,6 +65,8 @@ Radar example:
 :math:`P(A \cap B | C) = P(A|C) * P(B |C)`
 
 **Reliability**
+
+:math:`P(A \cap B) = P(A) * P(B)`
 
 Serial: :math:`P(a \rightarrow b) = p^k`
 
