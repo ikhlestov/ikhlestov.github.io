@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html prefix="
+og: http://ogp.me/ns#
+article: http://ogp.me/ns/article#
+" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Testing | Illarion Khlestov Blog</title>
+<link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<meta content="#5670d4" name="theme-color">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../../../rss.xml">
+<link rel="canonical" href="https://ikhlestov.github.io/pages/python-related/testing/">
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    displayAlign: 'center', // Change this to 'center' to center equations.
+});
+</script><!--[if lt IE 9]><script src="../../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Illarion Khlestov">
+<meta property="og:site_name" content="Illarion Khlestov Blog">
+<meta property="og:title" content="Testing">
+<meta property="og:url" content="https://ikhlestov.github.io/pages/python-related/testing/">
+<meta property="og:description" content="Contents
+
+Mocks
+Imports order matters
+Pathcing testing class itself
+Patching many instances
+Patching properties
+
+
+
+
+
+Mocks
+
+Imports order matters
+# if you use
+import some.class
+
+# in this case you sho">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2017-12-06T16:40:34Z">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-static-top"><div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://ikhlestov.github.io/">
+
+                <span id="blog-title">Illarion Khlestov Blog</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
+            <ul class="nav navbar-nav">
+<li>
+<a href="../../../">Blog</a>
+                </li>
+<li>
+<a href="../../">Pages</a>
+                </li>
+<li>
+<a href="../../../listings/">Listings</a>
+                </li>
+<li>
+<a href="../../../archive.html">Archive</a>
+
+                
+            </li>
+</ul>
+<ul class="nav navbar-nav navbar-right">
+<li>
+    <a href="index.rst" id="sourcelink">Source</a>
+    </li>
+                
+            </ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Testing</a></h1>
+
+        
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li>
+<a class="reference internal" href="#mocks" id="id1">Mocks</a><ul>
+<li><a class="reference internal" href="#imports-order-matters" id="id2">Imports order&nbsp;matters</a></li>
+<li><a class="reference internal" href="#pathcing-testing-class-itself" id="id3">Pathcing testing class&nbsp;itself</a></li>
+<li><a class="reference internal" href="#patching-many-instances" id="id4">Patching many&nbsp;instances</a></li>
+<li><a class="reference internal" href="#patching-properties" id="id5">Patching&nbsp;properties</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="mocks">
+<h2><a class="toc-backref" href="#id1">Mocks</a></h2>
+<div class="section" id="imports-order-matters">
+<h3><a class="toc-backref" href="#id2">Imports order&nbsp;matters</a></h3>
+<pre class="code python"><a name="rest_code_082bd41e7b954508a07a085e066852cf-1"></a><span class="c1"># if you use</span>
+<a name="rest_code_082bd41e7b954508a07a085e066852cf-2"></a><span class="kn">import</span> <span class="nn">some.class</span>
+<a name="rest_code_082bd41e7b954508a07a085e066852cf-3"></a>
+<a name="rest_code_082bd41e7b954508a07a085e066852cf-4"></a><span class="c1"># in this case you should use mock as</span>
+<a name="rest_code_082bd41e7b954508a07a085e066852cf-5"></a><span class="k">with</span> <span class="n">patch</span><span class="p">(</span><span class="s1">'some.class'</span><span class="p">)</span> <span class="k">as</span> <span class="n">mock</span><span class="p">:</span>
+<a name="rest_code_082bd41e7b954508a07a085e066852cf-6"></a>    <span class="k">pass</span>
+<a name="rest_code_082bd41e7b954508a07a085e066852cf-7"></a>
+<a name="rest_code_082bd41e7b954508a07a085e066852cf-8"></a><span class="c1"># but if you import with 'from' to the package 'package_name'</span>
+<a name="rest_code_082bd41e7b954508a07a085e066852cf-9"></a><span class="kn">from</span> <span class="nn">some</span> <span class="kn">import</span> <span class="k">class</span>
+<a name="rest_code_082bd41e7b954508a07a085e066852cf-10"></a>
+<a name="rest_code_082bd41e7b954508a07a085e066852cf-11"></a><span class="err"># </span><span class="nc">you</span> <span class="n">should</span> <span class="n">mock</span> <span class="k">with</span>
+<a name="rest_code_082bd41e7b954508a07a085e066852cf-12"></a><span class="k">with</span> <span class="n">patch</span><span class="p">(</span><span class="s1">'package_name.class'</span><span class="p">)</span> <span class="k">as</span> <span class="n">mock</span><span class="p">:</span>
+<a name="rest_code_082bd41e7b954508a07a085e066852cf-13"></a>   <span class="k">pass</span>
+</pre>
+</div>
+<div class="section" id="pathcing-testing-class-itself">
+<h3><a class="toc-backref" href="#id3">Pathcing testing class&nbsp;itself</a></h3>
+<p>If you want to patch some method of the tested class itself, use <tt class="docutils literal">patch.object</tt>:</p>
+<pre class="code python"><a name="rest_code_346498df5015461bbac15a85f5397cc4-1"></a><span class="c1"># in case of usual method</span>
+<a name="rest_code_346498df5015461bbac15a85f5397cc4-2"></a><span class="k">with</span> <span class="n">patch</span><span class="o">.</span><span class="n">object</span><span class="p">(</span><span class="n">ClassName</span><span class="p">,</span> <span class="s1">'method_name'</span><span class="p">)</span> <span class="k">as</span> <span class="n">mock</span><span class="p">:</span>
+<a name="rest_code_346498df5015461bbac15a85f5397cc4-3"></a>    <span class="n">mock</span><span class="o">.</span><span class="n">assert_called_with</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">key</span>
+<a name="rest_code_346498df5015461bbac15a85f5397cc4-4"></a>
+<a name="rest_code_346498df5015461bbac15a85f5397cc4-5"></a><span class="c1"># in case of hidden __method_name</span>
+<a name="rest_code_346498df5015461bbac15a85f5397cc4-6"></a><span class="k">with</span> <span class="n">patch</span><span class="o">.</span><span class="n">object</span><span class="p">(</span><span class="n">ClassName</span><span class="p">,</span> <span class="s1">'_ClassName__method_name'</span><span class="p">)</span> <span class="k">as</span> <span class="n">mock</span><span class="p">:</span>
+<a name="rest_code_346498df5015461bbac15a85f5397cc4-7"></a>    <span class="n">mock</span><span class="o">.</span><span class="n">assert_called</span><span class="p">()</span>
+</pre>
+</div>
+<div class="section" id="patching-many-instances">
+<h3><a class="toc-backref" href="#id4">Patching many&nbsp;instances</a></h3>
+<p>Sometimes you need to patch a lot of instances. In this case you can use <tt class="docutils literal">patch.multiple</tt>:</p>
+<pre class="code python"><a name="rest_code_9a2a6c4d10224d2fb857291ffbbb2627-1"></a><span class="c1"># in script.py</span>
+<a name="rest_code_9a2a6c4d10224d2fb857291ffbbb2627-2"></a>
+<a name="rest_code_9a2a6c4d10224d2fb857291ffbbb2627-3"></a><span class="n">A</span> <span class="o">=</span> <span class="mi">1</span>
+<a name="rest_code_9a2a6c4d10224d2fb857291ffbbb2627-4"></a><span class="n">B</span> <span class="o">=</span> <span class="mi">2</span>
+<a name="rest_code_9a2a6c4d10224d2fb857291ffbbb2627-5"></a>
+<a name="rest_code_9a2a6c4d10224d2fb857291ffbbb2627-6"></a><span class="c1"># in tests</span>
+<a name="rest_code_9a2a6c4d10224d2fb857291ffbbb2627-7"></a><span class="k">with</span> <span class="n">patch</span><span class="o">.</span><span class="n">multiple</span><span class="p">(</span><span class="s1">'script'</span><span class="p">,</span> <span class="n">A</span><span class="o">=</span><span class="n">DEFAULT</span><span class="p">,</span> <span class="n">B</span><span class="o">=</span><span class="n">DEFAULT</span><span class="p">)</span> <span class="k">as</span> <span class="n">patches_dict</span><span class="p">:</span>
+<a name="rest_code_9a2a6c4d10224d2fb857291ffbbb2627-8"></a>    <span class="n">a_patch</span> <span class="o">=</span> <span class="n">patches_dict</span><span class="p">[</span><span class="s1">'A'</span><span class="p">]</span>
+<a name="rest_code_9a2a6c4d10224d2fb857291ffbbb2627-9"></a>    <span class="n">b_patch</span> <span class="o">=</span> <span class="n">patches_dict</span><span class="p">[</span><span class="s1">'B'</span><span class="p">]</span>
+</pre>
+<p>In case you want this in fixture, you may use such&nbsp;approach:</p>
+<pre class="code python"><a name="rest_code_e6fe2546f4d847ae8685b888f323c93e-1"></a><span class="nd">@pytest.fixture</span>
+<a name="rest_code_e6fe2546f4d847ae8685b888f323c93e-2"></a><span class="k">def</span> <span class="nf">multy_patch</span><span class="p">():</span>
+<a name="rest_code_e6fe2546f4d847ae8685b888f323c93e-3"></a>    <span class="n">patcher</span> <span class="o">=</span> <span class="n">patch</span><span class="o">.</span><span class="n">multiple</span><span class="p">(</span><span class="s1">'module'</span><span class="p">,</span> <span class="n">var_1</span><span class="o">=</span><span class="n">DEFAULT</span><span class="p">,</span> <span class="n">var_2</span><span class="o">=</span><span class="n">DEFAULT</span><span class="p">)</span>
+<a name="rest_code_e6fe2546f4d847ae8685b888f323c93e-4"></a>    <span class="n">started_patcher</span> <span class="o">=</span> <span class="n">patcher</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<a name="rest_code_e6fe2546f4d847ae8685b888f323c93e-5"></a>    <span class="k">yield</span> <span class="n">started_patcher</span>
+<a name="rest_code_e6fe2546f4d847ae8685b888f323c93e-6"></a>    <span class="n">patcher</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+<a name="rest_code_e6fe2546f4d847ae8685b888f323c93e-7"></a>
+<a name="rest_code_e6fe2546f4d847ae8685b888f323c93e-8"></a><span class="k">def</span> <span class="nf">test_something</span><span class="p">(</span><span class="n">multy_patch</span><span class="p">):</span>
+<a name="rest_code_e6fe2546f4d847ae8685b888f323c93e-9"></a>    <span class="n">var_1_patch</span> <span class="o">=</span> <span class="n">multy_patch</span><span class="p">[</span><span class="s1">'var_1'</span><span class="p">]</span>
+</pre>
+</div>
+<div class="section" id="patching-properties">
+<h3><a class="toc-backref" href="#id5">Patching&nbsp;properties</a></h3>
+<p>If you want to patch property, use such&nbsp;approach:</p>
+<pre class="code python"><a name="rest_code_d2b222b71d974c9b80146a5441a7d4b0-1"></a><span class="k">class</span> <span class="nc">MyClass</span><span class="p">:</span>
+<a name="rest_code_d2b222b71d974c9b80146a5441a7d4b0-2"></a><span class="nd">@property</span>
+<a name="rest_code_d2b222b71d974c9b80146a5441a7d4b0-3"></a><span class="k">def</span> <span class="nf">last_transaction</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a name="rest_code_d2b222b71d974c9b80146a5441a7d4b0-4"></a>    <span class="c1"># an expensive and complicated DB query here</span>
+<a name="rest_code_d2b222b71d974c9b80146a5441a7d4b0-5"></a>    <span class="k">pass</span>
+<a name="rest_code_d2b222b71d974c9b80146a5441a7d4b0-6"></a>
+<a name="rest_code_d2b222b71d974c9b80146a5441a7d4b0-7"></a><span class="k">def</span> <span class="nf">test</span><span class="p">():</span>
+<a name="rest_code_d2b222b71d974c9b80146a5441a7d4b0-8"></a>    <span class="k">with</span> <span class="n">mock</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="s1">'MyClass.last_transaction'</span><span class="p">,</span> <span class="n">new_callable</span><span class="o">=</span><span class="n">PropertyMock</span><span class="p">)</span> <span class="k">as</span> <span class="n">mock_last_transaction</span><span class="p">:</span>
+<a name="rest_code_d2b222b71d974c9b80146a5441a7d4b0-9"></a>        <span class="n">mock_last_transaction</span><span class="o">.</span><span class="n">return_value</span> <span class="o">=</span> <span class="n">Transaction</span><span class="p">()</span>
+<a name="rest_code_d2b222b71d974c9b80146a5441a7d4b0-10"></a>        <span class="n">myclass</span> <span class="o">=</span> <span class="n">MyClass</span><span class="p">()</span>
+<a name="rest_code_d2b222b71d974c9b80146a5441a7d4b0-11"></a>        <span class="n">mock_last_transaction</span><span class="o">.</span><span class="n">assert_called_once_with</span><span class="p">()</span>
+</pre>
+</div>
+</div>
+</div>
+    </div>
+    
+</article>
+</div>
+        <!--End of body content-->
+
+        <footer id="footer">
+            Contents © 2017         <a href="mailto:ikhlestov@gmail.com">Illarion Khlestov</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>          <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script></footer>
+</div>
+</div>
+
+            <script src="../../../assets/js/all-nocdn.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates --><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-92406723-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>
