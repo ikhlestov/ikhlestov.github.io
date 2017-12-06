@@ -49,6 +49,7 @@ Python related:
 * :doc:`python-bookmarks`
 * :doc:`python-libraries`
 * :doc:`python-hints`
+* :doc:`testing`
 * `Large cheat sheet for ML(External) <https://medium.com/@kailashahirwar/essential-cheat-sheets-for-machine-learning-and-deep-learning-researchers-efb6a8ebd2e5>`__
 
 Ubuntu:
