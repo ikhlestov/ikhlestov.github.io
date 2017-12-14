@@ -555,6 +555,43 @@ Print system configuration
     Python version: "3.6"
     Current installation scheme: "posix_prefix"
 
+Pickle and unpickle namedtuples
+===============================
+
+.. code-block:: python
+
+    def isnamedtupleinstance(x):
+        t = type(x)
+        b = t.__bases__
+        if len(b) != 1 or b[0] != tuple:
+            return False
+        f = getattr(t, '_fields', None)
+        if not isinstance(f, tuple):
+            return False
+        return all(type(n) == str for n in f)
+
+    def pickle_namedtuple(instance):
+        data = instance._asdict()
+        for key, value in data.items():
+            if isnamedtupleinstance(value):
+                data[key] = pickle_namedtuple(value)
+        dump = {
+            "namedtuple": True,
+            "class_name": instance.__class__.__name__,
+            "fields": instance._fields,
+            "data": data
+        }
+        return dump
+        
+    def restore_namedtuple(dump):
+        class_ = namedtuple(dump["class_name"], dump["fields"])
+        restored_data = {}
+        for field_name, field_data in dump["data"].items():
+            if isinstance(field_data, dict) and field_data.get("namedtuple"):
+                field_data = restore_namedtuple(field_data)
+            restored_data[field_name] = field_data
+        return class_(**restored_data)
+
 Miscellaneous
 =============
 
