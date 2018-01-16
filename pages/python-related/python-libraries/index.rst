@@ -80,3 +80,4 @@ in one line
 - `youtag <https://github.com/JoseTomasTocino/yotaq>`__ - Your Own Task Queue for Python
 - `tenacity <https://github.com/jd/tenacity>`__ - Retrying library for Python
 - `cupy <https://cupy.chainer.org/>`__ - numpy like CUDA lib
+- `airspeed velocity <https://asv.readthedocs.io/en/latest/>`__ - is a tool for benchmarking Python packages over their lifetime

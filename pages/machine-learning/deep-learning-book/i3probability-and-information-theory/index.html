@@ -82,7 +82,7 @@ Conditional Probabil">
         <!--Body content-->
         <div class="row">
             
-<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">I.3.Probability And Information Theory</a></h1>
+<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">I.3.Probability And Information&nbsp;Theory</a></h1>
 
         
     </header><div class="e-content entry-content" itemprop="articleBody text">
@@ -90,60 +90,60 @@ Conditional Probabil">
 <div class="contents topic" id="contents">
 <p class="topic-title first">Contents:</p>
 <ul class="simple">
-<li><a class="reference internal" href="#random-variables" id="id1">Random Variables</a></li>
-<li><a class="reference internal" href="#probability-distributions" id="id2">Probability Distributions</a></li>
-<li><a class="reference internal" href="#discrete-variables-and-probability-mass-functions" id="id3">Discrete Variables and Probability Mass Functions</a></li>
-<li><a class="reference internal" href="#continuous-variables-and-probability-density-functions" id="id4">Continuous Variables and Probability Density Functions</a></li>
-<li><a class="reference internal" href="#marginal-probability" id="id5">Marginal Probability</a></li>
-<li><a class="reference internal" href="#conditional-probability" id="id6">Conditional Probability</a></li>
-<li><a class="reference internal" href="#the-chain-rule-of-conditional-probabilities" id="id7">The Chain Rule of Conditional Probabilities</a></li>
-<li><a class="reference internal" href="#independence-and-conditional-independence" id="id8">Independence and Conditional Independence</a></li>
-<li><a class="reference internal" href="#expectation-variance-and-covariance" id="id9">Expectation, Variance and Covariance</a></li>
+<li><a class="reference internal" href="#random-variables" id="id1">Random&nbsp;Variables</a></li>
+<li><a class="reference internal" href="#probability-distributions" id="id2">Probability&nbsp;Distributions</a></li>
+<li><a class="reference internal" href="#discrete-variables-and-probability-mass-functions" id="id3">Discrete Variables and Probability Mass&nbsp;Functions</a></li>
+<li><a class="reference internal" href="#continuous-variables-and-probability-density-functions" id="id4">Continuous Variables and Probability Density&nbsp;Functions</a></li>
+<li><a class="reference internal" href="#marginal-probability" id="id5">Marginal&nbsp;Probability</a></li>
+<li><a class="reference internal" href="#conditional-probability" id="id6">Conditional&nbsp;Probability</a></li>
+<li><a class="reference internal" href="#the-chain-rule-of-conditional-probabilities" id="id7">The Chain Rule of Conditional&nbsp;Probabilities</a></li>
+<li><a class="reference internal" href="#independence-and-conditional-independence" id="id8">Independence and Conditional&nbsp;Independence</a></li>
+<li><a class="reference internal" href="#expectation-variance-and-covariance" id="id9">Expectation, Variance and&nbsp;Covariance</a></li>
 <li>
 <a class="reference internal" href="#common-probability-distributions" id="id10">Common Probability Distributions</a><ul>
-<li><a class="reference internal" href="#bernoulli-distribution" id="id11">Bernoulli Distribution</a></li>
-<li><a class="reference internal" href="#multinoulli-distribution" id="id12">Multinoulli Distribution</a></li>
-<li><a class="reference internal" href="#gaussian-distribution" id="id13">Gaussian Distribution</a></li>
-<li><a class="reference internal" href="#exponential-and-laplace-distributions" id="id14">Exponential and Laplace Distributions</a></li>
-<li><a class="reference internal" href="#the-dirac-distribution-and-empirical-distribution" id="id15">The Dirac Distribution and Empirical Distribution</a></li>
-<li><a class="reference internal" href="#mixtures-of-distributions" id="id16">Mixtures of Distributions</a></li>
+<li><a class="reference internal" href="#bernoulli-distribution" id="id11">Bernoulli&nbsp;Distribution</a></li>
+<li><a class="reference internal" href="#multinoulli-distribution" id="id12">Multinoulli&nbsp;Distribution</a></li>
+<li><a class="reference internal" href="#gaussian-distribution" id="id13">Gaussian&nbsp;Distribution</a></li>
+<li><a class="reference internal" href="#exponential-and-laplace-distributions" id="id14">Exponential and Laplace&nbsp;Distributions</a></li>
+<li><a class="reference internal" href="#the-dirac-distribution-and-empirical-distribution" id="id15">The Dirac Distribution and Empirical&nbsp;Distribution</a></li>
+<li><a class="reference internal" href="#mixtures-of-distributions" id="id16">Mixtures of&nbsp;Distributions</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#useful-properties-of-common-functions" id="id17">Useful Properties of Common Functions</a></li>
-<li><a class="reference internal" href="#bayes-rule" id="id18">Bayes' Rule</a></li>
-<li><a class="reference internal" href="#technical-details-of-continuous-variables" id="id19">Technical Details of Continuous Variables</a></li>
-<li><a class="reference internal" href="#information-theory" id="id20">Information Theory</a></li>
+<li><a class="reference internal" href="#useful-properties-of-common-functions" id="id17">Useful Properties of Common&nbsp;Functions</a></li>
+<li><a class="reference internal" href="#bayes-rule" id="id18">Bayes&#8217;&nbsp;Rule</a></li>
+<li><a class="reference internal" href="#technical-details-of-continuous-variables" id="id19">Technical Details of Continuous&nbsp;Variables</a></li>
+<li><a class="reference internal" href="#information-theory" id="id20">Information&nbsp;Theory</a></li>
 </ul>
 </div>
-<p>In many cases, it is more practical to use a simple but uncertain rule rather than a complex but certain one, even if the true rule is deterministic and our modeling system has the fidelity to accommodate a complex rule.</p>
-<p>When we say that an outcome has a probability <span class="math">\(p\)</span> of occurring, it means that if we repeated the experiment infinitely many times, then proportion <span class="math">\(p\)</span> of the repetitions would result in that outcome.</p>
-<p>This kind of reasoning does not seem immediately applicable to propositions that are not repeatable. For that cases we use <strong>degree of belief</strong>, with 1 indicating absolute certainty that the patient has the flu and 0 indicating absolute certainty that the patient does not have the flu.</p>
-<p>So if we have a probability related directly to the rates at which events occur, this probability known as <strong>frequentist probability</strong> (deal the cards).</p>
-<p>If probability related to qualitative levels of certainty, it's known as <strong>Bayesian probability</strong> (have patient flue or not).</p>
+<p>In many cases, it is more practical to use a simple but uncertain rule rather than a complex but certain one, even if the true rule is deterministic and our modeling system has the fidelity to accommodate a complex&nbsp;rule.</p>
+<p>When we say that an outcome has a probability <span class="math">\(p\)</span> of occurring, it means that if we repeated the experiment infinitely many times, then proportion <span class="math">\(p\)</span> of the repetitions would result in that&nbsp;outcome.</p>
+<p>This kind of reasoning does not seem immediately applicable to propositions that are not repeatable. For that cases we use <strong>degree of belief</strong>, with 1 indicating absolute certainty that the patient has the flu and 0 indicating absolute certainty that the patient does not have the&nbsp;flu.</p>
+<p>So if we have a probability related directly to the rates at which events occur, this probability known as <strong>frequentist probability</strong> (deal the&nbsp;cards).</p>
+<p>If probability related to qualitative levels of certainty, it&#8217;s known as <strong>Bayesian probability</strong> (have patient flue or&nbsp;not).</p>
 <div class="section" id="random-variables">
-<h2><a class="toc-backref" href="#id1">Random Variables</a></h2>
-<p>A <strong>random variable</strong> is a variable that can take on different values randomly. On its own, a random variable is just a description of the states that are possible; it must be coupled with a probability distribution that specifies how likely each of these states are.</p>
-<p>Random variables may be discrete or continuous. A discrete random variable is one that has a finite or countably infinite number of states. Note that these states are not necessarily the integers; they can also just be named states that are not considered to have any numerical value. A continuous random variable is associated with a real value.</p>
+<h2><a class="toc-backref" href="#id1">Random&nbsp;Variables</a></h2>
+<p>A <strong>random variable</strong> is a variable that can take on different values randomly. On its own, a random variable is just a description of the states that are possible; it must be coupled with a probability distribution that specifies how likely each of these states&nbsp;are.</p>
+<p>Random variables may be discrete or continuous. A discrete random variable is one that has a finite or countably infinite number of states. Note that these states are not necessarily the integers; they can also just be named states that are not considered to have any numerical value. A continuous random variable is associated with a real&nbsp;value.</p>
 </div>
 <div class="section" id="probability-distributions">
-<h2><a class="toc-backref" href="#id2">Probability Distributions</a></h2>
-<p>A <strong>probability distribution</strong> is a description of how likely a random variable or set of random variables is to take on each of its possible states. The way we describe probability distributions depends on whether the variables are discrete or continuous.</p>
+<h2><a class="toc-backref" href="#id2">Probability&nbsp;Distributions</a></h2>
+<p>A <strong>probability distribution</strong> is a description of how likely a random variable or set of random variables is to take on each of its possible states. The way we describe probability distributions depends on whether the variables are discrete or&nbsp;continuous.</p>
 </div>
 <div class="section" id="discrete-variables-and-probability-mass-functions">
-<h2><a class="toc-backref" href="#id3">Discrete Variables and Probability Mass Functions</a></h2>
+<h2><a class="toc-backref" href="#id3">Discrete Variables and Probability Mass&nbsp;Functions</a></h2>
 <p>A probability distribution over discrete variables may be described using a <strong>probability mass function (PMF)</strong> (denoted as <span class="math">\(P\)</span>). <span class="math">\(P(x)\)</span> usually is not the same as <span class="math">\(P(y)\)</span>. The probability mass function maps from a state of a random variable to the probability of that random variable taking on that state.  Sometimes we define a variable first, then use <span class="math">\(\sim\)</span> notation to specify which distribution it follows later: <span class="math">\(\mathsf{x} \sim P(\mathsf{x})\)</span>.</p>
-<p>Probability mass functions can act on many variables at the same time. Such a probability distribution over many variables is known as a <strong>joint probability distribution</strong>. <span class="math">\(P(\mathsf{x}=x, \mathsf{y}=y)\)</span> denotes the probability that <span class="math">\(\mathsf{x}=x\)</span> and <span class="math">\(\mathsf{y}=y\)</span> <strong>simultaneously</strong>. We may also write <span class="math">\(P(x, y)\)</span> for brevity.</p>
-<p>A function <span class="math">\(P\)</span> should satisfy the following properties:</p>
+<p>Probability mass functions can act on many variables at the same time. Such a probability distribution over many variables is known as a <strong>joint probability distribution</strong>. <span class="math">\(P(\mathsf{x}=x, \mathsf{y}=y)\)</span> denotes the probability that <span class="math">\(\mathsf{x}=x\)</span> and <span class="math">\(\mathsf{y}=y\)</span> <strong>simultaneously</strong>. We may also write <span class="math">\(P(x, y)\)</span> for&nbsp;brevity.</p>
+<p>A function <span class="math">\(P\)</span> should satisfy the following&nbsp;properties:</p>
 <ul class="simple">
 <li>The domain of <span class="math">\(P\)</span> must be the set of all possible states of <span class="math">\(\mathsf{x}\)</span>.</li>
-<li><span class="math">\(\forall x \in \mathsf{x}, 0 \leq P(x) \leq 1\)</span></li>
-<li><span class="math">\(\sum_{x \in \mathsf{x}} P(x) = 1\)</span></li>
+<li><span class="math">\(\forall x \in \mathsf{x}, 0 \leq P(x) \leq&nbsp;1\)</span></li>
+<li><span class="math">\(\sum_{x \in \mathsf{x}} P(x) =&nbsp;1\)</span></li>
 </ul>
 </div>
 <div class="section" id="continuous-variables-and-probability-density-functions">
-<h2><a class="toc-backref" href="#id4">Continuous Variables and Probability Density Functions</a></h2>
+<h2><a class="toc-backref" href="#id4">Continuous Variables and Probability Density&nbsp;Functions</a></h2>
 <p>When working with continuous random variables, we describe probability distributions using a <strong>probability density function (PDF)</strong> (denoted as <span class="math">\(p\)</span>).</p>
-<p><span class="math">\(p\)</span> must satisfy the following properties:</p>
+<p><span class="math">\(p\)</span> must satisfy the following&nbsp;properties:</p>
 <ul class="simple">
 <li>The domain of <span class="math">\(P\)</span> must be the set of all possible states of <span class="math">\(\mathsf{x}\)</span>.</li>
 <li>
@@ -155,31 +155,31 @@ Conditional Probabil">
 <p>We often denote that <span class="math">\(x\)</span> follows the uniform distribution on <span class="math">\([a, b]\)</span> by writing <span class="math">\(x \sim U(a, b)\)</span> or <span class="math">\(u(x; a, b)\)</span>.</p>
 </div>
 <div class="section" id="marginal-probability">
-<h2><a class="toc-backref" href="#id5">Marginal Probability</a></h2>
-<p><strong>Marginal probability</strong> - the probability distribution over the subset is known.</p>
+<h2><a class="toc-backref" href="#id5">Marginal&nbsp;Probability</a></h2>
+<p><strong>Marginal probability</strong> - the probability distribution over the subset is&nbsp;known.</p>
 <p>Suppose we know <span class="math">\(P(x, y)\)</span>. We can find <span class="math">\(P(x)\)</span> with the <strong>sum rule</strong>: <span class="math">\(\forall x \in \mathsf{x}, P(x) = \sum_{y} P(x, y)\)</span>.</p>
-<p>When the values of <span class="math">\(P(x, y)\)</span> are written in a grid with different values of <span class="math">\(x\)</span> in rows and different values of <span class="math">\(y\)</span> in columns, it is natural to sum across a row of the grid, then write <span class="math">\(P(x)\)</span> in the margin of the paper just to the right of the row.</p>
-<p>For continuous variables, we need to use integration instead of summation: <span class="math">\(p(x) = \int p(x, y)dy\)</span></p>
+<p>When the values of <span class="math">\(P(x, y)\)</span> are written in a grid with different values of <span class="math">\(x\)</span> in rows and different values of <span class="math">\(y\)</span> in columns, it is natural to sum across a row of the grid, then write <span class="math">\(P(x)\)</span> in the margin of the paper just to the right of the&nbsp;row.</p>
+<p>For continuous variables, we need to use integration instead of summation: <span class="math">\(p(x) = \int p(x,&nbsp;y)dy\)</span></p>
 </div>
 <div class="section" id="conditional-probability">
-<h2><a class="toc-backref" href="#id6">Conditional Probability</a></h2>
-<p><strong>Conditional probability</strong> -  probability of some event, given that some other event has happened. We denote the conditional probability that <span class="math">\(\mathsf{y}=y\)</span> given <span class="math">\(\mathsf{x}=x\)</span> or just <span class="math">\(P(y| x)\)</span> - event <span class="math">\(y\)</span> occur depends on event <span class="math">\(x\)</span>. This probability can be computed as:</p>
+<h2><a class="toc-backref" href="#id6">Conditional&nbsp;Probability</a></h2>
+<p><strong>Conditional probability</strong> -  probability of some event, given that some other event has happened. We denote the conditional probability that <span class="math">\(\mathsf{y}=y\)</span> given <span class="math">\(\mathsf{x}=x\)</span> or just <span class="math">\(P(y| x)\)</span> - event <span class="math">\(y\)</span> occur depends on event <span class="math">\(x\)</span>. This probability can be computed&nbsp;as:</p>
 <div class="math">
 \begin{equation*}
 P(\mathsf{y}=y | \mathsf{x}=x) = \frac{P(\mathsf{y}=y, \mathsf{x}=x)}{P\mathsf{x}=x}
 \end{equation*}
 </div>
-<p>Computing the consequences of an action is called making an <strong>intervention query</strong>. Intervention queries are the domain of <strong>causal modeling</strong> (out of the scope of this book).</p>
+<p>Computing the consequences of an action is called making an <strong>intervention query</strong>. Intervention queries are the domain of <strong>causal modeling</strong> (out of the scope of this&nbsp;book).</p>
 </div>
 <div class="section" id="the-chain-rule-of-conditional-probabilities">
-<h2><a class="toc-backref" href="#id7">The Chain Rule of Conditional Probabilities</a></h2>
-<p>Any joint probability distribution over many random variables may be decomposed into conditional distributions over only one variable:</p>
+<h2><a class="toc-backref" href="#id7">The Chain Rule of Conditional&nbsp;Probabilities</a></h2>
+<p>Any joint probability distribution over many random variables may be decomposed into conditional distributions over only one&nbsp;variable:</p>
 <div class="math">
 \begin{equation*}
-P(x^{(1)}, ..., x^{(n)}) = P(x^{(1)}) \prod_{i=2}^{n} P(x^{i}| x^{(1)}, ..., x^{(i - 1)})
+P(x^{(1)}, &#8230;, x^{(n)}) = P(x^{(1)}) \prod_{i=2}^{n} P(x^{i}| x^{(1)}, &#8230;, x^{(i - 1)})
 \end{equation*}
 </div>
-<p>This observation is known as the <strong>chain rule</strong> or <strong>product rule</strong> of probability. For example:</p>
+<p>This observation is known as the <strong>chain rule</strong> or <strong>product rule</strong> of probability. For&nbsp;example:</p>
 <div class="math">
 \begin{equation*}
 P(a, b, c) = P(a|b, c)P(b, c)
@@ -197,7 +197,7 @@ P(a, b, c) = P(a|b, c)P(b|c)P(c)
 </div>
 </div>
 <div class="section" id="independence-and-conditional-independence">
-<h2><a class="toc-backref" href="#id8">Independence and Conditional Independence</a></h2>
+<h2><a class="toc-backref" href="#id8">Independence and Conditional&nbsp;Independence</a></h2>
 <p>Two random variables <span class="math">\(x\)</span> and <span class="math">\(y\)</span> are <strong>independent</strong> if their probability distribution can be expressed as a product of two factors, one involving only <span class="math">\(x\)</span> and one involving only <span class="math">\(y\)</span>:</p>
 <div class="math">
 \begin{equation*}
@@ -213,44 +213,44 @@ P(a, b, c) = P(a|b, c)P(b|c)P(c)
 <p>We can denote independence and conditional independence with compact notation: <span class="math">\(x \bot y\)</span> means that <span class="math">\(x\)</span> and <span class="math">\(y\)</span> are independent, while <span class="math">\(x \bot y | z\)</span> means that <span class="math">\(x\)</span> and <span class="math">\(y\)</span> are conditionally independent given <span class="math">\(z\)</span>.</p>
 </div>
 <div class="section" id="expectation-variance-and-covariance">
-<h2><a class="toc-backref" href="#id9">Expectation, Variance and Covariance</a></h2>
-<p>The <strong>expectation</strong> or <strong>expected value</strong> of some function <span class="math">\(f(x)\)</span> with respect to a probability distribution <span class="math">\(P(x)\)</span> is the average or mean value that <span class="math">\(f\)</span> takes on when <span class="math">\(x\)</span> is drawn from <span class="math">\(P\)</span>. For discrete variables this can be computed with a summation:</p>
+<h2><a class="toc-backref" href="#id9">Expectation, Variance and&nbsp;Covariance</a></h2>
+<p>The <strong>expectation</strong> or <strong>expected value</strong> of some function <span class="math">\(f(x)\)</span> with respect to a probability distribution <span class="math">\(P(x)\)</span> is the average or mean value that <span class="math">\(f\)</span> takes on when <span class="math">\(x\)</span> is drawn from <span class="math">\(P\)</span>. For discrete variables this can be computed with a&nbsp;summation:</p>
 <div class="math">
 \begin{equation*}
 \mathbb{E}_{x \sim P}[f(x)] = \sum_{x} P(x)f(x)
 \end{equation*}
 </div>
-<p>while for continuous variables, it is computed with an integral:</p>
+<p>while for continuous variables, it is computed with an&nbsp;integral:</p>
 <div class="math">
 \begin{equation*}
 \mathbb{E}_{x \sim p}[f(x)] = \int p(x)f(x)dx.
 \end{equation*}
 </div>
-<p>By default, we can assume that <span class="math">\(\mathbb{E}[\cdot]\)</span> averages over the values of all the random variables inside the brackets. Likewise, when there is no ambiguity, we may omit the square brackets.</p>
+<p>By default, we can assume that <span class="math">\(\mathbb{E}[\cdot]\)</span> averages over the values of all the random variables inside the brackets. Likewise, when there is no ambiguity, we may omit the square&nbsp;brackets.</p>
 <p>Expectations are linear, for example, <span class="math">\(\mathbb{E}_{x}[\alpha f(x) + \beta g(x)] = \alpha \mathbb{E}_{x}[f(x)] + \beta \mathbb{E}_{x}[g(x)]\)</span> when <span class="math">\(\alpha\)</span> and <span class="math">\(\beta\)</span> not dependent on <span class="math">\(x\)</span>.</p>
-<p>The <strong>variance</strong> gives a measure of how much the values of a function of a random variable <span class="math">\(\mathsf{x}\)</span> vary as we sample different values of <span class="math">\(x\)</span> from its probability distribution:</p>
+<p>The <strong>variance</strong> gives a measure of how much the values of a function of a random variable <span class="math">\(\mathsf{x}\)</span> vary as we sample different values of <span class="math">\(x\)</span> from its probability&nbsp;distribution:</p>
 <div class="math">
 \begin{equation*}
 Var(f(x)) = \mathbb{E}[(f(x) - \mathbb{E}[f(x)])^2]
 \end{equation*}
 </div>
 <p>When the variance is low, the values of <span class="math">\(f(x)\)</span> cluster near their expected value. The square root of the variance is known as the <strong>standard deviation</strong>.</p>
-<p>The <strong>covariance</strong> gives some sense of how much two values are linearly related to each other, as well as the scale of these variables:</p>
+<p>The <strong>covariance</strong> gives some sense of how much two values are linearly related to each other, as well as the scale of these&nbsp;variables:</p>
 <div class="math">
 \begin{equation*}
 Cov(f(x), g(y)) = \mathbb{E}[(f(x) - \mathbb{E}[f(x)]) (g(y) - \mathbb{E}[g(y)])]
 \end{equation*}
 </div>
-<p>High absolute values of the covariance mean that the values change very much and are both far from their respective means at the same time. If the sign of the covariance is positive, then both variables tend to take on relatively high values simultaneously. If the sign of the covariance is negative, then one variable tends to take on a relatively high value at the times that the other takes on a relatively low value and vice versa. Other measures such as <strong>correlation</strong> normalize the contribution of each variable in order to measure only how much the variables are related, rather than also being affected by the scale of the separate variables</p>
+<p>High absolute values of the covariance mean that the values change very much and are both far from their respective means at the same time. If the sign of the covariance is positive, then both variables tend to take on relatively high values simultaneously. If the sign of the covariance is negative, then one variable tends to take on a relatively high value at the times that the other takes on a relatively low value and vice versa. Other measures such as <strong>correlation</strong> normalize the contribution of each variable in order to measure only how much the variables are related, rather than also being affected by the scale of the separate&nbsp;variables</p>
 <p>The notions of covariance and dependence are related, but are in fact distinct concepts. They are related because two variables that are independent have zero covariance, and two variables that have non-zero covariance are dependent. However, independence is a distinct property from covariance. For two variables to have zero covariance, there must be no linear dependence between them. Independence is a stronger requirement than zero covariance, because independence also excludes nonlinear relationships. It is possible for two variables to be dependent but have zero covariance.
 For example, suppose we first sample a real number <span class="math">\(x\)</span> from a uniform distribution over the interval <span class="math">\([-1,1]\)</span>. We next sample a random variable <span class="math">\(s\)</span>. With probability <span class="math">\(\frac{1}{2}\)</span>, we choose the value of <span class="math">\(s\)</span> to be 1. Otherwise, we choose the value of <span class="math">\(s\)</span> to be −1. We can then generate a random variable <span class="math">\(y\)</span> by assigning <span class="math">\(y=sx\)</span>. Clearly, <span class="math">\(x\)</span> and <span class="math">\(y\)</span> are not independent, because <span class="math">\(x\)</span> completely determines the magnitude of <span class="math">\(y\)</span>. However, <span class="math">\(Cov(x, y) = 0\)</span>.</p>
-<p>The <strong>covariance matrix</strong> of a random vector <span class="math">\(\textbf{x} \in \mathbb{R}^{n}\)</span> is an <span class="math">\(n \times n\)</span> matrix, such that</p>
+<p>The <strong>covariance matrix</strong> of a random vector <span class="math">\(\textbf{x} \in \mathbb{R}^{n}\)</span> is an <span class="math">\(n \times n\)</span> matrix, such&nbsp;that</p>
 <div class="math">
 \begin{equation*}
 Cov(\textbf{x})_{i,j}= Cov(\mathsf{x}_i, \mathsf{x}_j).
 \end{equation*}
 </div>
-<p>The diagonal elements of the covariance give the variance:</p>
+<p>The diagonal elements of the covariance give the&nbsp;variance:</p>
 <div class="math">
 \begin{equation*}
 Cov(\mathsf{x}_i, \mathsf{x}_i) = Var(\mathsf{x}_i).
@@ -258,10 +258,10 @@ Cov(\mathsf{x}_i, \mathsf{x}_i) = Var(\mathsf{x}_i).
 </div>
 </div>
 <div class="section" id="common-probability-distributions">
-<h2><a class="toc-backref" href="#id10">Common Probability Distributions</a></h2>
+<h2><a class="toc-backref" href="#id10">Common Probability&nbsp;Distributions</a></h2>
 <div class="section" id="bernoulli-distribution">
-<h3><a class="toc-backref" href="#id11">Bernoulli Distribution</a></h3>
-<p>The <strong>Bernoulli</strong> distribution is a distribution over a single binary random variable.It is controlled by a single parameter <span class="math">\(\phi \in [0,1]\)</span>, which gives the probability of the random variable being equal to 1. It has the following properties:</p>
+<h3><a class="toc-backref" href="#id11">Bernoulli&nbsp;Distribution</a></h3>
+<p>The <strong>Bernoulli</strong> distribution is a distribution over a single binary random variable.It is controlled by a single parameter <span class="math">\(\phi \in [0,1]\)</span>, which gives the probability of the random variable being equal to 1. It has the following&nbsp;properties:</p>
 <div class="math">
 \begin{equation*}
 P(\mathsf{x} = 1) = \phi
@@ -289,15 +289,15 @@ Var_{\mathsf{x}}(\mathsf{x}) = \phi(1 - \phi)
 </div>
 </div>
 <div class="section" id="multinoulli-distribution">
-<h3><a class="toc-backref" href="#id12">Multinoulli Distribution</a></h3>
+<h3><a class="toc-backref" href="#id12">Multinoulli&nbsp;Distribution</a></h3>
 <p>The <strong>multinoulli</strong> or <strong>categorical</strong> distribution is a distribution over a single discrete variable with <span class="math">\(k\)</span> different states, where <span class="math">\(k\)</span> is finite.
 The multinoulli distribution is parametrized by a vector <span class="math">\(p \in [0,1]^{k-1}\)</span>, where <span class="math">\(p_i\)</span> gives the probability of the <em>i</em>-th state.
 The final, <em>k</em>-th state’s probability is given by <span class="math">\(1- \mathsf{1}^T p\)</span>.Note that we must constrain <span class="math">\(\mathsf{1}^T p \leq 1\)</span>.
 Multinoulli distributions are often used to refer to distributions over categories of objects, so we do not usually assume that state 1 has numerical value 1, etc.
-For this reason, we do not usually need to compute the expectation or variance of multinoulli-distributed random variables.</p>
+For this reason, we do not usually need to compute the expectation or variance of multinoulli-distributed random&nbsp;variables.</p>
 </div>
 <div class="section" id="gaussian-distribution">
-<h3><a class="toc-backref" href="#id13">Gaussian Distribution</a></h3>
+<h3><a class="toc-backref" href="#id13">Gaussian&nbsp;Distribution</a></h3>
 <p>The most commonly used distribution over real numbers is the <strong>normal distribution</strong>, also known as the <strong>Gaussian distribution</strong>:</p>
 <div class="math">
 \begin{equation*}
@@ -309,7 +309,7 @@ The parameter <span class="math">\(\mu\)</span> gives the coordinate of the cent
 This is also the mean of the distribution: <span class="math">\(\mathbb{E}[x] = \mu\)</span>.
 The standard deviation of the distribution is given by <span class="math">\(\sigma\)</span>, and the variance by <span class="math">\(\sigma^{2}\)</span>.</p>
 <p>When we evaluate the PDF, we need to square and invert <span class="math">\(\sigma\)</span>.
-When we need to frequently evaluate the PDF with different parameter values, a more efficient way of parametrizing the distribution is to use a parameter <span class="math">\(\beta \in (0, \infty)\)</span> to control the precision or inverse variance of the distribution:</p>
+When we need to frequently evaluate the PDF with different parameter values, a more efficient way of parametrizing the distribution is to use a parameter <span class="math">\(\beta \in (0, \infty)\)</span> to control the precision or inverse variance of the&nbsp;distribution:</p>
 <div class="math">
 \begin{equation*}
 N(x; \mu, \beta^{-1}) = \sqrt{\frac{\beta}{2\pi }} \exp(-\frac{1}{2}\beta (x - \mu)^2)
@@ -333,10 +333,10 @@ N(\boldsymbol{x}; \boldsymbol{\mu}, \boldsymbol{\beta}) = \sqrt{\frac{det(\bolds
 \end{equation*}
 </div>
 <p>We often fix the covariance matrix to be a diagonal matrix.
-An even simpler version is the <strong>isotropic</strong> Gaussian distribution, whose covariance matrix is a scalar times the identity matrix.</p>
+An even simpler version is the <strong>isotropic</strong> Gaussian distribution, whose covariance matrix is a scalar times the identity&nbsp;matrix.</p>
 </div>
 <div class="section" id="exponential-and-laplace-distributions">
-<h3><a class="toc-backref" href="#id14">Exponential and Laplace Distributions</a></h3>
+<h3><a class="toc-backref" href="#id14">Exponential and Laplace&nbsp;Distributions</a></h3>
 <p><strong>Exponential distribution</strong> - a probability distribution with a sharp point at <span class="math">\(x= 0\)</span>:</p>
 <div class="math">
 \begin{equation*}
@@ -352,7 +352,7 @@ p(x; \lambda) = \lambda \boldsymbol{1}_{x \geq 0} \exp(-\lambda x)
 </div>
 </div>
 <div class="section" id="the-dirac-distribution-and-empirical-distribution">
-<h3><a class="toc-backref" href="#id15">The Dirac Distribution and Empirical Distribution</a></h3>
+<h3><a class="toc-backref" href="#id15">The Dirac Distribution and Empirical&nbsp;Distribution</a></h3>
 <p>In some cases, we wish to specify that all of the mass in a probability distribution clusters around a single point. This can be accomplished by defining a PDF using the Dirac delta function, <span class="math">\(\delta (x)\)</span>:</p>
 <div class="math">
 \begin{equation*}
@@ -361,7 +361,7 @@ p(x) = \delta (x - \mu)
 </div>
 <p>The Dirac delta function is defined such that it is zero-valued everywhere except 0, yet integrates to 1.
 Dirac function is called a <strong>generalized function</strong> that is defined in terms of its properties when integrated.
-We can think of the Dirac delta function as being thelimit point of a series of functions that put less and less mass on all points other than zero.</p>
+We can think of the Dirac delta function as being thelimit point of a series of functions that put less and less mass on all points other than&nbsp;zero.</p>
 <p>By defining <span class="math">\(p(x)\)</span> to be <span class="math">\(\delta\)</span> shifted by <span class="math">\(- \mu\)</span> we obtain an infinitely narrow and infinitely high peak of probability mass where <span class="math">\(x = \mu\)</span>.</p>
 <p>A common use of the Dirac delta distribution is as a component of an <strong>empirical distribution</strong>:</p>
 <div class="math">
@@ -369,49 +369,49 @@ We can think of the Dirac delta function as being thelimit point of a series of 
 \hat{p}(\boldsymbol{x}) = \frac{1}{x}\sum_{i=1}^{m} \delta (\boldsymbol{x} - \boldsymbol{x}^i)
 \end{equation*}
 </div>
-<p>which puts probability mass <span class="math">\(\frac{1}{m}\)</span> on each of the <span class="math">\(m\)</span> points <span class="math">\(\boldsymbol{x}^{(1)}, ..., \boldsymbol{x}^{(m)}\)</span> forming a given dataset or collection of samples.</p>
+<p>which puts probability mass <span class="math">\(\frac{1}{m}\)</span> on each of the <span class="math">\(m\)</span> points <span class="math">\(\boldsymbol{x}^{(1)}, &#8230;, \boldsymbol{x}^{(m)}\)</span> forming a given dataset or collection of&nbsp;samples.</p>
 <p>The Dirac delta distribution is only necessary to define the empirical distribution over continuous variables.
-For discrete variables,the situation is simpler: an empirical distribution can be conceptualized as a multinoulli distribution, with a probability associated to each possible input value that is simply equal to the <strong>empirical frequency</strong> of that value in the training set.</p>
+For discrete variables,the situation is simpler: an empirical distribution can be conceptualized as a multinoulli distribution, with a probability associated to each possible input value that is simply equal to the <strong>empirical frequency</strong> of that value in the training&nbsp;set.</p>
 </div>
 <div class="section" id="mixtures-of-distributions">
-<h3><a class="toc-backref" href="#id16">Mixtures of Distributions</a></h3>
+<h3><a class="toc-backref" href="#id16">Mixtures of&nbsp;Distributions</a></h3>
 <p>One common way of combining distributions is to construct a <strong>mixture distribution</strong>.
 A mixture distribution is made up of several component distributions.
-On each trial, the choice of which component distribution generates the sample is determined by sampling a component identity from a multinoulli distribution:</p>
+On each trial, the choice of which component distribution generates the sample is determined by sampling a component identity from a multinoulli&nbsp;distribution:</p>
 <div class="math">
 \begin{equation*}
 P(\mathrm{x}) = \sum_{i} P(\mathrm{c} = i)P(\mathrm{x} | \mathrm{c} = i)
 \end{equation*}
 </div>
-<p>where <span class="math">\(P(\mathrm{c})\)</span> is the multinoulli distribution over component identities.</p>
+<p>where <span class="math">\(P(\mathrm{c})\)</span> is the multinoulli distribution over component&nbsp;identities.</p>
 <p>A <strong>latent variable</strong> is a random variable that we cannot observe directly.
 The component identity variable <span class="math">\(\mathrm{c}\)</span> of the mixture model provides an example.
 Latent variables may be related to <span class="math">\(\mathrm{x}\)</span> through the joint distribution, in this case, <span class="math">\(P(\mathrm{x}, \mathrm{c}) = P(\mathrm{x} | \mathrm{c})P(\mathrm{c})\)</span>.
-The distribution <span class="math">\(P(\mathrm{c})\)</span> over the latent variable and the distribution <span class="math">\(P(\mathrm{x} | \mathrm{c})\)</span> relating the latent variables to the visible variables determines the shape of the distribution <span class="math">\(P(\mathrm{x})\)</span> even though it is possible to describe <span class="math">\(P(\mathrm{x})\)</span> without reference to the latent variable.</p>
+The distribution <span class="math">\(P(\mathrm{c})\)</span> over the latent variable and the distribution <span class="math">\(P(\mathrm{x} | \mathrm{c})\)</span> relating the latent variables to the visible variables determines the shape of the distribution <span class="math">\(P(\mathrm{x})\)</span> even though it is possible to describe <span class="math">\(P(\mathrm{x})\)</span> without reference to the latent&nbsp;variable.</p>
 <p>A very powerful and common type of mixture model is the <strong>Gaussian mixture</strong> model, in which the components <span class="math">\(p(\boldsymbol{x} | c=i)\)</span> are Gaussians.
 Each component has a separately parametrized mean <span class="math">\(\boldsymbol{\mu}^{(i)}\)</span>boldsymbol{Sigma}^{(i)}`.
 Some mixtures can have more constraints.
 For example, the covariances could be shared across components via the constraint <span class="math">\(\boldsymbol{\Sigma}^{(i)} = \boldsymbol{\Sigma} \forall i\)</span>.
-As with a single Gaussian distribution, the mixture of Gaussians might constrain the covariance matrix for each component to be diagonal or isotropic.</p>
+As with a single Gaussian distribution, the mixture of Gaussians might constrain the covariance matrix for each component to be diagonal or&nbsp;isotropic.</p>
 <p>In addition to the means and covariances, the parameters of a Gaussian mixture specify the <strong>prior probability</strong> <span class="math">\(\alpha_{i} = P(\mathrm{c} = i)\)</span> given to each component <span class="math">\(i\)</span>.
-The word "prior" indicates that it expresses the model’s beliefs about <span class="math">\(\mathrm{c}\)</span> <em>before</em> it has observed <span class="math">\(\boldsymbol{x}\)</span>.
+The word &#8220;prior&#8221; indicates that it expresses the model’s beliefs about <span class="math">\(\mathrm{c}\)</span> <em>before</em> it has observed <span class="math">\(\boldsymbol{x}\)</span>.
 By comparison, <span class="math">\(P(\mathrm{c} | \boldsymbol{x})\)</span> is a <strong>posterior probability</strong>, because it is computed <em>after</em> observation of <span class="math">\(\boldsymbol{x}\)</span>.
-A Gaussian mixture model is a <strong>universal approximator</strong> of densities, in the sense that any smooth density can be approximated with any specific, non-zero amount of error by a Gaussian mixture model with enough components</p>
+A Gaussian mixture model is a <strong>universal approximator</strong> of densities, in the sense that any smooth density can be approximated with any specific, non-zero amount of error by a Gaussian mixture model with enough&nbsp;components</p>
 </div>
 </div>
 <div class="section" id="useful-properties-of-common-functions">
-<h2><a class="toc-backref" href="#id17">Useful Properties of Common Functions</a></h2>
-<p><strong>logistic sigmoid</strong></p>
+<h2><a class="toc-backref" href="#id17">Useful Properties of Common&nbsp;Functions</a></h2>
+<p><strong>logistic&nbsp;sigmoid</strong></p>
 <div class="math">
 \begin{equation*}
 \sigma (x) = \frac{1}{1 + \exp (-x)}
 \end{equation*}
 </div>
 <p>Logistic sigmoid is commonly used to produce the <span class="math">\(\phi\)</span> parameter of a Bernoulli distribution because its range is <span class="math">\((0,1)\)</span>.
-The sigmoid function <strong>saturates</strong> when its argument is very positive or very negative, meaning that the function becomes very flat and insensitive to small changes in its input. See figure 1.</p>
+The sigmoid function <strong>saturates</strong> when its argument is very positive or very negative, meaning that the function becomes very flat and insensitive to small changes in its input. See figure&nbsp;1.</p>
 <div class="figure">
 <a class="reference external image-reference" href="../../../../images/ML_notes/deep_learning_book/01_sigmoid_distribution.png"><img alt="/images/ML_notes/deep_learning_book/01_sigmoid_distribution.thumbnail.png" src="../../../../images/ML_notes/deep_learning_book/01_sigmoid_distribution.thumbnail.png"></a>
-<p class="caption">Figure 1.</p>
+<p class="caption">Figure&nbsp;1.</p>
 </div>
 <p>Another common function is the <strong>softplus</strong></p>
 <div class="math">
@@ -420,7 +420,7 @@ The sigmoid function <strong>saturates</strong> when its argument is very positi
 \end{equation*}
 </div>
 <p>The softplus function can be useful for producing the <span class="math">\(\beta\)</span> or <span class="math">\(\sigma\)</span> parameter of a normal distribution because its range is <span class="math">\((0 , \infty)\)</span>.</p>
-<p>Common properties to memorize:</p>
+<p>Common properties to&nbsp;memorize:</p>
 <div class="math">
 \begin{equation*}
 \sigma (x) = \frac{\exp (x)}{\exp(x) + \exp(0)}
@@ -468,35 +468,35 @@ The sigmoid function <strong>saturates</strong> when its argument is very positi
 </div>
 </div>
 <div class="section" id="bayes-rule">
-<h2><a class="toc-backref" href="#id18">Bayes' Rule</a></h2>
+<h2><a class="toc-backref" href="#id18">Bayes&#8217;&nbsp;Rule</a></h2>
 <p>Compute <span class="math">\(P(\mathrm{x} | \mathrm{y})\)</span> from <span class="math">\(P(\mathrm{y} | \mathrm{x})\)</span> if we know <span class="math">\(P(\mathrm{x})\)</span>:</p>
 <div class="math">
 \begin{equation*}
 P(\mathrm{x} | \mathrm{y}) = \frac{P(\mathrm{x}) P(\mathrm {y}| \mathrm{x})}{P(\mathrm{y})}
 \end{equation*}
 </div>
-<p>also <span class="math">\(P(\mathrm{y})\)</span> can be computed as <span class="math">\(P(\mathrm{x}) = \sum_{x} P(\mathrm{y} | \mathrm{x}) P(\mathrm{x})\)</span></p>
+<p>also <span class="math">\(P(\mathrm{y})\)</span> can be computed as <span class="math">\(P(\mathrm{x}) = \sum_{x} P(\mathrm{y} | \mathrm{x})&nbsp;P(\mathrm{x})\)</span></p>
 </div>
 <div class="section" id="technical-details-of-continuous-variables">
-<h2><a class="toc-backref" href="#id19">Technical Details of Continuous Variables</a></h2>
+<h2><a class="toc-backref" href="#id19">Technical Details of Continuous&nbsp;Variables</a></h2>
 <p>Measure theory provides a rigorous way of describing that a set of points is negligibly small. Such a set is said to have <strong>measure zero</strong>.
-It is sufficient to understand the intuition that a set of measure zero occupies no volume in the space we are measuring.</p>
+It is sufficient to understand the intuition that a set of measure zero occupies no volume in the space we are&nbsp;measuring.</p>
 <p>Another useful term from measure theory is <strong>almost everywhere</strong>.
 A property that holds almost everywhere holds throughout all of space except for on a set of measure zero.
-Some important results in probability theory hold for all discrete values but only hold "almost everywhere" for continuous values.</p>
+Some important results in probability theory hold for all discrete values but only hold &#8220;almost everywhere&#8221; for continuous&nbsp;values.</p>
 </div>
 <div class="section" id="information-theory">
-<h2><a class="toc-backref" href="#id20">Information Theory</a></h2>
+<h2><a class="toc-backref" href="#id20">Information&nbsp;Theory</a></h2>
 <p>Information theory is a branch of applied mathematics that revolves around quantifying how much information is present in a signal.
 If you want dive deeper you may read <a class="reference external" href="http://staff.ustc.edu.cn/~cgong821/Wiley.Interscience.Elements.of.Information.Theory.Jul.2006.eBook-DDU.pdf">Cover and Thomas</a> book
-or <a class="reference external" href="http://www.inference.phy.cam.ac.uk/itila/book.html">MacKay</a> book.</p>
-<p>The basic intuition behind information theory is that learning that an unlikely event has occurred is more informative than learning that a likely event has occurred.</p>
+or <a class="reference external" href="http://www.inference.phy.cam.ac.uk/itila/book.html">MacKay</a>&nbsp;book.</p>
+<p>The basic intuition behind information theory is that learning that an unlikely event has occurred is more informative than learning that a likely event has&nbsp;occurred.</p>
 <ul class="simple">
-<li>Likely events should have low information content, and in the extreme case, events that are guaranteed to happen should have no information content whatsoever.</li>
-<li>Less likely events should have higher information content.</li>
-<li>Independent events should have additive information. For example, finding out that a tossed coin has come up as heads twice should convey twice as much information as finding out that a tossed coin has come up as heads once.</li>
+<li>Likely events should have low information content, and in the extreme case, events that are guaranteed to happen should have no information content&nbsp;whatsoever.</li>
+<li>Less likely events should have higher information&nbsp;content.</li>
+<li>Independent events should have additive information. For example, finding out that a tossed coin has come up as heads twice should convey twice as much information as finding out that a tossed coin has come up as heads&nbsp;once.</li>
 </ul>
-<p>In order to satisfy all three of these properties, we define the self-information of an event <span class="math">\(\mathrm{x} = x\)</span> to be:</p>
+<p>In order to satisfy all three of these properties, we define the self-information of an event <span class="math">\(\mathrm{x} = x\)</span> to&nbsp;be:</p>
 <div class="math">
 \begin{equation*}
 I(x) = -\log P(x)
@@ -504,7 +504,7 @@ I(x) = -\log P(x)
 </div>
 <p>Our definition of <span class="math">\(I(x)\)</span> is therefore written in units of <strong>nats</strong>.
 One nat is the amount of information gained by observing an event of probability <span class="math">\(\frac{1}{e}\)</span>.
-Other texts use base-2 logarithms and units called <strong>bits</strong> or <strong>shannons</strong>; information measured in bits is just a rescaling of information measured in nats.</p>
+Other texts use base-2 logarithms and units called <strong>bits</strong> or <strong>shannons</strong>; information measured in bits is just a rescaling of information measured in&nbsp;nats.</p>
 <p>Self-information deals only with a single outcome. We can quantify the amount of uncertainty in an entire probability distribution using the <strong>Shannon entropy</strong>:</p>
 <div class="math">
 \begin{equation*}
@@ -524,19 +524,19 @@ D_{\mathrm{KL}}(P||Q)=\mathbb{E}_{\mathrm{x} \sim P}[\log\frac{P(x)}{Q(x)}] = \m
 \end{equation*}
 </div>
 <p>The KL divergence has many useful properties, most notably that it is non-negative.
-The KL divergence is 0 if and only if <span class="math">\(P\)</span> and <span class="math">\(Q\)</span> are the same distribution in the case of discrete variables, or equal "almost everywhere" in the case of continuous variables.
+The KL divergence is 0 if and only if <span class="math">\(P\)</span> and <span class="math">\(Q\)</span> are the same distribution in the case of discrete variables, or equal &#8220;almost everywhere&#8221; in the case of continuous variables.
 Because the KL divergence is non-negative and measures the difference
 between two distributions, it is often conceptualized as measuring some sort of
 distance between these distributions. However, it is not a true distance measure
 because it is not symmetric: <span class="math">\(D_{\mathrm{KL}}(P||Q) \neq D_{\mathrm{KL}}(Q||P)\)</span> for some <span class="math">\(P\)</span> and <span class="math">\(Q\)</span>.</p>
 <p>A quantity that is closely related to the KL divergence is the <strong>cross-entropy</strong> <span class="math">\(H(P, Q) = H(P) + D_{\mathrm{KL}}(P||Q)\)</span>
-which is similar to the KL divergence but lacking the term on the left:</p>
+which is similar to the KL divergence but lacking the term on the&nbsp;left:</p>
 <div class="math">
 \begin{equation*}
 H(P, Q) = -\mathbb{E}_{\mathrm{x} \sim P} \log Q(x)
 \end{equation*}
 </div>
-<p>Minimizing the cross-entropy with respect to <span class="math">\(Q\)</span> is equivalent to minimizing the KL divergence, because <span class="math">\(Q\)</span> does not participate in the omitted term.</p>
+<p>Minimizing the cross-entropy with respect to <span class="math">\(Q\)</span> is equivalent to minimizing the KL divergence, because <span class="math">\(Q\)</span> does not participate in the omitted&nbsp;term.</p>
 <p>When computing many of these quantities, it is common to encounter expressions of the form <span class="math">\(0\log0\)</span>.
 By convention, in the context of information theory, we treat these expressions as <span class="math">\(\lim_{x\to 0} x \log x = 0\)</span>.</p>
 </div>
@@ -548,7 +548,7 @@ By convention, in the context of information theory, we treat these expressions 
         <!--End of body content-->
 
         <footer id="footer">
-            Contents © 2017         <a href="mailto:ikhlestov@gmail.com">Illarion Khlestov</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>          <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script></footer>
+            Contents © 2018         <a href="mailto:ikhlestov@gmail.com">Illarion Khlestov</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>          <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script></footer>
 </div>
 </div>
 
