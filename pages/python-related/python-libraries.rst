@@ -81,3 +81,4 @@ in one line
 - `tenacity <https://github.com/jd/tenacity>`__ - Retrying library for Python
 - `cupy <https://cupy.chainer.org/>`__ - numpy like CUDA lib
 - `airspeed velocity <https://asv.readthedocs.io/en/latest/>`__ - is a tool for benchmarking Python packages over their lifetime
+- `dill <https://pypi.python.org/pypi/dill>`__ - updated pickle library
