@@ -14,5 +14,11 @@ Cool resourses:
 - `Another cheat sheet <https://gist.github.com/eashish93/3eca6a90fef1ea6e586b7ec211ff72a5>`__
 - `Undoing things <https://www.git-tower.com/learn/git/ebook/en/command-line/advanced-topics/undoing-things>`__
 
+**Installing git repo with pip**
+
+.. code-block::
+
+    pip install -e \
+    git+ssh://git@github.com/username/repository@[branch|tag|commit]#egg=common[&subdirectory=dir_name]
 
 .. listing:: git.sh bash
