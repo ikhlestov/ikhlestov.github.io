@@ -592,6 +592,42 @@ Pickle and unpickle namedtuples
             restored_data[field_name] = field_data
         return class_(**restored_data)
 
+Working with an images
+=======================
+
+While working with images you should be careful with order in returned values.
+
+.. code-block:: python
+
+    # in general in any case reading an image will return it as `height x width x channels`
+    from cv2 import imread as cv_imread
+    from cv2 import resize as cv_resize
+    from skimage.io import imread as sk_imread
+    from skimage.transform import resize as sk_resize
+    from PIL.Image import open as pil_imread
+    from matplotlib.pyplot import imread as plt_imread
+    import numpy as np
+
+    # assume we have some image with height == 687 and width == 409
+    print(cv_imread(image_path).shape)
+    print(sk_imread(image_path).shape)
+    print(np.asarray(pil_imread(image_path)).shape)
+    print(plt_imread(image_path).shape)
+    height, width, ch = image.shape
+
+    # (687, 409, 3)
+    # (687, 409, 3)
+    # (687, 409, 3)
+    # (687, 409, 3)
+
+    # on the hand resizer may get arguments in different order
+    # width-first
+    cv_resize(image, (new_width, new_height))
+    np.asarray(pil_image.resize((new_width, new_height)))
+
+    # height first
+    sk_resize(image, (new_height, new_width))
+
 Miscellaneous
 =============
 

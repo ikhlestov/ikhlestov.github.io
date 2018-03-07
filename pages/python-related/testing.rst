@@ -19,17 +19,17 @@ Imports order matters
 .. code-block:: python
 
     # if you use
-    import some.class
+    import some.class_name
 
     # in this case you should use mock as
-    with patch('some.class') as mock:
+    with patch('some.class_name') as mock:
         pass
 
     # but if you import with 'from' to the package 'package_name'
-    from some import class
+    from some import class_name
 
     # you should mock with
-    with patch('package_name.class') as mock:
+    with patch('package_name.class_name') as mock:
        pass
 
 
