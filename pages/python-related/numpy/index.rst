@@ -8,6 +8,8 @@
 .. type: text
 .. author: Illarion Khlestov
 
+`Cool brief questions about numpy <https://www.machinelearningplus.com/101-numpy-exercises-python/>`__
+
 If you want create batches, where N+1 batch will follow N batch, try this:
 
 .. code-block:: python
