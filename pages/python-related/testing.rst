@@ -138,3 +138,60 @@ Interactions with mocks
     mock.assert_called_once_with()
     mock.assert_called_with(key=key)
     assert mock.call_count == 1
+
+Async testing
+-------------
+
+pytest-asyncio
+~~~~~~~~~~~~~~~~~~
+
+In case you want make ``await`` calls inside your tests you may use `pytest-asyncio <https://pypi.org/project/pytest-asyncio/>`__
+
+For example you have such code that should be tested
+
+.. code-block:: python3
+
+    async def my_method():
+        pass
+
+By default you may test it as
+
+.. code-block:: python3
+
+    import asyncio
+
+    def test_my_method():
+        loop = asyncio.get_event_loop()
+        result = loop.run_until_complete(my_method())
+
+But you may replace it with
+
+.. code-block:: python3
+
+    import pytest
+
+    @pytest.mark.asyncio
+    async def test_my_method():
+        result = await my_method()
+
+asynctest
+~~~~~~~~~~~~~
+
+When you want to mock some objects that should be awaitable you may use `asynctest <http://asynctest.readthedocs.io/en/latest/index.html>`__
+
+.. code-block:: python3
+
+    class SomeClass:
+        def __init__(self, lib):
+            self.lib = lib
+
+        async def some_call(self):
+            await self.lib()
+
+    # just use another imports
+    from asynctest import MagicMock, patch
+
+    def test_some_class():
+        lib = MagicMock()
+        cls_ = SomeClass(lib)
+        asyncio.get_event_loop().run_until_complete(cls_.some_call())
