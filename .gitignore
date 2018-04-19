@@ -12,3 +12,7 @@ cache/
 output/
 state_data.json
 .idea/
+.venv/
+.env/
+*.sublime-project
+*.sublime-workspace

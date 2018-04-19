@@ -18,6 +18,8 @@ Imports order matters
 
 .. code-block:: python
 
+    from unittest.mock import patch
+
     # if you use
     import some.class_name
 
@@ -33,34 +35,42 @@ Imports order matters
        pass
 
 
-Pathcing testing class itself
------------------------------
+Decorators orders
+-----------------
 
-If you want to patch some method of the tested class itself, use ``patch.object``:
+If we use mocks as decorators with some features we should preserve such order
 
 .. code-block:: python
-    
-    # in case of usual method
-    with patch.object(ClassName, 'method_name') as mock:
-        mock.assert_called_with(key=key
 
-    # in case of hidden __method_name
-    with patch.object(ClassName, '_ClassName__method_name') as mock:
-        mock.assert_called()
+    from unittest.mock import patch
+    import pytest
+
+    @pytest.fixture
+    def my_fixture():
+        return
+    
+    @patch('some.library.second_patch')
+    @patch('some.library.first_patch')
+    def test_protocol_prepare(first_patch, second_patch, my_fixture):
+        assert True
+
 
 Patching many instances
 -----------------------
 
 Sometimes you need to patch a lot of instances. In this case you can use ``patch.multiple``:
 
-.. code-block:: python
+At some ``script.py``
 
-    # in script.py
+.. code-block:: python
 
     A = 1
     B = 2
 
-    # in tests
+At tests:
+
+.. code-block:: python
+
     with patch.multiple('script', A=DEFAULT, B=DEFAULT) as patches_dict:
         a_patch = patches_dict['A']
         b_patch = patches_dict['B']
@@ -68,6 +78,9 @@ Sometimes you need to patch a lot of instances. In this case you can use ``patch
 In case you want this in fixture, you may use such approach:
 
 .. code-block:: python
+
+    from unittest.mock import patch
+    import pytest
 
     @pytest.fixture
     def multy_patch():
@@ -80,21 +93,48 @@ In case you want this in fixture, you may use such approach:
         var_1_patch = multy_patch['var_1']
 
 
-Patching properties
--------------------
+Classes pathing
+---------------
 
-If you want to patch property, use such approach:
+If you want to patch some method of the tested class itself, use ``patch.object``:
 
 .. code-block:: python
 
-    class MyClass:
-    @property
-    def last_transaction(self):
-        # an expensive and complicated DB query here
-        pass
+    from unittest.mock import patch, PropertyMock
 
-    def test():
-        with mock.patch('MyClass.last_transaction', new_callable=PropertyMock) as mock_last_transaction:
-            mock_last_transaction.return_value = Transaction()
-            myclass = MyClass()
-            mock_last_transaction.assert_called_once_with()
+    class ClassName:
+
+        def method_name(self):
+            pass
+
+        def __hidden_method(self):
+            pass
+
+        @property
+        def my_property(self):
+            pass
+    
+    # in case of usual method
+    with patch.object(ClassName, 'method_name') as mock:
+        mock.assert_called_with(key=key)
+
+    # in case of hidden __method_name
+    with patch.object(ClassName, '_ClassName__hidden_method') as mock:
+        mock.assert_called()
+
+    # for properties
+    with mock.patch('ClassName.my_property', new_callable=PropertyMock) as property_mock:
+        property_mock.return_value = 42
+        myclass = MyClass()
+        mock_last_transaction.assert_called_once_with()
+
+
+Interactions with mocks
+-----------------------
+
+.. code-block:: python
+
+    mock.assert_called()
+    mock.assert_called_once_with()
+    mock.assert_called_with(key=key)
+    assert mock.call_count == 1
