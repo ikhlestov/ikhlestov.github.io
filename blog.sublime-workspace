@@ -559,7 +559,7 @@
 			"file": "pages/python-related/testing.rst",
 			"settings":
 			{
-				"buffer_size": 4237,
+				"buffer_size": 4973,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -1063,7 +1063,7 @@
 								"bh_curly_content"
 							],
 							"git_gutter_is_enabled": true,
-							"markdonw_live_preview_last_run": 1524146093.2,
+							"markdonw_live_preview_last_run": 1524225982.95,
 							"spell_check": false,
 							"syntax": "Packages/RestructuredText/reStructuredText.sublime-syntax"
 						},
@@ -1242,7 +1242,7 @@
 								"bh_default_content"
 							],
 							"git_gutter_is_enabled": true,
-							"markdonw_live_preview_last_run": 1524146093.21,
+							"markdonw_live_preview_last_run": 1524225982.96,
 							"syntax": "Packages/RestructuredText/reStructuredText.sublime-syntax",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
@@ -1349,7 +1349,7 @@
 								"bh_default_content"
 							],
 							"git_gutter_is_enabled": true,
-							"markdonw_live_preview_last_run": 1524146093.21,
+							"markdonw_live_preview_last_run": 1524225982.96,
 							"spell_check": true,
 							"syntax": "Packages/RestructuredText/reStructuredText.sublime-syntax"
 						},
@@ -1455,7 +1455,7 @@
 								"bh_default_content"
 							],
 							"git_gutter_is_enabled": true,
-							"markdonw_live_preview_last_run": 1524146093.21,
+							"markdonw_live_preview_last_run": 1524225982.96,
 							"spell_check": true,
 							"syntax": "Packages/RestructuredText/reStructuredText.sublime-syntax",
 							"tab_size": 2,
@@ -1474,15 +1474,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4237,
+						"buffer_size": 4973,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3264,
-								3264
+								3524,
+								3524
 							]
 						],
 						"settings":
@@ -1636,13 +1636,13 @@
 								"bh_default_content"
 							],
 							"git_gutter_is_enabled": true,
-							"markdonw_live_preview_last_run": 1524146093.2,
+							"markdonw_live_preview_last_run": 1524225982.95,
 							"syntax": "Packages/RestructuredText/reStructuredText.sublime-syntax",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2357.0,
+						"translation.y": 1924.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -1743,7 +1743,7 @@
 								"bh_default_content"
 							],
 							"git_gutter_is_enabled": true,
-							"markdonw_live_preview_last_run": 1524146093.2,
+							"markdonw_live_preview_last_run": 1524225982.95,
 							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
@@ -1848,7 +1848,7 @@
 								"bh_default_content"
 							],
 							"git_gutter_is_enabled": true,
-							"markdonw_live_preview_last_run": 1524146093.2,
+							"markdonw_live_preview_last_run": 1524225982.96,
 							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
@@ -1953,7 +1953,7 @@
 								"bh_curly_content"
 							],
 							"git_gutter_is_enabled": true,
-							"markdonw_live_preview_last_run": 1524146093.21,
+							"markdonw_live_preview_last_run": 1524225982.96,
 							"spell_check": true,
 							"syntax": "Packages/RestructuredText/reStructuredText.sublime-syntax",
 							"tab_size": 2,
@@ -2149,7 +2149,7 @@
 								"bh_curly_content"
 							],
 							"git_gutter_is_enabled": true,
-							"markdonw_live_preview_last_run": 1524146093.21,
+							"markdonw_live_preview_last_run": 1524225982.96,
 							"syntax": "Packages/RestructuredText/reStructuredText.sublime-syntax",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
@@ -2256,7 +2256,7 @@
 								"bh_default_content"
 							],
 							"git_gutter_is_enabled": true,
-							"markdonw_live_preview_last_run": 1524146093.21,
+							"markdonw_live_preview_last_run": 1524225982.96,
 							"syntax": "Packages/RestructuredText/reStructuredText.sublime-syntax"
 						},
 						"translation.x": 0.0,

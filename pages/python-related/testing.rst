@@ -123,10 +123,36 @@ If you want to patch some method of the tested class itself, use ``patch.object`
         mock.assert_called()
 
     # for properties
-    with mock.patch('ClassName.my_property', new_callable=PropertyMock) as property_mock:
+    with patch('ClassName.my_property', new_callable=PropertyMock) as property_mock:
         property_mock.return_value = 42
         myclass = MyClass()
         mock_last_transaction.assert_called_once_with()
+
+In case you want patch as ``__init__`` method and some another method
+
+.. code-block:: python
+
+    from unittest.mock import patch
+
+    class ClassName:
+
+        def __init__(self, *args, **kwargs):
+            # some complicated init
+            pass
+
+        def some_important_method(self):
+            pass
+
+    # first solution without context manager
+    patcher = patch('module.name.ClassName')
+    MockedClass = patcher.start()
+    isntance = MockedClass()
+    instance.some_important_method.return_value = "your desired value"
+
+    # with context managers
+    with patch('module.name.ClassName') as MockedClass:
+        instance = MockedClass.return_value
+        instance.some_important_method.return_value = "your desired value"
 
 
 Interactions with mocks
