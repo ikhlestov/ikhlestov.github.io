@@ -215,9 +215,9 @@ When you want to mock some objects that should be awaitable you may use `asyncte
             await self.lib()
 
     # just use another imports
-    from asynctest import MagicMock, patch
+    from asynctest import CoroutineMock, patch
 
     def test_some_class():
-        lib = MagicMock()
+        lib = CoroutineMock()
         cls_ = SomeClass(lib)
         asyncio.get_event_loop().run_until_complete(cls_.some_call())
