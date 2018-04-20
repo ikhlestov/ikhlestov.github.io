@@ -16,7 +16,7 @@ Mocks
 Imports order matters
 ---------------------
 
-.. code-block:: python
+.. code-block:: python3
 
     from unittest.mock import patch
 
@@ -40,7 +40,7 @@ Decorators orders
 
 If we use mocks as decorators with some features we should preserve such order
 
-.. code-block:: python
+.. code-block:: python3
 
     from unittest.mock import patch
     import pytest
@@ -62,14 +62,14 @@ Sometimes you need to patch a lot of instances. In this case you can use ``patch
 
 At some ``script.py``
 
-.. code-block:: python
+.. code-block:: python3
 
     A = 1
     B = 2
 
 At tests:
 
-.. code-block:: python
+.. code-block:: python3
 
     with patch.multiple('script', A=DEFAULT, B=DEFAULT) as patches_dict:
         a_patch = patches_dict['A']
@@ -77,7 +77,7 @@ At tests:
 
 In case you want this in fixture, you may use such approach:
 
-.. code-block:: python
+.. code-block:: python3
 
     from unittest.mock import patch
     import pytest
@@ -93,12 +93,12 @@ In case you want this in fixture, you may use such approach:
         var_1_patch = multy_patch['var_1']
 
 
-Classes pathing
----------------
+Classes patching
+----------------
 
 If you want to patch some method of the tested class itself, use ``patch.object``:
 
-.. code-block:: python
+.. code-block:: python3
 
     from unittest.mock import patch, PropertyMock
 
@@ -128,9 +128,9 @@ If you want to patch some method of the tested class itself, use ``patch.object`
         myclass = MyClass()
         mock_last_transaction.assert_called_once_with()
 
-In case you want patch as ``__init__`` method and some another method
+In case you want patch ``__init__`` method and some another method
 
-.. code-block:: python
+.. code-block:: python3
 
     from unittest.mock import patch
 
@@ -158,7 +158,7 @@ In case you want patch as ``__init__`` method and some another method
 Interactions with mocks
 -----------------------
 
-.. code-block:: python
+.. code-block:: python3
 
     mock.assert_called()
     mock.assert_called_once_with()
