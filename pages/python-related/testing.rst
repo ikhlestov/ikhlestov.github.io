@@ -10,6 +10,62 @@
 
 .. contents:: Contents
 
+PyTest
+======
+
+.. code-block:: bash
+
+    # Allow pdb/ipdb at the pytest
+    pytest -s tests/
+
+    # run pytest with coverage
+    pytest --cov-report html --cov=. --cov-config coverage.config tests/
+
+    # Run pytest coverage for many installed django apps at once
+    py.test --cov-report html --cov={app1, app2, ...} */tests.py
+
+Example **coverage.config** file
+---------------------------------
+
+.. code-block::
+
+    [run]
+    source = package_name
+    omit = .venv/*
+           tests/*
+           setup.py
+           */__init__.py
+
+    [report]
+    # Regexes for lines to exclude from consideration
+    exclude_lines =
+        # Have to re-enable the standard pragma
+        pragma: no cover
+        # Don't complain if non-runnable code isn't run:
+        if 0:
+        if __name__ == .__main__.:
+
+**--runslow** flag
+-------------------
+
+.. code-block:: python3
+
+    import pytest
+
+    def pytest_addoption(parser):
+        parser.addoption("--runslow", action="store_true",
+                         default=False, help="run slow tests")
+
+
+    def pytest_collection_modifyitems(config, items):
+        if config.getoption("--runslow"):
+            # --runslow given in cli: do not skip slow tests
+            return
+        skip_slow = pytest.mark.skip(reason="need --runslow option to run")
+        for item in items:
+            if "slow" in item.keywords:
+                item.add_marker(skip_slow)
+
 Mocks
 =====
 

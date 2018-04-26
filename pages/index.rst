@@ -41,15 +41,22 @@ Machine Learning Frameworks:
 
 Python related:
 
-* :doc:`ipdb-commands`
-* :doc:`matplotlib`
-* :doc:`numpy`
-* `Pandas commands <link://slug/pandas-commands>`__
-* :doc:`Scikit-learn notes <scikit-learn-notes>`
+* Python libraries:
+
+  * :doc:`ipdb`
+  * :doc:`matplotlib`
+  * :doc:`numpy`
+  * `Pandas commands <link://slug/pandas-commands>`__
+  * :doc:`Scikit-learn notes <scikit-learn-notes>`
+  * `List of python libraries <python-libraries>`__
+
+* Python hints:
+  
+  * :doc:`python-hints`
+  * :doc:`python-bash-libraries`
+  * :doc:`testing`
+
 * :doc:`python-bookmarks`
-* :doc:`python-libraries`
-* :doc:`python-hints`
-* :doc:`testing`
 * `Large cheat sheet for ML(External) <https://medium.com/@kailashahirwar/essential-cheat-sheets-for-machine-learning-and-deep-learning-researchers-efb6a8ebd2e5>`__
 
 Ubuntu:

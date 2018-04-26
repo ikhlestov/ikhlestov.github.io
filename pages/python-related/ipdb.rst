@@ -1,10 +1,24 @@
-Content
-=======
-* `Exit from ipdb Loop`_
-* `Main Commands`_
-* `Breakpoints`_
-* `Jumps`_
-* `Aliases`_
+.. title: ipdb
+.. slug: ipdb
+.. date: 2016-06-26 00:10:32 UTC
+.. tags: python, ipdb, pdb, debug
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+.. author: Illarion Khlestov
+
+.. contents:: Contents
+
+Post mortem debug
+==================
+
+.. code-block:: bash
+
+    python -m ipdb script.py
+
+For the jupyter notebook we may use ``%debug`` in the next cell
+
 
 Exit from ipdb Loop
 ===================
@@ -184,3 +198,4 @@ Aliases
 
     (Pdb) ph locals
     Help on built-in function locals in module __builtin__:
+

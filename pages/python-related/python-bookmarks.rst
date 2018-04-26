@@ -15,3 +15,5 @@
 + `Image to image translation with tensorflow <https://github.com/yenchenlin/pix2pix-tensorflow>`__
 + `15 questions about python for Interview <https://www.codementor.io/python/tutorial/essential-python-interview-questions>`__
 + `Build A Simple Interepter <https://ruslanspivak.com/lsbasi-part1/>`__
++ `Python docstrings examples <http://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html>`__
++ `Python Tutor <http://www.pythontutor.com/>`__ is an awesome online tool to visualize how Python works in detail

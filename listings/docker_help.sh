@@ -49,5 +49,7 @@ $ docker-compose run CONTAINER_NAME bash
 # stop first running docker instance
 # all runing| second line| container name    | stop container by name
 $ docker ps | sed -n 2p  | awk '{print $NF}' | xargs docker stop
+# stop all running containers
+$ docker ps | awk '{print $NF}' | tail -n +2 | xargs docker stop
 # connect to already runnning container
 $ docker start -ai CONTAINER_NAME
