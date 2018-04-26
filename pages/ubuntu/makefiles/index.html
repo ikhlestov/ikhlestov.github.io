@@ -86,31 +86,31 @@ ifdef HANDLED_CHECKPOINT
     </header><div class="e-content entry-content" itemprop="articleBody text">
     <div>
 <p>Defining the variables. Note: pathes should be provided without&nbsp;quotes!</p>
-<pre class="code make"><a name="rest_code_80e1213ee76647bf94a9680efc456308-1"></a><span class="nv">MAIN_DIR</span> <span class="o">:=</span> training
-<a name="rest_code_80e1213ee76647bf94a9680efc456308-2"></a><span class="nv">TRAIN_DIR</span> <span class="o">:=</span> <span class="k">$(</span>MAIN_DIR<span class="k">)</span>/train/<span class="k">$(</span>PROJECT_NAME<span class="k">)</span>_<span class="k">$(</span>RUN<span class="k">)</span>
-<a name="rest_code_80e1213ee76647bf94a9680efc456308-3"></a>
-<a name="rest_code_80e1213ee76647bf94a9680efc456308-4"></a><span class="cp">ifdef HANDLED_CHECKPOINT</span>
-<a name="rest_code_80e1213ee76647bf94a9680efc456308-5"></a>    <span class="nv">LATEST_CHECKPOINT</span> <span class="o">=</span> <span class="k">$(</span>HANDLED_CHECKPOINT<span class="k">)</span>
-<a name="rest_code_80e1213ee76647bf94a9680efc456308-6"></a><span class="cp">else</span>
-<a name="rest_code_80e1213ee76647bf94a9680efc456308-7"></a>    <span class="nv">LATEST_CHECKPOINT</span> <span class="o">=</span> <span class="k">$(</span>shell <span class="k">$(</span>GET_LATEST_CHECKPOINT<span class="k">))</span>
-<a name="rest_code_80e1213ee76647bf94a9680efc456308-8"></a><span class="cp">endif</span>
+<pre class="code make"><a name="rest_code_dc97b40b79444cc58552871cf54fd062-1"></a><span class="nv">MAIN_DIR</span> <span class="o">:=</span> training
+<a name="rest_code_dc97b40b79444cc58552871cf54fd062-2"></a><span class="nv">TRAIN_DIR</span> <span class="o">:=</span> <span class="k">$(</span>MAIN_DIR<span class="k">)</span>/train/<span class="k">$(</span>PROJECT_NAME<span class="k">)</span>_<span class="k">$(</span>RUN<span class="k">)</span>
+<a name="rest_code_dc97b40b79444cc58552871cf54fd062-3"></a>
+<a name="rest_code_dc97b40b79444cc58552871cf54fd062-4"></a><span class="cp">ifdef HANDLED_CHECKPOINT</span>
+<a name="rest_code_dc97b40b79444cc58552871cf54fd062-5"></a>    <span class="nv">LATEST_CHECKPOINT</span> <span class="o">=</span> <span class="k">$(</span>HANDLED_CHECKPOINT<span class="k">)</span>
+<a name="rest_code_dc97b40b79444cc58552871cf54fd062-6"></a><span class="cp">else</span>
+<a name="rest_code_dc97b40b79444cc58552871cf54fd062-7"></a>    <span class="nv">LATEST_CHECKPOINT</span> <span class="o">=</span> <span class="k">$(</span>shell <span class="k">$(</span>GET_LATEST_CHECKPOINT<span class="k">))</span>
+<a name="rest_code_dc97b40b79444cc58552871cf54fd062-8"></a><span class="cp">endif</span>
 </pre>
 <p>execute shell&nbsp;command</p>
-<pre class="code make"><a name="rest_code_c3fbecd362394357b3ef42aa0078d5b2-1"></a><span class="nv">GET_LATEST_CHECKPOINT</span> <span class="o">=</span> find <span class="k">$(</span>TRAIN_DIR<span class="k">)</span> -name <span class="s1">'model*'</span> <span class="p">|</span> awk -F <span class="s1">'.'</span> <span class="s1">'{print $$2}'</span> <span class="p">|</span> awk -F <span class="s1">'-'</span> <span class="s1">'{print $$2}'</span> <span class="p">|</span> sort -g <span class="p">|</span> tail -n <span class="m">1</span>
-<a name="rest_code_c3fbecd362394357b3ef42aa0078d5b2-2"></a><span class="nv">LATEST_CHECKPOINT</span> <span class="o">=</span> <span class="k">$(</span>shell <span class="k">$(</span>GET_LATEST_CHECKPOINT<span class="k">))</span>
+<pre class="code make"><a name="rest_code_43b11639261e4953825427c3bcb9f410-1"></a><span class="nv">GET_LATEST_CHECKPOINT</span> <span class="o">=</span> find <span class="k">$(</span>TRAIN_DIR<span class="k">)</span> -name <span class="s1">'model*'</span> <span class="p">|</span> awk -F <span class="s1">'.'</span> <span class="s1">'{print $$2}'</span> <span class="p">|</span> awk -F <span class="s1">'-'</span> <span class="s1">'{print $$2}'</span> <span class="p">|</span> sort -g <span class="p">|</span> tail -n <span class="m">1</span>
+<a name="rest_code_43b11639261e4953825427c3bcb9f410-2"></a><span class="nv">LATEST_CHECKPOINT</span> <span class="o">=</span> <span class="k">$(</span>shell <span class="k">$(</span>GET_LATEST_CHECKPOINT<span class="k">))</span>
 </pre>
 <p>define some&nbsp;commands</p>
-<pre class="code make"><a name="rest_code_7e756bafee204291b11f0bea758c42d6-1"></a><span class="c"># merge command together</span>
-<a name="rest_code_7e756bafee204291b11f0bea758c42d6-2"></a><span class="nf">clean-all</span><span class="o">:</span> <span class="n">clean</span>-<span class="n">train</span> <span class="n">clean</span>-<span class="n">val</span>
-<a name="rest_code_7e756bafee204291b11f0bea758c42d6-3"></a>
-<a name="rest_code_7e756bafee204291b11f0bea758c42d6-4"></a><span class="nf">clean-train</span><span class="o">:</span>
-<a name="rest_code_7e756bafee204291b11f0bea758c42d6-5"></a>    rm -rf <span class="k">$(</span>TRAIN_DIR<span class="k">)</span>/*
-<a name="rest_code_7e756bafee204291b11f0bea758c42d6-6"></a>
-<a name="rest_code_7e756bafee204291b11f0bea758c42d6-7"></a><span class="nf">clean-val</span><span class="o">:</span>
-<a name="rest_code_7e756bafee204291b11f0bea758c42d6-8"></a>    rm -rf <span class="k">$(</span>EVAL_DIR<span class="k">)</span>/*
+<pre class="code make"><a name="rest_code_61d1d999e7ea4dc09bb195ed5bd5d687-1"></a><span class="c"># merge command together</span>
+<a name="rest_code_61d1d999e7ea4dc09bb195ed5bd5d687-2"></a><span class="nf">clean-all</span><span class="o">:</span> <span class="n">clean</span>-<span class="n">train</span> <span class="n">clean</span>-<span class="n">val</span>
+<a name="rest_code_61d1d999e7ea4dc09bb195ed5bd5d687-3"></a>
+<a name="rest_code_61d1d999e7ea4dc09bb195ed5bd5d687-4"></a><span class="nf">clean-train</span><span class="o">:</span>
+<a name="rest_code_61d1d999e7ea4dc09bb195ed5bd5d687-5"></a>    rm -rf <span class="k">$(</span>TRAIN_DIR<span class="k">)</span>/*
+<a name="rest_code_61d1d999e7ea4dc09bb195ed5bd5d687-6"></a>
+<a name="rest_code_61d1d999e7ea4dc09bb195ed5bd5d687-7"></a><span class="nf">clean-val</span><span class="o">:</span>
+<a name="rest_code_61d1d999e7ea4dc09bb195ed5bd5d687-8"></a>    rm -rf <span class="k">$(</span>EVAL_DIR<span class="k">)</span>/*
 </pre>
 <p>set environment&nbsp;variables</p>
-<pre class="code make"><a name="rest_code_ece3c60fcffb41a198c821517c25465b-1"></a><span class="nv">CUDA_VISIBLE_DEVICES</span><span class="o">=</span><span class="k">$(</span>TRAIN_CUDA<span class="k">)</span> python train.py
+<pre class="code make"><a name="rest_code_809979ac9bf941acbad98a6222d310e7-1"></a><span class="nv">CUDA_VISIBLE_DEVICES</span><span class="o">=</span><span class="k">$(</span>TRAIN_CUDA<span class="k">)</span> python train.py
 </pre>
 </div>
     </div>

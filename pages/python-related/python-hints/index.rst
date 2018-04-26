@@ -11,8 +11,6 @@
 .. contents:: Contents
 
 
-`Python Tutor <http://www.pythontutor.com/>`__ is an awesome online tool to visualize how Python works in detail.
-
 Using namespace classes
 =======================
 
@@ -98,30 +96,6 @@ Change handling function based on length of provided arguments
     def simple_areas(*args):
         return figur[len(args)-1](*args)
 
-PyTest
-======
-
-.. code-block:: bash
-
-    # Allow pdb/ipdb at the pytest
-    pytest -s tests/
-
-    # run pytest with coverage
-    coverage run -m pytest tests
-
-    # Run pytest coverage for many installed django apps at once
-    py.test --cov-report html --cov={app1, app2, ...} */tests.py
-
-Example .coveragerc file:
-
-.. code-block::
-
-    [run]
-    source = package_name
-    omit = site-packages, .env
-
-    [html]
-    directory = htmlcov
 
 String formatting
 =================
@@ -511,49 +485,6 @@ Slots Usage
       File "<stdin>", line 1, in <module>
     AttributeError: 'Point' object has no attribute 'z'
 
-Json pretty printing
-====================
-
-.. code-block:: bash
-
-    $ echo '{"json":"obj"}' | python -m json.tool
-
-    {
-        "json": "obj"
-    }
-
-Post mortem debug
-==================
-
-.. code-block:: bash
-
-    python -m pdb script.py
-
-Working with archives
-=====================
-
-.. code-blcok:: bash
-
-    # Create a new TAR archive
-    $ python3 -m tarfile -c <tarname>.tgz <file> <file>
-
-    # Extract from an existing TAR archive
-    $ python3 -m tarfile -e <tarname>.tgz
-
-    # pack directory into archive and make it executable
-    $ python3 -m zipapp myapp
-    $ python3 myapp.pyz
-    <output from myapp>
-
-Print system configuration
-===========================
-
-.. code-block: bash
-
-    $ python -m sysconfig
-    Platform: "macosx-10.6-intel"
-    Python version: "3.6"
-    Current installation scheme: "posix_prefix"
 
 Pickle and unpickle namedtuples
 ===============================
@@ -632,5 +563,3 @@ Miscellaneous
 =============
 
 .. listing:: python-hints.py python
-
-.. listing:: python-hints.sh bash

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html prefix="
+og: http://ogp.me/ns#
+article: http://ogp.me/ns/article#
+" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Python bash libraries | Illarion Khlestov Blog</title>
+<link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<meta content="#5670d4" name="theme-color">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../../../rss.xml">
+<link rel="canonical" href="https://ikhlestov.github.io/pages/python-related/python-bash-libraries/">
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    displayAlign: 'center', // Change this to 'center' to center equations.
+});
+</script><!--[if lt IE 9]><script src="../../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Illarion Khlestov">
+<meta property="og:site_name" content="Illarion Khlestov Blog">
+<meta property="og:title" content="Python bash libraries">
+<meta property="og:url" content="https://ikhlestov.github.io/pages/python-related/python-bash-libraries/">
+<meta property="og:description" content="Contents
+
+http.server
+json pretty printing
+pip
+Print system configuration
+pycodestyle
+virtual environment
+Working with archives
+
+
+
+http.server
+# python2
+python -m SimpleHTTPServer
+
+# python3
+python3 -">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2017-03-21T16:21:33Z">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-static-top"><div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://ikhlestov.github.io/">
+
+                <span id="blog-title">Illarion Khlestov Blog</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
+            <ul class="nav navbar-nav">
+<li>
+<a href="../../../">Blog</a>
+                </li>
+<li>
+<a href="../../">Pages</a>
+                </li>
+<li>
+<a href="../../../listings/">Listings</a>
+                </li>
+<li>
+<a href="../../../archive.html">Archive</a>
+
+                
+            </li>
+</ul>
+<ul class="nav navbar-nav navbar-right">
+<li>
+    <a href="index.rst" id="sourcelink">Source</a>
+    </li>
+                
+            </ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Python bash&nbsp;libraries</a></h1>
+
+        
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#http-server" id="id1">http.server</a></li>
+<li><a class="reference internal" href="#json-pretty-printing" id="id2">json pretty&nbsp;printing</a></li>
+<li><a class="reference internal" href="#pip" id="id3">pip</a></li>
+<li><a class="reference internal" href="#print-system-configuration" id="id4">Print system&nbsp;configuration</a></li>
+<li><a class="reference internal" href="#pycodestyle" id="id5">pycodestyle</a></li>
+<li><a class="reference internal" href="#virtual-environment" id="id6">virtual&nbsp;environment</a></li>
+<li><a class="reference internal" href="#working-with-archives" id="id7">Working with&nbsp;archives</a></li>
+</ul>
+</div>
+<div class="section" id="http-server">
+<h2><a class="toc-backref" href="#id1">http.server</a></h2>
+<pre class="code shell"><a name="rest_code_9ec0527fe44146f5b057c479da8d90f7-1"></a><span class="c1"># python2</span>
+<a name="rest_code_9ec0527fe44146f5b057c479da8d90f7-2"></a>python -m SimpleHTTPServer
+<a name="rest_code_9ec0527fe44146f5b057c479da8d90f7-3"></a>
+<a name="rest_code_9ec0527fe44146f5b057c479da8d90f7-4"></a><span class="c1"># python3</span>
+<a name="rest_code_9ec0527fe44146f5b057c479da8d90f7-5"></a>python3 -m http.server
+</pre>
+</div>
+<div class="section" id="json-pretty-printing">
+<h2><a class="toc-backref" href="#id2">json pretty&nbsp;printing</a></h2>
+<pre class="code bash"><a name="rest_code_74ecdc6cc8e243f9a5657b0e34d5b3ae-1"></a>$ <span class="nb">echo</span> <span class="s1">'{"json":"obj"}'</span> <span class="p">|</span> python -m json.tool
+<a name="rest_code_74ecdc6cc8e243f9a5657b0e34d5b3ae-2"></a>
+<a name="rest_code_74ecdc6cc8e243f9a5657b0e34d5b3ae-3"></a><span class="o">{</span>
+<a name="rest_code_74ecdc6cc8e243f9a5657b0e34d5b3ae-4"></a>    <span class="s2">"json"</span>: <span class="s2">"obj"</span>
+<a name="rest_code_74ecdc6cc8e243f9a5657b0e34d5b3ae-5"></a><span class="o">}</span>
+</pre>
+</div>
+<div class="section" id="pip">
+<h2><a class="toc-backref" href="#id3">pip</a></h2>
+<pre class="code bash"><a name="rest_code_7e494e6584d14ca18e62929347f8e3ff-1"></a><span class="c1"># unistall all existing packages</span>
+<a name="rest_code_7e494e6584d14ca18e62929347f8e3ff-2"></a>pip freeze <span class="p">|</span> xargs pip uninstall -y
+</pre>
+</div>
+<div class="section" id="print-system-configuration">
+<h2><a class="toc-backref" href="#id4">Print system&nbsp;configuration</a></h2>
+<pre class="code bash"><a name="rest_code_9b3ac561450a4db4b911a4ee8320da51-1"></a>$ python -m sysconfig
+<a name="rest_code_9b3ac561450a4db4b911a4ee8320da51-2"></a><span class="c1"># Platform: "macosx-10.6-intel"</span>
+<a name="rest_code_9b3ac561450a4db4b911a4ee8320da51-3"></a><span class="c1"># Python version: "3.6"</span>
+<a name="rest_code_9b3ac561450a4db4b911a4ee8320da51-4"></a><span class="c1"># Current installation scheme: "posix_prefix"</span>
+</pre>
+</div>
+<div class="section" id="pycodestyle">
+<h2><a class="toc-backref" href="#id5">pycodestyle</a></h2>
+<pre class="code bash"><a name="rest_code_ad0125c629224e52a185ee0aa9355c1c-1"></a>pycodestyle ./project_name
+</pre>
+</div>
+<div class="section" id="virtual-environment">
+<h2><a class="toc-backref" href="#id6">virtual&nbsp;environment</a></h2>
+<pre class="code bash"><a name="rest_code_5de1b4f1ab844d8c9f32fd10f280652c-1"></a><span class="c1"># create new vierualenv with venv without pip</span>
+<a name="rest_code_5de1b4f1ab844d8c9f32fd10f280652c-2"></a>python3.6 -m venv <span class="nv">$ENV_NAME</span> --without-pip
+<a name="rest_code_5de1b4f1ab844d8c9f32fd10f280652c-3"></a><span class="nb">source</span> <span class="nv">$ENV_NAME</span>/bin/activate
+<a name="rest_code_5de1b4f1ab844d8c9f32fd10f280652c-4"></a>wget https://bootstrap.pypa.io/get-pip.py
+<a name="rest_code_5de1b4f1ab844d8c9f32fd10f280652c-5"></a>python get-pip.py
+<a name="rest_code_5de1b4f1ab844d8c9f32fd10f280652c-6"></a>
+<a name="rest_code_5de1b4f1ab844d8c9f32fd10f280652c-7"></a><span class="c1"># or with pip just</span>
+<a name="rest_code_5de1b4f1ab844d8c9f32fd10f280652c-8"></a>python3.6 -m venv <span class="nv">$ENV_NAME</span>
+<a name="rest_code_5de1b4f1ab844d8c9f32fd10f280652c-9"></a>
+<a name="rest_code_5de1b4f1ab844d8c9f32fd10f280652c-10"></a><span class="c1"># with virtualenv</span>
+<a name="rest_code_5de1b4f1ab844d8c9f32fd10f280652c-11"></a>virtualenv -p /usr/local/bin/python2.7 env_name
+</pre>
+</div>
+<div class="section" id="working-with-archives">
+<h2><a class="toc-backref" href="#id7">Working with&nbsp;archives</a></h2>
+<pre class="code bash"><a name="rest_code_65ab949ed1ce44ebb5933225cef05c52-1"></a><span class="c1"># Create a new TAR archive</span>
+<a name="rest_code_65ab949ed1ce44ebb5933225cef05c52-2"></a>$ python3 -m tarfile -c &lt;tarname&gt;.tgz &lt;file&gt; &lt;file&gt;
+<a name="rest_code_65ab949ed1ce44ebb5933225cef05c52-3"></a>
+<a name="rest_code_65ab949ed1ce44ebb5933225cef05c52-4"></a><span class="c1"># Extract from an existing TAR archive</span>
+<a name="rest_code_65ab949ed1ce44ebb5933225cef05c52-5"></a>$ python3 -m tarfile -e &lt;tarname&gt;.tgz
+<a name="rest_code_65ab949ed1ce44ebb5933225cef05c52-6"></a>
+<a name="rest_code_65ab949ed1ce44ebb5933225cef05c52-7"></a><span class="c1"># pack directory into archive and make it executable</span>
+<a name="rest_code_65ab949ed1ce44ebb5933225cef05c52-8"></a>$ python3 -m zipapp myapp
+<a name="rest_code_65ab949ed1ce44ebb5933225cef05c52-9"></a>$ python3 myapp.pyz
+<a name="rest_code_65ab949ed1ce44ebb5933225cef05c52-10"></a><span class="c1"># &lt;output from myapp&gt;</span>
+</pre>
+</div>
+</div>
+    </div>
+    
+</article>
+</div>
+        <!--End of body content-->
+
+        <footer id="footer">
+            Contents © 2018         <a href="mailto:ikhlestov@gmail.com">Illarion Khlestov</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>          <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script></footer>
+</div>
+</div>
+
+            <script src="../../../assets/js/all-nocdn.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates --><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-92406723-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

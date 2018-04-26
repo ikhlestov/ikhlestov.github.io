@@ -126,7 +126,9 @@ MathJax.Hub.Config({
 <a href="#listingsdocker_helpsh-50">50</a>
 <a href="#listingsdocker_helpsh-51">51</a>
 <a href="#listingsdocker_helpsh-52">52</a>
-<a href="#listingsdocker_helpsh-53">53</a></pre></div></td>
+<a href="#listingsdocker_helpsh-53">53</a>
+<a href="#listingsdocker_helpsh-54">54</a>
+<a href="#listingsdocker_helpsh-55">55</a></pre></div></td>
 <td class="code"><pre class="code literal-block"><a name="listingsdocker_helpsh-1"></a><span class="c1"># based on this tutorial https://docs.docker.com/engine/userguide/containers/dockerizing/</span>
 <a name="listingsdocker_helpsh-2"></a><span class="c1"># list running images</span>
 <a name="listingsdocker_helpsh-3"></a>$ docker ps
@@ -178,8 +180,10 @@ MathJax.Hub.Config({
 <a name="listingsdocker_helpsh-49"></a><span class="c1"># stop first running docker instance</span>
 <a name="listingsdocker_helpsh-50"></a><span class="c1"># all runing| second line| container name    | stop container by name</span>
 <a name="listingsdocker_helpsh-51"></a>$ docker ps <span class="p">|</span> sed -n 2p  <span class="p">|</span> awk <span class="s1">'{print $NF}'</span> <span class="p">|</span> xargs docker stop
-<a name="listingsdocker_helpsh-52"></a><span class="c1"># connect to already runnning container</span>
-<a name="listingsdocker_helpsh-53"></a>$ docker start -ai CONTAINER_NAME
+<a name="listingsdocker_helpsh-52"></a><span class="c1"># stop all running containers</span>
+<a name="listingsdocker_helpsh-53"></a>$ docker ps <span class="p">|</span> awk <span class="s1">'{print $NF}'</span> <span class="p">|</span> tail -n +2 <span class="p">|</span> xargs docker stop
+<a name="listingsdocker_helpsh-54"></a><span class="c1"># connect to already runnning container</span>
+<a name="listingsdocker_helpsh-55"></a>$ docker start -ai CONTAINER_NAME
 </pre></td>
 </tr></table>
 </div>

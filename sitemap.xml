@@ -31,7 +31,7 @@
  </url>
  <url>
   <loc>https://ikhlestov.github.io/listings/docker_help.sh.html</loc>
-  <lastmod>2018-04-19T12:33:00Z</lastmod>
+  <lastmod>2018-04-26T17:49:00Z</lastmod>
  </url>
  <url>
   <loc>https://ikhlestov.github.io/listings/git.sh.html</loc>
@@ -75,7 +75,7 @@
  </url>
  <url>
   <loc>https://ikhlestov.github.io/listings/ubuntu-bash-hints.sh.html</loc>
-  <lastmod>2018-04-19T12:33:00Z</lastmod>
+  <lastmod>2018-04-26T17:49:00Z</lastmod>
  </url>
  <url>
   <loc>https://ikhlestov.github.io/pages/</loc>
@@ -198,6 +198,10 @@
   <lastmod>2017-04-14T10:40:00Z</lastmod>
  </url>
  <url>
+  <loc>https://ikhlestov.github.io/pages/python-related/ipdb/</loc>
+  <lastmod>2018-04-26T17:01:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://ikhlestov.github.io/pages/python-related/matplotlib/</loc>
   <lastmod>2017-04-14T10:40:00Z</lastmod>
  </url>
@@ -208,6 +212,10 @@
  <url>
   <loc>https://ikhlestov.github.io/pages/python-related/pandas-commands/</loc>
   <lastmod>2017-04-14T10:40:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://ikhlestov.github.io/pages/python-related/python-bash-libraries/</loc>
+  <lastmod>2018-04-26T17:14:00Z</lastmod>
  </url>
  <url>
   <loc>https://ikhlestov.github.io/pages/python-related/python-bookmarks/</loc>
