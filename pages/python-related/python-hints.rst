@@ -11,32 +11,6 @@
 .. contents:: Contents
 
 
-Using namespace classes
-=======================
-
-This classes allow you directly assign params to class
-
-.. code-block:: python
-
-    from types import SimpleNamespace
-    class S(SimpleNamespace):
-        pass
-
-    s = S(some='some', value='42')
-    print(s.some)
-    # out: 'some'
-    print(s.value)
-    # out: '42'
-
-can be replaced such way:
-
-.. code-block:: python
-
-    class adict(dict):
-        def __init__(self, *av, **kav):
-            dict.__init__(self, *av, **kav)
-            self.__dict__ = self
-
 Checking args prior to runtime
 ==============================
 
@@ -120,99 +94,6 @@ String formatting
     print('%-10s' % 'some')
     print('{:<10}'.format('some'))
     # out: 'some        '
-
-
-Generators, yield from syntax
-=============================
-
-Example of ``yield`` as generator:
-
-.. code-block:: python
-
-    def generator(x):
-        # here generator will be interupted and wait for next call
-        yield x
-        yield x*2
-
-    # example:
-    gen = generator(10)
-    next(gen)
-    # out: 10
-    next(gen)
-    # out: 20
-
-Example of ``yield`` as coroutine:
-
-.. code-block:: python
-
-    def writer():
-        while True:
-            # rcv a data
-            w = yield
-            print("was received:", w)
-
-    w = writer()
-    # initialize the generator
-    w.send(None)
-    w.send(10)
-    # out: "was received: 10"
-    w.send("some text")
-    # out: "was received: some text"
-
-Example usage of ``yield from`` syntax:
-
-.. code-block:: python
-
-    # define our generator
-    def generator():
-        for i in range(4):
-            yield i
-
-    # manually fetch data
-    def fetcher(g):
-        for fetch in g:
-            yield fetch
-
-    # yield from fetcher
-    def fetcher_yield(g):
-        yield from g
-
-    # examples:
-    fetch_results = fetcher(generator())
-    for i in fetch_results:
-        print(i)
-
-    fetch_results = fetcher_yield(generator())
-    for i in fetch_results:
-        print(i)
-
-
-Change existing object with generator
-=====================================
-
-It is possible to create object at generator and after only change it's value.
-This will reduce memory consumption, but can lead to some errors:
-
-.. code-block:: python
-    
-    def generator():
-        d = {}
-        yield d
-        counter = 0
-        while True:
-            d["value"] = counter
-            counter += 1
-            yield
-
-    gen = generator()
-    res = next(gen)
-    print(res)
-    # out: {}
-    
-    # modify same dict
-    next(gen)
-    print(res)
-    # out: {'value': 0}
 
 
 List/Tuples(iterators)
@@ -343,6 +224,43 @@ Additional methods
     >>> Car._make(['red', 999])
     Car(color='red', mileage=999)
 
+Pickle and unpickle namedtuples
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: python
+
+    def isnamedtupleinstance(x):
+        t = type(x)
+        b = t.__bases__
+        if len(b) != 1 or b[0] != tuple:
+            return False
+        f = getattr(t, '_fields', None)
+        if not isinstance(f, tuple):
+            return False
+        return all(type(n) == str for n in f)
+
+    def pickle_namedtuple(instance):
+        data = instance._asdict()
+        for key, value in data.items():
+            if isnamedtupleinstance(value):
+                data[key] = pickle_namedtuple(value)
+        dump = {
+            "namedtuple": True,
+            "class_name": instance.__class__.__name__,
+            "fields": instance._fields,
+            "data": data
+        }
+        return dump
+        
+    def restore_namedtuple(dump):
+        class_ = namedtuple(dump["class_name"], dump["fields"])
+        restored_data = {}
+        for field_name, field_data in dump["data"].items():
+            if isinstance(field_data, dict) and field_data.get("namedtuple"):
+                field_data = restore_namedtuple(field_data)
+            restored_data[field_name] = field_data
+        return class_(**restored_data)
+
 Slicing
 --------
 
@@ -390,7 +308,7 @@ Return the corresponding letter grade
     >>> [grade(score) for score in [33, 99, 77, 70, 89, 90, 100]]
     ['F', 'A', 'C', 'C', 'B', 'A', 'A']
 
-Things in Pythno3
+Things in Python3
 =================
 
 Get first and last line of the file
@@ -469,62 +387,9 @@ Errors suppressing
     with contextlib.suppress(FileNotFoundError):
         os.remove('somefile.tmp')
 
-Slots Usage
-===========
 
-.. code-block:: pycon
-
-    >>> class Point:
-    ...     __slots__ = ('x', 'y')
-    ...
-    >>> p = Point()
-    >>> p.x = 1
-    >>> p.y = 2
-    >>> p.z = 33
-    Traceback (most recent call last):
-      File "<stdin>", line 1, in <module>
-    AttributeError: 'Point' object has no attribute 'z'
-
-
-Pickle and unpickle namedtuples
-===============================
-
-.. code-block:: python
-
-    def isnamedtupleinstance(x):
-        t = type(x)
-        b = t.__bases__
-        if len(b) != 1 or b[0] != tuple:
-            return False
-        f = getattr(t, '_fields', None)
-        if not isinstance(f, tuple):
-            return False
-        return all(type(n) == str for n in f)
-
-    def pickle_namedtuple(instance):
-        data = instance._asdict()
-        for key, value in data.items():
-            if isnamedtupleinstance(value):
-                data[key] = pickle_namedtuple(value)
-        dump = {
-            "namedtuple": True,
-            "class_name": instance.__class__.__name__,
-            "fields": instance._fields,
-            "data": data
-        }
-        return dump
-        
-    def restore_namedtuple(dump):
-        class_ = namedtuple(dump["class_name"], dump["fields"])
-        restored_data = {}
-        for field_name, field_data in dump["data"].items():
-            if isinstance(field_data, dict) and field_data.get("namedtuple"):
-                field_data = restore_namedtuple(field_data)
-            restored_data[field_name] = field_data
-        return class_(**restored_data)
-
-Working with an images
-=======================
+Working with images
+===================
 
 While working with images you should be careful with order in returned values.
 

@@ -277,3 +277,12 @@ When you want to mock some objects that should be awaitable you may use `asyncte
         lib = CoroutineMock()
         cls_ = SomeClass(lib)
         asyncio.get_event_loop().run_until_complete(cls_.some_call())
+
+Hypothesis Testing
+==================
+
+Sometimes you may want to test hypothesis. For this you may use such libraries:
+
+- `Hypothesis <https://hypothesis.readthedocs.io/en/latest/index.html>`__ python package
+- `TLA+ <https://lamport.azurewebsites.net/tla/tla.html>`__
+- `Alloy <https://en.wikipedia.org/wiki/Alloy_(specification_language)>`__
