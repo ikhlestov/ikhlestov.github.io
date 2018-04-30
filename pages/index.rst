@@ -52,6 +52,8 @@ Python related:
 
 * Python hints:
   
+  * :doc:`async-python`
+  * :doc:`classes-and-data-model`
   * :doc:`python-hints`
   * :doc:`python-bash-libraries`
   * :doc:`testing`

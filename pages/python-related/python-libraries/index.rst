@@ -82,3 +82,7 @@ in one line
 - `cupy <https://cupy.chainer.org/>`__ - numpy like CUDA lib
 - `airspeed velocity <https://asv.readthedocs.io/en/latest/>`__ - is a tool for benchmarking Python packages over their lifetime
 - `dill <https://pypi.python.org/pypi/dill>`__ - updated pickle library
+- `grpclib <https://github.com/vmagamedov/grpclib>`__ - async python implementation for the gRPC protocol
+- `pandas profiling <https://github.com/pandas-profiling/pandas-profiling>`__
+- `PyContracts <https://andreacensi.github.io/contracts/>`__ - allows to declare constraints on function parameters and return values.
+- `ciruela <https://github.com/tailhook/ciruela>`__ - A peer-to-peer synchronization software for servers in datacenters(Rust).

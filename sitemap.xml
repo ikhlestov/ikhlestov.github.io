@@ -27,7 +27,7 @@
  </url>
  <url>
   <loc>https://ikhlestov.github.io/listings/</loc>
-  <lastmod>2017-04-14T10:40:00Z</lastmod>
+  <lastmod>2018-04-26T17:49:00Z</lastmod>
  </url>
  <url>
   <loc>https://ikhlestov.github.io/listings/docker_help.sh.html</loc>
@@ -39,10 +39,6 @@
  </url>
  <url>
   <loc>https://ikhlestov.github.io/listings/hadoop_notes.sh.html</loc>
-  <lastmod>2018-04-19T12:33:00Z</lastmod>
- </url>
- <url>
-  <loc>https://ikhlestov.github.io/listings/ipdb_commands.rst.html</loc>
   <lastmod>2018-04-19T12:33:00Z</lastmod>
  </url>
  <url>
@@ -59,10 +55,6 @@
  </url>
  <url>
   <loc>https://ikhlestov.github.io/listings/python-hints.py.html</loc>
-  <lastmod>2018-04-19T12:33:00Z</lastmod>
- </url>
- <url>
-  <loc>https://ikhlestov.github.io/listings/python-hints.sh.html</loc>
   <lastmod>2018-04-19T12:33:00Z</lastmod>
  </url>
  <url>
@@ -194,8 +186,12 @@
   <lastmod>2017-08-17T08:09:00Z</lastmod>
  </url>
  <url>
-  <loc>https://ikhlestov.github.io/pages/python-related/ipdb-commands/</loc>
-  <lastmod>2017-04-14T10:40:00Z</lastmod>
+  <loc>https://ikhlestov.github.io/pages/python-related/async-python/</loc>
+  <lastmod>2018-04-30T10:06:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://ikhlestov.github.io/pages/python-related/classes-and-data-model/</loc>
+  <lastmod>2018-04-30T10:06:00Z</lastmod>
  </url>
  <url>
   <loc>https://ikhlestov.github.io/pages/python-related/ipdb/</loc>
