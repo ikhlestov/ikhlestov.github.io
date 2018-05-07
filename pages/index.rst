@@ -48,7 +48,7 @@ Python related:
   * :doc:`numpy`
   * `Pandas commands <link://slug/pandas-commands>`__
   * :doc:`Scikit-learn notes <scikit-learn-notes>`
-  * `List of python libraries <python-libraries>`__
+  * :doc:`python-libraries`
 
 * Python hints:
   
