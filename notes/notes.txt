@@ -3,6 +3,31 @@ https://getnikola.com/handbook.html#deployment
 http://areskibelaid.com/nikola-one-kickass-site-generator/
 http://shisaa.jp/postset/nikola-web.html
 
+### Few types of links
+
+* :doc:`math-background`
+* `Probability theory <math/probability-theory>`__
+* `Pandas commands <link://slug/pandas-commands>`__
+
+### I can create colapsed entries with such syntax
+
+.. raw:: html
+
+     <button
+        class="btn btn-primary"
+        type="button"
+        data-toggle="collapse"
+        data-target=".collapse-target"
+        aria-expanded="false"
+        aria-controls="collapseExample"
+      >
+        Some text for button
+      </button>
+
+.. class:: collapse collapse-target
+
+  hiden text
+
 ### Usefull commands
 # start new
 to use rst_base type

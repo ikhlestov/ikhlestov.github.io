@@ -8,7 +8,7 @@
 .. type: text
 .. author: Illarion Khlestov
 
-.. contents:: Contents
+.. contents::
 
 Sets
 ==============
@@ -97,7 +97,7 @@ Uncountable: not countable:
 - The reals
 - The plane
 
-Sequences ant their limits
+Sequences and their limits
 ===========================
 
 Sequence is some collection of an elements:

@@ -1,7 +1,127 @@
-взять нормальную тему
-смотреть как рендерится код
-листинги
-как делать таблицы без RST или норм их рендериить
-Содержание pages сбоку страницы если есть. Там же - кнопка назад.
-сделать about page
-сдлелать few linnes about this blog
+# Красивое about-me
+
+Every chapter should start with some explanation what it is about and where you may find additional info within same blog
+Filter notes pages
+если у меня будут ссылки внутри блога и картинки - сделать простенького паука, который будет проверять что все ссылки рабочие
+синхронизировать картинки со структурой блога
+не забывать о redirect ссылках
+add list of talks/presentations, the same as here - https://www.datadan.io/meet/
+add description ot the main topics(pages) to the about page
+
+**Navigation and style**:
+Show sublings folder content
+navigation bar on the left side of the page
+bread crumbs (jquery?)
+Add tree-like structure that may open/hover. The same as for ReadTheDocs theme
+кнопки "назад"/"на уровень выше"/"следующая заметка"
+Make custom url directive for page/index.rst
+
+Update bash based on Reference:
++ Few examples of every command
++ Complex examples with piping
+
+----------------------------
+Expected structure:
+
+Math +
+    - Calculus
+    - Linear algebra
+    - Probability theory
+    - Set theory
+    - notations.rst
+
+theoretical-cs:
+    get topics from the wiki - https://en.wikipedia.org/wiki/Theoretical_computer_science
+    - algorithms
+    - data structures
+
+software-engineering:
+    - architectural-patterns
+    - databases
+    - message queues
+    - networks and protocols
+    - balansers
+
+# TODO: describe better structure?
+Machine Learning
+    - Data collecting, labeling and preprocessing
+        - Try to use AndrewNG book or lecture
+        - Splitting datasets
+        - datasets distribution
+        - balancing datasets
+    
+    - Low-level blocks
+        - CNNs
+        - LSTMs
+        - Regularization blocks
+            - Dropout
+            - Bach norm
+            - Instance norm
+            - Layer norm
+            - Group norm
+            - Switchable normalization - https://arxiv.org/pdf/1806.10779.pdf 
+            - Weights normalization
+        - Attention blocks
+
+    - Model architectures
+    - Practical applications
+    
+    - Models Architectures and practical applications
+        - Machine learning tasks:
+            - computer vision
+                - classification
+                - detection
+                - segmentation
+                - recognition
+
+    - Training process
+        - Losses
+            - metric learning, such as contrastive loss[25], triplet loss[23], center loss[33], contrastive-center loss[22] and NormFace[32].
+            - Earth Mover’s Loss (EML)
+        - Optimizers
+            - Adam
+            - SGD
+            - other
+        - Learning approaches(maybe move to the regularization blocks)
+            - Cycling learning rate
+            - Early stoping
+        - Ensembling
+        - Debugging
+    - Pipeline building
+    - Deploy/inference processes
+    - Frameworks
+        - Tensorflow
+        - Pytorch
+    - Bookmarks
+
+# In progress
+Languages
+    - Python
+        - Clean Code:
+            - Async python
+            - Classes and data models
+        - Python libs useful from bash
+        - Python libraries usage examples
+        - Debugging and Profiling
+            - Line Profiler
+            - Pympler
+            - gperftools
+            - Профилирование приложений Python в реальном времени - https://www.youtube.com/watch?v=Aj1Pjx_dzUI
+        - Testing
+            - Pytest
+                - Продвинутое использование PyTest - https://www.youtube.com/watch?v=7KgihdKTWY4
+        - Optimizing the code
+        - Bookmarks
+    - + Bash:
+        - Bash overview
+        - Bash usage examples
+        - Bash scripting
+    - + Makefiles - maybe this chapter should be .rst?
+
++ Tools
+    - Git
+    - Docker
+    - Hadoop
+    - Sublime
+    - Tmux
+

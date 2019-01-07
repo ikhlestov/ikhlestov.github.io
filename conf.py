@@ -18,7 +18,7 @@ import time
 
 # Data about this site
 BLOG_AUTHOR = "Illarion Khlestov"  # (translatable)
-BLOG_TITLE = "Illarion Khlestov Blog"  # (translatable)
+BLOG_TITLE = "Illarion's Notes"  # (translatable)
 # This is the main URL for your site. It will be used
 # in a prominent link. Don't forget the protocol (http/https)!
 SITE_URL = "https://ikhlestov.github.io/"
@@ -26,62 +26,8 @@ SITE_URL = "https://ikhlestov.github.io/"
 # If not set, defaults to SITE_URL
 # BASE_URL = "https://ikhlestov.github.io/"
 BLOG_EMAIL = "ikhlestov@gmail.com"
-BLOG_DESCRIPTION = "Site about coding notes"  # (translatable)
+BLOG_DESCRIPTION = "Notes about AI, machine learning, computer vision and programming."  # (translatable)
 
-# Nikola is multilingual!
-#
-# Currently supported languages are:
-#
-# en        English
-# ar        Arabic
-# az        Azerbaijani
-# bg        Bulgarian
-# bs        Bosnian
-# ca        Catalan
-# cs        Czech [ALTERNATIVELY cz]
-# da        Danish
-# de        German
-# el        Greek [NOT gr]
-# eo        Esperanto
-# es        Spanish
-# et        Estonian
-# eu        Basque
-# fa        Persian
-# fi        Finnish
-# fr        French
-# gl        Galician
-# hi        Hindi
-# hr        Croatian
-# hu        Hungarian
-# id        Indonesian
-# it        Italian
-# ja        Japanese [NOT jp]
-# ko        Korean
-# lt        Lithuanian
-# nb        Norwegian (Bokmål)
-# nl        Dutch
-# pa        Punjabi
-# pl        Polish
-# pt        Portuguese
-# pt_br     Portuguese (Brazil)
-# ru        Russian
-# sk        Slovak
-# sl        Slovene
-# sr        Serbian (Cyrillic)
-# sr_latin  Serbian (Latin)
-# sv        Swedish
-# tr        Turkish [NOT tr_TR]
-# uk        Ukrainian
-# ur        Urdu
-# zh_cn     Chinese (Simplified)
-#
-# If you want to use Nikola with a non-supported language you have to provide
-# a module containing the necessary translations
-# (cf. the modules at nikola/data/themes/base/messages/).
-# If a specific post is not translated to a language, then the version
-# in the default language will be shown instead.
-
-# What is the default language?
 DEFAULT_LANG = "en"
 
 # What other languages do you have?
@@ -129,67 +75,64 @@ TRANSLATIONS_PATTERN = "{path}.{lang}.{ext}"
 #          else they won’t be highlighted when active.
 
 NAVIGATION_LINKS = {
+    # NOTE: you should also update `topic_folders` variable
     DEFAULT_LANG: (
-        ("/", "Blog"),
+        ("/", "About"),  
+        ("/blog/", "Blog"),
         ("/pages/", "Pages"),
-        ("/listings/", "Listings"),
-        # ("/categories/", "Tags"),
-        ("/archive.html", "Archive"),
-        # ("/about-me/", "About me"),
-        # ("/rss.xml", "RSS feed"),
     ),
 }
 
 # Name of the theme to use.
 THEME = "bootstrap3-jinja"
-
+# THEME = "hyde"
 
 # Primary color of your theme. This will be used to customize your theme and
 # auto-generate related colors in POSTS_SECTION_COLORS. Must be a HEX value.
 THEME_COLOR = '#5670d4'
 
-# POSTS and PAGES contains (wildcard, destination, template) tuples.
-#
-# The wildcard is used to generate a list of reSt source files
-# (whatever/thing.txt).
-#
-# That fragment could have an associated metadata file (whatever/thing.meta),
-# and optionally translated files (example for Spanish, with code "es"):
-#     whatever/thing.es.txt and whatever/thing.es.meta
-#
-#     This assumes you use the default TRANSLATIONS_PATTERN.
-#
-# From those files, a set of HTML fragment files will be generated:
-# cache/whatever/thing.html (and maybe cache/whatever/thing.html.es)
-#
-# These files are combined with the template to produce rendered
-# pages, which will be placed at
-# output / TRANSLATIONS[lang] / destination / pagename.html
-#
-# where "pagename" is the "slug" specified in the metadata file.
-#
-# The difference between POSTS and PAGES is that POSTS are added
-# to feeds and are considered part of a blog, while PAGES are
-# just independent HTML pages.
-#
+POSTS = ()
 
-POSTS = (
+PAGES = [
+    # (source, destination, template)
+    ("about/*.rst", "", "story.tmpl"),
+    
+    # blog posts
     ("posts/*.rst", "posts", "post.tmpl"),
     ("posts/*.txt", "posts", "post.tmpl"),
     ("posts/*.html", "posts", "post.tmpl"),
     ("posts/*.md", "posts", "post.tmpl"),
-)
-# POSTS = []
-PAGES = (
+
+    # debug
     ("pages/*.rst", "pages", "story.tmpl"),
     ("pages/*.txt", "pages", "story.tmpl"),
     ("pages/*.html", "pages", "story.tmpl"),
     ("pages/*.md", "pages", "story.tmpl"),
-    # added for about page
-    ("about-me/*.rst", "about-me", "story.tmpl"),
+]
 
-)
+# topic_folders = [
+#     'math',
+#     'theoretical-cs',
+#     'machine-learning',
+#     'languages',
+#     'software-engineering',
+#     'tools',
+# ]
 
+# extensions = ['rst', 'txt', 'html', 'md']
+
+
+# def extend_pages(pages, topic_folders, extensions):
+#     for topic in topic_folders:
+#         for extension in extensions:
+#             source = "%s/*.%s" % (topic, extension)
+#             destination = topic
+#             template = "story.tmpl"
+#             pages.append((source, destination, template))
+#     return pages
+
+
+# PAGES = tuple(extend_pages(PAGES, topic_folders, extensions))
 
 # Below this point, everything is optional
 
@@ -299,7 +242,8 @@ WRITE_TAG_CLOUD = True
 
 # Generate pages for each section. The site must have at least two sections
 # for this option to take effect. It wouldn't build for just one section.
-POSTS_SECTIONS = True
+# POSTS_SECTIONS = True
+POSTS_SECTIONS = False
 
 # Setting this to False generates a list page instead of an index. Indexes
 # are the default and will apply GENERATE_ATOM if set.
@@ -474,7 +418,9 @@ HIDDEN_AUTHORS = ['Guest']
 # Final location for the main blog page and sibling paginated pages is
 # output / TRANSLATION[lang] / INDEX_PATH / index-*.html
 # INDEX_PATH = ""
-# INDEX_PATH = "blog"
+# INDEX_PATH = "ignored"
+INDEX_PATH = "posts"
+# DISABLE_INDEXES = True
 
 # Optional HTML that displayed on “main” blog index.html files.
 # May be used for a greeting. (translatable)
@@ -536,8 +482,9 @@ FRONT_INDEX_HEADER = {
 # relative URL.
 #
 # If you don't need any of these, just set to []
-REDIRECTIONS = []
+# REDIRECTIONS = []
 # REDIRECTIONS = [("about.html", "/pages/about.html")]
+# REDIRECTIONS = [("index.html", "/about")]
 
 # Presets of commands to execute to deploy. Can be anything, for
 # example, you may use rsync:
@@ -859,7 +806,7 @@ COMMENT_SYSTEM_ID = "ikhlestov-blog"
 # WARNING: if a page would conflict with the index file (usually
 #          caused by setting slug to `index`), the STORY_INDEX
 #          will not be generated for that directory.
-# STORY_INDEX = False
+# STORY_INDEX = True
 # Enable comments on story pages?
 # COMMENTS_IN_STORIES = False
 # Enable comments on picture gallery pages?
@@ -989,7 +936,7 @@ MARKDOWN_EXTENSIONS = ['fenced_code', 'codehilite', 'extra']
 
 # Show link to source for the posts?
 # Formerly known as HIDE_SOURCELINK (inverse)
-SHOW_SOURCELINK = True
+SHOW_SOURCELINK = False
 # Copy the source files for your pages?
 # Setting it to False implies SHOW_SOURCELINK = False
 # COPY_SOURCES = True
@@ -1162,6 +1109,7 @@ ADDITIONAL_METADATA = {
 
 # Plugins you don't want to use. Be careful :-)
 # DISABLED_PLUGINS = ["render_galleries"]
+# DISABLED_PLUGINS = ['classify_indexes', 'classify_sections', 'classify_page_index']
 
 # Add the absolute paths to directories containing plugins to use them.
 # For example, the `plugins` directory of your clone of the Nikola plugins

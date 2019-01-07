@@ -1,5 +1,5 @@
 .. title: Main Formulas
-.. slug: main-formulas
+.. slug: pt-main-formulas
 .. date: 2017-08-17 08:08:13 UTC
 .. tags: 
 .. category: 
