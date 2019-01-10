@@ -8,7 +8,10 @@
 .. type: text
 .. author: Illarion Khlestov
 
-.. include:: /Users/illarionkhliestov/Projects/blog/pages/languages/bash/index.rst
+- **Python**:
+- .. include:: /Users/illarionkhliestov/Projects/blog/pages/languages/python/index.rst
+- **Bash**
+- .. include:: /Users/illarionkhliestov/Projects/blog/pages/languages/bash/index.rst
 
 * :doc:`makefile`
 

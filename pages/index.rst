@@ -23,9 +23,9 @@
 
 .. .. include:: pages/software-engineering/index.rst
 
-.. **Machine Learning:**
+**Machine Learning:**
 
-.. .. include:: pages/machine-learning/index.rst
+.. include:: pages/machine-learning/index.rst
 
 **Languages:**
 

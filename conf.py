@@ -78,8 +78,9 @@ NAVIGATION_LINKS = {
     # NOTE: you should also update `topic_folders` variable
     DEFAULT_LANG: (
         ("/", "About"),  
-        ("/blog/", "Blog"),
+        ("/posts/", "Blog Posts"),
         ("/pages/", "Pages"),
+        ("/pages_bu/", "Pages_bu"),
     ),
 }
 
@@ -91,23 +92,28 @@ THEME = "bootstrap3-jinja"
 # auto-generate related colors in POSTS_SECTION_COLORS. Must be a HEX value.
 THEME_COLOR = '#5670d4'
 
-POSTS = ()
-
-PAGES = [
-    # (source, destination, template)
-    ("about/*.rst", "", "story.tmpl"),
-    
+POSTS = (
     # blog posts
     ("posts/*.rst", "posts", "post.tmpl"),
     ("posts/*.txt", "posts", "post.tmpl"),
     ("posts/*.html", "posts", "post.tmpl"),
     ("posts/*.md", "posts", "post.tmpl"),
+)
 
-    # debug
+PAGES = [
+    # (source, destination, template)
+    ("about/*.rst", "", "story.tmpl"),
+
     ("pages/*.rst", "pages", "story.tmpl"),
     ("pages/*.txt", "pages", "story.tmpl"),
     ("pages/*.html", "pages", "story.tmpl"),
     ("pages/*.md", "pages", "story.tmpl"),
+
+    # debug
+    ("pages_bu/*.rst", "pages_bu", "story.tmpl"),
+    ("pages_bu/*.txt", "pages_bu", "story.tmpl"),
+    ("pages_bu/*.html", "pages_bu", "story.tmpl"),
+    ("pages_bu/*.md", "pages_bu", "story.tmpl"),
 ]
 
 # topic_folders = [

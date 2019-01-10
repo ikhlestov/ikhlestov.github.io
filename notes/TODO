@@ -7,6 +7,7 @@ Filter notes pages
 не забывать о redirect ссылках
 add list of talks/presentations, the same as here - https://www.datadan.io/meet/
 add description ot the main topics(pages) to the about page
+Update images structure
 
 **Navigation and style**:
 Show sublings folder content
@@ -15,10 +16,15 @@ bread crumbs (jquery?)
 Add tree-like structure that may open/hover. The same as for ReadTheDocs theme
 кнопки "назад"/"на уровень выше"/"следующая заметка"
 Make custom url directive for page/index.rst
+Что-то, что бы нормально хранить урлы, безо всяких include. Можно собирать из site map
+Сначала решить, что должно экспортироваться по урлам, и что должно рендериться на основной странице, что открываем. Учитывать что еще должен быть description
 
 Update bash based on Reference:
 + Few examples of every command
 + Complex examples with piping
+
+* `Large cheat sheet for ML(External) <https://medium.com/@kailashahirwar/essential-cheat-sheets-for-machine-learning-and-deep-learning-researchers-efb6a8ebd2e5>`__
+
 
 ----------------------------
 Expected structure:
@@ -97,11 +103,15 @@ Machine Learning
 # In progress
 Languages
     - Python
-        - Clean Code:
+        - Code Examples:
             - Async python
-            - Classes and data models
-        - Python libs useful from bash
-        - Python libraries usage examples
+            - Data model
+        - Packages
+            - numpy
+            - matplotlib
+            - etc.
+            - in one line (in few lines)(bookmarks)?? -> to bookmarks
+        - Bash convenient packages (ntfy should be moved here)
         - Debugging and Profiling
             - Line Profiler
             - Pympler
@@ -111,7 +121,6 @@ Languages
             - Pytest
                 - Продвинутое использование PyTest - https://www.youtube.com/watch?v=7KgihdKTWY4
         - Optimizing the code
-        - Bookmarks
     - + Bash:
         - Bash overview
         - Bash usage examples
