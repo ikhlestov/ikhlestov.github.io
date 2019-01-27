@@ -80,7 +80,6 @@ NAVIGATION_LINKS = {
         ("/", "About"),  
         ("/posts/", "Blog Posts"),
         ("/pages/", "Pages"),
-        ("/pages_bu/", "Pages_bu"),
     ),
 }
 

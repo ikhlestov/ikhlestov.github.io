@@ -10,6 +10,11 @@
 
 - **Python**:
 - .. include:: /Users/illarionkhliestov/Projects/blog/pages/languages/python/index.rst
+- :doc:`bash-convenient-packages`
+- :doc:`async-python`
+- :doc:`classes-and-data-model`
+- :doc:`testing`
+- :doc:`python-hints`
 - **Bash**
 - .. include:: /Users/illarionkhliestov/Projects/blog/pages/languages/bash/index.rst
 

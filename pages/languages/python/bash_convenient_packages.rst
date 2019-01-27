@@ -1,5 +1,5 @@
 .. title: Python bash libraries
-.. slug: python-bash-libraries
+.. slug: bash-convenient-packages
 .. date: 2017-03-21 16:21:33 UTC
 .. tags: 
 .. category: 
@@ -9,6 +9,30 @@
 .. author: Illarion Khlestov
 
 .. contents:: Contents
+
+
+ntfy
+==============
+
+Brings notification to your shell.
+`PyPi <https://pypi.python.org/pypi/ntfy>`__         
+`Docs <http://ntfy.readthedocs.io/en/latest/>`__
+
+.. code-block:: bash
+
+    $ ntfy send message
+    $ ntfy send 'test long message'
+    # send message after command completion
+    $ ntfy send sleep 10
+    $ ntfy send cat some.txt
+
+Cand be replaced by ubuntu `notify-send <http://manpages.ubuntu.com/manpages/trusty/man1/notify-send.1.html>`__
+
+.. code-block:: bash
+
+    $ notify-send <title> <message> 
+
+
 
 
 http.server
