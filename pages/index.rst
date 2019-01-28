@@ -1,4 +1,4 @@
-.. title: Pages List
+.. title: List of pages
 .. slug: index
 .. date: 2016-06-22 00:34:28 UTC
 .. tags: 
@@ -8,73 +8,31 @@
 .. type: text
 .. author: Illarion Khlestov
 
-Here I will store various notes based on some books, lectures or just tutorials for programming languages.
 
-Math:
+.. TODO: add description
 
-* :doc:`math-background`
-* :doc:`math-notations`
-* `Probability theory <math/probability-theory>`__
+.. **Math:**
 
-Machine Learning:
+.. .. include:: pages/math/index.rst
 
-* :doc:`ml-bookmarks`
-* :doc:`models-architectures`
-* :doc:`general-ml-notes`
-* :doc:`quck_ref`
-* :doc:`new-nn-checklist`
-* :doc:`architecture-decisions-flow`
-* :doc:`convolutions-types`
-* :doc:`nn-models-compression-techniques`
+.. **Theoretical Computer Science:**
 
-ML books/courses notes:
+.. .. include:: pages/theoretical-cs/index.rst
 
-* `Deep Learning Book <machine-learning/deep-learning-book>`_
-* `cs231n notes <machine-learning/cs231n>`__
+.. **Software Engineering:**
 
-Machine Learning Frameworks:
+.. .. include:: pages/software-engineering/index.rst
 
-* :doc:`tensorflow-hints`
-* :doc:`pytorch-notes`
+**Machine Learning:**
 
-.. * :doc:`ml-knowledge-base`
+.. include:: pages/machine-learning/index.rst
 
-Python related:
+**Languages:**
 
-* Python libraries:
+.. include:: pages/languages/index.rst
 
-  * :doc:`ipdb`
-  * :doc:`matplotlib`
-  * :doc:`numpy`
-  * `Pandas commands <link://slug/pandas-commands>`__
-  * :doc:`Scikit-learn notes <scikit-learn-notes>`
-  * :doc:`python-libraries`
 
-* Python hints:
-  
-  * :doc:`async-python`
-  * :doc:`classes-and-data-model`
-  * :doc:`python-hints`
-  * :doc:`python-bash-libraries`
-  * :doc:`testing`
+**Tools:**
 
-* :doc:`python-bookmarks`
-* `Large cheat sheet for ML(External) <https://medium.com/@kailashahirwar/essential-cheat-sheets-for-machine-learning-and-deep-learning-researchers-efb6a8ebd2e5>`__
+.. include:: pages/tools/index.rst
 
-Ubuntu:
-
-* :doc:`bash-commands`
-* :doc:`bash-shortcuts`
-* :doc:`makefiles`
-* :doc:`ubuntu-shortcuts`
-
-Text editors:
-
-* :doc:`nano-shortcuts`
-* :doc:`sublime-shortcuts`
-
-Another topics:
-
-* :doc:`docker-help-list`
-* :doc:`git-notes`
-* :doc:`hadoop-notes`

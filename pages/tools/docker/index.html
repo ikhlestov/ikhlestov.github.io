@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html prefix="
+og: http://ogp.me/ns# article: http://ogp.me/ns/article#
+" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Docker | Illarion&#8217;s Notes</title>
+<link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#5670d4">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../../../rss.xml">
+<link rel="canonical" href="https://ikhlestov.github.io/pages/tools/docker/">
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    displayAlign: 'center', // Change this to 'center' to center equations.
+});
+</script><!--[if lt IE 9]><script src="../../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Illarion Khlestov">
+<meta property="og:site_name" content="Illarion's Notes">
+<meta property="og:title" content="Docker">
+<meta property="og:url" content="https://ikhlestov.github.io/pages/tools/docker/">
+<meta property="og:description" content="Based on this tutorial
+# list running images
+$ docker ps
+# list all containers
+$ docker ps -a
+# stop the container
+$ docker stop CONTAINER_ID
+# remove a container
+$ docker rm CONTAINER_ID
+# list all i">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2018-08-26T15:42:22Z">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-expand-md static-top mb-4
+navbar-dark bg-dark
+"><div class="container">
+<!-- This keeps the margins nice -->
+        <a class="navbar-brand" href="https://ikhlestov.github.io/">
+
+            <span id="blog-title">Illarion&#8217;s Notes</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="bs-navbar">
+            <ul class="navbar-nav mr-auto">
+<li class="nav-item">
+<a href="../../../" class="nav-link">About</a>
+                </li>
+<li class="nav-item">
+<a href="../../../posts/" class="nav-link">Blog&nbsp;Posts</a>
+                </li>
+<li class="nav-item">
+<a href="../../" class="nav-link">Pages</a>
+
+                
+            </li>
+</ul>
+<ul class="navbar-nav navbar-right"></ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <nav class="breadcrumbs"><ul class="breadcrumb">
+<li class="breadcrumb-item"><a href="../../">pages</a></li>
+                <li class="breadcrumb-item"><a href="../">tools</a></li>
+                <li class="breadcrumb-item active">docker</li>
+</ul></nav><div class="body-content">
+        <!--Body content-->
+        
+<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Docker</a></h1>
+
+        
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<p>Based on <a class="reference external" href="https://docs.docker.com/engine/userguide/containers/dockerizing/">this&nbsp;tutorial</a></p>
+<pre class="code bash"><a name="rest_code_36bed089cf6b45aa9ca60671c74251ce-1"></a><span class="c1"># list running images</span>
+<a name="rest_code_36bed089cf6b45aa9ca60671c74251ce-2"></a>$ docker ps
+<a name="rest_code_36bed089cf6b45aa9ca60671c74251ce-3"></a><span class="c1"># list all containers</span>
+<a name="rest_code_36bed089cf6b45aa9ca60671c74251ce-4"></a>$ docker ps -a
+<a name="rest_code_36bed089cf6b45aa9ca60671c74251ce-5"></a><span class="c1"># stop the container</span>
+<a name="rest_code_36bed089cf6b45aa9ca60671c74251ce-6"></a>$ docker stop CONTAINER_ID
+<a name="rest_code_36bed089cf6b45aa9ca60671c74251ce-7"></a><span class="c1"># remove a container</span>
+<a name="rest_code_36bed089cf6b45aa9ca60671c74251ce-8"></a>$ docker rm CONTAINER_ID
+<a name="rest_code_36bed089cf6b45aa9ca60671c74251ce-9"></a><span class="c1"># list all images</span>
+<a name="rest_code_36bed089cf6b45aa9ca60671c74251ce-10"></a>$ docker images
+<a name="rest_code_36bed089cf6b45aa9ca60671c74251ce-11"></a><span class="c1"># remove image</span>
+<a name="rest_code_36bed089cf6b45aa9ca60671c74251ce-12"></a>$ docker rmi IMAGE_ID
+<a name="rest_code_36bed089cf6b45aa9ca60671c74251ce-13"></a>
+<a name="rest_code_36bed089cf6b45aa9ca60671c74251ce-14"></a><span class="c1"># create a build from Dockerfile</span>
+<a name="rest_code_36bed089cf6b45aa9ca60671c74251ce-15"></a>$ docker build -t ikhlestov/thenotes-docker .
+<a name="rest_code_36bed089cf6b45aa9ca60671c74251ce-16"></a><span class="c1"># run image and enter to it</span>
+<a name="rest_code_36bed089cf6b45aa9ca60671c74251ce-17"></a>$ docker run -t -i ouruser/sinatra:v2 /bin/bash
+<a name="rest_code_36bed089cf6b45aa9ca60671c74251ce-18"></a><span class="c1"># enter inside running container</span>
+<a name="rest_code_36bed089cf6b45aa9ca60671c74251ce-19"></a>$ docker <span class="nb">exec</span> -it CONTAINER_NAME bash
+<a name="rest_code_36bed089cf6b45aa9ca60671c74251ce-20"></a><span class="c1"># attach to already running container</span>
+<a name="rest_code_36bed089cf6b45aa9ca60671c74251ce-21"></a>$ docker start -ai container_name
+<a name="rest_code_36bed089cf6b45aa9ca60671c74251ce-22"></a>
+<a name="rest_code_36bed089cf6b45aa9ca60671c74251ce-23"></a><span class="c1"># run detached image with name</span>
+<a name="rest_code_36bed089cf6b45aa9ca60671c74251ce-24"></a>$ docker run -d -P --name web training/webapp python app.py
+<a name="rest_code_36bed089cf6b45aa9ca60671c74251ce-25"></a><span class="c1"># mount some folder inside docker container on the start</span>
+<a name="rest_code_36bed089cf6b45aa9ca60671c74251ce-26"></a>$ docker run -it -v /path/from:/path/to /bin/bash
+<a name="rest_code_36bed089cf6b45aa9ca60671c74251ce-27"></a><span class="c1"># run again an image</span>
+<a name="rest_code_36bed089cf6b45aa9ca60671c74251ce-28"></a>$ docker run -itd --name<span class="o">=</span>networktest ubuntu
+<a name="rest_code_36bed089cf6b45aa9ca60671c74251ce-29"></a><span class="c1"># run some web image</span>
+<a name="rest_code_36bed089cf6b45aa9ca60671c74251ce-30"></a><span class="c1"># remove the container and its image after exit</span>
+<a name="rest_code_36bed089cf6b45aa9ca60671c74251ce-31"></a>$ docker run -it -d some.uri.amazonaws.com/mxnet:gpu /bin/bash
+<a name="rest_code_36bed089cf6b45aa9ca60671c74251ce-32"></a>$ docker run --rm CONTAINER_NAME
+<a name="rest_code_36bed089cf6b45aa9ca60671c74251ce-33"></a>
+<a name="rest_code_36bed089cf6b45aa9ca60671c74251ce-34"></a><span class="c1"># login to docker on the AWS EC2 service</span>
+<a name="rest_code_36bed089cf6b45aa9ca60671c74251ce-35"></a>$ <span class="k">$(</span>aws ecr get-login --region us-west-2<span class="k">)</span>
+<a name="rest_code_36bed089cf6b45aa9ca60671c74251ce-36"></a><span class="c1"># check the state of container by name</span>
+<a name="rest_code_36bed089cf6b45aa9ca60671c74251ce-37"></a>$ docker inspect web
+<a name="rest_code_36bed089cf6b45aa9ca60671c74251ce-38"></a><span class="c1"># list all networks drivers</span>
+<a name="rest_code_36bed089cf6b45aa9ca60671c74251ce-39"></a>$ docker network ls
+<a name="rest_code_36bed089cf6b45aa9ca60671c74251ce-40"></a><span class="c1"># inspect current sate of network</span>
+<a name="rest_code_36bed089cf6b45aa9ca60671c74251ce-41"></a>$ docker network inspect bridge
+<a name="rest_code_36bed089cf6b45aa9ca60671c74251ce-42"></a><span class="c1"># disconnect a container</span>
+<a name="rest_code_36bed089cf6b45aa9ca60671c74251ce-43"></a>$ docker network disconnect bridge networktest
+</pre>
+<p><strong>Docker&nbsp;compose</strong></p>
+<pre class="code bash"><a name="rest_code_f6d736f674db40ec8a32c4aaea17da93-1"></a>$ docker-compose build web
+<a name="rest_code_f6d736f674db40ec8a32c4aaea17da93-2"></a>$ docker-compose up --no-deps -d web
+<a name="rest_code_f6d736f674db40ec8a32c4aaea17da93-3"></a><span class="c1"># run with additional settings file in background(detached)</span>
+<a name="rest_code_f6d736f674db40ec8a32c4aaea17da93-4"></a>$ docker-compose -f docker-compose.yml -f production.yml up -d
+<a name="rest_code_f6d736f674db40ec8a32c4aaea17da93-5"></a><span class="c1"># enter to compose container</span>
+<a name="rest_code_f6d736f674db40ec8a32c4aaea17da93-6"></a>$ docker-compose run CONTAINER_NAME bash
+</pre>
+<p><strong>Bash&nbsp;scripts</strong></p>
+<pre class="code bash"><a name="rest_code_9220c8fbe750456a84c11cc67d46476b-1"></a><span class="c1"># stop first running docker instance</span>
+<a name="rest_code_9220c8fbe750456a84c11cc67d46476b-2"></a><span class="c1"># all runing| second line| container name    | stop container by name</span>
+<a name="rest_code_9220c8fbe750456a84c11cc67d46476b-3"></a>$ docker ps <span class="p">|</span> sed -n 2p  <span class="p">|</span> awk <span class="s1">'{print $NF}'</span> <span class="p">|</span> xargs docker stop
+<a name="rest_code_9220c8fbe750456a84c11cc67d46476b-4"></a><span class="c1"># stop all running containers</span>
+<a name="rest_code_9220c8fbe750456a84c11cc67d46476b-5"></a>$ docker ps <span class="p">|</span> awk <span class="s1">'{print $NF}'</span> <span class="p">|</span> tail -n +2 <span class="p">|</span> xargs docker stop
+</pre>
+</div>
+    </div>
+    
+</article><!--End of body content--><footer id="footer">
+            Contents © 2019         <a href="mailto:ikhlestov@gmail.com">Illarion Khlestov</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>          <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script></footer>
+</div>
+</div>
+
+        <script src="../../../assets/js/all-nocdn.js"></script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates --><script>
+    baguetteBox.run('div#content', {
+        ignoreClass: 'islink',
+        captions: function(element) {
+            return element.getElementsByTagName('img')[0].alt;
+    }});
+    </script><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-92406723-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

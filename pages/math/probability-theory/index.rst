@@ -8,7 +8,5 @@
 .. type: text
 .. author: Illarion Khlestov
 
-Some notes based on `edx course 6.041x Introduction to Probability - The Science of Uncertainty <https://www.edx.org/course/introduction-probability-science-mitx-6-041x-2>`__. 
-
-* `Main formulas <link://slug/main-formulas>`__
+* `Main formulas <link://slug/pt-main-formulas>`__
 * `Probability Models and Axioms <link://slug/probability-models-and-axioms>`__

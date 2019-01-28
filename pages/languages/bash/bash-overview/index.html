@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html prefix="
+og: http://ogp.me/ns# article: http://ogp.me/ns/article#
+" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bash overview | Illarion&#8217;s Notes</title>
+<link href="../../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#5670d4">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../../../../rss.xml">
+<link rel="canonical" href="https://ikhlestov.github.io/pages/languages/bash/bash-overview/">
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    displayAlign: 'center', // Change this to 'center' to center equations.
+});
+</script><!--[if lt IE 9]><script src="../../../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Illarion Khlestov">
+<meta property="og:site_name" content="Illarion's Notes">
+<meta property="og:title" content="Bash overview">
+<meta property="og:url" content="https://ikhlestov.github.io/pages/languages/bash/bash-overview/">
+<meta property="og:description" content="Contents
+
+Wildcards
+Permissions
+grep/egrep
+Piping and redirection
+Foreground and Background Jobs
+bash[rc, _profile] explanation
+Commands descriptions
+References
+
+
+
+Wildcards
+
+* - represents zero or mo">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2019-01-07T20:52:22Z">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-expand-md static-top mb-4
+navbar-dark bg-dark
+"><div class="container">
+<!-- This keeps the margins nice -->
+        <a class="navbar-brand" href="https://ikhlestov.github.io/">
+
+            <span id="blog-title">Illarion&#8217;s Notes</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="bs-navbar">
+            <ul class="navbar-nav mr-auto">
+<li class="nav-item">
+<a href="../../../../" class="nav-link">About</a>
+                </li>
+<li class="nav-item">
+<a href="../../../../posts/" class="nav-link">Blog&nbsp;Posts</a>
+                </li>
+<li class="nav-item">
+<a href="../../../" class="nav-link">Pages</a>
+
+                
+            </li>
+</ul>
+<ul class="navbar-nav navbar-right"></ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <nav class="breadcrumbs"><ul class="breadcrumb">
+<li class="breadcrumb-item"><a href="../../../">pages</a></li>
+                <li class="breadcrumb-item"><a href="../../">languages</a></li>
+                <li class="breadcrumb-item"><a href="../">bash</a></li>
+                <li class="breadcrumb-item active">bash-overview</li>
+</ul></nav><div class="body-content">
+        <!--Body content-->
+        
+<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Bash&nbsp;overview</a></h1>
+
+        
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#wildcards" id="id1">Wildcards</a></li>
+<li><a class="reference internal" href="#permissions" id="id2">Permissions</a></li>
+<li><a class="reference internal" href="#grep-egrep" id="id3">grep/egrep</a></li>
+<li><a class="reference internal" href="#piping-and-redirection" id="id4">Piping and&nbsp;redirection</a></li>
+<li><a class="reference internal" href="#foreground-and-background-jobs" id="id5">Foreground and Background&nbsp;Jobs</a></li>
+<li><a class="reference internal" href="#bash-rc-profile-explanation" id="id6">bash[rc, _profile]&nbsp;explanation</a></li>
+<li><a class="reference internal" href="#commands-descriptions" id="id7">Commands&nbsp;descriptions</a></li>
+<li><a class="reference internal" href="#references" id="id8">References</a></li>
+</ul>
+</div>
+<div class="section" id="wildcards">
+<h2><a class="toc-backref" href="#id1">Wildcards</a></h2>
+<ul class="simple">
+<li>
+<strong>*</strong> - represents zero or more&nbsp;characters</li>
+<li>
+<strong>?</strong> - represents a single&nbsp;character</li>
+<li>
+<strong>[]</strong> - represents a range of characters<ul>
+<li>
+<tt class="docutils literal">ls [sv]*</tt> - looking for a files begins with s or&nbsp;v</li>
+<li>
+<tt class="docutils literal">ls <span class="pre">*[0-9]*</span></tt> - set by using a&nbsp;hyphen</li>
+<li>
+<tt class="docutils literal">ls <span class="pre">[^a-z]*</span></tt> - caret means <em>not</em>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="permissions">
+<h2><a class="toc-backref" href="#id2">Permissions</a></h2>
+<p>For files:
+- <strong>r</strong> read - you may view the contents of the file.
+- <strong>w</strong> write - you may change the contents of the file.
+- <strong>x</strong> execute - you may execute or run the file if it is a program or&nbsp;script.</p>
+<p>For directories:
+- <strong>r</strong> - you have the ability to read the contents of the directory (ie do an ls)
+- <strong>w</strong> - you have the ability to write into the directory (ie create files and directories)
+- <strong>x</strong> - you have the ability to enter that directory (ie&nbsp;cd)</p>
+<p>Set&nbsp;for:</p>
+<ul class="simple">
+<li>
+<strong>u</strong>&nbsp;user</li>
+<li>
+<strong>g</strong>&nbsp;group</li>
+<li>
+<strong>o</strong>&nbsp;other</li>
+<li>
+<strong>a</strong>&nbsp;all</li>
+</ul>
+<p>In case octal mask using, each number represent&nbsp;[ugo].</p>
+</div>
+<div class="section" id="grep-egrep">
+<h2><a class="toc-backref" href="#id3">grep/egrep</a></h2>
+<ul class="simple">
+<li>
+<strong>.</strong> (dot) - a single&nbsp;character.</li>
+<li>
+<strong>?</strong> - the preceding character matches 0 or 1 times&nbsp;only.</li>
+<li>
+<strong>*</strong> - the preceding character matches 0 or more&nbsp;times.</li>
+<li>
+<strong>+</strong> - the preceding character matches 1 or more&nbsp;times.</li>
+<li>
+<strong>{n}</strong> - the preceding character matches exactly n&nbsp;times.</li>
+<li>
+<strong>{n,m}</strong> - the preceding character matches at least n times and not more than m&nbsp;times.</li>
+<li>
+<strong>[agd]</strong> - the character is one of those included within the square&nbsp;brackets.</li>
+<li>
+<strong>[^agd]</strong> - the character is not one of those included within the square&nbsp;brackets.</li>
+<li>
+<strong>[c-f]</strong> - the dash within the square brackets operates as a range. In this case it means either the letters c, d, e or&nbsp;f.</li>
+<li>
+<strong>()</strong> - allows us to group several characters to behave as&nbsp;one.</li>
+<li>
+<strong>|</strong> (pipe symbol) - the logical OR&nbsp;operation.</li>
+<li>
+<strong>^</strong> - matches the beginning of the&nbsp;line.</li>
+<li>
+<strong>$</strong> - matches the end of the&nbsp;line.</li>
+</ul>
+<p>flags:</p>
+<ul class="simple">
+<li>
+<tt class="docutils literal"><span class="pre">-n</span></tt> - display line number as well at the&nbsp;output</li>
+<li>
+<tt class="docutils literal"><span class="pre">-c</span></tt> - display quantity of matched&nbsp;lines</li>
+</ul>
+</div>
+<div class="section" id="piping-and-redirection">
+<h2><a class="toc-backref" href="#id4">Piping and&nbsp;redirection</a></h2>
+<ul class="simple">
+<li>
+<tt class="docutils literal">&gt;</tt> - STDOUT to a file. <tt class="docutils literal">cat filename &gt; out</tt>
+</li>
+<li>
+<tt class="docutils literal">&lt;</tt> - STDIN from a file. <tt class="docutils literal">wc <span class="pre">-l</span> &lt; filename</tt>
+</li>
+<li>STDIN and STDOUT. <tt class="docutils literal">wc <span class="pre">-l</span> &lt; barry.txt &gt; myoutput</tt>
+</li>
+<li>
+<tt class="docutils literal">2&gt;</tt> - redirect&nbsp;STDERR</li>
+<li>
+<tt class="docutils literal">ls <span class="pre">-l</span> &gt; out <span class="pre">2&gt;&amp;1</span></tt> redirect STDERR to STDOUT and STDOUT to a&nbsp;file</li>
+<li>
+<tt class="docutils literal">|</tt> - pipe. Output of program to the next one. Ex: <tt class="docutils literal">ls | head <span class="pre">-3</span> | tail <span class="pre">-1</span></tt>
+</li>
+<li>save the output from the command to the variable - <tt class="docutils literal"><span class="pre">lines=\`cat</span> $1 | wc <span class="pre">-l\`</span></tt>
+</li>
+</ul>
+</div>
+<div class="section" id="foreground-and-background-jobs">
+<h2><a class="toc-backref" href="#id5">Foreground and Background&nbsp;Jobs</a></h2>
+<ul class="simple">
+<li>
+<tt class="docutils literal">program_name &amp;</tt> - run program in&nbsp;background</li>
+<li>
+<tt class="docutils literal">ctrl+z</tt> - pause the current foreground process and move it into the&nbsp;background</li>
+<li>
+<tt class="docutils literal">jobs</tt> - show background&nbsp;jobs</li>
+<li>
+<tt class="docutils literal">fg &lt;job number&gt;</tt> - return job to&nbsp;foreground</li>
+</ul>
+</div>
+<div class="section" id="bash-rc-profile-explanation">
+<h2><a class="toc-backref" href="#id6">bash[rc, _profile]&nbsp;explanation</a></h2>
+<p>TODO</p>
+</div>
+<div class="section" id="commands-descriptions">
+<h2><a class="toc-backref" href="#id7">Commands&nbsp;descriptions</a></h2>
+<ul class="simple">
+<li>
+<strong><span class="dquo">&#8220;</span>ls [options] [path]&#8220;</strong> - list directory contents<ul>
+<li>
+<tt class="docutils literal">ls <span class="pre">-lahF</span></tt> - long format, all files, human readable format, files&nbsp;indicators</li>
+</ul>
+</li>
+<li>
+<strong><span class="dquo">&#8220;</span>file [path]&#8220;</strong> - determine file&nbsp;type</li>
+<li>
+<strong><span class="dquo">&#8220;</span>man &lt;command name&gt;&#8220;</strong> - access to manual pages<ul>
+<li>
+<tt class="docutils literal">man <span class="pre">-k</span> &lt;search term&gt;</tt> - find required search term in man&nbsp;pages</li>
+<li>press <tt class="docutils literal">/</tt> to start search inside man page and <tt class="docutils literal">n</tt> to search next&nbsp;result</li>
+</ul>
+</li>
+<li>Files manipulations<ul>
+<li>
+<strong><span class="dquo">&#8220;</span>mkdir [options] &lt;directory&gt;&#8220;</strong> - make directories<ul>
+<li>
+<tt class="docutils literal">mkdir <span class="pre">-p</span></tt> - create parent&nbsp;directories</li>
+<li>
+<tt class="docutils literal">mkdir <span class="pre">-v</span></tt> - verbose&nbsp;output</li>
+</ul>
+</li>
+<li>
+<strong><span class="dquo">&#8220;</span>rmdir [options] &lt;directory&gt;&#8220;</strong> - remove empty directories. Flags similar to <tt class="docutils literal">mkdir</tt>
+</li>
+<li>
+<strong><span class="dquo">&#8220;</span>touch [options] &lt;filename&gt;&#8220;</strong> - change file timestamp. Can be used to create blank&nbsp;file</li>
+<li>
+<strong><span class="dquo">&#8220;</span>cp [options] &lt;source&gt; &lt;destination&gt;&#8220;</strong> - copy file or directory<ul>
+<li>
+<tt class="docutils literal">cp <span class="pre">-r</span> &lt;source&gt; &lt;destination&gt;</tt> - copy some&nbsp;folder</li>
+<li>
+<tt class="docutils literal">cp <span class="pre">-n</span> ...</tt> - do not overwrite existing&nbsp;file</li>
+</ul>
+</li>
+<li>
+<strong><span class="dquo">&#8220;</span>mv [options] &lt;source&gt; &lt;destination&gt;&#8220;</strong> - move a file or&nbsp;directory</li>
+<li>
+<strong><span class="dquo">&#8220;</span>rm [options] &lt;file&gt;&#8220;</strong> - remove vile or directory<ul>
+<li>
+<tt class="docutils literal">rm <span class="pre">-r</span> &lt;directory&gt;</tt> - remove non empty&nbsp;directory</li>
+<li>
+<tt class="docutils literal">rm <span class="pre">-i</span> &lt;file&gt;</tt> - interactive&nbsp;mode</li>
+<li>
+<tt class="docutils literal">rm <span class="pre">-d</span> &lt;path&gt;</tt> - remove empty&nbsp;directories</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<strong><span class="dquo">&#8220;</span>cat [files]&#8220;</strong> - concatenate and print files<ul>
+<li>
+<tt class="docutils literal">cat file1 file2 &gt; out_file</tt> - concatenate two&nbsp;files</li>
+</ul>
+</li>
+<li>
+<strong><span class="dquo">&#8220;</span>less &lt;file&gt;&#8220;</strong> - display file with navigation. <tt class="docutils literal">space</tt> - next page, <tt class="docutils literal">b</tt> - previous&nbsp;page</li>
+<li>
+<strong><span class="dquo">&#8220;</span>chmod [permissions] [path]&#8220;</strong> &#8212; change file modes or Access Control Lists<ul>
+<li>
+<tt class="docutils literal">chmod g+x</tt> - add execute permissions to the&nbsp;group</li>
+<li>
+<tt class="docutils literal">chmod <span class="pre">u-w</span></tt> - revoke read permissions for the&nbsp;user</li>
+<li>
+<tt class="docutils literal">chmod ug+rx</tt> - add read and execute permissions to the user and&nbsp;group</li>
+<li>
+<tt class="docutils literal">chmod 755</tt> - all rights for user, read and execute only for group and&nbsp;other</li>
+<li>
+<tt class="docutils literal">chmod 644</tt> - read/write for user, read only for group and&nbsp;other</li>
+</ul>
+</li>
+<li>Filters<ul>
+<li>
+<strong><span class="dquo">&#8220;</span>head [-number of lines to print] [path]&#8220;</strong> - display first lines of a&nbsp;file</li>
+<li>
+<strong><span class="dquo">&#8220;</span>tail [-number of lines to print] [path]&#8220;</strong> - display the last part of a&nbsp;file</li>
+<li>
+<strong><span class="dquo">&#8220;</span>sort [-options] [path]&#8220;</strong> - sort lines of text&nbsp;files</li>
+<li>
+<strong><span class="dquo">&#8220;</span>nl [-options] [path]&#8220;</strong> - line numbering filter<ul>
+<li>
+<tt class="docutils literal">nl <span class="pre">-s</span> '. ' <span class="pre">-w</span> 10</tt> - add some&nbsp;formating</li>
+</ul>
+</li>
+<li>
+<strong><span class="dquo">&#8220;</span>wc [-options] [path]&#8220;</strong> - word, line, character, and byte&nbsp;count</li>
+<li>
+<strong><span class="dquo">&#8220;</span>cut [-options] [path]&#8220;</strong> - cut out selected portions of each line of a file<ul>
+<li>
+<tt class="docutils literal">cut <span class="pre">-f</span> 1 <span class="pre">-d</span> ' '</tt> - get first column from the file, if columns separated by&nbsp;spaces.</li>
+<li>
+<tt class="docutils literal">cut <span class="pre">-f</span> 1,2 <span class="pre">-d</span> ' '</tt> - get first and second&nbsp;columns</li>
+</ul>
+</li>
+<li>
+<strong><span class="dquo">&#8220;</span>sed &lt;expression&gt; [path]&#8220;</strong> - stream editor. basic expression - <tt class="docutils literal">s/search/replace/g</tt><ul>
+<li>
+<tt class="docutils literal">sed 's/oranges/bananas/g' mysampledata.txt</tt> - replace oranges with&nbsp;bananas</li>
+</ul>
+</li>
+<li>
+<strong>uniq [options] [path]</strong> - report or filter out repeated lines in a&nbsp;file</li>
+<li>
+<strong>tac [path]</strong> - concatenate and print files in reverse (reversed <tt class="docutils literal">cat</tt>).</li>
+</ul>
+</li>
+<li>
+<strong>diff [options] &lt;files&gt;</strong> - compare two&nbsp;files</li>
+<li>
+<strong>top</strong> - display and update sorted information about&nbsp;processes</li>
+<li>
+<strong>ps</strong> - process&nbsp;status</li>
+<li>
+<strong>date</strong> - display current date.<ul>
+<li>
+<tt class="docutils literal">date +%F</tt> - display in format&nbsp;year-month-day</li>
+</ul>
+</li>
+<li>
+<strong>xargs</strong> - construct argument list(s) and execute&nbsp;utility</li>
+<li>
+<strong>find</strong> - walk a file hierarchy<ul>
+<li>
+<tt class="docutils literal">find . <span class="pre">-type</span> f</tt> - find all&nbsp;files</li>
+<li>
+<tt class="docutils literal">find . <span class="pre">-type</span> d</tt> - find all&nbsp;directories</li>
+<li>
+<tt class="docutils literal">find . <span class="pre">-size</span> +200M <span class="pre">-exec</span> ls <span class="pre">-sh</span> {} \</tt> - find and display all files more than&nbsp;200M</li>
+<li>
+<tt class="docutils literal">find . <span class="pre">-mtime</span> <span class="pre">-1</span></tt> - find all recently changed&nbsp;files</li>
+</ul>
+</li>
+<li>
+<strong>tar</strong> - manipulate tape archives<ul>
+<li>
+<tt class="docutils literal">tar <span class="pre">-zcvf</span> mytar.tar.gz *</tt> - add all files in folder to the&nbsp;archive</li>
+<li>
+<tt class="docutils literal">tar <span class="pre">-zxvf</span> mytar.tar.gz</tt> - extract files from&nbsp;archive</li>
+</ul>
+</li>
+<li>
+<strong>awk &#8216;pattern { action }&#8217;</strong> - pattern-directed scanning and processing&nbsp;language</li>
+</ul>
+</div>
+<div class="section" id="references">
+<h2><a class="toc-backref" href="#id8">References</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/jlevy/the-art-of-command-line/blob/master/README.md">The Art of Command&nbsp;Line</a></li>
+<li><a class="reference external" href="https://explainshell.com/">Bash command explanation(explain&nbsp;shell)</a></li>
+</ul>
+</div>
+</div>
+    </div>
+    
+</article><!--End of body content--><footer id="footer">
+            Contents © 2019         <a href="mailto:ikhlestov@gmail.com">Illarion Khlestov</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>          <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script></footer>
+</div>
+</div>
+
+        <script src="../../../../assets/js/all-nocdn.js"></script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates --><script>
+    baguetteBox.run('div#content', {
+        ignoreClass: 'islink',
+        captions: function(element) {
+            return element.getElementsByTagName('img')[0].alt;
+    }});
+    </script><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-92406723-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

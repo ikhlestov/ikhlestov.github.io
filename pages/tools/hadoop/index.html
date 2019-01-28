@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html prefix="
+og: http://ogp.me/ns# article: http://ogp.me/ns/article#
+" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hadoop | Illarion&#8217;s Notes</title>
+<link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#5670d4">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../../../rss.xml">
+<link rel="canonical" href="https://ikhlestov.github.io/pages/tools/hadoop/">
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    displayAlign: 'center', // Change this to 'center' to center equations.
+});
+</script><!--[if lt IE 9]><script src="../../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Illarion Khlestov">
+<meta property="og:site_name" content="Illarion's Notes">
+<meta property="og:title" content="Hadoop">
+<meta property="og:url" content="https://ikhlestov.github.io/pages/tools/hadoop/">
+<meta property="og:description" content="Tutorial to setup hadoop
+Start/Stop
+# to start
+$ start-dfs.sh
+$ start-yarn.sh
+# to check all is running
+$ jps
+# to stop
+Do something with files
+$ hadoop fs -ls /
+
+# move file to HDFS
+$ hadoop fs -put ">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2018-08-26T15:42:47Z">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-expand-md static-top mb-4
+navbar-dark bg-dark
+"><div class="container">
+<!-- This keeps the margins nice -->
+        <a class="navbar-brand" href="https://ikhlestov.github.io/">
+
+            <span id="blog-title">Illarion&#8217;s Notes</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="bs-navbar">
+            <ul class="navbar-nav mr-auto">
+<li class="nav-item">
+<a href="../../../" class="nav-link">About</a>
+                </li>
+<li class="nav-item">
+<a href="../../../posts/" class="nav-link">Blog&nbsp;Posts</a>
+                </li>
+<li class="nav-item">
+<a href="../../" class="nav-link">Pages</a>
+
+                
+            </li>
+</ul>
+<ul class="navbar-nav navbar-right"></ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <nav class="breadcrumbs"><ul class="breadcrumb">
+<li class="breadcrumb-item"><a href="../../">pages</a></li>
+                <li class="breadcrumb-item"><a href="../">tools</a></li>
+                <li class="breadcrumb-item active">hadoop</li>
+</ul></nav><div class="body-content">
+        <!--Body content-->
+        
+<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Hadoop</a></h1>
+
+        
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<p><a class="reference external" href="http://thepowerofdata.io/setting-up-a-apache-hadoop-2-7-single-node-on-ubuntu-14-04/">Tutorial</a> to setup&nbsp;hadoop</p>
+<p><strong>Start/Stop</strong></p>
+<pre class="code bash"><a name="rest_code_6084b415a6fe4b25a5765d9c3f7b6b19-1"></a><span class="c1"># to start</span>
+<a name="rest_code_6084b415a6fe4b25a5765d9c3f7b6b19-2"></a>$ start-dfs.sh
+<a name="rest_code_6084b415a6fe4b25a5765d9c3f7b6b19-3"></a>$ start-yarn.sh
+<a name="rest_code_6084b415a6fe4b25a5765d9c3f7b6b19-4"></a><span class="c1"># to check all is running</span>
+<a name="rest_code_6084b415a6fe4b25a5765d9c3f7b6b19-5"></a>$ jps
+<a name="rest_code_6084b415a6fe4b25a5765d9c3f7b6b19-6"></a><span class="c1"># to stop</span>
+</pre>
+<p><strong>Do something with&nbsp;files</strong></p>
+<pre class="code bash"><a name="rest_code_2889257072f941459d55a94d280e2901-1"></a>$ hadoop fs -ls /
+<a name="rest_code_2889257072f941459d55a94d280e2901-2"></a>
+<a name="rest_code_2889257072f941459d55a94d280e2901-3"></a><span class="c1"># move file to HDFS</span>
+<a name="rest_code_2889257072f941459d55a94d280e2901-4"></a>$ hadoop fs -put filename.txt
+<a name="rest_code_2889257072f941459d55a94d280e2901-5"></a>
+<a name="rest_code_2889257072f941459d55a94d280e2901-6"></a><span class="c1"># remove file</span>
+<a name="rest_code_2889257072f941459d55a94d280e2901-7"></a>$ hadoop fs -rm filename.txt
+<a name="rest_code_2889257072f941459d55a94d280e2901-8"></a>
+<a name="rest_code_2889257072f941459d55a94d280e2901-9"></a><span class="c1"># create dir</span>
+<a name="rest_code_2889257072f941459d55a94d280e2901-10"></a>$ hadoop fs -mkdir /dirname
+<a name="rest_code_2889257072f941459d55a94d280e2901-11"></a>
+<a name="rest_code_2889257072f941459d55a94d280e2901-12"></a><span class="c1"># copy file to dir</span>
+<a name="rest_code_2889257072f941459d55a94d280e2901-13"></a>$ hadoop fs -put filename.txt /dirname
+<a name="rest_code_2889257072f941459d55a94d280e2901-14"></a>
+<a name="rest_code_2889257072f941459d55a94d280e2901-15"></a><span class="c1"># get to the local disk</span>
+<a name="rest_code_2889257072f941459d55a94d280e2901-16"></a>$ hadoop fs -get out_file local_filename
+<a name="rest_code_2889257072f941459d55a94d280e2901-17"></a>
+<a name="rest_code_2889257072f941459d55a94d280e2901-18"></a><span class="c1"># remove folder</span>
+<a name="rest_code_2889257072f941459d55a94d280e2901-19"></a>$ hadoop fs -rmr /dirname
+<a name="rest_code_2889257072f941459d55a94d280e2901-20"></a>
+<a name="rest_code_2889257072f941459d55a94d280e2901-21"></a><span class="c1"># run the command (output folder should not exist!)</span>
+<a name="rest_code_2889257072f941459d55a94d280e2901-22"></a>$ hadoop jar /usr/local/lib/hadoop-2.7.0/share/hadoop/tools/lib/hadoop-streaming-2.7.0.jar -mapper mapper.py -reducer reducer.py -file mapper.py -file reducer.py -input /myinput -output /joboutput
+<a name="rest_code_2889257072f941459d55a94d280e2901-23"></a>
+<a name="rest_code_2889257072f941459d55a94d280e2901-24"></a><span class="c1"># generate test file</span>
+<a name="rest_code_2889257072f941459d55a94d280e2901-25"></a>$ head -50 hadoop_data/purchases.txt &gt; test_file
+<a name="rest_code_2889257072f941459d55a94d280e2901-26"></a>
+<a name="rest_code_2889257072f941459d55a94d280e2901-27"></a><span class="c1"># testing whole line</span>
+<a name="rest_code_2889257072f941459d55a94d280e2901-28"></a>$ cat test_file <span class="p">|</span> ./mapper.py <span class="p">|</span> sort <span class="p">|</span> ./reducer.py
+</pre>
+</div>
+    </div>
+    
+</article><!--End of body content--><footer id="footer">
+            Contents © 2019         <a href="mailto:ikhlestov@gmail.com">Illarion Khlestov</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>          <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script></footer>
+</div>
+</div>
+
+        <script src="../../../assets/js/all-nocdn.js"></script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates --><script>
+    baguetteBox.run('div#content', {
+        ignoreClass: 'islink',
+        captions: function(element) {
+            return element.getElementsByTagName('img')[0].alt;
+    }});
+    </script><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-92406723-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

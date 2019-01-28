@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html prefix="
+og: http://ogp.me/ns# article: http://ogp.me/ns/article#
+" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bash usage examples | Illarion&#8217;s Notes</title>
+<link href="../../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#5670d4">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../../../../rss.xml">
+<link rel="canonical" href="https://ikhlestov.github.io/pages/languages/bash/bash-usage-examples/">
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    displayAlign: 'center', // Change this to 'center' to center equations.
+});
+</script><!--[if lt IE 9]><script src="../../../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Illarion Khlestov">
+<meta property="og:site_name" content="Illarion's Notes">
+<meta property="og:title" content="Bash usage examples">
+<meta property="og:url" content="https://ikhlestov.github.io/pages/languages/bash/bash-usage-examples/">
+<meta property="og:description" content="Contents
+
+Navigating around
+Files routines
+Network routines
+One-liners
+
+
+
+Navigating around
+# list sizes of files
+$ ls -lah
+# colored
+$ ls -G
+# count quantity of files inside folder
+$ ls -1 | wc -l
+Si">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2019-01-07T20:52:54Z">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-expand-md static-top mb-4
+navbar-dark bg-dark
+"><div class="container">
+<!-- This keeps the margins nice -->
+        <a class="navbar-brand" href="https://ikhlestov.github.io/">
+
+            <span id="blog-title">Illarion&#8217;s Notes</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="bs-navbar">
+            <ul class="navbar-nav mr-auto">
+<li class="nav-item">
+<a href="../../../../" class="nav-link">About</a>
+                </li>
+<li class="nav-item">
+<a href="../../../../posts/" class="nav-link">Blog&nbsp;Posts</a>
+                </li>
+<li class="nav-item">
+<a href="../../../" class="nav-link">Pages</a>
+
+                
+            </li>
+</ul>
+<ul class="navbar-nav navbar-right"></ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <nav class="breadcrumbs"><ul class="breadcrumb">
+<li class="breadcrumb-item"><a href="../../../">pages</a></li>
+                <li class="breadcrumb-item"><a href="../../">languages</a></li>
+                <li class="breadcrumb-item"><a href="../">bash</a></li>
+                <li class="breadcrumb-item active">bash-usage-examples</li>
+</ul></nav><div class="body-content">
+        <!--Body content-->
+        
+<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Bash usage&nbsp;examples</a></h1>
+
+        
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#navigating-around" id="id1">Navigating&nbsp;around</a></li>
+<li><a class="reference internal" href="#files-routines" id="id2">Files&nbsp;routines</a></li>
+<li><a class="reference internal" href="#network-routines" id="id3">Network&nbsp;routines</a></li>
+<li><a class="reference internal" href="#one-liners" id="id4">One-liners</a></li>
+</ul>
+</div>
+<div class="section" id="navigating-around">
+<h2><a class="toc-backref" href="#id1">Navigating&nbsp;around</a></h2>
+<pre class="code bash"><a name="rest_code_847a52e3983d4d3ea63e9e2eb747e1bb-1"></a><span class="c1"># list sizes of files</span>
+<a name="rest_code_847a52e3983d4d3ea63e9e2eb747e1bb-2"></a>$ ls -lah
+<a name="rest_code_847a52e3983d4d3ea63e9e2eb747e1bb-3"></a><span class="c1"># colored</span>
+<a name="rest_code_847a52e3983d4d3ea63e9e2eb747e1bb-4"></a>$ ls -G
+<a name="rest_code_847a52e3983d4d3ea63e9e2eb747e1bb-5"></a><span class="c1"># count quantity of files inside folder</span>
+<a name="rest_code_847a52e3983d4d3ea63e9e2eb747e1bb-6"></a>$ ls -1 <span class="p">|</span> wc -l
+</pre>
+<p>Sizes</p>
+<pre class="code bash"><a name="rest_code_996c9416d0f84b5dbe71721f71ad564e-1"></a><span class="c1"># check free disk space</span>
+<a name="rest_code_996c9416d0f84b5dbe71721f71ad564e-2"></a>$ df -h
+<a name="rest_code_996c9416d0f84b5dbe71721f71ad564e-3"></a><span class="c1"># get folder size</span>
+<a name="rest_code_996c9416d0f84b5dbe71721f71ad564e-4"></a>$ du -hs
+<a name="rest_code_996c9416d0f84b5dbe71721f71ad564e-5"></a><span class="c1"># get folders size inside another one</span>
+<a name="rest_code_996c9416d0f84b5dbe71721f71ad564e-6"></a>$ du -h --max-depth<span class="o">=</span><span class="m">1</span> some_folder
+</pre>
+<p>Search</p>
+<pre class="code bash"><a name="rest_code_5934de163d9449a9a70995fbca295295-1"></a><span class="c1"># search recursive by folders</span>
+<a name="rest_code_5934de163d9449a9a70995fbca295295-2"></a>$ grep -r <span class="s2">"/api/Profile/active_home_devices"</span> static/
+<a name="rest_code_5934de163d9449a9a70995fbca295295-3"></a><span class="c1"># search by file content</span>
+<a name="rest_code_5934de163d9449a9a70995fbca295295-4"></a>$ grep -R <span class="s1">'GCModel'</span> SemanticProcessor/
+<a name="rest_code_5934de163d9449a9a70995fbca295295-5"></a><span class="c1"># find by filename</span>
+<a name="rest_code_5934de163d9449a9a70995fbca295295-6"></a>$ find ~ -name readme.txt
+</pre>
+<p>Zipping/unzipping</p>
+<pre class="code bash"><a name="rest_code_e52f10488e64461f855bc14f6300f7e6-1"></a><span class="c1"># unzip tar.gz file</span>
+<a name="rest_code_e52f10488e64461f855bc14f6300f7e6-2"></a>$ tar -xvzf filename.tar.gz
+<a name="rest_code_e52f10488e64461f855bc14f6300f7e6-3"></a><span class="c1"># zip something</span>
+<a name="rest_code_e52f10488e64461f855bc14f6300f7e6-4"></a>$ zip archive_name source_name
+<a name="rest_code_e52f10488e64461f855bc14f6300f7e6-5"></a><span class="c1"># unzip something</span>
+<a name="rest_code_e52f10488e64461f855bc14f6300f7e6-6"></a>$ unzip archive_name
+</pre>
+</div>
+<div class="section" id="files-routines">
+<h2><a class="toc-backref" href="#id2">Files&nbsp;routines</a></h2>
+<p>Display part of the&nbsp;file</p>
+<pre class="code bash"><a name="rest_code_0f6557298aae4eef903a4f30b3a819dc-1"></a>$ cat filename <span class="p">|</span> less
+<a name="rest_code_0f6557298aae4eef903a4f30b3a819dc-2"></a>$ tail -200 filename
+<a name="rest_code_0f6557298aae4eef903a4f30b3a819dc-3"></a>$ head -200 filename
+<a name="rest_code_0f6557298aae4eef903a4f30b3a819dc-4"></a>$ head -n <span class="m">1000</span> filename <span class="p">|</span> tail
+<a name="rest_code_0f6557298aae4eef903a4f30b3a819dc-5"></a><span class="c1"># display to stdout</span>
+<a name="rest_code_0f6557298aae4eef903a4f30b3a819dc-6"></a>$ <span class="nb">echo</span> SOMETHING
+</pre>
+<p>Merge all files in folder to&nbsp;one</p>
+<pre class="code bash"><a name="rest_code_c2b00f415c5a4563a159e6fd2ff47c86-1"></a>$ cat folder_path/* &gt; new_file
+</pre>
+<p>Copy content of some text&nbsp;file</p>
+<pre class="code bash"><a name="rest_code_394bfa12243848249481f0ba36a58a8d-1"></a>$ cat file_path <span class="p">|</span> xclip -sel clip  <span class="c1"># ubuntu</span>
+<a name="rest_code_394bfa12243848249481f0ba36a58a8d-2"></a>$ pbcopy &lt; file_path  <span class="c1"># mac</span>
+</pre>
+<p>Encoding:</p>
+<pre class="code bash"><a name="rest_code_78657707a0dc4b6d9780d1ce61d9531e-1"></a><span class="c1"># get encoding of document</span>
+<a name="rest_code_78657707a0dc4b6d9780d1ce61d9531e-2"></a>$ enca filename
+<a name="rest_code_78657707a0dc4b6d9780d1ce61d9531e-3"></a><span class="c1"># change encoding of doc</span>
+<a name="rest_code_78657707a0dc4b6d9780d1ce61d9531e-4"></a>$ enconv filename
+</pre>
+</div>
+<div class="section" id="network-routines">
+<h2><a class="toc-backref" href="#id3">Network&nbsp;routines</a></h2>
+<p>Create an ssh&nbsp;key</p>
+<pre class="code bash"><a name="rest_code_740ed784fe244e568a5209c7238ec8c7-1"></a>ssh-keygen -t rsa -b <span class="m">4096</span> -f ~/.ssh/key_name
+<a name="rest_code_740ed784fe244e568a5209c7238ec8c7-2"></a>cat ~/.ssh/key_name.pub <span class="p">|</span> xclip -sel clip  <span class="c1"># ubuntu</span>
+<a name="rest_code_740ed784fe244e568a5209c7238ec8c7-3"></a>pbcopy &lt; ~/.ssh/id_rsa.pub  <span class="c1"># mac</span>
+</pre>
+<p>Get list of all listened&nbsp;ports</p>
+<pre class="code bash"><a name="rest_code_d5f12ca4064c4c99ade64665e41b480e-1"></a>$ sudo netstat -peanut
+</pre>
+</div>
+<div class="section" id="one-liners">
+<h2><a class="toc-backref" href="#id4">One-liners</a></h2>
+<p>Show running process by name with&nbsp;headers</p>
+<pre class="code bash"><a name="rest_code_47a9d35d49af45a79939f3d965f6b7c5-1"></a>$ ps aux <span class="p">|</span> egrep <span class="s2">"required_name|PID"</span>
+</pre>
+<p>Execute output of some command(assume it in text&nbsp;file)</p>
+<pre class="code bash"><a name="rest_code_e6a63039f41642cb8f129c15af2e702c-1"></a>$ <span class="k">$(</span>cat filename<span class="k">)</span>
+</pre>
+<p>Check memory every 1&nbsp;second</p>
+<pre class="code bash"><a name="rest_code_1abd231d000b4a8a8bcbea4a958e4343-1"></a>$ watch -n <span class="m">1</span> free -m
+</pre>
+<p>Get the location of the executable&nbsp;link</p>
+<pre class="code bash"><a name="rest_code_1bd1ed0cf3d14696b70015b0b9efeffc-1"></a>$ readlink -f /usr/bin/java
+</pre>
+<p>Get&nbsp;dependencies</p>
+<pre class="code bash"><a name="rest_code_b7a358848c8841babc175273cd14d2b6-1"></a>$ readelf -d some_exe
+</pre>
+<p>Find location of installed&nbsp;files</p>
+<pre class="code bash"><a name="rest_code_859bd53fd0d5468ca48c97327760a566-1"></a>$ dpkg --listfiles libqt4-dev
+</pre>
+<p>Get CUDA&nbsp;version</p>
+<pre class="code bash"><a name="rest_code_c10310caff8449a882517ec69e1ceebf-1"></a>$ dpkg -l <span class="p">|</span> grep cuda
+</pre>
+<p>Remove range of folders starts with&nbsp;numbers</p>
+<pre class="code bash"><a name="rest_code_5d97d78cf95b4a159fbc66241154f913-1"></a>$ rm -r output/logs/<span class="o">{</span><span class="m">17</span>..26<span class="o">}</span>*
+</pre>
+<p>Send stdout to file and display it to the bash at the same&nbsp;time</p>
+<pre class="code bash"><a name="rest_code_da02507e4aae4eef9dfbc439cd136d33-1"></a>$ ./some_file.sh <span class="p">|</span> tee -a logs.txt
+</pre>
+<p>Handle docker&nbsp;containers</p>
+<pre class="code bash"><a name="rest_code_64b6ce64d64d4b07ae1ccb8d1e1943c5-1"></a><span class="c1"># all runing| second line| container name    | stop container by name</span>
+<a name="rest_code_64b6ce64d64d4b07ae1ccb8d1e1943c5-2"></a>$ docker ps <span class="p">|</span> sed -n 2p  <span class="p">|</span> awk <span class="s1">'{print $NF}'</span> <span class="p">|</span> xargs docker stop
+<a name="rest_code_64b6ce64d64d4b07ae1ccb8d1e1943c5-3"></a><span class="c1"># stop all running containers</span>
+<a name="rest_code_64b6ce64d64d4b07ae1ccb8d1e1943c5-4"></a>$ docker ps <span class="p">|</span> awk <span class="s1">'{print $NF}'</span> <span class="p">|</span> tail -n +2 <span class="p">|</span> xargs docker stop
+</pre>
+<p>Rename some folders by&nbsp;pattern</p>
+<pre class="code bash"><a name="rest_code_1977376278604c898feb6e221d751839-1"></a><span class="c1"># find required folders  | split folder by '/' or '_' |</span>
+<a name="rest_code_1977376278604c898feb6e221d751839-2"></a><span class="c1"># based on split generate new name | call `mv` command with `system ()` flag</span>
+<a name="rest_code_1977376278604c898feb6e221d751839-3"></a><span class="c1"># note that splaces added in quotes</span>
+<a name="rest_code_1977376278604c898feb6e221d751839-4"></a>$ find . -type d -name <span class="s2">"celeb*"</span> <span class="p">|</span>  awk -F <span class="s1">'/|_'</span> <span class="s1">'{system ("mv " $0 " " $2"_mobile_"$3)}'</span>
+</pre>
+</div>
+</div>
+    </div>
+    
+</article><!--End of body content--><footer id="footer">
+            Contents © 2019         <a href="mailto:ikhlestov@gmail.com">Illarion Khlestov</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>          <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script></footer>
+</div>
+</div>
+
+        <script src="../../../../assets/js/all-nocdn.js"></script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates --><script>
+    baguetteBox.run('div#content', {
+        ignoreClass: 'islink',
+        captions: function(element) {
+            return element.getElementsByTagName('img')[0].alt;
+    }});
+    </script><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-92406723-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

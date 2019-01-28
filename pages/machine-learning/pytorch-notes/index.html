@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html prefix="
-og: http://ogp.me/ns#
-article: http://ogp.me/ns/article#
+og: http://ogp.me/ns# article: http://ogp.me/ns/article#
 " lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>PyTorch Notes | Illarion Khlestov Blog</title>
+<title>PyTorch Notes | Illarion&#8217;s Notes</title>
 <link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
-<meta content="#5670d4" name="theme-color">
+<meta name="theme-color" content="#5670d4">
+<meta name="generator" content="Nikola (getnikola.com)">
 <link rel="alternate" type="application/rss+xml" title="RSS" href="../../../rss.xml">
 <link rel="canonical" href="https://ikhlestov.github.io/pages/machine-learning/pytorch-notes/">
 <script type="text/x-mathjax-config">
@@ -16,7 +16,7 @@ MathJax.Hub.Config({
     displayAlign: 'center', // Change this to 'center' to center equations.
 });
 </script><!--[if lt IE 9]><script src="../../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Illarion Khlestov">
-<meta property="og:site_name" content="Illarion Khlestov Blog">
+<meta property="og:site_name" content="Illarion's Notes">
 <meta property="og:title" content="PyTorch Notes">
 <meta property="og:url" content="https://ikhlestov.github.io/pages/machine-learning/pytorch-notes/">
 <meta property="og:description" content="Contents
@@ -39,53 +39,45 @@ Compute gra">
 
 <!-- Menubar -->
 
-<nav class="navbar navbar-inverse navbar-static-top"><div class="container">
+<nav class="navbar navbar-expand-md static-top mb-4
+navbar-dark bg-dark
+"><div class="container">
 <!-- This keeps the margins nice -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="https://ikhlestov.github.io/">
+        <a class="navbar-brand" href="https://ikhlestov.github.io/">
 
-                <span id="blog-title">Illarion Khlestov Blog</span>
-            </a>
-        </div>
-<!-- /.navbar-header -->
-        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
-            <ul class="nav navbar-nav">
-<li>
-<a href="../../../">Blog</a>
+            <span id="blog-title">Illarion&#8217;s Notes</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="bs-navbar">
+            <ul class="navbar-nav mr-auto">
+<li class="nav-item">
+<a href="../../../" class="nav-link">About</a>
                 </li>
-<li>
-<a href="../../">Pages</a>
+<li class="nav-item">
+<a href="../../../posts/" class="nav-link">Blog&nbsp;Posts</a>
                 </li>
-<li>
-<a href="../../../listings/">Listings</a>
-                </li>
-<li>
-<a href="../../../archive.html">Archive</a>
+<li class="nav-item">
+<a href="../../" class="nav-link">Pages</a>
 
                 
             </li>
 </ul>
-<ul class="nav navbar-nav navbar-right">
-<li>
-    <a href="index.rst" id="sourcelink">Source</a>
-    </li>
-                
-            </ul>
+<ul class="navbar-nav navbar-right"></ul>
 </div>
 <!-- /.navbar-collapse -->
     </div>
 <!-- /.container -->
 </nav><!-- End of Menubar --><div class="container" id="content" role="main">
-    <div class="body-content">
+    <nav class="breadcrumbs"><ul class="breadcrumb">
+<li class="breadcrumb-item"><a href="../../">pages</a></li>
+                <li class="breadcrumb-item"><a href="../">machine-learning</a></li>
+                <li class="breadcrumb-item active">pytorch-notes</li>
+</ul></nav><div class="body-content">
         <!--Body content-->
-        <div class="row">
-            
+        
 <article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">PyTorch&nbsp;Notes</a></h1>
 
         
@@ -139,60 +131,60 @@ Compute gra">
 <h2><a class="toc-backref" href="#id1">PyTorch&nbsp;Fundamentals</a></h2>
 <div class="section" id="simple-array-manipulations-creations">
 <h3><a class="toc-backref" href="#id2">Simple array&nbsp;manipulations/creations</a></h3>
-<pre class="code python"><a name="rest_code_10e651d08c4f4f81bc4675e6e21f0fc8-1"></a><span class="kn">import</span> <span class="nn">torch</span>
-<a name="rest_code_10e651d08c4f4f81bc4675e6e21f0fc8-2"></a>
-<a name="rest_code_10e651d08c4f4f81bc4675e6e21f0fc8-3"></a><span class="c1"># convert numpy array to pytorch array</span>
-<a name="rest_code_10e651d08c4f4f81bc4675e6e21f0fc8-4"></a><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">(</span><span class="n">numpy_tensor</span><span class="p">)</span>
-<a name="rest_code_10e651d08c4f4f81bc4675e6e21f0fc8-5"></a><span class="c1"># or another way</span>
-<a name="rest_code_10e651d08c4f4f81bc4675e6e21f0fc8-6"></a><span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">numpy_tensor</span><span class="p">)</span>
-<a name="rest_code_10e651d08c4f4f81bc4675e6e21f0fc8-7"></a>
-<a name="rest_code_10e651d08c4f4f81bc4675e6e21f0fc8-8"></a><span class="c1"># convert torch tensor to numpy representation</span>
-<a name="rest_code_10e651d08c4f4f81bc4675e6e21f0fc8-9"></a><span class="n">pytorch_tensor</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
-<a name="rest_code_10e651d08c4f4f81bc4675e6e21f0fc8-10"></a>
-<a name="rest_code_10e651d08c4f4f81bc4675e6e21f0fc8-11"></a><span class="c1"># create default arrays</span>
-<a name="rest_code_10e651d08c4f4f81bc4675e6e21f0fc8-12"></a><span class="n">torch</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
-<a name="rest_code_10e651d08c4f4f81bc4675e6e21f0fc8-13"></a><span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<pre class="code python"><a name="rest_code_023c0cd7d93f458f82c84d6a53aa36da-1"></a><span class="kn">import</span> <span class="nn">torch</span>
+<a name="rest_code_023c0cd7d93f458f82c84d6a53aa36da-2"></a>
+<a name="rest_code_023c0cd7d93f458f82c84d6a53aa36da-3"></a><span class="c1"># convert numpy array to pytorch array</span>
+<a name="rest_code_023c0cd7d93f458f82c84d6a53aa36da-4"></a><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">(</span><span class="n">numpy_tensor</span><span class="p">)</span>
+<a name="rest_code_023c0cd7d93f458f82c84d6a53aa36da-5"></a><span class="c1"># or another way</span>
+<a name="rest_code_023c0cd7d93f458f82c84d6a53aa36da-6"></a><span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">numpy_tensor</span><span class="p">)</span>
+<a name="rest_code_023c0cd7d93f458f82c84d6a53aa36da-7"></a>
+<a name="rest_code_023c0cd7d93f458f82c84d6a53aa36da-8"></a><span class="c1"># convert torch tensor to numpy representation</span>
+<a name="rest_code_023c0cd7d93f458f82c84d6a53aa36da-9"></a><span class="n">pytorch_tensor</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+<a name="rest_code_023c0cd7d93f458f82c84d6a53aa36da-10"></a>
+<a name="rest_code_023c0cd7d93f458f82c84d6a53aa36da-11"></a><span class="c1"># create default arrays</span>
+<a name="rest_code_023c0cd7d93f458f82c84d6a53aa36da-12"></a><span class="n">torch</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<a name="rest_code_023c0cd7d93f458f82c84d6a53aa36da-13"></a><span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 </pre>
 </div>
 <div class="section" id="define-manual-seed">
 <h3><a class="toc-backref" href="#id3">Define manual&nbsp;seed</a></h3>
-<pre class="code python"><a name="rest_code_1f6f3b61737148f4aa562c44a956b467-1"></a><span class="c1"># CPU seed</span>
-<a name="rest_code_1f6f3b61737148f4aa562c44a956b467-2"></a><span class="n">torch</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
-<a name="rest_code_1f6f3b61737148f4aa562c44a956b467-3"></a>
-<a name="rest_code_1f6f3b61737148f4aa562c44a956b467-4"></a><span class="c1"># GPU seed</span>
-<a name="rest_code_1f6f3b61737148f4aa562c44a956b467-5"></a><span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">manual_seed_all</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<pre class="code python"><a name="rest_code_3a3d23d06bd14259a043228a8366f612-1"></a><span class="c1"># CPU seed</span>
+<a name="rest_code_3a3d23d06bd14259a043228a8366f612-2"></a><span class="n">torch</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<a name="rest_code_3a3d23d06bd14259a043228a8366f612-3"></a>
+<a name="rest_code_3a3d23d06bd14259a043228a8366f612-4"></a><span class="c1"># GPU seed</span>
+<a name="rest_code_3a3d23d06bd14259a043228a8366f612-5"></a><span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">manual_seed_all</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
 </pre>
 </div>
 <div class="section" id="move-tensor-from-cpu-to-gpu-and-back">
 <h3><a class="toc-backref" href="#id4">Move tensor from CPU to GPU and&nbsp;back</a></h3>
-<pre class="code python"><a name="rest_code_ac1d6b57be7e43b0b12d42157a5d607b-1"></a><span class="c1"># move to GPU</span>
-<a name="rest_code_ac1d6b57be7e43b0b12d42157a5d607b-2"></a><span class="n">cpu_tensor</span><span class="o">.</span><span class="n">cuda</span><span class="p">()</span>
-<a name="rest_code_ac1d6b57be7e43b0b12d42157a5d607b-3"></a>
-<a name="rest_code_ac1d6b57be7e43b0b12d42157a5d607b-4"></a><span class="c1"># move to CPU</span>
-<a name="rest_code_ac1d6b57be7e43b0b12d42157a5d607b-5"></a><span class="n">gpu_tensor</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span>
+<pre class="code python"><a name="rest_code_66e8bb05c9e34382b726a78734047c96-1"></a><span class="c1"># move to GPU</span>
+<a name="rest_code_66e8bb05c9e34382b726a78734047c96-2"></a><span class="n">cpu_tensor</span><span class="o">.</span><span class="n">cuda</span><span class="p">()</span>
+<a name="rest_code_66e8bb05c9e34382b726a78734047c96-3"></a>
+<a name="rest_code_66e8bb05c9e34382b726a78734047c96-4"></a><span class="c1"># move to CPU</span>
+<a name="rest_code_66e8bb05c9e34382b726a78734047c96-5"></a><span class="n">gpu_tensor</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span>
 </pre>
 </div>
 <div class="section" id="tensor-manipulations">
 <h3><a class="toc-backref" href="#id5">Tensor&nbsp;manipulations</a></h3>
-<pre class="code python"><a name="rest_code_0b50357c08ac4411a1e8f9573cd55820-1"></a><span class="n">a</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<a name="rest_code_0b50357c08ac4411a1e8f9573cd55820-2"></a>
-<a name="rest_code_0b50357c08ac4411a1e8f9573cd55820-3"></a><span class="c1"># get the shape of tensor</span>
-<a name="rest_code_0b50357c08ac4411a1e8f9573cd55820-4"></a><span class="n">a</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
-<a name="rest_code_0b50357c08ac4411a1e8f9573cd55820-5"></a>
-<a name="rest_code_0b50357c08ac4411a1e8f9573cd55820-6"></a><span class="c1"># reshape tensor to required shape</span>
-<a name="rest_code_0b50357c08ac4411a1e8f9573cd55820-7"></a><span class="n">a</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<a name="rest_code_0b50357c08ac4411a1e8f9573cd55820-8"></a>
-<a name="rest_code_0b50357c08ac4411a1e8f9573cd55820-9"></a><span class="c1"># simple addition</span>
-<a name="rest_code_0b50357c08ac4411a1e8f9573cd55820-10"></a><span class="n">b</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
-<a name="rest_code_0b50357c08ac4411a1e8f9573cd55820-11"></a><span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
-<a name="rest_code_0b50357c08ac4411a1e8f9573cd55820-12"></a><span class="n">c</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
-<a name="rest_code_0b50357c08ac4411a1e8f9573cd55820-13"></a>
-<a name="rest_code_0b50357c08ac4411a1e8f9573cd55820-14"></a><span class="c1"># in-place addition</span>
-<a name="rest_code_0b50357c08ac4411a1e8f9573cd55820-15"></a><span class="n">a</span><span class="o">.</span><span class="n">add_</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
-<a name="rest_code_0b50357c08ac4411a1e8f9573cd55820-16"></a>
-<a name="rest_code_0b50357c08ac4411a1e8f9573cd55820-17"></a><span class="c1"># get the mean and std</span>
-<a name="rest_code_0b50357c08ac4411a1e8f9573cd55820-18"></a><span class="n">a</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<a name="rest_code_0b50357c08ac4411a1e8f9573cd55820-19"></a><span class="n">a</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<pre class="code python"><a name="rest_code_9bc6c79d1a0547e98d3e8b0335367daf-1"></a><span class="n">a</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<a name="rest_code_9bc6c79d1a0547e98d3e8b0335367daf-2"></a>
+<a name="rest_code_9bc6c79d1a0547e98d3e8b0335367daf-3"></a><span class="c1"># get the shape of tensor</span>
+<a name="rest_code_9bc6c79d1a0547e98d3e8b0335367daf-4"></a><span class="n">a</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
+<a name="rest_code_9bc6c79d1a0547e98d3e8b0335367daf-5"></a>
+<a name="rest_code_9bc6c79d1a0547e98d3e8b0335367daf-6"></a><span class="c1"># reshape tensor to required shape</span>
+<a name="rest_code_9bc6c79d1a0547e98d3e8b0335367daf-7"></a><span class="n">a</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<a name="rest_code_9bc6c79d1a0547e98d3e8b0335367daf-8"></a>
+<a name="rest_code_9bc6c79d1a0547e98d3e8b0335367daf-9"></a><span class="c1"># simple addition</span>
+<a name="rest_code_9bc6c79d1a0547e98d3e8b0335367daf-10"></a><span class="n">b</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<a name="rest_code_9bc6c79d1a0547e98d3e8b0335367daf-11"></a><span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+<a name="rest_code_9bc6c79d1a0547e98d3e8b0335367daf-12"></a><span class="n">c</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<a name="rest_code_9bc6c79d1a0547e98d3e8b0335367daf-13"></a>
+<a name="rest_code_9bc6c79d1a0547e98d3e8b0335367daf-14"></a><span class="c1"># in-place addition</span>
+<a name="rest_code_9bc6c79d1a0547e98d3e8b0335367daf-15"></a><span class="n">a</span><span class="o">.</span><span class="n">add_</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<a name="rest_code_9bc6c79d1a0547e98d3e8b0335367daf-16"></a>
+<a name="rest_code_9bc6c79d1a0547e98d3e8b0335367daf-17"></a><span class="c1"># get the mean and std</span>
+<a name="rest_code_9bc6c79d1a0547e98d3e8b0335367daf-18"></a><span class="n">a</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<a name="rest_code_9bc6c79d1a0547e98d3e8b0335367daf-19"></a><span class="n">a</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre>
 </div>
 </div>
@@ -200,33 +192,33 @@ Compute gra">
 <h2><a class="toc-backref" href="#id6">Variables and&nbsp;Gradients</a></h2>
 <div class="section" id="variable-creation">
 <h3><a class="toc-backref" href="#id7">Variable&nbsp;creation</a></h3>
-<pre class="code python"><a name="rest_code_73845719e1bb4966b05f3f348ee39a80-1"></a><span class="kn">import</span> <span class="nn">torch</span>
-<a name="rest_code_73845719e1bb4966b05f3f348ee39a80-2"></a><span class="kn">from</span> <span class="nn">torch.autograd</span> <span class="kn">import</span> <span class="n">Variable</span>
-<a name="rest_code_73845719e1bb4966b05f3f348ee39a80-3"></a>
-<a name="rest_code_73845719e1bb4966b05f3f348ee39a80-4"></a><span class="c1"># create variable</span>
-<a name="rest_code_73845719e1bb4966b05f3f348ee39a80-5"></a><span class="n">a</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)),</span> <span class="n">requires_grad</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-<a name="rest_code_73845719e1bb4966b05f3f348ee39a80-6"></a>
-<a name="rest_code_73845719e1bb4966b05f3f348ee39a80-7"></a><span class="c1"># access variable tensor</span>
-<a name="rest_code_73845719e1bb4966b05f3f348ee39a80-8"></a><span class="n">a</span><span class="o">.</span><span class="n">data</span>
-<a name="rest_code_73845719e1bb4966b05f3f348ee39a80-9"></a>
-<a name="rest_code_73845719e1bb4966b05f3f348ee39a80-10"></a><span class="c1"># access variable gradient</span>
-<a name="rest_code_73845719e1bb4966b05f3f348ee39a80-11"></a><span class="n">a</span><span class="o">.</span><span class="n">grad</span>
+<pre class="code python"><a name="rest_code_7d608dacb98e4fa88afe1ede885412e5-1"></a><span class="kn">import</span> <span class="nn">torch</span>
+<a name="rest_code_7d608dacb98e4fa88afe1ede885412e5-2"></a><span class="kn">from</span> <span class="nn">torch.autograd</span> <span class="kn">import</span> <span class="n">Variable</span>
+<a name="rest_code_7d608dacb98e4fa88afe1ede885412e5-3"></a>
+<a name="rest_code_7d608dacb98e4fa88afe1ede885412e5-4"></a><span class="c1"># create variable</span>
+<a name="rest_code_7d608dacb98e4fa88afe1ede885412e5-5"></a><span class="n">a</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)),</span> <span class="n">requires_grad</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<a name="rest_code_7d608dacb98e4fa88afe1ede885412e5-6"></a>
+<a name="rest_code_7d608dacb98e4fa88afe1ede885412e5-7"></a><span class="c1"># access variable tensor</span>
+<a name="rest_code_7d608dacb98e4fa88afe1ede885412e5-8"></a><span class="n">a</span><span class="o">.</span><span class="n">data</span>
+<a name="rest_code_7d608dacb98e4fa88afe1ede885412e5-9"></a>
+<a name="rest_code_7d608dacb98e4fa88afe1ede885412e5-10"></a><span class="c1"># access variable gradient</span>
+<a name="rest_code_7d608dacb98e4fa88afe1ede885412e5-11"></a><span class="n">a</span><span class="o">.</span><span class="n">grad</span>
 </pre>
 </div>
 <div class="section" id="compute-gradient">
 <h3><a class="toc-backref" href="#id8">Compute&nbsp;gradient</a></h3>
-<pre class="code python"><a name="rest_code_fc6a294667024131a185aaf47cb894d4-1"></a><span class="n">x</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">requires_grad</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-<a name="rest_code_fc6a294667024131a185aaf47cb894d4-2"></a><span class="n">y</span> <span class="o">=</span> <span class="mi">5</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
-<a name="rest_code_fc6a294667024131a185aaf47cb894d4-3"></a>
-<a name="rest_code_fc6a294667024131a185aaf47cb894d4-4"></a><span class="c1"># backward should be called only on a scalar</span>
-<a name="rest_code_fc6a294667024131a185aaf47cb894d4-5"></a><span class="n">o</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
-<a name="rest_code_fc6a294667024131a185aaf47cb894d4-6"></a>
-<a name="rest_code_fc6a294667024131a185aaf47cb894d4-7"></a><span class="c1"># compute backward</span>
-<a name="rest_code_fc6a294667024131a185aaf47cb894d4-8"></a><span class="n">o</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
-<a name="rest_code_fc6a294667024131a185aaf47cb894d4-9"></a>
-<a name="rest_code_fc6a294667024131a185aaf47cb894d4-10"></a><span class="c1"># now we have the gradients of x</span>
-<a name="rest_code_fc6a294667024131a185aaf47cb894d4-11"></a><span class="n">x</span><span class="o">.</span><span class="n">grad</span>
-<a name="rest_code_fc6a294667024131a185aaf47cb894d4-12"></a><span class="c1"># 10, 10</span>
+<pre class="code python"><a name="rest_code_643c68bf694746cd8dbb9a84b5e8a8c6-1"></a><span class="n">x</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">requires_grad</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<a name="rest_code_643c68bf694746cd8dbb9a84b5e8a8c6-2"></a><span class="n">y</span> <span class="o">=</span> <span class="mi">5</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+<a name="rest_code_643c68bf694746cd8dbb9a84b5e8a8c6-3"></a>
+<a name="rest_code_643c68bf694746cd8dbb9a84b5e8a8c6-4"></a><span class="c1"># backward should be called only on a scalar</span>
+<a name="rest_code_643c68bf694746cd8dbb9a84b5e8a8c6-5"></a><span class="n">o</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<a name="rest_code_643c68bf694746cd8dbb9a84b5e8a8c6-6"></a>
+<a name="rest_code_643c68bf694746cd8dbb9a84b5e8a8c6-7"></a><span class="c1"># compute backward</span>
+<a name="rest_code_643c68bf694746cd8dbb9a84b5e8a8c6-8"></a><span class="n">o</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+<a name="rest_code_643c68bf694746cd8dbb9a84b5e8a8c6-9"></a>
+<a name="rest_code_643c68bf694746cd8dbb9a84b5e8a8c6-10"></a><span class="c1"># now we have the gradients of x</span>
+<a name="rest_code_643c68bf694746cd8dbb9a84b5e8a8c6-11"></a><span class="n">x</span><span class="o">.</span><span class="n">grad</span>
+<a name="rest_code_643c68bf694746cd8dbb9a84b5e8a8c6-12"></a><span class="c1"># 10, 10</span>
 </pre>
 </div>
 </div>
@@ -235,149 +227,149 @@ Compute gra">
 <div class="section" id="define-simple-nn">
 <h3><a class="toc-backref" href="#id10">Define simple&nbsp;NN</a></h3>
 <p>Simple network without any optimizer and manually defined loss&nbsp;function</p>
-<pre class="code python"><a name="rest_code_ef04f340b96c4e9a86d4e5843359e905-1"></a><span class="kn">import</span> <span class="nn">torch</span>
-<a name="rest_code_ef04f340b96c4e9a86d4e5843359e905-2"></a><span class="kn">from</span> <span class="nn">torch.autograd</span> <span class="kn">import</span> <span class="n">Variable</span>
-<a name="rest_code_ef04f340b96c4e9a86d4e5843359e905-3"></a>
-<a name="rest_code_ef04f340b96c4e9a86d4e5843359e905-4"></a><span class="n">dtype</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">FloatTensor</span>
-<a name="rest_code_ef04f340b96c4e9a86d4e5843359e905-5"></a><span class="n">N</span><span class="p">,</span> <span class="n">D_in</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">D_out</span> <span class="o">=</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">10</span>
-<a name="rest_code_ef04f340b96c4e9a86d4e5843359e905-6"></a>
-<a name="rest_code_ef04f340b96c4e9a86d4e5843359e905-7"></a><span class="n">x</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">D_in</span><span class="p">)</span><span class="o">.</span><span class="n">type</span><span class="p">(</span><span class="n">dtype</span><span class="p">),</span> <span class="n">requires_grad</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
-<a name="rest_code_ef04f340b96c4e9a86d4e5843359e905-8"></a><span class="n">y</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">D_out</span><span class="p">)</span><span class="o">.</span><span class="n">type</span><span class="p">(</span><span class="n">dtype</span><span class="p">),</span> <span class="n">requires_grad</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
-<a name="rest_code_ef04f340b96c4e9a86d4e5843359e905-9"></a>
-<a name="rest_code_ef04f340b96c4e9a86d4e5843359e905-10"></a><span class="n">w1</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">D_in</span><span class="p">,</span> <span class="n">H</span><span class="p">)</span><span class="o">.</span><span class="n">type</span><span class="p">(</span><span class="n">dtype</span><span class="p">),</span> <span class="n">requires_grad</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-<a name="rest_code_ef04f340b96c4e9a86d4e5843359e905-11"></a><span class="n">w2</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">D_out</span><span class="p">)</span><span class="o">.</span><span class="n">type</span><span class="p">(</span><span class="n">dtype</span><span class="p">),</span> <span class="n">requires_grad</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-<a name="rest_code_ef04f340b96c4e9a86d4e5843359e905-12"></a>
-<a name="rest_code_ef04f340b96c4e9a86d4e5843359e905-13"></a><span class="n">learning_rate</span> <span class="o">=</span> <span class="mf">1e-6</span>
-<a name="rest_code_ef04f340b96c4e9a86d4e5843359e905-14"></a>
-<a name="rest_code_ef04f340b96c4e9a86d4e5843359e905-15"></a><span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">500</span><span class="p">):</span>
-<a name="rest_code_ef04f340b96c4e9a86d4e5843359e905-16"></a>
-<a name="rest_code_ef04f340b96c4e9a86d4e5843359e905-17"></a>    <span class="n">y_pred</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">mm</span><span class="p">(</span><span class="n">w1</span><span class="p">)</span>
-<a name="rest_code_ef04f340b96c4e9a86d4e5843359e905-18"></a>    <span class="c1"># simulate ReLU behavior</span>
-<a name="rest_code_ef04f340b96c4e9a86d4e5843359e905-19"></a>    <span class="n">y_pred</span> <span class="o">=</span> <span class="n">y_pred</span><span class="o">.</span><span class="n">clamp</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<a name="rest_code_ef04f340b96c4e9a86d4e5843359e905-20"></a>    <span class="n">y_pred</span> <span class="o">=</span> <span class="n">y_pred</span> <span class="err">@</span> <span class="n">w2</span>
-<a name="rest_code_ef04f340b96c4e9a86d4e5843359e905-21"></a>
-<a name="rest_code_ef04f340b96c4e9a86d4e5843359e905-22"></a>    <span class="n">loss</span> <span class="o">=</span> <span class="p">(</span><span class="n">y_pred</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
-<a name="rest_code_ef04f340b96c4e9a86d4e5843359e905-23"></a>    <span class="c1"># compute backward pass</span>
-<a name="rest_code_ef04f340b96c4e9a86d4e5843359e905-24"></a>    <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
-<a name="rest_code_ef04f340b96c4e9a86d4e5843359e905-25"></a>
-<a name="rest_code_ef04f340b96c4e9a86d4e5843359e905-26"></a>    <span class="c1"># manually apply the gradients</span>
-<a name="rest_code_ef04f340b96c4e9a86d4e5843359e905-27"></a>    <span class="n">w1</span><span class="o">.</span><span class="n">data</span> <span class="o">-=</span> <span class="n">learning_rate</span> <span class="o">*</span> <span class="n">w1</span><span class="o">.</span><span class="n">grad</span><span class="o">.</span><span class="n">data</span>
-<a name="rest_code_ef04f340b96c4e9a86d4e5843359e905-28"></a>    <span class="n">w2</span><span class="o">.</span><span class="n">data</span> <span class="o">-=</span> <span class="n">learning_rate</span> <span class="o">*</span> <span class="n">w2</span><span class="o">.</span><span class="n">grad</span><span class="o">.</span><span class="n">data</span>
-<a name="rest_code_ef04f340b96c4e9a86d4e5843359e905-29"></a>
-<a name="rest_code_ef04f340b96c4e9a86d4e5843359e905-30"></a>    <span class="c1"># Manually zero the gradients after updating weights</span>
-<a name="rest_code_ef04f340b96c4e9a86d4e5843359e905-31"></a>    <span class="n">w1</span><span class="o">.</span><span class="n">grad</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">zero_</span><span class="p">()</span>
-<a name="rest_code_ef04f340b96c4e9a86d4e5843359e905-32"></a>    <span class="n">w2</span><span class="o">.</span><span class="n">grad</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">zero_</span><span class="p">()</span>
+<pre class="code python"><a name="rest_code_0b3b50db63474394ba87d18edbf3d664-1"></a><span class="kn">import</span> <span class="nn">torch</span>
+<a name="rest_code_0b3b50db63474394ba87d18edbf3d664-2"></a><span class="kn">from</span> <span class="nn">torch.autograd</span> <span class="kn">import</span> <span class="n">Variable</span>
+<a name="rest_code_0b3b50db63474394ba87d18edbf3d664-3"></a>
+<a name="rest_code_0b3b50db63474394ba87d18edbf3d664-4"></a><span class="n">dtype</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">FloatTensor</span>
+<a name="rest_code_0b3b50db63474394ba87d18edbf3d664-5"></a><span class="n">N</span><span class="p">,</span> <span class="n">D_in</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">D_out</span> <span class="o">=</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">10</span>
+<a name="rest_code_0b3b50db63474394ba87d18edbf3d664-6"></a>
+<a name="rest_code_0b3b50db63474394ba87d18edbf3d664-7"></a><span class="n">x</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">D_in</span><span class="p">)</span><span class="o">.</span><span class="n">type</span><span class="p">(</span><span class="n">dtype</span><span class="p">),</span> <span class="n">requires_grad</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<a name="rest_code_0b3b50db63474394ba87d18edbf3d664-8"></a><span class="n">y</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">D_out</span><span class="p">)</span><span class="o">.</span><span class="n">type</span><span class="p">(</span><span class="n">dtype</span><span class="p">),</span> <span class="n">requires_grad</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<a name="rest_code_0b3b50db63474394ba87d18edbf3d664-9"></a>
+<a name="rest_code_0b3b50db63474394ba87d18edbf3d664-10"></a><span class="n">w1</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">D_in</span><span class="p">,</span> <span class="n">H</span><span class="p">)</span><span class="o">.</span><span class="n">type</span><span class="p">(</span><span class="n">dtype</span><span class="p">),</span> <span class="n">requires_grad</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<a name="rest_code_0b3b50db63474394ba87d18edbf3d664-11"></a><span class="n">w2</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">D_out</span><span class="p">)</span><span class="o">.</span><span class="n">type</span><span class="p">(</span><span class="n">dtype</span><span class="p">),</span> <span class="n">requires_grad</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<a name="rest_code_0b3b50db63474394ba87d18edbf3d664-12"></a>
+<a name="rest_code_0b3b50db63474394ba87d18edbf3d664-13"></a><span class="n">learning_rate</span> <span class="o">=</span> <span class="mf">1e-6</span>
+<a name="rest_code_0b3b50db63474394ba87d18edbf3d664-14"></a>
+<a name="rest_code_0b3b50db63474394ba87d18edbf3d664-15"></a><span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">500</span><span class="p">):</span>
+<a name="rest_code_0b3b50db63474394ba87d18edbf3d664-16"></a>
+<a name="rest_code_0b3b50db63474394ba87d18edbf3d664-17"></a>    <span class="n">y_pred</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">mm</span><span class="p">(</span><span class="n">w1</span><span class="p">)</span>
+<a name="rest_code_0b3b50db63474394ba87d18edbf3d664-18"></a>    <span class="c1"># simulate ReLU behavior</span>
+<a name="rest_code_0b3b50db63474394ba87d18edbf3d664-19"></a>    <span class="n">y_pred</span> <span class="o">=</span> <span class="n">y_pred</span><span class="o">.</span><span class="n">clamp</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<a name="rest_code_0b3b50db63474394ba87d18edbf3d664-20"></a>    <span class="n">y_pred</span> <span class="o">=</span> <span class="n">y_pred</span> <span class="err">@</span> <span class="n">w2</span>
+<a name="rest_code_0b3b50db63474394ba87d18edbf3d664-21"></a>
+<a name="rest_code_0b3b50db63474394ba87d18edbf3d664-22"></a>    <span class="n">loss</span> <span class="o">=</span> <span class="p">(</span><span class="n">y_pred</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<a name="rest_code_0b3b50db63474394ba87d18edbf3d664-23"></a>    <span class="c1"># compute backward pass</span>
+<a name="rest_code_0b3b50db63474394ba87d18edbf3d664-24"></a>    <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+<a name="rest_code_0b3b50db63474394ba87d18edbf3d664-25"></a>
+<a name="rest_code_0b3b50db63474394ba87d18edbf3d664-26"></a>    <span class="c1"># manually apply the gradients</span>
+<a name="rest_code_0b3b50db63474394ba87d18edbf3d664-27"></a>    <span class="n">w1</span><span class="o">.</span><span class="n">data</span> <span class="o">-=</span> <span class="n">learning_rate</span> <span class="o">*</span> <span class="n">w1</span><span class="o">.</span><span class="n">grad</span><span class="o">.</span><span class="n">data</span>
+<a name="rest_code_0b3b50db63474394ba87d18edbf3d664-28"></a>    <span class="n">w2</span><span class="o">.</span><span class="n">data</span> <span class="o">-=</span> <span class="n">learning_rate</span> <span class="o">*</span> <span class="n">w2</span><span class="o">.</span><span class="n">grad</span><span class="o">.</span><span class="n">data</span>
+<a name="rest_code_0b3b50db63474394ba87d18edbf3d664-29"></a>
+<a name="rest_code_0b3b50db63474394ba87d18edbf3d664-30"></a>    <span class="c1"># Manually zero the gradients after updating weights</span>
+<a name="rest_code_0b3b50db63474394ba87d18edbf3d664-31"></a>    <span class="n">w1</span><span class="o">.</span><span class="n">grad</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">zero_</span><span class="p">()</span>
+<a name="rest_code_0b3b50db63474394ba87d18edbf3d664-32"></a>    <span class="n">w2</span><span class="o">.</span><span class="n">grad</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">zero_</span><span class="p">()</span>
 </pre>
 </div>
 <div class="section" id="nn-with-optimizer-and-loss">
 <h3><a class="toc-backref" href="#id11">NN with optimizer and&nbsp;loss</a></h3>
 <p>Now we will define network with <tt class="docutils literal">nn</tt> module and with already predefined optimizer and&nbsp;loss</p>
-<pre class="code python"><a name="rest_code_ac292cba0e8d475983717c7733fb1120-1"></a><span class="kn">import</span> <span class="nn">torch</span>
-<a name="rest_code_ac292cba0e8d475983717c7733fb1120-2"></a><span class="kn">from</span> <span class="nn">torch.autograd</span> <span class="kn">import</span> <span class="n">Variable</span>
-<a name="rest_code_ac292cba0e8d475983717c7733fb1120-3"></a>
-<a name="rest_code_ac292cba0e8d475983717c7733fb1120-4"></a><span class="n">N</span><span class="p">,</span> <span class="n">D_in</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">D_out</span> <span class="o">=</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">10</span>
-<a name="rest_code_ac292cba0e8d475983717c7733fb1120-5"></a>
-<a name="rest_code_ac292cba0e8d475983717c7733fb1120-6"></a><span class="n">x</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">D_in</span><span class="p">))</span>
-<a name="rest_code_ac292cba0e8d475983717c7733fb1120-7"></a><span class="n">y</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">D_out</span><span class="p">),</span> <span class="n">requires_grad</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
-<a name="rest_code_ac292cba0e8d475983717c7733fb1120-8"></a>
-<a name="rest_code_ac292cba0e8d475983717c7733fb1120-9"></a><span class="n">model</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
-<a name="rest_code_ac292cba0e8d475983717c7733fb1120-10"></a>    <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">D_in</span><span class="p">,</span> <span class="n">H</span><span class="p">),</span>
-<a name="rest_code_ac292cba0e8d475983717c7733fb1120-11"></a>    <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(),</span>
-<a name="rest_code_ac292cba0e8d475983717c7733fb1120-12"></a>    <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">D_out</span><span class="p">),</span>
-<a name="rest_code_ac292cba0e8d475983717c7733fb1120-13"></a><span class="p">)</span>
-<a name="rest_code_ac292cba0e8d475983717c7733fb1120-14"></a>
-<a name="rest_code_ac292cba0e8d475983717c7733fb1120-15"></a><span class="n">learning_rate</span> <span class="o">=</span> <span class="mf">1e-6</span>
-<a name="rest_code_ac292cba0e8d475983717c7733fb1120-16"></a><span class="n">loss_fn</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">MSELoss</span><span class="p">(</span><span class="n">size_average</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
-<a name="rest_code_ac292cba0e8d475983717c7733fb1120-17"></a><span class="n">optimizer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">SGD</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="n">learning_rate</span><span class="p">)</span>
-<a name="rest_code_ac292cba0e8d475983717c7733fb1120-18"></a>
-<a name="rest_code_ac292cba0e8d475983717c7733fb1120-19"></a><span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">500</span><span class="p">):</span>
-<a name="rest_code_ac292cba0e8d475983717c7733fb1120-20"></a>    <span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<a name="rest_code_ac292cba0e8d475983717c7733fb1120-21"></a>    <span class="n">loss</span> <span class="o">=</span> <span class="n">loss_fn</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
-<a name="rest_code_ac292cba0e8d475983717c7733fb1120-22"></a>
-<a name="rest_code_ac292cba0e8d475983717c7733fb1120-23"></a>    <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
-<a name="rest_code_ac292cba0e8d475983717c7733fb1120-24"></a>    <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
-<a name="rest_code_ac292cba0e8d475983717c7733fb1120-25"></a>    <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+<pre class="code python"><a name="rest_code_1435cba710b24de899bd73a5fb8e27a9-1"></a><span class="kn">import</span> <span class="nn">torch</span>
+<a name="rest_code_1435cba710b24de899bd73a5fb8e27a9-2"></a><span class="kn">from</span> <span class="nn">torch.autograd</span> <span class="kn">import</span> <span class="n">Variable</span>
+<a name="rest_code_1435cba710b24de899bd73a5fb8e27a9-3"></a>
+<a name="rest_code_1435cba710b24de899bd73a5fb8e27a9-4"></a><span class="n">N</span><span class="p">,</span> <span class="n">D_in</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">D_out</span> <span class="o">=</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">10</span>
+<a name="rest_code_1435cba710b24de899bd73a5fb8e27a9-5"></a>
+<a name="rest_code_1435cba710b24de899bd73a5fb8e27a9-6"></a><span class="n">x</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">D_in</span><span class="p">))</span>
+<a name="rest_code_1435cba710b24de899bd73a5fb8e27a9-7"></a><span class="n">y</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">D_out</span><span class="p">),</span> <span class="n">requires_grad</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<a name="rest_code_1435cba710b24de899bd73a5fb8e27a9-8"></a>
+<a name="rest_code_1435cba710b24de899bd73a5fb8e27a9-9"></a><span class="n">model</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
+<a name="rest_code_1435cba710b24de899bd73a5fb8e27a9-10"></a>    <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">D_in</span><span class="p">,</span> <span class="n">H</span><span class="p">),</span>
+<a name="rest_code_1435cba710b24de899bd73a5fb8e27a9-11"></a>    <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(),</span>
+<a name="rest_code_1435cba710b24de899bd73a5fb8e27a9-12"></a>    <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">D_out</span><span class="p">),</span>
+<a name="rest_code_1435cba710b24de899bd73a5fb8e27a9-13"></a><span class="p">)</span>
+<a name="rest_code_1435cba710b24de899bd73a5fb8e27a9-14"></a>
+<a name="rest_code_1435cba710b24de899bd73a5fb8e27a9-15"></a><span class="n">learning_rate</span> <span class="o">=</span> <span class="mf">1e-6</span>
+<a name="rest_code_1435cba710b24de899bd73a5fb8e27a9-16"></a><span class="n">loss_fn</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">MSELoss</span><span class="p">(</span><span class="n">size_average</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<a name="rest_code_1435cba710b24de899bd73a5fb8e27a9-17"></a><span class="n">optimizer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">SGD</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="n">learning_rate</span><span class="p">)</span>
+<a name="rest_code_1435cba710b24de899bd73a5fb8e27a9-18"></a>
+<a name="rest_code_1435cba710b24de899bd73a5fb8e27a9-19"></a><span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">500</span><span class="p">):</span>
+<a name="rest_code_1435cba710b24de899bd73a5fb8e27a9-20"></a>    <span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<a name="rest_code_1435cba710b24de899bd73a5fb8e27a9-21"></a>    <span class="n">loss</span> <span class="o">=</span> <span class="n">loss_fn</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
+<a name="rest_code_1435cba710b24de899bd73a5fb8e27a9-22"></a>
+<a name="rest_code_1435cba710b24de899bd73a5fb8e27a9-23"></a>    <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+<a name="rest_code_1435cba710b24de899bd73a5fb8e27a9-24"></a>    <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+<a name="rest_code_1435cba710b24de899bd73a5fb8e27a9-25"></a>    <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
 </pre>
 </div>
 <div class="section" id="nn-class-based">
 <h3><a class="toc-backref" href="#id12">NN class&nbsp;based</a></h3>
 <p>Create NN as class inherited from <tt class="docutils literal">torch.nn.Module</tt> with convolution and linear&nbsp;layers</p>
-<pre class="code python"><a name="rest_code_cff5f163469843c29170cdf831ac318e-1"></a><span class="kn">import</span> <span class="nn">torch</span>
-<a name="rest_code_cff5f163469843c29170cdf831ac318e-2"></a><span class="kn">import</span> <span class="nn">torch.nn.functional</span> <span class="kn">as</span> <span class="nn">F</span>
-<a name="rest_code_cff5f163469843c29170cdf831ac318e-3"></a>
-<a name="rest_code_cff5f163469843c29170cdf831ac318e-4"></a><span class="k">class</span> <span class="nc">Model</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
-<a name="rest_code_cff5f163469843c29170cdf831ac318e-5"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">D_in</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">D_out</span><span class="p">):</span>
-<a name="rest_code_cff5f163469843c29170cdf831ac318e-6"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-<a name="rest_code_cff5f163469843c29170cdf831ac318e-7"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">linear1</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">D_in</span><span class="p">,</span> <span class="n">H</span><span class="p">)</span>
-<a name="rest_code_cff5f163469843c29170cdf831ac318e-8"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">linear2</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">D_out</span><span class="p">)</span>
-<a name="rest_code_cff5f163469843c29170cdf831ac318e-9"></a>
-<a name="rest_code_cff5f163469843c29170cdf831ac318e-10"></a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-<a name="rest_code_cff5f163469843c29170cdf831ac318e-11"></a>        <span class="n">h_relu</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">linear1</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-<a name="rest_code_cff5f163469843c29170cdf831ac318e-12"></a>        <span class="n">y_pred</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">linear2</span><span class="p">(</span><span class="n">h_relu</span><span class="p">)</span>
-<a name="rest_code_cff5f163469843c29170cdf831ac318e-13"></a>        <span class="k">return</span> <span class="n">y_pred</span>
-<a name="rest_code_cff5f163469843c29170cdf831ac318e-14"></a>
-<a name="rest_code_cff5f163469843c29170cdf831ac318e-15"></a>
-<a name="rest_code_cff5f163469843c29170cdf831ac318e-16"></a><span class="n">N</span><span class="p">,</span> <span class="n">D_in</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">D_out</span> <span class="o">=</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">10</span>
-<a name="rest_code_cff5f163469843c29170cdf831ac318e-17"></a>
-<a name="rest_code_cff5f163469843c29170cdf831ac318e-18"></a><span class="n">x</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">D_in</span><span class="p">))</span>
-<a name="rest_code_cff5f163469843c29170cdf831ac318e-19"></a><span class="n">y</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">D_out</span><span class="p">),</span> <span class="n">requires_grad</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
-<a name="rest_code_cff5f163469843c29170cdf831ac318e-20"></a>
-<a name="rest_code_cff5f163469843c29170cdf831ac318e-21"></a><span class="n">model</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="n">D_in</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">D_out</span><span class="p">)</span>
-<a name="rest_code_cff5f163469843c29170cdf831ac318e-22"></a>
-<a name="rest_code_cff5f163469843c29170cdf831ac318e-23"></a><span class="n">model</span> <span class="o">=</span> <span class="n">Model</span><span class="p">()</span>
-<a name="rest_code_cff5f163469843c29170cdf831ac318e-24"></a><span class="n">criterion</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">MSELoss</span><span class="p">(</span><span class="n">size_average</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
-<a name="rest_code_cff5f163469843c29170cdf831ac318e-25"></a><span class="n">optimizer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">SGD</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">)</span>
-<a name="rest_code_cff5f163469843c29170cdf831ac318e-26"></a><span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">500</span><span class="p">):</span>
-<a name="rest_code_cff5f163469843c29170cdf831ac318e-27"></a>    <span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<a name="rest_code_cff5f163469843c29170cdf831ac318e-28"></a>    <span class="n">loss</span> <span class="o">=</span> <span class="n">criterion</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-<a name="rest_code_cff5f163469843c29170cdf831ac318e-29"></a>    <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
-<a name="rest_code_cff5f163469843c29170cdf831ac318e-30"></a>    <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
-<a name="rest_code_cff5f163469843c29170cdf831ac318e-31"></a>    <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+<pre class="code python"><a name="rest_code_489020962481456997b71d6218d8cc59-1"></a><span class="kn">import</span> <span class="nn">torch</span>
+<a name="rest_code_489020962481456997b71d6218d8cc59-2"></a><span class="kn">import</span> <span class="nn">torch.nn.functional</span> <span class="kn">as</span> <span class="nn">F</span>
+<a name="rest_code_489020962481456997b71d6218d8cc59-3"></a>
+<a name="rest_code_489020962481456997b71d6218d8cc59-4"></a><span class="k">class</span> <span class="nc">Model</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<a name="rest_code_489020962481456997b71d6218d8cc59-5"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">D_in</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">D_out</span><span class="p">):</span>
+<a name="rest_code_489020962481456997b71d6218d8cc59-6"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+<a name="rest_code_489020962481456997b71d6218d8cc59-7"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">linear1</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">D_in</span><span class="p">,</span> <span class="n">H</span><span class="p">)</span>
+<a name="rest_code_489020962481456997b71d6218d8cc59-8"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">linear2</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">D_out</span><span class="p">)</span>
+<a name="rest_code_489020962481456997b71d6218d8cc59-9"></a>
+<a name="rest_code_489020962481456997b71d6218d8cc59-10"></a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<a name="rest_code_489020962481456997b71d6218d8cc59-11"></a>        <span class="n">h_relu</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">linear1</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<a name="rest_code_489020962481456997b71d6218d8cc59-12"></a>        <span class="n">y_pred</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">linear2</span><span class="p">(</span><span class="n">h_relu</span><span class="p">)</span>
+<a name="rest_code_489020962481456997b71d6218d8cc59-13"></a>        <span class="k">return</span> <span class="n">y_pred</span>
+<a name="rest_code_489020962481456997b71d6218d8cc59-14"></a>
+<a name="rest_code_489020962481456997b71d6218d8cc59-15"></a>
+<a name="rest_code_489020962481456997b71d6218d8cc59-16"></a><span class="n">N</span><span class="p">,</span> <span class="n">D_in</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">D_out</span> <span class="o">=</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">10</span>
+<a name="rest_code_489020962481456997b71d6218d8cc59-17"></a>
+<a name="rest_code_489020962481456997b71d6218d8cc59-18"></a><span class="n">x</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">D_in</span><span class="p">))</span>
+<a name="rest_code_489020962481456997b71d6218d8cc59-19"></a><span class="n">y</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">D_out</span><span class="p">),</span> <span class="n">requires_grad</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<a name="rest_code_489020962481456997b71d6218d8cc59-20"></a>
+<a name="rest_code_489020962481456997b71d6218d8cc59-21"></a><span class="n">model</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="n">D_in</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">D_out</span><span class="p">)</span>
+<a name="rest_code_489020962481456997b71d6218d8cc59-22"></a>
+<a name="rest_code_489020962481456997b71d6218d8cc59-23"></a><span class="n">model</span> <span class="o">=</span> <span class="n">Model</span><span class="p">()</span>
+<a name="rest_code_489020962481456997b71d6218d8cc59-24"></a><span class="n">criterion</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">MSELoss</span><span class="p">(</span><span class="n">size_average</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<a name="rest_code_489020962481456997b71d6218d8cc59-25"></a><span class="n">optimizer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">SGD</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">)</span>
+<a name="rest_code_489020962481456997b71d6218d8cc59-26"></a><span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">500</span><span class="p">):</span>
+<a name="rest_code_489020962481456997b71d6218d8cc59-27"></a>    <span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<a name="rest_code_489020962481456997b71d6218d8cc59-28"></a>    <span class="n">loss</span> <span class="o">=</span> <span class="n">criterion</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<a name="rest_code_489020962481456997b71d6218d8cc59-29"></a>    <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+<a name="rest_code_489020962481456997b71d6218d8cc59-30"></a>    <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+<a name="rest_code_489020962481456997b71d6218d8cc59-31"></a>    <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
 </pre>
 </div>
 <div class="section" id="nn-sequential-mixed-with-class-approach">
 <h3><a class="toc-backref" href="#id13">NN sequential mixed with class&nbsp;approach</a></h3>
-<pre class="code python"><a name="rest_code_a115d28e3b6d4053b92720b94aac2a83-1"></a><span class="kn">import</span> <span class="nn">torch</span>
-<a name="rest_code_a115d28e3b6d4053b92720b94aac2a83-2"></a>
-<a name="rest_code_a115d28e3b6d4053b92720b94aac2a83-3"></a><span class="k">class</span> <span class="nc">Model</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
-<a name="rest_code_a115d28e3b6d4053b92720b94aac2a83-4"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-<a name="rest_code_a115d28e3b6d4053b92720b94aac2a83-5"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">feature_extractor</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
-<a name="rest_code_a115d28e3b6d4053b92720b94aac2a83-6"></a>        <span class="n">Conv2d</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
-<a name="rest_code_a115d28e3b6d4053b92720b94aac2a83-7"></a>        <span class="n">Conv2d</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
-<a name="rest_code_a115d28e3b6d4053b92720b94aac2a83-8"></a>    <span class="p">)</span>
-<a name="rest_code_a115d28e3b6d4053b92720b94aac2a83-9"></a>
-<a name="rest_code_a115d28e3b6d4053b92720b94aac2a83-10"></a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-<a name="rest_code_a115d28e3b6d4053b92720b94aac2a83-11"></a>        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">feature_extractor</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<a name="rest_code_a115d28e3b6d4053b92720b94aac2a83-12"></a>        <span class="k">return</span> <span class="n">x</span>
+<pre class="code python"><a name="rest_code_29014ea7a35046bfbffffd73c3b420be-1"></a><span class="kn">import</span> <span class="nn">torch</span>
+<a name="rest_code_29014ea7a35046bfbffffd73c3b420be-2"></a>
+<a name="rest_code_29014ea7a35046bfbffffd73c3b420be-3"></a><span class="k">class</span> <span class="nc">Model</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<a name="rest_code_29014ea7a35046bfbffffd73c3b420be-4"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+<a name="rest_code_29014ea7a35046bfbffffd73c3b420be-5"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">feature_extractor</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
+<a name="rest_code_29014ea7a35046bfbffffd73c3b420be-6"></a>        <span class="n">Conv2d</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+<a name="rest_code_29014ea7a35046bfbffffd73c3b420be-7"></a>        <span class="n">Conv2d</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+<a name="rest_code_29014ea7a35046bfbffffd73c3b420be-8"></a>    <span class="p">)</span>
+<a name="rest_code_29014ea7a35046bfbffffd73c3b420be-9"></a>
+<a name="rest_code_29014ea7a35046bfbffffd73c3b420be-10"></a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<a name="rest_code_29014ea7a35046bfbffffd73c3b420be-11"></a>        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">feature_extractor</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<a name="rest_code_29014ea7a35046bfbffffd73c3b420be-12"></a>        <span class="k">return</span> <span class="n">x</span>
 </pre>
 </div>
 <div class="section" id="convolution-examples">
 <h3><a class="toc-backref" href="#id14">Convolution&nbsp;Examples</a></h3>
 <p><tt class="docutils literal">Conv2d</tt> have such inputs: <tt class="docutils literal">in_channels, out_channels, kernel_size</tt></p>
-<pre class="code python"><a name="rest_code_a76d5a855a644662842a2c0c5461c2d7-1"></a><span class="kn">import</span> <span class="nn">torch</span>
-<a name="rest_code_a76d5a855a644662842a2c0c5461c2d7-2"></a>
-<a name="rest_code_a76d5a855a644662842a2c0c5461c2d7-3"></a><span class="c1"># Sequential based</span>
-<a name="rest_code_a76d5a855a644662842a2c0c5461c2d7-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
-<a name="rest_code_a76d5a855a644662842a2c0c5461c2d7-5"></a>      <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span>
-<a name="rest_code_a76d5a855a644662842a2c0c5461c2d7-6"></a>      <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(),</span>
-<a name="rest_code_a76d5a855a644662842a2c0c5461c2d7-7"></a>      <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">64</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span>
-<a name="rest_code_a76d5a855a644662842a2c0c5461c2d7-8"></a>      <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">()</span>
-<a name="rest_code_a76d5a855a644662842a2c0c5461c2d7-9"></a>    <span class="p">)</span>
-<a name="rest_code_a76d5a855a644662842a2c0c5461c2d7-10"></a>
-<a name="rest_code_a76d5a855a644662842a2c0c5461c2d7-11"></a><span class="c1"># class based</span>
-<a name="rest_code_a76d5a855a644662842a2c0c5461c2d7-12"></a><span class="k">class</span> <span class="nc">Model</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
-<a name="rest_code_a76d5a855a644662842a2c0c5461c2d7-13"></a>
-<a name="rest_code_a76d5a855a644662842a2c0c5461c2d7-14"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a name="rest_code_a76d5a855a644662842a2c0c5461c2d7-15"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-<a name="rest_code_a76d5a855a644662842a2c0c5461c2d7-16"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">conv1</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-<a name="rest_code_a76d5a855a644662842a2c0c5461c2d7-17"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">conv2</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-<a name="rest_code_a76d5a855a644662842a2c0c5461c2d7-18"></a>
-<a name="rest_code_a76d5a855a644662842a2c0c5461c2d7-19"></a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-<a name="rest_code_a76d5a855a644662842a2c0c5461c2d7-20"></a>        <span class="n">x</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">max_pool2d</span><span class="p">(</span><span class="n">F</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">conv1</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
-<a name="rest_code_a76d5a855a644662842a2c0c5461c2d7-21"></a>        <span class="n">x</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">max_pool2d</span><span class="p">(</span><span class="n">F</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">conv2</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span> <span class="mi">2</span><span class="p">)</span>
-<a name="rest_code_a76d5a855a644662842a2c0c5461c2d7-22"></a>        <span class="k">return</span> <span class="n">x</span>
-<a name="rest_code_a76d5a855a644662842a2c0c5461c2d7-23"></a>
-<a name="rest_code_a76d5a855a644662842a2c0c5461c2d7-24"></a><span class="n">model</span> <span class="o">=</span> <span class="n">Model</span><span class="p">()</span>
+<pre class="code python"><a name="rest_code_56d2cb4583fb40feacc286d60f0a51ad-1"></a><span class="kn">import</span> <span class="nn">torch</span>
+<a name="rest_code_56d2cb4583fb40feacc286d60f0a51ad-2"></a>
+<a name="rest_code_56d2cb4583fb40feacc286d60f0a51ad-3"></a><span class="c1"># Sequential based</span>
+<a name="rest_code_56d2cb4583fb40feacc286d60f0a51ad-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
+<a name="rest_code_56d2cb4583fb40feacc286d60f0a51ad-5"></a>      <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span>
+<a name="rest_code_56d2cb4583fb40feacc286d60f0a51ad-6"></a>      <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(),</span>
+<a name="rest_code_56d2cb4583fb40feacc286d60f0a51ad-7"></a>      <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">64</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span>
+<a name="rest_code_56d2cb4583fb40feacc286d60f0a51ad-8"></a>      <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">()</span>
+<a name="rest_code_56d2cb4583fb40feacc286d60f0a51ad-9"></a>    <span class="p">)</span>
+<a name="rest_code_56d2cb4583fb40feacc286d60f0a51ad-10"></a>
+<a name="rest_code_56d2cb4583fb40feacc286d60f0a51ad-11"></a><span class="c1"># class based</span>
+<a name="rest_code_56d2cb4583fb40feacc286d60f0a51ad-12"></a><span class="k">class</span> <span class="nc">Model</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<a name="rest_code_56d2cb4583fb40feacc286d60f0a51ad-13"></a>
+<a name="rest_code_56d2cb4583fb40feacc286d60f0a51ad-14"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a name="rest_code_56d2cb4583fb40feacc286d60f0a51ad-15"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+<a name="rest_code_56d2cb4583fb40feacc286d60f0a51ad-16"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">conv1</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<a name="rest_code_56d2cb4583fb40feacc286d60f0a51ad-17"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">conv2</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<a name="rest_code_56d2cb4583fb40feacc286d60f0a51ad-18"></a>
+<a name="rest_code_56d2cb4583fb40feacc286d60f0a51ad-19"></a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<a name="rest_code_56d2cb4583fb40feacc286d60f0a51ad-20"></a>        <span class="n">x</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">max_pool2d</span><span class="p">(</span><span class="n">F</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">conv1</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<a name="rest_code_56d2cb4583fb40feacc286d60f0a51ad-21"></a>        <span class="n">x</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">max_pool2d</span><span class="p">(</span><span class="n">F</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">conv2</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span> <span class="mi">2</span><span class="p">)</span>
+<a name="rest_code_56d2cb4583fb40feacc286d60f0a51ad-22"></a>        <span class="k">return</span> <span class="n">x</span>
+<a name="rest_code_56d2cb4583fb40feacc286d60f0a51ad-23"></a>
+<a name="rest_code_56d2cb4583fb40feacc286d60f0a51ad-24"></a><span class="n">model</span> <span class="o">=</span> <span class="n">Model</span><span class="p">()</span>
 </pre>
 </div>
 </div>
@@ -385,64 +377,64 @@ Compute gra">
 <h2><a class="toc-backref" href="#id15">Define custom&nbsp;functions</a></h2>
 <div class="section" id="new-style">
 <h3><a class="toc-backref" href="#id16">New&nbsp;style</a></h3>
-<pre class="code python"><a name="rest_code_c1353e0378044178afb3a83ad2186908-1"></a><span class="kn">import</span> <span class="nn">torch</span>
-<a name="rest_code_c1353e0378044178afb3a83ad2186908-2"></a>
-<a name="rest_code_c1353e0378044178afb3a83ad2186908-3"></a><span class="c1"># definition itself</span>
-<a name="rest_code_c1353e0378044178afb3a83ad2186908-4"></a><span class="k">class</span> <span class="nc">MyFunction</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">autograd</span><span class="o">.</span><span class="n">Function</span><span class="p">):</span>
-<a name="rest_code_c1353e0378044178afb3a83ad2186908-5"></a>
-<a name="rest_code_c1353e0378044178afb3a83ad2186908-6"></a>    <span class="nd">@staticmethod</span>
-<a name="rest_code_c1353e0378044178afb3a83ad2186908-7"></a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="nb">input</span><span class="p">):</span>
-<a name="rest_code_c1353e0378044178afb3a83ad2186908-8"></a>        <span class="n">ctx</span><span class="o">.</span><span class="n">save_for_backward</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
-<a name="rest_code_c1353e0378044178afb3a83ad2186908-9"></a>        <span class="n">output</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
-<a name="rest_code_c1353e0378044178afb3a83ad2186908-10"></a>        <span class="k">return</span> <span class="n">output</span>
-<a name="rest_code_c1353e0378044178afb3a83ad2186908-11"></a>
-<a name="rest_code_c1353e0378044178afb3a83ad2186908-12"></a>    <span class="nd">@staticmethod</span>
-<a name="rest_code_c1353e0378044178afb3a83ad2186908-13"></a>    <span class="k">def</span> <span class="nf">backward</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">grad_output</span><span class="p">):</span>
-<a name="rest_code_c1353e0378044178afb3a83ad2186908-14"></a>        <span class="c1"># saved tensors - tuple of tensors, so we need get first</span>
-<a name="rest_code_c1353e0378044178afb3a83ad2186908-15"></a>        <span class="nb">input</span><span class="p">,</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">saved_variables</span>
-<a name="rest_code_c1353e0378044178afb3a83ad2186908-16"></a>        <span class="n">grad_output</span><span class="p">[</span><span class="nb">input</span><span class="o">.</span><span class="n">ge</span><span class="p">(</span><span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="mi">0</span>
-<a name="rest_code_c1353e0378044178afb3a83ad2186908-17"></a>        <span class="n">grad_output</span><span class="p">[</span><span class="nb">input</span><span class="o">.</span><span class="n">le</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="mi">0</span>
-<a name="rest_code_c1353e0378044178afb3a83ad2186908-18"></a>        <span class="k">return</span> <span class="n">grad_output</span>
-<a name="rest_code_c1353e0378044178afb3a83ad2186908-19"></a>
-<a name="rest_code_c1353e0378044178afb3a83ad2186908-20"></a><span class="c1"># usage</span>
-<a name="rest_code_c1353e0378044178afb3a83ad2186908-21"></a><span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
-<a name="rest_code_c1353e0378044178afb3a83ad2186908-22"></a><span class="n">y</span> <span class="o">=</span> <span class="n">MyFunction</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<a name="rest_code_c1353e0378044178afb3a83ad2186908-23"></a><span class="c1"># or</span>
-<a name="rest_code_c1353e0378044178afb3a83ad2186908-24"></a><span class="n">my_func</span> <span class="o">=</span> <span class="n">MyFunction</span><span class="o">.</span><span class="n">apply</span>
-<a name="rest_code_c1353e0378044178afb3a83ad2186908-25"></a><span class="n">y</span> <span class="o">=</span> <span class="n">my_func</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<a name="rest_code_c1353e0378044178afb3a83ad2186908-26"></a>
-<a name="rest_code_c1353e0378044178afb3a83ad2186908-27"></a><span class="c1"># and if we want to use inside nn.Module</span>
-<a name="rest_code_c1353e0378044178afb3a83ad2186908-28"></a><span class="k">class</span> <span class="nc">MyFunctionModule</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
-<a name="rest_code_c1353e0378044178afb3a83ad2186908-29"></a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-<a name="rest_code_c1353e0378044178afb3a83ad2186908-30"></a>        <span class="k">return</span> <span class="n">MyFunction</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<pre class="code python"><a name="rest_code_01d2e2ba55e842a1bf4c3b8c07ecf145-1"></a><span class="kn">import</span> <span class="nn">torch</span>
+<a name="rest_code_01d2e2ba55e842a1bf4c3b8c07ecf145-2"></a>
+<a name="rest_code_01d2e2ba55e842a1bf4c3b8c07ecf145-3"></a><span class="c1"># definition itself</span>
+<a name="rest_code_01d2e2ba55e842a1bf4c3b8c07ecf145-4"></a><span class="k">class</span> <span class="nc">MyFunction</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">autograd</span><span class="o">.</span><span class="n">Function</span><span class="p">):</span>
+<a name="rest_code_01d2e2ba55e842a1bf4c3b8c07ecf145-5"></a>
+<a name="rest_code_01d2e2ba55e842a1bf4c3b8c07ecf145-6"></a>    <span class="nd">@staticmethod</span>
+<a name="rest_code_01d2e2ba55e842a1bf4c3b8c07ecf145-7"></a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="nb">input</span><span class="p">):</span>
+<a name="rest_code_01d2e2ba55e842a1bf4c3b8c07ecf145-8"></a>        <span class="n">ctx</span><span class="o">.</span><span class="n">save_for_backward</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
+<a name="rest_code_01d2e2ba55e842a1bf4c3b8c07ecf145-9"></a>        <span class="n">output</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
+<a name="rest_code_01d2e2ba55e842a1bf4c3b8c07ecf145-10"></a>        <span class="k">return</span> <span class="n">output</span>
+<a name="rest_code_01d2e2ba55e842a1bf4c3b8c07ecf145-11"></a>
+<a name="rest_code_01d2e2ba55e842a1bf4c3b8c07ecf145-12"></a>    <span class="nd">@staticmethod</span>
+<a name="rest_code_01d2e2ba55e842a1bf4c3b8c07ecf145-13"></a>    <span class="k">def</span> <span class="nf">backward</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">grad_output</span><span class="p">):</span>
+<a name="rest_code_01d2e2ba55e842a1bf4c3b8c07ecf145-14"></a>        <span class="c1"># saved tensors - tuple of tensors, so we need get first</span>
+<a name="rest_code_01d2e2ba55e842a1bf4c3b8c07ecf145-15"></a>        <span class="nb">input</span><span class="p">,</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">saved_variables</span>
+<a name="rest_code_01d2e2ba55e842a1bf4c3b8c07ecf145-16"></a>        <span class="n">grad_output</span><span class="p">[</span><span class="nb">input</span><span class="o">.</span><span class="n">ge</span><span class="p">(</span><span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="mi">0</span>
+<a name="rest_code_01d2e2ba55e842a1bf4c3b8c07ecf145-17"></a>        <span class="n">grad_output</span><span class="p">[</span><span class="nb">input</span><span class="o">.</span><span class="n">le</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="mi">0</span>
+<a name="rest_code_01d2e2ba55e842a1bf4c3b8c07ecf145-18"></a>        <span class="k">return</span> <span class="n">grad_output</span>
+<a name="rest_code_01d2e2ba55e842a1bf4c3b8c07ecf145-19"></a>
+<a name="rest_code_01d2e2ba55e842a1bf4c3b8c07ecf145-20"></a><span class="c1"># usage</span>
+<a name="rest_code_01d2e2ba55e842a1bf4c3b8c07ecf145-21"></a><span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<a name="rest_code_01d2e2ba55e842a1bf4c3b8c07ecf145-22"></a><span class="n">y</span> <span class="o">=</span> <span class="n">MyFunction</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<a name="rest_code_01d2e2ba55e842a1bf4c3b8c07ecf145-23"></a><span class="c1"># or</span>
+<a name="rest_code_01d2e2ba55e842a1bf4c3b8c07ecf145-24"></a><span class="n">my_func</span> <span class="o">=</span> <span class="n">MyFunction</span><span class="o">.</span><span class="n">apply</span>
+<a name="rest_code_01d2e2ba55e842a1bf4c3b8c07ecf145-25"></a><span class="n">y</span> <span class="o">=</span> <span class="n">my_func</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<a name="rest_code_01d2e2ba55e842a1bf4c3b8c07ecf145-26"></a>
+<a name="rest_code_01d2e2ba55e842a1bf4c3b8c07ecf145-27"></a><span class="c1"># and if we want to use inside nn.Module</span>
+<a name="rest_code_01d2e2ba55e842a1bf4c3b8c07ecf145-28"></a><span class="k">class</span> <span class="nc">MyFunctionModule</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<a name="rest_code_01d2e2ba55e842a1bf4c3b8c07ecf145-29"></a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<a name="rest_code_01d2e2ba55e842a1bf4c3b8c07ecf145-30"></a>        <span class="k">return</span> <span class="n">MyFunction</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre>
 </div>
 <div class="section" id="old-style">
 <h3><a class="toc-backref" href="#id17">Old&nbsp;style</a></h3>
-<pre class="code python"><a name="rest_code_2b39d9d96ebb4b9ea247719444374b00-1"></a><span class="kn">import</span> <span class="nn">torch</span>
-<a name="rest_code_2b39d9d96ebb4b9ea247719444374b00-2"></a>
-<a name="rest_code_2b39d9d96ebb4b9ea247719444374b00-3"></a><span class="c1"># definition itself</span>
-<a name="rest_code_2b39d9d96ebb4b9ea247719444374b00-4"></a><span class="k">class</span> <span class="nc">MyFunction</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">autograd</span><span class="o">.</span><span class="n">Function</span><span class="p">):</span>
-<a name="rest_code_2b39d9d96ebb4b9ea247719444374b00-5"></a>
-<a name="rest_code_2b39d9d96ebb4b9ea247719444374b00-6"></a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">input</span><span class="p">):</span>
-<a name="rest_code_2b39d9d96ebb4b9ea247719444374b00-7"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">save_for_backward</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
-<a name="rest_code_2b39d9d96ebb4b9ea247719444374b00-8"></a>        <span class="n">output</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
-<a name="rest_code_2b39d9d96ebb4b9ea247719444374b00-9"></a>        <span class="k">return</span> <span class="n">output</span>
-<a name="rest_code_2b39d9d96ebb4b9ea247719444374b00-10"></a>
-<a name="rest_code_2b39d9d96ebb4b9ea247719444374b00-11"></a>    <span class="k">def</span> <span class="nf">backward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">grad_output</span><span class="p">):</span>
-<a name="rest_code_2b39d9d96ebb4b9ea247719444374b00-12"></a>        <span class="nb">input</span><span class="p">,</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">saved_tensors</span>
-<a name="rest_code_2b39d9d96ebb4b9ea247719444374b00-13"></a>        <span class="n">grad_output</span><span class="p">[</span><span class="nb">input</span><span class="o">.</span><span class="n">ge</span><span class="p">(</span><span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="mi">0</span>
-<a name="rest_code_2b39d9d96ebb4b9ea247719444374b00-14"></a>        <span class="n">grad_output</span><span class="p">[</span><span class="nb">input</span><span class="o">.</span><span class="n">le</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="mi">0</span>
-<a name="rest_code_2b39d9d96ebb4b9ea247719444374b00-15"></a>        <span class="k">return</span> <span class="n">grad_output</span>
-<a name="rest_code_2b39d9d96ebb4b9ea247719444374b00-16"></a>
-<a name="rest_code_2b39d9d96ebb4b9ea247719444374b00-17"></a><span class="c1"># usage</span>
-<a name="rest_code_2b39d9d96ebb4b9ea247719444374b00-18"></a><span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
-<a name="rest_code_2b39d9d96ebb4b9ea247719444374b00-19"></a><span class="n">y</span> <span class="o">=</span> <span class="n">MyFunction</span><span class="p">()(</span><span class="n">x</span><span class="p">)</span>
-<a name="rest_code_2b39d9d96ebb4b9ea247719444374b00-20"></a>
-<a name="rest_code_2b39d9d96ebb4b9ea247719444374b00-21"></a><span class="c1"># and if we want to use inside nn.Module</span>
-<a name="rest_code_2b39d9d96ebb4b9ea247719444374b00-22"></a><span class="k">class</span> <span class="nc">MyFunctionModule</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
-<a name="rest_code_2b39d9d96ebb4b9ea247719444374b00-23"></a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-<a name="rest_code_2b39d9d96ebb4b9ea247719444374b00-24"></a>        <span class="k">return</span> <span class="n">MyFunction</span><span class="p">()(</span><span class="n">x</span><span class="p">)</span>
+<pre class="code python"><a name="rest_code_03eb7be85f72429c99a7f0e70f1b28a5-1"></a><span class="kn">import</span> <span class="nn">torch</span>
+<a name="rest_code_03eb7be85f72429c99a7f0e70f1b28a5-2"></a>
+<a name="rest_code_03eb7be85f72429c99a7f0e70f1b28a5-3"></a><span class="c1"># definition itself</span>
+<a name="rest_code_03eb7be85f72429c99a7f0e70f1b28a5-4"></a><span class="k">class</span> <span class="nc">MyFunction</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">autograd</span><span class="o">.</span><span class="n">Function</span><span class="p">):</span>
+<a name="rest_code_03eb7be85f72429c99a7f0e70f1b28a5-5"></a>
+<a name="rest_code_03eb7be85f72429c99a7f0e70f1b28a5-6"></a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">input</span><span class="p">):</span>
+<a name="rest_code_03eb7be85f72429c99a7f0e70f1b28a5-7"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">save_for_backward</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
+<a name="rest_code_03eb7be85f72429c99a7f0e70f1b28a5-8"></a>        <span class="n">output</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
+<a name="rest_code_03eb7be85f72429c99a7f0e70f1b28a5-9"></a>        <span class="k">return</span> <span class="n">output</span>
+<a name="rest_code_03eb7be85f72429c99a7f0e70f1b28a5-10"></a>
+<a name="rest_code_03eb7be85f72429c99a7f0e70f1b28a5-11"></a>    <span class="k">def</span> <span class="nf">backward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">grad_output</span><span class="p">):</span>
+<a name="rest_code_03eb7be85f72429c99a7f0e70f1b28a5-12"></a>        <span class="nb">input</span><span class="p">,</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">saved_tensors</span>
+<a name="rest_code_03eb7be85f72429c99a7f0e70f1b28a5-13"></a>        <span class="n">grad_output</span><span class="p">[</span><span class="nb">input</span><span class="o">.</span><span class="n">ge</span><span class="p">(</span><span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="mi">0</span>
+<a name="rest_code_03eb7be85f72429c99a7f0e70f1b28a5-14"></a>        <span class="n">grad_output</span><span class="p">[</span><span class="nb">input</span><span class="o">.</span><span class="n">le</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="mi">0</span>
+<a name="rest_code_03eb7be85f72429c99a7f0e70f1b28a5-15"></a>        <span class="k">return</span> <span class="n">grad_output</span>
+<a name="rest_code_03eb7be85f72429c99a7f0e70f1b28a5-16"></a>
+<a name="rest_code_03eb7be85f72429c99a7f0e70f1b28a5-17"></a><span class="c1"># usage</span>
+<a name="rest_code_03eb7be85f72429c99a7f0e70f1b28a5-18"></a><span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<a name="rest_code_03eb7be85f72429c99a7f0e70f1b28a5-19"></a><span class="n">y</span> <span class="o">=</span> <span class="n">MyFunction</span><span class="p">()(</span><span class="n">x</span><span class="p">)</span>
+<a name="rest_code_03eb7be85f72429c99a7f0e70f1b28a5-20"></a>
+<a name="rest_code_03eb7be85f72429c99a7f0e70f1b28a5-21"></a><span class="c1"># and if we want to use inside nn.Module</span>
+<a name="rest_code_03eb7be85f72429c99a7f0e70f1b28a5-22"></a><span class="k">class</span> <span class="nc">MyFunctionModule</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<a name="rest_code_03eb7be85f72429c99a7f0e70f1b28a5-23"></a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<a name="rest_code_03eb7be85f72429c99a7f0e70f1b28a5-24"></a>        <span class="k">return</span> <span class="n">MyFunction</span><span class="p">()(</span><span class="n">x</span><span class="p">)</span>
 </pre>
 </div>
 </div>
@@ -451,153 +443,155 @@ Compute gra">
 <div class="section" id="train-flag">
 <h3><a class="toc-backref" href="#id19">Train&nbsp;flag</a></h3>
 <p>Train flag can be updated with boolean to disable dropout and batch norm&nbsp;learning</p>
-<pre class="code python"><a name="rest_code_cf3ebe71161c4697951500c8de39ccb5-1"></a><span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
-<a name="rest_code_cf3ebe71161c4697951500c8de39ccb5-2"></a><span class="c1"># execute train step</span>
-<a name="rest_code_cf3ebe71161c4697951500c8de39ccb5-3"></a><span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
-<a name="rest_code_cf3ebe71161c4697951500c8de39ccb5-4"></a><span class="c1"># run inference step</span>
+<pre class="code python"><a name="rest_code_3714a1f422394524aa9315ea1648d820-1"></a><span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+<a name="rest_code_3714a1f422394524aa9315ea1648d820-2"></a><span class="c1"># execute train step</span>
+<a name="rest_code_3714a1f422394524aa9315ea1648d820-3"></a><span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+<a name="rest_code_3714a1f422394524aa9315ea1648d820-4"></a><span class="c1"># run inference step</span>
 </pre>
 </div>
 <div class="section" id="learning-rate-schedule">
 <h3><a class="toc-backref" href="#id20">Learning Rate&nbsp;Schedule</a></h3>
 <p>PyTorch have a lot of learning rate schedulers <a class="reference external" href="http://pytorch.org/docs/master/optim.html#how-to-adjust-learning-rate">out of the&nbsp;box</a></p>
-<pre class="code python"><a name="rest_code_41de98c7831b4e0f9005c765076bb164-1"></a><span class="kn">from</span> <span class="nn">torch.optim</span> <span class="kn">import</span> <span class="n">lr_scheduler</span>
-<a name="rest_code_41de98c7831b4e0f9005c765076bb164-2"></a>
-<a name="rest_code_41de98c7831b4e0f9005c765076bb164-3"></a><span class="n">scheduler</span> <span class="o">=</span> <span class="n">lr_scheduler</span><span class="o">.</span><span class="n">StepLR</span><span class="p">(</span><span class="n">optimizer</span><span class="p">,</span> <span class="n">step_size</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
-<a name="rest_code_41de98c7831b4e0f9005c765076bb164-4"></a><span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
-<a name="rest_code_41de98c7831b4e0f9005c765076bb164-5"></a>    <span class="n">scheduler</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
-<a name="rest_code_41de98c7831b4e0f9005c765076bb164-6"></a>    <span class="n">train</span><span class="p">()</span>
-<a name="rest_code_41de98c7831b4e0f9005c765076bb164-7"></a>    <span class="n">validate</span><span class="p">()</span>
+<pre class="code python"><a name="rest_code_4dc472c7d1464d12a7ed1d4ef2cd553c-1"></a><span class="kn">from</span> <span class="nn">torch.optim</span> <span class="kn">import</span> <span class="n">lr_scheduler</span>
+<a name="rest_code_4dc472c7d1464d12a7ed1d4ef2cd553c-2"></a>
+<a name="rest_code_4dc472c7d1464d12a7ed1d4ef2cd553c-3"></a><span class="n">scheduler</span> <span class="o">=</span> <span class="n">lr_scheduler</span><span class="o">.</span><span class="n">StepLR</span><span class="p">(</span><span class="n">optimizer</span><span class="p">,</span> <span class="n">step_size</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+<a name="rest_code_4dc472c7d1464d12a7ed1d4ef2cd553c-4"></a><span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+<a name="rest_code_4dc472c7d1464d12a7ed1d4ef2cd553c-5"></a>    <span class="n">scheduler</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+<a name="rest_code_4dc472c7d1464d12a7ed1d4ef2cd553c-6"></a>    <span class="n">train</span><span class="p">()</span>
+<a name="rest_code_4dc472c7d1464d12a7ed1d4ef2cd553c-7"></a>    <span class="n">validate</span><span class="p">()</span>
 </pre>
 </div>
 <div class="section" id="data-loaders">
 <h3><a class="toc-backref" href="#id21">Data&nbsp;Loaders</a></h3>
-<pre class="code python"><a name="rest_code_f68238145b5146b6b42be734a8b82931-1"></a><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
-<a name="rest_code_f68238145b5146b6b42be734a8b82931-2"></a><span class="kn">import</span> <span class="nn">torch</span>
-<a name="rest_code_f68238145b5146b6b42be734a8b82931-3"></a><span class="kn">import</span> <span class="nn">torchvision</span> <span class="kn">as</span> <span class="nn">tv</span>
-<a name="rest_code_f68238145b5146b6b42be734a8b82931-4"></a>
-<a name="rest_code_f68238145b5146b6b42be734a8b82931-5"></a>
-<a name="rest_code_f68238145b5146b6b42be734a8b82931-6"></a><span class="n">data_transforms</span> <span class="o">=</span> <span class="n">tv</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">Compose</span><span class="p">([</span>
-<a name="rest_code_f68238145b5146b6b42be734a8b82931-7"></a>    <span class="n">tv</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">RandomCrop</span><span class="p">((</span><span class="mi">64</span><span class="p">,</span> <span class="mi">64</span><span class="p">),</span> <span class="n">padding</span><span class="o">=</span><span class="mi">4</span><span class="p">),</span>
-<a name="rest_code_f68238145b5146b6b42be734a8b82931-8"></a>    <span class="n">tv</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">RandomHorizontalFlip</span><span class="p">(),</span>
-<a name="rest_code_f68238145b5146b6b42be734a8b82931-9"></a>    <span class="n">tv</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">ToTensor</span><span class="p">(),</span>
-<a name="rest_code_f68238145b5146b6b42be734a8b82931-10"></a><span class="p">])</span>
-<a name="rest_code_f68238145b5146b6b42be734a8b82931-11"></a>
-<a name="rest_code_f68238145b5146b6b42be734a8b82931-12"></a>
-<a name="rest_code_f68238145b5146b6b42be734a8b82931-13"></a><span class="k">class</span> <span class="nc">ImagesDataset</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="p">):</span>
-<a name="rest_code_f68238145b5146b6b42be734a8b82931-14"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
-<a name="rest_code_f68238145b5146b6b42be734a8b82931-15"></a>                 <span class="n">loader</span><span class="o">=</span><span class="n">tv</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">folder</span><span class="o">.</span><span class="n">default_loader</span><span class="p">):</span>
-<a name="rest_code_f68238145b5146b6b42be734a8b82931-16"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span>
-<a name="rest_code_f68238145b5146b6b42be734a8b82931-17"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">transform</span> <span class="o">=</span> <span class="n">transform</span>
-<a name="rest_code_f68238145b5146b6b42be734a8b82931-18"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">loader</span> <span class="o">=</span> <span class="n">loader</span>
-<a name="rest_code_f68238145b5146b6b42be734a8b82931-19"></a>
-<a name="rest_code_f68238145b5146b6b42be734a8b82931-20"></a>    <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
-<a name="rest_code_f68238145b5146b6b42be734a8b82931-21"></a>        <span class="n">row</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
-<a name="rest_code_f68238145b5146b6b42be734a8b82931-22"></a>
-<a name="rest_code_f68238145b5146b6b42be734a8b82931-23"></a>        <span class="n">target</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">'class_'</span><span class="p">]</span>
-<a name="rest_code_f68238145b5146b6b42be734a8b82931-24"></a>        <span class="n">path</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">'path'</span><span class="p">]</span>
-<a name="rest_code_f68238145b5146b6b42be734a8b82931-25"></a>        <span class="n">img</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">loader</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-<a name="rest_code_f68238145b5146b6b42be734a8b82931-26"></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">transform</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
-<a name="rest_code_f68238145b5146b6b42be734a8b82931-27"></a>            <span class="n">img</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
-<a name="rest_code_f68238145b5146b6b42be734a8b82931-28"></a>
-<a name="rest_code_f68238145b5146b6b42be734a8b82931-29"></a>        <span class="k">return</span> <span class="n">img</span><span class="p">,</span> <span class="n">target</span>
-<a name="rest_code_f68238145b5146b6b42be734a8b82931-30"></a>
-<a name="rest_code_f68238145b5146b6b42be734a8b82931-31"></a>    <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a name="rest_code_f68238145b5146b6b42be734a8b82931-32"></a>        <span class="n">n</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span>
-<a name="rest_code_f68238145b5146b6b42be734a8b82931-33"></a>        <span class="k">return</span> <span class="n">n</span>
-<a name="rest_code_f68238145b5146b6b42be734a8b82931-34"></a>
-<a name="rest_code_f68238145b5146b6b42be734a8b82931-35"></a>
-<a name="rest_code_f68238145b5146b6b42be734a8b82931-36"></a><span class="n">train_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'path/to/some.csv'</span><span class="p">)</span>
-<a name="rest_code_f68238145b5146b6b42be734a8b82931-37"></a><span class="n">train_dataset</span> <span class="o">=</span> <span class="n">ImagesDataset</span><span class="p">(</span>
-<a name="rest_code_f68238145b5146b6b42be734a8b82931-38"></a>    <span class="n">df</span><span class="o">=</span><span class="n">train_df</span><span class="p">,</span>
-<a name="rest_code_f68238145b5146b6b42be734a8b82931-39"></a>    <span class="n">transform</span><span class="o">=</span><span class="n">data_transforms</span><span class="p">[</span><span class="s1">'train'</span><span class="p">])</span>
-<a name="rest_code_f68238145b5146b6b42be734a8b82931-40"></a>
-<a name="rest_code_f68238145b5146b6b42be734a8b82931-41"></a><span class="n">train_loader</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span><span class="n">train_dataset</span><span class="p">,</span>
-<a name="rest_code_f68238145b5146b6b42be734a8b82931-42"></a>                                           <span class="n">batch_size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
-<a name="rest_code_f68238145b5146b6b42be734a8b82931-43"></a>                                           <span class="n">shuffle</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
-<a name="rest_code_f68238145b5146b6b42be734a8b82931-44"></a>                                           <span class="n">num_workers</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
-<a name="rest_code_f68238145b5146b6b42be734a8b82931-45"></a>
-<a name="rest_code_f68238145b5146b6b42be734a8b82931-46"></a><span class="c1"># fetch the batch, same as `__getitem__` method</span>
-<a name="rest_code_f68238145b5146b6b42be734a8b82931-47"></a><span class="k">for</span> <span class="n">img</span><span class="p">,</span> <span class="n">target</span> <span class="ow">in</span> <span class="n">train_loader</span><span class="p">:</span>
-<a name="rest_code_f68238145b5146b6b42be734a8b82931-48"></a>    <span class="k">pass</span>
+<pre class="code python"><a name="rest_code_e2e001cc7bc24db7b8c9c2adc02a31de-1"></a><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<a name="rest_code_e2e001cc7bc24db7b8c9c2adc02a31de-2"></a><span class="kn">import</span> <span class="nn">torch</span>
+<a name="rest_code_e2e001cc7bc24db7b8c9c2adc02a31de-3"></a><span class="kn">import</span> <span class="nn">torchvision</span> <span class="kn">as</span> <span class="nn">tv</span>
+<a name="rest_code_e2e001cc7bc24db7b8c9c2adc02a31de-4"></a>
+<a name="rest_code_e2e001cc7bc24db7b8c9c2adc02a31de-5"></a>
+<a name="rest_code_e2e001cc7bc24db7b8c9c2adc02a31de-6"></a><span class="n">data_transforms</span> <span class="o">=</span> <span class="n">tv</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">Compose</span><span class="p">([</span>
+<a name="rest_code_e2e001cc7bc24db7b8c9c2adc02a31de-7"></a>    <span class="n">tv</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">RandomCrop</span><span class="p">((</span><span class="mi">64</span><span class="p">,</span> <span class="mi">64</span><span class="p">),</span> <span class="n">padding</span><span class="o">=</span><span class="mi">4</span><span class="p">),</span>
+<a name="rest_code_e2e001cc7bc24db7b8c9c2adc02a31de-8"></a>    <span class="n">tv</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">RandomHorizontalFlip</span><span class="p">(),</span>
+<a name="rest_code_e2e001cc7bc24db7b8c9c2adc02a31de-9"></a>    <span class="n">tv</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">ToTensor</span><span class="p">(),</span>
+<a name="rest_code_e2e001cc7bc24db7b8c9c2adc02a31de-10"></a><span class="p">])</span>
+<a name="rest_code_e2e001cc7bc24db7b8c9c2adc02a31de-11"></a>
+<a name="rest_code_e2e001cc7bc24db7b8c9c2adc02a31de-12"></a>
+<a name="rest_code_e2e001cc7bc24db7b8c9c2adc02a31de-13"></a><span class="k">class</span> <span class="nc">ImagesDataset</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="p">):</span>
+<a name="rest_code_e2e001cc7bc24db7b8c9c2adc02a31de-14"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+<a name="rest_code_e2e001cc7bc24db7b8c9c2adc02a31de-15"></a>                 <span class="n">loader</span><span class="o">=</span><span class="n">tv</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">folder</span><span class="o">.</span><span class="n">default_loader</span><span class="p">):</span>
+<a name="rest_code_e2e001cc7bc24db7b8c9c2adc02a31de-16"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span>
+<a name="rest_code_e2e001cc7bc24db7b8c9c2adc02a31de-17"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">transform</span> <span class="o">=</span> <span class="n">transform</span>
+<a name="rest_code_e2e001cc7bc24db7b8c9c2adc02a31de-18"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">loader</span> <span class="o">=</span> <span class="n">loader</span>
+<a name="rest_code_e2e001cc7bc24db7b8c9c2adc02a31de-19"></a>
+<a name="rest_code_e2e001cc7bc24db7b8c9c2adc02a31de-20"></a>    <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
+<a name="rest_code_e2e001cc7bc24db7b8c9c2adc02a31de-21"></a>        <span class="n">row</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+<a name="rest_code_e2e001cc7bc24db7b8c9c2adc02a31de-22"></a>
+<a name="rest_code_e2e001cc7bc24db7b8c9c2adc02a31de-23"></a>        <span class="n">target</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">'class_'</span><span class="p">]</span>
+<a name="rest_code_e2e001cc7bc24db7b8c9c2adc02a31de-24"></a>        <span class="n">path</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">'path'</span><span class="p">]</span>
+<a name="rest_code_e2e001cc7bc24db7b8c9c2adc02a31de-25"></a>        <span class="n">img</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">loader</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+<a name="rest_code_e2e001cc7bc24db7b8c9c2adc02a31de-26"></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">transform</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+<a name="rest_code_e2e001cc7bc24db7b8c9c2adc02a31de-27"></a>            <span class="n">img</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+<a name="rest_code_e2e001cc7bc24db7b8c9c2adc02a31de-28"></a>
+<a name="rest_code_e2e001cc7bc24db7b8c9c2adc02a31de-29"></a>        <span class="k">return</span> <span class="n">img</span><span class="p">,</span> <span class="n">target</span>
+<a name="rest_code_e2e001cc7bc24db7b8c9c2adc02a31de-30"></a>
+<a name="rest_code_e2e001cc7bc24db7b8c9c2adc02a31de-31"></a>    <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a name="rest_code_e2e001cc7bc24db7b8c9c2adc02a31de-32"></a>        <span class="n">n</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span>
+<a name="rest_code_e2e001cc7bc24db7b8c9c2adc02a31de-33"></a>        <span class="k">return</span> <span class="n">n</span>
+<a name="rest_code_e2e001cc7bc24db7b8c9c2adc02a31de-34"></a>
+<a name="rest_code_e2e001cc7bc24db7b8c9c2adc02a31de-35"></a>
+<a name="rest_code_e2e001cc7bc24db7b8c9c2adc02a31de-36"></a><span class="n">train_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'path/to/some.csv'</span><span class="p">)</span>
+<a name="rest_code_e2e001cc7bc24db7b8c9c2adc02a31de-37"></a><span class="n">train_dataset</span> <span class="o">=</span> <span class="n">ImagesDataset</span><span class="p">(</span>
+<a name="rest_code_e2e001cc7bc24db7b8c9c2adc02a31de-38"></a>    <span class="n">df</span><span class="o">=</span><span class="n">train_df</span><span class="p">,</span>
+<a name="rest_code_e2e001cc7bc24db7b8c9c2adc02a31de-39"></a>    <span class="n">transform</span><span class="o">=</span><span class="n">data_transforms</span><span class="p">[</span><span class="s1">'train'</span><span class="p">])</span>
+<a name="rest_code_e2e001cc7bc24db7b8c9c2adc02a31de-40"></a>
+<a name="rest_code_e2e001cc7bc24db7b8c9c2adc02a31de-41"></a><span class="n">train_loader</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span><span class="n">train_dataset</span><span class="p">,</span>
+<a name="rest_code_e2e001cc7bc24db7b8c9c2adc02a31de-42"></a>                                           <span class="n">batch_size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+<a name="rest_code_e2e001cc7bc24db7b8c9c2adc02a31de-43"></a>                                           <span class="n">shuffle</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+<a name="rest_code_e2e001cc7bc24db7b8c9c2adc02a31de-44"></a>                                           <span class="n">num_workers</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<a name="rest_code_e2e001cc7bc24db7b8c9c2adc02a31de-45"></a>
+<a name="rest_code_e2e001cc7bc24db7b8c9c2adc02a31de-46"></a><span class="c1"># fetch the batch, same as `__getitem__` method</span>
+<a name="rest_code_e2e001cc7bc24db7b8c9c2adc02a31de-47"></a><span class="k">for</span> <span class="n">img</span><span class="p">,</span> <span class="n">target</span> <span class="ow">in</span> <span class="n">train_loader</span><span class="p">:</span>
+<a name="rest_code_e2e001cc7bc24db7b8c9c2adc02a31de-48"></a>    <span class="k">pass</span>
 </pre>
 </div>
 <div class="section" id="use-volatile-flag-during-inference">
 <h3><a class="toc-backref" href="#id22">Use <tt class="docutils literal">volatile</tt> flag during&nbsp;inference</a></h3>
 <p>In case of inference it&#8217;s better provide <tt class="docutils literal">volatile</tt> flag during variable creation. It can be provided only in case if you exactly sure that there will be no any gradients&nbsp;computing</p>
-<pre class="code python"><a name="rest_code_12ed937ee00c4d2daca72dcda0d64332-1"></a><span class="n">input_</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">input_</span><span class="p">,</span> <span class="n">volatile</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<pre class="code python"><a name="rest_code_8145c75a0dcb4d66b06c78ea3281d381-1"></a><span class="n">input_</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">input_</span><span class="p">,</span> <span class="n">volatile</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 </pre>
 </div>
 <div class="section" id="weights-initialization">
 <h3><a class="toc-backref" href="#id23">Weights&nbsp;initialization</a></h3>
 <p>Weight initializtion in pytorch can be implemented in two&nbsp;ways:</p>
-<pre class="code python"><a name="rest_code_9a432c9fca90408d8f377f38b46c19ab-1"></a><span class="kn">import</span> <span class="nn">torch</span>
-<a name="rest_code_9a432c9fca90408d8f377f38b46c19ab-2"></a>
-<a name="rest_code_9a432c9fca90408d8f377f38b46c19ab-3"></a><span class="c1"># as function call to `nn` module</span>
-<a name="rest_code_9a432c9fca90408d8f377f38b46c19ab-4"></a><span class="n">w</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-<a name="rest_code_9a432c9fca90408d8f377f38b46c19ab-5"></a><span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">init</span><span class="o">.</span><span class="n">xavier_normal</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
-<a name="rest_code_9a432c9fca90408d8f377f38b46c19ab-6"></a>
-<a name="rest_code_9a432c9fca90408d8f377f38b46c19ab-7"></a><span class="c1"># as direct access to tensors data attribute</span>
-<a name="rest_code_9a432c9fca90408d8f377f38b46c19ab-8"></a><span class="k">def</span> <span class="nf">weights_init</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
-<a name="rest_code_9a432c9fca90408d8f377f38b46c19ab-9"></a>    <span class="n">classname</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span>
-<a name="rest_code_9a432c9fca90408d8f377f38b46c19ab-10"></a>    <span class="k">if</span> <span class="n">classname</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">'Conv'</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
-<a name="rest_code_9a432c9fca90408d8f377f38b46c19ab-11"></a>        <span class="n">m</span><span class="o">.</span><span class="n">weight</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">normal_</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">)</span>
-<a name="rest_code_9a432c9fca90408d8f377f38b46c19ab-12"></a>    <span class="k">elif</span> <span class="n">classname</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">'BatchNorm'</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
-<a name="rest_code_9a432c9fca90408d8f377f38b46c19ab-13"></a>        <span class="n">m</span><span class="o">.</span><span class="n">weight</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">normal_</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">)</span>
-<a name="rest_code_9a432c9fca90408d8f377f38b46c19ab-14"></a>        <span class="n">m</span><span class="o">.</span><span class="n">bias</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">fill_</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<a name="rest_code_9a432c9fca90408d8f377f38b46c19ab-15"></a>
-<a name="rest_code_9a432c9fca90408d8f377f38b46c19ab-16"></a>
-<a name="rest_code_9a432c9fca90408d8f377f38b46c19ab-17"></a><span class="c1"># for loop approach with direct access</span>
-<a name="rest_code_9a432c9fca90408d8f377f38b46c19ab-18"></a><span class="k">class</span> <span class="nc">MyModel</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
-<a name="rest_code_9a432c9fca90408d8f377f38b46c19ab-19"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a name="rest_code_9a432c9fca90408d8f377f38b46c19ab-20"></a>        <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">modules</span><span class="p">():</span>
-<a name="rest_code_9a432c9fca90408d8f377f38b46c19ab-21"></a>            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">):</span>
-<a name="rest_code_9a432c9fca90408d8f377f38b46c19ab-22"></a>                <span class="n">n</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">kernel_size</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">m</span><span class="o">.</span><span class="n">kernel_size</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">m</span><span class="o">.</span><span class="n">out_channels</span>
-<a name="rest_code_9a432c9fca90408d8f377f38b46c19ab-23"></a>                <span class="n">m</span><span class="o">.</span><span class="n">weight</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">normal_</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">2.</span> <span class="o">/</span> <span class="n">n</span><span class="p">))</span>
-<a name="rest_code_9a432c9fca90408d8f377f38b46c19ab-24"></a>            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">nn</span><span class="o">.</span><span class="n">BatchNorm2d</span><span class="p">):</span>
-<a name="rest_code_9a432c9fca90408d8f377f38b46c19ab-25"></a>                <span class="n">m</span><span class="o">.</span><span class="n">weight</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">fill_</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<a name="rest_code_9a432c9fca90408d8f377f38b46c19ab-26"></a>                <span class="n">m</span><span class="o">.</span><span class="n">bias</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">zero_</span><span class="p">()</span>
-<a name="rest_code_9a432c9fca90408d8f377f38b46c19ab-27"></a>            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">):</span>
-<a name="rest_code_9a432c9fca90408d8f377f38b46c19ab-28"></a>                <span class="n">m</span><span class="o">.</span><span class="n">bias</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">zero_</span><span class="p">()</span>
+<pre class="code python"><a name="rest_code_6fda91bba8e94b3b925f85e2561f7dd9-1"></a><span class="kn">import</span> <span class="nn">torch</span>
+<a name="rest_code_6fda91bba8e94b3b925f85e2561f7dd9-2"></a>
+<a name="rest_code_6fda91bba8e94b3b925f85e2561f7dd9-3"></a><span class="c1"># as function call to `nn` module</span>
+<a name="rest_code_6fda91bba8e94b3b925f85e2561f7dd9-4"></a><span class="n">w</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<a name="rest_code_6fda91bba8e94b3b925f85e2561f7dd9-5"></a><span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">init</span><span class="o">.</span><span class="n">xavier_normal</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+<a name="rest_code_6fda91bba8e94b3b925f85e2561f7dd9-6"></a>
+<a name="rest_code_6fda91bba8e94b3b925f85e2561f7dd9-7"></a><span class="c1"># as direct access to tensors data attribute</span>
+<a name="rest_code_6fda91bba8e94b3b925f85e2561f7dd9-8"></a><span class="k">def</span> <span class="nf">weights_init</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+<a name="rest_code_6fda91bba8e94b3b925f85e2561f7dd9-9"></a>    <span class="n">classname</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span>
+<a name="rest_code_6fda91bba8e94b3b925f85e2561f7dd9-10"></a>    <span class="k">if</span> <span class="n">classname</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">'Conv'</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+<a name="rest_code_6fda91bba8e94b3b925f85e2561f7dd9-11"></a>        <span class="n">m</span><span class="o">.</span><span class="n">weight</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">normal_</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">)</span>
+<a name="rest_code_6fda91bba8e94b3b925f85e2561f7dd9-12"></a>    <span class="k">elif</span> <span class="n">classname</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">'BatchNorm'</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+<a name="rest_code_6fda91bba8e94b3b925f85e2561f7dd9-13"></a>        <span class="n">m</span><span class="o">.</span><span class="n">weight</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">normal_</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">)</span>
+<a name="rest_code_6fda91bba8e94b3b925f85e2561f7dd9-14"></a>        <span class="n">m</span><span class="o">.</span><span class="n">bias</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">fill_</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<a name="rest_code_6fda91bba8e94b3b925f85e2561f7dd9-15"></a>
+<a name="rest_code_6fda91bba8e94b3b925f85e2561f7dd9-16"></a>
+<a name="rest_code_6fda91bba8e94b3b925f85e2561f7dd9-17"></a><span class="c1"># for loop approach with direct access</span>
+<a name="rest_code_6fda91bba8e94b3b925f85e2561f7dd9-18"></a><span class="k">class</span> <span class="nc">MyModel</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<a name="rest_code_6fda91bba8e94b3b925f85e2561f7dd9-19"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a name="rest_code_6fda91bba8e94b3b925f85e2561f7dd9-20"></a>        <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">modules</span><span class="p">():</span>
+<a name="rest_code_6fda91bba8e94b3b925f85e2561f7dd9-21"></a>            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">):</span>
+<a name="rest_code_6fda91bba8e94b3b925f85e2561f7dd9-22"></a>                <span class="n">n</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">kernel_size</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">m</span><span class="o">.</span><span class="n">kernel_size</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">m</span><span class="o">.</span><span class="n">out_channels</span>
+<a name="rest_code_6fda91bba8e94b3b925f85e2561f7dd9-23"></a>                <span class="n">m</span><span class="o">.</span><span class="n">weight</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">normal_</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">2.</span> <span class="o">/</span> <span class="n">n</span><span class="p">))</span>
+<a name="rest_code_6fda91bba8e94b3b925f85e2561f7dd9-24"></a>            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">nn</span><span class="o">.</span><span class="n">BatchNorm2d</span><span class="p">):</span>
+<a name="rest_code_6fda91bba8e94b3b925f85e2561f7dd9-25"></a>                <span class="n">m</span><span class="o">.</span><span class="n">weight</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">fill_</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<a name="rest_code_6fda91bba8e94b3b925f85e2561f7dd9-26"></a>                <span class="n">m</span><span class="o">.</span><span class="n">bias</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">zero_</span><span class="p">()</span>
+<a name="rest_code_6fda91bba8e94b3b925f85e2561f7dd9-27"></a>            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">):</span>
+<a name="rest_code_6fda91bba8e94b3b925f85e2561f7dd9-28"></a>                <span class="n">m</span><span class="o">.</span><span class="n">bias</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">zero_</span><span class="p">()</span>
 </pre>
 </div>
 <div class="section" id="work-with-cuda">
 <h3><a class="toc-backref" href="#id24">Work with&nbsp;CUDA</a></h3>
-<pre class="code python"><a name="rest_code_42c4de24ad4348a3b9d1d84520081777-1"></a><span class="kn">import</span> <span class="nn">torch</span>
-<a name="rest_code_42c4de24ad4348a3b9d1d84520081777-2"></a>
-<a name="rest_code_42c4de24ad4348a3b9d1d84520081777-3"></a><span class="c1"># check is cuda enabled</span>
-<a name="rest_code_42c4de24ad4348a3b9d1d84520081777-4"></a><span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span>
-<a name="rest_code_42c4de24ad4348a3b9d1d84520081777-5"></a>
-<a name="rest_code_42c4de24ad4348a3b9d1d84520081777-6"></a><span class="c1"># set required device</span>
-<a name="rest_code_42c4de24ad4348a3b9d1d84520081777-7"></a><span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">set_device</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<a name="rest_code_42c4de24ad4348a3b9d1d84520081777-8"></a>
-<a name="rest_code_42c4de24ad4348a3b9d1d84520081777-9"></a><span class="c1"># work with some required cuda device</span>
-<a name="rest_code_42c4de24ad4348a3b9d1d84520081777-10"></a><span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="mi">1</span><span class="p">):</span>
-<a name="rest_code_42c4de24ad4348a3b9d1d84520081777-11"></a>    <span class="c1"># allocates a tensor on GPU 1</span>
-<a name="rest_code_42c4de24ad4348a3b9d1d84520081777-12"></a>    <span class="n">a</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">FloatTensor</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<a name="rest_code_42c4de24ad4348a3b9d1d84520081777-13"></a>    <span class="c1"># a.get_device() == 1</span>
-<a name="rest_code_42c4de24ad4348a3b9d1d84520081777-14"></a>
-<a name="rest_code_42c4de24ad4348a3b9d1d84520081777-15"></a>    <span class="c1"># but you still can manually assign tensor to required device</span>
-<a name="rest_code_42c4de24ad4348a3b9d1d84520081777-16"></a>    <span class="n">d</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">cuda</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<a name="rest_code_42c4de24ad4348a3b9d1d84520081777-17"></a>    <span class="c1"># d.get_device() == 2</span>
+<pre class="code python"><a name="rest_code_438def00abb84ae19121d98630b9d5e7-1"></a><span class="kn">import</span> <span class="nn">torch</span>
+<a name="rest_code_438def00abb84ae19121d98630b9d5e7-2"></a>
+<a name="rest_code_438def00abb84ae19121d98630b9d5e7-3"></a><span class="c1"># check is cuda enabled</span>
+<a name="rest_code_438def00abb84ae19121d98630b9d5e7-4"></a><span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span>
+<a name="rest_code_438def00abb84ae19121d98630b9d5e7-5"></a>
+<a name="rest_code_438def00abb84ae19121d98630b9d5e7-6"></a><span class="c1"># set required device</span>
+<a name="rest_code_438def00abb84ae19121d98630b9d5e7-7"></a><span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">set_device</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<a name="rest_code_438def00abb84ae19121d98630b9d5e7-8"></a>
+<a name="rest_code_438def00abb84ae19121d98630b9d5e7-9"></a><span class="c1"># work with some required cuda device</span>
+<a name="rest_code_438def00abb84ae19121d98630b9d5e7-10"></a><span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="mi">1</span><span class="p">):</span>
+<a name="rest_code_438def00abb84ae19121d98630b9d5e7-11"></a>    <span class="c1"># allocates a tensor on GPU 1</span>
+<a name="rest_code_438def00abb84ae19121d98630b9d5e7-12"></a>    <span class="n">a</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">FloatTensor</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<a name="rest_code_438def00abb84ae19121d98630b9d5e7-13"></a>    <span class="c1"># a.get_device() == 1</span>
+<a name="rest_code_438def00abb84ae19121d98630b9d5e7-14"></a>
+<a name="rest_code_438def00abb84ae19121d98630b9d5e7-15"></a>    <span class="c1"># but you still can manually assign tensor to required device</span>
+<a name="rest_code_438def00abb84ae19121d98630b9d5e7-16"></a>    <span class="n">d</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">cuda</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<a name="rest_code_438def00abb84ae19121d98630b9d5e7-17"></a>    <span class="c1"># d.get_device() == 2</span>
 </pre>
 </div>
 </div>
 </div>
     </div>
     
-</article>
-</div>
-        <!--End of body content-->
-
-        <footer id="footer">
-            Contents © 2018         <a href="mailto:ikhlestov@gmail.com">Illarion Khlestov</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>          <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script></footer>
+</article><!--End of body content--><footer id="footer">
+            Contents © 2019         <a href="mailto:ikhlestov@gmail.com">Illarion Khlestov</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>          <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script></footer>
 </div>
 </div>
 
-            <script src="../../../assets/js/all-nocdn.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
+        <script src="../../../assets/js/all-nocdn.js"></script><!-- fancy dates --><script>
     moment.locale("en");
     fancydates(0, "YYYY-MM-DD HH:mm");
     </script><!-- end fancy dates --><script>
+    baguetteBox.run('div#content', {
+        ignoreClass: 'islink',
+        captions: function(element) {
+            return element.getElementsByTagName('img')[0].alt;
+    }});
+    </script><script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)

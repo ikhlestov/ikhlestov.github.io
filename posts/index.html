@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html prefix="
+og: http://ogp.me/ns# article: http://ogp.me/ns/article#
+" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="Notes about AI, machine learning, computer vision and programming.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Illarion&#8217;s Notes</title>
+<link href="../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#5670d4">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
+<link rel="canonical" href="https://ikhlestov.github.io/posts/">
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    displayAlign: 'center', // Change this to 'center' to center equations.
+});
+</script><!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]-->
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-expand-md static-top mb-4
+navbar-dark bg-dark
+"><div class="container">
+<!-- This keeps the margins nice -->
+        <a class="navbar-brand" href="https://ikhlestov.github.io/">
+
+            <span id="blog-title">Illarion&#8217;s Notes</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="bs-navbar">
+            <ul class="navbar-nav mr-auto">
+<li class="nav-item">
+<a href="../" class="nav-link">About</a>
+                </li>
+<li class="nav-item active">
+<a href="." class="nav-link">Blog Posts <span class="sr-only">(active)</span></a>
+                </li>
+<li class="nav-item">
+<a href="../pages/" class="nav-link">Pages</a>
+
+                
+            </li>
+</ul>
+<ul class="navbar-nav navbar-right"></ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    
+    <div class="body-content">
+        <!--Body content-->
+        
+    
+    
+<div class="postindex">
+    <article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="rbm-based-autoencoders-with-tensorflow/" class="u-url">RBM based Autoencoders with&nbsp;tensorflow</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                Illarion&nbsp;Khlestov
+            </span></p>
+            <p class="dateline">
+            <a href="rbm-based-autoencoders-with-tensorflow/" rel="bookmark">
+            <time class="published dt-published" datetime="2016-12-28T20:33:15Z" itemprop="datePublished" title="2016-12-28 20:33">2016-12-28 20:33</time></a>
+            </p>
+                <p class="commentline">            <a href="rbm-based-autoencoders-with-tensorflow/#disqus_thread" data-disqus-identifier="cache/posts/rbm-based-autoencoders-with-tensorflow.html">Comments</a>
+
+
+        </p>
+</div>
+    </header><div class="p-summary entry-summary">
+    <div>
+<p>Recently I try to implement RBM based autoencoder in tensorflow similar to RBMs described in <a class="reference external" href="http://www.cs.utoronto.ca/~rsalakhu/papers/semantic_final.pdf">Semantic Hashing</a> paper by Ruslan Salakhutdinov and Geoffrey Hinton. It seems that with weights that were pre-trained with RBM autoencoders should converge faster. So I&#8217;ve decided to check&nbsp;this.</p>
+<p>This post will describe some roadblocks for RBMs/autoencoders implementation in tensorflow and compare results of different approaches. I assume reader&#8217;s previous knowledge of tensorflow and machine learning field. All code can be found in <a class="reference external" href="https://github.com/ikhlestov/rbm_based_autoencoders_with_tensorflow">this&nbsp;repo</a></p>
+<p>RBMs different from usual neural networks in some&nbsp;ways:</p>
+<p>Neural networks usually perform weight update by Gradient Descent, but RMBs use <strong>Contrastive Divergence</strong> (which is basically a funky term for &#8220;approximate gradient descent&#8221; <a class="reference external" href="http://deeplearning.net/tutorial/rbm.html">link to read</a>). At a glance, contrastive divergence computes a difference between <strong>positive phase</strong> (energy of first encoding) and <strong>negative phase</strong> (energy of the last&nbsp;encoding).</p>
+<pre class="code python"><a name="rest_code_9b70e63327634f7e8b0243b64969f1c3-1"></a><span class="n">positive_phase</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span>
+<a name="rest_code_9b70e63327634f7e8b0243b64969f1c3-2"></a>    <span class="n">tf</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">visib_inputs_initial</span><span class="p">),</span> <span class="n">first_encoded_probability</span><span class="p">)</span>
+<a name="rest_code_9b70e63327634f7e8b0243b64969f1c3-3"></a><span class="n">negative_phase</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span>
+<a name="rest_code_9b70e63327634f7e8b0243b64969f1c3-4"></a>    <span class="n">tf</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">last_reconstructed_probability</span><span class="p">),</span> <span class="n">last_encoded_probability</span><span class="p">)</span>
+<a name="rest_code_9b70e63327634f7e8b0243b64969f1c3-5"></a><span class="n">contrastive_divergence</span> <span class="o">=</span> <span class="n">positive_phase</span> <span class="o">-</span> <span class="n">negative_phase</span>
+</pre>
+<p>Also, a key feature of RMB that it encode output in binary mode, not as probabilities. More about RMBs you may read <a class="reference external" href="http://blog.echen.me/2011/07/18/introduction-to-restricted-boltzmann-machines/">here</a> or <a class="reference external" href="http://rocknrollnerd.github.io/ml/2015/07/18/general-boltzmann-machines.html">here</a>.</p>
+<p>As prototype one layer tensorflow rbm <a class="reference external" href="https://github.com/blackecho/Deep-Learning-TensorFlow/blob/master/yadlt/models/rbm_models/rbm.py">implementation</a> was used. For testing, I&#8217;ve taken well known <a class="reference external" href="https://en.wikipedia.org/wiki/MNIST_database">MNIST</a> dataset(dataset of handwritten&nbsp;digits).</p>
+<p class="more"><a href="rbm-based-autoencoders-with-tensorflow/">Read&nbsp;more…</a></p>
+</div>
+    </div>
+    </article>
+</div>
+
+               <script>var disqus_shortname="ikhlestov-blog";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script><!--End of body content--><footer id="footer">
+            Contents © 2019         <a href="mailto:ikhlestov@gmail.com">Illarion Khlestov</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>          <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script></footer>
+</div>
+</div>
+
+        <script src="../assets/js/all-nocdn.js"></script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates --><script>
+    baguetteBox.run('div#content', {
+        ignoreClass: 'islink',
+        captions: function(element) {
+            return element.getElementsByTagName('img')[0].alt;
+    }});
+    </script><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-92406723-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

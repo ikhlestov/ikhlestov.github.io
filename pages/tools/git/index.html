@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html prefix="
+og: http://ogp.me/ns# article: http://ogp.me/ns/article#
+" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Git | Illarion&#8217;s Notes</title>
+<link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#5670d4">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../../../rss.xml">
+<link rel="canonical" href="https://ikhlestov.github.io/pages/tools/git/">
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    displayAlign: 'center', // Change this to 'center' to center equations.
+});
+</script><!--[if lt IE 9]><script src="../../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Illarion Khlestov">
+<meta property="og:site_name" content="Illarion's Notes">
+<meta property="og:title" content="Git">
+<meta property="og:url" content="https://ikhlestov.github.io/pages/tools/git/">
+<meta property="og:description" content="Resources:
+
+Git cheat sheet
+Another cheat sheet
+Undoing things
+
+Installing git repo with pip
+pip install -e \
+git+ssh://git@github.com/username/repository@[branch|tag|commit]#egg=common[&amp;subdirectory=">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2018-08-26T14:33:28Z">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-expand-md static-top mb-4
+navbar-dark bg-dark
+"><div class="container">
+<!-- This keeps the margins nice -->
+        <a class="navbar-brand" href="https://ikhlestov.github.io/">
+
+            <span id="blog-title">Illarion&#8217;s Notes</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="bs-navbar">
+            <ul class="navbar-nav mr-auto">
+<li class="nav-item">
+<a href="../../../" class="nav-link">About</a>
+                </li>
+<li class="nav-item">
+<a href="../../../posts/" class="nav-link">Blog&nbsp;Posts</a>
+                </li>
+<li class="nav-item">
+<a href="../../" class="nav-link">Pages</a>
+
+                
+            </li>
+</ul>
+<ul class="navbar-nav navbar-right"></ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <nav class="breadcrumbs"><ul class="breadcrumb">
+<li class="breadcrumb-item"><a href="../../">pages</a></li>
+                <li class="breadcrumb-item"><a href="../">tools</a></li>
+                <li class="breadcrumb-item active">git</li>
+</ul></nav><div class="body-content">
+        <!--Body content-->
+        
+<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Git</a></h1>
+
+        
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<p>Resources:</p>
+<ul class="simple">
+<li><a class="reference external" href="http://files.zeroturnaround.com/pdf/zt_git_cheat_sheet.pdf">Git cheat&nbsp;sheet</a></li>
+<li><a class="reference external" href="https://gist.github.com/eashish93/3eca6a90fef1ea6e586b7ec211ff72a5">Another cheat&nbsp;sheet</a></li>
+<li><a class="reference external" href="https://www.git-tower.com/learn/git/ebook/en/command-line/advanced-topics/undoing-things">Undoing&nbsp;things</a></li>
+</ul>
+<p><strong>Installing git repo with&nbsp;pip</strong></p>
+<pre class="code text"><a name="rest_code_f74e93ab36484a73a83e437f8c00f746-1"></a>pip install -e \
+<a name="rest_code_f74e93ab36484a73a83e437f8c00f746-2"></a>git+ssh://git@github.com/username/repository@[branch|tag|commit]#egg=common[&amp;subdirectory=dir_name]
+</pre>
+<p><strong>Remove file from git but not from local&nbsp;machine</strong></p>
+<pre class="code bash"><a name="rest_code_4e0a1959e3174974bb104d4fd08b3af1-1"></a><span class="c1"># for a single file</span>
+<a name="rest_code_4e0a1959e3174974bb104d4fd08b3af1-2"></a>git rm --cached file_name
+<a name="rest_code_4e0a1959e3174974bb104d4fd08b3af1-3"></a>
+<a name="rest_code_4e0a1959e3174974bb104d4fd08b3af1-4"></a><span class="c1"># for a single directory</span>
+<a name="rest_code_4e0a1959e3174974bb104d4fd08b3af1-5"></a>git rm --cached -r directory_name
+</pre>
+<p><strong>Add files to&nbsp;git</strong></p>
+<pre class="code bash"><a name="rest_code_f6efef26276c459484fb620ef23381d0-1"></a><span class="c1"># add all files or filename/folder</span>
+<a name="rest_code_f6efef26276c459484fb620ef23381d0-2"></a>git add --all
+<a name="rest_code_f6efef26276c459484fb620ef23381d0-3"></a>
+<a name="rest_code_f6efef26276c459484fb620ef23381d0-4"></a><span class="c1"># add updated files only</span>
+<a name="rest_code_f6efef26276c459484fb620ef23381d0-5"></a>git add -u
+</pre>
+<p><strong>Show the&nbsp;diff</strong></p>
+<pre class="code bash"><a name="rest_code_fa14c16cfb8246ac9a5321ad898cdc24-1"></a><span class="c1"># know the difference with not staged</span>
+<a name="rest_code_fa14c16cfb8246ac9a5321ad898cdc24-2"></a>git diff
+<a name="rest_code_fa14c16cfb8246ac9a5321ad898cdc24-3"></a>
+<a name="rest_code_fa14c16cfb8246ac9a5321ad898cdc24-4"></a><span class="c1"># what will be committed</span>
+<a name="rest_code_fa14c16cfb8246ac9a5321ad898cdc24-5"></a>git diff --staged
+</pre>
+<p><strong>Create a&nbsp;commit</strong></p>
+<pre class="code bash"><a name="rest_code_6f548f26dcc44e31a50071c609ad7a26-1"></a><span class="c1"># use commit message from command line</span>
+<a name="rest_code_6f548f26dcc44e31a50071c609ad7a26-2"></a>git commit -m
+<a name="rest_code_6f548f26dcc44e31a50071c609ad7a26-3"></a>
+<a name="rest_code_6f548f26dcc44e31a50071c609ad7a26-4"></a><span class="c1"># change and rewrite existing files</span>
+<a name="rest_code_6f548f26dcc44e31a50071c609ad7a26-5"></a>git commit -a
+<a name="rest_code_6f548f26dcc44e31a50071c609ad7a26-6"></a>
+<a name="rest_code_6f548f26dcc44e31a50071c609ad7a26-7"></a><span class="c1"># the same but with a comment</span>
+<a name="rest_code_6f548f26dcc44e31a50071c609ad7a26-8"></a>git commit -am
+<a name="rest_code_6f548f26dcc44e31a50071c609ad7a26-9"></a>
+<a name="rest_code_6f548f26dcc44e31a50071c609ad7a26-10"></a><span class="c1"># change only the message if commit was not pushed</span>
+<a name="rest_code_6f548f26dcc44e31a50071c609ad7a26-11"></a>git commit --amend -m <span class="s2">"New commit message"</span>
+</pre>
+<p><strong>Make right commit&nbsp;messages</strong></p>
+<ul class="simple">
+<li>Separate subject from body with a blank&nbsp;line</li>
+<li>Limit the subject line to 50&nbsp;characters</li>
+<li>Capitalize the subject&nbsp;line</li>
+<li>Do not end the subject line with a&nbsp;period</li>
+<li>Use the imperative mood in the subject&nbsp;line</li>
+<li>Wrap the body at 72&nbsp;characters</li>
+<li>Use the body to explain what and why vs.&nbsp;how</li>
+</ul>
+<p><strong>Work with&nbsp;branches</strong></p>
+<pre class="code bash"><a name="rest_code_bbf0c93658a847c3aa9cf143febe98ca-1"></a><span class="c1"># list both local and remote branches</span>
+<a name="rest_code_bbf0c93658a847c3aa9cf143febe98ca-2"></a>git branch -a
+<a name="rest_code_bbf0c93658a847c3aa9cf143febe98ca-3"></a>
+<a name="rest_code_bbf0c93658a847c3aa9cf143febe98ca-4"></a><span class="c1"># list only remote branches</span>
+<a name="rest_code_bbf0c93658a847c3aa9cf143febe98ca-5"></a>git branch -r
+<a name="rest_code_bbf0c93658a847c3aa9cf143febe98ca-6"></a>
+<a name="rest_code_bbf0c93658a847c3aa9cf143febe98ca-7"></a><span class="c1"># update list of local branches</span>
+<a name="rest_code_bbf0c93658a847c3aa9cf143febe98ca-8"></a>git remote update origin --prune
+<a name="rest_code_bbf0c93658a847c3aa9cf143febe98ca-9"></a>
+<a name="rest_code_bbf0c93658a847c3aa9cf143febe98ca-10"></a><span class="c1"># delete branch</span>
+<a name="rest_code_bbf0c93658a847c3aa9cf143febe98ca-11"></a>git branch -d <span class="nv">$branch_name</span>
+</pre>
+<p><strong>Revert some&nbsp;things</strong></p>
+<pre class="code bash"><a name="rest_code_867f8fc512de424181fa9467bd77da8c-1"></a><span class="c1">## Undoing local changes</span>
+<a name="rest_code_867f8fc512de424181fa9467bd77da8c-2"></a><span class="c1"># reset one file to the last committed version</span>
+<a name="rest_code_867f8fc512de424181fa9467bd77da8c-3"></a>git checkout HEAD file/to/restore.ext
+<a name="rest_code_867f8fc512de424181fa9467bd77da8c-4"></a><span class="c1"># reset all files</span>
+<a name="rest_code_867f8fc512de424181fa9467bd77da8c-5"></a>git reset --hard HEAD
+<a name="rest_code_867f8fc512de424181fa9467bd77da8c-6"></a>
+<a name="rest_code_867f8fc512de424181fa9467bd77da8c-7"></a><span class="c1">## Undoing Committed Changes</span>
+<a name="rest_code_867f8fc512de424181fa9467bd77da8c-8"></a><span class="c1"># revert commit == reapply some commit one more time, history will be saved</span>
+<a name="rest_code_867f8fc512de424181fa9467bd77da8c-9"></a>git revert 2b504be
+<a name="rest_code_867f8fc512de424181fa9467bd77da8c-10"></a><span class="c1"># reset commit == all next commits will be erased, last history will be destroyed</span>
+<a name="rest_code_867f8fc512de424181fa9467bd77da8c-11"></a>git reset --hard 2be18d9
+</pre>
+<p><strong>Additional&nbsp;topics</strong></p>
+<pre class="code bash"><a name="rest_code_9882c4b1cd7b40e1a3eb0adab0dc5f45-1"></a><span class="c1"># if you want use some tool to display diff(meld, for example)</span>
+<a name="rest_code_9882c4b1cd7b40e1a3eb0adab0dc5f45-2"></a>git difftool -y -t meld some_filename
+<a name="rest_code_9882c4b1cd7b40e1a3eb0adab0dc5f45-3"></a>
+<a name="rest_code_9882c4b1cd7b40e1a3eb0adab0dc5f45-4"></a><span class="c1"># committed messages by one line</span>
+<a name="rest_code_9882c4b1cd7b40e1a3eb0adab0dc5f45-5"></a>git log --oneline
+</pre>
+</div>
+    </div>
+    
+</article><!--End of body content--><footer id="footer">
+            Contents © 2019         <a href="mailto:ikhlestov@gmail.com">Illarion Khlestov</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>          <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script></footer>
+</div>
+</div>
+
+        <script src="../../../assets/js/all-nocdn.js"></script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates --><script>
+    baguetteBox.run('div#content', {
+        ignoreClass: 'islink',
+        captions: function(element) {
+            return element.getElementsByTagName('img')[0].alt;
+    }});
+    </script><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-92406723-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

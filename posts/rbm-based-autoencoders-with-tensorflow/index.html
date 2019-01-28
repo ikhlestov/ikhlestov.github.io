@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html prefix="
-og: http://ogp.me/ns#
-article: http://ogp.me/ns/article#
+og: http://ogp.me/ns# article: http://ogp.me/ns/article#
 " lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>RBM based Autoencoders with tensorflow | Illarion Khlestov Blog</title>
+<title>RBM based Autoencoders with tensorflow | Illarion&#8217;s Notes</title>
 <link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
-<meta content="#5670d4" name="theme-color">
+<meta name="theme-color" content="#5670d4">
+<meta name="generator" content="Nikola (getnikola.com)">
 <link rel="alternate" type="application/rss+xml" title="RSS" href="../../rss.xml">
 <link rel="canonical" href="https://ikhlestov.github.io/posts/rbm-based-autoencoders-with-tensorflow/">
 <script type="text/x-mathjax-config">
@@ -16,8 +16,7 @@ MathJax.Hub.Config({
     displayAlign: 'center', // Change this to 'center' to center equations.
 });
 </script><!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Illarion Khlestov">
-<link rel="prev" href="../welcome-post/" title="Welcome Post" type="text/html">
-<meta property="og:site_name" content="Illarion Khlestov Blog">
+<meta property="og:site_name" content="Illarion's Notes">
 <meta property="og:title" content="RBM based Autoencoders with tensorflow">
 <meta property="og:url" content="https://ikhlestov.github.io/posts/rbm-based-autoencoders-with-tensorflow/">
 <meta property="og:description" content="Recently I try to implement RBM based autoencoder in tensorflow similar to RBMs described in Semantic Hashing paper by Ruslan Salakhutdinov and Geoffrey Hinton. It seems that with weights that were pr">
@@ -29,67 +28,60 @@ MathJax.Hub.Config({
 
 <!-- Menubar -->
 
-<nav class="navbar navbar-inverse navbar-static-top"><div class="container">
+<nav class="navbar navbar-expand-md static-top mb-4
+navbar-dark bg-dark
+"><div class="container">
 <!-- This keeps the margins nice -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="https://ikhlestov.github.io/">
+        <a class="navbar-brand" href="https://ikhlestov.github.io/">
 
-                <span id="blog-title">Illarion Khlestov Blog</span>
-            </a>
-        </div>
-<!-- /.navbar-header -->
-        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
-            <ul class="nav navbar-nav">
-<li>
-<a href="../../">Blog</a>
+            <span id="blog-title">Illarion&#8217;s Notes</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="bs-navbar">
+            <ul class="navbar-nav mr-auto">
+<li class="nav-item">
+<a href="../../" class="nav-link">About</a>
                 </li>
-<li>
-<a href="../../pages/">Pages</a>
+<li class="nav-item">
+<a href="../" class="nav-link">Blog&nbsp;Posts</a>
                 </li>
-<li>
-<a href="../../listings/">Listings</a>
-                </li>
-<li>
-<a href="../../archive.html">Archive</a>
+<li class="nav-item">
+<a href="../../pages/" class="nav-link">Pages</a>
 
                 
             </li>
 </ul>
-<ul class="nav navbar-nav navbar-right">
-<li>
-    <a href="index.rst" id="sourcelink">Source</a>
-    </li>
-                
-            </ul>
+<ul class="navbar-nav navbar-right"></ul>
 </div>
 <!-- /.navbar-collapse -->
     </div>
 <!-- /.container -->
 </nav><!-- End of Menubar --><div class="container" id="content" role="main">
-    <div class="body-content">
+    <nav class="breadcrumbs"><ul class="breadcrumb">
+<li class="breadcrumb-item"><a href="../">posts</a></li>
+                <li class="breadcrumb-item active">rbm-based-autoencoders-with-tensorflow</li>
+</ul></nav><div class="body-content">
         <!--Body content-->
-        <div class="row">
-            
+        
 <article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">RBM based Autoencoders with&nbsp;tensorflow</a></h1>
 
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
                     Illarion&nbsp;Khlestov
             </span></p>
-            <p class="dateline"><a href="." rel="bookmark"><time class="published dt-published" datetime="2016-12-28T20:33:15Z" itemprop="datePublished" title="2016-12-28 20:33">2016-12-28 20:33</time></a></p>
+            <p class="dateline">
+            <a href="." rel="bookmark">
+            <time class="published dt-published" datetime="2016-12-28T20:33:15Z" itemprop="datePublished" title="2016-12-28 20:33">2016-12-28 20:33</time></a>
+            </p>
                 <p class="commentline">            <a href="#disqus_thread" data-disqus-identifier="cache/posts/rbm-based-autoencoders-with-tensorflow.html">Comments</a>
 
 
-                    </p>
-<p class="sourceline"><a href="index.rst" class="sourcelink">Source</a></p>
-
-        </div>
+            
+        </p>
+</div>
         
     </header><div class="e-content entry-content" itemprop="articleBody text">
     <div>
@@ -97,11 +89,11 @@ MathJax.Hub.Config({
 <p>This post will describe some roadblocks for RBMs/autoencoders implementation in tensorflow and compare results of different approaches. I assume reader&#8217;s previous knowledge of tensorflow and machine learning field. All code can be found in <a class="reference external" href="https://github.com/ikhlestov/rbm_based_autoencoders_with_tensorflow">this&nbsp;repo</a></p>
 <p>RBMs different from usual neural networks in some&nbsp;ways:</p>
 <p>Neural networks usually perform weight update by Gradient Descent, but RMBs use <strong>Contrastive Divergence</strong> (which is basically a funky term for &#8220;approximate gradient descent&#8221; <a class="reference external" href="http://deeplearning.net/tutorial/rbm.html">link to read</a>). At a glance, contrastive divergence computes a difference between <strong>positive phase</strong> (energy of first encoding) and <strong>negative phase</strong> (energy of the last&nbsp;encoding).</p>
-<pre class="code python"><a name="rest_code_8bf02485905c4e47b5978e787b2ec003-1"></a><span class="n">positive_phase</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span>
-<a name="rest_code_8bf02485905c4e47b5978e787b2ec003-2"></a>    <span class="n">tf</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">visib_inputs_initial</span><span class="p">),</span> <span class="n">first_encoded_probability</span><span class="p">)</span>
-<a name="rest_code_8bf02485905c4e47b5978e787b2ec003-3"></a><span class="n">negative_phase</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span>
-<a name="rest_code_8bf02485905c4e47b5978e787b2ec003-4"></a>    <span class="n">tf</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">last_reconstructed_probability</span><span class="p">),</span> <span class="n">last_encoded_probability</span><span class="p">)</span>
-<a name="rest_code_8bf02485905c4e47b5978e787b2ec003-5"></a><span class="n">contrastive_divergence</span> <span class="o">=</span> <span class="n">positive_phase</span> <span class="o">-</span> <span class="n">negative_phase</span>
+<pre class="code python"><a name="rest_code_9b70e63327634f7e8b0243b64969f1c3-1"></a><span class="n">positive_phase</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span>
+<a name="rest_code_9b70e63327634f7e8b0243b64969f1c3-2"></a>    <span class="n">tf</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">visib_inputs_initial</span><span class="p">),</span> <span class="n">first_encoded_probability</span><span class="p">)</span>
+<a name="rest_code_9b70e63327634f7e8b0243b64969f1c3-3"></a><span class="n">negative_phase</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span>
+<a name="rest_code_9b70e63327634f7e8b0243b64969f1c3-4"></a>    <span class="n">tf</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">last_reconstructed_probability</span><span class="p">),</span> <span class="n">last_encoded_probability</span><span class="p">)</span>
+<a name="rest_code_9b70e63327634f7e8b0243b64969f1c3-5"></a><span class="n">contrastive_divergence</span> <span class="o">=</span> <span class="n">positive_phase</span> <span class="o">-</span> <span class="n">negative_phase</span>
 </pre>
 <p>Also, a key feature of RMB that it encode output in binary mode, not as probabilities. More about RMBs you may read <a class="reference external" href="http://blog.echen.me/2011/07/18/introduction-to-restricted-boltzmann-machines/">here</a> or <a class="reference external" href="http://rocknrollnerd.github.io/ml/2015/07/18/general-boltzmann-machines.html">here</a>.</p>
 <p>As prototype one layer tensorflow rbm <a class="reference external" href="https://github.com/blackecho/Deep-Learning-TensorFlow/blob/master/yadlt/models/rbm_models/rbm.py">implementation</a> was used. For testing, I&#8217;ve taken well known <a class="reference external" href="https://en.wikipedia.org/wiki/MNIST_database">MNIST</a> dataset(dataset of handwritten&nbsp;digits).</p>
@@ -119,14 +111,14 @@ MathJax.Hub.Config({
 <p class="caption">Errors with respect to&nbsp;steps</p>
 </div>
 <p>So let&#8217;s stop with the last layer binarized and try different train approaches. To build model that will train only pair of layers we need train two layers model, save it, build new model with one more layer, load pre-trained first two layers weights/biases and continue train last two layers (<a class="reference external" href="https://github.com/ikhlestov/rbm_based_autoencoders_with_tensorflow/blob/master/rbm_train_by_pair_layers.py">code</a>). During implementation I&#8217;ve met some trouble - tensorflow have no method to initialize all not initialized previously variables method. Maybe I just didn&#8217;t find this. So I&#8217;ve finished with approach when I directly send variable that should be restored and variables that should be&nbsp;initialized.</p>
-<pre class="code python"><a name="rest_code_10d32605167c4a7781167a8edfecde89-1"></a><span class="c1"># restore previous variables</span>
-<a name="rest_code_10d32605167c4a7781167a8edfecde89-2"></a><span class="n">restore_vars_dict</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_restored_variables_names</span><span class="p">()</span>
-<a name="rest_code_10d32605167c4a7781167a8edfecde89-3"></a><span class="n">restorer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">Saver</span><span class="p">(</span><span class="n">restore_vars_dict</span><span class="p">)</span>
-<a name="rest_code_10d32605167c4a7781167a8edfecde89-4"></a><span class="n">restorer</span><span class="o">.</span><span class="n">restore</span><span class="p">(</span><span class="n">sess</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">saves_path</span><span class="p">)</span>
-<a name="rest_code_10d32605167c4a7781167a8edfecde89-5"></a>
-<a name="rest_code_10d32605167c4a7781167a8edfecde89-6"></a><span class="c1"># initialize not restored variables</span>
-<a name="rest_code_10d32605167c4a7781167a8edfecde89-7"></a><span class="n">new_variables</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_new_variables_names</span><span class="p">()</span>
-<a name="rest_code_10d32605167c4a7781167a8edfecde89-8"></a><span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">initialize_variables</span><span class="p">(</span><span class="n">new_variables</span><span class="p">))</span>
+<pre class="code python"><a name="rest_code_c6f3d3cfce484d009b0bf5dc6687fd00-1"></a><span class="c1"># restore previous variables</span>
+<a name="rest_code_c6f3d3cfce484d009b0bf5dc6687fd00-2"></a><span class="n">restore_vars_dict</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_restored_variables_names</span><span class="p">()</span>
+<a name="rest_code_c6f3d3cfce484d009b0bf5dc6687fd00-3"></a><span class="n">restorer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">Saver</span><span class="p">(</span><span class="n">restore_vars_dict</span><span class="p">)</span>
+<a name="rest_code_c6f3d3cfce484d009b0bf5dc6687fd00-4"></a><span class="n">restorer</span><span class="o">.</span><span class="n">restore</span><span class="p">(</span><span class="n">sess</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">saves_path</span><span class="p">)</span>
+<a name="rest_code_c6f3d3cfce484d009b0bf5dc6687fd00-5"></a>
+<a name="rest_code_c6f3d3cfce484d009b0bf5dc6687fd00-6"></a><span class="c1"># initialize not restored variables</span>
+<a name="rest_code_c6f3d3cfce484d009b0bf5dc6687fd00-7"></a><span class="n">new_variables</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_new_variables_names</span><span class="p">()</span>
+<a name="rest_code_c6f3d3cfce484d009b0bf5dc6687fd00-8"></a><span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">initialize_variables</span><span class="p">(</span><span class="n">new_variables</span><span class="p">))</span>
 </pre>
 <p>After testing seems that both training approaches converge to approximately same error. But some another cool stuff - the model that was trained by pair lairs trains faster in&nbsp;time.</p>
 <div class="figure">
@@ -284,11 +276,7 @@ MathJax.Hub.Config({
 </div>
 </div>
     </div>
-    <aside class="postpromonav"><nav><ul class="pager hidden-print">
-<li class="previous">
-                <a href="../welcome-post/" rel="prev" title="Welcome Post">Previous&nbsp;post</a>
-            </li>
-        </ul></nav></aside><section class="comments hidden-print"><h2>Comments</h2>
+    <aside class="postpromonav"><nav></nav></aside><section class="comments hidden-print"><h2>Comments</h2>
                         <div id="disqus_thread"></div>
         <script>
         var disqus_shortname ="ikhlestov-blog",
@@ -308,19 +296,21 @@ MathJax.Hub.Config({
     <a href="https://disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
-        </section></article><script>var disqus_shortname="ikhlestov-blog";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
-</div>
-        <!--End of body content-->
-
-        <footer id="footer">
-            Contents © 2018         <a href="mailto:ikhlestov@gmail.com">Illarion Khlestov</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>          <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script></footer>
+        </section></article><script>var disqus_shortname="ikhlestov-blog";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script><!--End of body content--><footer id="footer">
+            Contents © 2019         <a href="mailto:ikhlestov@gmail.com">Illarion Khlestov</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>          <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script></footer>
 </div>
 </div>
 
-            <script src="../../assets/js/all-nocdn.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
+        <script src="../../assets/js/all-nocdn.js"></script><!-- fancy dates --><script>
     moment.locale("en");
     fancydates(0, "YYYY-MM-DD HH:mm");
     </script><!-- end fancy dates --><script>
+    baguetteBox.run('div#content', {
+        ignoreClass: 'islink',
+        captions: function(element) {
+            return element.getElementsByTagName('img')[0].alt;
+    }});
+    </script><script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)

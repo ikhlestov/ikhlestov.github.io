@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html prefix="
+og: http://ogp.me/ns# article: http://ogp.me/ns/article#
+" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Async Python | Illarion&#8217;s Notes</title>
+<link href="../../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#5670d4">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../../../../rss.xml">
+<link rel="canonical" href="https://ikhlestov.github.io/pages/languages/python/async-python/">
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    displayAlign: 'center', // Change this to 'center' to center equations.
+});
+</script><!--[if lt IE 9]><script src="../../../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Illarion Khlestov">
+<meta property="og:site_name" content="Illarion's Notes">
+<meta property="og:title" content="Async Python">
+<meta property="og:url" content="https://ikhlestov.github.io/pages/languages/python/async-python/">
+<meta property="og:description" content="Contents
+
+Asyncio
+async __init__ method(factory)
+Shielded execution
+Context variables
+
+
+Generators
+yield and yield from syntax
+Change existing object with generator
+
+
+
+
+
+Asyncio
+General thoughts:
+
+Eve">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2018-04-30T09:47:30Z">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-expand-md static-top mb-4
+navbar-dark bg-dark
+"><div class="container">
+<!-- This keeps the margins nice -->
+        <a class="navbar-brand" href="https://ikhlestov.github.io/">
+
+            <span id="blog-title">Illarion&#8217;s Notes</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="bs-navbar">
+            <ul class="navbar-nav mr-auto">
+<li class="nav-item">
+<a href="../../../../" class="nav-link">About</a>
+                </li>
+<li class="nav-item">
+<a href="../../../../posts/" class="nav-link">Blog&nbsp;Posts</a>
+                </li>
+<li class="nav-item">
+<a href="../../../" class="nav-link">Pages</a>
+
+                
+            </li>
+</ul>
+<ul class="navbar-nav navbar-right"></ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <nav class="breadcrumbs"><ul class="breadcrumb">
+<li class="breadcrumb-item"><a href="../../../">pages</a></li>
+                <li class="breadcrumb-item"><a href="../../">languages</a></li>
+                <li class="breadcrumb-item"><a href="../">python</a></li>
+                <li class="breadcrumb-item active">async-python</li>
+</ul></nav><div class="body-content">
+        <!--Body content-->
+        
+<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Async&nbsp;Python</a></h1>
+
+        
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li>
+<a class="reference internal" href="#asyncio" id="id1">Asyncio</a><ul>
+<li><a class="reference internal" href="#async-init-method-factory" id="id2">async <tt class="docutils literal">__init__</tt> method(factory)</a></li>
+<li><a class="reference internal" href="#shielded-execution" id="id3">Shielded&nbsp;execution</a></li>
+<li><a class="reference internal" href="#context-variables" id="id4">Context&nbsp;variables</a></li>
+</ul>
+</li>
+<li>
+<a class="reference internal" href="#generators" id="id5">Generators</a><ul>
+<li><a class="reference internal" href="#yield-and-yield-from-syntax" id="id6"><tt class="docutils literal">yield</tt> and <tt class="docutils literal">yield from</tt> syntax</a></li>
+<li><a class="reference internal" href="#change-existing-object-with-generator" id="id7">Change existing object with&nbsp;generator</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="asyncio">
+<h2><a class="toc-backref" href="#id1">Asyncio</a></h2>
+<p>General&nbsp;thoughts:</p>
+<ul class="simple">
+<li>Every task should be awaited somewhere so you&#8217;ve got an&nbsp;exception</li>
+<li>Don&#8217;t use features&nbsp;directly</li>
+<li>Use <a class="reference external" href="https://docs.python.org/3/library/concurrent.futures.html">Executors</a> for the long term tasks(for example - some&nbsp;calculations)</li>
+<li>don&#8217;t use <tt class="docutils literal">__del__</tt> method for the resources cleanup. Use async metethod, for example <tt class="docutils literal">await obj.close()</tt> or context manager <tt class="docutils literal">async with obj:</tt>
+</li>
+<li>to replace event loop it&#8217;s better to change default loop fabric at the&nbsp;asyncio</li>
+</ul>
+<p>Top-level&nbsp;functions:</p>
+<ul class="simple">
+<li><tt class="docutils literal">run()</tt></li>
+<li><tt class="docutils literal">create_task()</tt></li>
+<li><tt class="docutils literal">current_task()</tt></li>
+<li><tt class="docutils literal">all_tasks()</tt></li>
+<li><tt class="docutils literal">get_running_loop()</tt></li>
+</ul>
+<div class="section" id="async-init-method-factory">
+<h3><a class="toc-backref" href="#id2">async <tt class="docutils literal">__init__</tt> method(factory)</a></h3>
+<pre class="code python3"><a name="rest_code_192e9b02cc7d4a7cb7d9f691c900dfcd-1"></a><span class="k">class</span> <span class="nc">A</span><span class="p">:</span>
+<a name="rest_code_192e9b02cc7d4a7cb7d9f691c900dfcd-2"></a><span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a name="rest_code_192e9b02cc7d4a7cb7d9f691c900dfcd-3"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="kc">None</span>
+<a name="rest_code_192e9b02cc7d4a7cb7d9f691c900dfcd-4"></a>
+<a name="rest_code_192e9b02cc7d4a7cb7d9f691c900dfcd-5"></a><span class="nd">@classmethod</span>
+<a name="rest_code_192e9b02cc7d4a7cb7d9f691c900dfcd-6"></a><span class="k">async</span> <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+<a name="rest_code_192e9b02cc7d4a7cb7d9f691c900dfcd-7"></a>    <span class="bp">self</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">()</span>
+<a name="rest_code_192e9b02cc7d4a7cb7d9f691c900dfcd-8"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="k">await</span> <span class="n">fetch</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<a name="rest_code_192e9b02cc7d4a7cb7d9f691c900dfcd-9"></a>
+<a name="rest_code_192e9b02cc7d4a7cb7d9f691c900dfcd-10"></a><span class="n">a</span> <span class="o">=</span> <span class="k">await</span> <span class="n">A</span><span class="o">.</span><span class="n">create</span><span class="p">()</span>
+</pre>
+</div>
+<div class="section" id="shielded-execution">
+<h3><a class="toc-backref" href="#id3">Shielded&nbsp;execution</a></h3>
+<p>It should be used in case task should be finished in any case, even with closed&nbsp;connection</p>
+<pre class="code python3"><a name="rest_code_8d009f2c8ff5401cbe2d06718b8d489a-1"></a><span class="k">async</span> <span class="k">def</span> <span class="nf">handler</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<a name="rest_code_8d009f2c8ff5401cbe2d06718b8d489a-2"></a>    <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">shield</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">'db'</span><span class="p">]</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">"UPDATE ..."</span><span class="p">))</span>
+<a name="rest_code_8d009f2c8ff5401cbe2d06718b8d489a-3"></a>    <span class="k">return</span> <span class="n">web</span><span class="o">.</span><span class="n">Response</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">"OK"</span><span class="p">)</span>
+</pre>
+<p>Or you may use <a class="reference external" href="https://github.com/aio-libs/aiojobs">aiojobs&nbsp;library</a></p>
+</div>
+<div class="section" id="context-variables">
+<h3><a class="toc-backref" href="#id4">Context&nbsp;variables</a></h3>
+<p>Should be used for some small tasks as logging, tracing,&nbsp;etc.</p>
+<pre class="code python3"><a name="rest_code_7a73bc52a4d44174aa2c94be3f8c8706-1"></a><span class="kn">import</span> <span class="nn">contextvars</span>
+<a name="rest_code_7a73bc52a4d44174aa2c94be3f8c8706-2"></a><span class="n">var</span> <span class="o">=</span> <span class="n">contextvars</span><span class="o">.</span><span class="n">ContextVar</span><span class="p">(</span><span class="s1">'var'</span><span class="p">,</span> <span class="s1">'default'</span><span class="p">)</span>
+<a name="rest_code_7a73bc52a4d44174aa2c94be3f8c8706-3"></a>
+<a name="rest_code_7a73bc52a4d44174aa2c94be3f8c8706-4"></a><span class="k">async</span> <span class="k">def</span> <span class="nf">inner</span><span class="p">():</span>
+<a name="rest_code_7a73bc52a4d44174aa2c94be3f8c8706-5"></a>    <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">"User name: </span><span class="si">%s</span><span class="s2">"</span><span class="p">,</span> <span class="n">var</span><span class="o">.</span><span class="n">get</span><span class="p">())</span>
+<a name="rest_code_7a73bc52a4d44174aa2c94be3f8c8706-6"></a>
+<a name="rest_code_7a73bc52a4d44174aa2c94be3f8c8706-7"></a><span class="nd">@routes</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'/</span><span class="si">{name}</span><span class="s1">'</span><span class="p">)</span>
+<a name="rest_code_7a73bc52a4d44174aa2c94be3f8c8706-8"></a><span class="k">async</span> <span class="k">def</span> <span class="nf">handler</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<a name="rest_code_7a73bc52a4d44174aa2c94be3f8c8706-9"></a>    <span class="k">assert</span> <span class="n">var</span><span class="o">.</span><span class="n">get</span><span class="p">()</span> <span class="o">==</span> <span class="s1">'default'</span>
+<a name="rest_code_7a73bc52a4d44174aa2c94be3f8c8706-10"></a>    <span class="n">var</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">match_info</span><span class="p">[</span><span class="s1">'name'</span><span class="p">])</span>
+<a name="rest_code_7a73bc52a4d44174aa2c94be3f8c8706-11"></a>    <span class="k">await</span> <span class="n">inner</span><span class="p">()</span>
+</pre>
+</div>
+</div>
+<div class="section" id="generators">
+<h2><a class="toc-backref" href="#id5">Generators</a></h2>
+<div class="section" id="yield-and-yield-from-syntax">
+<h3><a class="toc-backref" href="#id6"><tt class="docutils literal">yield</tt> and <tt class="docutils literal">yield from</tt> syntax</a></h3>
+<p>Example of <tt class="docutils literal">yield</tt> as&nbsp;generator:</p>
+<pre class="code python3"><a name="rest_code_74ca57ba969a4f1fa271a6e99942c8a8-1"></a><span class="k">def</span> <span class="nf">generator</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<a name="rest_code_74ca57ba969a4f1fa271a6e99942c8a8-2"></a>    <span class="c1"># here generator will be interupted and wait for next call</span>
+<a name="rest_code_74ca57ba969a4f1fa271a6e99942c8a8-3"></a>    <span class="k">yield</span> <span class="n">x</span>
+<a name="rest_code_74ca57ba969a4f1fa271a6e99942c8a8-4"></a>    <span class="k">yield</span> <span class="n">x</span><span class="o">*</span><span class="mi">2</span>
+<a name="rest_code_74ca57ba969a4f1fa271a6e99942c8a8-5"></a>
+<a name="rest_code_74ca57ba969a4f1fa271a6e99942c8a8-6"></a><span class="c1"># example:</span>
+<a name="rest_code_74ca57ba969a4f1fa271a6e99942c8a8-7"></a><span class="n">gen</span> <span class="o">=</span> <span class="n">generator</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<a name="rest_code_74ca57ba969a4f1fa271a6e99942c8a8-8"></a><span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>
+<a name="rest_code_74ca57ba969a4f1fa271a6e99942c8a8-9"></a><span class="c1"># out: 10</span>
+<a name="rest_code_74ca57ba969a4f1fa271a6e99942c8a8-10"></a><span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>
+<a name="rest_code_74ca57ba969a4f1fa271a6e99942c8a8-11"></a><span class="c1"># out: 20</span>
+</pre>
+<p>Example of <tt class="docutils literal">yield</tt> as&nbsp;coroutine:</p>
+<pre class="code python3"><a name="rest_code_e5c9bdc671154696a154155b2ae4ba05-1"></a><span class="k">def</span> <span class="nf">writer</span><span class="p">():</span>
+<a name="rest_code_e5c9bdc671154696a154155b2ae4ba05-2"></a>    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<a name="rest_code_e5c9bdc671154696a154155b2ae4ba05-3"></a>        <span class="c1"># rcv a data</span>
+<a name="rest_code_e5c9bdc671154696a154155b2ae4ba05-4"></a>        <span class="n">w</span> <span class="o">=</span> <span class="k">yield</span>
+<a name="rest_code_e5c9bdc671154696a154155b2ae4ba05-5"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">"was received:"</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
+<a name="rest_code_e5c9bdc671154696a154155b2ae4ba05-6"></a>
+<a name="rest_code_e5c9bdc671154696a154155b2ae4ba05-7"></a><span class="n">w</span> <span class="o">=</span> <span class="n">writer</span><span class="p">()</span>
+<a name="rest_code_e5c9bdc671154696a154155b2ae4ba05-8"></a><span class="c1"># initialize the generator</span>
+<a name="rest_code_e5c9bdc671154696a154155b2ae4ba05-9"></a><span class="n">w</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+<a name="rest_code_e5c9bdc671154696a154155b2ae4ba05-10"></a><span class="n">w</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<a name="rest_code_e5c9bdc671154696a154155b2ae4ba05-11"></a><span class="c1"># out: "was received: 10"</span>
+<a name="rest_code_e5c9bdc671154696a154155b2ae4ba05-12"></a><span class="n">w</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s2">"some text"</span><span class="p">)</span>
+<a name="rest_code_e5c9bdc671154696a154155b2ae4ba05-13"></a><span class="c1"># out: "was received: some text"</span>
+</pre>
+<p>Example usage of <tt class="docutils literal">yield from</tt> syntax:</p>
+<pre class="code python3"><a name="rest_code_d0702c68ea064e80b3b4b468c8a476d1-1"></a><span class="c1"># define our generator</span>
+<a name="rest_code_d0702c68ea064e80b3b4b468c8a476d1-2"></a><span class="k">def</span> <span class="nf">generator</span><span class="p">():</span>
+<a name="rest_code_d0702c68ea064e80b3b4b468c8a476d1-3"></a>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+<a name="rest_code_d0702c68ea064e80b3b4b468c8a476d1-4"></a>        <span class="k">yield</span> <span class="n">i</span>
+<a name="rest_code_d0702c68ea064e80b3b4b468c8a476d1-5"></a>
+<a name="rest_code_d0702c68ea064e80b3b4b468c8a476d1-6"></a><span class="c1"># manually fetch data</span>
+<a name="rest_code_d0702c68ea064e80b3b4b468c8a476d1-7"></a><span class="k">def</span> <span class="nf">fetcher</span><span class="p">(</span><span class="n">g</span><span class="p">):</span>
+<a name="rest_code_d0702c68ea064e80b3b4b468c8a476d1-8"></a>    <span class="k">for</span> <span class="n">fetch</span> <span class="ow">in</span> <span class="n">g</span><span class="p">:</span>
+<a name="rest_code_d0702c68ea064e80b3b4b468c8a476d1-9"></a>        <span class="k">yield</span> <span class="n">fetch</span>
+<a name="rest_code_d0702c68ea064e80b3b4b468c8a476d1-10"></a>
+<a name="rest_code_d0702c68ea064e80b3b4b468c8a476d1-11"></a><span class="c1"># yield from fetcher</span>
+<a name="rest_code_d0702c68ea064e80b3b4b468c8a476d1-12"></a><span class="k">def</span> <span class="nf">fetcher_yield</span><span class="p">(</span><span class="n">g</span><span class="p">):</span>
+<a name="rest_code_d0702c68ea064e80b3b4b468c8a476d1-13"></a>    <span class="k">yield from</span> <span class="n">g</span>
+<a name="rest_code_d0702c68ea064e80b3b4b468c8a476d1-14"></a>
+<a name="rest_code_d0702c68ea064e80b3b4b468c8a476d1-15"></a><span class="c1"># examples:</span>
+<a name="rest_code_d0702c68ea064e80b3b4b468c8a476d1-16"></a><span class="n">fetch_results</span> <span class="o">=</span> <span class="n">fetcher</span><span class="p">(</span><span class="n">generator</span><span class="p">())</span>
+<a name="rest_code_d0702c68ea064e80b3b4b468c8a476d1-17"></a><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">fetch_results</span><span class="p">:</span>
+<a name="rest_code_d0702c68ea064e80b3b4b468c8a476d1-18"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<a name="rest_code_d0702c68ea064e80b3b4b468c8a476d1-19"></a>
+<a name="rest_code_d0702c68ea064e80b3b4b468c8a476d1-20"></a><span class="n">fetch_results</span> <span class="o">=</span> <span class="n">fetcher_yield</span><span class="p">(</span><span class="n">generator</span><span class="p">())</span>
+<a name="rest_code_d0702c68ea064e80b3b4b468c8a476d1-21"></a><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">fetch_results</span><span class="p">:</span>
+<a name="rest_code_d0702c68ea064e80b3b4b468c8a476d1-22"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre>
+</div>
+<div class="section" id="change-existing-object-with-generator">
+<h3><a class="toc-backref" href="#id7">Change existing object with&nbsp;generator</a></h3>
+<p>It is possible to create object at generator and after only change it&#8217;s value.
+This will reduce memory consumption, but can lead to some&nbsp;errors:</p>
+<pre class="code python"><a name="rest_code_a6f6ef785d944074ab153a5264bb78f0-1"></a><span class="k">def</span> <span class="nf">generator</span><span class="p">():</span>
+<a name="rest_code_a6f6ef785d944074ab153a5264bb78f0-2"></a>    <span class="n">d</span> <span class="o">=</span> <span class="p">{}</span>
+<a name="rest_code_a6f6ef785d944074ab153a5264bb78f0-3"></a>    <span class="k">yield</span> <span class="n">d</span>
+<a name="rest_code_a6f6ef785d944074ab153a5264bb78f0-4"></a>    <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+<a name="rest_code_a6f6ef785d944074ab153a5264bb78f0-5"></a>    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+<a name="rest_code_a6f6ef785d944074ab153a5264bb78f0-6"></a>        <span class="n">d</span><span class="p">[</span><span class="s2">"value"</span><span class="p">]</span> <span class="o">=</span> <span class="n">counter</span>
+<a name="rest_code_a6f6ef785d944074ab153a5264bb78f0-7"></a>        <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
+<a name="rest_code_a6f6ef785d944074ab153a5264bb78f0-8"></a>        <span class="k">yield</span>
+<a name="rest_code_a6f6ef785d944074ab153a5264bb78f0-9"></a>
+<a name="rest_code_a6f6ef785d944074ab153a5264bb78f0-10"></a><span class="n">gen</span> <span class="o">=</span> <span class="n">generator</span><span class="p">()</span>
+<a name="rest_code_a6f6ef785d944074ab153a5264bb78f0-11"></a><span class="n">res</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>
+<a name="rest_code_a6f6ef785d944074ab153a5264bb78f0-12"></a><span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+<a name="rest_code_a6f6ef785d944074ab153a5264bb78f0-13"></a><span class="c1"># out: {}</span>
+<a name="rest_code_a6f6ef785d944074ab153a5264bb78f0-14"></a>
+<a name="rest_code_a6f6ef785d944074ab153a5264bb78f0-15"></a><span class="c1"># modify same dict</span>
+<a name="rest_code_a6f6ef785d944074ab153a5264bb78f0-16"></a><span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>
+<a name="rest_code_a6f6ef785d944074ab153a5264bb78f0-17"></a><span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+<a name="rest_code_a6f6ef785d944074ab153a5264bb78f0-18"></a><span class="c1"># out: {'value': 0}</span>
+</pre>
+</div>
+</div>
+</div>
+    </div>
+    
+</article><!--End of body content--><footer id="footer">
+            Contents © 2019         <a href="mailto:ikhlestov@gmail.com">Illarion Khlestov</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>          <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script></footer>
+</div>
+</div>
+
+        <script src="../../../../assets/js/all-nocdn.js"></script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates --><script>
+    baguetteBox.run('div#content', {
+        ignoreClass: 'islink',
+        captions: function(element) {
+            return element.getElementsByTagName('img')[0].alt;
+    }});
+    </script><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-92406723-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

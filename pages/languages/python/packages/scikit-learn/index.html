@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html prefix="
+og: http://ogp.me/ns# article: http://ogp.me/ns/article#
+" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="List of usefull commands for pandas framework">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scikit-learn | Illarion&#8217;s Notes</title>
+<link href="../../../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#5670d4">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../../../../../rss.xml">
+<link rel="canonical" href="https://ikhlestov.github.io/pages/languages/python/packages/scikit-learn/">
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    displayAlign: 'center', // Change this to 'center' to center equations.
+});
+</script><!--[if lt IE 9]><script src="../../../../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Illarion Khlestov">
+<meta property="og:site_name" content="Illarion's Notes">
+<meta property="og:title" content="Scikit-learn">
+<meta property="og:url" content="https://ikhlestov.github.io/pages/languages/python/packages/scikit-learn/">
+<meta property="og:description" content="List of usefull commands for pandas framework">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2016-06-21T23:46:34Z">
+<meta property="article:tag" content="machine learning">
+<meta property="article:tag" content="ML">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="scikit-learn">
+<meta property="article:tag" content="sklearn">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-expand-md static-top mb-4
+navbar-dark bg-dark
+"><div class="container">
+<!-- This keeps the margins nice -->
+        <a class="navbar-brand" href="https://ikhlestov.github.io/">
+
+            <span id="blog-title">Illarion&#8217;s Notes</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="bs-navbar">
+            <ul class="navbar-nav mr-auto">
+<li class="nav-item">
+<a href="../../../../../" class="nav-link">About</a>
+                </li>
+<li class="nav-item">
+<a href="../../../../../posts/" class="nav-link">Blog&nbsp;Posts</a>
+                </li>
+<li class="nav-item">
+<a href="../../../../" class="nav-link">Pages</a>
+
+                
+            </li>
+</ul>
+<ul class="navbar-nav navbar-right"></ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <nav class="breadcrumbs"><ul class="breadcrumb">
+<li class="breadcrumb-item"><a href="../../../../">pages</a></li>
+                <li class="breadcrumb-item"><a href="../../../">languages</a></li>
+                <li class="breadcrumb-item"><a href="../../">python</a></li>
+                <li class="breadcrumb-item"><a href="../">packages</a></li>
+                <li class="breadcrumb-item active">scikit-learn</li>
+</ul></nav><div class="body-content">
+        <!--Body content-->
+        
+<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Scikit-learn</a></h1>
+
+        
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#simple-example" id="id1">Simple&nbsp;example</a></li>
+<li><a class="reference internal" href="#kfolds" id="id2">KFolds</a></li>
+<li><a class="reference internal" href="#support-vector-machines-svms" id="id3">Support Vector&nbsp;Machines(SVMs)</a></li>
+<li><a class="reference internal" href="#grid-search" id="id4">Grid&nbsp;Search</a></li>
+<li><a class="reference internal" href="#unsupervised-learning" id="id5">Unsupervised&nbsp;Learning</a></li>
+</ul>
+</div>
+<div class="section" id="simple-example">
+<h2><a class="toc-backref" href="#id1">Simple&nbsp;example</a></h2>
+<pre class="code python"><a name="rest_code_607551293a9047ef97989077a861a758-1"></a><span class="c1"># load the dataset</span>
+<a name="rest_code_607551293a9047ef97989077a861a758-2"></a><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
+<a name="rest_code_607551293a9047ef97989077a861a758-3"></a><span class="n">iris</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_iris</span><span class="p">()</span>
+<a name="rest_code_607551293a9047ef97989077a861a758-4"></a><span class="n">data_X</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">data</span>
+<a name="rest_code_607551293a9047ef97989077a861a758-5"></a><span class="n">data_y</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">target</span>
+<a name="rest_code_607551293a9047ef97989077a861a758-6"></a><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">iris_y</span><span class="p">)</span>
+<a name="rest_code_607551293a9047ef97989077a861a758-7"></a>
+<a name="rest_code_607551293a9047ef97989077a861a758-8"></a><span class="c1"># initialize the Estimator</span>
+<a name="rest_code_607551293a9047ef97989077a861a758-9"></a><span class="n">estimator</span> <span class="o">=</span> <span class="n">Estimator</span><span class="p">(</span><span class="n">param1</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">param2</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<a name="rest_code_607551293a9047ef97989077a861a758-10"></a><span class="c1"># get params of the existing estimator</span>
+<a name="rest_code_607551293a9047ef97989077a861a758-11"></a><span class="n">estimator</span><span class="o">.</span><span class="n">estimated_param_</span>
+<a name="rest_code_607551293a9047ef97989077a861a758-12"></a><span class="c1"># train the estimator</span>
+<a name="rest_code_607551293a9047ef97989077a861a758-13"></a><span class="n">estimator</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data_X_train</span><span class="p">,</span> <span class="n">data_y_train</span><span class="p">)</span>
+<a name="rest_code_607551293a9047ef97989077a861a758-14"></a><span class="c1"># predict with estimator</span>
+<a name="rest_code_607551293a9047ef97989077a861a758-15"></a><span class="n">estimator</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">data_X_test</span><span class="p">)</span>
+<a name="rest_code_607551293a9047ef97989077a861a758-16"></a><span class="c1"># get estimator score - 1 is perfect prediction, 0 mean incorrect</span>
+<a name="rest_code_607551293a9047ef97989077a861a758-17"></a><span class="n">estimator</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">data_X_test</span><span class="p">,</span> <span class="n">data_y_test</span><span class="p">)</span>
+<a name="rest_code_607551293a9047ef97989077a861a758-18"></a><span class="c1"># The mean square error</span>
+<a name="rest_code_607551293a9047ef97989077a861a758-19"></a><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="n">estimator</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">data_X_test</span><span class="p">)</span> <span class="o">-</span> <span class="n">data_y_test</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+<a name="rest_code_607551293a9047ef97989077a861a758-20"></a><span class="c1"># get metrics for predictor</span>
+<a name="rest_code_607551293a9047ef97989077a861a758-21"></a><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">metrics</span>
+<a name="rest_code_607551293a9047ef97989077a861a758-22"></a><span class="n">expected</span> <span class="o">=</span> <span class="n">digits</span><span class="o">.</span><span class="n">target</span><span class="p">[</span><span class="n">n_samples</span> <span class="o">/</span> <span class="mi">2</span><span class="p">:]</span>
+<a name="rest_code_607551293a9047ef97989077a861a758-23"></a><span class="n">predicted</span> <span class="o">=</span> <span class="n">classifier</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">n_samples</span> <span class="o">/</span> <span class="mi">2</span><span class="p">:])</span>
+<a name="rest_code_607551293a9047ef97989077a861a758-24"></a><span class="k">print</span><span class="p">(</span><span class="n">metrics</span><span class="o">.</span><span class="n">classification_report</span><span class="p">(</span><span class="n">expected</span><span class="p">,</span> <span class="n">predicted</span><span class="p">))</span>
+<a name="rest_code_607551293a9047ef97989077a861a758-25"></a>
+<a name="rest_code_607551293a9047ef97989077a861a758-26"></a><span class="c1"># Choose best alpha based on score</span>
+<a name="rest_code_607551293a9047ef97989077a861a758-27"></a><span class="n">alphas</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<a name="rest_code_607551293a9047ef97989077a861a758-28"></a><span class="n">regr</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">Lasso</span><span class="p">()</span>
+<a name="rest_code_607551293a9047ef97989077a861a758-29"></a><span class="n">scores</span> <span class="o">=</span> <span class="p">[</span><span class="n">regr</span><span class="o">.</span><span class="n">set_params</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">)</span><span class="o">.</span> \
+<a name="rest_code_607551293a9047ef97989077a861a758-30"></a>               <span class="n">fit</span><span class="p">(</span><span class="n">data_X_train</span><span class="p">,</span> <span class="n">data_y_train</span><span class="p">)</span><span class="o">.</span> \
+<a name="rest_code_607551293a9047ef97989077a861a758-31"></a>               <span class="n">score</span><span class="p">(</span><span class="n">data_X_test</span><span class="p">,</span> <span class="n">data_y_test</span><span class="p">)</span> <span class="k">for</span> <span class="n">alpha</span> <span class="ow">in</span> <span class="n">alphas</span><span class="p">]</span>
+<a name="rest_code_607551293a9047ef97989077a861a758-32"></a><span class="n">best_alpha</span> <span class="o">=</span> <span class="n">alphas</span><span class="p">[</span><span class="n">scores</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">scores</span><span class="p">))]</span>
+<a name="rest_code_607551293a9047ef97989077a861a758-33"></a><span class="n">regr</span><span class="o">.</span><span class="n">alpha</span> <span class="o">=</span> <span class="n">best_alpha</span>
+<a name="rest_code_607551293a9047ef97989077a861a758-34"></a><span class="n">regr</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data_X_train</span><span class="p">,</span> <span class="n">data_y_train</span><span class="p">)</span>
+</pre>
+</div>
+<div class="section" id="kfolds">
+<h2><a class="toc-backref" href="#id2">KFolds</a></h2>
+<pre class="code python"><a name="rest_code_cc0c2e33c9cb4c22a823bb8e55259485-1"></a><span class="c1"># to split data in train and test sets dynamically</span>
+<a name="rest_code_cc0c2e33c9cb4c22a823bb8e55259485-2"></a><span class="c1"># compute score method of an estimator from kfolds</span>
+<a name="rest_code_cc0c2e33c9cb4c22a823bb8e55259485-3"></a><span class="c1"># (total_number_of elements, numbers_of_folds)</span>
+<a name="rest_code_cc0c2e33c9cb4c22a823bb8e55259485-4"></a><span class="n">kfold</span> <span class="o">=</span> <span class="n">cross_validation</span><span class="o">.</span><span class="n">KFold</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X_digits</span><span class="p">),</span> <span class="n">n_folds</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<a name="rest_code_cc0c2e33c9cb4c22a823bb8e55259485-5"></a><span class="c1"># kfold = [[train_indexes, test_indices], [train_indexes, test_indices], .. 3]</span>
+<a name="rest_code_cc0c2e33c9cb4c22a823bb8e55259485-6"></a><span class="p">[</span><span class="n">svc</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_digits</span><span class="p">[</span><span class="n">train</span><span class="p">],</span> <span class="n">y_digits</span><span class="p">[</span><span class="n">train</span><span class="p">])</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_digits</span><span class="p">[</span><span class="n">test</span><span class="p">],</span> <span class="n">y_digits</span><span class="p">[</span><span class="n">test</span><span class="p">])</span>
+<a name="rest_code_cc0c2e33c9cb4c22a823bb8e55259485-7"></a>         <span class="k">for</span> <span class="n">train</span><span class="p">,</span> <span class="n">test</span> <span class="ow">in</span> <span class="n">kfold</span><span class="p">]</span>
+<a name="rest_code_cc0c2e33c9cb4c22a823bb8e55259485-8"></a><span class="c1"># cross_vall_score use folds to validate data</span>
+<a name="rest_code_cc0c2e33c9cb4c22a823bb8e55259485-9"></a><span class="n">cross_validation</span><span class="o">.</span><span class="n">cross_val_score</span><span class="p">(</span><span class="n">svc</span><span class="p">,</span> <span class="n">X_digits</span><span class="p">,</span> <span class="n">y_digits</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">kfold</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+</pre>
+</div>
+<div class="section" id="support-vector-machines-svms">
+<h2><a class="toc-backref" href="#id3">Support Vector&nbsp;Machines(SVMs)</a></h2>
+<pre class="code python"><a name="rest_code_2a44268779094a1794898871c3f0bdb7-1"></a><span class="c1">#### description of regularization parameter C</span>
+<a name="rest_code_2a44268779094a1794898871c3f0bdb7-2"></a><span class="c1"># Regularization is set by the C parameter: a small value for C means the</span>
+<a name="rest_code_2a44268779094a1794898871c3f0bdb7-3"></a><span class="c1"># margin is calculated using many or all of the observations around the</span>
+<a name="rest_code_2a44268779094a1794898871c3f0bdb7-4"></a><span class="c1"># separating line (more regularization);</span>
+<a name="rest_code_2a44268779094a1794898871c3f0bdb7-5"></a><span class="c1"># a large value for C means the margin is calculated on observations</span>
+<a name="rest_code_2a44268779094a1794898871c3f0bdb7-6"></a><span class="c1"># close to the separating line (less regularization).</span>
+<a name="rest_code_2a44268779094a1794898871c3f0bdb7-7"></a>
+<a name="rest_code_2a44268779094a1794898871c3f0bdb7-8"></a><span class="c1"># choose C value based on best score</span>
+<a name="rest_code_2a44268779094a1794898871c3f0bdb7-9"></a><span class="c1"># this is the same with the alpha above, but use 3 KFolds to find best param</span>
+<a name="rest_code_2a44268779094a1794898871c3f0bdb7-10"></a><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">cross_validation</span><span class="p">,</span> <span class="n">svm</span>
+<a name="rest_code_2a44268779094a1794898871c3f0bdb7-11"></a><span class="n">svc</span> <span class="o">=</span> <span class="n">svm</span><span class="o">.</span><span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">'linear'</span><span class="p">)</span>
+<a name="rest_code_2a44268779094a1794898871c3f0bdb7-12"></a><span class="n">C_s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<a name="rest_code_2a44268779094a1794898871c3f0bdb7-13"></a>
+<a name="rest_code_2a44268779094a1794898871c3f0bdb7-14"></a><span class="n">scores</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+<a name="rest_code_2a44268779094a1794898871c3f0bdb7-15"></a><span class="n">scores_std</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+<a name="rest_code_2a44268779094a1794898871c3f0bdb7-16"></a><span class="k">for</span> <span class="n">C</span> <span class="ow">in</span> <span class="n">C_s</span><span class="p">:</span>
+<a name="rest_code_2a44268779094a1794898871c3f0bdb7-17"></a>    <span class="n">svc</span><span class="o">.</span><span class="n">C</span> <span class="o">=</span> <span class="n">C</span>
+<a name="rest_code_2a44268779094a1794898871c3f0bdb7-18"></a>    <span class="c1"># cv=3 - default for cross_val_score</span>
+<a name="rest_code_2a44268779094a1794898871c3f0bdb7-19"></a>    <span class="n">this_scores</span> <span class="o">=</span> <span class="n">cross_validation</span><span class="o">.</span><span class="n">cross_val_score</span><span class="p">(</span><span class="n">svc</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<a name="rest_code_2a44268779094a1794898871c3f0bdb7-20"></a>    <span class="n">scores</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">this_scores</span><span class="p">))</span>
+<a name="rest_code_2a44268779094a1794898871c3f0bdb7-21"></a>    <span class="n">scores_std</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">this_scores</span><span class="p">))</span>
+<a name="rest_code_2a44268779094a1794898871c3f0bdb7-22"></a><span class="n">best_c</span> <span class="o">=</span> <span class="n">C_s</span><span class="p">[</span><span class="n">scores</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">scores</span><span class="p">))]</span>
+<a name="rest_code_2a44268779094a1794898871c3f0bdb7-23"></a><span class="n">svc</span><span class="o">.</span><span class="n">C</span> <span class="o">=</span> <span class="n">best_c</span>
+<a name="rest_code_2a44268779094a1794898871c3f0bdb7-24"></a><span class="n">svc</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data_X_train</span><span class="p">,</span> <span class="n">data_y_train</span><span class="p">)</span>
+<a name="rest_code_2a44268779094a1794898871c3f0bdb7-25"></a>
+<a name="rest_code_2a44268779094a1794898871c3f0bdb7-26"></a><span class="c1"># SVMs can be used in regression # –SVR (Support Vector Regression)–,</span>
+<a name="rest_code_2a44268779094a1794898871c3f0bdb7-27"></a><span class="c1"># or in classification –SVC (Support Vector Classification).</span>
+<a name="rest_code_2a44268779094a1794898871c3f0bdb7-28"></a><span class="c1">#### different types of SVC kernels</span>
+<a name="rest_code_2a44268779094a1794898871c3f0bdb7-29"></a><span class="c1"># linear kernel</span>
+<a name="rest_code_2a44268779094a1794898871c3f0bdb7-30"></a><span class="n">svc</span> <span class="o">=</span> <span class="n">svm</span><span class="o">.</span><span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">'linear'</span><span class="p">)</span>
+<a name="rest_code_2a44268779094a1794898871c3f0bdb7-31"></a><span class="c1"># polynomial kernel</span>
+<a name="rest_code_2a44268779094a1794898871c3f0bdb7-32"></a><span class="n">scv</span> <span class="o">=</span> <span class="n">svm</span><span class="o">.</span><span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">'poly'</span><span class="p">,</span> <span class="n">degree</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<a name="rest_code_2a44268779094a1794898871c3f0bdb7-33"></a><span class="c1"># RBF(Radial Basis Function) kernel</span>
+<a name="rest_code_2a44268779094a1794898871c3f0bdb7-34"></a><span class="n">scv</span> <span class="o">=</span> <span class="n">svm</span><span class="o">.</span><span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">'rbf'</span><span class="p">)</span>
+</pre>
+</div>
+<div class="section" id="grid-search">
+<h2><a class="toc-backref" href="#id4">Grid&nbsp;Search</a></h2>
+<pre class="code python"><a name="rest_code_ca04235355ab4ac6b62e6adf85c1be1b-1"></a><span class="c1"># find the best param from the range with kfolds</span>
+<a name="rest_code_ca04235355ab4ac6b62e6adf85c1be1b-2"></a><span class="kn">from</span> <span class="nn">sklearn.grid_search</span> <span class="kn">import</span> <span class="n">GridSearchCV</span>
+<a name="rest_code_ca04235355ab4ac6b62e6adf85c1be1b-3"></a><span class="n">Cs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<a name="rest_code_ca04235355ab4ac6b62e6adf85c1be1b-4"></a><span class="n">clf</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="n">svc</span><span class="p">,</span> <span class="n">param_grid</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">C</span><span class="o">=</span><span class="n">Cs</span><span class="p">),</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+<a name="rest_code_ca04235355ab4ac6b62e6adf85c1be1b-5"></a><span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_digits</span><span class="p">[:</span><span class="mi">1000</span><span class="p">],</span> <span class="n">y_digits</span><span class="p">[:</span><span class="mi">1000</span><span class="p">])</span>
+<a name="rest_code_ca04235355ab4ac6b62e6adf85c1be1b-6"></a><span class="n">clf</span><span class="o">.</span><span class="n">best_score_</span>
+<a name="rest_code_ca04235355ab4ac6b62e6adf85c1be1b-7"></a><span class="n">clf</span><span class="o">.</span><span class="n">best_estimator_</span><span class="o">.</span><span class="n">C</span>
+<a name="rest_code_ca04235355ab4ac6b62e6adf85c1be1b-8"></a>
+<a name="rest_code_ca04235355ab4ac6b62e6adf85c1be1b-9"></a>
+<a name="rest_code_ca04235355ab4ac6b62e6adf85c1be1b-10"></a><span class="c1"># Prediction performance on test set is not as good as on train set</span>
+<a name="rest_code_ca04235355ab4ac6b62e6adf85c1be1b-11"></a><span class="n">clf</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_digits</span><span class="p">[</span><span class="mi">1000</span><span class="p">:],</span> <span class="n">y_digits</span><span class="p">[</span><span class="mi">1000</span><span class="p">:])</span>
+<a name="rest_code_ca04235355ab4ac6b62e6adf85c1be1b-12"></a>
+<a name="rest_code_ca04235355ab4ac6b62e6adf85c1be1b-13"></a>
+<a name="rest_code_ca04235355ab4ac6b62e6adf85c1be1b-14"></a><span class="c1"># use existing cross validation model. Find parameters dinamically based on</span>
+<a name="rest_code_ca04235355ab4ac6b62e6adf85c1be1b-15"></a><span class="c1"># estimator type. Note -CV at the end of estimator name</span>
+<a name="rest_code_ca04235355ab4ac6b62e6adf85c1be1b-16"></a><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">linear_model</span><span class="p">,</span> <span class="n">datasets</span>
+<a name="rest_code_ca04235355ab4ac6b62e6adf85c1be1b-17"></a><span class="n">lasso</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">LassoCV</span><span class="p">()</span>
+<a name="rest_code_ca04235355ab4ac6b62e6adf85c1be1b-18"></a><span class="n">dataset</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_diabetes</span><span class="p">()</span>
+<a name="rest_code_ca04235355ab4ac6b62e6adf85c1be1b-19"></a><span class="n">X_data</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">data</span>
+<a name="rest_code_ca04235355ab4ac6b62e6adf85c1be1b-20"></a><span class="n">y_data</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">target</span>
+<a name="rest_code_ca04235355ab4ac6b62e6adf85c1be1b-21"></a><span class="n">lasso</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_data</span><span class="p">,</span> <span class="n">y_data</span><span class="p">)</span>
+<a name="rest_code_ca04235355ab4ac6b62e6adf85c1be1b-22"></a><span class="c1"># The estimator chose automatically its lambda:</span>
+<a name="rest_code_ca04235355ab4ac6b62e6adf85c1be1b-23"></a><span class="n">lasso</span><span class="o">.</span><span class="n">alpha_</span>
+</pre>
+</div>
+<div class="section" id="unsupervised-learning">
+<h2><a class="toc-backref" href="#id5">Unsupervised&nbsp;Learning</a></h2>
+<pre class="code python"><a name="rest_code_120f7129103b46dd92861a44a6afc637-1"></a><span class="c1"># clustering</span>
+<a name="rest_code_120f7129103b46dd92861a44a6afc637-2"></a><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">cluster</span><span class="p">,</span> <span class="n">datasets</span>
+<a name="rest_code_120f7129103b46dd92861a44a6afc637-3"></a><span class="n">iris</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_iris</span><span class="p">()</span>
+<a name="rest_code_120f7129103b46dd92861a44a6afc637-4"></a><span class="n">X_iris</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">data</span>
+<a name="rest_code_120f7129103b46dd92861a44a6afc637-5"></a><span class="n">y_iris</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">target</span>
+<a name="rest_code_120f7129103b46dd92861a44a6afc637-6"></a>
+<a name="rest_code_120f7129103b46dd92861a44a6afc637-7"></a><span class="n">k_means</span> <span class="o">=</span> <span class="n">cluster</span><span class="o">.</span><span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<a name="rest_code_120f7129103b46dd92861a44a6afc637-8"></a><span class="n">k_means</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_iris</span><span class="p">)</span>
+<a name="rest_code_120f7129103b46dd92861a44a6afc637-9"></a>
+<a name="rest_code_120f7129103b46dd92861a44a6afc637-10"></a><span class="k">print</span><span class="p">(</span><span class="n">k_means</span><span class="o">.</span><span class="n">labels_</span><span class="p">[::</span><span class="mi">10</span><span class="p">])</span>
+<a name="rest_code_120f7129103b46dd92861a44a6afc637-11"></a>
+<a name="rest_code_120f7129103b46dd92861a44a6afc637-12"></a><span class="k">print</span><span class="p">(</span><span class="n">y_iris</span><span class="p">[::</span><span class="mi">10</span><span class="p">])</span>
+</pre>
+</div>
+</div>
+    </div>
+    
+</article><!--End of body content--><footer id="footer">
+            Contents © 2019         <a href="mailto:ikhlestov@gmail.com">Illarion Khlestov</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>          <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script></footer>
+</div>
+</div>
+
+        <script src="../../../../../assets/js/all-nocdn.js"></script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates --><script>
+    baguetteBox.run('div#content', {
+        ignoreClass: 'islink',
+        captions: function(element) {
+            return element.getElementsByTagName('img')[0].alt;
+    }});
+    </script><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-92406723-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

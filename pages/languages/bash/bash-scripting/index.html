@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html prefix="
+og: http://ogp.me/ns# article: http://ogp.me/ns/article#
+" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bash scripting | Illarion&#8217;s Notes</title>
+<link href="../../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#5670d4">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../../../../rss.xml">
+<link rel="canonical" href="https://ikhlestov.github.io/pages/languages/bash/bash-scripting/">
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    displayAlign: 'center', // Change this to 'center' to center equations.
+});
+</script><!--[if lt IE 9]><script src="../../../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Illarion Khlestov">
+<meta property="og:site_name" content="Illarion's Notes">
+<meta property="og:title" content="Bash scripting">
+<meta property="og:url" content="https://ikhlestov.github.io/pages/languages/bash/bash-scripting/">
+<meta property="og:description" content="assign variable var_name=value
+refer a variable $var_name
+$0 - The name of the script.
+$1 - $9 - Any command line arguments given to the script. $1 is the first argument, $2 the second and so on.
+$# -">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2019-01-07T20:53:13Z">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-expand-md static-top mb-4
+navbar-dark bg-dark
+"><div class="container">
+<!-- This keeps the margins nice -->
+        <a class="navbar-brand" href="https://ikhlestov.github.io/">
+
+            <span id="blog-title">Illarion&#8217;s Notes</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="bs-navbar">
+            <ul class="navbar-nav mr-auto">
+<li class="nav-item">
+<a href="../../../../" class="nav-link">About</a>
+                </li>
+<li class="nav-item">
+<a href="../../../../posts/" class="nav-link">Blog&nbsp;Posts</a>
+                </li>
+<li class="nav-item">
+<a href="../../../" class="nav-link">Pages</a>
+
+                
+            </li>
+</ul>
+<ul class="navbar-nav navbar-right"></ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <nav class="breadcrumbs"><ul class="breadcrumb">
+<li class="breadcrumb-item"><a href="../../../">pages</a></li>
+                <li class="breadcrumb-item"><a href="../../">languages</a></li>
+                <li class="breadcrumb-item"><a href="../">bash</a></li>
+                <li class="breadcrumb-item active">bash-scripting</li>
+</ul></nav><div class="body-content">
+        <!--Body content-->
+        
+<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Bash&nbsp;scripting</a></h1>
+
+        
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<ul class="simple">
+<li>assign variable <tt class="docutils literal">var_name=value</tt>
+</li>
+<li>refer a variable <tt class="docutils literal">$var_name</tt>
+</li>
+<li>
+<tt class="docutils literal">$0</tt> - The name of the&nbsp;script.</li>
+<li>
+<tt class="docutils literal">$1</tt> - <tt class="docutils literal">$9</tt> - Any command line arguments given to the script. $1 is the first argument, $2 the second and so&nbsp;on.</li>
+<li>
+<tt class="docutils literal">$#</tt> - How many command line arguments were given to the&nbsp;script.</li>
+<li>
+<tt class="docutils literal">$*</tt> - All command line&nbsp;arguments.</li>
+</ul>
+<p><strong>if</strong>&nbsp;statements:</p>
+<pre class="code bash"><a name="rest_code_2e4055009392475f90fb6784ed2e01c1-1"></a><span class="k">if</span> <span class="o">[</span> &lt;some test&gt; <span class="o">]</span>
+<a name="rest_code_2e4055009392475f90fb6784ed2e01c1-2"></a><span class="k">then</span>
+<a name="rest_code_2e4055009392475f90fb6784ed2e01c1-3"></a>  &lt;commands&gt;
+<a name="rest_code_2e4055009392475f90fb6784ed2e01c1-4"></a><span class="k">else</span>
+<a name="rest_code_2e4055009392475f90fb6784ed2e01c1-5"></a>  &lt;another&gt;
+<a name="rest_code_2e4055009392475f90fb6784ed2e01c1-6"></a><span class="k">fi</span>
+</pre>
+<p><strong>while</strong>&nbsp;loop:</p>
+<pre class="code bash"><a name="rest_code_643ba78ac4f94c808de0f045e78285ee-1"></a><span class="k">while</span> <span class="o">[</span> &lt;some test&gt; <span class="o">]</span>
+<a name="rest_code_643ba78ac4f94c808de0f045e78285ee-2"></a><span class="k">do</span>
+<a name="rest_code_643ba78ac4f94c808de0f045e78285ee-3"></a>  &lt;commands&gt;
+<a name="rest_code_643ba78ac4f94c808de0f045e78285ee-4"></a><span class="k">done</span>
+</pre>
+<p><strong>for</strong>&nbsp;loops:</p>
+<pre class="code bash"><a name="rest_code_750a771efbbf441488e8edff386cd34a-1"></a><span class="c1"># for value in {1..5}</span>
+<a name="rest_code_750a771efbbf441488e8edff386cd34a-2"></a><span class="k">for</span> var in &lt;list&gt;
+<a name="rest_code_750a771efbbf441488e8edff386cd34a-3"></a><span class="k">do</span>
+<a name="rest_code_750a771efbbf441488e8edff386cd34a-4"></a>  &lt;commands&gt;
+<a name="rest_code_750a771efbbf441488e8edff386cd34a-5"></a><span class="k">done</span>
+</pre>
+</div>
+    </div>
+    
+</article><!--End of body content--><footer id="footer">
+            Contents © 2019         <a href="mailto:ikhlestov@gmail.com">Illarion Khlestov</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>          <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script></footer>
+</div>
+</div>
+
+        <script src="../../../../assets/js/all-nocdn.js"></script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates --><script>
+    baguetteBox.run('div#content', {
+        ignoreClass: 'islink',
+        captions: function(element) {
+            return element.getElementsByTagName('img')[0].alt;
+    }});
+    </script><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-92406723-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>
