@@ -8,5 +8,5 @@
 .. type: text
 .. author: Illarion Khlestov
 
-- Packages
-- .. include:: /Users/illarionkhliestov/Projects/blog/pages/languages/python/packages/index.rst
+.. list_siblings::
+    :base_folder: pages/languages/python

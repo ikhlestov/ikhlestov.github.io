@@ -8,8 +8,5 @@
 .. type: text
 .. author: Illarion Khlestov
 
-- :doc:`ipdb`
-- :doc:`matplotlib`
-- :doc:`numpy`
-- :doc:`pandas`
-- :doc:`scikit-learn`
+.. list_siblings::
+    :base_folder: pages/languages/python/packages

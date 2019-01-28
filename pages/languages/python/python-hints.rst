@@ -1,7 +1,7 @@
 .. title: Python Hints
 .. slug: python-hints
 .. date: 2017-03-21 16:21:33 UTC
-.. tags: 
+.. tags: python
 .. category: 
 .. link: 
 .. description: 

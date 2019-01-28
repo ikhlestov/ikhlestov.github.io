@@ -84,7 +84,10 @@ NAVIGATION_LINKS = {
 }
 
 # Name of the theme to use.
-THEME = "bootstrap3-jinja"
+# THEME = "bootstrap3-jinja"
+# THEME = "yesplease"
+# THEME = "bootblog4"
+THEME = "bootstrap4-jinja"
 # THEME = "hyde"
 
 # Primary color of your theme. This will be used to customize your theme and
@@ -107,34 +110,7 @@ PAGES = [
     ("pages/*.txt", "pages", "story.tmpl"),
     ("pages/*.html", "pages", "story.tmpl"),
     ("pages/*.md", "pages", "story.tmpl"),
-
-    # debug
-    ("pages_bu/*.rst", "pages_bu", "story.tmpl"),
-    ("pages_bu/*.txt", "pages_bu", "story.tmpl"),
-    ("pages_bu/*.html", "pages_bu", "story.tmpl"),
-    ("pages_bu/*.md", "pages_bu", "story.tmpl"),
 ]
-
-# topic_folders = [
-#     'math',
-#     'theoretical-cs',
-#     'machine-learning',
-#     'languages',
-#     'software-engineering',
-#     'tools',
-# ]
-
-# extensions = ['rst', 'txt', 'html', 'md']
-
-
-# def extend_pages(pages, topic_folders, extensions):
-#     for topic in topic_folders:
-#         for extension in extensions:
-#             source = "%s/*.%s" % (topic, extension)
-#             destination = topic
-#             template = "story.tmpl"
-#             pages.append((source, destination, template))
-#     return pages
 
 
 # PAGES = tuple(extend_pages(PAGES, topic_folders, extensions))

@@ -1,0 +1,13 @@
+[Core]
+name = list_siblings
+module = list_siblings
+
+[Nikola]
+compiler = rest
+PluginCategory = CompilerExtension
+
+[Documentation]
+author = Illarion Khlestov
+version = 0.1
+website = https://getnikola.com/
+description = Directive to insert links to all siblings stories

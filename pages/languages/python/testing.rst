@@ -1,7 +1,7 @@
 .. title: Testing
 .. slug: testing
 .. date: 2017-12-06 16:40:34 UTC
-.. tags: 
+.. tags: python
 .. category: 
 .. link: 
 .. description: 

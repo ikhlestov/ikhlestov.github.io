@@ -1,0 +1,21 @@
+{#  -*- coding: utf-8 -*- #}
+{% macro make_sibling_list(posts) -%}
+    {% if posts %}
+    <ul class="post-list">
+        {% for data in posts %}
+            <li class="post-list-item">
+            <a href="{{ data['page'].permalink(lang) }}">{{ data["page"].title(lang)|e }}</a>
+            </li>
+            {{ make_sibling_list(data["siblings"]) }}
+        {% endfor %}
+    </ul>
+    {% endif %}
+{%- endmacro %}
+
+{% block content %}
+<!-- Begin post-list {{ post_list_id }} -->
+<div id="{{ post_list_id }}" class="post-list">
+    {{make_sibling_list(posts)}}
+</div>
+<!-- End post-list {{ post_list_id }} -->
+{% endblock %}

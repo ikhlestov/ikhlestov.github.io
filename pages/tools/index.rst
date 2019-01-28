@@ -11,9 +11,5 @@
 
 Here is info about how to use various tools - hotkeys, commands, etc.
 
-* :doc:`bash-shortcuts`
-* :doc:`docker`
-* :doc:`git`
-* :doc:`hadoop`
-* :doc:`sublime`
-* :doc:`tmux`
+.. list_siblings::
+    :base_folder: pages/tools

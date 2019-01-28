@@ -134,3 +134,10 @@ Languages
     - Sublime
     - Tmux
 
+
+
+Useful links:
+https://getnikola.com/template-variables.html
+https://plugins.getnikola.com/#plugins-by-category
+https://plugins.getnikola.com/v7/subindexes/
+https://github.com/getnikola/nikola/blob/38a69304d725edc0b24a4c8e5d0346e1757bc336/nikola/plugins/compile/rest/post_list.py
