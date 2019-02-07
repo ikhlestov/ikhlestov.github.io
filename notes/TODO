@@ -10,9 +10,7 @@ add description ot the main topics(pages) to the about page
 Update images structure
 
 **Navigation and style**:
-Show sublings folder content
 navigation bar on the left side of the page
-bread crumbs (jquery?)
 Add tree-like structure that may open/hover. The same as for ReadTheDocs theme
 кнопки "назад"/"на уровень выше"/"следующая заметка"
 Make custom url directive for page/index.rst
