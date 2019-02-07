@@ -54,7 +54,7 @@ Spatial convolutions means convolutions performed in **spatial dimensions** - **
 
 .. image:: /images/ML_notes/convolutions/04_simple_inception.png
 
-Depthwise Separable Convolutions(separable convolutions)
+Depthwise Separable Convolutions
 =========================================================
 
 A lot about such convolutions published in the (`Xception paper <https://arxiv.org/abs/1610.02357>`__) or
@@ -81,7 +81,7 @@ Main motivation of such convolutions is to reduce computational complexity while
 .. image:: /images/ML_notes/convolutions/05_2_group_convolutions.png
 
 Shuffled Grouped Convolutions
-=============================
+==============================
 
 `Shuffle Net <https://arxiv.org/abs/1707.01083>`__ proposed how to eliminate main side effect of the grouped convolutions that "outputs from a certain channel are only derived from a small fraction of input channels".
 
