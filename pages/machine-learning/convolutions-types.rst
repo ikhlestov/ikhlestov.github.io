@@ -8,6 +8,9 @@
 .. type: text
 .. author: Illarion Khlestov
 
+
+If you are looking for exmplanation whtat convolution layers are, it better to check :doc:`convolutional-layers` page
+
 .. contents::
 
 Simple Convolution

@@ -1,0 +1,89 @@
+- math-background
+- pipeline building
+    - how pipeline should looks like
+    - some tips and trics(saving the results, etc)
+- data preparation
+- building the network
+    - main building blocks
+        - conv
+        - lstm
+        - Regularization layers
+        - attention
+    - important architectures
+- training
+    - Objective functions(loss)
+    - Optimizers
+    - Learning approaches(maybe move to the regularization blocks)
+        - Cycling learning rate
+        - Early stoping
+- evaluation
+    - Ensembling
+- deploying
+- Frameworks
+- Custom tips and trics:
+    - for GANs
+    - video preprocessing
+
+
+
+
+
+
+
+
+
+
+
+
+
+# TODO: describe better structure?
+Machine Learning
+    - Data collecting, labeling and preprocessing
+        - Try to use AndrewNG book or lecture
+        - Splitting datasets
+        - datasets distribution
+        - balancing datasets
+    
+    - Low-level blocks
+        - CNNs
+        - LSTMs
+        - Regularization blocks
+            - Dropout
+            - Bach norm
+            - Instance norm
+            - Layer norm
+            - Group norm
+            - Switchable normalization - https://arxiv.org/pdf/1806.10779.pdf 
+            - Weights normalization
+        - Attention blocks
+
+    - Model architectures
+    - Practical applications
+    
+    - Models Architectures and practical applications
+        - Machine learning tasks:
+            - computer vision
+                - classification
+                - detection
+                - segmentation
+                - recognition
+
+    - Training process
+        - Losses
+            - metric learning, such as contrastive loss[25], triplet loss[23], center loss[33], contrastive-center loss[22] and NormFace[32].
+            - Earth Mover’s Loss (EML)
+        - Optimizers
+            - Adam
+            - SGD
+            - other
+        - Learning approaches(maybe move to the regularization blocks)
+            - Cycling learning rate
+            - Early stoping
+        - Ensembling
+        - Debugging
+    - Pipeline building
+    - Deploy/inference processes
+    - Frameworks
+        - Tensorflow
+        - Pytorch
+    - Bookmarks
