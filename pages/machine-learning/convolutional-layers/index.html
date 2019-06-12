@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html prefix="
+og: http://ogp.me/ns# article: http://ogp.me/ns/article#
+" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Convolutional Layers | Illarion&#8217;s Notes</title>
+<link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#5670d4">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../../../rss.xml">
+<link rel="canonical" href="https://ikhlestov.github.io/pages/machine-learning/convolutional-layers/">
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    displayAlign: 'center', // Change this to 'center' to center equations.
+});
+</script><!--[if lt IE 9]><script src="../../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Illarion Khlestov">
+<meta property="og:site_name" content="Illarion's Notes">
+<meta property="og:title" content="Convolutional Layers">
+<meta property="og:url" content="https://ikhlestov.github.io/pages/machine-learning/convolutional-layers/">
+<meta property="og:description" content="Convolution layers one of the main building blocks for the deep learning computer vision nowadays. Let's see what these layers consist of and how they work.
+
+Understanding of convolution operation
+Acc">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2019-03-20T08:34:10Z">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-expand-md static-top mb-4
+navbar-dark bg-dark
+"><div class="container">
+<!-- This keeps the margins nice -->
+        <a class="navbar-brand" href="https://ikhlestov.github.io/">
+
+            <span id="blog-title">Illarion&#8217;s Notes</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="bs-navbar">
+            <ul class="navbar-nav mr-auto">
+<li class="nav-item">
+<a href="../../../" class="nav-link">About</a>
+                </li>
+<li class="nav-item">
+<a href="../../../posts/" class="nav-link">Blog&nbsp;Posts</a>
+                </li>
+<li class="nav-item">
+<a href="../../" class="nav-link">Pages</a>
+
+                
+            </li>
+</ul>
+<ul class="navbar-nav navbar-right"></ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <nav class="breadcrumbs"><ul class="breadcrumb">
+<li class="breadcrumb-item"><a href="../../">pages</a></li>
+                <li class="breadcrumb-item"><a href="../">machine-learning</a></li>
+                <li class="breadcrumb-item active">convolutional-layers</li>
+</ul></nav><div class="body-content">
+        <!--Body content-->
+        
+<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Convolutional&nbsp;Layers</a></h1>
+
+        
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<p>Convolution layers one of the main building blocks for the deep learning computer vision nowadays. Let&#8217;s see what these layers consist of and how they&nbsp;work.</p>
+<div class="section" id="understanding-of-convolution-operation">
+<h2>Understanding of convolution&nbsp;operation</h2>
+<p>According to the <a class="reference external" href="https://en.wikipedia.org/wiki/Convolution">wiki</a> &#8220;convolution is a mathematical operation on two functions (f and g) to produce a third function that expresses how the shape of one is modified by the other&#8221;. Roughly speaking, we shift one function towards another, and for each delta shift, we calculate both functions area intersection. See image&nbsp;bellow:</p>
+<div class="figure">
+<img alt="/images/machine-learning/convolutional-layers/01_convolution-operation-example.png" src="../../../images/machine-learning/convolutional-layers/01_convolution-operation-example.png">
+</div>
+<p>This behavior becomes very handy if we want to perform some pattern matching. For example, if we are looking for some pattern, convolution operation will produce the maximum output at the point, where it matches the required pattern the most. This process can be easily shown with autocorrelation - correlation of a signal with a delayed copy of&nbsp;itself:</p>
+<div class="figure">
+<img alt="/images/machine-learning/convolutional-layers/02_convolution-pattern-matching.png" src="../../../images/machine-learning/convolutional-layers/02_convolution-pattern-matching.png">
+</div>
+<p>And here is the example for a discrete vector case in&nbsp;python:</p>
+<pre class="code pycon"><a name="rest_code_17dcb85be1c340268bb169157223273f-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<a name="rest_code_17dcb85be1c340268bb169157223273f-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">input_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<a name="rest_code_17dcb85be1c340268bb169157223273f-3"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">pattern</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span> <span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<a name="rest_code_17dcb85be1c340268bb169157223273f-4"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">convolve</span><span class="p">(</span><span class="n">input_</span><span class="p">,</span> <span class="n">pattern</span><span class="p">)</span>
+<a name="rest_code_17dcb85be1c340268bb169157223273f-5"></a><span class="go">array([ 0,  0,  0,  1,  4, 10, 16, 19, 16, 10,  4,  1,  0,  0])</span>
+</pre>
+<p>Mathematically convolution operation can be written as <span class="math">\((f*g)(t)\triangleq \ \int _{-\infty }^{\infty }f(\tau )g(t-\tau )\,d\tau\)</span>, where <span class="math">\(*\)</span> actually denotes the&nbsp;convolution.</p>
+<p>In machine learning, first function <span class="math">\(f\)</span> often referred to as the <strong>input</strong>, and the second argument (function <span class="math">\(g\)</span>) as the <strong>kernel</strong>.
+Moreover, many neural network libraries implement a related function called the <a class="reference external" href="https://en.wikipedia.org/wiki/Cross-correlation">cross-correlation</a> , which is the same as convolution but without flipping the&nbsp;kernel.</p>
+</div>
+<div class="section" id="convolutions-for-images">
+<h2>Convolutions for&nbsp;images</h2>
+<p>As you may know, images on computers represented as a matrix of pixels, usually ranged from 0 to 255. Let&#8217;s take a look on a simple 14x14 gray&nbsp;image:</p>
+<div class="figure">
+<img alt="/images/machine-learning/convolutional-layers/03_simple_gray_image.png" src="../../../images/machine-learning/convolutional-layers/03_simple_gray_image.png">
+</div>
+<p>In terms of numbers it&#8217;s represented as 14x14&nbsp;array:</p>
+<pre class="code text"><a name="rest_code_e3e321ad8ffe44898778dee4b48fd5b9-1"></a>[[255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255],
+<a name="rest_code_e3e321ad8ffe44898778dee4b48fd5b9-2"></a> [255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 238, 238],
+<a name="rest_code_e3e321ad8ffe44898778dee4b48fd5b9-3"></a> [255, 255, 255,   0, 255, 255,   0, 255, 255,   0, 255, 255, 255, 255, 221, 221],
+<a name="rest_code_e3e321ad8ffe44898778dee4b48fd5b9-4"></a> [255, 255, 255,   0, 255, 255,   0, 255, 255,   0, 255, 255, 255, 255, 204, 204],
+<a name="rest_code_e3e321ad8ffe44898778dee4b48fd5b9-5"></a> [255, 255, 255,   0, 255, 255,   0, 255, 255, 255, 255, 255, 255, 255, 187, 187],
+<a name="rest_code_e3e321ad8ffe44898778dee4b48fd5b9-6"></a> [255, 255, 255,   0, 255, 255,   0, 255, 255,   0, 255, 255, 255, 255, 170, 170],
+<a name="rest_code_e3e321ad8ffe44898778dee4b48fd5b9-7"></a> [255, 255, 255,   0,   0,   0,   0, 255, 255,   0, 255, 255, 255, 255, 153, 153],
+<a name="rest_code_e3e321ad8ffe44898778dee4b48fd5b9-8"></a> [255, 255, 255,   0, 255, 255,   0, 255, 255,   0, 255, 255, 255, 255, 136, 136],
+<a name="rest_code_e3e321ad8ffe44898778dee4b48fd5b9-9"></a> [255, 255, 255,   0, 255, 255,   0, 255, 255,   0, 255, 255, 255, 255, 119, 119],
+<a name="rest_code_e3e321ad8ffe44898778dee4b48fd5b9-10"></a> [255, 255, 255,   0, 255, 255,   0, 255, 255,   0, 255, 255, 255, 255, 102, 102],
+<a name="rest_code_e3e321ad8ffe44898778dee4b48fd5b9-11"></a> [255, 255, 255,   0, 255, 255,   0, 255, 255,   0, 255, 255, 255, 255,  85,  85],
+<a name="rest_code_e3e321ad8ffe44898778dee4b48fd5b9-12"></a> [255, 255, 255,   0, 255, 255,   0, 255, 255,   0, 255, 255, 255, 255,  68,  68],
+<a name="rest_code_e3e321ad8ffe44898778dee4b48fd5b9-13"></a> [255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255,  51,  51],
+<a name="rest_code_e3e321ad8ffe44898778dee4b48fd5b9-14"></a> [255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255,  34,  34],
+<a name="rest_code_e3e321ad8ffe44898778dee4b48fd5b9-15"></a> [255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255,  17,  17],
+<a name="rest_code_e3e321ad8ffe44898778dee4b48fd5b9-16"></a> [255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255,   0,   0]]
+</pre>
+<p>I hope you can see patterns even without the image being displayed. Besides, because image represented as an array, we can apply convolution on it. Moreover, convolution is the operation of two functions, but we are not limited to 1d arrays. We can proceed functions of arbitrary complexity, that&#8217;s why we can apply convolutions to N-d arrays as&nbsp;well.</p>
+<p>TODO:
+- simple example with the easiest kernel(just to show how images are&nbsp;handled)</p>
+</div>
+<div class="section" id="choosing-a-kernel-and-it-s-properties">
+<h2>Choosing a kernel and it&#8217;s&nbsp;properties</h2>
+<ul class="simple">
+<li>how we should choose a&nbsp;kernel?</li>
+<li>kernel padding and&nbsp;stride</li>
+</ul>
+</div>
+<div class="section" id="operations-complexity">
+<h2>Operations&nbsp;complexity</h2>
+<p>pass</p>
+</div>
+</div>
+    </div>
+    
+</article><!--End of body content--><footer id="footer">
+            Contents © 2019         <a href="mailto:ikhlestov@gmail.com">Illarion Khlestov</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>          <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script></footer>
+</div>
+</div>
+
+        <script src="../../../assets/js/all-nocdn.js"></script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates --><script>
+    baguetteBox.run('div#content', {
+        ignoreClass: 'islink',
+        captions: function(element) {
+            return element.getElementsByTagName('img')[0].alt;
+    }});
+    </script><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-92406723-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

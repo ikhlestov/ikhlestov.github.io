@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html prefix="
+og: http://ogp.me/ns# article: http://ogp.me/ns/article#
+" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Databases | Illarion&#8217;s Notes</title>
+<link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#5670d4">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../../../rss.xml">
+<link rel="canonical" href="https://ikhlestov.github.io/pages/software-engineering/databases/">
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    displayAlign: 'center', // Change this to 'center' to center equations.
+});
+</script><!--[if lt IE 9]><script src="../../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Illarion Khlestov">
+<meta property="og:site_name" content="Illarion's Notes">
+<meta property="og:title" content="Databases">
+<meta property="og:url" content="https://ikhlestov.github.io/pages/software-engineering/databases/">
+<meta property="og:description" content="Feedback о курсе:
+- много текста на слайдах - люди сначала читают
+- перечитывать что написанно нет смысла)
+Books:
+
+7 databases 7 weeks - https://www.amazon.com/Seven-Databases-Weeks-Modern-Movement/dp">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2019-02-23T08:25:31Z">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-expand-md static-top mb-4
+navbar-dark bg-dark
+"><div class="container">
+<!-- This keeps the margins nice -->
+        <a class="navbar-brand" href="https://ikhlestov.github.io/">
+
+            <span id="blog-title">Illarion&#8217;s Notes</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="bs-navbar">
+            <ul class="navbar-nav mr-auto">
+<li class="nav-item">
+<a href="../../../" class="nav-link">About</a>
+                </li>
+<li class="nav-item">
+<a href="../../../posts/" class="nav-link">Blog&nbsp;Posts</a>
+                </li>
+<li class="nav-item">
+<a href="../../" class="nav-link">Pages</a>
+
+                
+            </li>
+</ul>
+<ul class="navbar-nav navbar-right"></ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <nav class="breadcrumbs"><ul class="breadcrumb">
+<li class="breadcrumb-item"><a href="../../">pages</a></li>
+                <li class="breadcrumb-item"><a href="../">software-engineering</a></li>
+                <li class="breadcrumb-item active">databases</li>
+</ul></nav><div class="body-content">
+        <!--Body content-->
+        
+<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Databases</a></h1>
+
+        
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<p>Feedback о курсе:
+- много текста на слайдах - люди сначала читают
+- перечитывать что написанно нет&nbsp;смысла)</p>
+<p>Books:</p>
+<ul class="simple">
+<li>7 databases 7 weeks - <a class="reference external" href="https://www.amazon.com/Seven-Databases-Weeks-Modern-Movement/dp/1934356921">https://www.amazon.com/Seven-Databases-Weeks-Modern-Movement/dp/1934356921</a>
+</li>
+<li>современные операционные&nbsp;системы</li>
+<li>High performance MySQL - <a class="reference external" href="https://www.amazon.com/High-Performance-MySQL-Optimization-Replication/dp/1449314287">https://www.amazon.com/High-Performance-MySQL-Optimization-Replication/dp/1449314287</a>
+</li>
+</ul>
+<div class="section" id="id1">
+<h2>По&nbsp;базам</h2>
+<p>понятие repeatable-read - когда во время чтения все фризится
+когда он вЫключен - какая-то таблица может обновляться в пределах транзакции, пока к ней не обратятся
+Но как все реально будет работать, зависит еще от того, как вы стартуете транзакцию
+Если у вас не транзакционная база - то это все не работает :)
+Собственно транзацции происходят в режиме copy-on-write по&nbsp;памяти</p>
+<div class="section" id="mysql">
+<h3>MySQL:</h3>
+<ul class="simple">
+<li>пересчитывает индексы в момент первого&nbsp;SELECT</li>
+<li>поэтому если хотим скопировать - надо закрыть и на запись, и на&nbsp;чтение</li>
+<li><dl class="first docutils">
+<dt>Можно использовать blackhole движок для разгрузки&nbsp;мастера</dt>
+<dd><ul class="first last">
+<li>тогда мастер пишет только&nbsp;бинлог</li>
+<li>слейвы пишут&nbsp;данные</li>
+<li>только надо чтобы изменение движка не среплицировалось на&nbsp;slave</li>
+<li>можно сделать для отдельной&nbsp;таблицы</li>
+<li>и только если с мастера не&nbsp;читают</li>
+</ul></dd>
+</dl></li>
+<li>Выдачу прав юзера лучше делать тоже только через мастер и пусть он реплицирует на&nbsp;slave</li>
+<li>Движок innodb при удалении данных из базы не удаляет по факту с диска. Лечится alter&nbsp;table</li>
+<li>Фактически innodb растет&nbsp;бесконечно</li>
+</ul>
+</div>
+<div class="section" id="casandra">
+<h3>Casandra</h3>
+<ul class="simple">
+<li>Синкает&nbsp;бин-лог</li>
+<li>При старте сравнивает последний дамп и бин-лог, и то, что не было задамплено -&nbsp;доливает.</li>
+<li>Может находится в различных точках CAP соттношения в различное время(availability/consistency/partion&nbsp;tolerance)</li>
+<li>Использует протокол&nbsp;Glossy(сплетница)</li>
+<li>При рассинхроне времени клатер уйдет в&nbsp;офлайн</li>
+<li>Уровни записи и&nbsp;чтения:</li>
+</ul>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">&lt;string&gt;</tt>, line&nbsp;44)</p>
+Bullet list ends without a blank line; unexpected unindent.</div>
+<blockquote>
+<ul class="simple">
+<li>1</li>
+<li>Q&nbsp;(quorum)</li>
+<li>A&nbsp;(all)</li>
+<li>можно делать Q write and Q&nbsp;read</li>
+<li>или A write and 1&nbsp;read</li>
+</ul>
+</blockquote>
+</div>
+<div class="section" id="vertica">
+<h3>Vertica</h3>
+<p>Колоночная
+Бесплатная до 1Tb (который по факту может быть меньше 500 Gb данных)
+Ппц как&nbsp;закрытая</p>
+</div>
+<div class="section" id="graphite-whisper">
+<h3>Graphite&nbsp;Whisper</h3>
+<p>Может упираться в количество файлов на диски, которые он генерит
+Можно подменить файлы на что-то типа clickhouse
+метрики идут по UDP, поэтому могут не дойти
+Хорошо подходит для общего мониторинга
+Легче чем prometeus или&nbsp;InfluxDB</p>
+</div>
+<div class="section" id="prometeus-influxdb">
+<h3>Prometeus,&nbsp;InfluxDB</h3>
+<p>Хорошо подходит для тех метрик, которые одни и теже и не&nbsp;меняются</p>
+</div>
+<div class="section" id="redis">
+<h3>Redis:</h3>
+<ul class="simple">
+<li>setup&nbsp;OVERCOMMIT=1</li>
+</ul>
+</div>
+<div class="section" id="mongo">
+<h3>Mongo:</h3>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>явно mongo.dump может не&nbsp;отработать</dt>
+<dd><ul class="first last">
+<li>можно сделать полный replica-set базы и сделать слепок с&nbsp;него</li>
+<li>или одна коллекция в один часть(но могут получится&nbsp;расхождения)</li>
+</ul></dd>
+</dl></li>
+<li>можно посмотреть на роутер&nbsp;mongos</li>
+</ul>
+</div>
+<div class="section" id="clickhouse">
+<h3>Clickhouse</h3>
+<ul class="simple">
+<li>для&nbsp;метрик</li>
+<li>база сама по себе&nbsp;&#8220;развернута&#8221;</li>
+<li>колоночная база хранит время апдейта каждого&nbsp;столбца/поля?</li>
+</ul>
+</div>
+<div class="section" id="consul-database">
+<h3>Consul&nbsp;DataBase</h3>
+</div>
+<div class="section" id="rabbit-mq-messanger-router">
+<h3>Rabbit MQ как хороший messanger&nbsp;router</h3>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>Наша&nbsp;хранилка</h2>
+<p>Разбивать на несколько рейдов, что бы мониторить нагрузку на каждый диск
+Для файлопомойки использовали ребята честный ZFS with Solaris
+NGinx -&gt; прослойка -&gt; файловая система
+Push и Pull модель
+Torrent с анонсером для&nbsp;синхронизации</p>
+</div>
+<div class="section" id="syscalls">
+<h2>SysCalls:</h2>
+<p>железка &lt;- драйвер &lt;- core
+Core выдает API&nbsp;SysCall:</p>
+<ul class="simple">
+<li>open</li>
+<li>write</li>
+<li>lseek</li>
+<li>etc.</li>
+</ul>
+<p>lseek:
+проблема заключается в том, что мы должны не просто сдвинуться, но и выяснить место, куда надо сдвинуться.
+Т.е попутно мы еще много раз вызываем read, что бы найти свободное&nbsp;место.</p>
+<p>Чем меньше ядро обращается к железу, тем&nbsp;лучше.</p>
+</div>
+<div class="section" id="id3">
+<h2>Практические&nbsp;аспекты</h2>
+<p>Соотношение скорости и надежности.
+Highload - когда мы не можем решить проблему стандартными подходами(в частности&nbsp;железом)</p>
+<p>В общем современные данные состоят из:
+- файл с логом операций
+- собственно данные
+- различные&nbsp;индексы</p>
+<p>Индекс позволяет узнать сразу куда сделать seek, что позволяет сделать его&nbsp;единожды.</p>
+<p>Все взаимодествие между пользователем и базой(и на read и на write) проходит через оперативную&nbsp;память</p>
+<p>Проблема репликаций баз, в слечае когда одна база отвалилась от сети, но что-то продолжает с ней работать.
+Поэтому получается сложно определить в случае двух нод, кто прав.
+Можно использовать какой-то подход 3й реплики или арбитра.
+Правило 2n +&nbsp;1</p>
+<dl class="docutils">
+<dt>Разные логические блоки можно держать вообще в отдельных&nbsp;базах(</dt>
+<dd>например таблицы users и messages живут вообще в различных&nbsp;базах</dd>
+</dl>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">&lt;string&gt;</tt>, line&nbsp;139)</p>
+Definition list ends without a blank line; unexpected unindent.</div>
+<p>)</p>
+<p>При дебаге - надо знать что и откуда приходит.
+Хорошая практика - имень скрипт, который умеет лочить все порты кроме 22. И востанавливать все порты&nbsp;обратно.</p>
+<p>Не завязывайся на &#8220;серую&#8221;(локальную)&nbsp;сеть.</p>
+<p>Если у вас есть несколько баз данных - расселите их сразу на два отдельных процесса.
+Вы даже можете использовать одну визическую железку - но виртуально хранить отдельно.
+Когда придется разносить - к этому будете готовы и вы и&nbsp;разработчики.</p>
+<p>Синхронная раздача connection&nbsp;strings?</p>
+<p><span class="dquo">&#8220;</span>Хождение через океан&#8221; надо закладывать на уровне архитектуры еще на этапе&nbsp;разработке(очереди)</p>
+<p>Приложение которое по сигналу (например SIGHUB) будет переинициализировать пулл  коннектов к базе - будет невероятно&nbsp;круто</p>
+<p>Открытый tcp-dump по ssh - это хуже чем забытый дома&nbsp;утюг</p>
+<p>Удаление файла, с которым что-то работает не освободит место на диске, если дескриптор в пользующей программе не был&nbsp;закрыт.</p>
+<p>Join не позваляет в будущем настроить шардинг.
+В зависимости от того, будет ли расти объем данных и придется ли поднимать шардинг на разных&nbsp;серверах.</p>
+</div>
+<div class="section" id="vs">
+<h2>Последовательная запись vs. произвольная&nbsp;запись</h2>
+<ul>
+<li>
+<p class="first">strace:&nbsp;трасировщик</p>
+<blockquote>
+<ul class="simple">
+<li>Но не подключайтесь на проде, ибо это это дорого и нагружает базу&nbsp;данных</li>
+</ul>
+</blockquote>
+</li>
+<li>
+<p class="first">strace -ff -e lseek -p <cite>pidof mysql</cite></p>
+<blockquote>
+<ul class="simple">
+<li>Вообще можно подключаться не только к базам, но и к другим процессам. Например&nbsp;ssh</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">&lt;string&gt;</tt>, line&nbsp;172)</p>
+Bullet list ends without a blank line; unexpected unindent.</div>
+<p><a class="reference external" href="https://wiki/File_descriptor#Operations_on_file_descriptors">https://wiki/File_descriptor#Operations_on_file_descriptors</a></p>
+<p>Золотое правило реляционных баз данных - индексы и файлы с данными(одна нода) не должна весить более&nbsp;200GB</p>
+</div>
+<div class="section" id="aof-binglogs-append-event">
+<h2>Файлы с данными и AOF (binglogs, append и event&nbsp;логи)</h2>
+<p>Бинлоги можно читать глазами
+Бинлоги должны бить длинее чем бекап. Обычно - в дна раза длинее чем время бекапов.
+Иначе, мы просто не сможем востановить бекапы.
+Хорошая практика - ежедневная развертка бекапов для каких-то тестовых&nbsp;задач.</p>
+</div>
+<div class="section" id="id4">
+<h2>Денормализация</h2>
+<ul class="simple">
+<li>query driven&nbsp;development</li>
+<li>12 правил кодда - <a class="reference external" href="https://ru.wikipedia.org/wiki/12_%D0%BF%D1%80%D0%B0%D0%B2%D0%B8%D0%BB_%D0%9A%D0%BE%D0%B4%D0%B4%D0%B0">https://ru.wikipedia.org/wiki/12_%D0%BF%D1%80%D0%B0%D0%B2%D0%B8%D0%BB_%D0%9A%D0%BE%D0%B4%D0%B4%D0%B0</a>
+</li>
+<li>Денормализация&nbsp;(вики)</li>
+</ul>
+</div>
+<div class="section" id="performance-issues">
+<h2>Анализ performance&nbsp;issues</h2>
+<ul class="simple">
+<li>apt-get install sysstat iotop&nbsp;iftop</li>
+<li>cat&nbsp;/proc/cpuinfo</li>
+<li>top (and press 1) (разделить по&nbsp;ядрам)</li>
+<li>iostat -dx 1 (%util - колонка работы с&nbsp;диском)</li>
+<li>iotop - top для&nbsp;дисков</li>
+<li>iftop -i eth0 - мониторинг&nbsp;сети</li>
+</ul>
+<p>By default сетевые карты(даже многокональные) - биндятся на 0е ядро. Можно настроить нормально и поднять&nbsp;производительность.</p>
+</div>
+<div class="section" id="id5">
+<h2>Память</h2>
+<ul class="simple">
+<li>Resident set size&nbsp;(RSS)</li>
+<li>виртуальная память&nbsp;(VM)</li>
+<li>copy-on-write method (позволяет копировать, но при этом использовать сходные&nbsp;части)</li>
+<li>free -h&nbsp;(buff/cache)</li>
+<li>Потеря page cache при потере&nbsp;питания</li>
+<li>Вымывание page&nbsp;cache</li>
+</ul>
+<p>Комманды
+- netstat -tulp
+- lsof -p PID (процессы, порты и файлы что юзает) процесс
+- type redis-server (similar to <cite>which</cite>)
+- ldd /usr/bin/redis-server (list used external libraries)
+- sysctl - configure kernel parameters at&nbsp;runtime</p>
+<div class="system-message">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">&lt;string&gt;</tt>, line&nbsp;218)</p>
+Unexpected indentation.</div>
+<blockquote>
+<ul class="simple">
+<li>sysctl&nbsp;-a</li>
+</ul>
+</blockquote>
+<p>Если вы что-то запишете в файл и сразу отключе питание - то файл не запишется.
+Ибо syscall sfync просто не успеет отработать(не случится физическая запись как&nbsp;таковая)</p>
+<p>Забитая память быстрее вымывает кеши -&gt; чаще вызывает fsync() и пишет на&nbsp;диск</p>
+<p>Итого запись в&nbsp;файл:</p>
+<p>База -&gt; кеш -&gt; page cache -&gt; raid cache -&gt; контролер -&gt; и наконец, физическая&nbsp;запись</p>
+</div>
+<div class="section" id="id6">
+<h2>Процессорное время, переключение&nbsp;контекста</h2>
+<p>TODO: посмотреть как и что можно смореть через TOP
+Ядро видит FUSE как приложение
+FUSE из-за этого добавяет дополнительное хождение
+vmstat -s - показывает переключение контекста (IRQ cpu ticks)
+vmstat -m |&nbsp;less</p>
+</div>
+<div class="section" id="swap">
+<h2>Swap</h2>
+<p>Swap есть смысл включать, если при алерте вы готовы изолировать базу и дать свопу рассасаться.
+Иначе - просто нет смысла. База все равно умрет, просто через какое-то&nbsp;время.</p>
+</div>
+<div class="section" id="summary">
+<h2>Summary</h2>
+<p>Мониторьте все что можно
+Диски - %util
+Память -  мониторить размер page cache и сколько осталось
+Процессор - мониторить idle
+Для каждой базы - мониторьте свои важные метрики, наприиер
+- inno_db - транзакционная глубина(самое большое значение)
+Отставание&nbsp;репликаций</p>
+<p>не особо важно - deploy, monitor - в чат
+Важное - на звонилку (<a class="reference external" href="https://cloud.google.com/spanner/">https://cloud.google.com/spanner/</a>, <a class="reference external" href="https://www.pagerduty.com/">https://www.pagerduty.com/</a>)</p>
+</div>
+<hr class="docutils">
+<div class="section" id="id7">
+<h2>Аппаратная&nbsp;составляющая</h2>
+<p>Скорость RAID масива меряется по скорости самого медленого диска.
+У баз есть Hardware compatible list - его можно использовать что бы понимать на чем быстрее и лучше работает. Тем более для новых баз.
+А то будет как инструкция к салату &#8220;Шуба&#8221;
+Если не мониторить состояние дисков - то при подмене и восставлении диска в рейд - можно добить&nbsp;выжившие</p>
+</div>
+<div class="section" id="id8">
+<h2>Кластеризация и репликация <span class="amp">&amp;</span> Топологии&nbsp;репликации</h2>
+<p>Если есть две ноды - то лучше это закольцевать, а не просто сделать master -&gt; slave
+Можно делать фильтрации, что надо реплицировать, а что&nbsp;нет</p>
+<div class="system-message">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">&lt;string&gt;</tt>, line&nbsp;272)</p>
+Unexpected indentation.</div>
+<blockquote>
+<ul class="simple">
+<li>Пример с сырой статистикой, которые не реплицируются, а агрегируются скриптами, а потом уже записываются&nbsp;дальше</li>
+</ul>
+</blockquote>
+</div>
+<div class="section" id="id9">
+<h2>Мастер-мастер и&nbsp;мульти-мастер</h2>
+<dl class="docutils">
+<dt>MySQL после рассинхрона не&nbsp;съедется</dt>
+<dd><ul class="first last simple">
+<li>Пример одного Я поисковика и системы&nbsp;звонков</li>
+</ul></dd>
+</dl>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">&lt;string&gt;</tt>, line&nbsp;279)</p>
+Definition list ends without a blank line; unexpected unindent.</div>
+<p>Galera claster - медленно, но&nbsp;надежно</p>
+</div>
+<div class="section" id="id10">
+<h2>Балансировка между нодами&nbsp;клстера</h2>
+<p>Локальный HAPproxy на каждой машине - это круто. Тем более он поддерживает замену ip-шников
+Позволяет на гарячую подменить мастер. Просто закрыв networking на местер - тогда HAProxy автоматически все переведет на&nbsp;slave.</p>
+</div>
+<div class="section" id="id11">
+<h2>Тюнинг&nbsp;индексов</h2>
+<p>128 GB оперативки стоят дешевле чем хороший DBA, а приносят больше&nbsp;пользы))</p>
+<dl class="docutils">
+<dt>Индексов должно быть мало - только те, которыми вы&nbsp;пользуетесь.</dt>
+<dd>Потому что они должны up-to-date, и поэтому они каждый раз будут пересчитываться.
+Любой индекс - удар по производительности (insert and update).
+Можно по логам смотреть какие индексы используются и какие нет. Которые не используются -&nbsp;убрать</dd>
+<dt>Настройка индекса по абсолютно разным данным(например время как стринга) - не&nbsp;эффективно.</dt>
+<dd>Т.к на один индекс приходится одна запись.
+Можно сделать индекс с игнорированием минут и секунд - тогда он будет эффективен
+В тоже время когда под одним индексом очень много данных - тоже&nbsp;плохо</dd>
+</dl>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">&lt;string&gt;</tt>, line&nbsp;300)</p>
+Definition list ends without a blank line; unexpected unindent.</div>
+<p>Короче - следите за длинной индексов
+Показать тебе может только&nbsp;explain</p>
+</div>
+<div class="section" id="id12">
+<h2>Бекапы</h2>
+<dl class="docutils">
+<dt>Инкрементальные бекапы - это галимая&nbsp;жадность)</dt>
+<dd>Если же делать инкрементами - то надо время от времени делать опорные&nbsp;дампы</dd>
+</dl>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">&lt;string&gt;</tt>, line&nbsp;308)</p>
+Definition list ends without a blank line; unexpected unindent.</div>
+<p>Лучше делать полный бекап и автоматически проверять его развертку
+Главное не просто делать бекапы, но и проверять&nbsp;их.</p>
+<div class="system-message">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">&lt;string&gt;</tt>, line&nbsp;310)</p>
+Unexpected indentation.</div>
+<blockquote>
+Часто вместо бекапа внутри может оказаться просто сообщение об ошибке</blockquote>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">&lt;string&gt;</tt>, line&nbsp;311)</p>
+Block quote ends without a blank line; unexpected unindent.</div>
+<p>Два канала слака:
+- Все о хороших бекапах
+- Все о плохих бекапах
+Credentials для бекапов - делайте на отдельном&nbsp;хосте</p>
+</div>
+<div class="section" id="and-logical-volume-manager">
+<h2>Разбитие разделов and Logical Volume&nbsp;Manager</h2>
+<p>Система - 32GB
+Swap - что-то
+Данные - 100GB
+После - ничего не размечать
+Тогда раздел с данными можно бужет&nbsp;увеличить</p>
+<p>LVM - если снепшот не удался, то надо его сразу его удалить. Иначе снова будет эффект утюга из-за copy on write.
+LVM делает небольшой оверхед, но позволяет легче работать с разбиением&nbsp;разделов</p>
+<p>Consul and HaProxy хороший must&nbsp;have</p>
+<p>Натюрлих богдана хмельникцого
+Хмельной князь
+Телеграм Павла -&nbsp;@p01nt</p>
+</div>
+</div>
+    </div>
+    
+</article><!--End of body content--><footer id="footer">
+            Contents © 2019         <a href="mailto:ikhlestov@gmail.com">Illarion Khlestov</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>          <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script></footer>
+</div>
+</div>
+
+        <script src="../../../assets/js/all-nocdn.js"></script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates --><script>
+    baguetteBox.run('div#content', {
+        ignoreClass: 'islink',
+        captions: function(element) {
+            return element.getElementsByTagName('img')[0].alt;
+    }});
+    </script><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-92406723-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

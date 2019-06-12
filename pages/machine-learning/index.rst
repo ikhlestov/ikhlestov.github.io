@@ -17,6 +17,7 @@ Machine Learning:
 * :doc:`quck_ref`
 * :doc:`new-nn-checklist`
 * :doc:`architecture-decisions-flow`
+* :doc:`convolutional-layers`
 * :doc:`convolutions-types`
 * :doc:`nn-models-compression-techniques`
 

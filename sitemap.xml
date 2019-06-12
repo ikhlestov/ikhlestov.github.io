@@ -107,11 +107,15 @@
  </url>
  <url>
   <loc>https://ikhlestov.github.io/pages/machine-learning/</loc>
-  <lastmod>2019-01-28T23:13:00Z</lastmod>
+  <lastmod>2019-03-20T09:18:00Z</lastmod>
  </url>
  <url>
   <loc>https://ikhlestov.github.io/pages/machine-learning/architecture-decisions-flow/</loc>
   <lastmod>2019-01-28T23:13:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://ikhlestov.github.io/pages/machine-learning/convolutional-layers/</loc>
+  <lastmod>2019-03-20T09:18:00Z</lastmod>
  </url>
  <url>
   <loc>https://ikhlestov.github.io/pages/machine-learning/convolutions-types/</loc>
@@ -227,7 +231,11 @@
  </url>
  <url>
   <loc>https://ikhlestov.github.io/pages/software-engineering/</loc>
-  <lastmod>2019-01-28T23:13:00Z</lastmod>
+  <lastmod>2019-03-20T09:18:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://ikhlestov.github.io/pages/software-engineering/databases/</loc>
+  <lastmod>2019-03-20T09:18:00Z</lastmod>
  </url>
  <url>
   <loc>https://ikhlestov.github.io/pages/theoretical-cs/</loc>
