@@ -11,6 +11,8 @@ og: http://ogp.me/ns# article: http://ogp.me/ns/article#
 <meta name="generator" content="Nikola (getnikola.com)">
 <link rel="alternate" type="application/rss+xml" title="RSS" href="../../../rss.xml">
 <link rel="canonical" href="https://ikhlestov.github.io/pages/machine-learning/convolutional-layers/">
+<link rel="icon" href="../../../favicon.ico" sizes="16x16">
+<link rel="icon" href="../../../favicon.png" sizes="128x128">
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
     displayAlign: 'center', // Change this to 'center' to center equations.
@@ -87,11 +89,11 @@ navbar-dark bg-dark
 <img alt="/images/machine-learning/convolutional-layers/02_convolution-pattern-matching.png" src="../../../images/machine-learning/convolutional-layers/02_convolution-pattern-matching.png">
 </div>
 <p>And here is the example for a discrete vector case in&nbsp;python:</p>
-<pre class="code pycon"><a name="rest_code_17dcb85be1c340268bb169157223273f-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<a name="rest_code_17dcb85be1c340268bb169157223273f-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">input_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
-<a name="rest_code_17dcb85be1c340268bb169157223273f-3"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">pattern</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span> <span class="p">,</span><span class="mi">1</span><span class="p">])</span>
-<a name="rest_code_17dcb85be1c340268bb169157223273f-4"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">convolve</span><span class="p">(</span><span class="n">input_</span><span class="p">,</span> <span class="n">pattern</span><span class="p">)</span>
-<a name="rest_code_17dcb85be1c340268bb169157223273f-5"></a><span class="go">array([ 0,  0,  0,  1,  4, 10, 16, 19, 16, 10,  4,  1,  0,  0])</span>
+<pre class="code pycon"><a name="rest_code_db8a6cc95d24408988977488683ebdcf-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<a name="rest_code_db8a6cc95d24408988977488683ebdcf-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">input_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<a name="rest_code_db8a6cc95d24408988977488683ebdcf-3"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">pattern</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span> <span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<a name="rest_code_db8a6cc95d24408988977488683ebdcf-4"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">convolve</span><span class="p">(</span><span class="n">input_</span><span class="p">,</span> <span class="n">pattern</span><span class="p">)</span>
+<a name="rest_code_db8a6cc95d24408988977488683ebdcf-5"></a><span class="go">array([ 0,  0,  0,  1,  4, 10, 16, 19, 16, 10,  4,  1,  0,  0])</span>
 </pre>
 <p>Mathematically convolution operation can be written as <span class="math">\((f*g)(t)\triangleq \ \int _{-\infty }^{\infty }f(\tau )g(t-\tau )\,d\tau\)</span>, where <span class="math">\(*\)</span> actually denotes the&nbsp;convolution.</p>
 <p>In machine learning, first function <span class="math">\(f\)</span> often referred to as the <strong>input</strong>, and the second argument (function <span class="math">\(g\)</span>) as the <strong>kernel</strong>.
@@ -104,37 +106,40 @@ Moreover, many neural network libraries implement a related function called the 
 <img alt="/images/machine-learning/convolutional-layers/03_simple_gray_image.png" src="../../../images/machine-learning/convolutional-layers/03_simple_gray_image.png">
 </div>
 <p>In terms of numbers it&#8217;s represented as 14x14&nbsp;array:</p>
-<pre class="code text"><a name="rest_code_e3e321ad8ffe44898778dee4b48fd5b9-1"></a>[[255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255],
-<a name="rest_code_e3e321ad8ffe44898778dee4b48fd5b9-2"></a> [255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 238, 238],
-<a name="rest_code_e3e321ad8ffe44898778dee4b48fd5b9-3"></a> [255, 255, 255,   0, 255, 255,   0, 255, 255,   0, 255, 255, 255, 255, 221, 221],
-<a name="rest_code_e3e321ad8ffe44898778dee4b48fd5b9-4"></a> [255, 255, 255,   0, 255, 255,   0, 255, 255,   0, 255, 255, 255, 255, 204, 204],
-<a name="rest_code_e3e321ad8ffe44898778dee4b48fd5b9-5"></a> [255, 255, 255,   0, 255, 255,   0, 255, 255, 255, 255, 255, 255, 255, 187, 187],
-<a name="rest_code_e3e321ad8ffe44898778dee4b48fd5b9-6"></a> [255, 255, 255,   0, 255, 255,   0, 255, 255,   0, 255, 255, 255, 255, 170, 170],
-<a name="rest_code_e3e321ad8ffe44898778dee4b48fd5b9-7"></a> [255, 255, 255,   0,   0,   0,   0, 255, 255,   0, 255, 255, 255, 255, 153, 153],
-<a name="rest_code_e3e321ad8ffe44898778dee4b48fd5b9-8"></a> [255, 255, 255,   0, 255, 255,   0, 255, 255,   0, 255, 255, 255, 255, 136, 136],
-<a name="rest_code_e3e321ad8ffe44898778dee4b48fd5b9-9"></a> [255, 255, 255,   0, 255, 255,   0, 255, 255,   0, 255, 255, 255, 255, 119, 119],
-<a name="rest_code_e3e321ad8ffe44898778dee4b48fd5b9-10"></a> [255, 255, 255,   0, 255, 255,   0, 255, 255,   0, 255, 255, 255, 255, 102, 102],
-<a name="rest_code_e3e321ad8ffe44898778dee4b48fd5b9-11"></a> [255, 255, 255,   0, 255, 255,   0, 255, 255,   0, 255, 255, 255, 255,  85,  85],
-<a name="rest_code_e3e321ad8ffe44898778dee4b48fd5b9-12"></a> [255, 255, 255,   0, 255, 255,   0, 255, 255,   0, 255, 255, 255, 255,  68,  68],
-<a name="rest_code_e3e321ad8ffe44898778dee4b48fd5b9-13"></a> [255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255,  51,  51],
-<a name="rest_code_e3e321ad8ffe44898778dee4b48fd5b9-14"></a> [255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255,  34,  34],
-<a name="rest_code_e3e321ad8ffe44898778dee4b48fd5b9-15"></a> [255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255,  17,  17],
-<a name="rest_code_e3e321ad8ffe44898778dee4b48fd5b9-16"></a> [255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255,   0,   0]]
+<pre class="code text"><a name="rest_code_5b0de9d151694dda933a3904a59731d4-1"></a>[[255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255],
+<a name="rest_code_5b0de9d151694dda933a3904a59731d4-2"></a> [255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 238, 238],
+<a name="rest_code_5b0de9d151694dda933a3904a59731d4-3"></a> [255, 255, 255,   0, 255, 255,   0, 255, 255,   0, 255, 255, 255, 255, 221, 221],
+<a name="rest_code_5b0de9d151694dda933a3904a59731d4-4"></a> [255, 255, 255,   0, 255, 255,   0, 255, 255,   0, 255, 255, 255, 255, 204, 204],
+<a name="rest_code_5b0de9d151694dda933a3904a59731d4-5"></a> [255, 255, 255,   0, 255, 255,   0, 255, 255, 255, 255, 255, 255, 255, 187, 187],
+<a name="rest_code_5b0de9d151694dda933a3904a59731d4-6"></a> [255, 255, 255,   0, 255, 255,   0, 255, 255,   0, 255, 255, 255, 255, 170, 170],
+<a name="rest_code_5b0de9d151694dda933a3904a59731d4-7"></a> [255, 255, 255,   0,   0,   0,   0, 255, 255,   0, 255, 255, 255, 255, 153, 153],
+<a name="rest_code_5b0de9d151694dda933a3904a59731d4-8"></a> [255, 255, 255,   0, 255, 255,   0, 255, 255,   0, 255, 255, 255, 255, 136, 136],
+<a name="rest_code_5b0de9d151694dda933a3904a59731d4-9"></a> [255, 255, 255,   0, 255, 255,   0, 255, 255,   0, 255, 255, 255, 255, 119, 119],
+<a name="rest_code_5b0de9d151694dda933a3904a59731d4-10"></a> [255, 255, 255,   0, 255, 255,   0, 255, 255,   0, 255, 255, 255, 255, 102, 102],
+<a name="rest_code_5b0de9d151694dda933a3904a59731d4-11"></a> [255, 255, 255,   0, 255, 255,   0, 255, 255,   0, 255, 255, 255, 255,  85,  85],
+<a name="rest_code_5b0de9d151694dda933a3904a59731d4-12"></a> [255, 255, 255,   0, 255, 255,   0, 255, 255,   0, 255, 255, 255, 255,  68,  68],
+<a name="rest_code_5b0de9d151694dda933a3904a59731d4-13"></a> [255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255,  51,  51],
+<a name="rest_code_5b0de9d151694dda933a3904a59731d4-14"></a> [255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255,  34,  34],
+<a name="rest_code_5b0de9d151694dda933a3904a59731d4-15"></a> [255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255,  17,  17],
+<a name="rest_code_5b0de9d151694dda933a3904a59731d4-16"></a> [255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255,   0,   0]]
 </pre>
-<p>I hope you can see patterns even without the image being displayed. Besides, because image represented as an array, we can apply convolution on it. Moreover, convolution is the operation of two functions, but we are not limited to 1d arrays. We can proceed functions of arbitrary complexity, that&#8217;s why we can apply convolutions to N-d arrays as&nbsp;well.</p>
-<p>TODO:
-- simple example with the easiest kernel(just to show how images are&nbsp;handled)</p>
+<p>I hope you can see patterns even without the image being displayed. Besides, because image represented as an array, we can apply convolution on it; convolution is the operation of two functions, but we are not limited to 1d arrays. We can proceed functions of arbitrary complexity, that&#8217;s why we can apply convolutions to N-d arrays as&nbsp;well.</p>
+<p>In computer vision discrete convolution with image represented as element-wise multiplication and&nbsp;addition.</p>
+<div class="figure">
+<img alt="/images/machine-learning/convolutional-layers/05_convolutions_example.gif" src="../../../images/machine-learning/convolutional-layers/05_convolutions_example.gif">
 </div>
-<div class="section" id="choosing-a-kernel-and-it-s-properties">
-<h2>Choosing a kernel and it&#8217;s&nbsp;properties</h2>
-<ul class="simple">
-<li>how we should choose a&nbsp;kernel?</li>
-<li>kernel padding and&nbsp;stride</li>
-</ul>
-</div>
-<div class="section" id="operations-complexity">
-<h2>Operations&nbsp;complexity</h2>
-<p>pass</p>
+<p>The next question you may ask - how we choose a kernel and how we shift it during the&nbsp;convolution.</p>
+<!-- Choosing a kernel and it's properties -->
+<!-- ====================================== -->
+<!-- - how we should choose a kernel? -->
+<!-- - kernel padding and stride -->
+<!-- Operations complexity -->
+<!-- ====================== -->
+<!-- pass -->
+<!-- TODO: style -->
+<!-- render Hi image example and according code near to each other(create screen shot, not code-block) -->
+<!-- resize all images to bi similar -->
+<!-- replace convolutions examples with own hand-crafted images -->
 </div>
 </div>
     </div>

@@ -65,18 +65,27 @@ In terms of numbers it's represented as 14x14 array:
      [255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255,  17,  17],
      [255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255,   0,   0]]
 
-I hope you can see patterns even without the image being displayed. Besides, because image represented as an array, we can apply convolution on it. Moreover, convolution is the operation of two functions, but we are not limited to 1d arrays. We can proceed functions of arbitrary complexity, that's why we can apply convolutions to N-d arrays as well.
+I hope you can see patterns even without the image being displayed. Besides, because image represented as an array, we can apply convolution on it; convolution is the operation of two functions, but we are not limited to 1d arrays. We can proceed functions of arbitrary complexity, that's why we can apply convolutions to N-d arrays as well.
 
-TODO:
-- simple example with the easiest kernel(just to show how images are handled)
+In computer vision discrete convolution with image represented as element-wise multiplication and addition.
 
-Choosing a kernel and it's properties
-======================================
+.. figure:: /images/machine-learning/convolutional-layers/05_convolutions_example.gif
 
-- how we should choose a kernel?
-- kernel padding and stride
 
-Operations complexity
-======================
+The next question you may ask - how we choose a kernel and how we shift it during the convolution.
 
-pass
+.. Choosing a kernel and it's properties
+.. ======================================
+
+.. - how we should choose a kernel?
+.. - kernel padding and stride
+
+.. Operations complexity
+.. ======================
+
+.. pass
+
+.. TODO: style
+..     render Hi image example and according code near to each other(create screen shot, not code-block)
+..     resize all images to bi similar
+..     replace convolutions examples with own hand-crafted images
