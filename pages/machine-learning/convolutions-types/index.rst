@@ -1,4 +1,4 @@
-.. title: Convolutions Types
+.. title: Different types of the convolution layers
 .. slug: convolutions-types
 .. date: 2017-07-07 14:17:58 UTC
 .. tags: 
@@ -9,7 +9,7 @@
 .. author: Illarion Khlestov
 
 
-If you are looking for exmplanation whtat convolution layers are, it better to check :doc:`convolutional-layers` page
+If you are looking for explanation what convolution layers are, it better to check :doc:`convolutional-layers` page
 
 .. contents::
 
