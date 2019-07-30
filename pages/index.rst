@@ -11,9 +11,9 @@
 
 .. TODO: add description
 
-.. **Math:**
+**Math:**
 
-.. .. include:: pages/math/index.rst
+.. include:: pages/math/index.rst
 
 .. **Theoretical Computer Science:**
 
@@ -23,7 +23,6 @@
 
 .. .. include:: pages/software-engineering/index.rst
 
-**Machine Learning:**
 
 .. include:: pages/machine-learning/index.rst
 

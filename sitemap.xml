@@ -31,7 +31,7 @@
  </url>
  <url>
   <loc>https://ikhlestov.github.io/pages/</loc>
-  <lastmod>2019-01-28T23:13:00Z</lastmod>
+  <lastmod>2019-07-30T20:12:00Z</lastmod>
  </url>
  <url>
   <loc>https://ikhlestov.github.io/pages/languages/</loc>
@@ -195,7 +195,7 @@
  </url>
  <url>
   <loc>https://ikhlestov.github.io/pages/math/</loc>
-  <lastmod>2019-01-28T23:13:00Z</lastmod>
+  <lastmod>2019-07-30T20:17:00Z</lastmod>
  </url>
  <url>
   <loc>https://ikhlestov.github.io/pages/math/calculus/</loc>
@@ -208,6 +208,10 @@
  <url>
   <loc>https://ikhlestov.github.io/pages/math/math-background/</loc>
   <lastmod>2019-01-28T23:13:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://ikhlestov.github.io/pages/math/notation/</loc>
+  <lastmod>2019-07-30T20:17:00Z</lastmod>
  </url>
  <url>
   <loc>https://ikhlestov.github.io/pages/math/notations/</loc>
@@ -228,6 +232,42 @@
  <url>
   <loc>https://ikhlestov.github.io/pages/math/set-theory/</loc>
   <lastmod>2019-01-28T23:13:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://ikhlestov.github.io/pages/math_bu/</loc>
+  <lastmod>2019-07-30T20:12:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://ikhlestov.github.io/pages/math_bu/calculus/</loc>
+  <lastmod>2019-07-30T20:12:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://ikhlestov.github.io/pages/math_bu/linear-algebra/</loc>
+  <lastmod>2019-07-30T20:12:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://ikhlestov.github.io/pages/math_bu/math-background/</loc>
+  <lastmod>2019-07-30T20:12:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://ikhlestov.github.io/pages/math_bu/notations/</loc>
+  <lastmod>2019-07-30T20:12:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://ikhlestov.github.io/pages/math_bu/probability-theory/</loc>
+  <lastmod>2019-07-30T20:12:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://ikhlestov.github.io/pages/math_bu/probability-theory/probability-models-and-axioms/</loc>
+  <lastmod>2019-07-30T20:12:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://ikhlestov.github.io/pages/math_bu/probability-theory/pt-main-formulas/</loc>
+  <lastmod>2019-07-30T20:12:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://ikhlestov.github.io/pages/math_bu/set-theory/</loc>
+  <lastmod>2019-07-30T20:12:00Z</lastmod>
  </url>
  <url>
   <loc>https://ikhlestov.github.io/pages/software-engineering/</loc>
