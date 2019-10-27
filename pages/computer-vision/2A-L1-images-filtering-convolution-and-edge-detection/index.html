@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html prefix="
+og: http://ogp.me/ns# article: http://ogp.me/ns/article#
+" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Images, filtering, convolution and edge detection | Illarion&#8217;s Notes</title>
+<link href="../../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#5670d4">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../../../rss.xml">
+<link rel="canonical" href="https://ikhlestov.github.io/pages/computer-vision/2A-L1-images-filtering-convolution-and-edge-detection/">
+<link rel="icon" href="../../../favicon.ico" sizes="16x16">
+<link rel="icon" href="../../../favicon.png" sizes="128x128">
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true
+    },
+    displayAlign: 'left', // Change this to 'left' if you want left-aligned equations.
+    "HTML-CSS": {
+        styles: {'.MathJax_Display': {"margin": 5}}
+    }
+});
+</script><!--[if lt IE 9]><script src="../../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Illarion Khlestov">
+<meta property="og:site_name" content="Illarion's Notes">
+<meta property="og:title" content="Images, filtering, convolution and edge detection">
+<meta property="og:url" content="https://ikhlestov.github.io/pages/computer-vision/2A-L1-images-filtering-convolution-and-edge-detection/">
+<meta property="og:description" content="Contents
+
+Images as a functions
+Noise
+Filtering
+
+
+
+Images as a functions
+Images can be represented as a function:
+
+
+
+
+
+
+We think of an image as a function, \(f\) or \(I\), from \(\mathbb{R}^2\) to \(\">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2019-10-27T11:17:22Z">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-expand-md static-top mb-4
+navbar-dark bg-dark
+"><div class="container">
+<!-- This keeps the margins nice -->
+        <a class="navbar-brand" href="https://ikhlestov.github.io/">
+
+            <span id="blog-title">Illarion&#8217;s Notes</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="bs-navbar">
+            <ul class="navbar-nav mr-auto">
+<li class="nav-item">
+<a href="../../../" class="nav-link">About</a>
+                </li>
+<li class="nav-item">
+<a href="../../../posts/" class="nav-link">Blog&nbsp;Posts</a>
+                </li>
+<li class="nav-item">
+<a href="../../" class="nav-link">Pages</a>
+
+                
+            </li>
+</ul>
+<ul class="navbar-nav navbar-right"></ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <nav class="breadcrumbs"><ul class="breadcrumb">
+<li class="breadcrumb-item"><a href="../../">pages</a></li>
+                <li class="breadcrumb-item"><a href="../">computer-vision</a></li>
+                <li class="breadcrumb-item active">2A-L1-images-filtering-convolution-and-edge-detection</li>
+</ul></nav><div class="body-content">
+        <!--Body content-->
+        
+<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Images, filtering, convolution and edge&nbsp;detection</a></h1>
+
+        
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#images-as-a-functions" id="id1">Images as a&nbsp;functions</a></li>
+<li><a class="reference internal" href="#noise" id="id2">Noise</a></li>
+<li><a class="reference internal" href="#filtering" id="id3">Filtering</a></li>
+</ul>
+</div>
+<div class="section" id="images-as-a-functions">
+<h2><a class="toc-backref" href="#id1">Images as a&nbsp;functions</a></h2>
+<p>Images can be represented as a&nbsp;function:</p>
+<div class="figure">
+<img alt="astronaut image" src="../../../images/computer-vision/2A-L1/astronaut_gray_slice.png" style="width: 300px;">
+</div>
+<div class="figure">
+<img alt="astronaut image surface" src="../../../images/computer-vision/2A-L1/2.png" style="width: 300px;">
+</div>
+<p>We think of an image as a function, <span class="math">\(f\)</span> or <span class="math">\(I\)</span>, from <span class="math">\(\mathbb{R}^2\)</span> to <span class="math">\(\mathbb{R}\)</span>:</p>
+<ul class="simple">
+<li>
+<span class="math">\(f(x, y)\)</span> gives the intensity or value at position <span class="math">\((x,y)\)</span>.</li>
+</ul>
+<p>A color image is just three functions &#8220;stacked&#8221; together.
+We can write this as &#8220;vector-valued&nbsp;function&#8221;:</p>
+<div class="math">
+\begin{equation*}
+f(x, y) =
+\begin{bmatrix}
+    r(x, y) &#92;&#92;
+    g(x, y) &#92;&#92;
+    b(x, y)
+\end{bmatrix}
+\end{equation*}
+</div>
+<p>In computers images are represented as a set of numbers, not continuous&nbsp;functions:</p>
+<div class="figure">
+<img alt="Image representation in computers" src="../../../images/computer-vision/2A-L1/image_one_computer.png" style="width: 600px;">
+</div>
+<p>In computer vision we typically operate on digital(discrete)&nbsp;images:</p>
+<ul class="simple">
+<li>
+<em>Sample</em> the 2D space on regular&nbsp;grid</li>
+<li>
+<em>Quantize</em> each sample (round to &#8220;nearest&nbsp;integer&#8221;)</li>
+</ul>
+</div>
+<div class="section" id="noise">
+<h2><a class="toc-backref" href="#id2">Noise</a></h2>
+<p>Noise is just another function that is combined with the original function to get a new&nbsp;one:</p>
+<div class="math">
+\begin{equation*}
+I&#8217;(x, y) = I(x, y) + \eta(x, y)
+\end{equation*}
+</div>
+<p>Types:</p>
+<ul class="simple">
+<li>
+<strong>Impulse</strong> (salt): random occurrences of white&nbsp;pixels</li>
+<li>
+<strong>Pepper</strong>: random black&nbsp;pixels</li>
+<li>
+<strong>Salt and pepper</strong>: random occurrences of black and white&nbsp;pixels</li>
+<li>
+<strong>Gaussian noise</strong>: variations in intensity drawn from a Gaussian normal&nbsp;distribution</li>
+</ul>
+<div class="figure">
+<img alt="Example of different noises" src="../../../images/computer-vision/2A-L1/noises.png">
+</div>
+<p>To apply a noise it&#8217;s enough just to add it to the initial&nbsp;image:</p>
+<pre class="code python"><a name="rest_code_969ee95794ec449681f6f17155d37eeb-1"></a><span class="n">noise</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">variance</span> <span class="o">**</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<a name="rest_code_969ee95794ec449681f6f17155d37eeb-2"></a><span class="n">output</span> <span class="o">=</span> <span class="n">image</span> <span class="o">+</span> <span class="n">noise</span>
+</pre>
+<div class="figure">
+<img alt="Example of applied noise" src="../../../images/computer-vision/2A-L1/applied_noise_example.png">
+</div>
+<p>Effect of <span class="math">\(\sigma\)</span> (standard deviation) on Gaussian noise. Just to remind: <span class="math">\(variance = \sigma^2\)</span>.</p>
+<div class="figure">
+<img alt="Gaussian noise depends on sigma" src="../../../images/computer-vision/2A-L1/gaussian_noise.png">
+</div>
+</div>
+<div class="section" id="filtering">
+<h2><a class="toc-backref" href="#id3">Filtering</a></h2>
+</div>
+</div>
+    </div>
+    
+</article><!--End of body content--><footer id="footer">
+            Contents © 2019         <a href="mailto:ikhlestov@gmail.com">Illarion Khlestov</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>          <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script></footer>
+</div>
+</div>
+
+        <script src="../../../assets/js/all-nocdn.js"></script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates --><script>
+    baguetteBox.run('div#content', {
+        ignoreClass: 'islink',
+        captions: function(element) {
+            return element.getElementsByTagName('img')[0].alt;
+    }});
+    </script><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-92406723-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

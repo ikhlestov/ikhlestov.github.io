@@ -15,6 +15,11 @@
 
 .. include:: pages/math/index.rst
 
+
+**Computer Vision:**
+
+.. include:: pages/computer-vision/index.rst
+
 .. **Theoretical Computer Science:**
 
 .. .. include:: pages/theoretical-cs/index.rst
