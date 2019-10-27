@@ -850,7 +850,15 @@ PRETTY_URLS = True
 MATHJAX_CONFIG = """
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
-    displayAlign: 'center', // Change this to 'center' to center equations.
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\\(","\\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\\[","\\\]"] ],
+        processEscapes: true
+    },
+    displayAlign: 'left', // Change this to 'left' if you want left-aligned equations.
+    "HTML-CSS": {
+        styles: {'.MathJax_Display': {"margin": 5}}
+    }
 });
 </script>
 """
