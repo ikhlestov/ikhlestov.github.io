@@ -113,7 +113,7 @@ navbar-dark bg-dark
 <img alt="astronaut image" src="../../../images/computer-vision/2A-L1/astronaut_gray_slice.png" style="width: 300px;">
 </div>
 <div class="figure">
-<img alt="astronaut image surface" src="../../../images/computer-vision/2A-L1/2.png" style="width: 300px;">
+<img alt="astronaut image surface" src="../../../images/computer-vision/2A-L1/astronaut_slice_surface.png" style="width: 300px;">
 </div>
 <p>We think of an image as a function, <span class="math">\(f\)</span> or <span class="math">\(I\)</span>, from <span class="math">\(\mathbb{R}^2\)</span> to <span class="math">\(\mathbb{R}\)</span>:</p>
 <ul class="simple">
@@ -167,8 +167,8 @@ I&#8217;(x, y) = I(x, y) + \eta(x, y)
 <img alt="Example of different noises" src="../../../images/computer-vision/2A-L1/noises.png">
 </div>
 <p>To apply a noise it&#8217;s enough just to add it to the initial&nbsp;image:</p>
-<pre class="code python"><a name="rest_code_969ee95794ec449681f6f17155d37eeb-1"></a><span class="n">noise</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">variance</span> <span class="o">**</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<a name="rest_code_969ee95794ec449681f6f17155d37eeb-2"></a><span class="n">output</span> <span class="o">=</span> <span class="n">image</span> <span class="o">+</span> <span class="n">noise</span>
+<pre class="code python"><a name="rest_code_6e1553534fb74c6b8bb9b490021926ec-1"></a><span class="n">noise</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">variance</span> <span class="o">**</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<a name="rest_code_6e1553534fb74c6b8bb9b490021926ec-2"></a><span class="n">output</span> <span class="o">=</span> <span class="n">image</span> <span class="o">+</span> <span class="n">noise</span>
 </pre>
 <div class="figure">
 <img alt="Example of applied noise" src="../../../images/computer-vision/2A-L1/applied_noise_example.png">

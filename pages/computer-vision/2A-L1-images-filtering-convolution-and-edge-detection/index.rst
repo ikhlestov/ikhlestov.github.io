@@ -19,7 +19,7 @@ Images can be represented as a function:
     :alt: astronaut image
     :width: 300 px
 
-.. figure:: /images/computer-vision/2A-L1/2.png
+.. figure:: /images/computer-vision/2A-L1/astronaut_slice_surface.png
     :alt: astronaut image surface
     :width: 300 px
 
